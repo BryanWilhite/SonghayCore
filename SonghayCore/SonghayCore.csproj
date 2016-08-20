@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B183BBC-21BE-4605-B549-74BA23489245}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Songhay</RootNamespace>
+    <AssemblyName>SonghayCore</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\SonghayCore.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\ObservableSortingCollection.cs" />
+    <Compile Include="Collections\RefreshEventArgs.cs" />
+    <Compile Include="Collections\SortableCollectionView.cs" />
+    <Compile Include="ComponentModel\BackgroundWorkerUtility.cs" />
+    <Compile Include="Diagnostics\TraceSources.cs" />
+    <Compile Include="Extensions\EncryptionMetadataExtensions.cs" />
+    <Compile Include="Extensions\JObjectExtensions.cs" />
+    <Compile Include="Extensions\RestApiMetadataExtensions.cs" />
+    <Compile Include="Extensions\TraceSourceExtensions.cs" />
+    <Compile Include="Extensions\TraceSourcesExtensions.cs" />
+    <Compile Include="Extensions\ValidationContextExtensions.cs" />
+    <Compile Include="ExpressionSeed.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\DataSetExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\DisplayItemModelExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Extensions\FuncExtensions.cs" />
+    <Compile Include="Extensions\IDictionaryExtensions.cs" />
+    <Compile Include="Extensions\MenuDisplayItemModelExtensions.cs" />
+    <Compile Include="Extensions\UriExtensions.cs" />
+    <Compile Include="Extensions\XNamespaceExtensions.cs" />
+    <Compile Include="FuncSeed.cs" />
+    <Compile Include="Globalization\TextInfoUtility.cs" />
+    <Compile Include="Models\BackgroundWorkerUtilityData.cs" />
+    <Compile Include="Models\ColorDisplayItemModel.cs" />
+    <Compile Include="Models\DataParameterMetadata.cs" />
+    <Compile Include="Models\DisplayItemModelCategories.cs" />
+    <Compile Include="Models\EditableObjectCache.cs" />
+    <Compile Include="Models\DisplayItemModel.cs" />
+    <Compile Include="Models\EncryptionMetadata.cs" />
+    <Compile Include="Models\IColorable.cs" />
+    <Compile Include="Models\IRepository.cs" />
+    <Compile Include="Models\ISelectable.cs" />
+    <Compile Include="Models\ISortable.cs" />
+    <Compile Include="Models\ISyndicatable.cs" />
+    <Compile Include="Models\MenuDisplayItemModel.cs" />
+    <Compile Include="Models\PagedResult.cs" />
+    <Compile Include="Models\PagedResultMeta.cs" />
+    <Compile Include="Models\XObjectMetadata.cs" />
+    <Compile Include="Text\CsvExporter.cs" />
+    <Compile Include="Exceptions\CsvParseException.cs" />
+    <Compile Include="Extensions\StringExtensions.Globalization.cs" />
+    <Compile Include="Extensions\StringExtensions.Fluent.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.MonthNames.cs" />
+    <Compile Include="Extensions\DataServiceCollectionExtensions.cs" />
+    <Compile Include="Extensions\ICommunicationObjectExtensions.cs" />
+    <Compile Include="Extensions\IEnumerableOfTExtensions.cs" />
+    <Compile Include="Extensions\EnvironmentExtensions.cs" />
+    <Compile Include="Extensions\IIdentityExtensions.cs" />
+    <Compile Include="Extensions\NullableExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\ObservableCollectionExtensions.cs" />
+    <Compile Include="Extensions\OpenAuthorizationDataExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.CsvSplit.cs" />
+    <Compile Include="Extensions\TaskExtensions.cs" />
+    <Compile Include="Extensions\TimeSpanExtensions.cs" />
+    <Compile Include="Extensions\XElementExtensions.cs" />
+    <Compile Include="Extensions\XNodeExtensions.cs" />
+    <Compile Include="Models\OpenAuthorizationData.cs" />
+    <Compile Include="Models\LazyDisplayItem.cs" />
+    <Compile Include="Models\OpmlBody.cs" />
+    <Compile Include="Models\OpmlDocument.cs" />
+    <Compile Include="Models\OpmlHead.cs" />
+    <Compile Include="Models\OpmlOutline.cs" />
+    <Compile Include="Models\IControlInteractionMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\SaltedHash.cs" />
+    <Compile Include="Security\SymmetricCrypt.cs" />
+    <Compile Include="ServiceModel\BasicHttpBinaryBinding.cs" />
+    <Compile Include="Xml\OpmlUtility.Get.cs" />
+    <Compile Include="Models\XEncoding.cs" />
+    <Compile Include="Xml\XhtmlDocumentUtility.cs" />
+    <Compile Include="Xml\XObjectUtility.GetValue.cs" />
+    <Compile Include="Xml\XObjectUtility.GetXElement.cs" />
+    <Compile Include="Xml\XObjectUtility.GetXObject.cs" />
+    <Compile Include="Xml\XObjectUtility.GetXNode.cs" />
+    <Compile Include="Xml\XObjectUtility.GetXAttributeValue.cs" />
+    <Compile Include="Xml\XObjectUtility.GetXDeclaration.cs" />
+    <Compile Include="Xml\XObjectUtility.XText.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Songhay\Songhay.csproj">
+      <Project>{C86DCA41-9E6C-44F1-8571-C8B6B79C5AE4}</Project>
+      <Name>Songhay</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Class Diagrams\Collections.cd" />
+    <None Include="Class Diagrams\ComponentModel.cd" />
+    <None Include="Class Diagrams\Extensions.cd" />
+    <None Include="Class Diagrams\Globalization.cd" />
+    <None Include="Class Diagrams\Models.cd" />
+    <None Include="Class Diagrams\Text.cd" />
+    <None Include="Class Diagrams\Xml.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml">
+      <Link>CodeAnalysisDictionary.xml</Link>
+    </CodeAnalysisDictionary>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
