@@ -1,4 +1,5 @@
-﻿using Songhay.Xml;
+﻿#if !NET35
+using Songhay.Xml;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
@@ -83,3 +84,4 @@ namespace Songhay.Extensions
         }
     }
 }
+#endif

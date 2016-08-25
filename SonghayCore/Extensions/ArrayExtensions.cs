@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Songhay.Extensions
 {
@@ -12,7 +8,7 @@ namespace Songhay.Extensions
     public static class ArrayExtensions
     {
         /// <summary>
-        /// Nexts the specified array.
+        /// Gets the next item in the specified array.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="array">The array.</param>
@@ -28,7 +24,7 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Previouses the specified array.
+        /// Gets the previous item in the specified array.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="array">The array.</param>

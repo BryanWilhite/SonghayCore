@@ -152,6 +152,7 @@ namespace Songhay.Extensions
             }
         }
 
+#if !NET35
         /// <summary>
         /// Converts the <see cref="IEnumerable{TSource}"/> into a display string.
         /// </summary>
@@ -168,5 +169,6 @@ namespace Songhay.Extensions
             data.ForEachInEnumerable(i => s += string.Format("{0}{1}{2}", Environment.NewLine, indentation, i.ToString()));
             return string.Concat(s, Environment.NewLine);
         }
+#endif
     }
 }

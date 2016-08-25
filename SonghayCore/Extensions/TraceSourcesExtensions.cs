@@ -1,4 +1,5 @@
-﻿using Songhay.Diagnostics;
+﻿#if !NET35
+using Songhay.Diagnostics;
 using System.Configuration;
 using System.Diagnostics;
 
@@ -38,3 +39,4 @@ namespace Songhay.Extensions
         }
     }
 }
+#endif

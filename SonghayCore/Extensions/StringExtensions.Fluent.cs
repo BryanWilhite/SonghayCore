@@ -130,6 +130,8 @@ namespace Songhay.Extensions
 
             return output;
         }
+
+#if !NET35
         /// <summary>
         /// Converts the <see cref="System.String"/> into a numeric format for parsing.
         /// </summary>
@@ -156,6 +158,7 @@ namespace Songhay.Extensions
             if(string.IsNullOrWhiteSpace(input)) return defaultValue;
             return new string(input.Trim().Where(i => char.IsDigit(i) || i.Equals('.')).ToArray());
         }
+#endif
 
         /// <summary>
         /// Formats the <see cref="System.String"/> into a shortened form,
