@@ -1,6 +1,4 @@
 # SonghayCore
-Songhay System Core
-
 The _Core_ code to install as a NuGet package for all of my solutions. Currently, this package supports `net35`, `net40` and `net45`.
 
 There are actually two _Core_ projects, `Songhay` (a .NET 2.0 project) and `SonghayCore` (a .NET latest-ish project). Two projects exist largely for historical reasons.
