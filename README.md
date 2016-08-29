@@ -36,7 +36,7 @@ The _Core_ models are “anemic” by design (there are very few abstract classes)—a
 
 Extensions of `System.Net.HttpWebRequest` for legacy (net35) applications.
 
-**NuGet package:** [`SonghayCore`](https://www.nuget.org/packages/Songhay.Net.HttpWebRequest/)
+**NuGet package:** [`System.Net.HttpWebRequest`](https://www.nuget.org/packages/Songhay.Net.HttpWebRequest/)
 
 ### `Songhay.Security`
 [Songhay System security](https://github.com/BryanWilhite/SonghayCore/tree/master/Songhay.Security) is to date concerned with string encryption.
