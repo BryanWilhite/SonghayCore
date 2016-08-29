@@ -1,0 +1,32 @@
+﻿<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>Songhay.Portable.Core</id>
+        <version>1.0.0</version>
+        <title>Songhay Core for PCL</title>
+        <authors>bryan.wilhite@gmail.com</authors>
+        <owners>rasx@songhaysystem.com</owners>
+        <projectUrl>https://github.com/BryanWilhite/SonghayCore</projectUrl>
+        <iconUrl>http://songhaysystem.com/Content/images/songhay_icon.png</iconUrl>
+        <licenseUrl>https://raw.github.com/BryanWilhite/SonghayCore/master/LICENSE.md</licenseUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>core libraries meant to be shared among Songhay UWP projects</description>
+        <releaseNotes>This is the initial release.</releaseNotes>
+        <copyright>Copyright 2016 Bryan D. Wilhite</copyright>
+        <tags>Core Songhay Configuration Cryptography LINQ</tags>
+        <dependencies>
+            <dependency id="Microsoft.Bcl" version="[1.1,)" />
+            <dependency id="Microsoft.Bcl.Build" version="[1.0,)" />
+            <dependency id="Microsoft.Net.Http" version="[2.2,)" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\portable46-net451+win81\*.dll" target="lib/portable46-net451+win81" />
+        <file src="bin\Release\portable46-net451+win81\*.exe" exclude="**vshost**" target="lib/portable46-net451+win81" />
+        <file src="bin\Release\portable46-net451+win81\*.config" target="lib/portable46-net451+win81" />
+        <file src="bin\Release\portable46-net451+win81\*.xml" target="lib/portable46-net451+win81" />
+        <file src="bin\Release\portable46-net451+win81\*.pdb" target="lib/portable46-net451+win81" />
+
+        <file src="**\*.cs" exclude="obj\**" target="src" />
+    </files>
+</package>
