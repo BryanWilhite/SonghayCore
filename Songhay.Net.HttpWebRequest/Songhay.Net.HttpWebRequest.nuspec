@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>Songhay.Net.HttpWebRequest</id>
+        <version>1.0.0</version>
+        <title>Songhay HttpWebRequest Extensions</title>
+        <authors>bryan.wilhite@gmail.com</authors>
+        <owners>rasx@songhaysystem.com</owners>
+        <projectUrl>https://github.com/BryanWilhite/SonghayCore</projectUrl>
+        <iconUrl>http://songhaysystem.com/Content/images/songhay_icon.png</iconUrl>
+        <licenseUrl>https://raw.github.com/BryanWilhite/SonghayCore/master/LICENSE.md</licenseUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Extensions of System.Net.HttpWebRequest for legacy (net35) applications</description>
+        <releaseNotes>This is the initial release.</releaseNotes>
+        <copyright>Copyright 2016 Bryan D. Wilhite</copyright>
+        <tags>Core Songhay HttpWebRequest</tags>
+    </metadata>
+    <files>
+        <file src="bin\Release\net35\*.dll" target="lib/net35" />
+        <file src="bin\Release\net35\*.exe" exclude="**vshost**" target="lib/net35" />
+        <file src="bin\Release\net35\*.config" target="lib/net35" />
+        <file src="bin\Release\net35\*.xml" target="lib/net35" />
+        <file src="bin\Release\net35\*.pdb" target="lib/net35" />
+
+        <file src="**\*.cs" exclude="obj\**" target="src" />
+    </files>
+</package>
