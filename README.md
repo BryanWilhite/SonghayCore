@@ -1,7 +1,7 @@
 # SonghayCore
 The _Core_ code to install as a NuGet package for all of my solutions. Currently, this package supports `net35`, `net40` and `net45`.
 
-There are actually two _Core_ projects, `Songhay` (a .NET 2.0 project) and `SonghayCore` (a .NET latest-ish project). Two projects exist largely for historical reasons.
+There are actually two _Core_ projects, `Songhay` (a .NET 2.0 project) and `SonghayCore` (a .NET latest-ish project). Two projects exist largely for historical reasons. There is a future-focused [PCL version of the _Core_](https://github.com/BryanWilhite/SonghayCore/tree/master/Songhay.Portable.Core) for UWP applications. Nothing yet for .Net Core or .Net Standard.
 
 **NuGet package:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
 
@@ -35,7 +35,7 @@ The _Core_ models are “anemic” by design (there are very few abstract classes)—a
 
 ### `Songhay.Net.HttpWebRequest`
 
-Extensions of `System.Net.HttpWebRequest` for legacy (net35) applications.
+Extensions of `System.Net.HttpWebRequest` for legacy (`net35`) applications.
 
 **NuGet package:** [`System.Net.HttpWebRequest`](https://www.nuget.org/packages/Songhay.Net.HttpWebRequest/)
 
