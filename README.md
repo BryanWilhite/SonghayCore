@@ -4,6 +4,7 @@ The _Core_ code to install as a NuGet package for all of my solutions. Currently
 There are actually two _Core_ projects, `Songhay` (a .NET 2.0 project) and `SonghayCore` (a .NET latest-ish project). Two projects exist largely for historical reasons.
 
 **NuGet package:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
+
 **NuGet package:** [`Songhay.Portable.Core`](https://www.nuget.org/packages/Songhay.Portable.Core/)
 
 ## _Core_ Reusable, Opinionated Concerns
