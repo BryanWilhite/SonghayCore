@@ -181,6 +181,7 @@ namespace Songhay
             return ((array == null) || (array.Length == 0));
         }
 
+#if !PCL
         /// <summary>
         /// Sets the properties of the output <see cref="System.Type" />.
         /// </summary>
@@ -255,7 +256,6 @@ namespace Songhay
             }
         }
 
-#if !PCL
         /// <summary>
         /// Returns the conventional database null
         /// (<see cref="System.DBNull"/>)

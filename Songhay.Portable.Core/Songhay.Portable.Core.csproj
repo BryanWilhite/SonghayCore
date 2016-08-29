@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B91E47F7-9A07-4261-8388-C8914E0EA92C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Songhay.Portable.Core</RootNamespace>
+    <AssemblyName>Songhay.Portable.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile44</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PCL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;PCL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\SonghayCore\Extensions\DateTimeExtensions.cs">
+      <Link>Extensions\DateTimeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Extensions\DateTimeExtensions.MonthNames.cs">
+      <Link>Extensions\DateTimeExtensions.MonthNames.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Extensions\FuncExtensions.cs">
+      <Link>Extensions\FuncExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Extensions\IEnumerableOfTExtensions.cs">
+      <Link>Extensions\IEnumerableOfTExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Extensions\NullableExtensions.cs">
+      <Link>Extensions\NullableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Extensions\ObjectExtensions.cs">
+      <Link>Extensions\ObjectExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Extensions\ObservableCollectionExtensions.cs">
+      <Link>Extensions\ObservableCollectionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Extensions\StringExtensions.cs">
+      <Link>Extensions\StringExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Extensions\TimeSpanExtensions.cs">
+      <Link>Extensions\TimeSpanExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Extensions\UriExtensions.cs">
+      <Link>Extensions\UriExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Extensions\XElementExtensions.cs">
+      <Link>Extensions\XElementExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Models\ColorDisplayItemModel.cs">
+      <Link>Models\ColorDisplayItemModel.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Models\DisplayItemModel.cs">
+      <Link>Models\DisplayItemModel.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Models\EditableObjectCache.cs">
+      <Link>Models\EditableObjectCache.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Models\IColorable.cs">
+      <Link>Models\IColorable.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Models\IControlInteractionMessage.cs">
+      <Link>Models\IControlInteractionMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Models\ISelectable.cs">
+      <Link>Models\ISelectable.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Models\ISortable.cs">
+      <Link>Models\ISortable.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Models\MenuDisplayItemModel.cs">
+      <Link>Models\MenuDisplayItemModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\PackedResource.cs">
+      <Link>Models\PackedResource.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\PackedResourceOfT.cs">
+      <Link>Models\PackedResourceOfT.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\SystemVariable.cs">
+      <Link>Models\SystemVariable.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\SystemVariableOfT.cs">
+      <Link>Models\SystemVariableOfT.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\FrameworkTypeUtility.Parsing.cs">
+      <Link>FrameworkTypeUtility.Parsing.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\FrameworkTypeUtility.cs">
+      <Link>FrameworkTypeUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\FrameworkUtility.cs">
+      <Link>FrameworkUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\MathUtility.cs">
+      <Link>MathUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\HtmlUtility.cs">
+      <Link>Xml\HtmlUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\LatinGlyphs.cs">
+      <Link>Xml\LatinGlyphs.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\XmlUtility.ExpandSpecialChars.cs">
+      <Link>Xml\XmlUtility.ExpandSpecialChars.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetInternalMessage.cs">
+      <Link>Xml\XmlUtility.GetInternalMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\XmlUtility.StripNamespaces.cs">
+      <Link>Xml\XmlUtility.StripNamespaces.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
