@@ -42,5 +42,21 @@ namespace Songhay.Extensions.Tests
             var e_clone = jA_clone.ElementAtOrDefault(3);
             Assert.IsNull(e_clone, "The 4th element is not expected.");
         }
+
+        [TestMethod]
+        [TestProperty("json", @"{ ""items"": [], ""otherItems"": null }")]
+        public void ShouldNotGetJArray()
+        {
+            var json = this.TestContext.Properties["json"].ToString();
+            this.TestContext.WriteLine("json: {0}", json);
+
+            var jO = JObject.Parse(json);
+
+            var jA = jO.GetJArray("items", throwException: false);
+            Assert.IsNull(jA, "JArray is not expected.");
+
+            var jA_other = jO.GetJArray("otherItems", throwException: false);
+            Assert.IsNull(jA_other, "JArray is not expected.");
+        }
     }
 }
