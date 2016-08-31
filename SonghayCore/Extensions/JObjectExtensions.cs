@@ -66,18 +66,38 @@ namespace Songhay.Extensions
         /// </exception>
         public static JArray GetJArray(this JObject jsonObject, string arrayPropertyName, bool throwException)
         {
-            var jsonArray = JArray.Parse("[]");
-
-            if (jsonObject == null) return jsonArray;
-            if (string.IsNullOrEmpty(arrayPropertyName)) throw new ArgumentNullException("arrayPropertyName", "The expected JArray Property Name is not here.");
-
-            var jO = jsonObject[arrayPropertyName];
-            if ((jO == null) && throwException) throw new FormatException(string.Format("The expected property name “{0}” is not here.", arrayPropertyName));
-
-            if (jO != null) jsonArray = JArray.FromObject(jO);
-            if (!jsonArray.Any() && throwException) throw new FormatException(string.Format("The array “{0}” is not here.", arrayPropertyName));
+            var token = jsonObject.GetJToken(arrayPropertyName, throwException);
+            JArray jsonArray = null;
+            if (token.HasValues) jsonArray = (JArray)token;
+            else if (throwException) throw new FormatException(string.Format("The expected array “{0}” is not here.", arrayPropertyName));
 
             return jsonArray;
+        }
+
+        /// <summary>
+        /// Gets the <see cref="JToken"/>.
+        /// </summary>
+        /// <param name="jsonObject">The <see cref="JObject"/>.</param>
+        /// <param name="objectPropertyName">Name of the object property.</param>
+        /// <param name="throwException">if set to <c>true</c> throw exception.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// jsonObject;The expected JObject is not here.
+        /// or
+        /// objectPropertyName;The expected property name is not here.
+        /// </exception>
+        /// <exception cref="System.FormatException"></exception>
+        public static JToken GetJToken(this JObject jsonObject, string objectPropertyName, bool throwException)
+        {
+            if ((jsonObject == null) && !throwException) return null;
+            if ((jsonObject == null) && throwException) throw new ArgumentNullException("jsonObject", "The expected JObject is not here.");
+            if (string.IsNullOrEmpty(objectPropertyName)) throw new ArgumentNullException("objectPropertyName", "The expected property name is not here.");
+
+            JToken token = null;
+            if (!jsonObject.TryGetValue(objectPropertyName, out token) && throwException)
+                throw new FormatException(string.Format("The expected property name “{0}” is not here.", objectPropertyName));
+
+            return token;
         }
 
         /// <summary>
@@ -107,10 +127,22 @@ namespace Songhay.Extensions
         {
             var jsonArray = jsonObject.GetJArray(arrayPropertyName, throwException);
 
-            if (string.IsNullOrEmpty(objectPropertyName)) throw new ArgumentNullException("objectPropertyName", "The expected JObject Property Name is not here.");
+            var jsonToken = jsonArray.ElementAtOrDefault(arrayIndex);
+            if (jsonToken == default(JToken))
+            {
+                var errorMessage = string.Format("The expected JToken in the JArray at index {0} is not here.", arrayIndex);
+                if (throwException) throw new NullReferenceException(errorMessage);
+            }
 
-            var jsonToken = jsonArray[arrayIndex];
-            return jsonToken[objectPropertyName];
+            var jO = jsonToken as JObject;
+            if (jsonToken == null)
+            {
+                var errorMessage = "The expected JObject of the JToken is not here.";
+                if (throwException) throw new NullReferenceException(errorMessage);
+            }
+
+            jsonToken = jO.GetJToken(objectPropertyName, throwException);
+            return jsonToken;
         }
     }
 }
