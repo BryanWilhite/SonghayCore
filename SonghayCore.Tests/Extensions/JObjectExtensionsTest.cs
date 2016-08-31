@@ -44,6 +44,34 @@ namespace Songhay.Extensions.Tests
         }
 
         [TestMethod]
+        [TestProperty("arrayIndex", "1")]
+        [TestProperty("expectedValue", "2")]
+        [TestProperty("json", @"{ ""items"": [ { ""x"": 1 }, { ""x"": 2 }, { ""x"": 3 } ] }")]
+        public void ShouldGetJTokenFromJArray()
+        {
+            #region test properties:
+
+            var arrayIndex = Convert.ToInt32(this.TestContext.Properties["arrayIndex"]);
+            var expectedValue = Convert.ToInt32(this.TestContext.Properties["expectedValue"]);
+            var json = this.TestContext.Properties["json"].ToString();
+
+            #endregion
+
+            this.TestContext.WriteLine("arrayIndex: {0}", arrayIndex);
+            this.TestContext.WriteLine("expectedValue: {0}", expectedValue);
+            this.TestContext.WriteLine("json: {0}", json);
+
+            var jO = JObject.Parse(json);
+
+            var token = jO.GetJTokenFromJArray("items", "x", arrayIndex, throwException: true);
+            Assert.IsNotNull((token as JValue), "The expected JValue is not here.");
+
+            var actualValue = (token as JValue).Value<int>();
+            this.TestContext.WriteLine("actualValue: {0}", actualValue);
+            Assert.AreEqual(expectedValue, actualValue, "The expected JObject value is not here.");
+        }
+
+        [TestMethod]
         [TestProperty("json", @"{ ""items"": [], ""otherItems"": null }")]
         public void ShouldNotGetJArray()
         {
