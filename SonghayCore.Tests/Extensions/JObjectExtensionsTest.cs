@@ -1,13 +1,10 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Songhay.Extensions.Tests
 {
-    using Newtonsoft.Json.Linq;
-    using Songhay.Extensions;
 
     /// <summary>
     /// Tests for extensions of <see cref="System.DateTime"/>.
