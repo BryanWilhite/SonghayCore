@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ namespace Songhay.Extensions
     public static class JObjectExtensions
     {
         /// <summary>
-        /// Gets the dictionary.
+        /// Gets the <see cref="Dictionary{string, string}"/>.
         /// </summary>
         /// <param name="jsonObject">The json object.</param>
         /// <param name="dictionaryPropertyName">Name of the dictionary property.</param>
@@ -23,7 +22,7 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Gets the dictionary.
+        /// Gets the <see cref="Dictionary{string, string}"/>.
         /// </summary>
         /// <param name="jsonObject">The json object.</param>
         /// <param name="dictionaryPropertyName">Name of the dictionary property.</param>
@@ -33,13 +32,38 @@ namespace Songhay.Extensions
         /// <exception cref="System.FormatException"></exception>
         public static Dictionary<string, string> GetDictionary(this JObject jsonObject, string dictionaryPropertyName, bool throwException)
         {
-            if (jsonObject == null) return null;
-            if (string.IsNullOrEmpty(dictionaryPropertyName)) throw new ArgumentNullException("dictionaryPropertyName", "The expected Dictionary Property Name is not here.");
+            var token = jsonObject.GetJToken(dictionaryPropertyName, throwException);
+            JObject jO = null;
+            if (token.HasValues) jO = (JObject)token;
+            else if (throwException) throw new FormatException(string.Format("The expected property name “{0}” is not here.", dictionaryPropertyName));
 
-            var jO = jsonObject[dictionaryPropertyName];
-            if ((jO == null) && throwException) throw new FormatException(string.Format("The expected property name “{0}” is not here.", dictionaryPropertyName));
+            var data = jO.ToObject<Dictionary<string, string>>();
+            return data;
+        }
 
-            var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(jO.ToString());
+        /// <summary>
+        /// Gets the <see cref="Dictionary{string, string[]}"/>.
+        /// </summary>
+        /// <param name="jsonObject">The json object.</param>
+        /// <returns></returns>
+        public static Dictionary<string, string[]> GetDictionary(this JObject jsonObject)
+        {
+            return jsonObject.GetDictionary(throwException: true);
+        }
+
+        /// <summary>
+        /// Gets the <see cref="Dictionary{string, string[]}"/>.
+        /// </summary>
+        /// <param name="jsonObject">The json object.</param>
+        /// <param name="throwException">if set to <c>true</c> [throw exception].</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">jsonObject;The expected JObject is not here.</exception>
+        public static Dictionary<string, string[]> GetDictionary(this JObject jsonObject, bool throwException)
+        {
+            if ((jsonObject == null) && !throwException) return null;
+            if ((jsonObject == null) && throwException) throw new ArgumentNullException("jsonObject", "The expected JObject is not here.");
+
+            var data = jsonObject.ToObject<Dictionary<string, string[]>>();
             return data;
         }
 

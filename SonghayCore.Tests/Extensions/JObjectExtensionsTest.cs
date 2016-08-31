@@ -22,6 +22,32 @@ namespace Songhay.Extensions.Tests
         public TestContext TestContext { get; set; }
 
         [TestMethod]
+        [TestProperty("json", @"{ ""data"": { ""one"":""uno"", ""two"":""dos"" } }")]
+        public void ShouldGetDictionaryOfStrings()
+        {
+            var json = this.TestContext.Properties["json"].ToString();
+            this.TestContext.WriteLine("json: {0}", json);
+
+            var jO = JObject.Parse(json);
+
+            var data = jO.GetDictionary("data", throwException: true);
+            this.TestContext.WriteLine("Dictionary keys: {0}", string.Join(",", data.Keys.ToArray()));
+        }
+
+        [TestMethod]
+        [TestProperty("json", @"{ ""one"":[""uno"", ""un""], ""two"":[""dos"", ""deux""] }")]
+        public void ShouldGetDictionaryOfArrayOfStrings()
+        {
+            var json = this.TestContext.Properties["json"].ToString();
+            this.TestContext.WriteLine("json: {0}", json);
+
+            var jO = JObject.Parse(json);
+
+            var data = jO.GetDictionary(throwException: true);
+            this.TestContext.WriteLine("Dictionary keys: {0}", string.Join(",", data.Keys.ToArray()));
+        }
+
+        [TestMethod]
         [TestProperty("json", @"{ ""items"": [ ""one"", ""two"", ""three"" ] }")]
         public void ShouldGetJArray()
         {
