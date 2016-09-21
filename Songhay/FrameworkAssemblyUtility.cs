@@ -75,7 +75,7 @@ namespace Songhay
         {
             if (string.IsNullOrEmpty(fileSegment)) throw new ArgumentNullException("fileSegment", "The expected file segment is not here.");
 
-            fileSegment = fileSegment.TrimStart(new[] { '/', '\\' });
+            fileSegment = FrameworkFileUtility.TrimLeadingDirectorySeparatorChars(fileSegment);
             var root = GetPathFromAssembly(assembly);
             root = Path.GetDirectoryName(Path.Combine(root, fileSegment));
             var path = Path.Combine(root, Path.GetFileName(fileSegment));
