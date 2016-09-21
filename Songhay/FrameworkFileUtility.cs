@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 
 namespace Songhay
@@ -26,7 +27,7 @@ namespace Songhay
         /// <param name="encoding">The encoding.</param>
         public static string GetEncodedString(string rawValue, Encoding encoding)
         {
-            if(encoding == null)
+            if (encoding == null)
                 throw new ArgumentNullException("encoding",
                     "The expected encoding is not here.");
 
@@ -35,5 +36,20 @@ namespace Songhay
             return new string(Encoding.ASCII.GetChars(b));
         }
 #endif
+
+        /// <summary>
+        /// Trims the leading directory separator chars.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
+        /// <remarks>
+        /// Trims leading <see cref="Path.AltDirectorySeparatorChar"/> and/or <see cref="Path.DirectorySeparatorChar"/>,
+        /// formatting relative paths for <see cref="Path.Combine(string, string)"/>.
+        /// </remarks>
+        public static string TrimLeadingDirectorySeparatorChars(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return path;
+            return path.TrimStart(new[] { Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar });
+        }
     }
 }
