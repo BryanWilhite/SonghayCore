@@ -76,6 +76,8 @@ namespace Songhay
             if (string.IsNullOrEmpty(fileSegment)) throw new ArgumentNullException("fileSegment", "The expected file segment is not here.");
 
             fileSegment = FrameworkFileUtility.TrimLeadingDirectorySeparatorChars(fileSegment);
+            if (Path.IsPathRooted(fileSegment)) throw new FormatException("The expected relative path is not here.");
+
             var levels = FrameworkFileUtility.CountParentDirectoryChars(fileSegment);
             fileSegment = FrameworkFileUtility.TrimParentDirectoryChars(fileSegment);
 
