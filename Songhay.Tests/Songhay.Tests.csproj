@@ -76,6 +76,8 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrameworkAssemblyUtilityTest.cs" />
+    <Compile Include="FrameworkFileUtilityTest.cs" />
     <Compile Include="MathTest.cs" />
     <Compile Include="StringCsvSplitTest.cs" />
     <Compile Include="WmiTest.cs" />
@@ -99,9 +101,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FrameworkFileTest-ShouldSortTextFileData.txt" />
-    <Content Include="FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt" />
-    <Content Include="FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml" />
+    <Content Include="content\FrameworkFileTest-ShouldSortTextFileData.txt" />
+    <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt" />
+    <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -129,6 +131,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="content\FrameworkAssemblyUtilityTest-ShouldGetPathFromAssembly.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

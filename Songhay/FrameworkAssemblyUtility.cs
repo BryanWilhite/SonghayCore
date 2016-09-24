@@ -75,8 +75,14 @@ namespace Songhay
         {
             if (string.IsNullOrEmpty(fileSegment)) throw new ArgumentNullException("fileSegment", "The expected file segment is not here.");
 
-            fileSegment = fileSegment.TrimStart(new[] { '/', '\\' });
+            fileSegment = FrameworkFileUtility.TrimLeadingDirectorySeparatorChars(fileSegment);
+            if (Path.IsPathRooted(fileSegment)) throw new FormatException("The expected relative path is not here.");
+
+            var levels = FrameworkFileUtility.CountParentDirectoryChars(fileSegment);
+            fileSegment = FrameworkFileUtility.TrimParentDirectoryChars(fileSegment);
+
             var root = GetPathFromAssembly(assembly);
+            if (levels > 0) root = FrameworkFileUtility.GetParentDirectory(root, levels);
             root = Path.GetDirectoryName(Path.Combine(root, fileSegment));
             var path = Path.Combine(root, Path.GetFileName(fileSegment));
             return path;

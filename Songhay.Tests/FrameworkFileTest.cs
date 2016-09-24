@@ -34,16 +34,18 @@ namespace Songhay.Tests
         /// Framework file test: should find path of given length.
         /// </summary>
         [TestMethod]
+        [TestProperty("length", "200")]
         public void ShouldFindPathOfGivenLength()
         {
             var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType());
+            var length = Convert.ToInt32(this.TestContext.Properties["length"]);
 
             var directory = new DirectoryInfo(projectsFolder);
             var dict = new Dictionary<string, int>();
             AddPathsToList(directory, dict);
             dict.ForEachInEnumerable(d =>
                 {
-                    if (d.Value > 200)
+                    if (d.Value > length)
                         TestContext
                             .WriteLine(string.Format("{0}:{1}", d.Key, d.Value.ToString()));
                 });
@@ -66,15 +68,22 @@ namespace Songhay.Tests
         /// <summary>
         /// Framework file test: should sort text file data.
         /// </summary>
-        [DeploymentItem("FrameworkFileTest-ShouldSortTextFileData.txt")]
         [TestMethod]
+        [TestProperty("outFile", @"content\FrameworkFileTest-ShouldSortTextFileData.txt")]
         public void ShouldSortTextFileData()
         {
+            var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType());
+
+            #region test properties:
+
+            var outFile = this.TestContext.Properties["outFile"].ToString();
+            outFile = Path.Combine(projectsFolder, this.GetType().Namespace, outFile);
+            this.TestContext.ShouldFindFile(outFile);
+
+            #endregion
+
             var output = new List<string>();
-
-            var path = string.Format(@"{0}\FrameworkFileTest-ShouldSortTextFileData.txt", TestContext.DeploymentDirectory);
-
-            var stream = new FileStream(path, FileMode.Open);
+            var stream = new FileStream(outFile, FileMode.Open);
             try
             {
                 using (var sr = new StreamReader(stream))
@@ -99,19 +108,28 @@ namespace Songhay.Tests
         /// Framework file test: should write text file with stream writer.
         /// </summary>
         [TestMethod]
+        [TestProperty("outFile", @"content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt")]
         public void ShouldWriteTextFileWithStreamWriter()
         {
             var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType());
+
+            #region test properties:
+
+            var outFile = this.TestContext.Properties["outFile"].ToString();
+            outFile = Path.Combine(projectsFolder, this.GetType().Namespace, outFile);
+            this.TestContext.ShouldFindFile(outFile);
+
+            #endregion
+
             var fileText = @"
 This is the text to write to the test file.
-This sentence should be on a line all by iteself.
+This sentence should be on a line all by itself.
 According to Notepad++ this file should be in ANSI format by default.
 According to Notepad++, when Encoding.UTF8 is specified the encoding is UTF8.
 This is the end of the file.
             ";
-            var path = Path.Combine(projectsFolder, "FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt");
 
-            var stream = new FileStream(path, FileMode.Create);
+            var stream = new FileStream(outFile, FileMode.Create);
             try
             {
                 using (var sw = new StreamWriter(stream, Encoding.UTF8))
@@ -129,11 +147,20 @@ This is the end of the file.
         /// Framework file test: should write text file with XML text writer.
         /// </summary>
         [TestMethod]
+        [TestProperty("outFile", @"content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml")]
         public void ShouldWriteTextFileWithXmlTextWriter()
         {
             var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType());
-            var path = Path.Combine(projectsFolder, "FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml");
-            var stream = new FileStream(path, FileMode.Create);
+
+            #region test properties:
+
+            var outFile = this.TestContext.Properties["outFile"].ToString();
+            outFile = Path.Combine(projectsFolder, this.GetType().Namespace, outFile);
+            this.TestContext.ShouldFindFile(outFile);
+
+            #endregion
+
+            var stream = new FileStream(outFile, FileMode.Create);
             try
             {
                 using (var writer = new XmlTextWriter(stream, Encoding.UTF8))
@@ -159,11 +186,15 @@ This is the end of the file.
         /// Framework file test: should write to my documents folder.
         /// </summary>
         [TestMethod]
+        [TestProperty("folder", "TestMyDocumentsFolder")]
         public void ShouldWriteToMyDocumentsFolder()
         {
-            var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
-                @"\WordWalkingStick\";
+            var folder = this.TestContext.Properties["folder"].ToString();
+
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folder);
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+
+            this.TestContext.ShouldFindFolder(path);
         }
     }
 }
