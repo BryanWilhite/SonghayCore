@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Songhay.Xml;
+using System.Linq;
 using System.Xml.Linq;
 
 namespace Songhay.Tests
@@ -34,6 +35,39 @@ namespace Songhay.Tests
             var actual = XObjectUtility.JoinFlattenedXTextNodes(rootElement);
             this.TestContext.WriteLine("actual: {0}", actual);
             Assert.AreEqual(expectedValue, actual, "The expected value is not here.");
+        }
+
+        [TestMethod]
+        public void ShouldMatchXPathForDescendingElements()
+        {
+            var xml = @"
+<root>
+    <a>
+        <b>
+            <c>a text node</c>
+        </b>
+    </a>
+</root>
+";
+            var xd = XDocument.Parse(xml);
+
+            var actual = XObjectUtility.GetXNode(xd.Root, "/root/a/b/c") as XElement;
+            Assert.IsNotNull(actual, "The XPath did not return an XElement.");
+
+            var expected = xd.Elements("root")
+                .Elements("a")
+                .Elements("b")
+                .Elements("c")
+                .FirstOrDefault();
+            Assert.IsNotNull(expected, "The LINQ assertion did not return an XElement.");
+
+            Assert.AreEqual(expected, actual, "The XElement values are not equal.");
+
+            var c = xd.Elements("root");
+            Assert.IsNotNull(c);
+
+            var attr = c.FirstOrDefault().Attribute("foo");
+            Assert.IsNull(attr);
         }
     }
 }

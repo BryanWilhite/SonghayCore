@@ -1,7 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Songhay.Extensions;
-using System.IO;
-using System.Linq;
 
 namespace Songhay.Tests
 {
@@ -14,19 +12,7 @@ namespace Songhay.Tests
         [TestInitialize]
         public void InitializeTest()
         {
-            #region remove previous test results:
-
-            var directory = Directory.GetParent(TestContext.TestDir);
-
-            directory.GetFiles()
-                .OrderByDescending(f => f.LastAccessTime).Skip(1)
-                .ForEachInEnumerable(f => f.Delete());
-
-            directory.GetDirectories()
-                .OrderByDescending(d => d.LastAccessTime).Skip(1)
-                .ForEachInEnumerable(d => d.Delete(true));
-
-            #endregion
+            this.TestContext.RemovePreviousTestResults();
         }
 
         /// <summary>
