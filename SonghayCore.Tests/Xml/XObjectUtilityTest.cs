@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Songhay.Xml;
 using System.Linq;
 using System.Xml.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Songhay.Tests
 {
     /// <summary>
-    /// Defines tests for <see cref="Songhay.Xml.XObjectUtility"/>.
+    /// Defines tests for <see cref="Xml.XObjectUtility"/>.
     /// </summary>
     [TestClass]
     public class XObjectUtilityTest
@@ -17,52 +17,57 @@ namespace Songhay.Tests
         ///</summary>
         public TestContext TestContext { get; set; }
 
-        /// <summary>
-        /// Should clone the element.
-        /// </summary>
-        /// <remarks>
-        /// See “Empty Elements and Self-Closing Tags”
-        /// (http://blogs.msdn.com/b/ericwhite/archive/2009/07/08/empty-elements-and-self-closing-tags.aspx)
-        /// </remarks>
         [TestMethod]
-        [Description("Should clone element.")]
-        public void ShouldCloneElement()
+        [TestProperty("expectedValue", "one-text-node-child-at-the-end")]
+        [TestProperty("sampleOne", "<root><one>one-text-node<one-child>-child</one-child>-at-the-end</one></root>")]
+        public void ShouldJoinFlattenedXTextNodes()
         {
-            XElement root = XElement.Parse("<Root></Root>");
-            TestContext.WriteLine("Original tree: {0}", root);
-            XElement rootClone = CloneElement(root);
-            TestContext.WriteLine("Cloned tree: {0}", rootClone);
-            Assert.AreEqual("<Root />", rootClone.ToString(), "Default clone result not equal.");
-            XElement rootCloneWithEmptyTags = CloneElement(root, renderEmptyTags: true);
-            TestContext.WriteLine("Cloned tree with empty tags: {0}", rootCloneWithEmptyTags);
-            Assert.AreEqual(root.ToString(), rootCloneWithEmptyTags.ToString(), "Clone result with empty tags not equal.");
+            #region test properties:
+
+            var expectedValue = this.TestContext.Properties["expectedValue"].ToString();
+            var sampleOne = this.TestContext.Properties["sampleOne"].ToString();
+
+            #endregion
+
+            var rootElement = XElement.Parse(sampleOne);
+            this.TestContext.WriteLine(rootElement.ToString());
+
+            var actual = XObjectUtility.JoinFlattenedXTextNodes(rootElement);
+            this.TestContext.WriteLine("actual: {0}", actual);
+            Assert.AreEqual(expectedValue, actual, "The expected value is not here.");
         }
 
         [TestMethod]
-        [Description("Should write outer XML.")]
-        public void ShouldWriteOuterXml()
+        public void ShouldMatchXPathForDescendingElements()
         {
-            var e = new XElement("parent", new XElement("child"));
-            TestContext.WriteLine(e.ToString());
-        }
+            var xml = @"
+<root>
+    <a>
+        <b>
+            <c>a text node</c>
+        </b>
+    </a>
+</root>
+";
+            var xd = XDocument.Parse(xml);
 
-        static XElement CloneElement(XElement element, bool renderEmptyTags = false)
-        {
-            var isEmptyElement = new Func<XElement, bool>((xe) =>
-            {
-                return !xe.IsEmpty && !xe.Nodes().OfType<XText>().Any();
-            });
+            var actual = XObjectUtility.GetXNode(xd.Root, "/root/a/b/c") as XElement;
+            Assert.IsNotNull(actual, "The XPath did not return an XElement.");
 
-            return new XElement(element.Name,
-                element.Attributes(),
-                element.Nodes().Select(n =>
-                {
-                    XElement e = n as XElement;
-                    if(e != null) return CloneElement(e, renderEmptyTags);
-                    return n;
-                }),
-                (isEmptyElement.Invoke(element) && renderEmptyTags) ? string.Empty : null
-            );
+            var expected = xd.Elements("root")
+                .Elements("a")
+                .Elements("b")
+                .Elements("c")
+                .FirstOrDefault();
+            Assert.IsNotNull(expected, "The LINQ assertion did not return an XElement.");
+
+            Assert.AreEqual(expected, actual, "The XElement values are not equal.");
+
+            var c = xd.Elements("root");
+            Assert.IsNotNull(c);
+
+            var attr = c.FirstOrDefault().Attribute("foo");
+            Assert.IsNull(attr);
         }
     }
 }

@@ -1,12 +1,11 @@
-﻿using System;
-using System.IO;
+﻿using Songhay.Extensions;
+using System;
 using System.Linq;
 using System.Management;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Songhay.Tests
 {
-    using Extensions;
 
     /// <summary>
     /// Summary description for FrameworkTest
@@ -15,17 +14,9 @@ namespace Songhay.Tests
     public class WmiTest
     {
         [TestInitialize]
-        public void ClearPreviousTestResults()
+        public void InitializeTest()
         {
-            var directory = Directory.GetParent(TestContext.TestDir);
-
-            directory.GetFiles()
-                .OrderByDescending(f => f.LastAccessTime).Skip(1)
-                .ForEachInEnumerable(f => f.Delete());
-
-            directory.GetDirectories()
-                .OrderByDescending(d => d.LastAccessTime).Skip(1)
-                .ForEachInEnumerable(d => d.Delete(true));
+            this.TestContext.RemovePreviousTestResults();
         }
 
         /// <summary>
@@ -81,14 +72,16 @@ namespace Songhay.Tests
             // This is needed because they're not sorted by default
             mos.Get().OfType<ManagementObject>()
                 .OrderBy(p => Convert.ToUInt32(p.Properties["Index"].Value))
-                .ForEachInEnumerable(mo => {
+                .ForEachInEnumerable(mo =>
+                {
                     mo.Properties
-                        .OfType<PropertyData>().ForEachInEnumerable(data => {
-                                TestContext.WriteLine("{0}: {1}", data.Name,
-                                (data.Value ?? "N/A").ToString()
-                                    .Replace("{", "{{").Replace("}", "}}"));
+                        .OfType<PropertyData>().ForEachInEnumerable(data =>
+                        {
+                            TestContext.WriteLine("{0}: {1}", data.Name,
+                            (data.Value ?? "N/A").ToString()
+                                .Replace("{", "{{").Replace("}", "}}"));
                         });
-                    });
+                });
         }
     }
 }

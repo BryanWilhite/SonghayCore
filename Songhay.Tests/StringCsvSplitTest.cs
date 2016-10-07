@@ -1,12 +1,8 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Songhay.Extensions;
 
 namespace Songhay.Tests
 {
-    using Extensions;
 
     /// <summary>
     /// Unit tests for CSVSplit Extension method.
@@ -18,7 +14,7 @@ namespace Songhay.Tests
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
         ///</summary>
-        public TestContext TestContext {get; set;}
+        public TestContext TestContext { get; set; }
 
         [TestMethod]
         [Description("Should split.")]
@@ -110,7 +106,7 @@ namespace Songhay.Tests
             {
                 var split = "\"aaabbb\"bbb,ccc,ddd".CsvSplit();
             }
-            catch(CsvParseException ex)
+            catch (CsvParseException ex)
             {
                 test = true;
                 TestContext.WriteLine("Exception Message: {0}", ex.Message);
@@ -128,7 +124,7 @@ namespace Songhay.Tests
             {
                 var split = "\"aaabbb\",ccc,\"ddd".CsvSplit();
             }
-            catch(CsvParseException ex)
+            catch (CsvParseException ex)
             {
                 test = true;
                 TestContext.WriteLine("Exception Message: {0}", ex.Message);
@@ -146,7 +142,7 @@ namespace Songhay.Tests
             {
                 var split = "aaa,ccc,\"ddd\\".CsvSplit();
             }
-            catch(CsvParseException ex)
+            catch (CsvParseException ex)
             {
                 test = true;
                 TestContext.WriteLine("Exception Message: {0}", ex.Message);
@@ -157,13 +153,13 @@ namespace Songhay.Tests
 
         static bool Validate(string[] results, string[] expectedResults)
         {
-            if(results.Length != expectedResults.Length)
+            if (results.Length != expectedResults.Length)
             {
                 return false;
             }
-            for(int i = 0; i < results.Length; i++)
+            for (int i = 0; i < results.Length; i++)
             {
-                if(results[i] != expectedResults[i])
+                if (results[i] != expectedResults[i])
                 {
                     return false;
                 }
