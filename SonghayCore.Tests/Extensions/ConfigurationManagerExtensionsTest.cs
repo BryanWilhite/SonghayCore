@@ -5,6 +5,7 @@ using System.IO;
 using System.Configuration;
 using System.Xml.Linq;
 using System.Linq;
+using Songhay.Models;
 
 namespace Songhay.Tests.Extensions
 {
@@ -44,6 +45,19 @@ namespace Songhay.Tests.Extensions
 
             Assert.IsNotNull(collection, string.Format("The expected ConnectionStringSettingsCollection is not here."));
             Assert.IsTrue(collection.OfType<ConnectionStringSettings>().Any(), "The expected ConnectionStringSettings are not here.");
+        }
+
+        [TestMethod]
+        [TestProperty("expectedEnvironmentName", DeploymentEnvironment.DevelopmentEnvironmentName)]
+        public void ShouldGetEnvironmentName()
+        {
+            var expectedEnvironmentName = this.TestContext.Properties["expectedEnvironmentName"].ToString();
+            this.TestContext.WriteLine("expected: {0}", expectedEnvironmentName);
+
+            var actual = ConfigurationManager.AppSettings.GetEnvironmentName();
+            this.TestContext.WriteLine("actual: {0}", actual);
+
+            Assert.AreEqual(expectedEnvironmentName, actual, "The expectedEnvironmentName is not here.");
         }
     }
 }
