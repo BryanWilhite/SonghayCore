@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Songhay.Extensions;
 using System.IO;
 using System.Configuration;
@@ -54,10 +53,28 @@ namespace Songhay.Tests.Extensions
             var expectedEnvironmentName = this.TestContext.Properties["expectedEnvironmentName"].ToString();
             this.TestContext.WriteLine("expected: {0}", expectedEnvironmentName);
 
-            var actual = ConfigurationManager.AppSettings.GetEnvironmentName();
+            var actual = ConfigurationManager.AppSettings.GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
             this.TestContext.WriteLine("actual: {0}", actual);
 
             Assert.AreEqual(expectedEnvironmentName, actual, "The expectedEnvironmentName is not here.");
+        }
+
+        [TestMethod]
+        [TestProperty("environmentName", DeploymentEnvironment.DevelopmentEnvironmentName)]
+        [TestProperty("expectedKey", "dev.setting")]
+        [TestProperty("unqualifiedKey", "setting")]
+        public void ShouldGetKeyWithEnvironmentName()
+        {
+            var environmentName = this.TestContext.Properties["environmentName"].ToString();
+            var expectedKey = this.TestContext.Properties["expectedKey"].ToString();
+            var unqualifiedKey = this.TestContext.Properties["unqualifiedKey"].ToString();
+
+            this.TestContext.WriteLine("expected: {0}", expectedKey);
+
+            var actual = ConfigurationManager.AppSettings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
+            this.TestContext.WriteLine("actual: {0}", actual);
+
+            Assert.AreEqual(expectedKey, actual, "The expectedKey is not here.");
         }
     }
 }
