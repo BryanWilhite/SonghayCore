@@ -16,33 +16,70 @@ namespace Songhay.Extensions
     public static class ConfigurationManagerExtensions
     {
         /// <summary>
-        /// Gets the connection string settings.
+        /// Gets the connection name from environment.
         /// </summary>
         /// <param name="collection">The collection.</param>
-        /// <param name="key">The key.</param>
+        /// <param name="unqualifiedKey">The unqualified key.</param>
+        /// <param name="environmentName">Name of the environment.</param>
         /// <returns></returns>
-        public static ConnectionStringSettings GetConnectionStringSettings(this ConnectionStringSettingsCollection collection, string key)
+        public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName)
         {
-            return collection.GetConnectionStringSettings(key, throwConfigurationErrorsException: false);
+            return collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName, DeploymentEnvironment.ConfigurationKeyDelimiter);
+        }
+
+        /// <summary>
+        /// Gets the connection name from environment.
+        /// </summary>
+        /// <param name="collection">The collection.</param>
+        /// <param name="unqualifiedKey">The unqualified key.</param>
+        /// <param name="environmentName">Name of the environment.</param>
+        /// <param name="delimiter">The delimiter.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+        /// <exception cref="ConfigurationErrorsException"></exception>
+        public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName, string delimiter)
+        {
+            if (collection == null) return null;
+            if (string.IsNullOrEmpty(unqualifiedKey)) throw new ArgumentNullException("unqualifiedKey", "The expected App Settings key is not here.");
+
+            var name1 = string.Concat(environmentName, delimiter, unqualifiedKey);
+            var name2 = string.Concat(unqualifiedKey, delimiter, environmentName);
+
+            var containsKey1 = collection.OfType<ConnectionStringSettings>().Any(i => i.Name == name1);
+            if (!containsKey1 && !collection.OfType<ConnectionStringSettings>().Any(i => i.Name == name2))
+                throw new ConfigurationErrorsException(string.Format("The expected Name, “{0}” or “{1}”, is not here.", name1, name2));
+
+            return containsKey1 ? name1 : name2;
         }
 
         /// <summary>
         /// Gets the connection string settings.
         /// </summary>
         /// <param name="collection">The collection.</param>
-        /// <param name="key">The key.</param>
+        /// <param name="connectionName">Name of the connection.</param>
+        /// <returns></returns>
+        public static ConnectionStringSettings GetConnectionStringSettings(this ConnectionStringSettingsCollection collection, string connectionName)
+        {
+            return collection.GetConnectionStringSettings(connectionName, throwConfigurationErrorsException: false);
+        }
+
+        /// <summary>
+        /// Gets the connection string settings.
+        /// </summary>
+        /// <param name="collection">The collection.</param>
+        /// <param name="connectionName">Name of the connection.</param>
         /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
         /// <returns></returns>
         /// <exception cref="ConfigurationErrorsException"></exception>
-        public static ConnectionStringSettings GetConnectionStringSettings(this ConnectionStringSettingsCollection collection, string key, bool throwConfigurationErrorsException)
+        public static ConnectionStringSettings GetConnectionStringSettings(this ConnectionStringSettingsCollection collection, string connectionName, bool throwConfigurationErrorsException)
         {
             if (collection == null) return null;
-            if (string.IsNullOrEmpty(key)) return null;
+            if (string.IsNullOrEmpty(connectionName)) return null;
 
-            var setting = collection[key];
+            var setting = collection[connectionName];
             if ((setting == null) && throwConfigurationErrorsException)
             {
-                var message = string.Format("The expected connection settings, {0}, are not here.", key);
+                var message = string.Format("The expected connection settings, {0}, are not here.", connectionName);
                 throw new ConfigurationErrorsException(message);
             }
 
@@ -104,7 +141,7 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Gets the name of the key with environment.
+        /// Gets the key with environment name.
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <param name="unqualifiedKey">The unqualified key.</param>
