@@ -17,6 +17,40 @@ namespace Songhay.Extensions
     public static class ConfigurationManagerExtensions
     {
         /// <summary>
+        /// Gets the connection string settings.
+        /// </summary>
+        /// <param name="collection">The collection.</param>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
+        public static ConnectionStringSettings GetConnectionStringSettings(this ConnectionStringSettingsCollection collection, string key)
+        {
+            return collection.GetConnectionStringSettings(key, throwConfigurationErrorsException: false);
+        }
+
+        /// <summary>
+        /// Gets the connection string settings.
+        /// </summary>
+        /// <param name="collection">The collection.</param>
+        /// <param name="key">The key.</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+        /// <returns></returns>
+        /// <exception cref="ConfigurationErrorsException"></exception>
+        public static ConnectionStringSettings GetConnectionStringSettings(this ConnectionStringSettingsCollection collection, string key, bool throwConfigurationErrorsException)
+        {
+            if (collection == null) return null;
+            if (string.IsNullOrEmpty(key)) return null;
+
+            var setting = collection[key];
+            if ((setting == null) && throwConfigurationErrorsException)
+            {
+                var message = string.Format("The expected connection settings, {0}, are not here.", key);
+                throw new ConfigurationErrorsException(message);
+            }
+
+            return setting;
+        }
+
+        /// <summary>
         /// Gets the name of the conventional deployment environment.
         /// </summary>
         /// <param name="settings">The settings.</param>
