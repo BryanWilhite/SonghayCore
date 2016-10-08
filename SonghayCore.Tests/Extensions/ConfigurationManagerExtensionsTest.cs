@@ -2,6 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Songhay.Extensions;
 using System.IO;
+using System.Configuration;
+using System.Xml.Linq;
+using System.Linq;
 
 namespace Songhay.Tests.Extensions
 {
@@ -34,6 +37,13 @@ namespace Songhay.Tests.Extensions
             this.TestContext.ShouldFindFile(externalConfigurationFile);
 
             #endregion
+
+            var externalConfigurationDoc = XDocument.Load(externalConfigurationFile);
+            var collection = externalConfigurationDoc.ToConnectionStringSettingsCollection();
+            collection.OfType<ConnectionStringSettings>().ForEachInEnumerable(i => this.TestContext.WriteLine(i.ToString()));
+
+            Assert.IsNotNull(collection, string.Format("The expected ConnectionStringSettingsCollection is not here."));
+            Assert.IsTrue(collection.OfType<ConnectionStringSettings>().Any(), "The expected ConnectionStringSettings are not here.");
         }
     }
 }

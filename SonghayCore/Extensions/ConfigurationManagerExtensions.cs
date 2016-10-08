@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Specialized;
 using System.Configuration;
-using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -177,34 +176,6 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Loads the external configuration file.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <param name="externalConfigurationFile">The external configuration file.</param>
-        /// <returns></returns>
-        /// <exception cref="System.IO.FileNotFoundException">
-        /// The expected external configuration file path is empty.
-        /// or
-        /// </exception>
-        public static XDocument LoadExternalConfigurationFile(this NameValueCollection settings, string externalConfigurationFile)
-        {
-            if (settings == null) return null;
-
-            if (string.IsNullOrEmpty(externalConfigurationFile))
-                throw new FileNotFoundException("The expected external configuration file path is empty.");
-
-            if (!File.Exists(externalConfigurationFile))
-            {
-                var message = string.Format("The expected external configuration file, {0}, is not here.", externalConfigurationFile);
-                throw new FileNotFoundException(message);
-            }
-
-            var externalConfigurationDoc = XDocument.Load(externalConfigurationFile);
-
-            return externalConfigurationDoc;
-        }
-
-        /// <summary>
         /// Converts the external configuration file to the application settings <see cref="NameValueCollection"/>.
         /// </summary>
         /// <param name="externalConfigurationDoc">The external configuration document.</param>
@@ -223,24 +194,64 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Returns <see cref="NameValueCollection"/>
-        /// with the application settings
-        /// of the specified external configuration file.
+        /// Converts the external configuration file to the application settings <see cref="ConnectionStringSettingsCollection"/>.
         /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <param name="externalConfigurationFile">The external configuration file.</param>
+        /// <param name="externalConfigurationDoc">The external configuration document.</param>
         /// <returns></returns>
-        public static NameValueCollection WithAppSettings(this NameValueCollection settings, string externalConfigurationFile)
+        public static ConnectionStringSettingsCollection ToConnectionStringSettingsCollection(this XDocument externalConfigurationDoc)
         {
-            var collection = settings
-                .LoadExternalConfigurationFile(externalConfigurationFile)
-                .ToAppSettings();
+            if (externalConfigurationDoc == null) return null;
 
-            if (collection == null) return null;
+            var collection = new ConnectionStringSettingsCollection();
 
-            settings.AllKeys.ForEachInEnumerable(i => collection.Add(i, settings[i]));
+            externalConfigurationDoc.Root
+                    .Element("connectionStrings")
+                    .Elements("add").ForEachInEnumerable(i =>
+                    {
+                        var name = i.Attribute("name").Value;
+                        var connectionString = i.Attribute("connectionString").Value;
+                        var providerName = i.Attribute("providerName").Value;
+                        var settings = new ConnectionStringSettings(name, connectionString, providerName);
+                        collection.Add(settings);
+                    });
 
             return collection;
+        }
+
+        /// <summary>
+        /// Returns <see cref="NameValueCollection" />
+        /// with the application settings
+        /// of the specified external configuration <see cref="XDocument" />.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="externalConfigurationDoc">The external configuration document.</param>
+        /// <returns></returns>
+        public static NameValueCollection WithAppSettings(this NameValueCollection settings, XDocument externalConfigurationDoc)
+        {
+            var externalCollection = externalConfigurationDoc.ToAppSettings();
+            if (externalCollection == null) return null;
+
+            settings.AllKeys.ForEachInEnumerable(i => externalCollection.Add(i, settings[i]));
+
+            return externalCollection;
+        }
+
+        /// <summary>
+        /// Returns <see cref="ConnectionStringSettingsCollection" />
+        /// with the application settings
+        /// of the specified external configuration <see cref="XDocument" />.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="externalConfigurationDoc">The external configuration document.</param>
+        /// <returns></returns>
+        public static ConnectionStringSettingsCollection WithConnectionStringSettingsCollection(this ConnectionStringSettingsCollection collection, XDocument externalConfigurationDoc)
+        {
+            var externalCollection = externalConfigurationDoc.ToConnectionStringSettingsCollection();
+            if (externalCollection == null) return null;
+
+            collection.OfType<ConnectionStringSettings>().ForEachInEnumerable(i => externalCollection.Add(i));
+
+            return externalCollection;
         }
     }
 }
