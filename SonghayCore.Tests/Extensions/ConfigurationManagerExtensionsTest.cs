@@ -60,21 +60,38 @@ namespace Songhay.Tests.Extensions
         }
 
         [TestMethod]
-        [TestProperty("environmentName", DeploymentEnvironment.DevelopmentEnvironmentName)]
         [TestProperty("expectedKey", "dev.setting")]
         [TestProperty("unqualifiedKey", "setting")]
         public void ShouldGetKeyWithEnvironmentName()
         {
-            var environmentName = this.TestContext.Properties["environmentName"].ToString();
             var expectedKey = this.TestContext.Properties["expectedKey"].ToString();
+            this.TestContext.WriteLine("expected: {0}", expectedKey);
             var unqualifiedKey = this.TestContext.Properties["unqualifiedKey"].ToString();
 
-            this.TestContext.WriteLine("expected: {0}", expectedKey);
-
+            var environmentName = ConfigurationManager.AppSettings.GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
             var actual = ConfigurationManager.AppSettings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
             this.TestContext.WriteLine("actual: {0}", actual);
 
             Assert.AreEqual(expectedKey, actual, "The expectedKey is not here.");
+        }
+
+        [TestMethod]
+        [TestProperty("expectedSetting", "the setting for DEV")]
+        [TestProperty("unqualifiedKey", "setting")]
+        public void ShouldGetSetting()
+        {
+            var expectedSetting = this.TestContext.Properties["expectedSetting"].ToString();
+            this.TestContext.WriteLine("expected: {0}", expectedSetting);
+            var unqualifiedKey = this.TestContext.Properties["unqualifiedKey"].ToString();
+
+            var environmentName = ConfigurationManager.AppSettings.GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
+            var key = ConfigurationManager.AppSettings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
+            this.TestContext.WriteLine("key: {0}", key);
+
+            var actual = ConfigurationManager.AppSettings.GetSetting(key);
+            this.TestContext.WriteLine("actual: {0}", actual);
+
+            Assert.AreEqual(expectedSetting, actual, "The expectedSetting is not here.");
         }
     }
 }
