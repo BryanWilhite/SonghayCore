@@ -139,8 +139,29 @@ namespace Songhay.Extensions
         /// <param name="typeInAssembly">The type in assembly.</param>
         public static string ShouldGetProjectsFolder(this TestContext context, Type typeInAssembly)
         {
+            return context.ShouldGetProjectsFolder(typeInAssembly, namespaceArrayModifier: null);
+        }
+
+        /// <summary>
+        /// Test context extensions: should get projects folder.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="typeInAssembly">The type in assembly.</param>
+        /// <param name="namespaceArrayModifier">The namespace array modifier.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentException">The expected number of Namespace parts is not here.</exception>
+        public static string ShouldGetProjectsFolder(this TestContext context, Type typeInAssembly, Func<string[], string[]> namespaceArrayModifier)
+        {
             var path = context.ShouldGetAssemblyDirectory(typeInAssembly);
-            path = path.Remove(path.IndexOf(typeInAssembly.Namespace));
+            var namespaceArray = typeInAssembly.Namespace.Split('.');
+            if (namespaceArrayModifier != null) namespaceArray = namespaceArrayModifier(namespaceArray);
+            if (namespaceArray.Count() < 2) throw new ArgumentException("The expected number of Namespace parts is not here.");
+
+            var name = string.Join(".", namespaceArray.Take(2).ToArray());
+            var index = path.IndexOf(name);
+            if (index < 0) throw new FileNotFoundException(string.Format("{0} was not found in the Assembly path.", name));
+
+            path = path.Remove(index);
             context.ShouldFindFolder(path);
 
             return path;
