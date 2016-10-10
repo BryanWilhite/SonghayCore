@@ -22,9 +22,57 @@ namespace Songhay.Tests.Extensions
         public TestContext TestContext { get; set; }
 
         [TestMethod]
+        [TestProperty("expectedConnectionString", @"Data Source=|DataDirectory|\Chinook.dev.sqlite")]
+        [TestProperty("externalConfigurationFile", @"SonghayCore.Tests\Extensions\ConfigurationManagerExtensionsTest.xml")]
+        [TestProperty("unqualifiedName", "Chinook")]
+        public void ShouldGetExternalConnectionStringSettings()
+        {
+            var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType(), i =>
+            {
+                i[0] = i[0].Replace("Songhay", "SonghayCore");
+                return i;
+            });
+
+            #region test properties:
+
+            var expectedConnectionString = this.TestContext.Properties["expectedConnectionString"].ToString();
+            this.TestContext.WriteLine("expected: {0}", expectedConnectionString);
+
+            var externalConfigurationFile = this.TestContext.Properties["externalConfigurationFile"].ToString();
+            externalConfigurationFile = Path.Combine(projectsFolder, externalConfigurationFile);
+            this.TestContext.ShouldFindFile(externalConfigurationFile);
+
+            var unqualifiedName = this.TestContext.Properties["unqualifiedName"].ToString();
+
+            #endregion
+
+            var environmentName = ConfigurationManager
+                .AppSettings
+                .GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
+            var externalConfigurationDoc = XDocument.Load(externalConfigurationFile);
+
+            var collection = ConfigurationManager
+                .ConnectionStrings
+                .WithConnectionStringSettingsCollection(externalConfigurationDoc);
+            Assert.IsNotNull(collection, string.Format("The expected ConnectionStringSettingsCollection is not here."));
+            Assert.IsTrue(collection.OfType<ConnectionStringSettings>().Any(), "The expected ConnectionStringSettings are not here.");
+            collection.OfType<ConnectionStringSettings>().ForEachInEnumerable(i => this.TestContext.WriteLine(i.ToString()));
+
+            var name = collection.GetConnectionNameFromEnvironment(unqualifiedName, environmentName);
+            this.TestContext.WriteLine("name: {0}", name);
+
+            var settings = collection.GetConnectionStringSettings(name);
+            Assert.IsNotNull(settings, "The expected settings are not here.");
+            var actual = settings.ConnectionString;
+            this.TestContext.WriteLine("actual: {0}", actual);
+
+            Assert.AreEqual(expectedConnectionString, actual, "The expectedConnectionString is not here.");
+        }
+
+        [TestMethod]
         [TestProperty("expectedSetting", "the external setting for DEV")]
         [TestProperty("externalConfigurationFile", @"SonghayCore.Tests\Extensions\ConfigurationManagerExtensionsTest.xml")]
-        [TestProperty("unqualifiedKey", "ex-setting")]
+        [TestProperty("unqualifiedName", "ex-setting")]
         public void ShouldGetExternalSetting()
         {
             var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType(), i =>
@@ -70,7 +118,7 @@ namespace Songhay.Tests.Extensions
         [TestMethod]
         [TestProperty("expectedConnectionString", @"Data Source=|DataDirectory|\Chinook.dev.sqlite")]
         [TestProperty("externalConfigurationFile", @"SonghayCore.Tests\Extensions\ConfigurationManagerExtensionsTest.xml")]
-        [TestProperty("unqualifiedKey", "Chinook")]
+        [TestProperty("unqualifiedName", "Chinook")]
         public void ShouldGetConnectionStringSettings()
         {
             var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType(), i =>
@@ -88,7 +136,7 @@ namespace Songhay.Tests.Extensions
             externalConfigurationFile = Path.Combine(projectsFolder, externalConfigurationFile);
             this.TestContext.ShouldFindFile(externalConfigurationFile);
 
-            var unqualifiedKey = this.TestContext.Properties["unqualifiedKey"].ToString();
+            var unqualifiedName = this.TestContext.Properties["unqualifiedName"].ToString();
 
             #endregion
 
@@ -97,7 +145,7 @@ namespace Songhay.Tests.Extensions
                 .GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
             var externalConfigurationDoc = XDocument.Load(externalConfigurationFile);
             var collection = externalConfigurationDoc.ToConnectionStringSettingsCollection();
-            var name = collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName);
+            var name = collection.GetConnectionNameFromEnvironment(unqualifiedName, environmentName);
             this.TestContext.WriteLine("name: {0}", name);
 
             var settings = collection.GetConnectionStringSettings(name);
@@ -106,32 +154,6 @@ namespace Songhay.Tests.Extensions
             this.TestContext.WriteLine("actual: {0}", actual);
 
             Assert.AreEqual(expectedConnectionString, actual, "The expectedConnectionString is not here.");
-        }
-
-        [TestMethod]
-        [TestProperty("externalConfigurationFile", @"SonghayCore.Tests\Extensions\ConfigurationManagerExtensionsTest.xml")]
-        public void ShouldGetConnectionStringSettingsCollection()
-        {
-            var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType(), i =>
-            {
-                i[0] = i[0].Replace("Songhay", "SonghayCore");
-                return i;
-            });
-
-            #region test properties:
-
-            var externalConfigurationFile = this.TestContext.Properties["externalConfigurationFile"].ToString();
-            externalConfigurationFile = Path.Combine(projectsFolder, externalConfigurationFile);
-            this.TestContext.ShouldFindFile(externalConfigurationFile);
-
-            #endregion
-
-            var externalConfigurationDoc = XDocument.Load(externalConfigurationFile);
-            var collection = externalConfigurationDoc.ToConnectionStringSettingsCollection();
-            collection.OfType<ConnectionStringSettings>().ForEachInEnumerable(i => this.TestContext.WriteLine(i.ToString()));
-
-            Assert.IsNotNull(collection, string.Format("The expected ConnectionStringSettingsCollection is not here."));
-            Assert.IsTrue(collection.OfType<ConnectionStringSettings>().Any(), "The expected ConnectionStringSettings are not here.");
         }
 
         [TestMethod]
