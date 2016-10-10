@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Xml.Linq;
 using System.Linq;
 using Songhay.Models;
+using System.Collections.Generic;
 
 namespace Songhay.Tests.Extensions
 {
@@ -19,6 +20,52 @@ namespace Songhay.Tests.Extensions
         ///information about and functionality for the current test run.
         ///</summary>
         public TestContext TestContext { get; set; }
+
+        [TestMethod]
+        [TestProperty("expectedSetting", "the external setting for DEV")]
+        [TestProperty("externalConfigurationFile", @"SonghayCore.Tests\Extensions\ConfigurationManagerExtensionsTest.xml")]
+        [TestProperty("unqualifiedKey", "ex-setting")]
+        public void ShouldGetExternalSetting()
+        {
+            var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType(), i =>
+            {
+                i[0] = i[0].Replace("Songhay", "SonghayCore");
+                return i;
+            });
+
+            #region test properties:
+
+            var expectedSetting = this.TestContext.Properties["expectedSetting"].ToString();
+            this.TestContext.WriteLine("expected: {0}", expectedSetting);
+
+            var externalConfigurationFile = this.TestContext.Properties["externalConfigurationFile"].ToString();
+            externalConfigurationFile = Path.Combine(projectsFolder, externalConfigurationFile);
+            this.TestContext.ShouldFindFile(externalConfigurationFile);
+
+            var unqualifiedKey = this.TestContext.Properties["unqualifiedKey"].ToString();
+
+            #endregion
+
+            var environmentName = ConfigurationManager
+                .AppSettings
+                .GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
+
+            var externalConfigurationDoc = XDocument.Load(externalConfigurationFile);
+            var collection = ConfigurationManager
+                .AppSettings
+                .WithAppSettings(externalConfigurationDoc);
+            this.TestContext.WriteLine("appSettings keys:");
+            Assert.IsTrue(collection.AllKeys.Any(), "The expected appSettings keys are not here.");
+            collection.AllKeys.ForEachInEnumerable(i => this.TestContext.WriteLine("key: {0}, value: {1}", i, collection[i]));
+
+            var key = collection.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
+            this.TestContext.WriteLine("key: {0}", key);
+
+            var actual = collection.GetSetting(key);
+            this.TestContext.WriteLine("actual: {0}", actual);
+
+            Assert.AreEqual(expectedSetting, actual, "The expectedSetting is not here.");
+        }
 
         [TestMethod]
         [TestProperty("expectedConnectionString", @"Data Source=|DataDirectory|\Chinook.dev.sqlite")]
@@ -45,7 +92,9 @@ namespace Songhay.Tests.Extensions
 
             #endregion
 
-            var environmentName = ConfigurationManager.AppSettings.GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
+            var environmentName = ConfigurationManager
+                .AppSettings
+                .GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
             var externalConfigurationDoc = XDocument.Load(externalConfigurationFile);
             var collection = externalConfigurationDoc.ToConnectionStringSettingsCollection();
             var name = collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName);
@@ -123,7 +172,9 @@ namespace Songhay.Tests.Extensions
             this.TestContext.WriteLine("expected: {0}", expectedSetting);
             var unqualifiedKey = this.TestContext.Properties["unqualifiedKey"].ToString();
 
-            var environmentName = ConfigurationManager.AppSettings.GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
+            var environmentName = ConfigurationManager
+                .AppSettings
+                .GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
             var key = ConfigurationManager.AppSettings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
             this.TestContext.WriteLine("key: {0}", key);
 
