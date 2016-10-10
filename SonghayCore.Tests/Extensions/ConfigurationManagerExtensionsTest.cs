@@ -5,7 +5,6 @@ using System.Configuration;
 using System.Xml.Linq;
 using System.Linq;
 using Songhay.Models;
-using System.Collections.Generic;
 
 namespace Songhay.Tests.Extensions
 {
@@ -116,25 +115,15 @@ namespace Songhay.Tests.Extensions
         }
 
         [TestMethod]
-        [TestProperty("expectedConnectionString", @"Data Source=|DataDirectory|\Chinook.dev.sqlite")]
-        [TestProperty("externalConfigurationFile", @"SonghayCore.Tests\Extensions\ConfigurationManagerExtensionsTest.xml")]
-        [TestProperty("unqualifiedName", "Chinook")]
+        [TestProperty("expectedConnectionString", @"Data Source=|DataDirectory|\Northwind.dev.sqlite")]
+        [TestProperty("unqualifiedName", "Northwind")]
         public void ShouldGetConnectionStringSettings()
         {
-            var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType(), i =>
-            {
-                i[0] = i[0].Replace("Songhay", "SonghayCore");
-                return i;
-            });
 
             #region test properties:
 
             var expectedConnectionString = this.TestContext.Properties["expectedConnectionString"].ToString();
             this.TestContext.WriteLine("expected: {0}", expectedConnectionString);
-
-            var externalConfigurationFile = this.TestContext.Properties["externalConfigurationFile"].ToString();
-            externalConfigurationFile = Path.Combine(projectsFolder, externalConfigurationFile);
-            this.TestContext.ShouldFindFile(externalConfigurationFile);
 
             var unqualifiedName = this.TestContext.Properties["unqualifiedName"].ToString();
 
@@ -143,12 +132,14 @@ namespace Songhay.Tests.Extensions
             var environmentName = ConfigurationManager
                 .AppSettings
                 .GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
-            var externalConfigurationDoc = XDocument.Load(externalConfigurationFile);
-            var collection = externalConfigurationDoc.ToConnectionStringSettingsCollection();
-            var name = collection.GetConnectionNameFromEnvironment(unqualifiedName, environmentName);
+            var name = ConfigurationManager
+                .ConnectionStrings
+                .GetConnectionNameFromEnvironment(unqualifiedName, environmentName);
             this.TestContext.WriteLine("name: {0}", name);
 
-            var settings = collection.GetConnectionStringSettings(name);
+            var settings = ConfigurationManager
+                .ConnectionStrings
+                .GetConnectionStringSettings(name);
             Assert.IsNotNull(settings, "The expected settings are not here.");
             var actual = settings.ConnectionString;
             this.TestContext.WriteLine("actual: {0}", actual);
