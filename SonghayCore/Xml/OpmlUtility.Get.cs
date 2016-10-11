@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Songhay.Extensions;
+using Songhay.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 
 namespace Songhay.Xml
 {
-    using Extensions;
-    using Models;
 
     /// <summary>
     /// Static helpers for OPML.
@@ -199,7 +199,7 @@ namespace Songhay.Xml
                 XmlUrl = root.ToAttributeValueOrNull("xmlUrl")
             };
 
-#if !SILVERLIGHT
+#if !NETSTANDARD12 && !SILVERLIGHT
             if (data.Url != null)
                 data.Url = Environment.ExpandEnvironmentVariables(data.Url);
             if (data.XmlUrl != null)

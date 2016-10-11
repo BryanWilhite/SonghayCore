@@ -31,7 +31,7 @@ namespace Songhay.Extensions
             return props.FirstOrDefault(i => i.Name == propertyName);
         }
 
-#if !SILVERLIGHT && !PCL && !NET35 && !NET40
+#if !NETSTANDARD12 && !SILVERLIGHT && !PCL && !NET35 && !NET40
 
         /// <summary>
         /// Gets the property value.
@@ -53,7 +53,7 @@ namespace Songhay.Extensions
 
 #endif
 
-#if !PCL
+#if !NETSTANDARD12 && !PCL
 
         /// <summary>
         /// Determines whether this instance is type.

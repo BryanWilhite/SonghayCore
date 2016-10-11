@@ -8,10 +8,10 @@ namespace Songhay.Models
     /// <summary>
     /// Defines a managed representation of the OPML outline element.
     /// </summary>
-#if !SILVERLIGHT
+#if !NETSTANDARD12 && !SILVERLIGHT
     [Serializable]
-#endif
     [XmlRoot(ElementName = "outline")]
+#endif
     [JsonObject("outline", MemberSerialization = MemberSerialization.OptIn)]
     public class OpmlOutline
     {
@@ -19,7 +19,9 @@ namespace Songhay.Models
         /// Gets or sets the Category.
         /// </summary>
         /// <value>The ID.</value>
+#if !NETSTANDARD12
         [XmlAttribute(AttributeName = "category")]
+#endif
         [JsonProperty("category")]
         public string Category { get; set; }
 
@@ -27,7 +29,9 @@ namespace Songhay.Models
         /// Gets or sets the ID.
         /// </summary>
         /// <value>The ID.</value>
+#if !NETSTANDARD12
         [XmlAttribute(AttributeName = "id")]
+#endif
         [JsonProperty("id")]
         public string Id { get; set; }
 
@@ -37,7 +41,9 @@ namespace Songhay.Models
         /// <value>The outlines.</value>
         [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays",
             Justification = "Used for XML serialization.")]
+#if !NETSTANDARD12
         [XmlElement(ElementName = "outline")]
+#endif
         [JsonProperty("outline")]
         public OpmlOutline[] Outlines { get; set; }
 
@@ -45,7 +51,9 @@ namespace Songhay.Models
         /// Gets or sets the text.
         /// </summary>
         /// <value>The text.</value>
+#if !NETSTANDARD12
         [XmlAttribute(AttributeName = "text")]
+#endif
         [JsonProperty("text")]
         public string Text { get; set; }
 
@@ -53,7 +61,9 @@ namespace Songhay.Models
         /// Gets or sets the title.
         /// </summary>
         /// <value>The title.</value>
+#if !NETSTANDARD12
         [XmlAttribute(AttributeName = "title")]
+#endif
         [JsonProperty("title")]
         public string Title { get; set; }
 
@@ -61,7 +71,9 @@ namespace Songhay.Models
         /// Gets or sets the type.
         /// </summary>
         /// <value>The type.</value>
+#if !NETSTANDARD12
         [XmlAttribute(AttributeName = "type")]
+#endif
         [JsonProperty("type")]
         public string OutlineType { get; set; }
 
@@ -69,7 +81,9 @@ namespace Songhay.Models
         /// Gets or sets the URL.
         /// </summary>
         /// <value>The URL.</value>
+#if !NETSTANDARD12
         [XmlAttribute(AttributeName = "url")]
+#endif
         [JsonProperty("url")]
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings",
             Justification = "OPML does not recognize the concept of the System.Uri.")]
@@ -79,7 +93,9 @@ namespace Songhay.Models
         /// Gets or sets the XML URL.
         /// </summary>
         /// <value>The XML URL.</value>
+#if !NETSTANDARD12
         [XmlAttribute(AttributeName = "xmlUrl")]
+#endif
         [JsonProperty("xmlUrl")]
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings",
             Justification = "OPML does not recognize the concept of the System.Uri.")]

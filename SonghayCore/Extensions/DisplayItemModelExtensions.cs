@@ -64,6 +64,7 @@ namespace Songhay.Extensions
             return (data.ItemCategory == DisplayItemModelCategories.GenericWebSegment);
         }
 
+#if !NETSTANDARD12
         /// <summary>
         /// Converts the <see cref="DisplayItemModel"/> into a menu display item model.
         /// </summary>
@@ -77,6 +78,7 @@ namespace Songhay.Extensions
 
             return menuItem;
         }
+#endif
 
         /// <summary>
         /// Fluently sets <see cref="DisplayItemModel.ItemCategory"/>.
