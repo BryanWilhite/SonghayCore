@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8207A4FE-A610-448B-B21E-1361E8769125}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Songhay.Standard.Core</RootNamespace>
+    <AssemblyName>Songhay.Standard.Core</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETSTANDARD12</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Songhay\FrameworkTypeUtility.cs">
+      <Link>FrameworkTypeUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\FrameworkTypeUtility.Parsing.cs">
+      <Link>FrameworkTypeUtility.Parsing.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\FrameworkUtility.cs">
+      <Link>FrameworkUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\MathUtility.cs">
+      <Link>MathUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\CorsOrigins.cs">
+      <Link>Models\CorsOrigins.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\HierarchicalNameValuePair.cs">
+      <Link>Models\HierarchicalNameValuePair.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\IFrameworkAssemblyInfo.cs">
+      <Link>Models\IFrameworkAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\MimeTypes.cs">
+      <Link>Models\MimeTypes.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\NameValuePair.cs">
+      <Link>Models\NameValuePair.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\PackedResource.cs">
+      <Link>Models\PackedResource.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\PackedResourceOfT.cs">
+      <Link>Models\PackedResourceOfT.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\RestApiMetadata.cs">
+      <Link>Models\RestApiMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Models\RestPagingMetadata.cs">
+      <Link>Models\RestPagingMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\HtmlUtility.cs">
+      <Link>Xml\HtmlUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\LatinGlyphs.cs">
+      <Link>Xml\LatinGlyphs.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\XmlUtility.ExpandSpecialChars.cs">
+      <Link>Xml\XmlUtility.ExpandSpecialChars.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetInternalMessage.cs">
+      <Link>Xml\XmlUtility.GetInternalMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetInternalMessage.XmlTextWriter.cs">
+      <Link>Xml\XmlUtility.GetInternalMessage.XmlTextWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\XmlUtility.IsXml.cs">
+      <Link>Xml\XmlUtility.IsXml.cs</Link>
+    </Compile>
+    <Compile Include="..\Songhay\Xml\XmlUtility.StripNamespaces.cs">
+      <Link>Xml\XmlUtility.StripNamespaces.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

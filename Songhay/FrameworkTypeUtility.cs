@@ -4,7 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 
-#if !SILVERLIGHT && !PCL
+#if !NETSTANDARD12 && !SILVERLIGHT && !PCL
 
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -130,7 +130,7 @@ namespace Songhay
             return new string(chars);
         }
 
-#if !SILVERLIGHT && !PCL
+#if !NETSTANDARD12 && !SILVERLIGHT && !PCL
 
         /// <summary>
         /// Gets the deep clone.
@@ -181,7 +181,7 @@ namespace Songhay
             return ((array == null) || (array.Length == 0));
         }
 
-#if !PCL
+#if !NETSTANDARD12 && !PCL
         /// <summary>
         /// Sets the properties of the output <see cref="System.Type" />.
         /// </summary>
