@@ -39,6 +39,22 @@ namespace Songhay.Extensions
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName, string delimiter)
         {
+            return collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName, delimiter, throwConfigurationErrorsException: true);
+        }
+
+        /// <summary>
+        /// Gets the connection name from environment.
+        /// </summary>
+        /// <param name="collection">The collection.</param>
+        /// <param name="unqualifiedKey">The unqualified key.</param>
+        /// <param name="environmentName">Name of the environment.</param>
+        /// <param name="delimiter">The delimiter.</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+        /// <exception cref="ConfigurationErrorsException"></exception>
+        public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName, string delimiter, bool throwConfigurationErrorsException)
+        {
             if (collection == null) return null;
             if (string.IsNullOrEmpty(unqualifiedKey)) throw new ArgumentNullException("unqualifiedKey", "The expected App Settings key is not here.");
 
@@ -47,7 +63,10 @@ namespace Songhay.Extensions
 
             var containsKey1 = collection.OfType<ConnectionStringSettings>().Any(i => i.Name == name1);
             if (!containsKey1 && !collection.OfType<ConnectionStringSettings>().Any(i => i.Name == name2))
-                throw new ConfigurationErrorsException(string.Format("The expected Name, “{0}” or “{1}”, is not here.", name1, name2));
+            {
+                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException(string.Format("The expected Name, “{0}” or “{1}”, is not here.", name1, name2));
+                return null;
+            }
 
             return containsKey1 ? name1 : name2;
         }
@@ -115,6 +134,20 @@ namespace Songhay.Extensions
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static string GetEnvironmentName(this NameValueCollection settings, string environmentKey, string defaultEnvironmentName)
         {
+            return settings.GetEnvironmentName(environmentKey, defaultEnvironmentName, throwConfigurationErrorsException: true);
+        }
+
+        /// <summary>
+        /// Gets the name of the conventional deployment environment.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="environmentKey">The environment key.</param>
+        /// <param name="defaultEnvironmentName">Default name of the environment.</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+        /// <returns></returns>
+        /// <exception cref="ConfigurationErrorsException"></exception>
+        public static string GetEnvironmentName(this NameValueCollection settings, string environmentKey, string defaultEnvironmentName, bool throwConfigurationErrorsException)
+        {
             if (settings == null) return null;
 
             var hasKey = settings.AllKeys.Contains(environmentKey);
@@ -123,7 +156,10 @@ namespace Songhay.Extensions
                 return defaultEnvironmentName;
 
             if (!hasKey && string.IsNullOrEmpty(defaultEnvironmentName))
-                throw new ConfigurationErrorsException(string.Format("The expected Environment Key, `{0}`, is not here.", environmentKey));
+            {
+                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException(string.Format("The expected Environment Key, `{0}`, is not here.", environmentKey));
+                return null;
+            }
 
             return settings.GetSetting(environmentKey, throwConfigurationErrorsException: true);
         }
@@ -152,6 +188,22 @@ namespace Songhay.Extensions
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static string GetKeyWithEnvironmentName(this NameValueCollection settings, string unqualifiedKey, string environmentName, string delimiter)
         {
+            return settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName, delimiter, throwConfigurationErrorsException: true);
+        }
+
+        /// <summary>
+        /// Gets the key with environment name.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="unqualifiedKey">The unqualified key.</param>
+        /// <param name="environmentName">Name of the environment.</param>
+        /// <param name="delimiter">The delimiter.</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+        /// <exception cref="ConfigurationErrorsException"></exception>
+        public static string GetKeyWithEnvironmentName(this NameValueCollection settings, string unqualifiedKey, string environmentName, string delimiter, bool throwConfigurationErrorsException)
+        {
             if (settings == null) return null;
             if (string.IsNullOrEmpty(unqualifiedKey)) throw new ArgumentNullException("unqualifiedKey", "The expected App Settings key is not here.");
 
@@ -160,7 +212,10 @@ namespace Songhay.Extensions
 
             var containsKey1 = settings.AllKeys.Contains(key1);
             if (!containsKey1 && !settings.AllKeys.Contains(key2))
-                throw new ConfigurationErrorsException(string.Format("The expected Key, “{0}” or “{1}”, is not here.", key1, key2));
+            {
+                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException(string.Format("The expected Key, “{0}” or “{1}”, is not here.", key1, key2));
+                return null;
+            }
 
             return containsKey1 ? key1 : key2;
         }
