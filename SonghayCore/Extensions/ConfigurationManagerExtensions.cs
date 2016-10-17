@@ -48,8 +48,21 @@ namespace Songhay.Extensions
         /// <param name="collection">The collection.</param>
         /// <param name="unqualifiedKey">The unqualified key.</param>
         /// <param name="environmentName">Name of the environment.</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
+        /// <returns></returns>
+        public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName, bool throwConfigurationErrorsException)
+        {
+            return collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName, DeploymentEnvironment.ConfigurationKeyDelimiter, throwConfigurationErrorsException);
+        }
+
+        /// <summary>
+        /// Gets the connection name from environment.
+        /// </summary>
+        /// <param name="collection">The collection.</param>
+        /// <param name="unqualifiedKey">The unqualified key.</param>
+        /// <param name="environmentName">Name of the environment.</param>
         /// <param name="delimiter">The delimiter.</param>
-        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
@@ -87,7 +100,7 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="collection">The collection.</param>
         /// <param name="connectionName">Name of the connection.</param>
-        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static ConnectionStringSettings GetConnectionStringSettings(this ConnectionStringSettingsCollection collection, string connectionName, bool throwConfigurationErrorsException)
@@ -143,7 +156,7 @@ namespace Songhay.Extensions
         /// <param name="settings">The settings.</param>
         /// <param name="environmentKey">The environment key.</param>
         /// <param name="defaultEnvironmentName">Default name of the environment.</param>
-        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static string GetEnvironmentName(this NameValueCollection settings, string environmentKey, string defaultEnvironmentName, bool throwConfigurationErrorsException)
@@ -192,13 +205,26 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
+        /// Gets the name of the key with environment.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="unqualifiedKey">The unqualified key.</param>
+        /// <param name="environmentName">Name of the environment.</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+        /// <returns></returns>
+        public static string GetKeyWithEnvironmentName(this NameValueCollection settings, string unqualifiedKey, string environmentName, bool throwConfigurationErrorsException)
+        {
+            return settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName, DeploymentEnvironment.ConfigurationKeyDelimiter, throwConfigurationErrorsException);
+        }
+
+        /// <summary>
         /// Gets the key with environment name.
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <param name="unqualifiedKey">The unqualified key.</param>
         /// <param name="environmentName">Name of the environment.</param>
         /// <param name="delimiter">The delimiter.</param>
-        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
@@ -235,7 +261,7 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <param name="key">The key.</param>
-        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static string GetSetting(this NameValueCollection settings, string key, bool throwConfigurationErrorsException)
@@ -258,7 +284,7 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <param name="key">The key.</param>
-        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+        /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <param name="settingModifier">The setting modifier.</param>
         /// <returns></returns>
         public static string GetSetting(this NameValueCollection settings, string key, bool throwConfigurationErrorsException, Func<string, string> settingModifier)
