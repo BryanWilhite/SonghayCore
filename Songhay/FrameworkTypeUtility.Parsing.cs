@@ -10,13 +10,13 @@ namespace Songhay
     {
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"></see> return type.
+        /// to the <see cref="Nullable"></see> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"></see> box.
+        /// The specified <see cref="Object"></see> box.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"></see>
+        /// Always returns a <see cref="Nullable"></see>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -28,17 +28,17 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="supportBitStrings">
         /// When <c>true</c>, support "1" and "0"
         /// as Boolean strings.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -59,10 +59,10 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="supportBitStrings">
         /// When <c>true</c>, support "1" and "0"
@@ -72,7 +72,7 @@ namespace Songhay
         /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -86,13 +86,13 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -106,16 +106,16 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
         /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -128,13 +128,13 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -148,16 +148,16 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
         /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -170,16 +170,16 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="formatExpression">
         /// The string format expression.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -193,10 +193,10 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="formatExpression">
         /// The string format expression.
@@ -205,7 +205,7 @@ namespace Songhay
         /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -218,13 +218,13 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -238,16 +238,16 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
         /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -260,13 +260,13 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -280,16 +280,16 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
         /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -302,13 +302,30 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Enum"/> return type.
+        /// </summary>
+        /// <typeparam name="TEnum">The type of the enum.</typeparam>
+        /// <param name="frameworkValue">The framework value.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns></returns>
+        /// <remarks>
+        /// For background, see http://stackoverflow.com/a/15017429/22944
+        /// </remarks>
+        public static TEnum ParseEnum<TEnum>(string frameworkValue, TEnum defaultValue) where TEnum : struct
+        {
+            var isDefined = string.IsNullOrEmpty(frameworkValue) ? false : Enum.IsDefined(typeof(TEnum), frameworkValue);
+            return isDefined ? (TEnum)Enum.Parse(typeof(TEnum), frameworkValue) : default(TEnum);
+        }
+
+        /// <summary>
+        /// Tries to convert the specified frameworkValue
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -322,16 +339,16 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
         /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -344,13 +361,13 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -364,16 +381,16 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
         /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -386,13 +403,13 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -406,16 +423,16 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to the <see cref="System.Nullable"/> return type.
+        /// to the <see cref="Nullable"/> return type.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
         /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
-        /// Always returns a <see cref="System.Nullable"/>
+        /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
@@ -464,10 +481,10 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to a <see cref="System.String"/>.
+        /// to a <see cref="String"/>.
         /// </summary>
         /// <param name="frameworkValue">
-        /// The specified <see cref="System.Object"/> box.
+        /// The specified <see cref="Object"/> box.
         /// </param>
         public static string ParseString(object frameworkValue)
         {
@@ -476,7 +493,7 @@ namespace Songhay
 
         /// <summary>
         /// Tries to convert the specified frameworkValue
-        /// to a <see cref="System.String"/>.
+        /// to a <see cref="String"/>.
         /// </summary>
         /// <param name="frameworkValue">The frameworkValue.</param>
         /// <param name="defaultValue">The default frameworkValue.</param>
