@@ -314,7 +314,7 @@ namespace Songhay
         public static TEnum ParseEnum<TEnum>(string frameworkValue, TEnum defaultValue) where TEnum : struct
         {
             var isDefined = string.IsNullOrEmpty(frameworkValue) ? false : Enum.IsDefined(typeof(TEnum), frameworkValue);
-            return isDefined ? (TEnum)Enum.Parse(typeof(TEnum), frameworkValue) : default(TEnum);
+            return isDefined ? (TEnum)Enum.Parse(typeof(TEnum), frameworkValue) : defaultValue;
         }
 
         /// <summary>
