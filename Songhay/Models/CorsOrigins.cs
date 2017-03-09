@@ -38,7 +38,12 @@
         /// <summary>
         /// Uri <see cref="string"/> constant
         /// </summary>
-        public const string KintespaceCom = "http://kintespace.com";
+        public const string KinteSpaceAzure = "http://kintespace.azurewebsites.net";
+
+        /// <summary>
+        /// Uri <see cref="string"/> constant
+        /// </summary>
+        public const string KinteSpaceCom = "http://kintespace.com";
 
         /// <summary>
         /// Uri <see cref="string"/> constant
