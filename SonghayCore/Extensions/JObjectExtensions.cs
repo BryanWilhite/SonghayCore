@@ -11,7 +11,7 @@ namespace Songhay.Extensions
     public static class JObjectExtensions
     {
         /// <summary>
-        /// Gets the <see cref="Dictionary{string, string}"/>.
+        /// Gets the <see cref="Dictionary{TKey, TValue}"/>.
         /// </summary>
         /// <param name="jsonObject">The json object.</param>
         /// <param name="dictionaryPropertyName">Name of the dictionary property.</param>
@@ -22,7 +22,7 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Gets the <see cref="Dictionary{string, string}"/>.
+        /// Gets the <see cref="Dictionary{TKey, TValue}"/>.
         /// </summary>
         /// <param name="jsonObject">The json object.</param>
         /// <param name="dictionaryPropertyName">Name of the dictionary property.</param>
@@ -42,7 +42,7 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Gets the <see cref="Dictionary{string, string[]}"/>.
+        /// Gets the <see cref="Dictionary{TKey, TValue}"/>.
         /// </summary>
         /// <param name="jsonObject">The json object.</param>
         /// <returns></returns>
@@ -52,7 +52,7 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Gets the <see cref="Dictionary{string, string[]}"/>.
+        /// Gets the <see cref="Dictionary{TKey, TValue}"/>.
         /// </summary>
         /// <param name="jsonObject">The json object.</param>
         /// <param name="throwException">if set to <c>true</c> [throw exception].</param>

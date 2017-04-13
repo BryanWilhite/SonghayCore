@@ -2,7 +2,7 @@
 <package >
     <metadata>
         <id>SonghayCore</id>
-        <version>1.6.1</version>
+        <version>1.6.2</version>
         <title>Songhay Core</title>
         <authors>bryan.wilhite@gmail.com</authors>
         <owners>rasx@songhaysystem.com</owners>
@@ -11,11 +11,11 @@
         <licenseUrl>https://raw.github.com/BryanWilhite/SonghayCore/master/LICENSE.md</licenseUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>core libraries meant to be shared among Songhay projects</description>
-        <releaseNotes>added backwards-compatible (NET35) FrameworkTypeUtility.ParseEnum() member</releaseNotes>
+        <releaseNotes>NuGet packaging cleanup.</releaseNotes>
         <copyright>Copyright 2016 Bryan D. Wilhite</copyright>
         <tags>Core Songhay Configuration Cryptography LINQ</tags>
         <dependencies>
-            <dependency id="Newtonsoft.Json" version="[6.0,)" />
+            <dependency id="Newtonsoft.Json" version="6.0.1" />
         </dependencies>
     </metadata>
     <files>
@@ -23,19 +23,16 @@
         <file src="SonghayCore-net35\bin\Release\*.exe" exclude="**vshost**" target="lib/net35" />
         <file src="SonghayCore-net35\bin\Release\*.config" target="lib/net35" />
         <file src="SonghayCore-net35\bin\Release\*.xml" target="lib/net35" />
-        <file src="SonghayCore-net35\bin\Release\*.pdb" target="lib/net35" />
 
         <file src="SonghayCore-net40\bin\Release\*.dll" target="lib/net40" />
         <file src="SonghayCore-net40\bin\Release\*.exe" exclude="**vshost**" target="lib/net40" />
         <file src="SonghayCore-net40\bin\Release\*.config" target="lib/net40" />
         <file src="SonghayCore-net40\bin\Release\*.xml" target="lib/net40" />
-        <file src="SonghayCore-net40\bin\Release\*.pdb" target="lib/net40" />
 
         <file src="SonghayCore\bin\Release\*.dll" target="lib/net452" />
         <file src="SonghayCore\bin\Release\*.exe" exclude="**vshost**" target="lib/net452" />
         <file src="SonghayCore\bin\Release\*.config" target="lib/net452" />
         <file src="SonghayCore\bin\Release\*.xml" target="lib/net452" />
-        <file src="SonghayCore\bin\Release\*.pdb" target="lib/net452" />
 
         <file src="SonghayCore\**\*.cs" exclude="obj\**" target="src" />
     </files>

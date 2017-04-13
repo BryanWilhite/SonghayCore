@@ -359,7 +359,7 @@ namespace Songhay.Extensions
         /// with the application settings
         /// of the specified external configuration <see cref="XDocument" />.
         /// </summary>
-        /// <param name="settings">The settings.</param>
+        /// <param name="collection">The collection.</param>
         /// <param name="externalConfigurationDoc">The external configuration document.</param>
         /// <returns></returns>
         public static ConnectionStringSettingsCollection WithConnectionStringSettingsCollection(this ConnectionStringSettingsCollection collection, XDocument externalConfigurationDoc)
