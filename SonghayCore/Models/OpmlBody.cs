@@ -8,7 +8,7 @@ namespace Songhay.Models
     /// <summary>
     /// Defines a managed representation of the OPML body element.
     /// </summary>
-#if !NETSTANDARD12 && !SILVERLIGHT
+#if !NETSTANDARD1_2 && !SILVERLIGHT
     [Serializable]
 #endif
     [JsonObject("head", MemberSerialization = MemberSerialization.OptIn)]
@@ -18,7 +18,7 @@ namespace Songhay.Models
         /// Gets or sets the outlines.
         /// </summary>
         /// <value>The outlines.</value>
-#if !NETSTANDARD12
+#if !NETSTANDARD1_2
         [XmlElement(ElementName = "outline")]
 #endif
         [JsonProperty("outline")]

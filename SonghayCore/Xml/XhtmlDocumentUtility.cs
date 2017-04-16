@@ -90,6 +90,7 @@ namespace Songhay.Xml
             }
         }
 
+#if !NETSTANDARD1_4
         /// <summary>
         /// Writes the index of XHTML documents.
         /// </summary>
@@ -122,5 +123,6 @@ namespace Songhay.Xml
                 serializer.Serialize(writer, documents);
             }
         }
+#endif
     }
 }

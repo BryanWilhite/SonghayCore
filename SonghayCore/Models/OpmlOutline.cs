@@ -8,7 +8,7 @@ namespace Songhay.Models
     /// <summary>
     /// Defines a managed representation of the OPML outline element.
     /// </summary>
-#if !NETSTANDARD12 && !SILVERLIGHT
+#if !NETSTANDARD1_2 && !SILVERLIGHT
     [Serializable]
     [XmlRoot(ElementName = "outline")]
 #endif
@@ -19,7 +19,7 @@ namespace Songhay.Models
         /// Gets or sets the Category.
         /// </summary>
         /// <value>The ID.</value>
-#if !NETSTANDARD12
+#if !NETSTANDARD1_2
         [XmlAttribute(AttributeName = "category")]
 #endif
         [JsonProperty("category")]
@@ -29,7 +29,7 @@ namespace Songhay.Models
         /// Gets or sets the ID.
         /// </summary>
         /// <value>The ID.</value>
-#if !NETSTANDARD12
+#if !NETSTANDARD1_2
         [XmlAttribute(AttributeName = "id")]
 #endif
         [JsonProperty("id")]
@@ -41,7 +41,7 @@ namespace Songhay.Models
         /// <value>The outlines.</value>
         [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays",
             Justification = "Used for XML serialization.")]
-#if !NETSTANDARD12
+#if !NETSTANDARD1_2
         [XmlElement(ElementName = "outline")]
 #endif
         [JsonProperty("outline")]
@@ -51,7 +51,7 @@ namespace Songhay.Models
         /// Gets or sets the text.
         /// </summary>
         /// <value>The text.</value>
-#if !NETSTANDARD12
+#if !NETSTANDARD1_2
         [XmlAttribute(AttributeName = "text")]
 #endif
         [JsonProperty("text")]
@@ -61,7 +61,7 @@ namespace Songhay.Models
         /// Gets or sets the title.
         /// </summary>
         /// <value>The title.</value>
-#if !NETSTANDARD12
+#if !NETSTANDARD1_2
         [XmlAttribute(AttributeName = "title")]
 #endif
         [JsonProperty("title")]
@@ -71,7 +71,7 @@ namespace Songhay.Models
         /// Gets or sets the type.
         /// </summary>
         /// <value>The type.</value>
-#if !NETSTANDARD12
+#if !NETSTANDARD1_2
         [XmlAttribute(AttributeName = "type")]
 #endif
         [JsonProperty("type")]
@@ -81,7 +81,7 @@ namespace Songhay.Models
         /// Gets or sets the URL.
         /// </summary>
         /// <value>The URL.</value>
-#if !NETSTANDARD12
+#if !NETSTANDARD1_2
         [XmlAttribute(AttributeName = "url")]
 #endif
         [JsonProperty("url")]
@@ -93,7 +93,7 @@ namespace Songhay.Models
         /// Gets or sets the XML URL.
         /// </summary>
         /// <value>The XML URL.</value>
-#if !NETSTANDARD12
+#if !NETSTANDARD1_2
         [XmlAttribute(AttributeName = "xmlUrl")]
 #endif
         [JsonProperty("xmlUrl")]

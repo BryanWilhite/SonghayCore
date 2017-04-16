@@ -2,7 +2,7 @@
 <package >
     <metadata>
         <id>SonghayCore</id>
-        <version>1.6.3</version>
+        <version>1.6.4</version>
         <title>Songhay Core</title>
         <authors>bryan.wilhite@gmail.com</authors>
         <owners>rasx@songhaysystem.com</owners>
@@ -11,7 +11,7 @@
         <licenseUrl>https://raw.github.com/BryanWilhite/SonghayCore/master/LICENSE.md</licenseUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>core libraries meant to be shared among Songhay projects</description>
-        <releaseNotes>NuGet packaging cleanup.</releaseNotes>
+        <releaseNotes>Added support for net451 and net461 for WPF with .NET Standard.</releaseNotes>
         <copyright>Copyright 2016 Bryan D. Wilhite</copyright>
         <tags>Core Songhay Configuration Cryptography LINQ</tags>
         <dependencies>
@@ -29,10 +29,30 @@
         <file src="SonghayCore-net40\bin\Release\*.config" target="lib/net40" />
         <file src="SonghayCore-net40\bin\Release\*.xml" target="lib/net40" />
 
-        <file src="SonghayCore\bin\Release\*.dll" target="lib/net452" />
-        <file src="SonghayCore\bin\Release\*.exe" exclude="**vshost**" target="lib/net452" />
-        <file src="SonghayCore\bin\Release\*.config" target="lib/net452" />
-        <file src="SonghayCore\bin\Release\*.xml" target="lib/net452" />
+        <file src="SonghayCore-net451\bin\Release\*.dll" target="lib/net451" />
+        <file src="SonghayCore-net451\bin\Release\*.exe" exclude="**vshost**" target="lib/net451" />
+        <file src="SonghayCore-net451\bin\Release\*.config" target="lib/net451" />
+        <file src="SonghayCore-net451\bin\Release\*.xml" target="lib/net451" />
+
+        <file src="SonghayCore-net452\bin\Release\*.dll" target="lib/net452" />
+        <file src="SonghayCore-net452\bin\Release\*.exe" exclude="**vshost**" target="lib/net452" />
+        <file src="SonghayCore-net452\bin\Release\*.config" target="lib/net452" />
+        <file src="SonghayCore-net452\bin\Release\*.xml" target="lib/net452" />
+
+        <file src="SonghayCore-netstandard1.2\bin\Release\*.dll" target="lib/netstandard1.2" />
+        <file src="SonghayCore-netstandard1.2\bin\Release\*.exe" exclude="**vshost**" target="lib/netstandard1.2" />
+        <file src="SonghayCore-netstandard1.2\bin\Release\*.config" target="lib/netstandard1.2" />
+        <file src="SonghayCore-netstandard1.2\bin\Release\*.xml" target="lib/netstandard1.2" />
+
+        <file src="SonghayCore-netstandard1.4\bin\Release\*.dll" target="lib/netstandard1.4" />
+        <file src="SonghayCore-netstandard1.4\bin\Release\*.exe" exclude="**vshost**" target="lib/netstandard1.4" />
+        <file src="SonghayCore-netstandard1.4\bin\Release\*.config" target="lib/netstandard1.4" />
+        <file src="SonghayCore-netstandard1.4\bin\Release\*.xml" target="lib/netstandard1.4" />
+
+        <file src="SonghayCore\bin\Release\*.dll" target="lib/net461" />
+        <file src="SonghayCore\bin\Release\*.exe" exclude="**vshost**" target="lib/net461" />
+        <file src="SonghayCore\bin\Release\*.config" target="lib/net461" />
+        <file src="SonghayCore\bin\Release\*.xml" target="lib/net461" />
 
         <file src="SonghayCore\**\*.cs" exclude="obj\**" target="src" />
     </files>

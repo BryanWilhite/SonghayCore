@@ -63,9 +63,8 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -91,13 +90,13 @@
     <Compile Include="Xml\XmlUtilityTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SonghayCore-net452\SonghayCore-net452.csproj">
+      <Project>{a17bc02b-157d-452f-aefe-6a93429df731}</Project>
+      <Name>SonghayCore-net452</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SonghayCoreTesting\SonghayCoreTesting.csproj">
       <Project>{88808c88-32d9-4159-b5dc-3b5b51cde1d7}</Project>
       <Name>SonghayCoreTesting</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SonghayCore\SonghayCore.csproj">
-      <Project>{7B183BBC-21BE-4605-B549-74BA23489245}</Project>
-      <Name>SonghayCore</Name>
     </ProjectReference>
     <ProjectReference Include="..\Songhay\Songhay.csproj">
       <Project>{C86DCA41-9E6C-44F1-8571-C8B6B79C5AE4}</Project>

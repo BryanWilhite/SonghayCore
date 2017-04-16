@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A17BC02B-157D-452F-AEFE-6A93429DF731}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Songhay</RootNamespace>
+    <AssemblyName>SonghayCore</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\songhaycore\collections\ObservableSortingCollection.cs">
+      <Link>Collections\ObservableSortingCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\collections\RefreshEventArgs.cs">
+      <Link>Collections\RefreshEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\collections\SortableCollectionView.cs">
+      <Link>Collections\SortableCollectionView.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\componentmodel\BackgroundWorkerUtility.cs">
+      <Link>ComponentModel\BackgroundWorkerUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\diagnostics\TraceSources.cs">
+      <Link>Diagnostics\TraceSources.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\exceptions\CsvParseException.cs">
+      <Link>Exceptions\CsvParseException.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\ExpressionSeed.cs">
+      <Link>ExpressionSeed.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\ArrayExtensions.cs">
+      <Link>Extensions\ArrayExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\ConfigurationManagerExtensions.cs">
+      <Link>Extensions\ConfigurationManagerExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\DataServiceCollectionExtensions.cs">
+      <Link>Extensions\DataServiceCollectionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\DataSetExtensions.cs">
+      <Link>Extensions\DataSetExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\DateTimeExtensions.cs">
+      <Link>Extensions\DateTimeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\DateTimeExtensions.MonthNames.cs">
+      <Link>Extensions\DateTimeExtensions.MonthNames.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\DisplayItemModelExtensions.cs">
+      <Link>Extensions\DisplayItemModelExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\EncryptionMetadataExtensions.cs">
+      <Link>Extensions\EncryptionMetadataExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\EnumExtensions.cs">
+      <Link>Extensions\EnumExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\EnvironmentExtensions.cs">
+      <Link>Extensions\EnvironmentExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\ExpressionExtensions.cs">
+      <Link>Extensions\ExpressionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\FuncExtensions.cs">
+      <Link>Extensions\FuncExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\ICommunicationObjectExtensions.cs">
+      <Link>Extensions\ICommunicationObjectExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\IDictionaryExtensions.cs">
+      <Link>Extensions\IDictionaryExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\IEnumerableOfTExtensions.cs">
+      <Link>Extensions\IEnumerableOfTExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\IIdentityExtensions.cs">
+      <Link>Extensions\IIdentityExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\JObjectExtensions.cs">
+      <Link>Extensions\JObjectExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\MenuDisplayItemModelExtensions.cs">
+      <Link>Extensions\MenuDisplayItemModelExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\NullableExtensions.cs">
+      <Link>Extensions\NullableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\ObjectExtensions.cs">
+      <Link>Extensions\ObjectExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\ObservableCollectionExtensions.cs">
+      <Link>Extensions\ObservableCollectionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\OpenAuthorizationDataExtensions.cs">
+      <Link>Extensions\OpenAuthorizationDataExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\RestApiMetadataExtensions.cs">
+      <Link>Extensions\RestApiMetadataExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\StringExtensions.cs">
+      <Link>Extensions\StringExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\StringExtensions.CsvSplit.cs">
+      <Link>Extensions\StringExtensions.CsvSplit.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\StringExtensions.Fluent.cs">
+      <Link>Extensions\StringExtensions.Fluent.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\StringExtensions.Globalization.cs">
+      <Link>Extensions\StringExtensions.Globalization.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\TaskExtensions.cs">
+      <Link>Extensions\TaskExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\TimeSpanExtensions.cs">
+      <Link>Extensions\TimeSpanExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\TraceSourceExtensions.cs">
+      <Link>Extensions\TraceSourceExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\TraceSourcesExtensions.cs">
+      <Link>Extensions\TraceSourcesExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\UriExtensions.cs">
+      <Link>Extensions\UriExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\ValidationContextExtensions.cs">
+      <Link>Extensions\ValidationContextExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\XElementExtensions.cs">
+      <Link>Extensions\XElementExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\XNamespaceExtensions.cs">
+      <Link>Extensions\XNamespaceExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\extensions\XNodeExtensions.cs">
+      <Link>Extensions\XNodeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\FuncSeed.cs">
+      <Link>FuncSeed.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\globalization\TextInfoUtility.cs">
+      <Link>Globalization\TextInfoUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\BackgroundWorkerUtilityData.cs">
+      <Link>Models\BackgroundWorkerUtilityData.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\ColorDisplayItemModel.cs">
+      <Link>Models\ColorDisplayItemModel.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\DataParameterMetadata.cs">
+      <Link>Models\DataParameterMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\DeploymentEnvironment.cs">
+      <Link>Models\DeploymentEnvironment.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\DisplayItemModel.cs">
+      <Link>Models\DisplayItemModel.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\DisplayItemModelCategories.cs">
+      <Link>Models\DisplayItemModelCategories.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\EditableObjectCache.cs">
+      <Link>Models\EditableObjectCache.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\EncryptionMetadata.cs">
+      <Link>Models\EncryptionMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\IColorable.cs">
+      <Link>Models\IColorable.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\IControlInteractionMessage.cs">
+      <Link>Models\IControlInteractionMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\IRepository.cs">
+      <Link>Models\IRepository.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\ISelectable.cs">
+      <Link>Models\ISelectable.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\ISortable.cs">
+      <Link>Models\ISortable.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\ISyndicatable.cs">
+      <Link>Models\ISyndicatable.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\LazyDisplayItem.cs">
+      <Link>Models\LazyDisplayItem.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\MenuDisplayItemModel.cs">
+      <Link>Models\MenuDisplayItemModel.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\OpenAuthorizationData.cs">
+      <Link>Models\OpenAuthorizationData.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\OpmlBody.cs">
+      <Link>Models\OpmlBody.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\OpmlDocument.cs">
+      <Link>Models\OpmlDocument.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\OpmlHead.cs">
+      <Link>Models\OpmlHead.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\OpmlOutline.cs">
+      <Link>Models\OpmlOutline.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\PagedResult.cs">
+      <Link>Models\PagedResult.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\PagedResultMeta.cs">
+      <Link>Models\PagedResultMeta.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\XEncoding.cs">
+      <Link>Models\XEncoding.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\models\XObjectMetadata.cs">
+      <Link>Models\XObjectMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\security\SaltedHash.cs">
+      <Link>Security\SaltedHash.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\security\SymmetricCrypt.cs">
+      <Link>Security\SymmetricCrypt.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\servicemodel\BasicHttpBinaryBinding.cs">
+      <Link>ServiceModel\BasicHttpBinaryBinding.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\text\CsvExporter.cs">
+      <Link>Text\CsvExporter.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\xml\OpmlUtility.Get.cs">
+      <Link>Xml\OpmlUtility.Get.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\xml\XhtmlDocumentUtility.cs">
+      <Link>Xml\XhtmlDocumentUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\xml\XObjectUtility.GetValue.cs">
+      <Link>Xml\XObjectUtility.GetValue.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\xml\XObjectUtility.GetXAttributeValue.cs">
+      <Link>Xml\XObjectUtility.GetXAttributeValue.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\xml\XObjectUtility.GetXDeclaration.cs">
+      <Link>Xml\XObjectUtility.GetXDeclaration.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\xml\XObjectUtility.GetXElement.cs">
+      <Link>Xml\XObjectUtility.GetXElement.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\xml\XObjectUtility.GetXNode.cs">
+      <Link>Xml\XObjectUtility.GetXNode.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\xml\XObjectUtility.GetXObject.cs">
+      <Link>Xml\XObjectUtility.GetXObject.cs</Link>
+    </Compile>
+    <Compile Include="..\songhaycore\xml\XObjectUtility.XText.cs">
+      <Link>Xml\XObjectUtility.XText.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Songhay\Songhay.csproj">
+      <Project>{c86dca41-9e6c-44f1-8571-c8b6b79c5ae4}</Project>
+      <Name>Songhay</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

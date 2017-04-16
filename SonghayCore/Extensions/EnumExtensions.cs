@@ -11,7 +11,7 @@ namespace Songhay.Extensions
     /// </summary>
     public static class EnumExtensions
     {
-#if !NETSTANDARD12
+#if !NETSTANDARD1_2 && !NETSTANDARD1_4
         /// <summary>
         /// Gets the enum description.
         /// </summary>
