@@ -15,10 +15,18 @@
         <copyright>Copyright 2016 Bryan D. Wilhite</copyright>
         <tags>Core Songhay Configuration Cryptography LINQ</tags>
         <dependencies>
-            <group targetFramework=".NETFramework4.5" />
-            <group targetFramework=".NETFramework4.0" />
-            <group targetFramework=".NETFramework3.5" />
-            <group targetFramework=".NETFramework2.0" />
+            <group targetFramework=".NETFramework4.5.2">
+                <dependency id="Newtonsoft.Json" version="6.0.1" />
+            </group>
+            <group targetFramework=".NETFramework4.5.1">
+                <dependency id="Newtonsoft.Json" version="6.0.1" />
+            </group>
+            <group targetFramework=".NETFramework4.0">
+                <dependency id="Newtonsoft.Json" version="6.0.1" />
+            </group>
+            <group targetFramework=".NETFramework3.5">
+                <dependency id="Newtonsoft.Json" version="6.0.1" />
+            </group>
             <group targetFramework=".NETStandard1.2">
                 <dependency id="Newtonsoft.Json" version="6.0.1" />
                 <dependency id="System.Xml.XmlSerializer" version="4.3.0" />
@@ -68,6 +76,6 @@
         <file src="SonghayCore\bin\Release\*.config" target="lib/net461" />
         <file src="SonghayCore\bin\Release\*.xml" target="lib/net461" />
 
-        <file src="SonghayCore\**\*.cs" exclude="obj\**" target="src" />
+        <file src="SonghayCore\**\*.cs" exclude="SonghayCore\**\obj\**" target="src" />
     </files>
 </package>
