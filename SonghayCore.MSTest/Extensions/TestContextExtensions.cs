@@ -150,6 +150,19 @@ namespace Songhay.Extensions
         /// <param name="namespaceArrayModifier">The namespace array modifier.</param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentException">The expected number of Namespace parts is not here.</exception>
+        /// <remarks>
+        /// A Projects Folder for this method is not the default Solution (*.sln) in its own folder.
+        /// This is the unconventional layout:
+        /// <code>
+        /// SourceFolder\
+        ///     .vs\
+        ///     Foo.Solution1.sln
+        ///     Foo.Solution2.sln
+        ///     Foo.Solution.Project1\
+        ///     Foo.Solution.Project2\
+        ///     Foo.Solution.Project3\
+        /// </code>
+        /// </remarks>
         public static string ShouldGetProjectsFolder(this TestContext context, Type typeInAssembly, Func<string[], string[]> namespaceArrayModifier)
         {
             var path = context.ShouldGetAssemblyDirectory(typeInAssembly);
@@ -166,6 +179,46 @@ namespace Songhay.Extensions
 
             return path;
         }
+
+        /// <summary>
+        /// Test context extensions: should get projects folder.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="typeInAssembly">The type in assembly.</param>
+        public static string ShouldGetSolutionFolder(this TestContext context, Type typeInAssembly)
+        {
+            return context.ShouldGetSolutionFolder(typeInAssembly, namespaceArrayModifier: null);
+        }
+
+        /// <summary>
+        /// Test context extensions: should get projects folder.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="typeInAssembly">The type in assembly.</param>
+        /// <param name="namespaceArrayModifier">The namespace array modifier.</param>
+        /// <returns></returns>
+        /// <remarks>
+        /// This method is designed for the conventional Solution file in a folder with its projects:
+        /// This is the conventional layout:
+        /// <code>
+        /// SourceFolder\
+        ///     Foo.Solution1\
+        ///         .vs\
+        ///         Foo.Solution1.sln
+        ///         Foo.Solution.Project1\
+        ///         Foo.Solution.Project2\
+        ///         Foo.Solution.Project3\
+        /// </code>
+        /// </remarks>
+        public static string ShouldGetSolutionFolder(this TestContext context, Type typeInAssembly, Func<string[], string[]> namespaceArrayModifier)
+        {
+            var path = context.ShouldGetProjectsFolder(typeInAssembly, namespaceArrayModifier);
+            path = Path.Combine(path, string.Join(".", typeInAssembly.Namespace.Split('.').Take(2)), typeInAssembly.Namespace);
+            context.ShouldFindFolder(path);
+
+            return path;
+        }
+
 
         /// <summary>
         /// Test context extensions: should load list of strings.
