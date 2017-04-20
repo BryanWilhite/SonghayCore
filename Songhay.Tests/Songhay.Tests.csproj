@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Songhay.Tests</RootNamespace>
     <AssemblyName>Songhay.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -80,6 +80,9 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions.cs">
+      <Link>Extensions\TestContextExtensions.cs</Link>
+    </Compile>
     <Compile Include="FrameworkAssemblyUtilityTest.cs" />
     <Compile Include="FrameworkFileUtilityTest.cs" />
     <Compile Include="FrameworkTypeUtilityTest.cs" />
@@ -93,13 +96,9 @@
     <Compile Include="Xml\XmlUtilityTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SonghayCore-net452\SonghayCore-net452.csproj">
-      <Project>{a17bc02b-157d-452f-aefe-6a93429df731}</Project>
-      <Name>SonghayCore-net452</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SonghayCore.MSTest\SonghayCore.MSTest.csproj">
-      <Project>{b8215fb9-bc5c-4584-aa60-270810b709e3}</Project>
-      <Name>SonghayCore.MSTest</Name>
+    <ProjectReference Include="..\SonghayCore\SonghayCore.csproj">
+      <Project>{7b183bbc-21be-4605-b549-74ba23489245}</Project>
+      <Name>SonghayCore</Name>
     </ProjectReference>
     <ProjectReference Include="..\Songhay\Songhay.csproj">
       <Project>{C86DCA41-9E6C-44F1-8571-C8B6B79C5AE4}</Project>
