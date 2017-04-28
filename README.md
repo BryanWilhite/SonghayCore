@@ -1,4 +1,5 @@
 # SonghayCore
+
 The _Core_ code to install as a NuGet package for all of my solutions. Currently, this package supports `net35`, `net40`, `net451` (for WPF), `net452` and `net461` (for WPF). This package also supports .NET Standard 1.2 and 1.4.
 
 There are actually two _Core_ projects, `Songhay` (a .NET 2.0 project) and `SonghayCore` (a .NET latest-ish project). Two projects exist largely for historical reasons.
@@ -9,27 +10,31 @@ There are actually two _Core_ projects, `Songhay` (a .NET 2.0 project) and `Song
 
 ## _Core_ Reusable, Opinionated Concerns
 
-### `SonghayCoreTesting`
-[Extension methods](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCoreTesting/Extensions/TestContextExtensions.cs) of `Microsoft.VisualStudio.TestTools.UnitTesting.TestContext` define reusable routines for MSTEST/VSTEST projects.
+### `SonghayCore.MSTest`
 
-**NuGet package:** [`SonghayCoreTesting`](https://www.nuget.org/packages/SonghayCoreTesting/)
+[Extension methods](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.MSTest/Extensions/TestContextExtensions.cs) of `Microsoft.VisualStudio.TestTools.UnitTesting.TestContext` define reusable routines for MSTEST/VSTEST projects, based on [the open source framework](https://github.com/Microsoft/vstest) from Microsoft.
+
+**NuGet package:** [`SonghayCore.MSTest`](http://www.nuget.org/packages/SonghayCore.MSTest/)
 
 ### `Songhay.Diagnostics`
-[`TraceSources`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Diagnostics/TraceSources.cs) defines how tracing should be implemented with a bias toward using ënativeí .NET tracing.
+
+[`TraceSources`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Diagnostics/TraceSources.cs) defines how tracing should be implemented with a bias toward using ‚Äúnative‚Äù .NET tracing.
 
 **NuGet package:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
 
 ### `Songhay.Extensions`
+
 The Songhay System uses imperative C# code with a view to make it more functional in an effort to control complexity and enhance maintainability.
 
-The preference for [extension methods](https://github.com/BryanWilhite/SonghayCore/tree/master/SonghayCore/Extensions) encourages stateless, reusable routines (many of them are ìpureî functions).
+The preference for [extension methods](https://github.com/BryanWilhite/SonghayCore/tree/master/SonghayCore/Extensions) encourages stateless, reusable routines (many of them are ‚Äúpure‚Äù functions).
 
 **NuGet package:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
 
 ### `Songhay.Models`
+
 The _Core_ models of the Songhay System define types for MIME, XHTML, OPML, REST, the Repository, the Display Item (for WPF and other MVVM solutions), etc.
 
-The _Core_ models are ìanemicî by design (there are very few abstract classes)óany logic would be found _first_ in an Extension Method.
+The _Core_ models are ‚Äúanemic‚Äù by design (there are very few abstract classes)‚Äîany logic would be found _first_ in an Extension Method.
 
 **NuGet package:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
 
@@ -40,11 +45,13 @@ Extensions of `System.Net.HttpWebRequest` for legacy (`net35`) applications.
 **NuGet package:** [`System.Net.HttpWebRequest`](https://www.nuget.org/packages/Songhay.Net.HttpWebRequest/)
 
 ### `Songhay.Security`
+
 [Songhay System security](https://github.com/BryanWilhite/SonghayCore/tree/master/Songhay.Security) is to date concerned with string encryption.
 
 **NuGet package:** [`Songhay.Security`](https://www.nuget.org/packages/Songhay.Security/)
 
 ### `Songhay.Xml`
-The ëcoreí of the _Core_ is concern for XML. The Songhay System started out as utilities around [`XPathDocument`](https://msdn.microsoft.com/en-us/library/system.xml.xpath.xpathdocument(v=vs.110).aspx) and grew into LINQ for XMLóover [`XDocument`](https://msdn.microsoft.com/en-us/library/system.xml.linq.xdocument(v=vs.110).aspx).
+
+The ‚Äúcore‚Äù of the _Core_ is concern for XML. The Songhay System started out as utilities around [`XPathDocument`](https://msdn.microsoft.com/en-us/library/system.xml.xpath.xpathdocument(v=vs.110).aspx) and grew into LINQ for XML‚Äîover [`XDocument`](https://msdn.microsoft.com/en-us/library/system.xml.linq.xdocument(v=vs.110).aspx).
 
 **NuGet package:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
