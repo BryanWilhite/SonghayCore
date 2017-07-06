@@ -37,7 +37,7 @@ namespace Cetera.Services.Extensions
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
         /// <param name="defaultValue">The default value.</param>
-        /// <param name="hasLineBreak">When <c>true</c> add <see cref="Environment.NewLine" /> between label and value.</param>
+        /// <param name="hasLineBreak">When <c>true</c> add <see cref="System.Environment.NewLine" /> between label and value.</param>
         /// <remarks>
         /// This method will append <c>name: value</c> to the appending <see cref="StringBuilder"/>.
         /// This is useful when overriding <see cref="object.ToString"/>.
