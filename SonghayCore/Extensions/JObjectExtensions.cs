@@ -91,6 +91,8 @@ namespace Songhay.Extensions
         public static JArray GetJArray(this JObject jsonObject, string arrayPropertyName, bool throwException)
         {
             var token = jsonObject.GetJToken(arrayPropertyName, throwException);
+            if (token == null) return null;
+
             JArray jsonArray = null;
             if (token.HasValues) jsonArray = (JArray)token;
             else if (throwException) throw new FormatException(string.Format("The expected array “{0}” is not here.", arrayPropertyName));
@@ -117,8 +119,7 @@ namespace Songhay.Extensions
             if ((jsonObject == null) && throwException) throw new ArgumentNullException("jsonObject", "The expected JObject is not here.");
             if (string.IsNullOrEmpty(objectPropertyName)) throw new ArgumentNullException("objectPropertyName", "The expected property name is not here.");
 
-            JToken token = null;
-            if (!jsonObject.TryGetValue(objectPropertyName, out token) && throwException)
+            if (!jsonObject.TryGetValue(objectPropertyName, out JToken token) && throwException)
                 throw new FormatException(string.Format("The expected property name “{0}” is not here.", objectPropertyName));
 
             return token;
@@ -150,12 +151,14 @@ namespace Songhay.Extensions
         public static JToken GetJTokenFromJArray(this JObject jsonObject, string arrayPropertyName, string objectPropertyName, int arrayIndex, bool throwException)
         {
             var jsonArray = jsonObject.GetJArray(arrayPropertyName, throwException);
+            if (jsonArray == null) return null;
 
             var jsonToken = jsonArray.ElementAtOrDefault(arrayIndex);
             if (jsonToken == default(JToken))
             {
                 var errorMessage = string.Format("The expected JToken in the JArray at index {0} is not here.", arrayIndex);
                 if (throwException) throw new NullReferenceException(errorMessage);
+                else return null;
             }
 
             var jO = jsonToken as JObject;
@@ -163,6 +166,7 @@ namespace Songhay.Extensions
             {
                 var errorMessage = "The expected JObject of the JToken is not here.";
                 if (throwException) throw new NullReferenceException(errorMessage);
+                else return null;
             }
 
             jsonToken = jO.GetJToken(objectPropertyName, throwException);
