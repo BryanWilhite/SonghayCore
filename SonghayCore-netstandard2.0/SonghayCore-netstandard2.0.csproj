@@ -7,7 +7,146 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\SonghayCore\Diagnostics\TraceSources.cs" Link="Diagnostics\TraceSources.cs" />
+    <Compile Include="..\SonghayCore\Exceptions\CsvParseException.cs" Link="Exceptions\CsvParseException.cs" />
+    <Compile Include="..\SonghayCore\ExpressionSeed.cs" Link="ExpressionSeed.cs" />
+    <Compile Include="..\SonghayCore\Extensions\ArrayExtensions.cs" Link="Extensions\ArrayExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\DataSetExtensions.cs" Link="Extensions\DataSetExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\DateTimeExtensions.cs" Link="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\DateTimeExtensions.MonthNames.cs" Link="Extensions\DateTimeExtensions.MonthNames.cs" />
+    <Compile Include="..\SonghayCore\Extensions\DisplayItemModelExtensions.cs" Link="Extensions\DisplayItemModelExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\EnumExtensions.cs" Link="Extensions\EnumExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\EnvironmentExtensions.cs" Link="Extensions\EnvironmentExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\ExpressionExtensions.cs" Link="Extensions\ExpressionExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\FuncExtensions.cs" Link="Extensions\FuncExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\IDictionaryExtensions.cs" Link="Extensions\IDictionaryExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\IEnumerableOfTExtensions.cs" Link="Extensions\IEnumerableOfTExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\IIdentityExtensions.cs" Link="Extensions\IIdentityExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\JObjectExtensions.cs" Link="Extensions\JObjectExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\MenuDisplayItemModelExtensions.cs" Link="Extensions\MenuDisplayItemModelExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\NullableExtensions.cs" Link="Extensions\NullableExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\ObjectExtensions.cs" Link="Extensions\ObjectExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\ObservableCollectionExtensions.cs" Link="Extensions\ObservableCollectionExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\OpenAuthorizationDataExtensions.cs" Link="Extensions\OpenAuthorizationDataExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\StringBuilderExtensions.cs" Link="Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\StringExtensions.cs" Link="Extensions\StringExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\StringExtensions.CsvSplit.cs" Link="Extensions\StringExtensions.CsvSplit.cs" />
+    <Compile Include="..\SonghayCore\Extensions\StringExtensions.Fluent.cs" Link="Extensions\StringExtensions.Fluent.cs" />
+    <Compile Include="..\SonghayCore\Extensions\StringExtensions.Globalization.cs" Link="Extensions\StringExtensions.Globalization.cs" />
+    <Compile Include="..\SonghayCore\Extensions\TaskExtensions.cs" Link="Extensions\TaskExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\TimeSpanExtensions.cs" Link="Extensions\TimeSpanExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\TraceSourceExtensions.cs" Link="Extensions\TraceSourceExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\UriExtensions.cs" Link="Extensions\UriExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\ValidationContextExtensions.cs" Link="Extensions\ValidationContextExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\XElementExtensions.cs" Link="Extensions\XElementExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\XNamespaceExtensions.cs" Link="Extensions\XNamespaceExtensions.cs" />
+    <Compile Include="..\SonghayCore\Extensions\XNodeExtensions.cs" Link="Extensions\XNodeExtensions.cs" />
+    <Compile Include="..\SonghayCore\FuncSeed.cs" Link="FuncSeed.cs" />
+    <Compile Include="..\SonghayCore\Globalization\TextInfoUtility.cs" Link="Globalization\TextInfoUtility.cs" />
+    <Compile Include="..\SonghayCore\Models\BackgroundWorkerUtilityData.cs" Link="Models\BackgroundWorkerUtilityData.cs" />
+    <Compile Include="..\SonghayCore\Models\ColorDisplayItemModel.cs" Link="Models\ColorDisplayItemModel.cs" />
+    <Compile Include="..\SonghayCore\Models\DataParameterMetadata.cs" Link="Models\DataParameterMetadata.cs" />
+    <Compile Include="..\SonghayCore\Models\DeploymentEnvironment.cs" Link="Models\DeploymentEnvironment.cs" />
+    <Compile Include="..\SonghayCore\Models\DisplayItemModel.cs" Link="Models\DisplayItemModel.cs" />
+    <Compile Include="..\SonghayCore\Models\DisplayItemModelCategories.cs" Link="Models\DisplayItemModelCategories.cs" />
+    <Compile Include="..\SonghayCore\Models\EditableObjectCache.cs" Link="Models\EditableObjectCache.cs" />
+    <Compile Include="..\SonghayCore\Models\EncryptionMetadata.cs" Link="Models\EncryptionMetadata.cs" />
+    <Compile Include="..\SonghayCore\Models\IColorable.cs" Link="Models\IColorable.cs" />
+    <Compile Include="..\SonghayCore\Models\IControlInteractionMessage.cs" Link="Models\IControlInteractionMessage.cs" />
+    <Compile Include="..\SonghayCore\Models\IRepository.cs" Link="Models\IRepository.cs" />
+    <Compile Include="..\SonghayCore\Models\ISelectable.cs" Link="Models\ISelectable.cs" />
+    <Compile Include="..\SonghayCore\Models\ISortable.cs" Link="Models\ISortable.cs" />
+    <Compile Include="..\SonghayCore\Models\LazyDisplayItem.cs" Link="Models\LazyDisplayItem.cs" />
+    <Compile Include="..\SonghayCore\Models\MenuDisplayItemModel.cs" Link="Models\MenuDisplayItemModel.cs" />
+    <Compile Include="..\SonghayCore\Models\OpenAuthorizationData.cs" Link="Models\OpenAuthorizationData.cs" />
+    <Compile Include="..\SonghayCore\Models\OpmlBody.cs" Link="Models\OpmlBody.cs" />
+    <Compile Include="..\SonghayCore\Models\OpmlDocument.cs" Link="Models\OpmlDocument.cs" />
+    <Compile Include="..\SonghayCore\Models\OpmlHead.cs" Link="Models\OpmlHead.cs" />
+    <Compile Include="..\SonghayCore\Models\OpmlOutline.cs" Link="Models\OpmlOutline.cs" />
+    <Compile Include="..\SonghayCore\Models\PagedResult.cs" Link="Models\PagedResult.cs" />
+    <Compile Include="..\SonghayCore\Models\PagedResultMeta.cs" Link="Models\PagedResultMeta.cs" />
+    <Compile Include="..\SonghayCore\Models\XEncoding.cs" Link="Models\XEncoding.cs" />
+    <Compile Include="..\SonghayCore\Models\XObjectMetadata.cs" Link="Models\XObjectMetadata.cs" />
+    <Compile Include="..\SonghayCore\Security\SaltedHash.cs" Link="Security\SaltedHash.cs" />
+    <Compile Include="..\SonghayCore\Security\SymmetricCrypt.cs" Link="Security\SymmetricCrypt.cs" />
+    <Compile Include="..\SonghayCore\Text\CsvExporter.cs" Link="Text\CsvExporter.cs" />
+    <Compile Include="..\SonghayCore\Xml\OpmlUtility.Get.cs" Link="Xml\OpmlUtility.Get.cs" />
+    <Compile Include="..\SonghayCore\Xml\XhtmlDocumentUtility.cs" Link="Xml\XhtmlDocumentUtility.cs" />
+    <Compile Include="..\SonghayCore\Xml\XObjectUtility.GetValue.cs" Link="Xml\XObjectUtility.GetValue.cs" />
+    <Compile Include="..\SonghayCore\Xml\XObjectUtility.GetXAttributeValue.cs" Link="Xml\XObjectUtility.GetXAttributeValue.cs" />
+    <Compile Include="..\SonghayCore\Xml\XObjectUtility.GetXDeclaration.cs" Link="Xml\XObjectUtility.GetXDeclaration.cs" />
+    <Compile Include="..\SonghayCore\Xml\XObjectUtility.GetXElement.cs" Link="Xml\XObjectUtility.GetXElement.cs" />
+    <Compile Include="..\SonghayCore\Xml\XObjectUtility.GetXNode.cs" Link="Xml\XObjectUtility.GetXNode.cs" />
+    <Compile Include="..\SonghayCore\Xml\XObjectUtility.GetXObject.cs" Link="Xml\XObjectUtility.GetXObject.cs" />
+    <Compile Include="..\SonghayCore\Xml\XObjectUtility.XText.cs" Link="Xml\XObjectUtility.XText.cs" />
+    <Compile Include="..\Songhay\FrameworkAssemblyUtility.cs" Link="FrameworkAssemblyUtility.cs" />
+    <Compile Include="..\Songhay\FrameworkFileUtility.cs" Link="FrameworkFileUtility.cs" />
+    <Compile Include="..\Songhay\FrameworkTypeUtility.cs" Link="FrameworkTypeUtility.cs" />
+    <Compile Include="..\Songhay\FrameworkTypeUtility.Parsing.cs" Link="FrameworkTypeUtility.Parsing.cs" />
+    <Compile Include="..\Songhay\FrameworkUtility.cs" Link="FrameworkUtility.cs" />
+    <Compile Include="..\Songhay\FrameworkUtility.InteropServices.cs" Link="FrameworkUtility.InteropServices.cs" />
+    <Compile Include="..\Songhay\FrameworkUtility.StackTrace.cs" Link="FrameworkUtility.StackTrace.cs" />
+    <Compile Include="..\Songhay\MathUtility.cs" Link="MathUtility.cs" />
+    <Compile Include="..\Songhay\Models\CorsOrigins.cs" Link="Models\CorsOrigins.cs" />
+    <Compile Include="..\Songhay\Models\FrameworkAssemblyInfo.cs" Link="Models\FrameworkAssemblyInfo.cs" />
+    <Compile Include="..\Songhay\Models\HierarchicalNameValuePair.cs" Link="Models\HierarchicalNameValuePair.cs" />
+    <Compile Include="..\Songhay\Models\IFrameworkAssemblyInfo.cs" Link="Models\IFrameworkAssemblyInfo.cs" />
+    <Compile Include="..\Songhay\Models\MimeTypes.cs" Link="Models\MimeTypes.cs" />
+    <Compile Include="..\Songhay\Models\NameValuePair.cs" Link="Models\NameValuePair.cs" />
+    <Compile Include="..\Songhay\Models\PackedResource.cs" Link="Models\PackedResource.cs" />
+    <Compile Include="..\Songhay\Models\PackedResourceOfT.cs" Link="Models\PackedResourceOfT.cs" />
+    <Compile Include="..\Songhay\Models\RestApiMetadata.cs" Link="Models\RestApiMetadata.cs" />
+    <Compile Include="..\Songhay\Models\RestPagingMetadata.cs" Link="Models\RestPagingMetadata.cs" />
+    <Compile Include="..\Songhay\Models\SystemErrorCodes.cs" Link="Models\SystemErrorCodes.cs" />
+    <Compile Include="..\Songhay\Models\SystemVariable.cs" Link="Models\SystemVariable.cs" />
+    <Compile Include="..\Songhay\Models\SystemVariableOfT.cs" Link="Models\SystemVariableOfT.cs" />
+    <Compile Include="..\Songhay\Models\XhtmlDocument.cs" Link="Models\XhtmlDocument.cs" />
+    <Compile Include="..\Songhay\Models\XhtmlDocuments.cs" Link="Models\XhtmlDocuments.cs" />
+    <Compile Include="..\Songhay\Models\XhtmlImage.cs" Link="Models\XhtmlImage.cs" />
+    <Compile Include="..\Songhay\OpcReferencedTypeStrategy.cs" Link="OpcReferencedTypeStrategy.cs" />
+    <Compile Include="..\Songhay\OpcUtility.cs" Link="OpcUtility.cs" />
+    <Compile Include="..\Songhay\Xml\HtmlUtility.cs" Link="Xml\HtmlUtility.cs" />
+    <Compile Include="..\Songhay\Xml\LatinGlyphs.cs" Link="Xml\LatinGlyphs.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.CombineNavigableDocuments.cs" Link="Xml\XmlUtility.CombineNavigableDocuments.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.ExpandSpecialChars.cs" Link="Xml\XmlUtility.ExpandSpecialChars.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetAttributeValue.cs" Link="Xml\XmlUtility.GetAttributeValue.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetInstance.cs" Link="Xml\XmlUtility.GetInstance.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetInternalMessage.cs" Link="Xml\XmlUtility.GetInternalMessage.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetInternalMessage.XmlTextWriter.cs" Link="Xml\XmlUtility.GetInternalMessage.XmlTextWriter.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetInternalMessageDocument.cs" Link="Xml\XmlUtility.GetInternalMessageDocument.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetNamespaceManager.cs" Link="Xml\XmlUtility.GetNamespaceManager.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetNavigableDocument.cs" Link="Xml\XmlUtility.GetNavigableDocument.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetNavigableNode.cs" Link="Xml\XmlUtility.GetNavigableNode.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetNodeValue.cs" Link="Xml\XmlUtility.GetNodeValue.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetText.cs" Link="Xml\XmlUtility.GetText.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetXslResult.cs" Link="Xml\XmlUtility.GetXslResult.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.GetXslString.cs" Link="Xml\XmlUtility.GetXslString.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.InputAs.cs" Link="Xml\XmlUtility.InputAs.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.IsNodeValue.cs" Link="Xml\XmlUtility.IsNodeValue.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.IsXml.cs" Link="Xml\XmlUtility.IsXml.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.LoadXslTransform.cs" Link="Xml\XmlUtility.LoadXslTransform.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.OutputAs.cs" Link="Xml\XmlUtility.OutputAs.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.StripNamespaces.cs" Link="Xml\XmlUtility.StripNamespaces.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.StripNamespaces.IXPathNavigable.cs" Link="Xml\XmlUtility.StripNamespaces.IXPathNavigable.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.ValidateNavigableNode.cs" Link="Xml\XmlUtility.ValidateNavigableNode.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.Write.cs" Link="Xml\XmlUtility.Write.cs" />
+    <Compile Include="..\Songhay\Xml\XmlUtility.XmlDecode.cs" Link="Xml\XmlUtility.XmlDecode.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Diagnostics\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Models\" />
+    <Folder Include="Globalization\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Xml\" />
+    <Folder Include="Text\" />
+    <Folder Include="Security\" />
   </ItemGroup>
 
 </Project>

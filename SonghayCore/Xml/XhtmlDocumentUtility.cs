@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Songhay.Extensions;
+using Songhay.Models;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,6 @@ using System.Xml.Serialization;
 
 namespace Songhay.Xml
 {
-    using Extensions;
-    using Songhay.Models;
-
     /// <summary>
     /// Static members for XHTML Documents.
     /// </summary>
