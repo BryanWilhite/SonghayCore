@@ -1,83 +1,93 @@
 ﻿<?xml version="1.0"?>
 <package >
-    <metadata>
-        <id>SonghayCore</id>
-        <version>1.7.1</version>
-        <title>Songhay Core</title>
-        <authors>bryan.wilhite@gmail.com</authors>
-        <owners>rasx@songhaysystem.com</owners>
-        <projectUrl>https://github.com/BryanWilhite/SonghayCore</projectUrl>
-        <iconUrl>http://songhaysystem.com/Content/images/songhay_icon.png</iconUrl>
-        <licenseUrl>https://raw.github.com/BryanWilhite/SonghayCore/master/LICENSE.md</licenseUrl>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>core libraries meant to be shared among Songhay projects</description>
-        <releaseNotes>addressed issues with JObjectExtensions</releaseNotes>
-        <copyright>Copyright 2016 Bryan D. Wilhite</copyright>
-        <tags>Core Songhay Configuration Cryptography LINQ</tags>
-        <dependencies>
-            <group targetFramework=".NETFramework4.5.2">
-                <dependency id="Newtonsoft.Json" version="10.0.2" />
-            </group>
-            <group targetFramework=".NETFramework4.5.1">
-                <dependency id="Newtonsoft.Json" version="10.0.2" />
-            </group>
-            <group targetFramework=".NETFramework4.0">
-                <dependency id="Newtonsoft.Json" version="6.0.1" />
-            </group>
-            <group targetFramework=".NETFramework3.5">
-                <dependency id="Newtonsoft.Json" version="6.0.1" />
-            </group>
-            <group targetFramework=".NETStandard1.2">
-                <dependency id="Newtonsoft.Json" version="10.0.2" />
-                <dependency id="System.Xml.XmlSerializer" version="4.3.0" />
-            </group>
-            <group targetFramework=".NETStandard1.4">
-                <dependency id="Newtonsoft.Json" version="10.0.2" />
-                <dependency id="System.Collections.Specialized" version="4.3.0" />
-                <dependency id="System.ComponentModel.Annotations" version="4.3.0" />
-                <dependency id="System.Diagnostics.TraceSource" version="4.3.0" />
-                <dependency id="System.Xml.XmlSerializer" version="4.3.0" />
-            </group>
-        </dependencies>
-    </metadata>
-    <files>
-        <file src="SonghayCore-net35\bin\Release\Songhay*.dll" target="lib/net35" />
-        <file src="SonghayCore-net35\bin\Release\Songhay*.exe" exclude="**vshost**" target="lib/net35" />
-        <file src="SonghayCore-net35\bin\Release\Songhay*.config" target="lib/net35" />
-        <file src="SonghayCore-net35\bin\Release\Songhay*.xml" target="lib/net35" />
+  <metadata>
+    <id>SonghayCore</id>
+    <version>2.0.0</version>
+    <title>Songhay Core</title>
+    <authors>bryan.wilhite@gmail.com</authors>
+    <owners>rasx@songhaysystem.com</owners>
+    <projectUrl>https://github.com/BryanWilhite/SonghayCore</projectUrl>
+    <iconUrl>http://songhaysystem.com/Content/images/songhay_icon.png</iconUrl>
+    <licenseUrl>https://raw.github.com/BryanWilhite/SonghayCore/master/LICENSE.md</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>core libraries meant to be shared among Songhay projects</description>
+    <releaseNotes>added support for .NET Standard 2.0</releaseNotes>
+    <copyright>Copyright 2017 Bryan D. Wilhite</copyright>
+    <tags>Core Songhay Configuration Cryptography LINQ</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5.2">
+        <dependency id="Newtonsoft.Json" version="10.0.3" />
+      </group>
+      <group targetFramework=".NETFramework4.5.1">
+        <dependency id="Newtonsoft.Json" version="10.0.3" />
+      </group>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="Newtonsoft.Json" version="6.0.1" />
+      </group>
+      <group targetFramework=".NETFramework3.5">
+        <dependency id="Newtonsoft.Json" version="6.0.1" />
+      </group>
+      <group targetFramework=".NETStandard1.2">
+        <dependency id="Newtonsoft.Json" version="10.0.3" />
+        <dependency id="System.Xml.XmlSerializer" version="4.3.0" />
+      </group>
+      <group targetFramework=".NETStandard1.4">
+        <dependency id="Newtonsoft.Json" version="10.0.3" />
+        <dependency id="System.Collections.Specialized" version="4.3.0" />
+        <dependency id="System.ComponentModel.Annotations" version="4.3.0" />
+        <dependency id="System.Diagnostics.TraceSource" version="4.3.0" />
+        <dependency id="System.Xml.XmlSerializer" version="4.3.0" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Newtonsoft.Json" version="10.0.3" />
+        <dependency id="System.ComponentModel.Annotations" version="4.4.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="SonghayCore-net35\bin\Release\Songhay*.dll" target="lib\net35" />
+    <file src="SonghayCore-net35\bin\Release\Songhay*.exe" exclude="**vshost**" target="lib\net35" />
+    <file src="SonghayCore-net35\bin\Release\Songhay*.config" target="lib\net35" />
+    <file src="SonghayCore-net35\bin\Release\Songhay*.xml" target="lib\net35" />
 
-        <file src="SonghayCore-net40\bin\Release\Songhay*.dll" target="lib/net40" />
-        <file src="SonghayCore-net40\bin\Release\Songhay*.exe" exclude="**vshost**" target="lib/net40" />
-        <file src="SonghayCore-net40\bin\Release\Songhay*.config" target="lib/net40" />
-        <file src="SonghayCore-net40\bin\Release\Songhay*.xml" target="lib/net40" />
+    <file src="SonghayCore-net40\bin\Release\Songhay*.dll" target="lib\net40" />
+    <file src="SonghayCore-net40\bin\Release\Songhay*.exe" exclude="**vshost**" target="lib\net40" />
+    <file src="SonghayCore-net40\bin\Release\Songhay*.config" target="lib\net40" />
+    <file src="SonghayCore-net40\bin\Release\Songhay*.xml" target="lib\net40" />
 
-        <file src="SonghayCore-net451\bin\Release\Songhay*.dll" target="lib/net451" />
-        <file src="SonghayCore-net451\bin\Release\Songhay*.exe" exclude="**vshost**" target="lib/net451" />
-        <file src="SonghayCore-net451\bin\Release\Songhay*.config" target="lib/net451" />
-        <file src="SonghayCore-net451\bin\Release\Songhay*.xml" target="lib/net451" />
+    <file src="SonghayCore-net451\bin\Release\Songhay*.dll" target="lib\net451" />
+    <file src="SonghayCore-net451\bin\Release\Songhay*.exe" exclude="**vshost**" target="lib\net451" />
+    <file src="SonghayCore-net451\bin\Release\Songhay*.config" target="lib\net451" />
+    <file src="SonghayCore-net451\bin\Release\Songhay*.xml" target="lib\net451" />
 
-        <file src="SonghayCore-net452\bin\Release\Songhay*.dll" target="lib/net452" />
-        <file src="SonghayCore-net452\bin\Release\Songhay*.exe" exclude="**vshost**" target="lib/net452" />
-        <file src="SonghayCore-net452\bin\Release\Songhay*.config" target="lib/net452" />
-        <file src="SonghayCore-net452\bin\Release\Songhay*.xml" target="lib/net452" />
+    <file src="SonghayCore-net452\bin\Release\Songhay*.dll" target="lib\net452" />
+    <file src="SonghayCore-net452\bin\Release\Songhay*.exe" exclude="**vshost**" target="lib\net452" />
+    <file src="SonghayCore-net452\bin\Release\Songhay*.config" target="lib\net452" />
+    <file src="SonghayCore-net452\bin\Release\Songhay*.xml" target="lib\net452" />
 
-        <file src="SonghayCore-netstandard1.2\bin\Release\netstandard1.2\Songhay*.dll" target="lib/netstandard1.2" />
-        <file src="SonghayCore-netstandard1.2\bin\Release\netstandard1.2\Songhay*.exe" exclude="**vshost**" target="lib/netstandard1.2" />
-        <file src="SonghayCore-netstandard1.2\bin\Release\netstandard1.2\Songhay*.config" target="lib/netstandard1.2" />
-        <file src="SonghayCore-netstandard1.2\bin\Release\netstandard1.2\Songhay*.json" target="lib/netstandard1.2" />
-        <file src="SonghayCore-netstandard1.2\bin\Release\netstandard1.2\Songhay*.xml" target="lib/netstandard1.2" />
+    <file src="SonghayCore-netstandard1.2\bin\Release\netstandard1.2\Songhay*.dll" target="lib\netstandard1.2" />
+    <file src="SonghayCore-netstandard1.2\bin\Release\netstandard1.2\Songhay*.exe" exclude="**vshost**" target="lib\netstandard1.2" />
+    <file src="SonghayCore-netstandard1.2\bin\Release\netstandard1.2\Songhay*.config" target="lib\netstandard1.2" />
+    <file src="SonghayCore-netstandard1.2\bin\Release\netstandard1.2\Songhay*.json" target="lib\netstandard1.2" />
+    <file src="SonghayCore-netstandard1.2\bin\Release\netstandard1.2\Songhay*.xml" target="lib\netstandard1.2" />
 
-        <file src="SonghayCore-netstandard1.4\bin\Release\netstandard1.4\Songhay*.dll" target="lib/netstandard1.4" />
-        <file src="SonghayCore-netstandard1.4\bin\Release\netstandard1.4\Songhay*.exe" exclude="**vshost**" target="lib/netstandard1.4" />
-        <file src="SonghayCore-netstandard1.4\bin\Release\netstandard1.4\Songhay*.config" target="lib/netstandard1.4" />
-        <file src="SonghayCore-netstandard1.4\bin\Release\netstandard1.4\Songhay*.json" target="lib/netstandard1.4" />
-        <file src="SonghayCore-netstandard1.4\bin\Release\netstandard1.4\Songhay*.xml" target="lib/netstandard1.4" />
+    <file src="SonghayCore-netstandard1.4\bin\Release\netstandard1.4\Songhay*.dll" target="lib\netstandard1.4" />
+    <file src="SonghayCore-netstandard1.4\bin\Release\netstandard1.4\Songhay*.exe" exclude="**vshost**" target="lib\netstandard1.4" />
+    <file src="SonghayCore-netstandard1.4\bin\Release\netstandard1.4\Songhay*.config" target="lib\netstandard1.4" />
+    <file src="SonghayCore-netstandard1.4\bin\Release\netstandard1.4\Songhay*.json" target="lib\netstandard1.4" />
+    <file src="SonghayCore-netstandard1.4\bin\Release\netstandard1.4\Songhay*.xml" target="lib\netstandard1.4" />
 
-        <file src="SonghayCore\bin\Release\Songhay*.dll" target="lib/net461" />
-        <file src="SonghayCore\bin\Release\Songhay*.exe" exclude="**vshost**" target="lib/net461" />
-        <file src="SonghayCore\bin\Release\Songhay*.config" target="lib/net461" />
-        <file src="SonghayCore\bin\Release\Songhay*.xml" target="lib/net461" />
+    <file src="SonghayCore-netstandard2.0\bin\Release\netstandard2.0\Songhay*.dll" target="lib\netstandard2.0" />
+    <file src="SonghayCore-netstandard2.0\bin\Release\netstandard2.0\Songhay*.exe" exclude="**vshost**" target="lib\netstandard2.0" />
+    <file src="SonghayCore-netstandard2.0\bin\Release\netstandard2.0\Songhay*.config" target="lib\netstandard2.0" />
+    <file src="SonghayCore-netstandard2.0\bin\Release\netstandard2.0\Songhay*.json" target="lib\netstandard2.0" />
+    <file src="SonghayCore-netstandard2.0\bin\Release\netstandard2.0\Songhay*.xml" target="lib\netstandard2.0" />
 
-        <file src="SonghayCore\**\*.cs" exclude="SonghayCore\**\obj\**" target="src" />
-    </files>
+    <file src="SonghayCore\bin\Release\Songhay*.dll" target="lib\net461" />
+    <file src="SonghayCore\bin\Release\Songhay*.exe" exclude="**vshost**" target="lib\net461" />
+    <file src="SonghayCore\bin\Release\Songhay*.config" target="lib\net461" />
+    <file src="SonghayCore\bin\Release\Songhay*.xml" target="lib\net461" />
+
+    <file src="SonghayCore\**\*.cs" exclude="SonghayCore\**\obj\**" target="src" />
+  </files>
 </package>
