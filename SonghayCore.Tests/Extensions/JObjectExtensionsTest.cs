@@ -108,6 +108,9 @@ namespace Songhay.Extensions.Tests
 
             var jA_other = jO.GetJArray("otherItems", throwException: false);
             Assert.IsNull(jA_other, "JArray is not expected.");
+
+            var jA_otherOther = jO.GetJArray("otherOtherItems", throwException: false);
+            Assert.IsNull(jA_other, "JArray is not expected.");
         }
     }
 }
