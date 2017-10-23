@@ -31,6 +31,39 @@ namespace Songhay
             return matches.Count;
         }
 
+        /// <summary>
+        /// Finds the parent directory.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="parentName">Name of the parent.</param>
+        /// <param name="levels">The levels.</param>
+        /// <returns></returns>
+        /// <exception cref="System.IO.DirectoryNotFoundException">The expected directory is not here.</exception>
+        public static DirectoryInfo FindParentDirectory(string path, string parentName, int levels)
+        {
+            if (string.IsNullOrEmpty(path)) throw new DirectoryNotFoundException("The expected directory is not here.");
+
+            var info = new DirectoryInfo(path);
+
+            var isParent = (info.Name == parentName);
+            var hasNullParent = (info.Parent == null);
+            var hasTargetParent = (info.Parent.Name == parentName);
+
+            if (!info.Exists) return null;
+            if (isParent) return info;
+            if (hasNullParent) return null;
+            if (hasTargetParent) return info.Parent;
+
+            levels = Math.Abs(levels);
+            --levels;
+
+            var hasNoMoreLevels = (levels == 0);
+
+            if (hasNoMoreLevels) return null;
+
+            return FindParentDirectory(info.Parent.FullName, parentName, levels);
+        }
+
 #if !SILVERLIGHT
         /// <summary>
         /// Gets the UTF-8 encoded string.
