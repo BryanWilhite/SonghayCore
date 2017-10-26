@@ -1,8 +1,8 @@
 # SonghayCore
 
-The _Core_ code to install as a NuGet package for all of my solutions. Currently, this package supports `net35`, `net40`, `net451` (for WPF), `net452` and `net461` (for WPF). This package also supports .NET Standard 1.2 and 1.4.
+The _Core_ code to install as a NuGet package for all of my solutions. Currently, this package supports `net35`, `net40`, `net451` (for WPF), `net452` and `net461` (for WPF). This package also supports .NET Standard 1.2, 1.4 and 2.0.
 
-There are actually two _Core_ projects, `Songhay` (a .NET 2.0 project) and `SonghayCore` (a .NET latest-ish project). Two projects exist largely for historical reasons.
+There are actually two _Core_ projects, `Songhay` (a .NET 2.0 project) and `SonghayCore` (a .NET latest-ish project). Two projects exist largely for historical reasons (yes, in the 21<sup>st</sup> century there are companies that still use .NET 2.0).
 
 **NuGet package:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
 
