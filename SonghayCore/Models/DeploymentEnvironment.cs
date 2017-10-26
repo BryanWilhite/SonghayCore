@@ -16,6 +16,11 @@
         public const string ConfigurationKeyDelimiter = ".";
 
         /// <summary>
+        /// The default trace source name configuration key
+        /// </summary>
+        public const string DefaultTraceSourceNameConfigurationKey = "defaultTraceSourceName";
+
+        /// <summary>
         /// The development environment name
         /// </summary>
         public const string DevelopmentEnvironmentName = "dev";

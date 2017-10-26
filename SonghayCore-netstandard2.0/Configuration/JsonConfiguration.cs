@@ -45,8 +45,6 @@ namespace Songhay.Configuration
         /// </value>
         public static JsonConfiguration Instance { get { return Nested.instance; } }
 
-        static readonly JsonConfiguration configuration;
-
         static class Nested
         {
             static Nested() { }
