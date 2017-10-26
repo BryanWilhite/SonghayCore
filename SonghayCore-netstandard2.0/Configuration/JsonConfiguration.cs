@@ -28,10 +28,17 @@ namespace Songhay.Configuration
             this.Configuration = builder.Build();
         }
 
+        /// <summary>
+        /// Gets the <see cref="IConfigurationRoot"/>.
+        /// </summary>
+        /// <value>
+        /// The <see cref="IConfigurationRoot"/>.
+        /// </value>
         public IConfigurationRoot Configuration { get; private set; }
 
         /// <summary>
-        /// Gets the singleton instance.
+        /// Gets the singleton instance
+        /// of <see cref="JsonConfiguration"/>.
         /// </summary>
         /// <value>
         /// The instance.
