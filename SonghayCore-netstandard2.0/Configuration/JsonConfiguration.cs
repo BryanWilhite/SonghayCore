@@ -22,7 +22,7 @@ namespace Songhay.Configuration
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("app-settings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile("app-settings.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables();
 
             this.Configuration = builder.Build();
