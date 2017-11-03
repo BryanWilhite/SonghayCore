@@ -1,8 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.IO;
-using System.Linq;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Songhay.Extensions
 {

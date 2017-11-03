@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Linq;
 
-namespace SonghayCore.MSTest.Extensions
+namespace Songhay.Extensions
 {
     /// <summary>
     /// Extensions of <see cref="TestContext"/>
