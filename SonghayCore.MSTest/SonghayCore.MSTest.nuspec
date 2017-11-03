@@ -2,7 +2,7 @@
 <package >
     <metadata>
         <id>SonghayCore.MSTest</id>
-        <version>1.0.2</version>
+        <version>1.1.0</version>
         <title>Songhay Core Testing for MSTest2 (and greater)</title>
         <authors>bryan.wilhite@gmail.com</authors>
         <owners>rasx@songhaysystem.com</owners>
@@ -11,20 +11,19 @@
         <licenseUrl>https://raw.github.com/BryanWilhite/SonghayCore/master/LICENSE.md</licenseUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Extensions of Microsoft.VisualStudio.TestTools.UnitTesting.TestContext for Songhay VSTEST projects</description>
-        <releaseNotes>Added ShouldGetSolutionFolder() overloads.</releaseNotes>
+        <releaseNotes>Added ShouldGetAssemblyDirectoryParent().</releaseNotes>
         <copyright>Copyright 2017 Bryan D. Wilhite</copyright>
         <tags>Core Songhay MSTEST2 VSTEST VisualStudio</tags>
         <dependencies>
-            <dependency id="SonghayCore" version="1.0.0" />
-            <dependency id="MSTest.TestAdapter" version="1.1.11" />
-            <dependency id="MSTest.TestFramework" version="1.1.11" />
+            <dependency id="SonghayCore" version="2.3.1" />
+            <dependency id="MSTest.TestAdapter" version="1.2.0" />
+            <dependency id="MSTest.TestFramework" version="1.2.0" />
         </dependencies>
     </metadata>
     <files>
-        <file src="bin\Release\SonghayCore.MSTest*.dll" target="lib/net452" />
-        <file src="bin\Release\SonghayCore.MSTest*.exe" exclude="**vshost**" target="lib/net452" />
-        <file src="bin\Release\SonghayCore.MSTest*.config" target="lib/net452" />
-        <file src="bin\Release\SonghayCore.MSTest*.xml" target="lib/net452" />
+        <file src="bin\Release\SonghayCore.MSTest*.dll" target="lib\net452" />
+        <file src="bin\Release\SonghayCore.MSTest*.config" target="lib\net452" />
+        <file src="bin\Release\SonghayCore.MSTest*.xml" target="lib\net452" />
 
         <file src="**\*.cs" exclude="obj\**" target="src" />
     </files>
