@@ -80,8 +80,11 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions.cs">
-      <Link>Extensions\TestContextExtensions.cs</Link>
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions.IO.cs">
+      <Link>Extensions\TestContextExtensions.IO.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions._.cs">
+      <Link>Extensions\TestContextExtensions._.cs</Link>
     </Compile>
     <Compile Include="FrameworkAssemblyUtilityTest.cs" />
     <Compile Include="FrameworkFileUtilityTest.cs" />
@@ -138,6 +141,7 @@
     <None Include="content\FrameworkAssemblyUtilityTest-ShouldGetPathFromAssembly.json" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
