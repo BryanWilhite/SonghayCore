@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System.IO;
+using Songhay.Extensions;
 
 namespace Songhay.Configuration
 {
@@ -20,11 +20,7 @@ namespace Songhay.Configuration
         /// </summary>
         private JsonConfiguration()
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("app-settings.json", optional: true, reloadOnChange: true)
-                .AddEnvironmentVariables();
-
+            var builder = new ConfigurationBuilder().WithAnyConfigurationConventions();
             this.Configuration = builder.Build();
         }
 
