@@ -20,7 +20,7 @@ namespace Songhay.Configuration
         /// </summary>
         private JsonConfiguration()
         {
-            var builder = new ConfigurationBuilder().WithAnyConfigurationConventions();
+            var builder = new ConfigurationBuilder().WithSettingsJsonFile();
             this.Configuration = builder.Build();
         }
 

@@ -20,9 +20,19 @@
         public const string BasePath = "--base-path";
 
         /// <summary>
+        /// The base path required argument.
+        /// </summary>
+        public const string BasePathRequired = "--base-path-required";
+
+        /// <summary>
         /// The help argument.
         /// </summary>
         public const string Help = "--help";
+
+        /// <summary>
+        /// The settings file argument.
+        /// </summary>
+        public const string SettingsFile = "--settings-file";
 
         /// <summary>
         /// Gets the arguments.
