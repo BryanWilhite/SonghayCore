@@ -19,12 +19,44 @@
         },
         {
             "command": "nuget",
+            "taskName": "NuGet pack SonghayCore.MSTest",
+            "isBackground": false,
+            "type": "shell",
+            "args": [
+                "pack",
+                "SonghayCore.MSTest.nuspec",
+                "-Verbosity",
+                "detailed"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "command": "nuget",
             "taskName": "NuGet pack Songhay.Net.HttpWebRequest",
             "isBackground": false,
             "type": "shell",
             "args": [
                 "pack",
                 "Songhay.Net.HttpWebRequest.nuspec",
+                "-Verbosity",
+                "detailed"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "command": "nuget",
+            "taskName": "NuGet pack Songhay.Security",
+            "isBackground": false,
+            "type": "shell",
+            "args": [
+                "pack",
+                "Songhay.Security.nuspec",
                 "-Verbosity",
                 "detailed"
             ],
