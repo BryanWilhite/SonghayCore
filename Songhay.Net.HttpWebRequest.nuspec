@@ -14,13 +14,17 @@
         <releaseNotes>more NuGet package cleanup.</releaseNotes>
         <copyright>Copyright 2016 Bryan D. Wilhite</copyright>
         <tags>Core Songhay HttpWebRequest</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.Xml" />
+            <frameworkAssembly assemblyName="System.Xml.Linq" />
+        </frameworkAssemblies>
     </metadata>
     <files>
-        <file src="bin\Release\Songhay.Net.HttpWebRequest*.dll" target="lib/net35" />
-        <file src="bin\Release\Songhay.Net.HttpWebRequest*.exe" exclude="**vshost**" target="lib/net35" />
-        <file src="bin\Release\Songhay.Net.HttpWebRequest*.config" target="lib/net35" />
-        <file src="bin\Release\Songhay.Net.HttpWebRequest*.xml" target="lib/net35" />
+        <file src="Songhay.Net.HttpWebRequest\bin\Release\Songhay.Net.HttpWebRequest*.dll" target="lib\net35" />
+        <file src="Songhay.Net.HttpWebRequest\bin\Release\Songhay.Net.HttpWebRequest*.exe" exclude="**vshost**" target="lib\net35" />
+        <file src="Songhay.Net.HttpWebRequest\bin\Release\Songhay.Net.HttpWebRequest*.config" target="lib\net35" />
+        <file src="Songhay.Net.HttpWebRequest\bin\Release\Songhay.Net.HttpWebRequest*.xml" target="lib\net35" />
 
-        <file src="**\*.cs" exclude="obj\**" target="src" />
+        <file src="Songhay.Net.HttpWebRequest\**\*.cs" exclude="obj\**" target="src" />
     </files>
 </package>
