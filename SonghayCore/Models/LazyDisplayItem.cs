@@ -1,5 +1,4 @@
-﻿#if !NET35
-using System;
+﻿using System;
 
 namespace Songhay.Models
 {
@@ -29,4 +28,3 @@ namespace Songhay.Models
         public string Name { get; set; }
     }
 }
-#endif

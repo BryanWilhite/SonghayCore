@@ -1,5 +1,4 @@
-﻿#if !NET35 && !NET40
-using Songhay.Extensions;
+﻿using Songhay.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -86,4 +85,3 @@ namespace Songhay.Extensions
         }
     }
 }
-#endif

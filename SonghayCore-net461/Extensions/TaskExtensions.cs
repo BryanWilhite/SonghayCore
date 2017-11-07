@@ -1,5 +1,4 @@
-﻿#if !NET35
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -35,7 +34,7 @@ namespace Songhay.Extensions
         ///     {
         ///         //do stuff after one second…
         ///     });
-        /// 
+        ///
         /// This is done to both initialize the Task and then return its reference until the Task is completed.
         ///
         /// </remarks>
@@ -56,4 +55,3 @@ namespace Songhay.Extensions
         }
     }
 }
-#endif
