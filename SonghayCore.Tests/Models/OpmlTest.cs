@@ -48,11 +48,7 @@ namespace Songhay.Tests
         [TestProperty("opmlFile", @"Models\OpmlTest.opml")]
         public void ShouldLoadCategoriesAndResources()
         {
-            var projectFolder = this.TestContext
-                .ShouldGetAssemblyDirectoryInfo(this.GetType())
-                .Parent
-                .Parent
-                .FullName;
+            var projectFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 3);
 
             var opmlFile = this.TestContext.Properties["opmlFile"].ToString();
 
