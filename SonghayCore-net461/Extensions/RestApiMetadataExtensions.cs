@@ -10,7 +10,6 @@ namespace Songhay.Extensions
     /// </summary>
     public static class RestApiMetadataExtensions
     {
-#if !NET35
         /// <summary>
         /// To the URI.
         /// </summary>
@@ -33,6 +32,5 @@ namespace Songhay.Extensions
 
             return uri;
         }
-#endif
     }
 }
