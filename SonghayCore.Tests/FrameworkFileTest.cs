@@ -16,15 +16,6 @@ namespace Songhay.Tests
     public class FrameworkFileTest
     {
         /// <summary>
-        /// Initializes the test.
-        /// </summary>
-        [TestInitialize]
-        public void InitializeTest()
-        {
-            this.TestContext.RemovePreviousTestResults();
-        }
-
-        /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
         ///</summary>
@@ -37,7 +28,7 @@ namespace Songhay.Tests
         [TestProperty("length", "200")]
         public void ShouldFindPathOfGivenLength()
         {
-            var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType());
+            var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 3);
             var length = Convert.ToInt32(this.TestContext.Properties["length"]);
 
             var directory = new DirectoryInfo(projectsFolder);
@@ -72,7 +63,7 @@ namespace Songhay.Tests
         [TestProperty("outFile", @"content\FrameworkFileTest-ShouldSortTextFileData.txt")]
         public void ShouldSortTextFileData()
         {
-            var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType());
+            var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 3);
 
             #region test properties:
 
@@ -111,7 +102,7 @@ namespace Songhay.Tests
         [TestProperty("outFile", @"content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt")]
         public void ShouldWriteTextFileWithStreamWriter()
         {
-            var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType());
+            var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 3);
 
             #region test properties:
 
@@ -150,7 +141,7 @@ This is the end of the file.
         [TestProperty("outFile", @"content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml")]
         public void ShouldWriteTextFileWithXmlTextWriter()
         {
-            var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType());
+            var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 3);
 
             #region test properties:
 

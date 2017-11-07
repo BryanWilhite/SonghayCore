@@ -26,11 +26,7 @@ namespace Songhay.Tests.Extensions
         [TestProperty("unqualifiedName", "Chinook")]
         public void ShouldGetExternalConnectionStringSettings()
         {
-            var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType(), i =>
-            {
-                i[0] = i[0].Replace("Songhay", "SonghayCore");
-                return i;
-            });
+            var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 2);
 
             #region test properties:
 
@@ -74,11 +70,7 @@ namespace Songhay.Tests.Extensions
         [TestProperty("unqualifiedName", "ex-setting")]
         public void ShouldGetExternalSetting()
         {
-            var projectsFolder = this.TestContext.ShouldGetProjectsFolder(this.GetType(), i =>
-            {
-                i[0] = i[0].Replace("Songhay", "SonghayCore");
-                return i;
-            });
+            var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 2);
 
             #region test properties:
 

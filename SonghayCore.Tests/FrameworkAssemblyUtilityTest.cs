@@ -7,15 +7,6 @@ namespace Songhay.Tests
     public class FrameworkAssemblyUtilityTest
     {
         /// <summary>
-        /// Initializes the test.
-        /// </summary>
-        [TestInitialize]
-        public void InitializeTest()
-        {
-            this.TestContext.RemovePreviousTestResults();
-        }
-
-        /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
         ///</summary>

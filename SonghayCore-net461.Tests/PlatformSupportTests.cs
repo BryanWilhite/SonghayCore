@@ -14,7 +14,7 @@ namespace Songhay.Tests
         public TestContext TestContext { get; set; }
 
         [TestMethod]
-        public void ShouldFindMisswingCompileIncludes()
+        public void ShouldFindMissingCompileIncludes()
         {
             var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 3);
         }
