@@ -48,6 +48,7 @@
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
@@ -63,6 +64,7 @@
     <Compile Include="..\..\SonghayCore.MSTest-net452\Extensions\TestContextExtensions._.cs">
       <Link>Extensions\TestContextExtensions._.cs</Link>
     </Compile>
+    <Compile Include="Extensions\ConfigurationManagerExtensionsTest.cs" />
     <Compile Include="FrameworkAssemblyUtilityTest.cs" />
     <Compile Include="FrameworkFileTest.cs" />
     <Compile Include="FrameworkFileUtilityTest.cs" />
@@ -93,6 +95,7 @@
     <Content Include="content\FrameworkFileTest-ShouldSortTextFileData.txt" />
     <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt" />
     <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml" />
+    <None Include="Extensions\ConfigurationManagerExtensionsTest.xml" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
