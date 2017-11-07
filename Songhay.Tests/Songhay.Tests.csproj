@@ -93,22 +93,13 @@
     <Compile Include="FrameworkFileUtilityTest.cs" />
     <Compile Include="FrameworkTypeUtilityTest.cs" />
     <Compile Include="MathUtilityTest.cs" />
+    <Compile Include="PlatformSupportTests.cs" />
     <Compile Include="StringCsvSplitTest.cs" />
     <Compile Include="WmiTest.cs" />
     <Compile Include="FrameworkFileTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OpcUtilityTest.cs" />
     <Compile Include="Xml\XmlUtilityTest.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SonghayCore-net461\SonghayCore-net461.csproj">
-      <Project>{7b183bbc-21be-4605-b549-74ba23489245}</Project>
-      <Name>SonghayCore-net461</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Songhay\Songhay.csproj">
-      <Project>{C86DCA41-9E6C-44F1-8571-C8B6B79C5AE4}</Project>
-      <Name>Songhay</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\FrameworkFileTest-ShouldSortTextFileData.txt" />
@@ -144,7 +135,12 @@
     <None Include="content\FrameworkAssemblyUtilityTest-ShouldGetPathFromAssembly.json" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SonghayCore\SonghayCore.csproj">
+      <Project>{ae299f10-0cd5-4283-a256-d1dc7ea096e3}</Project>
+      <Name>SonghayCore</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

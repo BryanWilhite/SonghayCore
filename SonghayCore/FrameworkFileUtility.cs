@@ -38,8 +38,21 @@ namespace Songhay
         /// <param name="parentName">Name of the parent.</param>
         /// <param name="levels">The levels.</param>
         /// <returns></returns>
-        /// <exception cref="System.IO.DirectoryNotFoundException">The expected directory is not here.</exception>
-        public static DirectoryInfo FindParentDirectory(string path, string parentName, int levels)
+        /// <exception cref="DirectoryNotFoundException">The expected directory is not here.</exception>
+        public static string FindParentDirectory(string path, string parentName, int levels)
+        {
+            return FindParentDirectoryInfo(path, parentName, levels)?.FullName;
+        }
+
+        /// <summary>
+        /// Finds the parent <see cref="DirectoryInfo"/>.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="parentName">Name of the parent.</param>
+        /// <param name="levels">The levels.</param>
+        /// <returns></returns>
+        /// <exception cref="DirectoryNotFoundException">The expected directory is not here.</exception>
+        public static DirectoryInfo FindParentDirectoryInfo(string path, string parentName, int levels)
         {
             if (string.IsNullOrEmpty(path)) throw new DirectoryNotFoundException("The expected directory is not here.");
 
@@ -61,7 +74,7 @@ namespace Songhay
 
             if (hasNoMoreLevels) return null;
 
-            return FindParentDirectory(info.Parent.FullName, parentName, levels);
+            return FindParentDirectoryInfo(info.Parent.FullName, parentName, levels);
         }
 
 #if !SILVERLIGHT
@@ -114,6 +127,31 @@ namespace Songhay
             --levels;
             if (levels >= 1) return GetParentDirectory(path, levels);
             return path;
+        }
+
+        /// <summary>
+        /// Gets the parent <see cref="DirectoryInfo"/>.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="levels">The levels.</param>
+        /// <returns></returns>
+        /// <remarks>
+        /// A recursive wrapper for <see cref="Directory.GetParent(string)"/>.
+        /// </remarks>
+        public static DirectoryInfo GetParentDirectoryInfo(string path, int levels)
+        {
+            if (string.IsNullOrEmpty(path)) return null;
+
+            var info = new DirectoryInfo(path);
+
+            levels = Math.Abs(levels);
+            if (levels == 0) return info;
+
+            if (info.Parent == null) return info;
+            path = info.FullName;
+
+            --levels;
+            return (levels >= 1) ? GetParentDirectoryInfo(path, levels) : info;
         }
 
         /// <summary>
