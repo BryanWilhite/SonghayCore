@@ -21,7 +21,7 @@ namespace Songhay.Extensions
         public static ProcessStartInfo GetDefaultProcessStartInfo(this TestContext context, string arguments, string fileName, string workingDirectory)
         {
             context.ShouldFindFile(fileName);
-            context.ShouldFindFolder(workingDirectory);
+            context.ShouldFindDirectory(workingDirectory);
 
             var startInfo = new ProcessStartInfo
             {

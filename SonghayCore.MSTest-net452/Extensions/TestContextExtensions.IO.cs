@@ -11,7 +11,7 @@ namespace Songhay.Extensions
     public static partial class TestContextExtensions
     {
         /// <summary>
-        /// Test context extensions: should find file.
+        /// Test context extensions: should find the specified file.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="path">The path.</param>
@@ -22,14 +22,14 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Test context extensions: should find folder.
+        /// Test context extensions: should find the specified directory.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="path">The path.</param>
-        public static void ShouldFindFolder(this TestContext context, string path)
+        public static void ShouldFindDirectory(this TestContext context, string path)
         {
-            context.WriteLine("Finding folder: {0}...", path);
-            Assert.IsTrue(Directory.Exists(path), "The expected folder, {0}, is not here.", path);
+            context.WriteLine("Finding directory: {0}...", path);
+            Assert.IsTrue(Directory.Exists(path), "The expected directory, {0}, is not here.", path);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Songhay.Extensions
 
             var assembly = typeInAssembly.Assembly;
             var path = FrameworkAssemblyUtility.GetPathFromAssembly(assembly);
-            context.ShouldFindFolder(path);
+            context.ShouldFindDirectory(path);
 
             return path;
         }
@@ -72,7 +72,7 @@ namespace Songhay.Extensions
         {
             var path = context.ShouldGetAssemblyDirectory(typeInAssembly);
             path = FrameworkFileUtility.GetParentDirectory(path, expectedLevels);
-            context.ShouldFindFolder(path);
+            context.ShouldFindDirectory(path);
             return path;
         }
 

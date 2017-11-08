@@ -11,6 +11,18 @@ namespace Songhay.Extensions
     public static partial class TestContextExtensions
     {
         /// <summary>
+        /// Test context extensions: should find folder.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="path">The path.</param>
+        [Obsolete("Naming-convention change: use TestContextExtensions.ShouldFindDirectory() instead.")]
+        public static void ShouldFindFolder(this TestContext context, string path)
+        {
+            context.WriteLine("Finding folder: {0}...", path);
+            Assert.IsTrue(Directory.Exists(path), "The expected folder, {0}, is not here.", path);
+        }
+
+        /// <summary>
         /// Test context extensions: should get projects folder.
         /// </summary>
         /// <param name="context">The context.</param>
