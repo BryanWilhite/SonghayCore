@@ -20,7 +20,7 @@ namespace Songhay.Tests
         [TestProperty("projectFileNamespace", "http://schemas.microsoft.com/developer/msbuild/2003")]
         [TestProperty("projectsDirectory", "SonghayCore")]
         [TestProperty("rootPlatform", PlatformConstants.net461)]
-        [TestProperty("targetPlatform", PlatformConstants.net40)]
+        [TestProperty("targetPlatform", PlatformConstants.net452)]
         public void ShouldDiffCompileIncludesForNetFramework()
         {
             #region test properties:
