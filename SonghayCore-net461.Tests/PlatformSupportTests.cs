@@ -21,7 +21,7 @@ namespace Songhay.Tests
         [TestProperty("projectsDirectory", "SonghayCore")]
         [TestProperty("rootPlatform", PlatformConstants.net461)]
         [TestProperty("targetPlatform", PlatformConstants.net35)]
-        public void ShouldFindMissingCompileIncludesForNetFramework()
+        public void ShouldDiffCompileIncludesForNetFramework()
         {
             #region test properties:
 
@@ -54,9 +54,8 @@ namespace Songhay.Tests
             var targetProjectDoc = XDocument.Load(targetProjectFile);
             var targetProjectCompiles = targetProjectDoc.Root.Descendants(projectFileNamespace + "Compile").ToArray();
             Assert.IsTrue(targetProjectCompiles.Any(), "The expected target Compile elements are not here.");
-
-            var exceptions = targetProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant())
-                .Except(baseProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant()));
+            var exceptions = baseProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant())
+                .Except(targetProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant()));
             if (exceptions.Any())
             {
                 this.TestContext.WriteLine("The base project has Compile elements that are not in the target.");
@@ -65,13 +64,13 @@ namespace Songhay.Tests
             }
             else
             {
-                this.TestContext.WriteLine("No base-target exceptions found.");
+                this.TestContext.WriteLine("No target-base exceptions found.");
             }
 
             this.TestContext.WriteLine(string.Empty);
 
-            exceptions = baseProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant())
-                .Except(targetProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant()));
+            exceptions = targetProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant())
+                .Except(baseProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant()));
             if (exceptions.Any())
             {
                 this.TestContext.WriteLine("The target project has Compile elements that are not in the base.");
@@ -80,7 +79,7 @@ namespace Songhay.Tests
             }
             else
             {
-                this.TestContext.WriteLine("No target-base exceptions found.");
+                this.TestContext.WriteLine("No base-target exceptions found.");
             }
         }
     }
