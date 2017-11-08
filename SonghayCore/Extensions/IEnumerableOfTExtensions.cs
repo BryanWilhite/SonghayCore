@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text;
 
 namespace Songhay.Extensions
 {
@@ -152,23 +153,32 @@ namespace Songhay.Extensions
             }
         }
 
-#if !NET35
+        /// <summary>
+        /// Converts the <see cref="IEnumerable{TSource}"/> into a display string.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <param name="data">The data.</param>
+        public static string ToDisplayString<TSource>(this IEnumerable<TSource> data) where TSource : class
+        {
+            return data.ToDisplayString<TSource>(indent: 0);
+        }
+
         /// <summary>
         /// Converts the <see cref="IEnumerable{TSource}"/> into a display string.
         /// </summary>
         /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="data">The data.</param>
         /// <param name="indent">The indent.</param>
-        public static string ToDisplayString<TSource>(this IEnumerable<TSource> data, byte indent = 0) where TSource : class
+        public static string ToDisplayString<TSource>(this IEnumerable<TSource> data, byte indent) where TSource : class
         {
-            var indentation = string.Join(string.Empty, Enumerable.Repeat(" ", indent));
-            var s = ((data != null) && (data.Any())) ?
-                string.Format("{0}{1} child items:", indentation, data.Count())
-                :
-                string.Empty;
-            data.ForEachInEnumerable(i => s += string.Format("{0}{1}{2}", Environment.NewLine, indentation, i.ToString()));
-            return string.Concat(s, Environment.NewLine);
+            var indentation = string.Join(string.Empty, Enumerable.Repeat(" ", indent).ToArray());
+            var builder = new StringBuilder();
+
+            if ((data != null) && (data.Any())) builder.AppendFormat("{0}{1} child items:", indentation, data.Count());
+            data.ForEachInEnumerable(i => builder.AppendFormat("{0}{1}{2}", Environment.NewLine, indentation, i.ToString()));
+            if (builder.Length > 0) builder.AppendLine();
+
+            return builder.ToString();
         }
-#endif
     }
 }
