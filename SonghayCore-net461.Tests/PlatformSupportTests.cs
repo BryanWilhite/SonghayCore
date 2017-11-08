@@ -55,13 +55,13 @@ namespace Songhay.Tests
             var targetProjectCompiles = targetProjectDoc.Root.Descendants(projectFileNamespace + "Compile").ToArray();
             Assert.IsTrue(targetProjectCompiles.Any(), "The expected target Compile elements are not here.");
 
-            var exceptions = targetProjectCompiles.Select(i=> i.Attribute("Include").Value)
-                .Except(baseProjectCompiles.Select(i => i.Attribute("Include").Value));
+            var exceptions = targetProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant())
+                .Except(baseProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant()));
             if (exceptions.Any())
             {
                 this.TestContext.WriteLine("The base project has Compile elements that are not in the target.");
                 this.TestContext.WriteLine($"{exceptions.Count()} exceptions found:");
-                exceptions.ForEachInEnumerable(i => this.TestContext.WriteLine(i));
+                exceptions.OrderBy(i => i).ForEachInEnumerable(i => this.TestContext.WriteLine(i));
             }
             else
             {
@@ -70,13 +70,13 @@ namespace Songhay.Tests
 
             this.TestContext.WriteLine(string.Empty);
 
-            exceptions = baseProjectCompiles.Select(i => i.Attribute("Include").Value)
-                .Except(targetProjectCompiles.Select(i => i.Attribute("Include").Value));
+            exceptions = baseProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant())
+                .Except(targetProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant()));
             if (exceptions.Any())
             {
                 this.TestContext.WriteLine("The target project has Compile elements that are not in the base.");
                 this.TestContext.WriteLine($"{exceptions.Count()} exceptions found:");
-                exceptions.ForEachInEnumerable(i => this.TestContext.WriteLine(i));
+                exceptions.OrderBy(i => i).ForEachInEnumerable(i => this.TestContext.WriteLine(i));
             }
             else
             {
