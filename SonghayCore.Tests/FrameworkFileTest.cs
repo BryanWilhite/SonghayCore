@@ -185,7 +185,7 @@ This is the end of the file.
             var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folder);
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
 
-            this.TestContext.ShouldFindFolder(path);
+            this.TestContext.ShouldFindDirectory(path);
         }
     }
 }
