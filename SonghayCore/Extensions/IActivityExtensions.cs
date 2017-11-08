@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Songhay.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,8 +13,10 @@ namespace Songhay.Extensions
         /// <summary>
         /// Converts <c>args</c> to the name of the Activity.
         /// </summary>
+        /// <param name="activity">The activity.</param>
         /// <param name="args">The arguments.</param>
-        public static string[] ToActivityArgs(this string[] args)
+        /// <returns></returns>
+        public static string[] ToActivityArgs(this IActivity activity, string[] args)
         {
             if (args?.Count() < 2) return args;
 
@@ -23,10 +26,11 @@ namespace Songhay.Extensions
         /// <summary>
         /// Converts <c>args</c> to the name of the Activity.
         /// </summary>
+        /// <param name="activity">The activity.</param>
         /// <param name="args">The arguments.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentException">The expected Activity name is not here.</exception>
-        public static string ToActivityName(this IEnumerable<string> args)
+        public static string ToActivityName(this IActivity activity, IEnumerable<string> args)
         {
             if (args?.Count() < 1) throw new ArgumentException("The expected Activity name is not here.");
             var activityName = args.ElementAt(0);
