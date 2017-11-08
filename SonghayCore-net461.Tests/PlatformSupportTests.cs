@@ -20,8 +20,8 @@ namespace Songhay.Tests
         [TestProperty("projectFileNamespace", "http://schemas.microsoft.com/developer/msbuild/2003")]
         [TestProperty("projectsDirectory", "SonghayCore")]
         [TestProperty("rootPlatform", PlatformConstants.net461)]
-        [TestProperty("targetPlatform", PlatformConstants.netstandard20)]
-        public void ShouldFindMissingCompileIncludes()
+        [TestProperty("targetPlatform", PlatformConstants.net35)]
+        public void ShouldFindMissingCompileIncludesForNetFramework()
         {
             #region test properties:
 
@@ -44,9 +44,44 @@ namespace Songhay.Tests
 
             var baseProjectDoc = XDocument.Load(baseProjectFile);
             var baseProjectCompiles = baseProjectDoc.Root.Descendants(projectFileNamespace + "Compile").ToArray();
-            Assert.IsTrue(baseProjectCompiles.Any(), "The expected Compile elements are not here.");
-            this.TestContext.WriteLine("Base Project Compile Elements:");
-            baseProjectCompiles.ForEachInEnumerable(i => this.TestContext.WriteLine(i.Attribute("Include").Value));
+            Assert.IsTrue(baseProjectCompiles.Any(), "The expected base Compile elements are not here.");
+
+            var targetProjectFile = Path.Combine(parentInfo.FullName,
+                $"{projectsDirectory}-{targetPlatform}",
+                $"{projectsDirectory}-{targetPlatform}.csproj");
+            this.TestContext.ShouldFindFile(targetProjectFile);
+
+            var targetProjectDoc = XDocument.Load(targetProjectFile);
+            var targetProjectCompiles = targetProjectDoc.Root.Descendants(projectFileNamespace + "Compile").ToArray();
+            Assert.IsTrue(targetProjectCompiles.Any(), "The expected target Compile elements are not here.");
+
+            var exceptions = targetProjectCompiles.Select(i=> i.Attribute("Include").Value)
+                .Except(baseProjectCompiles.Select(i => i.Attribute("Include").Value));
+            if (exceptions.Any())
+            {
+                this.TestContext.WriteLine("The base project has Compile elements that are not in the target.");
+                this.TestContext.WriteLine($"{exceptions.Count()} exceptions found:");
+                exceptions.ForEachInEnumerable(i => this.TestContext.WriteLine(i));
+            }
+            else
+            {
+                this.TestContext.WriteLine("No base-target exceptions found.");
+            }
+
+            this.TestContext.WriteLine(string.Empty);
+
+            exceptions = baseProjectCompiles.Select(i => i.Attribute("Include").Value)
+                .Except(targetProjectCompiles.Select(i => i.Attribute("Include").Value));
+            if (exceptions.Any())
+            {
+                this.TestContext.WriteLine("The target project has Compile elements that are not in the base.");
+                this.TestContext.WriteLine($"{exceptions.Count()} exceptions found:");
+                exceptions.ForEachInEnumerable(i => this.TestContext.WriteLine(i));
+            }
+            else
+            {
+                this.TestContext.WriteLine("No target-base exceptions found.");
+            }
         }
     }
 }
