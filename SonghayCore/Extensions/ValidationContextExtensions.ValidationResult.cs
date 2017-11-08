@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 
 namespace Songhay.Extensions
 {
@@ -27,13 +27,18 @@ namespace Songhay.Extensions
         public static string ToDisplayText(this IEnumerable<ValidationResult> results)
         {
             if (results == null) return null;
-            var s = string.Format("Count {0}:{1}", results.Count(), Environment.NewLine);
+            if (!results.Any()) return null;
+
+            var builder = new StringBuilder();
+            builder.AppendFormat("Count {0}:{1}", results.Count());
+            builder.AppendLine();
             results.ForEachInEnumerable(i =>
             {
-                s += string.Format("{0}{1}", i.ToDisplayText(), Environment.NewLine);
+                builder.Append(i.ToDisplayText());
+                builder.AppendLine();
             });
 
-            return s;
+            return builder.ToString();
         }
     }
 }
