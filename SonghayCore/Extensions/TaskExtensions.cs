@@ -1,17 +1,16 @@
-﻿#if !NET35
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Songhay.Extensions
 {
     /// <summary>
-    /// Extensions of <see cref="System.Threading.Tasks.Task"/>
+    /// Extensions of <see cref="Task"/>
     /// </summary>
     public static class TaskExtensions
     {
         /// <summary>
-        /// Delays with a <see cref="System.Threading.Timer"/> task for the specified <see cref="System.TimeSpan"/>.
+        /// Delays with a <see cref="Timer"/> task for the specified <see cref="TimeSpan"/>.
         /// </summary>
         /// <param name="task">Instance of </param>
         /// <param name="timeSpan">The specified timespan</param>
@@ -22,7 +21,7 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Delays with a <see cref="System.Threading.Timer"/> task for the specified <see cref="System.TimeSpan"/>.
+        /// Delays with a <see cref="Timer"/> task for the specified <see cref="TimeSpan"/>.
         /// </summary>
         /// <param name="task">Instance of </param>
         /// <param name="timeSpan">The specified timespan</param>
@@ -56,4 +55,3 @@ namespace Songhay.Extensions
         }
     }
 }
-#endif
