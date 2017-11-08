@@ -1,5 +1,4 @@
-﻿#if !NET35
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Diagnostics;
 
 namespace Songhay.Diagnostics
@@ -68,4 +67,3 @@ namespace Songhay.Diagnostics
         }
     }
 }
-#endif
