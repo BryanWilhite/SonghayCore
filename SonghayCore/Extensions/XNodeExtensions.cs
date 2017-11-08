@@ -1,5 +1,4 @@
-﻿#if !NET35
-using Songhay.Xml;
+﻿using Songhay.Xml;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
@@ -8,7 +7,7 @@ namespace Songhay.Extensions
 {
 
     /// <summary>
-    /// Extensions of <see cref="System.Xml.Linq.XNode"/>.
+    /// Extensions of <see cref="XNode"/>.
     /// </summary>
     public static class XNodeExtensions
     {
@@ -26,7 +25,7 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="node">The node.</param>
         /// <param name="stripNamespaces">if set to <c>true</c> then strip namespaces (<c>true</c> by default).</param>
-        /// <param name="options">The options (<see cref="System.Xml.Linq.ReaderOptions.None"/> by default).</param>
+        /// <param name="options">The options (<see cref="ReaderOptions.None"/> by default).</param>
         /// <remarks>
         /// “If performance is important (e.g. lots of XML, parsed frequently), I'd use Daniel's CreateReader method every time.”
         /// [http://stackoverflow.com/questions/3793/best-way-to-get-innerxml-of-an-xelement]
@@ -71,7 +70,7 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="node">The node.</param>
         /// <param name="stripNamespaces">if set to <c>true</c> then strip namespaces (<c>true</c> by default).</param>
-        /// <param name="options">The options (<see cref="System.Xml.Linq.ReaderOptions.None"/> by default).</param>
+        /// <param name="options">The options (<see cref="ReaderOptions.None"/> by default).</param>
         public static string GetOuterXml(this XNode node, bool stripNamespaces, ReaderOptions options)
         {
             if (node == null) return null;
@@ -84,4 +83,3 @@ namespace Songhay.Extensions
         }
     }
 }
-#endif
