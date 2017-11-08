@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 namespace Songhay.Extensions
 {
     /// <summary>
-    /// Extensions of <see cref="System.String"/>.
+    /// Extensions of <see cref="string"/>.
     /// </summary>
     public static partial class StringExtensions
     {
@@ -131,37 +131,8 @@ namespace Songhay.Extensions
             return output;
         }
 
-#if !NET35
         /// <summary>
-        /// Converts the <see cref="System.String"/> into a numeric format for parsing.
-        /// </summary>
-        /// <param name="input">The input.</param>
-        /// <returns>
-        /// Returns a numeric string ready for integer or float parsing.
-        /// </returns>
-        public static string ToNumericString(this string input)
-        {
-            return input.ToNumericString("0");
-        }
-
-        /// <summary>
-        /// Converts the <see cref="System.String"/> into a numeric format for parsing.
-        /// </summary>
-        /// <param name="input">The input.</param>
-        /// <param name="defaultValue">The default value ("0" by default).</param>
-        /// <returns>
-        /// Returns a numeric string ready for integer or float parsing.
-        /// </returns>
-        public static string ToNumericString(this string input, string defaultValue)
-        {
-            if(string.IsNullOrEmpty(input)) return defaultValue;
-            if(string.IsNullOrWhiteSpace(input)) return defaultValue;
-            return new string(input.Trim().Where(i => char.IsDigit(i) || i.Equals('.')).ToArray());
-        }
-#endif
-
-        /// <summary>
-        /// Formats the <see cref="System.String"/> into a shortened form,
+        /// Formats the <see cref="string"/> into a shortened form,
         /// showing the search text in context.
         /// </summary>
         /// <param name="input">The input.</param>
