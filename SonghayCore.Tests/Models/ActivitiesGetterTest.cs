@@ -1,42 +1,42 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Songhay.Diagnostics;
 using Songhay.Extensions;
-using Songhay.Models;
 using Songhay.Tests.Activities;
-using System.IO;
+using System;
+using System.Diagnostics;
 
 namespace Songhay.Tests.Models
 {
     [TestClass]
     public class ActivitiesGetterTest
     {
+        static ActivitiesGetterTest() => traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithAllSourceLevels();
+        static readonly TraceSource traceSource;
+
         public TestContext TestContext { get; set; }
 
         [TestMethod]
-        [TestProperty("basePath", "Activities")]
         public void ShouldGetActivityFromDefaultName()
         {
-            var projectFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 3);
-
-            #region test properties:
-
-            var basePath = this.TestContext.Properties["basePath"].ToString();
-            basePath = Path.Combine(projectFolder, basePath);
-            this.TestContext.ShouldFindDirectory(basePath);
-
-            #endregion
-
-            var args = new[]
+            using (var listener = new TextWriterTraceListener(Console.Out))
             {
-                nameof(GetHelloWorldActivity),
-                "--world-name",
-                "Saturn"
-            };
+                traceSource.Listeners.Add(listener);
 
-            var getter = new MyActivitiesGetter(args);
-            var activity = getter.GetActivity();
-            Assert.IsNotNull(activity);
+                var args = new[]
+                {
+                    nameof(GetHelloWorldActivity),
+                    "--world-name",
+                    "Saturn"
+                };
 
-            activity.Start(getter.Args);
+                var getter = new MyActivitiesGetter(args);
+                var activity = getter.GetActivity();
+                Assert.IsNotNull(activity);
+
+                activity.Start(getter.Args);
+
+                listener.Flush();
+            }
         }
     }
 }
