@@ -1,4 +1,7 @@
-﻿namespace Songhay.Models
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace Songhay.Models
 {
     /// <summary>
     /// Defines conventional command-line arguments.
@@ -12,6 +15,7 @@
         public ProgramArgs(string[] args)
         {
             this.Args = args;
+            if ((bool)args?.Any()) this.HelpSet = new Dictionary<string, string>(capacity: args.Length);
         }
 
         /// <summary>
@@ -41,5 +45,13 @@
         /// The arguments.
         /// </value>
         public string[] Args { get; private set; }
+
+        /// <summary>
+        /// Gets the help set.
+        /// </summary>
+        /// <value>
+        /// The help set.
+        /// </value>
+        public Dictionary<string, string> HelpSet { get; private set; }
     }
 }

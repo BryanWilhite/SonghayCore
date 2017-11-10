@@ -12,12 +12,6 @@ namespace Songhay.Models
     public interface IActivity
     {
         /// <summary>
-        /// Displays the help.
-        /// </summary>
-        /// <returns></returns>
-        string DisplayHelp();
-
-        /// <summary>
         /// Starts with the specified arguments.
         /// </summary>
         /// <param name="args">The arguments.</param>

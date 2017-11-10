@@ -7,7 +7,7 @@ namespace Songhay.Extensions
     /// <summary>
     /// Extensions of <see cref="ProgramArgs"/>
     /// </summary>
-    public static class ProgramArgsExtensions
+    public static partial class ProgramArgsExtensions
     {
         /// <summary>
         /// Gets the argument value.
