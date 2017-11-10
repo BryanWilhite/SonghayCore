@@ -1,7 +1,6 @@
 ﻿using Songhay.Diagnostics;
 using Songhay.Extensions;
 using Songhay.Models;
-using System;
 using System.Diagnostics;
 
 namespace Songhay.Tests.Activities
@@ -11,12 +10,10 @@ namespace Songhay.Tests.Activities
         static GetHelloWorldActivity() => traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithAllSourceLevels();
         static readonly TraceSource traceSource;
 
-        public void Start(string[] args)
+        public void Start(ProgramArgs args)
         {
-            if (args.Length < 1) throw new ArgumentException("The expected world name is not here.");
-
-            var worldName = args[0];
-            traceSource.TraceInformation($"Hello from world {worldName}!");
+            var worldName = args.GetArgValue("--world-name");
+            traceSource.EnsureTraceSource().TraceInformation($"Hello from world {worldName}!");
         }
     }
 }

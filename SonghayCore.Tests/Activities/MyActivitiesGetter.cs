@@ -1,16 +1,24 @@
-﻿using SonghayCore.Models;
+﻿using Songhay.Models;
+using SonghayCore.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Songhay.Tests.Activities
 {
-    public class MyActivitiesGetter: ActivitiesGetter
+    public class MyActivitiesGetter : ActivitiesGetter
     {
-        public MyActivitiesGetter()
+        public MyActivitiesGetter(string[] args) : base(args) { }
+
+        protected override void OnSetupActivities(Dictionary<string, Lazy<IActivity>> activities)
         {
+            activities.Add(
+                nameof(Activities.GetHelloWorldActivity),
+                new Lazy<IActivity>(() => new Activities.GetHelloWorldActivity())
+                );
+            activities.Add(
+                nameof(Activities.GetHelloWorldReportActivity),
+                new Lazy<IActivity>(() => new Activities.GetHelloWorldReportActivity())
+                );
         }
     }
 }

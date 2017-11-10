@@ -15,6 +15,6 @@ namespace Songhay.Models
         /// Starts with the specified arguments.
         /// </summary>
         /// <param name="args">The arguments.</param>
-        void Start(string[] args);
+        void Start(ProgramArgs args);
     }
 }

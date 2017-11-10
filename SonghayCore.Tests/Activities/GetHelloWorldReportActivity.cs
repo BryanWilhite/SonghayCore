@@ -10,7 +10,7 @@ namespace Songhay.Tests.Activities
         static GetHelloWorldReportActivity() => traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithAllSourceLevels();
         static readonly TraceSource traceSource;
 
-        public void Start(string[] args)
+        public void Start(ProgramArgs args)
         {
             traceSource.TraceInformation("Sorry, but the Hello Worlds reports are not yet available :(");
         }

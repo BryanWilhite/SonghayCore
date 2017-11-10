@@ -27,8 +27,25 @@ namespace SonghayCore.Models
         public ActivitiesGetter(string[] args)
         {
             this._defaultActivityName = ToActivityName(args);
-            this._args = new ProgramArgs(ToActivityArgs(args));
+            this.Args = new ProgramArgs(ToActivityArgs(args));
             this.SetupActivities();
+        }
+
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <value>
+        /// The arguments.
+        /// </value>
+        public ProgramArgs Args { get; private set; }
+
+        /// <summary>
+        /// Gets the <see cref="IActivity"/>.
+        /// </summary>
+        /// <returns></returns>
+        public virtual IActivity GetActivity()
+        {
+            return this._activities.GetActivity(this._defaultActivityName);
         }
 
         /// <summary>
@@ -36,18 +53,9 @@ namespace SonghayCore.Models
         /// </summary>
         /// <param name="activityName">Name of the <see cref="IActivity"/>.</param>
         /// <returns></returns>
-        protected virtual IActivity GetActivity(string activityName)
+        public virtual IActivity GetActivity(string activityName)
         {
             return this._activities.GetActivity(activityName);
-        }
-
-        /// <summary>
-        /// Gets the activity help.
-        /// </summary>
-        /// <returns></returns>
-        protected virtual Dictionary<string, string> GetActivityHelp()
-        {
-            return this._activitiesHelp;
         }
 
         /// <summary>
@@ -78,7 +86,6 @@ namespace SonghayCore.Models
         }
 
         Dictionary<string, Lazy<IActivity>> _activities;
-        ProgramArgs _args;
         string _defaultActivityName;
     }
 }
