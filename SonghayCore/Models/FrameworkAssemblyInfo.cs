@@ -53,11 +53,7 @@ namespace Songhay.Models
         {
             get
             {
-#if SILVERLIGHT
-                AssemblyName name = new AssemblyName(this._dll.FullName);
-#else
                 AssemblyName name = this._dll.GetName();
-#endif
                 return name.Version.ToString();
             }
         }
@@ -69,11 +65,7 @@ namespace Songhay.Models
         {
             get
             {
-#if SILVERLIGHT
-                AssemblyName dllName = new AssemblyName(this._dll.FullName);
-#else
                 AssemblyName dllName = this._dll.GetName();
-#endif
                 return string.Format(CultureInfo.CurrentCulture, "{0:D}.{1:D2}", dllName.Version.Major, dllName.Version.Minor);
             }
         }
