@@ -8,7 +8,7 @@ namespace Songhay.Models
     /// <summary>
     /// Defines a managed representation of the OPML body element.
     /// </summary>
-#if !NETSTANDARD1_2 && !SILVERLIGHT
+#if !NETSTANDARD1_2
     [Serializable]
 #endif
     [JsonObject("head", MemberSerialization = MemberSerialization.OptIn)]

@@ -27,7 +27,7 @@ namespace Songhay.ServiceModel
         /// Initializes a new instance of the BasicHttpBinaryBinding class.
         /// </summary>
         /// <param name="securityMode">
-        /// The value of System.ServiceModel.BasicHttpSecurityMode that specifies 
+        /// The value of System.ServiceModel.BasicHttpSecurityMode that specifies
         /// the type of security that is used with the SOAP message and for the client.
         /// </param>
         public BasicHttpBinaryBinding(BasicHttpSecurityMode securityMode)
@@ -39,7 +39,7 @@ namespace Songhay.ServiceModel
         /// Initializes a new instance of the BasicHttpBinaryBinding class.
         /// </summary>
         /// <param name="securityMode">
-        /// The value of System.ServiceModel.BasicHttpSecurityMode that specifies 
+        /// The value of System.ServiceModel.BasicHttpSecurityMode that specifies
         /// the type of security that is used with the SOAP message and for the client.
         /// </param>
         /// <param name="binaryEncoding">
@@ -67,8 +67,8 @@ namespace Songhay.ServiceModel
             if(this.BinaryEncoding)
             {
                 // search the existing message encoding element (Text or MTOM) and replace it
-                // note: the search must be done with the base type of text and mtom binding element, 
-                // because this code is compiled against silverlight also 
+                // note: the search must be done with the base type of text and mtom binding element,
+                // because this code is compiled against silverlight also
                 // and there is no mtom encoding available
                 for(int i = elements.Count - 1; i >= 0; i--)
                 {
@@ -78,9 +78,7 @@ namespace Songhay.ServiceModel
                         BinaryMessageEncodingBindingElement binaryElement = null;
 
                         var textEncoding = element as TextMessageEncodingBindingElement;
-#if !SILVERLIGHT
                         var mtomEncoding = element as MtomMessageEncodingBindingElement;
-#endif
 
                         if(textEncoding != null)
                         {
@@ -88,7 +86,6 @@ namespace Songhay.ServiceModel
                             binaryElement = new BinaryMessageEncodingBindingElement();
 
                             // copy settings
-#if !SILVERLIGHT
                             binaryElement.ReaderQuotas.MaxArrayLength = textEncoding.ReaderQuotas.MaxArrayLength;
                             binaryElement.ReaderQuotas.MaxBytesPerRead = textEncoding.ReaderQuotas.MaxBytesPerRead;
                             binaryElement.ReaderQuotas.MaxDepth = textEncoding.ReaderQuotas.MaxDepth;
@@ -96,12 +93,11 @@ namespace Songhay.ServiceModel
                             binaryElement.ReaderQuotas.MaxStringContentLength = textEncoding.ReaderQuotas.MaxStringContentLength;
                             binaryElement.MaxReadPoolSize = textEncoding.MaxReadPoolSize;
                             binaryElement.MaxWritePoolSize = textEncoding.MaxWritePoolSize;
-#endif
 
                             // binary uses always soap-1.2
                             //binaryElement.MessageVersion = textEncoding.MessageVersion;
                         }
-#if !SILVERLIGHT
+
                         else if(mtomEncoding != null)
                         {
                             // copy settings to binary element
@@ -119,7 +115,7 @@ namespace Songhay.ServiceModel
                             // binary uses always soap-1.2
                             //binaryElement.MessageVersion = mtomEncoding.MessageVersion;
                         }
-#endif
+
                         else if(element is BinaryMessageEncodingBindingElement)
                         {
                             // it's already binary

@@ -13,7 +13,7 @@ namespace Songhay.Models
     /// between applications running on different operating systems and environments.”
     /// http://www.opml.org/about
     /// </remarks>
-#if !NETSTANDARD1_2 && !SILVERLIGHT
+#if !NETSTANDARD1_2
     [Serializable]
     [XmlRoot(ElementName = "opml", Namespace = "http://songhaysystem.com/schemas/opml.xsd")]
 #endif

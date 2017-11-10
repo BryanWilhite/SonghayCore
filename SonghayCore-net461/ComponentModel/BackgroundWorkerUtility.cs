@@ -52,9 +52,7 @@ namespace Songhay.ComponentModel
                 }
                 finally
                 {
-#if !SILVERLIGHT
                     worker.Dispose();
-#endif
                 }
             };
 
