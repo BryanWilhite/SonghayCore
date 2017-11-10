@@ -8,13 +8,75 @@ using System.Xml.Linq;
 namespace Songhay.Tests
 {
     [TestClass]
-    public class PlatformSupportTests
+    public class PlatformSupportTest
     {
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
         ///</summary>
         public TestContext TestContext { get; set; }
+
+        [TestMethod]
+        [TestProperty("projectsDirectory", "SonghayCore")]
+        [TestProperty("rootPlatform", PlatformConstants.netstandard20)]
+        [TestProperty("targetPlatform", PlatformConstants.netstandard14)]
+        public void ShouldDiffCompileIncludesForNetCore()
+        {
+            #region test properties:
+
+            var projectsDirectory = this.TestContext.Properties["projectsDirectory"].ToString();
+            var rootPlatform = this.TestContext.Properties["rootPlatform"].ToString();
+            var targetPlatform = this.TestContext.Properties["targetPlatform"].ToString();
+
+            #endregion
+
+            var info = this.TestContext.ShouldGetAssemblyDirectoryInfo(this.GetType());
+            var parentInfo = info.Parent?.Parent?.Parent;
+            Assert.IsNotNull(parentInfo, "The expected parent Directory Info is not here.");
+            Assert.AreEqual(parentInfo.Name, projectsDirectory);
+
+            var coreProjectInfo = parentInfo.GetDirectories().First(i => i.Name == projectsDirectory);
+            var coreFiles = coreProjectInfo
+                .EnumerateFiles("*.cs", SearchOption.AllDirectories)
+                .Select(i => i.FullName.Replace(coreProjectInfo.Parent.FullName, "..").ToLowerInvariant());
+
+            //coreFiles.ForEachInEnumerable(i => this.TestContext.WriteLine(i));
+
+            var targetProjectFile = Path.Combine(parentInfo.FullName,
+                $"{projectsDirectory}-{targetPlatform}",
+                $"{projectsDirectory}-{targetPlatform}.csproj");
+            this.TestContext.ShouldFindFile(targetProjectFile);
+
+            var targetProjectDoc = XDocument.Load(targetProjectFile);
+            var targetProjectCompiles = targetProjectDoc.Root.Descendants("Compile").ToArray();
+            Assert.IsTrue(targetProjectCompiles.Any(), "The expected target Compile elements are not here.");
+
+            var exceptions = coreFiles.Except(targetProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant()));
+            if (exceptions.Any())
+            {
+                this.TestContext.WriteLine("The core project has Compile elements that are not in the framework.");
+                this.TestContext.WriteLine($"{exceptions.Count()} exceptions found:");
+                exceptions.OrderBy(i => i).ForEachInEnumerable(i => this.TestContext.WriteLine(i));
+            }
+            else
+            {
+                this.TestContext.WriteLine("No framework-base exceptions found.");
+            }
+
+            this.TestContext.WriteLine(string.Empty);
+
+            exceptions = targetProjectCompiles.Select(i => i.Attribute("Include").Value.ToLowerInvariant()).Except(coreFiles);
+            if (exceptions.Any())
+            {
+                this.TestContext.WriteLine("The framework project has Compile elements that are not in the core.");
+                this.TestContext.WriteLine($"{exceptions.Count()} exceptions found:");
+                exceptions.OrderBy(i => i).ForEachInEnumerable(i => this.TestContext.WriteLine(i));
+            }
+            else
+            {
+                this.TestContext.WriteLine("No base-framework exceptions found.");
+            }
+        }
 
         [TestMethod]
         [TestProperty("projectFileNamespace", "http://schemas.microsoft.com/developer/msbuild/2003")]
