@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SonghayCore</id>
-    <version>2.5.1</version>
+    <version>2.5.2</version>
     <title>Songhay Core</title>
     <authors>bryan.wilhite@gmail.com</authors>
     <owners>rasx@songhaysystem.com</owners>
@@ -11,7 +11,7 @@
     <licenseUrl>https://raw.github.com/BryanWilhite/SonghayCore/master/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>core libraries meant to be shared among Songhay projects</description>
-    <releaseNotes>addressed multi-framework support issues; established patterns with ProgramArgs, ActivitiesGetter and IActivity; namespace correction</releaseNotes>
+    <releaseNotes>addressed multi-framework support issues; established patterns with ProgramArgs, ActivitiesGetter and IActivity; .nuspec correction</releaseNotes>
     <copyright>Copyright 2017 Bryan D. Wilhite</copyright>
     <tags>Core Songhay Configuration Cryptography LINQ</tags>
     <dependencies>
@@ -101,10 +101,8 @@
 
     <file src="SonghayCore-netstandard1.4\**\*.cs" exclude="SonghayCore-netstandard1.4\**\obj\**" target="src" />
 
-    <file src="SonghayCore\bin\Release\Songhay*.dll" target="lib\net461" />
-    <file src="SonghayCore\bin\Release\Songhay*.exe" exclude="**vshost**" target="lib\net461" />
-    <file src="SonghayCore\bin\Release\Songhay*.config" target="lib\net461" />
-    <file src="SonghayCore\bin\Release\Songhay*.xml" target="lib\net461" />
+    <file src="SonghayCore\bin\Release\netstandard2.0\Songhay*.dll" target="lib\netstandard2.0" />
+    <file src="SonghayCore\bin\Release\netstandard2.0\Songhay*.json" target="lib\netstandard2.0" />
 
     <file src="SonghayCore\**\*.cs" exclude="SonghayCore\**\obj\**" target="src" />
   </files>
