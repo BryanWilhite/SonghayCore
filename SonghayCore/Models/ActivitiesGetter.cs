@@ -1,10 +1,9 @@
 ﻿using Songhay.Extensions;
-using Songhay.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SonghayCore.Models
+namespace Songhay.Models
 {
     /// <summary>
     /// Defines the in-memory storage
