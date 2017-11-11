@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Songhay.Models
+﻿namespace Songhay.Models
 {
     /// <summary>
     /// Defines an Activity in a shell environment.
@@ -11,6 +9,13 @@ namespace Songhay.Models
     /// </remarks>
     public interface IActivity
     {
+        /// <summary>
+        /// Displays the help.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <returns></returns>
+        string DisplayHelp(ProgramArgs args);
+
         /// <summary>
         /// Starts with the specified arguments.
         /// </summary>

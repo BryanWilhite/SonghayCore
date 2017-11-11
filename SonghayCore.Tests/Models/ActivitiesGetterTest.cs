@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Songhay.Diagnostics;
 using Songhay.Extensions;
+using Songhay.Models;
 using Songhay.Tests.Activities;
 using System;
 using System.Diagnostics;
@@ -32,6 +33,32 @@ namespace Songhay.Tests.Models
                 var getter = new MyActivitiesGetter(args);
                 var activity = getter.GetActivity();
                 Assert.IsNotNull(activity);
+
+                activity.Start(getter.Args);
+
+                listener.Flush();
+            }
+        }
+
+        [TestMethod]
+        public void ShouldShowHelpDisplayText()
+        {
+            using (var listener = new TextWriterTraceListener(Console.Out))
+            {
+                traceSource.Listeners.Add(listener);
+
+                var args = new[]
+                {
+                    nameof(GetHelloWorldActivity),
+                    ProgramArgs.Help
+                };
+
+                var getter = new MyActivitiesGetter(args);
+                var activity = getter.GetActivity();
+                Assert.IsNotNull(activity);
+
+                if (getter.Args.IsHelpRequest())
+                    this.TestContext.WriteLine(activity.DisplayHelp(getter.Args));
 
                 activity.Start(getter.Args);
 

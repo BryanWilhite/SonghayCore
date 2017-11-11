@@ -1,6 +1,7 @@
 ﻿using Songhay.Models;
 using System;
 using System.Linq;
+using System.Text;
 
 namespace Songhay.Extensions
 {
@@ -58,7 +59,16 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Converts the <c>args</c> key to a.
+        /// Determines whether args contain the <see cref="ProgramArgs.Help"/> flag.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        public static bool IsHelpRequest(this ProgramArgs args)
+        {
+            return args.HasArg(ProgramArgs.Help, requiresValue: false);
+        }
+
+        /// <summary>
+        /// Converts the <c>args</c> key to a conventional Configuration key.
         /// </summary>
         /// <param name="args">The arguments.</param>
         /// <param name="argKey">The arguments key.</param>
@@ -71,6 +81,19 @@ namespace Songhay.Extensions
                     .TrimStart('-')
                     .Replace("/", string.Empty)
                     .Replace("=", string.Empty);
+        }
+
+        /// <summary>
+        /// Converts the <c>args</c> key any help text.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        public static string ToHelpDisplayText(this ProgramArgs args)
+        {
+            if (args == null) return null;
+            var builder = new StringBuilder();
+            builder.AppendLine();
+            args.HelpSet.ForEachInEnumerable(i => builder.AppendLine(i.Value));
+            return builder.ToString();
         }
     }
 }
