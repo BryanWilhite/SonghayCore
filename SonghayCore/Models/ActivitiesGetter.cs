@@ -12,14 +12,6 @@ namespace Songhay.Models
     public abstract class ActivitiesGetter
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ActivitiesGetter"/> class.
-        /// </summary>
-        public ActivitiesGetter()
-        {
-            this.SetupActivities();
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ActivitiesGetter" /> class.
         /// </summary>
         /// <param name="args">The arguments.</param>
@@ -27,7 +19,6 @@ namespace Songhay.Models
         {
             this._defaultActivityName = ToActivityName(args);
             this.Args = new ProgramArgs(ToActivityArgs(args));
-            this.SetupActivities();
         }
 
         /// <summary>
@@ -58,12 +49,12 @@ namespace Songhay.Models
         }
 
         /// <summary>
-        /// Called when the storage and lazy instantiation
-        /// of <see cref="IActivity"/> types needs to be stated.
+        /// Loads the activities.
         /// </summary>
         /// <param name="activities">The activities.</param>
-        protected virtual void OnSetupActivities(Dictionary<string, Lazy<IActivity>> activities)
+        public virtual void LoadActivities(Dictionary<string, Lazy<IActivity>> activities)
         {
+            this._activities = activities;
         }
 
         static string[] ToActivityArgs(string[] args)
@@ -76,12 +67,6 @@ namespace Songhay.Models
         {
             if (args?.Count() < 1) throw new ArgumentException("The expected Activity name is not here.");
             return args.First();
-        }
-
-        void SetupActivities()
-        {
-            this._activities = new Dictionary<string, Lazy<IActivity>>();
-            this.OnSetupActivities(this._activities);
         }
 
         Dictionary<string, Lazy<IActivity>> _activities;
