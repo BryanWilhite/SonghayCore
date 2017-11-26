@@ -15,7 +15,7 @@ namespace Songhay.Models
         public ProgramArgs(string[] args)
         {
             this.Args = args;
-            if ((bool)args?.Any()) this.HelpSet = new Dictionary<string, string>(capacity: args.Length);
+            if ((args != null) && args.Any()) this.HelpSet = new Dictionary<string, string>(capacity: args.Length);
         }
 
         /// <summary>

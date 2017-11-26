@@ -41,6 +41,32 @@ namespace Songhay.Tests.Models
         }
 
         [TestMethod]
+        public void ShouldHandleEmptyArgments()
+        {
+            try
+            {
+                var getter = new MyActivitiesGetter(new string[] { });
+            }
+            catch (ArgumentException ex)
+            {
+                this.TestContext.WriteLine($"The expected exception: {ex.Message}");
+            }
+        }
+
+        [TestMethod]
+        public void ShouldHandleNullArgments()
+        {
+            try
+            {
+                var getter = new MyActivitiesGetter(null);
+            }
+            catch (ArgumentNullException ex)
+            {
+                this.TestContext.WriteLine($"The expected exception: {ex.Message}");
+            }
+        }
+
+        [TestMethod]
         public void ShouldShowHelpDisplayText()
         {
             using (var listener = new TextWriterTraceListener(Console.Out))

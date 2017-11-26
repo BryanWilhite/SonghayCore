@@ -59,13 +59,15 @@ namespace Songhay.Models
 
         static string[] ToActivityArgs(string[] args)
         {
-            if (args?.Count() < 2) return null;
+            if (args == null) throw new ArgumentNullException("The expected Activity arguments are not here.");
+            if (args.Count() < 2) return null;
             return args.Skip(1).ToArray();
         }
 
         static string ToActivityName(string[] args)
         {
-            if (args?.Count() < 1) throw new ArgumentException("The expected Activity name is not here.");
+            if (args == null) throw new ArgumentNullException("The expected Activity arguments are not here.");
+            if (!args.Any()) throw new ArgumentException("The expected Activity name is not here.");
             return args.First();
         }
 
