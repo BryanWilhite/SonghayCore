@@ -11,6 +11,11 @@ namespace Songhay.Extensions
     public static class IConfigurationBuilderExtensions
     {
         /// <summary>
+        /// The default settings file name
+        /// </summary>
+        public const string defaultSettingsFileName = "app-settings.json";
+
+        /// <summary>
         /// Builds <see cref="IConfigurationBuilder"/>
         /// with the conventional settings json file.
         /// </summary>
@@ -19,28 +24,61 @@ namespace Songhay.Extensions
         /// <exception cref="ArgumentException"></exception>
         public static IConfigurationBuilder WithSettingsJsonFile(this IConfigurationBuilder builder)
         {
-            if (builder == null) return null;
+            return builder.WithSettingsJsonFile(basePath: null, settingsFileName: null);
+        }
 
-            var basePath = Directory.GetCurrentDirectory();
-            var settingsFile = "app-settings.json";
+        /// <summary>
+        /// Builds <see cref="IConfigurationBuilder" />
+        /// with the conventional settings json file.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="settingsFileName">Name of the settings file.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static IConfigurationBuilder WithSettingsJsonFile(this IConfigurationBuilder builder, string settingsFileName)
+        {
+            return builder.WithSettingsJsonFile(basePath: null, settingsFileName: settingsFileName);
+        }
+
+        /// <summary>
+        /// Builds <see cref="IConfigurationBuilder" />
+        /// with the conventional settings json file.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="basePath">The base path.</param>
+        /// <param name="settingsFileName">Name of the settings file.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        /// <remarks>
+        /// This member group will not call
+        /// <see cref="FileConfigurationExtensions.SetBasePath(IConfigurationBuilder, string)"/>
+        /// unless the command-line argument <see cref="ProgramArgs.BasePath"/> is set and is valid.
+        ///
+        /// When <see cref="ProgramArgs.SettingsFile"/> is not specified then <see cref="defaultSettingsFileName"/> will be used.
+        /// </remarks>
+        public static IConfigurationBuilder WithSettingsJsonFile(this IConfigurationBuilder builder, string basePath, string settingsFileName)
+        {
+            if (builder == null) return null;
 
             var args = new ProgramArgs(Environment.GetCommandLineArgs());
 
+            if (string.IsNullOrEmpty(settingsFileName)) settingsFileName = defaultSettingsFileName;
+
             var isBasePathRequired = args.HasArg(ProgramArgs.BasePathRequired, requiresValue: false);
-            if(args.HasArg(ProgramArgs.BasePath, isBasePathRequired))
+            if (args.HasArg(ProgramArgs.BasePath, isBasePathRequired))
             {
                 basePath = args.GetArgValue(ProgramArgs.BasePath);
                 if (!Directory.Exists(basePath)) throw new ArgumentException($"{basePath} does not exist.");
+                builder.SetBasePath(basePath);
             }
 
-            if(args.HasArg(ProgramArgs.SettingsFile, requiresValue: false))
+            if (args.HasArg(ProgramArgs.SettingsFile, requiresValue: false))
             {
-                settingsFile = args.GetArgValue(ProgramArgs.SettingsFile);
+                settingsFileName = args.GetArgValue(ProgramArgs.SettingsFile);
+                builder.AddJsonFile(settingsFileName, optional: true, reloadOnChange: true);
             }
 
-            return builder
-                .SetBasePath(basePath)
-                .AddJsonFile(settingsFile, optional: true, reloadOnChange: true);
+            return builder;
         }
     }
 }
