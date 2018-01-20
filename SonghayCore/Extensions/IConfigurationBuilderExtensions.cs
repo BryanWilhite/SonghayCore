@@ -32,12 +32,12 @@ namespace Songhay.Extensions
         /// with the conventional settings json file.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        /// <param name="settingsFileName">Name of the settings file.</param>
+        /// <param name="basePath">The base path.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static IConfigurationBuilder WithSettingsJsonFile(this IConfigurationBuilder builder, string settingsFileName)
+        public static IConfigurationBuilder WithSettingsJsonFile(this IConfigurationBuilder builder, string basePath)
         {
-            return builder.WithSettingsJsonFile(basePath: null, settingsFileName: settingsFileName);
+            return builder.WithSettingsJsonFile(basePath: basePath, settingsFileName: null);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Songhay.Extensions
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         /// <remarks>
-        /// This member group will not call
+        /// When <c>basePath</c> is missing, this member group will not call
         /// <see cref="FileConfigurationExtensions.SetBasePath(IConfigurationBuilder, string)"/>
         /// unless the command-line argument <see cref="ProgramArgs.BasePath"/> is set and is valid.
         ///
@@ -70,11 +70,17 @@ namespace Songhay.Extensions
                 basePath = args.GetArgValue(ProgramArgs.BasePath);
                 if (!Directory.Exists(basePath)) throw new ArgumentException($"{basePath} does not exist.");
                 builder.SetBasePath(basePath);
-            }
 
-            if (args.HasArg(ProgramArgs.SettingsFile, requiresValue: false))
+                if (args.HasArg(ProgramArgs.SettingsFile, requiresValue: false))
+                {
+                    settingsFileName = args.GetArgValue(ProgramArgs.SettingsFile);
+                    builder.AddJsonFile(settingsFileName, optional: true, reloadOnChange: true);
+                }
+            }
+            else if(!string.IsNullOrEmpty(basePath))
             {
-                settingsFileName = args.GetArgValue(ProgramArgs.SettingsFile);
+                if (!Directory.Exists(basePath)) throw new ArgumentException($"{basePath} does not exist.");
+                builder.SetBasePath(basePath);
                 builder.AddJsonFile(settingsFileName, optional: true, reloadOnChange: true);
             }
 

@@ -1,12 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Songhay.Extensions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Songhay.Tests.Extensions
 {
-    using Songhay.Extensions;
-
     [TestClass]
     public class ObservableCollectionExtensionsTest
     {
