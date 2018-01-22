@@ -12,6 +12,26 @@ namespace Songhay.Diagnostics
     /// </remarks>
     public class TraceSources
     {
+        const string DefaultTraceSourceName = "rx-trace";
+
+        /// <summary>
+        /// The configured trace source name
+        /// </summary>
+        public static string ConfiguredTraceSourceName
+        {
+            get { return string.IsNullOrEmpty(configuredTraceSourceName) ? DefaultTraceSourceName : configuredTraceSourceName; }
+            set
+            {
+                configuredTraceSourceName = value;
+                IsConfiguredTraceSourceNameLoaded = true;
+            }
+        }
+
+        /// <summary>
+        /// The is configured trace source name loaded?
+        /// </summary>
+        public static bool IsConfiguredTraceSourceNameLoaded { get; private set; }
+
         /// <summary>
         /// Prevents a default instance of the <see cref="TraceSources"/> class from being created.
         /// </summary>
@@ -21,15 +41,26 @@ namespace Songhay.Diagnostics
         }
 
         /// <summary>
+        /// Gets the name of the trace source from configuration.
+        /// </summary>
+        /// <returns></returns>
+        /// <remarks>
+        /// When the trace source name is not configured
+        /// then <see cref="DefaultTraceSourceName"/> is used.
+        /// </remarks>
+        public TraceSource GetTraceSourceFromConfiguredName()
+        {
+            return GetTraceSource(ConfiguredTraceSourceName);
+        }
+
+        /// <summary>
         /// Gets the trace source.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <returns></returns>
         public TraceSource GetTraceSource(string name)
         {
-            TraceSource r;
-            if (traceSources.TryGetValue(name, out r))
-                return r;
+            if (traceSources.TryGetValue(name, out TraceSource r)) return r;
 
             r = new TraceSource(name);
             traceSources.TryAdd(name, r);
@@ -65,5 +96,7 @@ namespace Songhay.Diagnostics
 
             internal static readonly TraceSources instance = new TraceSources();
         }
+
+        static string configuredTraceSourceName;
     }
 }

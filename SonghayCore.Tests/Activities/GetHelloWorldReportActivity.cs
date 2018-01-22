@@ -7,7 +7,7 @@ namespace Songhay.Tests.Activities
 {
     public class GetHelloWorldReportActivity : IActivity
     {
-        static GetHelloWorldReportActivity() => traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithAllSourceLevels();
+        static GetHelloWorldReportActivity() => traceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithAllSourceLevels();
         static readonly TraceSource traceSource;
 
         public string DisplayHelp(ProgramArgs args)
