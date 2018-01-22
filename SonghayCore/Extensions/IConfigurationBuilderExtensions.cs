@@ -8,6 +8,7 @@ namespace Songhay.Extensions
     /// <summary>
     /// Extension of <see cref="IConfigurationBuilder"/>.
     /// </summary>
+    [Obsolete("These extensions clash with .NET Core Configuration defaults; use ProgramArgsExtensions.")]
     public static class IConfigurationBuilderExtensions
     {
         /// <summary>
