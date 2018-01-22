@@ -8,12 +8,12 @@ namespace Songhay.Extensions
     /// <summary>
     /// Extension of <see cref="IConfigurationBuilder"/>.
     /// </summary>
-    [Obsolete("These extensions clash with .NET Core Configuration defaults; use ProgramArgsExtensions.")]
     public static class IConfigurationBuilderExtensions
     {
         /// <summary>
         /// The default settings file name
         /// </summary>
+        [Obsolete("These extensions clash with .NET Core Configuration defaults; use ProgramArgsExtensions.")]
         public const string defaultSettingsFileName = "app-settings.json";
 
         /// <summary>
@@ -23,6 +23,7 @@ namespace Songhay.Extensions
         /// <param name="builder">The builder.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
+        [Obsolete("These extensions clash with .NET Core Configuration defaults; use ProgramArgsExtensions.")]
         public static IConfigurationBuilder WithSettingsJsonFile(this IConfigurationBuilder builder)
         {
             return builder.WithSettingsJsonFile(basePath: null, settingsFileName: null);
@@ -36,6 +37,7 @@ namespace Songhay.Extensions
         /// <param name="basePath">The base path.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
+        [Obsolete("These extensions clash with .NET Core Configuration defaults; use ProgramArgsExtensions.")]
         public static IConfigurationBuilder WithSettingsJsonFile(this IConfigurationBuilder builder, string basePath)
         {
             return builder.WithSettingsJsonFile(basePath: basePath, settingsFileName: null);
@@ -57,6 +59,7 @@ namespace Songhay.Extensions
         ///
         /// When <see cref="ProgramArgs.SettingsFile"/> is not specified then <see cref="defaultSettingsFileName"/> will be used.
         /// </remarks>
+        [Obsolete("These extensions clash with .NET Core Configuration defaults; use ProgramArgsExtensions.")]
         public static IConfigurationBuilder WithSettingsJsonFile(this IConfigurationBuilder builder, string basePath, string settingsFileName)
         {
             if (builder == null) return null;
