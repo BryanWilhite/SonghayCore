@@ -24,10 +24,10 @@ namespace Songhay.Tests
         public void ShouldFilterCategory()
         {
             var projectFolder = this.TestContext
-                .ShouldGetAssemblyDirectoryInfo(this.GetType())
-                .Parent
-                .Parent
-                .FullName;
+                .ShouldGetAssemblyDirectoryInfo(this.GetType()) // netcoreapp2.0
+                .Parent // Debug or Release
+                .Parent // bin
+                .Parent.FullName;
 
             var opmlFile = this.TestContext.Properties["opmlFile"].ToString();
 
@@ -56,6 +56,7 @@ namespace Songhay.Tests
             this.TestContext.ShouldFindFile(path);
 
             var data = OpmlUtility.GetDocument(path);
+            Assert.IsNotNull(data, "The expected OPML data is not here.");
 
             //XPATH: ./outline[not(@url)]
             var categories = data.OpmlBody.Outlines
@@ -77,10 +78,10 @@ namespace Songhay.Tests
         public void ShouldLoadDocument()
         {
             var projectFolder = this.TestContext
-                .ShouldGetAssemblyDirectoryInfo(this.GetType())
-                .Parent
-                .Parent
-                .FullName;
+                .ShouldGetAssemblyDirectoryInfo(this.GetType()) // netcoreapp2.0
+                .Parent // Debug or Release
+                .Parent // bin
+                .Parent.FullName;
 
             var opmlFile = this.TestContext.Properties["opmlFile"].ToString();
 
@@ -105,10 +106,10 @@ namespace Songhay.Tests
         public void ShouldWriteDateModified()
         {
             var projectFolder = this.TestContext
-                .ShouldGetAssemblyDirectoryInfo(this.GetType())
-                .Parent
-                .Parent
-                .FullName;
+                .ShouldGetAssemblyDirectoryInfo(this.GetType()) // netcoreapp2.0
+                .Parent // Debug or Release
+                .Parent // bin
+                .Parent.FullName;
 
             var opmlFile = this.TestContext.Properties["opmlFile"].ToString();
 

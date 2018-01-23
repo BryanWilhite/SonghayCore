@@ -45,11 +45,13 @@ namespace Songhay.Xml
         {
             var xd = XDocument.Load(path);
 
-            XNamespace ns = xd.Root.GetNamespaceOfPrefix("rx");
-            if (ns != rx) return GetRawDocument(xd);
+            XNamespace ns = xd.Root.GetDefaultNamespace();
+            if ((ns != null) && !string.IsNullOrEmpty(ns.ToString())) return OpmlUtility.GetDocument(xd.Root, ns);
 
-            var data = OpmlUtility.GetDocument(xd.Root, OpmlUtility.rx);
-            return data;
+            ns = xd.Root.GetNamespaceOfPrefix(nameof(OpmlUtility.rx));
+            if (ns == OpmlUtility.rx) return OpmlUtility.GetDocument(xd.Root, OpmlUtility.rx);
+
+            return GetRawDocument(xd);
         }
 
         /// <summary>
