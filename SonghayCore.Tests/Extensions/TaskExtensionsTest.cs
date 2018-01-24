@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Songhay.Extensions;
 using System;
 using System.Threading.Tasks;
 
 namespace Songhay.Tests.Extensions
 {
-    using Songhay.Extensions;
 
     /// <summary>
     /// Tests for extensions of <see cref="System.Threading.Tasks.Task"/>

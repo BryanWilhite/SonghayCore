@@ -17,7 +17,8 @@ namespace Songhay.Extensions
         public static string ToDisplayText(this ValidationResult result)
         {
             if (result == null) return null;
-            return string.Format("ErrorMessage: {0}, Properties: {1}", result.ErrorMessage, string.Join(",", result.MemberNames));
+            return string.Format("Message: {0}; Properties: {1}",
+                result.ErrorMessage, string.Join(",", result.MemberNames).Trim(new[] { ',' }));
         }
 
         /// <summary>
@@ -30,7 +31,7 @@ namespace Songhay.Extensions
             if (!results.Any()) return null;
 
             var builder = new StringBuilder();
-            builder.AppendFormat("Count {0}:{1}", results.Count());
+            builder.AppendFormat("Count: {0}", results.Count());
             builder.AppendLine();
             results.ForEachInEnumerable(i =>
             {
