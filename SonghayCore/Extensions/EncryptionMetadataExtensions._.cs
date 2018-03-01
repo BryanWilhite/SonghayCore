@@ -1,14 +1,15 @@
 ﻿using Songhay.Models;
 using Songhay.Security;
 using System;
-using System.Configuration;
+using System.Data.Common;
+using System.Linq;
 
 namespace Songhay.Extensions
 {
     /// <summary>
     /// Extensions of <see cref="EncryptionMetadata"/>
     /// </summary>
-    public static class EncryptionMetadataExtensions
+    public static partial class EncryptionMetadataExtensions
     {
         /// <summary>
         /// Decrypts the specified encrypted string.
@@ -31,22 +32,36 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Gets the connection string.
+        /// Gets the connection string with decrypted value.
         /// </summary>
         /// <param name="encryptionMeta">The encryption meta.</param>
-        /// <param name="settings">The settings.</param>
+        /// <param name="connectionString">The connection string.</param>
+        /// <param name="connectionStringKey">The connection string key.</param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentNullException">
         /// encryptionMeta;The expected metadata is not here.
         /// or
-        /// settings;The expected configuration settings are not here.
+        /// connectionString;The expected configuration settings are not here.
         /// </exception>
-        public static string GetConnectionString(this EncryptionMetadata encryptionMeta, ConnectionStringSettings settings)
+        /// <exception cref="System.NullReferenceException"></exception>
+        public static string GetConnectionStringWithDecryptedValue(this EncryptionMetadata encryptionMeta, string connectionString, string connectionStringKey)
         {
-            if (settings == null) throw new ArgumentNullException("settings", "The expected configuration settings are not here.");
+            if (encryptionMeta == null) throw new ArgumentNullException("encryptionMeta", "The expected metadata is not here.");
+            if (string.IsNullOrEmpty(connectionString)) throw new ArgumentNullException("connectionString", "The expected configuration settings are not here.");
 
-            var connectionString = encryptionMeta.Decrypt(settings.ConnectionString);
-            return connectionString;
+            var builder = new DbConnectionStringBuilder
+            {
+                ConnectionString = connectionString
+            };
+
+            var key = builder.Keys.OfType<string>().FirstOrDefault(i => i.ToLowerInvariant() == connectionStringKey);
+            if (key == null) throw new NullReferenceException(string.Format("The expected key “{0}” in connection string is not here.", connectionStringKey));
+
+            var decryptedValue = encryptionMeta.Decrypt(builder[connectionStringKey].ToString());
+            builder[connectionStringKey] = decryptedValue;
+
+            return builder.ConnectionString;
         }
+
     }
 }
