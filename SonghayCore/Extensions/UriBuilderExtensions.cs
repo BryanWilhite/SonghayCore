@@ -29,7 +29,7 @@ namespace Songhay.Extensions
                 .Where(i => !string.IsNullOrEmpty(i));
             var combinedSegments = baseSegments.Union(pathSegments);
 
-            builder.Path = string.Join(delimiter, combinedSegments);
+            builder.Path = string.Join(delimiter, combinedSegments.ToArray());
 
             return builder;
         }
