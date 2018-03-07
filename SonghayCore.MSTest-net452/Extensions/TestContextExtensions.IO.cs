@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Songhay.Extensions
 {
@@ -74,6 +75,46 @@ namespace Songhay.Extensions
             path = FrameworkFileUtility.GetParentDirectory(path, expectedLevels);
             context.ShouldFindDirectory(path);
             return path;
+        }
+
+        /// <summary>
+        /// Should get conventional project directory information.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
+        /// <remarks>
+        /// The conventional project would be <c>MyCompany.Foo</c>
+        /// for test project <c>MyCompany.Foo.Tests</c>.
+        /// </remarks>
+        public static DirectoryInfo ShouldGetConventionalProjectDirectoryInfo(this TestContext context, Type type)
+        {
+            if (type == null) throw new ArgumentNullException(nameof(type), "The expected test-class Type is not here.");
+
+            var projectDirectoryName = type.Namespace.Split('.').Take(2).Aggregate((a, i) => string.Concat(a, ".", i));
+            var directoryInfo = context.ShouldGetSiblingDirectoryInfoByName(type, projectDirectoryName);
+            return directoryInfo;
+        }
+
+        /// <summary>
+        /// Should get sibling directory information by name.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="type">The type.</param>
+        /// <param name="projectDirectoryName">Name of the project.</param>
+        /// <returns></returns>
+        /// <remarks>
+        /// The sibling directory info is the output
+        /// from <see cref="ShouldGetProjectDirectoryInfo"/>.
+        /// </remarks>
+        public static DirectoryInfo ShouldGetSiblingDirectoryInfoByName(this TestContext context, Type type, string projectDirectoryName)
+        {
+
+            var projectDirectoryInfo = context.ShouldGetProjectDirectoryInfo(type);
+            var targetProjectDirectoryInfo = projectDirectoryInfo.Parent.GetDirectories().SingleOrDefault(i => i.Name.Equals(projectDirectoryName));
+            context.ShouldFindDirectory(targetProjectDirectoryInfo?.FullName);
+
+            return targetProjectDirectoryInfo;
         }
 
         /// <summary>
