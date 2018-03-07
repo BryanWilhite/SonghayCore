@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Songhay.Models
@@ -26,6 +27,14 @@ namespace Songhay.Models
         public string ApiKey { get; set; }
 
         /// <summary>
+        /// Gets or sets the claims set.
+        /// </summary>
+        /// <value>
+        /// The claims set.
+        /// </value>
+        public Dictionary<string, string> ClaimsSet { get; set; }
+
+        /// <summary>
         /// Gets or sets the URI templates.
         /// </summary>
         /// <value>
@@ -43,6 +52,26 @@ namespace Songhay.Models
 
             if (this.ApiBase != null) sb.AppendFormat("ApiBase: {0}", this.ApiBase);
             if (!string.IsNullOrEmpty(this.ApiKey)) sb.AppendFormat(" ApiKey: {0}", this.ApiKey);
+
+            if ((this.ClaimsSet != null) && this.ClaimsSet.Any())
+            {
+                sb.AppendLine($"{nameof(this.ClaimsSet)}:");
+                foreach (var item in this.ClaimsSet)
+                {
+                    sb.AppendLine($"    {item.Key}:");
+                    sb.AppendLine($"        {item.Value}");
+                }
+            }
+
+            if ((this.UriTemplates != null) && this.UriTemplates.Any())
+            {
+                sb.AppendLine($"{nameof(this.UriTemplates)}:");
+                foreach (var item in this.UriTemplates)
+                {
+                    sb.AppendLine($"    {item.Key}:");
+                    sb.AppendLine($"        {item.Value}");
+                }
+            }
 
             return (sb.Length > 0) ? sb.ToString().Trim() : base.ToString();
         }
