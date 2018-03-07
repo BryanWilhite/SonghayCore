@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Songhay.Models
@@ -53,7 +52,7 @@ namespace Songhay.Models
             if (this.ApiBase != null) sb.AppendFormat("ApiBase: {0}", this.ApiBase);
             if (!string.IsNullOrEmpty(this.ApiKey)) sb.AppendFormat(" ApiKey: {0}", this.ApiKey);
 
-            if ((this.ClaimsSet != null) && this.ClaimsSet.Any())
+            if ((this.ClaimsSet != null) && (this.ClaimsSet.Count > 0))
             {
                 sb.AppendLine($"{nameof(this.ClaimsSet)}:");
                 foreach (var item in this.ClaimsSet)
@@ -63,7 +62,7 @@ namespace Songhay.Models
                 }
             }
 
-            if ((this.UriTemplates != null) && this.UriTemplates.Any())
+            if ((this.UriTemplates != null) && (this.UriTemplates.Count > 0))
             {
                 sb.AppendLine($"{nameof(this.UriTemplates)}:");
                 foreach (var item in this.UriTemplates)
