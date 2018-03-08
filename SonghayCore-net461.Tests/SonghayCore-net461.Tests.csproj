@@ -46,13 +46,16 @@
       <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -61,8 +64,14 @@
     <Compile Include="..\SonghayCore.MSTest-net452\Extensions\TestContextExtensions.IO.cs">
       <Link>Extensions\TestContextExtensions.IO.cs</Link>
     </Compile>
+    <Compile Include="..\SonghayCore.MSTest-net452\Extensions\TestContextExtensions.IO.ShouldGetProjectDirectoryInfo.cs">
+      <Link>Extensions\TestContextExtensions.IO.ShouldGetProjectDirectoryInfo.cs</Link>
+    </Compile>
     <Compile Include="..\SonghayCore.MSTest-net452\Extensions\TestContextExtensions.Obsolete.cs">
       <Link>Extensions\TestContextExtensions.Obsolete.cs</Link>
+    </Compile>
+    <Compile Include="..\SonghayCore.MSTest-net452\Extensions\TestContextExtensions.ZipArchive.cs">
+      <Link>Extensions\TestContextExtensions.ZipArchive.cs</Link>
     </Compile>
     <Compile Include="..\SonghayCore.MSTest-net452\Extensions\TestContextExtensions._.cs">
       <Link>Extensions\TestContextExtensions._.cs</Link>
