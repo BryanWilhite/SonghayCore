@@ -29,8 +29,6 @@ namespace Songhay.Extensions
             var bytesRead = 0;
             var fileName = Path.GetFileName(path);
 
-            client.DefaultRequestHeaders.Add("Content-Disposition", string.Format("attachment; filename={0}", fileName));
-
             var stream = await client.GetStreamAsync(uri);
             try
             {
