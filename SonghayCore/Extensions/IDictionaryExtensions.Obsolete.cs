@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Linq;
 
 namespace Songhay.Extensions
@@ -6,7 +7,7 @@ namespace Songhay.Extensions
     /// <summary>
     /// Extensions of <see cref="System.Collections.IDictionary"/>
     /// </summary>
-    public static class IDictionaryExtensions
+    public static partial class IDictionaryExtensions
     {
         /// <summary>
         /// Converts the <see cref="IDictionary"/> into a string or null.
@@ -14,6 +15,7 @@ namespace Songhay.Extensions
         /// <param name="dictionary">The dictionary.</param>
         /// <param name="key">The key.</param>
         /// <returns></returns>
+        [Obsolete("Use Dictionary<TKey, TValue>.TryGetValue() instead whiich emerged in .NET 3.5 (see https://stackoverflow.com/a/9382740/22944).")]
         public static string ToStringOrNull(this IDictionary dictionary, string key)
         {
             if (dictionary == null) return null;
@@ -28,6 +30,7 @@ namespace Songhay.Extensions
         /// <param name="dictionary">The dictionary.</param>
         /// <param name="key">The key.</param>
         /// <returns></returns>
+        [Obsolete("Use Dictionary<TKey, TValue>.TryGetValue() instead whiich emerged in .NET 3.5 (see https://stackoverflow.com/a/9382740/22944).")]
         public static TValue ToValueOrDefault<TValue>(this IDictionary dictionary, string key)
         {
             if (dictionary == null) return default(TValue);
