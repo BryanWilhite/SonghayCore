@@ -10,6 +10,10 @@
         /// </summary>
         public const string ApplicationAtomXml = "application/atom+xml";
         /// <summary>
+        /// The application form URL encoded
+        /// </summary>
+        public const string ApplicationFormUrlEncoded = "application/x-www-form-urlencoded";
+        /// <summary>
         /// The application json
         /// </summary>
         public const string ApplicationJson = "application/json";
