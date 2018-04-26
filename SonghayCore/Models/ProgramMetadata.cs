@@ -52,7 +52,13 @@ namespace Songhay.Models
                     if ((item.Value != null) && item.Value.Any())
                     {
                         foreach (var item2 in item.Value)
-                            sb.AppendLine($"        {item2.Key}: {item2.Value.Substring(0, 64)}... ");
+                        {
+                            var maxLength = 64;
+                            if (item2.Value.Length >= maxLength)
+                                sb.AppendLine($"        {item2.Key}: {item2.Value.Substring(0, maxLength)}... ");
+                            else
+                                sb.AppendLine($"        {item2.Key}: {item2.Value}... ");
+                        }
                     }
                 }
             }
