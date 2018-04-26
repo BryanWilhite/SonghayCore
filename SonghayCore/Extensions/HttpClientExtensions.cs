@@ -22,9 +22,9 @@ namespace Songhay.Extensions
         /// <param name="uri">The URI.</param>
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
-        public static async Task DeleteAsync(this HttpClient client, Uri uri, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage> DeleteAsync(this HttpClient client, Uri uri, Action<HttpRequestMessage> requestMessageAction)
         {
-            await client.SendAsync(uri, HttpMethod.Delete, requestMessageAction);
+            return await client.SendAsync(uri, HttpMethod.Delete, requestMessageAction);
         }
 
         /// <summary>
@@ -118,9 +118,9 @@ namespace Songhay.Extensions
         /// <param name="uri">The URI.</param>
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
-        public static async Task GetAsync(this HttpClient client, Uri uri, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage> GetAsync(this HttpClient client, Uri uri, Action<HttpRequestMessage> requestMessageAction)
         {
-            await client.SendAsync(uri, HttpMethod.Get, requestMessageAction);
+            return await client.SendAsync(uri, HttpMethod.Get, requestMessageAction);
         }
 
         /// <summary>
