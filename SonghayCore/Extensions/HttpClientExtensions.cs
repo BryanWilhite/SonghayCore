@@ -15,6 +15,19 @@ namespace Songhay.Extensions
     public static class HttpClientExtensions
     {
         /// <summary>
+        /// Sends a <see cref="HttpMethod.Delete"/>
+        /// <see cref="HttpRequestMessage"/>.
+        /// </summary>
+        /// <param name="client">The client.</param>
+        /// <param name="uri">The URI.</param>
+        /// <param name="requestMessageAction">The request message action.</param>
+        /// <returns></returns>
+        public static async Task DeleteAsync(this HttpClient client, Uri uri, Action<HttpRequestMessage> requestMessageAction)
+        {
+            await client.SendAsync(uri, HttpMethod.Delete, requestMessageAction);
+        }
+
+        /// <summary>
         /// Downloads resource at URI to the specified path.
         /// </summary>
         /// <param name="client">The request.</param>
@@ -95,6 +108,19 @@ namespace Songhay.Extensions
             var content = await response.Content.ReadAsStringAsync();
 
             return content;
+        }
+
+        /// <summary>
+        /// Sends a <see cref="HttpMethod.Get"/>
+        /// <see cref="HttpRequestMessage"/>.
+        /// </summary>
+        /// <param name="client">The client.</param>
+        /// <param name="uri">The URI.</param>
+        /// <param name="requestMessageAction">The request message action.</param>
+        /// <returns></returns>
+        public static async Task GetAsync(this HttpClient client, Uri uri, Action<HttpRequestMessage> requestMessageAction)
+        {
+            await client.SendAsync(uri, HttpMethod.Get, requestMessageAction);
         }
 
         /// <summary>
@@ -278,6 +304,29 @@ namespace Songhay.Extensions
         public static async Task<HttpResponseMessage> PutXmlAsync(this HttpClient client, Uri uri, string requestBody, Action<HttpRequestMessage> requestMessageAction)
         {
             return await client.SendBodyAsync(uri, HttpMethod.Put, requestBody, Encoding.UTF8, MimeTypes.ApplicationXml, requestMessageAction);
+        }
+
+        /// <summary>
+        /// Calls <see cref="HttpClient.SendAsync(HttpRequestMessage)" />
+        /// </summary>
+        /// <param name="client">The client.</param>
+        /// <param name="uri">The URI.</param>
+        /// <param name="method">The method.</param>
+        /// <param name="requestMessageAction">The request message action.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">uri - The expected URI is not here.
+        /// or
+        /// mediaType - The expected request body media type is not here.</exception>
+        public static async Task<HttpResponseMessage> SendAsync(this HttpClient client, Uri uri, HttpMethod method, Action<HttpRequestMessage> requestMessageAction)
+        {
+            if (client == null) return null;
+            if (uri == null) throw new ArgumentNullException(nameof(uri), "The expected URI is not here.");
+
+            var request = new HttpRequestMessage(method, uri);
+            requestMessageAction?.Invoke(request);
+
+            var response = await client.SendAsync(request);
+            return response;
         }
 
         /// <summary>
