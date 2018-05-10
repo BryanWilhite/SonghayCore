@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SonghayCore.MSTest</id>
-    <version>2.3.8</version>
+    <version>2.3.9</version>
     <title>Songhay Core Testing for MSTest2 (and greater)</title>
     <authors>bryan.wilhite@gmail.com</authors>
     <owners>rasx@songhaysystem.com</owners>
@@ -12,19 +12,19 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Extensions of Microsoft.VisualStudio.TestTools.UnitTesting.TestContext for Songhay VSTEST projects</summary>
     <description>Extensions of Microsoft.VisualStudio.TestTools.UnitTesting.TestContext for Songhay VSTEST projects</description>
-    <releaseNotes>SonghayCore NuGet package dependency added (instead of manual refs)</releaseNotes>
-    <copyright>Copyright 2017 Bryan D. Wilhite</copyright>
+    <releaseNotes>added ShouldReadZipArchiveEntriesByLine() overloads</releaseNotes>
+    <copyright>Copyright 2018 Bryan D. Wilhite</copyright>
     <tags>Core Songhay MSTEST2 VSTEST VisualStudio</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.5.2">
-        <dependency id="MSTest.TestAdapter" version="1.2.0" />
-        <dependency id="MSTest.TestFramework" version="1.2.0" />
-        <dependency id="SonghayCore" version="2.7.4" />
+        <dependency id="MSTest.TestAdapter" version="1.2.1" />
+        <dependency id="MSTest.TestFramework" version="1.2.1" />
+        <dependency id="SonghayCore" version="2.8.4" />
       </group>
       <group targetFramework=".NETStandard2.0">
-        <dependency id="MSTest.TestAdapter" version="1.1.18" />
-        <dependency id="MSTest.TestFramework" version="1.1.18" />
-        <dependency id="SonghayCore" version="2.7.4" />
+        <dependency id="MSTest.TestAdapter" version="1.2.1" />
+        <dependency id="MSTest.TestFramework" version="1.2.1" />
+        <dependency id="SonghayCore" version="2.8.4" />
       </group>
     </dependencies>
   </metadata>
@@ -32,13 +32,10 @@
     <file src="SonghayCore.MSTest-net452\bin\Release\SonghayCore.MSTest*.dll" target="lib\net452" />
     <file src="SonghayCore.MSTest-net452\bin\Release\SonghayCore.MSTest*.config" target="lib\net452" />
     <file src="SonghayCore.MSTest-net452\bin\Release\SonghayCore.MSTest*.xml" target="lib\net452" />
-
     <file src="SonghayCore.MSTest-net452\**\*.cs" exclude="SonghayCore.MSTest-net452\obj\**" target="src" />
-
     <file src="SonghayCore.MSTest\bin\Release\netcoreapp2.0\SonghayCore.MSTest*.dll" target="lib\netstandard2.0" />
     <file src="SonghayCore.MSTest\bin\Release\netcoreapp2.0\SonghayCore.MSTest*.deps.json" target="lib\netstandard2.0" />
     <file src="SonghayCore.MSTest\bin\Release\netcoreapp2.0\SonghayCore.MSTest*.xml" target="lib\netstandard2.0" />
-
     <file src="SonghayCore.MSTest\**\*.cs" exclude="SonghayCore.MSTest\obj\**" target="src" />
   </files>
 </package>
