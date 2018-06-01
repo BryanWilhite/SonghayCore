@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Cetera.Services.Extensions
+namespace Songhay.Extensions
 {
     /// <summary>
     /// Extensions of <see cref="StringBuilder"/>
