@@ -2,6 +2,36 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "build [SonghayCore]",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/SonghayCore/SonghayCore.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build [SonghayCore.MSTest]",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/SonghayCore.MSTest/SonghayCore.MSTest.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build [SonghayCore.Tests]",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/SonghayCore.Tests/SonghayCore.Tests.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "command": "nuget",
             "label": "NuGet pack SonghayCore",
             "isBackground": false,
