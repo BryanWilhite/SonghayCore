@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Songhay.Tests.Extensions
@@ -37,6 +38,8 @@ namespace Songhay.Tests.Extensions
             this.TestContext.WriteLine(root1.ToCombinedFullPath(path2));
             this.TestContext.WriteLine(root2.ToCombinedFullPath(path1));
             this.TestContext.WriteLine(root2.ToCombinedFullPath(path2));
+            this.TestContext.WriteLine($"DirectorySeparatorChar: {Path.DirectorySeparatorChar}");
+            this.TestContext.WriteLine($"AltDirectorySeparatorChar: {Path.AltDirectorySeparatorChar}");
         }
 
         [TestMethod]

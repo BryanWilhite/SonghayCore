@@ -32,6 +32,20 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "test [SonghayCore.Tests, filtered by selected text]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "test",
+                "${workspaceFolder}/SonghayCore.Tests/SonghayCore.Tests.csproj",
+                "--filter:${selectedText}",
+                "--logger:trx",
+                "--results-directory:${workspaceFolder}/TestResults",
+                "--verbosity:normal"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "command": "nuget",
             "label": "NuGet pack SonghayCore",
             "isBackground": false,
