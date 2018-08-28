@@ -20,13 +20,19 @@ namespace Songhay.Extensions
         /// The expected path is not here.
         /// </exception>
         /// <remarks>
-        /// For detail, see https://stackoverflow.com/a/3146854/22944.
+        /// For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14.
         /// </remarks>
         public static string ToCombinedFullPath(this string root, string path)
         {
             if (string.IsNullOrEmpty(root)) throw new NullReferenceException("The expected root path is not here.");
             if (string.IsNullOrEmpty(path)) throw new NullReferenceException("The expected path is not here.");
-            return Path.GetFullPath(Path.Combine(root, path.TrimStart(new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar })));
+            string normalize(string r)
+            {
+                return Path.DirectorySeparatorChar.Equals('/') ?
+                    r.Replace('\\', '/') :
+                    r.Replace('/', '\\');
+            }
+            return Path.Combine(normalize(root), normalize(path).TrimStart(new [] { '/', '\\' }));
         }
     }
 }
