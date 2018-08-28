@@ -18,6 +18,28 @@ namespace Songhay.Tests.Extensions
         public TestContext TestContext { get; set; }
 
         [TestMethod]
+        [TestProperty("root1", @"z:\one")]
+        [TestProperty("root2", @"/home/one")]
+        [TestProperty("path1", @"/two/three/four/")]
+        [TestProperty("path2", @"\two\three\four")]
+        public void ShouldConvertToCombinedFullPath()
+        {
+            #region test properties
+
+            var root1 = this.TestContext.Properties["root1"].ToString();
+            var root2 = this.TestContext.Properties["root2"].ToString();
+            var path1 = this.TestContext.Properties["path1"].ToString();
+            var path2 = this.TestContext.Properties["path2"].ToString();
+
+            #endregion
+
+            this.TestContext.WriteLine(root1.ToCombinedFullPath(path1));
+            this.TestContext.WriteLine(root1.ToCombinedFullPath(path2));
+            this.TestContext.WriteLine(root2.ToCombinedFullPath(path1));
+            this.TestContext.WriteLine(root2.ToCombinedFullPath(path2));
+        }
+
+        [TestMethod]
         [TestProperty("contextLength", "10")]
         [TestProperty("input", "Lorem ipsum dolor")]
         [TestProperty("searchText", "ipsum")]

@@ -26,7 +26,7 @@ namespace Songhay.Extensions
         {
             if (string.IsNullOrEmpty(root)) throw new NullReferenceException("The expected root path is not here.");
             if (string.IsNullOrEmpty(path)) throw new NullReferenceException("The expected path is not here.");
-            return Path.GetFullPath(Path.Combine(root, path));
+            return Path.GetFullPath(Path.Combine(root, path.TrimStart(new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar })));
         }
     }
 }
