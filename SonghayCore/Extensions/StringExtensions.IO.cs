@@ -9,7 +9,9 @@ namespace Songhay.Extensions
     public static partial class StringExtensions
     {
         /// <summary>
-        /// Converts to a path based on the current OS.
+        /// Combines path and root based
+        /// on the current value of <see cref="Path.DirectorySeparatorChar"/>
+        /// of the current OS.
         /// </summary>
         /// <param name="root">The root.</param>
         /// <param name="path">The path.</param>
@@ -22,7 +24,7 @@ namespace Songhay.Extensions
         /// <remarks>
         /// For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14.
         /// </remarks>
-        public static string ToCombinedFullPath(this string root, string path)
+        public static string ToCombinedPath(this string root, string path)
         {
             if (string.IsNullOrEmpty(root)) throw new NullReferenceException("The expected root path is not here.");
             if (string.IsNullOrEmpty(path)) throw new NullReferenceException("The expected path is not here.");

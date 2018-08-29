@@ -34,10 +34,10 @@ namespace Songhay.Tests.Extensions
 
             #endregion
 
-            this.TestContext.WriteLine(root1.ToCombinedFullPath(path1));
-            this.TestContext.WriteLine(root1.ToCombinedFullPath(path2));
-            this.TestContext.WriteLine(root2.ToCombinedFullPath(path1));
-            this.TestContext.WriteLine(root2.ToCombinedFullPath(path2));
+            this.TestContext.WriteLine(root1.ToCombinedPath(path1));
+            this.TestContext.WriteLine(root1.ToCombinedPath(path2));
+            this.TestContext.WriteLine(root2.ToCombinedPath(path1));
+            this.TestContext.WriteLine(root2.ToCombinedPath(path2));
         }
 
         [TestMethod]
