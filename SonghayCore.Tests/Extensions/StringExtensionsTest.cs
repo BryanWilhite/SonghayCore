@@ -1,10 +1,9 @@
-﻿using System;
-using System.IO;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Songhay.Extensions;
+using System;
 
 namespace Songhay.Tests.Extensions
 {
-    using Songhay.Extensions;
 
     /// <summary>
     /// Tests for <see cref="StringExtensions"/>

@@ -1,14 +1,14 @@
 ﻿using Songhay.Models;
 using System;
-using System.Configuration;
 using System.Linq;
+using Tavis.UriTemplates;
 
 namespace Songhay.Extensions
 {
     /// <summary>
     /// Extensions of <see cref="RestApiMetadata"/>.
     /// </summary>
-    public static class RestApiMetadataExtensions
+    public static partial class RestApiMetadataExtensions
     {
         /// <summary>
         /// To the URI.
@@ -25,10 +25,16 @@ namespace Songhay.Extensions
             if ((bindByPositionValues == null) || !bindByPositionValues.Any())
                 throw new ArgumentNullException("bindByPositionValues", "The expected bind-by-position values are not here.");
             if (!meta.UriTemplates.Keys.Any(i => i == uriTemplateKey))
-                throw new ConfigurationErrorsException("The expected REST API metadata URI template key is not here.");
+                throw new FormatException("The expected REST API metadata URI template key is not here.");
 
-            var uriTemplate = new UriTemplate(meta.UriTemplates[uriTemplateKey]);
-            var uri = uriTemplate.BindByPosition(meta.ApiBase, bindByPositionValues);
+            var forwardSlash = "/";
+            var uriBase = meta.ApiBase.OriginalString.EndsWith(forwardSlash) ?
+                string.Concat(meta.ApiBase.OriginalString, meta.UriTemplates[uriTemplateKey])
+                :
+                string.Concat(meta.ApiBase.OriginalString, forwardSlash, meta.UriTemplates[uriTemplateKey]);
+
+            var uriTemplate = new UriTemplate(uriBase);
+            var uri = uriTemplate.BindByPosition(bindByPositionValues);
 
             return uri;
         }
