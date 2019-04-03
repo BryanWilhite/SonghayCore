@@ -13,6 +13,18 @@ namespace SonghayCore.xUnit
     /// <summary>File-based data source for a data theory.</summary>
     public class ProjectFileDataAttribute : DataAttribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProjectFileDataAttribute"/> class.
+        /// </summary>
+        /// <param name="typeInAssembly">The type in assembly.</param>
+        /// <param name="relativePaths">The relative paths.</param>
+        public ProjectFileDataAttribute(Type typeInAssembly, params string[] relativePaths)
+        {
+            _typeInAssembly = typeInAssembly;
+            _relativePaths = relativePaths;
+            _numbersOfDirectoryLevels = relativePaths.Select(GetNumberOfDirectoryLevels).ToArray();
+        }
+
         /// <summary>Initializes a new instance of the <see cref="ProjectFileDataAttribute"/> class.</summary>
         /// <param name="typeInAssembly">The type in assembly to find the project directory.</param>
         /// <param name="relativePath">The path relative to the project directory.</param>
@@ -21,18 +33,26 @@ namespace SonghayCore.xUnit
         /// For the modern .NET Core project, <c>numberOfDirectoryLevels = 3</c>: [netcoreapp* or net*]/[Debug or Release]/bin/[project folder]
         /// For the legacy .NET project, <c>numberOfDirectoryLevels = 2</c>: [Debug or Release]/bin/[project folder]
         /// </remarks>
+        [Obsolete(@"instead of `numberOfDirectoryLevels` use `..\\..\\` or `../../` prefixes instead")]
         public ProjectFileDataAttribute(Type typeInAssembly, string relativePath, int numberOfDirectoryLevels)
         {
             _typeInAssembly = typeInAssembly;
-            _relativePath = relativePath;
-            _numberOfDirectoryLevels = numberOfDirectoryLevels;
+            _relativePaths = new[] { relativePath };
+            _numbersOfDirectoryLevels = new[] { numberOfDirectoryLevels };
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProjectFileDataAttribute"/> class.
+        /// </summary>
+        /// <param name="typeInAssembly">The type in assembly.</param>
+        /// <param name="relativePaths">The relative paths.</param>
+        /// <param name="numberOfDirectoryLevels">The number of directory levels.</param>
+        [Obsolete(@"instead of `numberOfDirectoryLevels` use `..\\..\\` or `../../` prefixes instead")]
         public ProjectFileDataAttribute(Type typeInAssembly, string[] relativePaths, int numberOfDirectoryLevels)
         {
             _typeInAssembly = typeInAssembly;
             _relativePaths = relativePaths;
-            _numberOfDirectoryLevels = numberOfDirectoryLevels;
+            _numbersOfDirectoryLevels = new[] { numberOfDirectoryLevels };
         }
 
         /// <summary>Returns the data to be used to test the theory.</summary>
@@ -41,42 +61,41 @@ namespace SonghayCore.xUnit
         /// is represented by a single object array.</returns>
         public override IEnumerable<object[]> GetData(MethodInfo testMethod)
         {
-            var projectDirectoryInfo = this.GetAssemblyParentDirectoryInfo(_typeInAssembly, _numberOfDirectoryLevels);
 
             object[] data = null;
 
-            if (!string.IsNullOrEmpty(_relativePath)) data = GetDataForFile(projectDirectoryInfo);
-            if ((_relativePaths != null) && _relativePaths.Any()) data = GetDataForFiles(projectDirectoryInfo);
+            if ((_relativePaths != null) && _relativePaths.Any()) data = GetDataForFiles();
 
             return new[] { data };
         }
 
-        private object[] GetDataForFile(DirectoryInfo projectDirectoryInfo)
+        private object[] GetDataForFiles()
         {
-            var file = projectDirectoryInfo.ToCombinedPath(_relativePath);
+            var pairs = _relativePaths.Zip(_numbersOfDirectoryLevels, (path, levels) => new KeyValuePair<string, int>(path, levels));
 
-            Assert.True(File.Exists(file), "The expected file in project is not here.");
-
-            return new object[] { File.ReadAllText(file) };
-        }
-
-        private object[] GetDataForFiles(DirectoryInfo projectDirectoryInfo)
-        {
-            var infos = new List<FileInfo>();
-
-            foreach (var relativePathToFile in _relativePaths)
+            var infos = pairs.Select(pair =>
             {
-                var file = projectDirectoryInfo.ToCombinedPath(relativePathToFile);
-                Assert.True(File.Exists(file), "The expected file in project is not here.");
-                infos.Add(new FileInfo(file));
-            }
+                var project_directory_info = this.GetAssemblyParentDirectoryInfo(_typeInAssembly, pair.Value);
+                var file = project_directory_info.ToCombinedPath(pair.Key)
+                        .Replace("../", string.Empty)
+                        .Replace(@"..\", string.Empty)
+                        .Replace("./", string.Empty)
+                        .Replace(@".\", string.Empty)
+                    ;
+                return new FileInfo(file);
+            });
 
             return infos.OfType<object>().ToArray();
         }
 
+        private static int GetNumberOfDirectoryLevels(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return 0;
+            var relative_parent_path_matches = Regex.Matches(path, @"\.\./|\.\.\\");
+            return relative_parent_path_matches.Count;
+        }
+
         private readonly Type _typeInAssembly;
-        private readonly string _relativePath;
         private readonly string[] _relativePaths;
-        private readonly int _numberOfDirectoryLevels;
-    }
+        private readonly int[] _numbersOfDirectoryLevels;
 }
