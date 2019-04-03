@@ -53,6 +53,7 @@ namespace SonghayCore.xUnit
             return infos.OfType<object>().ToArray();
         }
 
+        //TODO: replace this member with extension method in next release of SonghayCore
         private static int GetNumberOfDirectoryLevels(string path)
         {
             if (string.IsNullOrEmpty(path)) return 0;
