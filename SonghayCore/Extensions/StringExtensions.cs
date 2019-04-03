@@ -57,7 +57,7 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Ins the double quotes.
+        /// Returns <see cref="string"/> in double quotes.
         /// </summary>
         /// <param name="input">The input.</param>
         public static string InDoubleQuotes(this string input)
@@ -68,7 +68,7 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Ins the double quotes or default.
+        /// Returns <see cref="string"/> in double quotes or default.
         /// </summary>
         /// <param name="input">The input.</param>
         /// <param name="defaultValue">The default value.</param>
@@ -264,6 +264,19 @@ namespace Songhay.Extensions
             input = Regex.Replace(input, pattern, "", RegexOptions.IgnoreCase);
 
             return input.ToLower();
+        }
+
+        /// <summary>
+        /// Returns the number of directory levels
+        /// based on the conventions <c>../</c> or <c>..\</c>.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
+        public static int ToNumberOfDirectoryLevels(this string path)
+        {
+            if (string.IsNullOrEmpty(path)) return 0;
+            var relative_parent_path_matches = Regex.Matches(path, @"\.\./|\.\.\\");
+            return relative_parent_path_matches.Count;
         }
 
         /// <summary>

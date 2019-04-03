@@ -1,44 +1,62 @@
 ﻿using Songhay.Extensions;
 using System.IO;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Songhay.Tests
 {
     public class DirectoryInfoExtensionsTests
     {
-        [Fact]
-        public void GetParentDirectory_Test()
+        public DirectoryInfoExtensionsTests(ITestOutputHelper testOutputHelper)
         {
-            var path = this.GetType().Assembly.GetPathFromAssembly();
-            var directoryInfo = new DirectoryInfo(path);
-
-            directoryInfo = directoryInfo.GetParentDirectoryInfo(3);
-
-            Assert.EndsWith(this.GetType().Namespace, directoryInfo.FullName);
+            this._testOutputHelper = testOutputHelper;
         }
 
-        [Fact]
-        public void GetParentDirectoryInfo_Level0_Test()
+        [SkippableTheory]
+        [InlineData(0)]
+        [InlineData(3)]
+        public void GetParentDirectory_Test(int expectedNumberOfLevels)
         {
             var path = this.GetType().Assembly.GetPathFromAssembly();
-            var expectedDirectoryInfo = new DirectoryInfo(path);
+            this._testOutputHelper.WriteLine($"path from assembly: {path}");
 
-            var actualDirectoryInfo = expectedDirectoryInfo.GetParentDirectoryInfo(0);
+            var directoryInfo = new DirectoryInfo(path);
+            var nextDirectoryInfo = directoryInfo.GetParentDirectoryInfo(expectedNumberOfLevels);
+            this._testOutputHelper.WriteLine($"path {expectedNumberOfLevels} levels above assembly: {nextDirectoryInfo.FullName}");
 
-            Assert.Equal(expectedDirectoryInfo, actualDirectoryInfo);
+            switch (expectedNumberOfLevels)
+            {
+                case 0:
+                    Assert.Equal(directoryInfo, nextDirectoryInfo);
+                    break;
+                case 3:
+                    Assert.EndsWith(this.GetType().Namespace, nextDirectoryInfo.FullName.Replace("Core.xUnit", string.Empty));
+                    break;
+                default:
+                    Skip.If(true, "unexpected inline data");
+                    break;
+            }
         }
 
-        [Fact]
-        public void ToCombinedPath_Test()
+        [Theory]
+        [InlineData("../../../json/hello.json")]
+        [InlineData(@"..\..\..\json/hello.json")]
+        public void ToCombinedPath_Test(string expectedPath)
         {
-            var projectPath = @"json/hello.json";
             var path = this.GetType().Assembly.GetPathFromAssembly();
+            this._testOutputHelper.WriteLine($"path from assembly: {path}");
+
+            var levels = expectedPath.ToNumberOfDirectoryLevels();
+            this._testOutputHelper.WriteLine($"directory levels: {levels}");
+
             var directoryInfo = new DirectoryInfo(path);
+            directoryInfo = directoryInfo.GetParentDirectoryInfo(levels);
+            this._testOutputHelper.WriteLine($"path {levels} levels above assembly: {directoryInfo.FullName}");
 
-            directoryInfo = directoryInfo.GetParentDirectoryInfo(3);
-
-            path = directoryInfo.ToCombinedPath(projectPath);
+            path = directoryInfo.ToCombinedPath(expectedPath);
             Assert.True(File.Exists(path));
         }
+
+        readonly ITestOutputHelper _testOutputHelper;
     }
 }
