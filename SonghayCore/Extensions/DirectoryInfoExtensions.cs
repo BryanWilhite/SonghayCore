@@ -51,14 +51,34 @@ namespace Songhay.Extensions
             if (string.IsNullOrEmpty(path)) throw new NullReferenceException("The expected path is not here.");
 
             var root = directoryInfo.FullName;
+            var backSlash = '\\';
+            var forwardSlash = '/';
+            var isForwardSlashSystem = Path.DirectorySeparatorChar.Equals(forwardSlash);
+
             string Normalize(string r)
             {
-                return Path.DirectorySeparatorChar.Equals('/') ?
-                    r.Replace('\\', '/') :
-                    r.Replace('/', '\\');
+                return isForwardSlashSystem ?
+                    r.Replace(backSlash, forwardSlash)
+                    :
+                    r.Replace(forwardSlash, backSlash);
             }
 
-            return Path.Combine(Normalize(root), Normalize(path).TrimStart(new[] { '/', '\\' }));
+            string RemoveConventionalPrefixes(string r)
+            {
+                return isForwardSlashSystem ?
+                    r
+                    .TrimStart(forwardSlash)
+                    .Replace($"..{forwardSlash}", string.Empty)
+                    .Replace($".{forwardSlash}", string.Empty)
+                    :
+                    r
+                    .TrimStart(backSlash)
+                    .Replace($"..{backSlash}", string.Empty)
+                    .Replace($".{backSlash}", string.Empty)
+                    ;
+            }
+
+            return Path.Combine(Normalize(root), RemoveConventionalPrefixes(Normalize(path)));
         }
     }
 }

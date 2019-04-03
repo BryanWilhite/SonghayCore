@@ -46,12 +46,7 @@ namespace SonghayCore.xUnit
             var infos = pairs.Select(pair =>
             {
                 var project_directory_info = this.GetAssemblyParentDirectoryInfo(_typeInAssembly, pair.Value);
-                var file = project_directory_info.ToCombinedPath(pair.Key)
-                        .Replace("../", string.Empty)
-                        .Replace(@"..\", string.Empty)
-                        .Replace("./", string.Empty)
-                        .Replace(@".\", string.Empty)
-                    ;
+                var file = project_directory_info.ToCombinedPath(pair.Key);
                 return new FileInfo(file);
             });
 
