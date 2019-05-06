@@ -1,19 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-
+    <TargetFrameworks>net452;net462;netstandard2.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
-
     <RootNamespace>Songhay</RootNamespace>
-
     <AssemblyName>SonghayCore.MSTest</AssemblyName>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Include="..\SonghayCore.MSTest-net452\Extensions\TestContextExtensions.IO.cs" Link="Extensions\TestContextExtensions.IO.cs" />
-    <Compile Include="..\SonghayCore.MSTest-net452\Extensions\TestContextExtensions.ZipArchive.cs" Link="Extensions\TestContextExtensions.ZipArchive.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />

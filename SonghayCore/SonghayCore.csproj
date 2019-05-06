@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net452,net462,netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net452;net462;netstandard2.0</TargetFrameworks>
     <Authors>Bryan D. Wilhite</Authors>
     <Company>Songhay System</Company>
     <Description>Core reusable definitions for .NET Core and .NET Framework</Description>
@@ -10,6 +10,10 @@
     <AssemblyVersion>2.0.0.*</AssemblyVersion>
     <Deterministic>False</Deterministic>
     <RootNamespace>Songhay</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
+    <DefineConstants>TRACE;NET452;NET462;NETSTANDARD2_0</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
