@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿#if NETSTANDARD2_0
+
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -57,3 +59,5 @@ namespace Songhay.Extensions
         }
     }
 }
+
+#endif

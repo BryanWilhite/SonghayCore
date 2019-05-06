@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if NET452 || NET462
+
+using System;
 using System.ComponentModel;
 
 namespace Songhay.Collections
@@ -15,3 +17,5 @@ namespace Songhay.Collections
         public SortDescriptionCollection SortDescriptions { get; set; }
     }
 }
+
+#endif

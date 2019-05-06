@@ -1,16 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' "> 
+    <TargetFrameworks>netstandard2.0;net462;net452</TargetFrameworks>
+  </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFrameworks>net452;net462;netstandard2.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <RootNamespace>Songhay</RootNamespace>
     <AssemblyName>SonghayCore.MSTest</AssemblyName>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="SonghayCore" Version="2.8.8" />
   </ItemGroup>
 

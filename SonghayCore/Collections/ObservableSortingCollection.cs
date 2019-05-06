@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if NET452 || NET462
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -7,7 +9,7 @@ using System.Linq;
 namespace Songhay.Collections
 {
     /// <summary>
-    /// Extends <see cref="System.Collections.ObjectModel.ObservableCollection&lt;T&gt;"/>
+    /// Extends <see cref="System.Collections.ObjectModel.ObservableCollection{T}"/>
     /// with sorting.
     /// </summary>
     /// <typeparam name="T">Collection Type</typeparam>
@@ -19,7 +21,7 @@ namespace Songhay.Collections
     public class ObservableSortingCollection<T> : ObservableCollection<T>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ObservableSortingCollection&lt;T&gt;"/> class.
+        /// Initializes a new instance of the <see cref="ObservableSortingCollection{T}"/> class.
         /// </summary>
         /// <param name="collection">The collection.</param>
         public ObservableSortingCollection(IEnumerable<T> collection)
@@ -74,3 +76,5 @@ namespace Songhay.Collections
         }
     }
 }
+
+#endif
