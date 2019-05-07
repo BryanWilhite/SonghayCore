@@ -17,7 +17,7 @@ namespace Songhay.Extensions
         /// <param name="encryptionMeta">The encryption meta.</param>
         /// <param name="encryptedString">The encrypted string.</param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentNullException">
+        /// <exception cref="ArgumentNullException">
         /// encryptionMeta;The expected metadata is not here.
         /// or
         /// encryptedString;The expected encrypted string is not here.
@@ -43,7 +43,7 @@ namespace Songhay.Extensions
         /// or
         /// connectionString;The expected configuration settings are not here.
         /// </exception>
-        /// <exception cref="System.NullReferenceException"></exception>
+        /// <exception cref="NullReferenceException"></exception>
         public static string GetConnectionStringWithDecryptedValue(this EncryptionMetadata encryptionMeta, string connectionString, string connectionStringKey)
         {
             if (encryptionMeta == null) throw new ArgumentNullException("encryptionMeta", "The expected metadata is not here.");

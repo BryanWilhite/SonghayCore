@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿#if NETSTANDARD
+
+using Microsoft.Extensions.Configuration;
 using Songhay.Models;
 using System;
 
@@ -30,3 +32,5 @@ namespace Songhay.Extensions
         }
     }
 }
+
+#endif

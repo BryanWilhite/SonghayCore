@@ -1,10 +1,12 @@
-﻿using System;
+﻿#if NET452 || NET462
+
+using System;
 using System.ServiceModel;
 
 namespace Songhay.Extensions
 {
     /// <summary>
-    /// Extensions of <see cref="System.ServiceModel.ICommunicationObject"/>.
+    /// Extensions of <see cref="ICommunicationObject"/>.
     /// </summary>
     public static class ICommunicationObjectExtensions
     {
@@ -68,3 +70,5 @@ namespace Songhay.Extensions
         }
     }
 }
+
+#endif

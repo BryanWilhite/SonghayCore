@@ -1,17 +1,18 @@
-﻿using System.Collections.ObjectModel;
+﻿#if NET452 || NET462
+
+using System.Collections.ObjectModel;
 using System.Data.Services.Client;
-using System.Linq;
 
 namespace Songhay.Extensions
 {
     /// <summary>
-    /// Extensions of <see cref="System.Data.Services.Client.DataServiceCollection&lt;T&gt;"/>.
+    /// Extensions of <see cref="DataServiceCollection{T}"/>.
     /// </summary>
     public static partial class DataServiceCollectionExtensions
     {
         /// <summary>
         /// Converts the specified OData collection into an instance
-        /// of <see cref="System.Collections.ObjectModel.ObservableCollection&lt;T&gt;"/>.
+        /// of <see cref="ObservableCollection{T}"/>.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="serviceCollection">The service collection.</param>
@@ -24,3 +25,5 @@ namespace Songhay.Extensions
         }
     }
 }
+
+#endif

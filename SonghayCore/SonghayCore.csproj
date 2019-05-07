@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
 
@@ -49,18 +50,6 @@
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net452' Or '$(TargetFramework)' == 'net462' ">
     <DefineConstants>NET452;NET462</DefineConstants>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Extensions\DataServiceCollectionExtensions.cs" />
-    <Compile Remove="Extensions\EncryptionMetadataExtensions.ConnectionStringSettings.cs" />
-    <Compile Remove="Extensions\EncryptionMetadataExtensions._.cs" />
-    <Compile Remove="Extensions\IActivityExtensions.Configuration.cs" />
-    <Compile Remove="Extensions\ICommunicationObjectExtensions.cs" />
-    <Compile Remove="Extensions\IConfigurationBuilderExtensions.cs" />
-    <Compile Remove="Extensions\XNodeExtensions.cs" />
-    <Compile Remove="Models\IActivityConfigurationSupport.cs" />
-    <Compile Remove="Models\ISyndicatable.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
