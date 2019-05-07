@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿#if NETSTANDARD
+
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Songhay.Diagnostics;
 using Songhay.Models;
@@ -41,3 +43,5 @@ namespace Songhay.Tests.Diagnostics
         }
     }
 }
+
+#endif

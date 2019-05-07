@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if NET452 || NET462
+
+using System;
 using System.Globalization;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -140,3 +142,5 @@ namespace Songhay.ServiceModel
         }
     }
 }
+
+#endif

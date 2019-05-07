@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text.RegularExpressions;
+using Songhay.Globalization;
 
 namespace Songhay.Tests
 {
-    using Songhay.Globalization;
 
     /// <summary>
     /// Summary description for TextTest

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if NETSTANDARD
+
+using System;
 using System.Linq;
 using Tavis.UriTemplates;
 
@@ -53,3 +55,5 @@ namespace Songhay.Extensions
         }
     }
 }
+
+#endif

@@ -1,4 +1,6 @@
-﻿using Songhay.Models;
+﻿#if NETSTANDARD
+
+using Songhay.Models;
 using System;
 using System.Collections;
 using System.Globalization;
@@ -362,3 +364,5 @@ namespace Songhay.Extensions
         }
     }
 }
+
+#endif

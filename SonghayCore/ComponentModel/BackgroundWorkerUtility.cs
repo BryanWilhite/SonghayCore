@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if NET452 || NET462
+
+using System;
 using System.ComponentModel;
 
 namespace Songhay.ComponentModel
@@ -60,3 +62,5 @@ namespace Songhay.ComponentModel
         }
     }
 }
+
+#endif

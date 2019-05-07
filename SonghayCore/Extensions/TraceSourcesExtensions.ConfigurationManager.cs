@@ -1,4 +1,6 @@
-﻿using Songhay.Diagnostics;
+﻿#if NET452 || NET462
+
+using Songhay.Diagnostics;
 using Songhay.Models;
 using System.Configuration;
 using System.Diagnostics;
@@ -39,3 +41,5 @@ namespace Songhay.Extensions
         }
     }
 }
+
+#endif

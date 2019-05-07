@@ -1,4 +1,6 @@
-﻿using Songhay.Extensions;
+﻿#if NET452 || NET462
+
+using Songhay.Extensions;
 using System;
 using System.Linq;
 using System.Management;
@@ -13,12 +15,6 @@ namespace Songhay.Tests
     [TestClass]
     public class WmiTest
     {
-        [TestInitialize]
-        public void InitializeTest()
-        {
-            this.TestContext.RemovePreviousTestResults();
-        }
-
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
@@ -85,3 +81,5 @@ namespace Songhay.Tests
         }
     }
 }
+
+#endif

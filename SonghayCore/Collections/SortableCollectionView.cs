@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if NET452 || NET462
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +12,7 @@ namespace Songhay.Collections
     using Extensions;
 
     /// <summary>
-    /// A sorting <see cref="ObservableCollection&lt;T&gt;"/>
+    /// A sorting <see cref="ObservableCollection{T}"/>
     /// based on <see cref="ICollectionView"/>.
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -22,7 +24,7 @@ namespace Songhay.Collections
     {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SortableCollectionView&lt;T&gt;"/> class.
+        /// Initializes a new instance of the <see cref="SortableCollectionView{T}"/> class.
         /// </summary>
         public SortableCollectionView()
         {
@@ -603,3 +605,5 @@ namespace Songhay.Collections
         }
     }
 }
+
+#endif
