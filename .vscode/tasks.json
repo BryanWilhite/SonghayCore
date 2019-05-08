@@ -57,7 +57,7 @@
                 "detailed"
             ],
             "options": {
-                "cwd": "${workspaceRoot}"
+                "cwd": "${workspaceRoot}/SonghayCore"
             },
             "problemMatcher": "$msCompile"
         },
@@ -73,7 +73,7 @@
                 "detailed"
             ],
             "options": {
-                "cwd": "${workspaceRoot}"
+                "cwd": "${workspaceRoot}/SonghayCore.MSTest"
             },
             "problemMatcher": "$msCompile"
         },
@@ -89,39 +89,7 @@
                 "detailed"
             ],
             "options": {
-                "cwd": "${workspaceRoot}"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "command": "nuget",
-            "label": "NuGet pack Songhay.Net.HttpWebRequest",
-            "isBackground": false,
-            "type": "shell",
-            "args": [
-                "pack",
-                "Songhay.Net.HttpWebRequest.nuspec",
-                "-Verbosity",
-                "detailed"
-            ],
-            "options": {
-                "cwd": "${workspaceRoot}"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "command": "nuget",
-            "label": "NuGet pack Songhay.Security",
-            "isBackground": false,
-            "type": "shell",
-            "args": [
-                "pack",
-                "Songhay.Security.nuspec",
-                "-Verbosity",
-                "detailed"
-            ],
-            "options": {
-                "cwd": "${workspaceRoot}"
+                "cwd": "${workspaceRoot}/SonghayCore.xUnit"
             },
             "problemMatcher": "$msCompile"
         }
