@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿#if NETSTANDARD
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.IO.Compression;
@@ -131,3 +133,5 @@ namespace Songhay.Extensions
         }
     }
 }
+
+#endif
