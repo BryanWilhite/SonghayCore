@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿#if NET452 || NET462
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -80,3 +82,5 @@ namespace Songhay.Extensions
         }
     }
 }
+
+#endif
