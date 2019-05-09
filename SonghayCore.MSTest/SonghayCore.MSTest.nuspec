@@ -2,40 +2,49 @@
 <package >
   <metadata>
     <id>SonghayCore.MSTest</id>
-    <version>2.4.2</version>
+    <version>3.0.0</version>
     <title>Songhay Core Testing for MSTest2 (and greater)</title>
     <authors>bryan.wilhite@gmail.com</authors>
     <owners>rasx@songhaysystem.com</owners>
     <projectUrl>https://github.com/BryanWilhite/SonghayCore</projectUrl>
     <iconUrl>https://songhaystorage.blob.core.windows.net/studio-public/songhay_icon.png</iconUrl>
-    <licenseUrl>https://raw.github.com/BryanWilhite/SonghayCore/master/LICENSE.md</licenseUrl>
+    <license type="file">https://raw.github.com/BryanWilhite/SonghayCore/master/LICENSE.md</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Extensions of Microsoft.VisualStudio.TestTools.UnitTesting.TestContext for Songhay VSTEST projects</summary>
     <description>Extensions of Microsoft.VisualStudio.TestTools.UnitTesting.TestContext for Songhay VSTEST projects</description>
     <releaseNotes>NuGet dependencies change</releaseNotes>
-    <copyright>Copyright 2018 Bryan D. Wilhite</copyright>
+    <copyright>Copyright 2019 Bryan D. Wilhite</copyright>
     <tags>Core Songhay MSTEST2 VSTEST VisualStudio</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.5.2">
-        <dependency id="MSTest.TestAdapter" version="1.3.2" />
-        <dependency id="MSTest.TestFramework" version="1.3.2" />
-        <dependency id="SonghayCore" version="2.8.7" />
+        <dependency id="MSTest.TestAdapter" version="1.4.0" />
+        <dependency id="MSTest.TestFramework" version="1.4.0" />
+        <dependency id="SonghayCore" version="3.0.0" />
+      </group>
+      <group targetFramework=".NETFramework4.6.2">
+        <dependency id="MSTest.TestAdapter" version="1.4.0" />
+        <dependency id="MSTest.TestFramework" version="1.4.0" />
+        <dependency id="SonghayCore" version="3.0.0" />
       </group>
       <group targetFramework=".NETStandard2.0">
-        <dependency id="MSTest.TestAdapter" version="1.3.2" />
-        <dependency id="MSTest.TestFramework" version="1.3.2" />
-        <dependency id="SonghayCore" version="2.8.7" />
+        <dependency id="MSTest.TestAdapter" version="1.4.0" />
+        <dependency id="MSTest.TestFramework" version="1.4.0" />
+        <dependency id="SonghayCore" version="3.0.0" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="SonghayCore.MSTest-net452\bin\Release\SonghayCore.MSTest*.dll" target="lib\net452" />
-    <file src="SonghayCore.MSTest-net452\bin\Release\SonghayCore.MSTest*.config" target="lib\net452" />
-    <file src="SonghayCore.MSTest-net452\bin\Release\SonghayCore.MSTest*.xml" target="lib\net452" />
-    <file src="SonghayCore.MSTest-net452\**\*.cs" exclude="SonghayCore.MSTest-net452\obj\**" target="src" />
-    <file src="SonghayCore.MSTest\bin\Release\netcoreapp2.0\SonghayCore.MSTest*.dll" target="lib\netstandard2.0" />
-    <file src="SonghayCore.MSTest\bin\Release\netcoreapp2.0\SonghayCore.MSTest*.deps.json" target="lib\netstandard2.0" />
-    <file src="SonghayCore.MSTest\bin\Release\netcoreapp2.0\SonghayCore.MSTest*.xml" target="lib\netstandard2.0" />
-    <file src="SonghayCore.MSTest\**\*.cs" exclude="SonghayCore.MSTest\obj\**" target="src" />
+    <file src="bin\Release\net452\SonghayCore.MSTest*.dll" target="lib\net452" />
+    <file src="bin\Release\net452\SonghayCore.MSTest*.config" target="lib\net452" />
+    <file src="bin\Release\net452\SonghayCore.MSTest*.xml" target="lib\net452" />
+
+    <file src="bin\Release\net462\SonghayCore.MSTest*.dll" target="lib\net462" />
+    <file src="bin\Release\net462\SonghayCore.MSTest*.config" target="lib\net462" />
+    <file src="bin\Release\net462\SonghayCore.MSTest*.xml" target="lib\net462" />
+
+    <file src="bin\Release\netcoreapp2.0\SonghayCore.MSTest*.dll" target="lib\netstandard2.0" />
+    <file src="bin\Release\netcoreapp2.0\SonghayCore.MSTest*.deps.json" target="lib\netstandard2.0" />
+    <file src="bin\Release\netcoreapp2.0\SonghayCore.MSTest*.xml" target="lib\netstandard2.0" />
+    <file src="**\*.cs" exclude="obj\**" target="src" />
   </files>
 </package>

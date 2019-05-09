@@ -12,6 +12,18 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "build [SonghayCore, Release]",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/SonghayCore/SonghayCore.csproj",
+                "--configuration",
+                "Release"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "build [SonghayCore.MSTest]",
             "command": "dotnet",
             "type": "process",
@@ -22,12 +34,36 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "build [SonghayCore.MSTest, Release]",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/SonghayCore.MSTest/SonghayCore.MSTest.csproj",
+                "--configuration",
+                "Release"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "build [SonghayCore.Tests]",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
                 "${workspaceFolder}/SonghayCore.Tests/SonghayCore.Tests.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build [SonghayCore.Tests, Release]",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/SonghayCore.Tests/SonghayCore.Tests.csproj",
+                "--configuration",
+                "Release"
             ],
             "problemMatcher": "$msCompile"
         },
