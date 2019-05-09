@@ -82,6 +82,28 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "build [SonghayCore.xUnit]",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/SonghayCore.xUnit/SonghayCore.xUnit.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build [SonghayCore.xUnit, Release]",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/SonghayCore.xUnit/SonghayCore.xUnit.csproj",
+                "--configuration",
+                "Release"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "command": "nuget",
             "label": "NuGet pack SonghayCore",
             "isBackground": false,
