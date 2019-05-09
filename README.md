@@ -30,6 +30,8 @@ Notable extensions:
 
 * [`JObjectExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/JObjectExtensions.cs) — defines conventions around the `Newtonsoft.Json.Linq.JObject` from [James Newton King](https://github.com/JamesNK).
 
+There are two kinds of support for [URI templates](http://tools.ietf.org/html/rfc6570) (to be used with [`RestApiMetadata`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs)), one is [for .NET Standard](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/RestApiMetadataExtensions.Tavis.cs) and the other is [for .NET Framework](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/RestApiMetadataExtensions.ServiceModel.cs). The .NET Standard extension methods are running on top of [`Tavis.UriTemplates`](https://github.com/tavis-software/Tavis.UriTemplates).
+
 ### `Songhay.Models`
 
 The _Core_ models of the Songhay System define types for MIME, XHTML, OPML, REST, the Repository, the Display Item (for WPF and other MVVM solutions), etc.
