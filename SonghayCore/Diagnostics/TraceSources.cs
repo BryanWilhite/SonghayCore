@@ -60,6 +60,7 @@ namespace Songhay.Diagnostics
         /// <returns></returns>
         public TraceSource GetTraceSource(string name)
         {
+            if (string.IsNullOrEmpty(name)) return null;
             if (traceSources.TryGetValue(name, out TraceSource r)) return r;
 
             r = new TraceSource(name);

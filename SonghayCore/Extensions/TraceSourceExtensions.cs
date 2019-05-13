@@ -25,32 +25,6 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Traces the data.
-        /// </summary>
-        /// <param name="traceSource">The trace source.</param>
-        /// <param name="eventType">Type of the event.</param>
-        /// <param name="id">The identifier.</param>
-        /// <param name="data">The data.</param>
-        public static void TraceData(this TraceSource traceSource, TraceEventType eventType, int id, params object[] data)
-        {
-            if (traceSource == null) return;
-            traceSource.TraceData(eventType, id, data);
-        }
-
-        /// <summary>
-        /// Traces the data.
-        /// </summary>
-        /// <param name="traceSource">The trace source.</param>
-        /// <param name="eventType">Type of the event.</param>
-        /// <param name="id">The identifier.</param>
-        /// <param name="data">The data.</param>
-        public static void TraceData(this TraceSource traceSource, TraceEventType eventType, int id, object data)
-        {
-            if (traceSource == null) return;
-            traceSource.TraceData(eventType, id, data);
-        }
-
-        /// <summary>
         /// Traces the error.
         /// </summary>
         /// <param name="traceSource">The trace source.</param>
@@ -80,21 +54,9 @@ namespace Songhay.Extensions
         /// <param name="ex">The exception.</param>
         public static void TraceError(this TraceSource traceSource, Exception ex)
         {
+            if (traceSource == null) return;
             var message = string.Format("{0}\n{1}", ex.Message, ex.StackTrace);
             traceSource.TraceError(message);
-        }
-
-        /// <summary>
-        /// Trace event type <see cref="TraceEventType.Transfer"/>
-        /// </summary>
-        /// <param name="traceSource">The trace source.</param>
-        /// <param name="id">The identifier.</param>
-        /// <param name="message">The message.</param>
-        /// <param name="relatedActivityId">The related activity identifier.</param>
-        public static void TraceTransfer(this TraceSource traceSource, int id, string message, Guid relatedActivityId)
-        {
-            if (traceSource == null) return;
-            traceSource.TraceTransfer(id, message, relatedActivityId);
         }
 
         /// <summary>
@@ -149,22 +111,23 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="traceSource">The trace source.</param>
         /// <returns></returns>
-        public static TraceSource WithAllSourceLevels(this TraceSource traceSource)
+        public static TraceSource WithSourceLevels(this TraceSource traceSource)
         {
-            return traceSource.WithTraceSource(SourceLevels.All);
+            if (traceSource == null) return null;
+            return traceSource.WithSourceLevels(SourceLevels.All);
         }
 
         /// <summary>
         /// Returns the <see cref="TraceSource"/>
-        /// with a single Switch Level.
+        /// with the specified <see cref="SourceLevels"/>.
         /// </summary>
         /// <param name="traceSource">The trace source.</param>
-        /// <param name="level">The level.</param>
+        /// <param name="levels">The levels.</param>
         /// <returns></returns>
-        public static TraceSource WithTraceSource(this TraceSource traceSource, SourceLevels level)
+        public static TraceSource WithSourceLevels(this TraceSource traceSource, SourceLevels levels)
         {
             if (traceSource == null) return null;
-            traceSource.Switch.Level = level;
+            traceSource.Switch.Level = levels;
             return traceSource;
         }
 
@@ -176,6 +139,7 @@ namespace Songhay.Extensions
         /// <remarks>
         /// This member has a null check unlike <see cref="TraceSource.TraceInformation(string)"/>
         /// </remarks>
+        [Obsolete("Use TraceSource?.TraceInformation instead.")]
         public static void WriteLine(this TraceSource traceSource, string message)
         {
             if (traceSource == null) return;
@@ -191,6 +155,7 @@ namespace Songhay.Extensions
         /// <remarks>
         /// This member has a null check unlike <see cref="TraceSource.TraceInformation(string, object[])"/>
         /// </remarks>
+        [Obsolete("Use TraceSource?.TraceInformation instead.")]
         public static void WriteLine(this TraceSource traceSource, string format, params object[] args)
         {
             if (traceSource == null) return;
