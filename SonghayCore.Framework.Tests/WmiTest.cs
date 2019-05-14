@@ -1,6 +1,4 @@
-﻿#if NET452 || NET462
-
-using Songhay.Extensions;
+﻿using Songhay.Extensions;
 using System;
 using System.Linq;
 using System.Management;
@@ -81,5 +79,3 @@ namespace Songhay.Tests
         }
     }
 }
-
-#endif
