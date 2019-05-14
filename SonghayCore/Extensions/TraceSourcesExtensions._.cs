@@ -8,6 +8,8 @@ namespace Songhay.Extensions
     /// </summary>
     public static partial class TraceSourcesExtensions
     {
+
+#if NETSTANDARD
         /// <summary>
         /// Gets the configured trace source.
         /// </summary>
@@ -27,5 +29,7 @@ namespace Songhay.Extensions
             if (instance == null) return null;
             return instance.GetTraceSourceFromConfiguredName();
         }
+#endif
+
     }
 }
