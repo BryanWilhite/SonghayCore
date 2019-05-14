@@ -12,7 +12,7 @@ namespace Songhay.Tests
         {
             traceSource = TraceSources.Instance.GetConfiguredTraceSource();
             nullTraceSource = TraceSources.Instance.GetConfiguredTraceSource("wha?");
-            otherTraceSource = TraceSources.Instance.GetConfiguredTraceSource("my-dev-trace");
+            otherTraceSource = TraceSources.Instance.GetConfiguredTraceSource("my-other-trace");
         }
 
         static readonly TraceSource traceSource;

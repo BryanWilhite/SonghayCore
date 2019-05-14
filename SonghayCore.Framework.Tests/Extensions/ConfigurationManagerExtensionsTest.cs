@@ -22,7 +22,7 @@ namespace Songhay.Tests.Extensions
 
         [TestMethod]
         [TestProperty("expectedConnectionString", @"Data Source=|DataDirectory|\Chinook.dev.sqlite")]
-        [TestProperty("externalConfigurationFile", @"SonghayCore.Tests\Extensions\ConfigurationManagerExtensionsTest.xml")]
+        [TestProperty("externalConfigurationFile", @"Extensions\ConfigurationManagerExtensionsTest.xml")]
         [TestProperty("unqualifiedName", "Chinook")]
         public void ShouldGetExternalConnectionStringSettings()
         {
@@ -66,8 +66,8 @@ namespace Songhay.Tests.Extensions
 
         [TestMethod]
         [TestProperty("expectedSetting", "the external setting for DEV")]
-        [TestProperty("externalConfigurationFile", @"SonghayCore.Tests\Extensions\ConfigurationManagerExtensionsTest.xml")]
-        [TestProperty("unqualifiedName", "ex-setting")]
+        [TestProperty("externalConfigurationFile", @"Extensions\ConfigurationManagerExtensionsTest.xml")]
+        [TestProperty("unqualifiedKey", "ex-setting")]
         public void ShouldGetExternalSetting()
         {
             var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 2);
