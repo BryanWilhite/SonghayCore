@@ -12,14 +12,17 @@ namespace Songhay.Diagnostics
     /// </remarks>
     public class TraceSources
     {
-        const string DefaultTraceSourceName = "rx-trace";
+        /// <summary>
+        /// The conventional <see cref="TraceSource"/> name.
+        /// </summary>
+        public const string DefaultTraceSourceName = "rx-trace";
 
         /// <summary>
         /// The configured trace source name
         /// </summary>
         public static string ConfiguredTraceSourceName
         {
-            get { return string.IsNullOrEmpty(configuredTraceSourceName) ? DefaultTraceSourceName : configuredTraceSourceName; }
+            get { return configuredTraceSourceName; }
             set
             {
                 configuredTraceSourceName = value;
