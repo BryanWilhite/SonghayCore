@@ -50,22 +50,19 @@ namespace Songhay.Models
         /// </summary>
         public override string ToString()
         {
-            if ((this.Id != null) && (this.DisplayText != null))
+            if (this.DisplayText != null)
                 return string.Format("{0}: {1}", this.Id, this.DisplayText);
 
-            if ((this.Id != null) && (this.Description != null))
+            if (this.Description != null)
                 return string.Format("{0}: {1}", this.Id, this.Description);
 
-            if ((this.Id != null) && (this.ItemName != null))
+            if (this.ItemName != null)
                 return string.Format("{0}: {1}", this.Id, this.ItemName);
 
-            if ((this.Id != null) && (this.ItemCategory != null))
+            if (this.ItemCategory != null)
                 return string.Format("{0}: {1}", this.Id, this.ItemCategory);
 
-            if (this.Id != null)
-                return string.Format("ID: {0}", this.Id);
-
-            return base.ToString();
+            return string.Format("ID: {0}", this.Id);
         }
 
         #region ISortable members:

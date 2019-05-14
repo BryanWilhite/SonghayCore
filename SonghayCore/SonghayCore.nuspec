@@ -2,18 +2,18 @@
 <package >
   <metadata>
     <id>SonghayCore</id>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <title>Songhay Core</title>
     <authors>bryan.wilhite@gmail.com</authors>
     <owners>rasx@songhaysystem.com</owners>
     <projectUrl>https://github.com/BryanWilhite/SonghayCore</projectUrl>
     <iconUrl>https://songhaystorage.blob.core.windows.net/studio-public/songhay_icon.png</iconUrl>
-    <licenseUrl>https://raw.github.com/BryanWilhite/SonghayCore/master/LICENSE.md</licenseUrl>
+    <license type="file">LICENSE.md</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>core libraries meant to be shared among Songhay projects</summary>
     <description>core libraries meant to be shared among Songhay projects</description>
-    <releaseNotes>added mult-targeting support</releaseNotes>
-    <copyright>Copyright 2018 Bryan D. Wilhite</copyright>
+    <releaseNotes>improved support for Core tracing</releaseNotes>
+    <copyright>Copyright 2019 Bryan D. Wilhite</copyright>
     <tags>Core Songhay Configuration Cryptography LINQ</tags>
     <dependencies>
         <group targetFramework=".NETFramework4.5.2">
@@ -44,5 +44,6 @@
     <file src="bin\Release\netstandard2.0\Songhay*.json" target="lib\netstandard2.0" />
 
     <file src="**\*.cs" exclude="**\obj\**" target="src" />
+    <file src="..\LICENSE.md" target="" />
   </files>
 </package>
