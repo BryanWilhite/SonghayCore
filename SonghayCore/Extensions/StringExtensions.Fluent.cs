@@ -149,9 +149,11 @@ namespace Songhay.Extensions
                     return searchText.Substring(0, contextLength);
 
                 var edgesLength = Convert.ToInt32(Math.Ceiling((contextLength - searchText.Length) / 2d));
+
                 var i0 = input.IndexOf(searchText) - edgesLength;
-                var i1 = searchText.Length + edgesLength;
                 if(i0 < 0) i0 = 0;
+
+                var i1 = i0 + searchText.Length + edgesLength;
                 if(i1 > (input.Length - 1)) i1 = input.Length;
 
                 return input.Substring(i0, i1);

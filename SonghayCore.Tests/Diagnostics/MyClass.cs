@@ -8,7 +8,7 @@ namespace Songhay.Tests.Diagnostics
     {
         static MyClass()
         {
-            traceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithAllSourceLevels().EnsureTraceSource();
+            traceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels().EnsureTraceSource();
             traceSource.TraceInformation($"static constructor: {nameof(MyClass)}");
         }
 

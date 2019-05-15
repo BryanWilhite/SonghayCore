@@ -4,7 +4,7 @@ using System.Linq;
 using System.Management;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Songhay.Tests
+namespace SonghayCore.Framework.Tests
 {
 
     /// <summary>

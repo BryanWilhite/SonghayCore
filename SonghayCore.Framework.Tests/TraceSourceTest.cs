@@ -3,7 +3,7 @@ using Songhay.Diagnostics;
 using Songhay.Extensions;
 using System.Diagnostics;
 
-namespace Songhay.Tests
+namespace SonghayCore.Framework.Tests
 {
     [TestClass]
     public class TraceSourceTest
@@ -12,7 +12,7 @@ namespace Songhay.Tests
         {
             traceSource = TraceSources.Instance.GetConfiguredTraceSource();
             nullTraceSource = TraceSources.Instance.GetConfiguredTraceSource("wha?");
-            otherTraceSource = TraceSources.Instance.GetConfiguredTraceSource("my-other-trace");
+            otherTraceSource = TraceSources.Instance.GetConfiguredTraceSource("other.TraceSourceName");
         }
 
         static readonly TraceSource traceSource;

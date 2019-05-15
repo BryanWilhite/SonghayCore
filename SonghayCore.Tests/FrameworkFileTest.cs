@@ -63,12 +63,12 @@ namespace Songhay.Tests
         [TestProperty("outFile", @"content\FrameworkFileTest-ShouldSortTextFileData.txt")]
         public void ShouldSortTextFileData()
         {
-            var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 3);
+            var projectInfo = this.TestContext.ShouldGetProjectDirectoryInfo(this.GetType());
 
             #region test properties:
 
             var outFile = this.TestContext.Properties["outFile"].ToString();
-            outFile = Path.Combine(projectsFolder, this.GetType().Namespace, outFile);
+            outFile = projectInfo.FullName.ToCombinedPath(outFile);
             this.TestContext.ShouldFindFile(outFile);
 
             #endregion
@@ -102,12 +102,12 @@ namespace Songhay.Tests
         [TestProperty("outFile", @"content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt")]
         public void ShouldWriteTextFileWithStreamWriter()
         {
-            var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 3);
+            var projectInfo = this.TestContext.ShouldGetProjectDirectoryInfo(this.GetType());
 
             #region test properties:
 
             var outFile = this.TestContext.Properties["outFile"].ToString();
-            outFile = Path.Combine(projectsFolder, this.GetType().Namespace, outFile);
+            outFile = projectInfo.ToCombinedPath(outFile);
             this.TestContext.ShouldFindFile(outFile);
 
             #endregion
@@ -141,12 +141,12 @@ This is the end of the file.
         [TestProperty("outFile", @"content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml")]
         public void ShouldWriteTextFileWithXmlTextWriter()
         {
-            var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 3);
+            var projectInfo = this.TestContext.ShouldGetProjectDirectoryInfo(this.GetType());
 
             #region test properties:
 
             var outFile = this.TestContext.Properties["outFile"].ToString();
-            outFile = Path.Combine(projectsFolder, this.GetType().Namespace, outFile);
+            outFile = projectInfo.ToCombinedPath(outFile);
             this.TestContext.ShouldFindFile(outFile);
 
             #endregion

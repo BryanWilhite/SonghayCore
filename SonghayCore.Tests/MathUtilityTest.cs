@@ -32,7 +32,7 @@ namespace Songhay.Tests
             var x = 1324.068;
             var digit = MathUtility.GetDigitInNumber((int)(x * 1000), 3);
 
-            Assert.AreEqual(0, digit, "The expected digit is not here.");
+            Assert.AreEqual((byte)0, digit, "The expected digit is not here.");
         }
     }
 }

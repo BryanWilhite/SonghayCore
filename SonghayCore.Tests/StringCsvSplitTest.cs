@@ -81,24 +81,6 @@ namespace Songhay.Tests
 
         [TestMethod]
         [Description("Should throw CSV parse exception.")]
-        public void ShouldThrowCsvParseException()
-        {
-            var test = false;
-            try
-            {
-                var split = "\"aaa\\bbb\",ccc,ddd".CsvSplit();
-            }
-            catch (CsvParseException ex)
-            {
-                test = true;
-                TestContext.WriteLine("Exception Message: {0}", ex.Message);
-            }
-
-            Assert.IsTrue(test, "The expected exception was not thrown.");
-        }
-
-        [TestMethod]
-        [Description("Should throw CSV parse exception.")]
         public void ShouldThrowCsvParseException2()
         {
             var test = false;

@@ -11,7 +11,7 @@ namespace Songhay.Tests.Models
     [TestClass]
     public class ActivitiesGetterTest
     {
-        static ActivitiesGetterTest() => traceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithAllSourceLevels();
+        static ActivitiesGetterTest() => traceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels();
         static readonly TraceSource traceSource;
 
         public TestContext TestContext { get; set; }

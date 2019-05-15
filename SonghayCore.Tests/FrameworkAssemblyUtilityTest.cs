@@ -13,7 +13,7 @@ namespace Songhay.Tests
         public TestContext TestContext { get; set; }
 
         [TestMethod]
-        [TestProperty("fileSegment", @"..\..\content\FrameworkAssemblyUtilityTest-ShouldGetPathFromAssembly.json")]
+        [TestProperty("fileSegment", @"..\..\..\content\FrameworkAssemblyUtilityTest-ShouldGetPathFromAssembly.json")]
         public void ShouldGetPathFromAssembly()
         {
             #region test properties:
