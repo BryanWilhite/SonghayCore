@@ -24,9 +24,9 @@ namespace Songhay.Tests
 
             TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
 
-            traceSource = TraceSources.Instance.GetConfiguredTraceSource();
-            nullTraceSource = TraceSources.Instance.GetConfiguredTraceSource(configuration, "wha?");
-            otherTraceSource = TraceSources.Instance.GetConfiguredTraceSource(configuration, "other.TraceSourceName");
+            traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
+            nullTraceSource = TraceSources.Instance.GetConfiguredTraceSource(configuration, "wha?").WithSourceLevels();
+            otherTraceSource = TraceSources.Instance.GetConfiguredTraceSource(configuration, "other.TraceSourceName").WithSourceLevels();
         }
 
         static readonly TraceSource traceSource;
@@ -38,12 +38,37 @@ namespace Songhay.Tests
         {
             Assert.IsNotNull(traceSource);
             Assert.IsNotNull(otherTraceSource);
+
+            using (var listener = new TextWriterTraceListener(Console.Out))
+            {
+                traceSource.Listeners.Add(listener);
+                otherTraceSource.Listeners.Add(listener);
+
+                traceSource.TraceInformation("info!");
+                otherTraceSource.TraceInformation("other info!");
+
+                traceSource.TraceVerbose("verbose!");
+                otherTraceSource.TraceVerbose("other verbose!");
+
+                traceSource.TraceError("warn!");
+                otherTraceSource.TraceError("other warn!");
+
+                traceSource.TraceError("err!");
+                otherTraceSource.TraceError("other err!");
+
+                listener.Flush();
+            }
         }
 
         [TestMethod]
         public void ShouldNotHaveConfiguredTraceSource()
         {
             Assert.IsNull(nullTraceSource);
+
+            nullTraceSource.TraceInformation("info!");
+            nullTraceSource.TraceVerbose("info!");
+            nullTraceSource.TraceWarning("info!");
+            nullTraceSource.TraceError("info!");
         }
     }
 }
