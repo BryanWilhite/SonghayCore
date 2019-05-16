@@ -154,6 +154,23 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
+        /// Converts the <see cref="IEnumerable{TEnumerable}"/>
+        /// into <see cref="ICollection{TEnumerable}"/>.
+        /// </summary>
+        /// <typeparam name="TEnumerable"></typeparam>
+        /// <param name="enumerable"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// For details, see “When To Use IEnumerable, ICollection, IList And List”
+        /// [http://www.claudiobernasconi.ch/2013/07/22/when-to-use-ienumerable-icollection-ilist-and-list/]
+        /// </remarks>
+        public static ICollection<TEnumerable> ToCollection<TEnumerable>(this IEnumerable<TEnumerable> enumerable)
+        {
+            if (enumerable == null) return Enumerable.Empty<TEnumerable>().ToList();
+            return enumerable.ToList();
+        }
+
+        /// <summary>
         /// Converts the <see cref="IEnumerable{TSource}"/> into a display string.
         /// </summary>
         /// <typeparam name="TSource">The type of the source.</typeparam>
@@ -174,8 +191,8 @@ namespace Songhay.Extensions
             var indentation = string.Join(string.Empty, Enumerable.Repeat(" ", indent).ToArray());
             var builder = new StringBuilder();
 
-            if ((data != null) && (data.Any())) builder.AppendFormat("{0}{1} child items:", indentation, data.Count());
-            data.ForEachInEnumerable(i => builder.AppendFormat("{0}{1}{2}", Environment.NewLine, indentation, i.ToString()));
+            if ((data != null) && (data.Any())) builder.Append($"{indentation}{data.Count()} child items:");
+            data.ForEachInEnumerable(i => builder.Append($"{Environment.NewLine}{indentation}{i}"));
             if (builder.Length > 0) builder.AppendLine();
 
             return builder.ToString();
