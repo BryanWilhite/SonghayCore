@@ -1,10 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <DefineConstants>NETCORE;NETSTANDARD</DefineConstants>
     <IsPackable>false</IsPackable>
     <AssemblyName>Songhay.Tests</AssemblyName>
     <RootNamespace>Songhay.Tests</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions.IO.cs" Link="Extensions\TestContextExtensions.IO.cs" />
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions.IO.ShouldGetProjectDirectoryInfo.cs" Link="Extensions\TestContextExtensions.IO.ShouldGetProjectDirectoryInfo.cs" />
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions.Obsolete.cs" Link="Extensions\TestContextExtensions.Obsolete.cs" />
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions.ZipArchive.cs" Link="Extensions\TestContextExtensions.ZipArchive.cs" />
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions._.cs" Link="Extensions\TestContextExtensions._.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="content\FrameworkFileTest-ShouldSortTextFileData.txt" />
@@ -22,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SonghayCore.MSTest\SonghayCore.MSTest.csproj" />
+    <ProjectReference Include="..\SonghayCore\SonghayCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>
