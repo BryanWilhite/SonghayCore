@@ -45,27 +45,21 @@ namespace Songhay.Models
         /// </value>
         public Uri ResourceIndicator { get; set; }
 
-        #region ISortable members:
-
-        /// <summary>
-        /// Gets or sets the item category.
-        /// </summary>
-        /// <value>The item category.</value>
-        public string ItemCategory { get; set; }
-
-        /// <summary>
-        /// Gets or sets the sort ordinal.
-        /// </summary>
-        /// <value>The sort ordinal.</value>
-        public byte SortOrdinal { get; set; }
-
         /// <summary>
         /// Gets or sets the tag.
         /// </summary>
         /// <value>
         /// The tag.
         /// </value>
-        public string Tag { get; set; }
+        public object Tag { get; set; }
+
+        #region ISortable members:
+
+        /// <summary>
+        /// Gets or sets the sort ordinal.
+        /// </summary>
+        /// <value>The sort ordinal.</value>
+        public byte SortOrdinal { get; set; }
 
         #endregion
 

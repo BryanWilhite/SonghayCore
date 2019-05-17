@@ -1,38 +1,37 @@
-﻿
-namespace Songhay.Models
+﻿namespace Songhay.Models
 {
     /// <summary>
-    /// Frequently-used categories for <see cref="DisplayItemModel"/>.
+    /// Frequently-used categories for <see cref="MenuDisplayItemModel"/>.
     /// </summary>
-    public static class DisplayItemModelCategories
+    public static class MenuDisplayItemModelGroups
     {
         /// <summary>
-        /// The GenericWeb Document
+        /// a grouping based on the GenericWeb schema
         /// </summary>
         public const string GenericWebDocument = "GenericWebDocument";
 
         /// <summary>
-        /// The GenericWeb Fragment
+        /// a grouping based on the GenericWeb schema
         /// </summary>
         public const string GenericWebFragment = "GenericWebFragment";
 
         /// <summary>
-        /// The generic web log
+        /// a grouping based on the GenericWeb schema
         /// </summary>
         public const string GenericWebLog = "GenericWebLog";
 
         /// <summary>
-        /// The generic web schema
+        /// a grouping based on the GenericWeb schema
         /// </summary>
         public const string GenericWebSchema = "GenericWebSchema";
 
         /// <summary>
-        /// The GenericWeb Segment
+        /// a grouping based on the GenericWeb schema
         /// </summary>
         public const string GenericWebSegment = "GenericWebSegment";
 
         /// <summary>
-        /// The new generic web presentation
+        /// a grouping based on the GenericWeb schema
         /// </summary>
         public const string NewGenericWebPresentation = "NewGenericWebPresentation";
     }

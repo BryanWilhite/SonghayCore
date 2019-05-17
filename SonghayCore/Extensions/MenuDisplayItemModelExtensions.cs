@@ -11,6 +11,18 @@ namespace Songhay.Extensions
     public static class MenuDisplayItemModelExtensions
     {
         /// <summary>
+        /// Returns <c>true</c> when the grouping has the specified identifier.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="GroupId"></param>
+        /// <returns></returns>
+        public static bool HasGroupId(this MenuDisplayItemModel data, string GroupId)
+        {
+            if (data == null) return false;
+            return data.GroupId.EqualsInvariant(GroupId);
+        }
+
+        /// <summary>
         /// Returns the Default Selection
         /// <c>IsDefaultSelection == true</c>
         /// or the First <see cref="MenuDisplayItemModel"/>.

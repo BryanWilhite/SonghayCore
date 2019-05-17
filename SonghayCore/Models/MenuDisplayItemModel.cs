@@ -5,7 +5,7 @@ namespace Songhay.Models
     /// <summary>
     /// Defines a colorable, selectable menu item
     /// </summary>
-    public class MenuDisplayItemModel : ColorDisplayItemModel, ISelectable
+    public class MenuDisplayItemModel : ColorDisplayItemModel, IGroupable, ISelectable
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MenuDisplayItemModel"/> class.
@@ -22,6 +22,25 @@ namespace Songhay.Models
         /// The child items.
         /// </value>
         public MenuDisplayItemModel[] ChildItems { get; set; }
+
+        #region IGroupable members:
+
+        /// <summary>
+        /// Display text of the Group
+        /// </summary>
+        public string GroupDisplayText { get; set; }
+
+        /// <summary>
+        /// Identifier of the Group
+        /// </summary>
+        public string GroupId { get; set; }
+
+        /// <summary>
+        /// Returns `true` when group is visually collapsed
+        /// </summary>
+        public bool IsCollapsed { get; set; }
+
+        #endregion
 
         #region ISelectable members:
 
