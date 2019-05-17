@@ -11,7 +11,7 @@ namespace Songhay.Models
     /// of Entity Framework entities
     /// where an Entity is the property of another object.
     /// </remarks>
-    public class DisplayItemModel : ISortable
+    public class DisplayItemModel : ISortable, ITemporal
     {
         /// <summary>
         /// Gets or sets the description.
@@ -45,26 +45,6 @@ namespace Songhay.Models
         /// </value>
         public Uri ResourceIndicator { get; set; }
 
-        /// <summary>
-        /// Represents this instance as a <c>string</c>.
-        /// </summary>
-        public override string ToString()
-        {
-            if (this.DisplayText != null)
-                return string.Format("{0}: {1}", this.Id, this.DisplayText);
-
-            if (this.Description != null)
-                return string.Format("{0}: {1}", this.Id, this.Description);
-
-            if (this.ItemName != null)
-                return string.Format("{0}: {1}", this.Id, this.ItemName);
-
-            if (this.ItemCategory != null)
-                return string.Format("{0}: {1}", this.Id, this.ItemCategory);
-
-            return string.Format("ID: {0}", this.Id);
-        }
-
         #region ISortable members:
 
         /// <summary>
@@ -88,5 +68,38 @@ namespace Songhay.Models
         public string Tag { get; set; }
 
         #endregion
+
+        #region ITemporal members:
+
+        /// <summary>
+        /// End/expiration <see cref="DateTime"/> of the item.
+        /// </summary>
+        public DateTime EndDate { get; set; }
+
+        /// <summary>
+        /// Origin <see cref="DateTime"/> of the item.
+        /// </summary>
+        public DateTime InceptDate { get; set; }
+
+        /// <summary>
+        /// Modification/editorial <see cref="DateTime"/> of the item.
+        /// </summary>
+        public DateTime ModificationDate { get; set; }
+
+        #endregion
+
+        /// <summary>
+        /// Represents this instance as a <c>string</c>.
+        /// </summary>
+        public override string ToString()
+        {
+            if (this.DisplayText != null)
+                return string.Format("{0}: {1}", this.Id, this.DisplayText);
+
+            if (this.ItemName != null)
+                return string.Format("{0}: {1}", this.Id, this.ItemName);
+
+            return string.Format("ID: {0}", this.Id);
+        }
     }
 }
