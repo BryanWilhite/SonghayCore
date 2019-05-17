@@ -31,40 +31,6 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Gets the deep copy.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <returns></returns>
-        /// <remarks>
-        /// This is useful in Silverlight.
-        /// </remarks>
-        public static MenuDisplayItemModel GetDeepCopy(this MenuDisplayItemModel data)
-        {
-            if (data == null) return null;
-
-            var children = (data.ChildItems != null) ?
-                data.ChildItems.Select(i => i.GetDeepCopy()).ToArray()
-                :
-                null;
-
-            return new MenuDisplayItemModel
-            {
-                ChildItems = children,
-                Description = data.Description,
-                DisplayText = data.DisplayText,
-                Id = data.Id,
-                IsDefaultSelection = data.IsDefaultSelection,
-                IsEnabled = data.IsEnabled,
-                IsSelected = data.IsSelected,
-                ItemCategory = data.ItemCategory,
-                ItemName = data.ItemName,
-                SortOrdinal = data.SortOrdinal,
-                Tag = data.Tag
-            };
-
-        }
-
-        /// <summary>
         /// Fluently returns <see cref="MenuDisplayItemModel" /> with child item.
         /// </summary>
         /// <param name="data">The data.</param>
@@ -81,44 +47,13 @@ namespace Songhay.Extensions
         /// Fluently returns <see cref="MenuDisplayItemModel" /> with child items.
         /// </summary>
         /// <param name="data">The data.</param>
-        /// <param name="list">The list.</param>
-        public static MenuDisplayItemModel WithChildItems(this MenuDisplayItemModel data, MenuDisplayItemModel[] list)
+        /// <param name="items">The items.</param>
+        public static MenuDisplayItemModel WithChildItems(this MenuDisplayItemModel data, IEnumerable<MenuDisplayItemModel> items)
         {
             if (data == null) return null;
-            if (list == null) return data;
-            data.ChildItems = list;
+            if (items == null) return data;
+            data.ChildItems = items.ToArray();
             return data;
-        }
-
-        /// <summary>
-        /// Fluently returns <see cref="MenuDisplayItemModel" /> with child items.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param name="list">The list.</param>
-        public static MenuDisplayItemModel WithChildItems(this MenuDisplayItemModel data, List<MenuDisplayItemModel> list)
-        {
-            if (data == null) return null;
-            if (list == null) return data;
-            data.ChildItems = list.ToArray();
-            return data;
-        }
-
-        /// <summary>
-        /// Fluently returns <see cref="MenuDisplayItemModel" /> without children.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        public static MenuDisplayItemModel WithoutChildren(this MenuDisplayItemModel data)
-        {
-            if (data == null) return null;
-            return new MenuDisplayItemModel
-            {
-                Description = data.Description,
-                DisplayText = data.DisplayText,
-                Id = data.Id,
-                ItemCategory = data.ItemCategory,
-                ItemName = data.ItemName,
-                SortOrdinal = data.SortOrdinal
-            };
         }
     }
 }

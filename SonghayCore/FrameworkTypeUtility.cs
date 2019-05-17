@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
-
-#if !NETSTANDARD1_2 && !NETSTANDARD1_4
-
 using System.Runtime.Serialization.Formatters.Binary;
-
-#endif
 
 namespace Songhay
 {
@@ -130,8 +125,6 @@ namespace Songhay
             return new string(chars);
         }
 
-#if !NETSTANDARD1_2 && !NETSTANDARD1_4
-
         /// <summary>
         /// Gets the deep clone.
         /// </summary>
@@ -143,6 +136,7 @@ namespace Songhay
         /// See “Shallow Copy vs. Deep Copy in .NET”
         /// [http://www.codeproject.com/Articles/28952/Shallow-Copy-vs-Deep-Copy-in-NET]
         /// </remarks>
+        [Obsolete("consider using https://github.com/force-net/DeepCloner instead")]
         public static T GetDeepClone<T>(T obj)
         {
             using(var ms = new MemoryStream())
@@ -154,8 +148,6 @@ namespace Songhay
                 return (T)formatter.Deserialize(ms);
             }
         }
-
-#endif
 
         /// <summary>
         /// Returns <c>true</c> when the specified value
@@ -181,7 +173,7 @@ namespace Songhay
             return ((array == null) || (array.Length == 0));
         }
 
-#if !NETSTANDARD1_2 && !NETSTANDARD1_4
+
         /// <summary>
         /// Sets the properties of the output <see cref="System.Type" />.
         /// </summary>
@@ -189,6 +181,7 @@ namespace Songhay
         /// <typeparam name="TOut">The type of the out.</typeparam>
         /// <param name="input">The input.</param>
         /// <param name="output">The output.</param>
+        [Obsolete("consider using https://github.com/MarcinJuraszek/CloneExtensions instead")]
         public static void SetProperties<TIn, TOut>(TIn input, TOut output)
             where TIn : class
             where TOut : class
@@ -204,6 +197,7 @@ namespace Songhay
         /// <param name="input">the input.</param>
         /// <param name="output">the output.</param>
         /// <param name="includedProperties">The included properties.</param>
+        [Obsolete("consider using https://github.com/MarcinJuraszek/CloneExtensions instead")]
         public static void SetProperties<TIn, TOut>(TIn input, TOut output, ICollection<string> includedProperties)
             where TIn : class
             where TOut : class
@@ -235,6 +229,7 @@ namespace Songhay
         /// <param name="input">The input.</param>
         /// <param name="output">The output.</param>
         /// <param name="excludedProperties">The excluded properties.</param>
+        [Obsolete("consider using https://github.com/MarcinJuraszek/CloneExtensions instead")]
         public static void SetPropertiesExcluding<TIn, TOut>(TIn input, TOut output, ICollection<string> excludedProperties)
             where TIn : class
             where TOut : class
@@ -266,6 +261,5 @@ namespace Songhay
         {
             return DBNull.Value;
         }
-#endif
     }
 }

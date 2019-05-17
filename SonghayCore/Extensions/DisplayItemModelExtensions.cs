@@ -60,7 +60,6 @@
             return (data.ItemCategory == DisplayItemModelCategories.GenericWebSegment);
         }
 
-#if !NETSTANDARD1_2 && !NETSTANDARD1_4
         /// <summary>
         /// Converts the <see cref="DisplayItemModel"/> into a menu display item model.
         /// </summary>
@@ -69,12 +68,8 @@
         {
             if (data == null) return null;
 
-            var menuItem = new MenuDisplayItemModel();
-            FrameworkTypeUtility.SetProperties(data, menuItem);
-
-            return menuItem;
+            return data as MenuDisplayItemModel;
         }
-#endif
 
         /// <summary>
         /// Fluently sets <see cref="DisplayItemModel.ItemCategory"/>.

@@ -11,6 +11,32 @@ namespace Songhay.Extensions
     public static partial class StringExtensions
     {
         /// <summary>
+        /// Returns <c>true</c> when the strings are equal without regard to cultural locales
+        /// or casing.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="otherString"></param>
+        public static bool EqualsInvariant(this string input, string otherString)
+        {
+            return input.EqualsInvariant(otherString, ignoreCase: true);
+        }
+
+        /// <summary>
+        /// Returns <c>true</c> when the strings are equal without regard to cultural locales.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="otherString"></param>
+        /// <param name="ignoreCase"></param>
+        /// <returns></returns>
+        public static bool EqualsInvariant(this string input, string otherString, bool ignoreCase)
+        {
+            return ignoreCase ?
+                string.Equals(input, otherString, StringComparison.InvariantCultureIgnoreCase)
+                :
+                string.Equals(input, otherString, StringComparison.InvariantCulture);
+        }
+
+        /// <summary>
         /// Escapes the interpolation tokens of <see cref="string.Format(string, object[])"/>.
         /// </summary>
         /// <param name="input">The input.</param>
