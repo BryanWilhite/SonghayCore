@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Songhay.Diagnostics;
 using Songhay.Extensions;
+using System;
 using System.Diagnostics;
 
 namespace SonghayCore.Framework.Tests
@@ -24,12 +25,37 @@ namespace SonghayCore.Framework.Tests
         {
             Assert.IsNotNull(traceSource);
             Assert.IsNotNull(otherTraceSource);
+
+            using (var listener = new TextWriterTraceListener(Console.Out))
+            {
+                traceSource.Listeners.Add(listener);
+                otherTraceSource.Listeners.Add(listener);
+
+                traceSource?.TraceInformation("info!");
+                otherTraceSource?.TraceInformation("other info!");
+
+                traceSource.TraceVerbose("verbose!");
+                otherTraceSource.TraceVerbose("other verbose!");
+
+                traceSource.TraceError("warn!");
+                otherTraceSource.TraceError("other warn!");
+
+                traceSource.TraceError("err!");
+                otherTraceSource.TraceError("other err!");
+
+                listener.Flush();
+            }
         }
 
         [TestMethod]
         public void ShouldNotHaveConfiguredTraceSource()
         {
             Assert.IsNull(nullTraceSource);
+
+            nullTraceSource?.TraceInformation("info!");
+            nullTraceSource.TraceVerbose("info!");
+            nullTraceSource.TraceWarning("info!");
+            nullTraceSource.TraceError("info!");
         }
     }
 }

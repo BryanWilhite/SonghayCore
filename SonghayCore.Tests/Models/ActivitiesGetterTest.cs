@@ -1,17 +1,33 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Songhay.Diagnostics;
 using Songhay.Extensions;
 using Songhay.Models;
 using Songhay.Tests.Activities;
 using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace Songhay.Tests.Models
 {
     [TestClass]
     public class ActivitiesGetterTest
     {
-        static ActivitiesGetterTest() => traceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels();
+        static ActivitiesGetterTest()
+        {
+            Console.WriteLine("Loading configuration...");
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("./appsettings.json");
+
+            Console.WriteLine("Building configuration...");
+            var configuration = builder.Build();
+
+            TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
+
+            traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
+        }
+
         static readonly TraceSource traceSource;
 
         public TestContext TestContext { get; set; }

@@ -44,8 +44,8 @@ namespace Songhay.Tests
                 traceSource.Listeners.Add(listener);
                 otherTraceSource.Listeners.Add(listener);
 
-                traceSource.TraceInformation("info!");
-                otherTraceSource.TraceInformation("other info!");
+                traceSource?.TraceInformation("info!");
+                otherTraceSource?.TraceInformation("other info!");
 
                 traceSource.TraceVerbose("verbose!");
                 otherTraceSource.TraceVerbose("other verbose!");
@@ -65,7 +65,7 @@ namespace Songhay.Tests
         {
             Assert.IsNull(nullTraceSource);
 
-            nullTraceSource.TraceInformation("info!");
+            nullTraceSource?.TraceInformation("info!");
             nullTraceSource.TraceVerbose("info!");
             nullTraceSource.TraceWarning("info!");
             nullTraceSource.TraceError("info!");
