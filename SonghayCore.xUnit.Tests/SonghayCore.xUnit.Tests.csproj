@@ -5,13 +5,16 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyName>Songhay.Tests</AssemblyName>
+    <AssemblyName>SonghayCore.xUnit.Tests</AssemblyName>
 
     <RootNamespace>Songhay.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="..\SonghayCore.xUnit\Extensions\DataAttributeExtensions.cs" Link="Extensions\DataAttributeExtensions.cs" />
+    <Compile Include="..\SonghayCore.xUnit\Orderers\OrderedTestBase.cs" Link="Orderers\OrderedTestBase.cs" />
+    <Compile Include="..\SonghayCore.xUnit\Orderers\TestCaseOrderer.cs" Link="Orderers\TestCaseOrderer.cs" />
+    <Compile Include="..\SonghayCore.xUnit\Orderers\TestOrderAttribute.cs" Link="Orderers\TestOrderAttribute.cs" />
     <Compile Include="..\SonghayCore.xUnit\ProjectFileDataAttribute.cs" Link="ProjectFileDataAttribute.cs" />
   </ItemGroup>
 

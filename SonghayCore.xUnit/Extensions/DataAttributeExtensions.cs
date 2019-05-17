@@ -4,7 +4,7 @@ using System.IO;
 using Xunit;
 using Xunit.Sdk;
 
-namespace Songhay.Test.Extensions
+namespace Songhay.Tests.Extensions
 {
     /// <summary>Extensions for <see cref="DataAttribute"/></summary>
     public static class DataAttributeExtensions

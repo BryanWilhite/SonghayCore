@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Songhay.Extensions;
-using Songhay.Test.Extensions;
+using Songhay.Tests.Extensions;
 using Xunit.Sdk;
 
 namespace SonghayCore.xUnit
