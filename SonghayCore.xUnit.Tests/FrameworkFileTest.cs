@@ -1,35 +1,27 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Songhay.Extensions;
+﻿using Songhay.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Songhay.Tests
 {
-    /// <summary>
-    /// General research tests.
-    /// </summary>
-    [TestClass]
     public class FrameworkFileTest
     {
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext { get; set; }
-
-        /// <summary>
-        /// Framework file test: should find path of given length.
-        /// </summary>
-        [TestMethod]
-        [TestProperty("length", "200")]
-        public void ShouldFindPathOfGivenLength()
+        public FrameworkFileTest(ITestOutputHelper helper)
         {
-            var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 3);
-            var length = Convert.ToInt32(this.TestContext.Properties["length"]);
+            this._testOutputHelper = helper;
+        }
+
+        [Theory, InlineData(200)]
+        public void ShouldFindPathOfGivenLength(int length)
+        {
+            var assemblyRoot = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly);
+            var projectsFolder = FrameworkFileUtility.GetParentDirectory(assemblyRoot, 3);
 
             var directory = new DirectoryInfo(projectsFolder);
             var dict = new Dictionary<string, int>();
@@ -37,7 +29,7 @@ namespace Songhay.Tests
             dict.ForEachInEnumerable(d =>
                 {
                     if (d.Value > length)
-                        TestContext
+                        this._testOutputHelper
                             .WriteLine(string.Format("{0}:{1}", d.Key, d.Value.ToString()));
                 });
         }
@@ -56,22 +48,12 @@ namespace Songhay.Tests
                 });
         }
 
-        /// <summary>
-        /// Framework file test: should sort text file data.
-        /// </summary>
-        [TestMethod]
-        [TestProperty("outFile", @"content\FrameworkFileTest-ShouldSortTextFileData.txt")]
-        public void ShouldSortTextFileData()
+        [Theory, InlineData(@"content\FrameworkFileTest-ShouldSortTextFileData.txt")]
+        public void ShouldSortTextFileData(string outFile)
         {
-            var projectInfo = this.TestContext.ShouldGetProjectDirectoryInfo(this.GetType());
-
-            #region test properties:
-
-            var outFile = this.TestContext.Properties["outFile"].ToString();
-            outFile = projectInfo.FullName.ToCombinedPath(outFile);
-            this.TestContext.ShouldFindFile(outFile);
-
-            #endregion
+            var projectRoot = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+            outFile = FrameworkFileUtility.GetCombinedPath(projectRoot, outFile);
+            Assert.True(File.Exists(outFile), "The expected output file is not here");
 
             var output = new List<string>();
             var stream = new FileStream(outFile, FileMode.Open);
@@ -85,7 +67,7 @@ namespace Songhay.Tests
                         .GroupBy(o => o.Car)
                         .ForEachInEnumerable(o =>
                     {
-                        TestContext.WriteLine(o.Key + " = " + o.Count().ToString());
+                        this._testOutputHelper.WriteLine($"{o.Key} = {o.Count()}");
                     });
                 }
             }
@@ -95,22 +77,12 @@ namespace Songhay.Tests
             }
         }
 
-        /// <summary>
-        /// Framework file test: should write text file with stream writer.
-        /// </summary>
-        [TestMethod]
-        [TestProperty("outFile", @"content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt")]
-        public void ShouldWriteTextFileWithStreamWriter()
+        [Theory, InlineData(@"content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt")]
+        public void ShouldWriteTextFileWithStreamWriter(string outFile)
         {
-            var projectInfo = this.TestContext.ShouldGetProjectDirectoryInfo(this.GetType());
-
-            #region test properties:
-
-            var outFile = this.TestContext.Properties["outFile"].ToString();
-            outFile = projectInfo.ToCombinedPath(outFile);
-            this.TestContext.ShouldFindFile(outFile);
-
-            #endregion
+            var projectRoot = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+            outFile = FrameworkFileUtility.GetCombinedPath(projectRoot, outFile);
+            Assert.True(File.Exists(outFile), "The expected output file is not here");
 
             var fileText = @"
 This is the text to write to the test file.
@@ -134,22 +106,12 @@ This is the end of the file.
             }
         }
 
-        /// <summary>
-        /// Framework file test: should write text file with XML text writer.
-        /// </summary>
-        [TestMethod]
-        [TestProperty("outFile", @"content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml")]
-        public void ShouldWriteTextFileWithXmlTextWriter()
+        [Theory, InlineData(@"content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml")]
+        public void ShouldWriteTextFileWithXmlTextWriter(string outFile)
         {
-            var projectInfo = this.TestContext.ShouldGetProjectDirectoryInfo(this.GetType());
-
-            #region test properties:
-
-            var outFile = this.TestContext.Properties["outFile"].ToString();
-            outFile = projectInfo.ToCombinedPath(outFile);
-            this.TestContext.ShouldFindFile(outFile);
-
-            #endregion
+            var projectRoot = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+            outFile = FrameworkFileUtility.GetCombinedPath(projectRoot, outFile);
+            Assert.True(File.Exists(outFile), "The expected output file is not here");
 
             var stream = new FileStream(outFile, FileMode.Create);
             try
@@ -173,19 +135,15 @@ This is the end of the file.
             }
         }
 
-        /// <summary>
-        /// Framework file test: should write to my documents folder.
-        /// </summary>
-        [TestMethod]
-        [TestProperty("folder", "TestMyDocumentsFolder")]
-        public void ShouldWriteToMyDocumentsFolder()
+        [Theory, InlineData("TestMyDocumentsFolder")]
+        public void ShouldWriteToMyDocumentsFolder(string folder)
         {
-            var folder = this.TestContext.Properties["folder"].ToString();
-
             var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folder);
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
 
-            this.TestContext.ShouldFindDirectory(path);
+            Assert.True(Directory.Exists(path));
         }
+
+        readonly ITestOutputHelper _testOutputHelper;
     }
 }

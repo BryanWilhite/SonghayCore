@@ -12,7 +12,7 @@ namespace Songhay
     /// <summary>
     /// Static members related to <see cref="System.Reflection"/>.
     /// </summary>
-    public static  partial class FrameworkAssemblyUtility
+    public static partial class FrameworkAssemblyUtility
     {
         /// <summary>
         /// Returns a <see cref="System.String"/>
@@ -62,7 +62,12 @@ namespace Songhay
         {
             if (assembly == null) throw new ArgumentNullException("assembly", "The expected assembly is not here.");
 
-            var root = Path.GetDirectoryName(assembly.Location);
+            var proposedLocation = (string.IsNullOrEmpty(assembly.CodeBase))
+                      ? assembly.Location
+                      : assembly.CodeBase
+                          .Replace("file:///", string.Empty);
+
+            var root = Path.GetDirectoryName(proposedLocation);
             return root;
         }
 
@@ -78,13 +83,13 @@ namespace Songhay
             fileSegment = FrameworkFileUtility.TrimLeadingDirectorySeparatorChars(fileSegment);
             if (Path.IsPathRooted(fileSegment)) throw new FormatException("The expected relative path is not here.");
 
-            var levels = FrameworkFileUtility.CountParentDirectoryChars(fileSegment);
-            fileSegment = FrameworkFileUtility.TrimParentDirectoryChars(fileSegment);
+            fileSegment = FrameworkFileUtility.NormalizePath(fileSegment);
 
             var root = GetPathFromAssembly(assembly);
+            var levels = FrameworkFileUtility.CountParentDirectoryChars(fileSegment);
             if (levels > 0) root = FrameworkFileUtility.GetParentDirectory(root, levels);
-            root = Path.GetDirectoryName(Path.Combine(root, fileSegment));
-            var path = Path.Combine(root, Path.GetFileName(fileSegment));
+
+            var path = FrameworkFileUtility.GetCombinedPath(root, fileSegment);
             return path;
         }
     }

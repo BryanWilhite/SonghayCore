@@ -11,11 +11,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="content\FrameworkFileTest-ShouldSortTextFileData.txt" />
+    <None Remove="content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt" />
+    <None Remove="content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="..\SonghayCore.xUnit\Extensions\DataAttributeExtensions.cs" Link="Extensions\DataAttributeExtensions.cs" />
     <Compile Include="..\SonghayCore.xUnit\Orderers\OrderedTestBase.cs" Link="Orderers\OrderedTestBase.cs" />
     <Compile Include="..\SonghayCore.xUnit\Orderers\TestCaseOrderer.cs" Link="Orderers\TestCaseOrderer.cs" />
     <Compile Include="..\SonghayCore.xUnit\Orderers\TestOrderAttribute.cs" Link="Orderers\TestOrderAttribute.cs" />
     <Compile Include="..\SonghayCore.xUnit\ProjectFileDataAttribute.cs" Link="ProjectFileDataAttribute.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="content\FrameworkFileTest-ShouldSortTextFileData.txt" />
+    <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt" />
+    <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml" />
   </ItemGroup>
 
   <ItemGroup>

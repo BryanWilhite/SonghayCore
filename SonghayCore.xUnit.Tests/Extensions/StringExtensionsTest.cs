@@ -16,16 +16,6 @@ namespace Songhay.Tests.Extensions
         }
 
         [Theory]
-        [InlineData("root1", @"z:\one")]
-        [InlineData("root2", @"/home/one")]
-        [InlineData("path1", @"/two/three/four/")]
-        [InlineData("path2", @"\two\three\four")]
-        public void ShouldConvertToCombinedFullPath(string root, string path)
-        {
-            this._testOutputHelper.WriteLine(root.ToCombinedPath(path));
-        }
-
-        [Theory]
         [InlineData(10, "Lorem ipsum dolor", "ipsum")]
         public void ShouldGetSubstringInContext(int contextLength, string input, string searchText)
         {

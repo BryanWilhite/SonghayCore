@@ -48,37 +48,7 @@ namespace Songhay.Extensions
         public static string ToCombinedPath(this DirectoryInfo directoryInfo, string path)
         {
             if (directoryInfo == null) throw new NullReferenceException($"The expected {nameof(DirectoryInfo)} is not here.");
-            if (string.IsNullOrEmpty(path)) throw new NullReferenceException("The expected path is not here.");
-
-            var root = directoryInfo.FullName;
-            var backSlash = '\\';
-            var forwardSlash = '/';
-            var isForwardSlashSystem = Path.DirectorySeparatorChar.Equals(forwardSlash);
-
-            string Normalize(string r)
-            {
-                return isForwardSlashSystem ?
-                    r.Replace(backSlash, forwardSlash)
-                    :
-                    r.Replace(forwardSlash, backSlash);
-            }
-
-            string RemoveConventionalPrefixes(string r)
-            {
-                return isForwardSlashSystem ?
-                    r
-                    .TrimStart(forwardSlash)
-                    .Replace($"..{forwardSlash}", string.Empty)
-                    .Replace($".{forwardSlash}", string.Empty)
-                    :
-                    r
-                    .TrimStart(backSlash)
-                    .Replace($"..{backSlash}", string.Empty)
-                    .Replace($".{backSlash}", string.Empty)
-                    ;
-            }
-
-            return Path.Combine(Normalize(root), RemoveConventionalPrefixes(Normalize(path)));
+            return FrameworkFileUtility.GetCombinedPath(directoryInfo.FullName, path);
         }
     }
 }

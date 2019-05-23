@@ -12,7 +12,9 @@ namespace Songhay
     {
         static FrameworkFileUtility()
         {
-            parentDirectoryCharsPattern = string.Format(@"\.\.\{0}", Path.DirectorySeparatorChar);
+            backSlash = '\\';
+            forwardSlash = '/';
+            isForwardSlashSystem = Path.DirectorySeparatorChar.Equals(forwardSlash);
         }
 
         /// <summary>
@@ -22,10 +24,15 @@ namespace Songhay
         /// <returns></returns>
         /// <remarks>
         /// This method is useful when running <see cref="GetParentDirectory(string, int)"/>.
+        /// 
+        /// WARNING: call <see cref="NormalizePath(string)"/> to prevent incorrectly returning <c>0</c>
+        /// in cross-platform scenarios.
         /// </remarks>
         public static int CountParentDirectoryChars(string path)
         {
-            if (string.IsNullOrEmpty(path)) return default(int);
+            if (string.IsNullOrEmpty(path)) return default;
+
+            var parentDirectoryCharsPattern = string.Format(@"\.\.\{0}", Path.DirectorySeparatorChar);
             var matches = Regex.Matches(path, parentDirectoryCharsPattern);
             return matches.Count;
         }
@@ -74,6 +81,28 @@ namespace Songhay
             if (hasNoMoreLevels) return null;
 
             return FindParentDirectoryInfo(info.Parent.FullName, parentName, levels);
+        }
+
+        /// <summary>Combines path and root based
+        /// on the ambient value of <see cref="Path.DirectorySeparatorChar"/>
+        /// of the current OS.</summary>
+        /// <param name="root">The root.</param>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
+        /// <exception cref="NullReferenceException">The expected root path is not here.
+        /// or
+        /// The expected path is not here.</exception>
+        /// <remarks>
+        /// For detail, see:
+        /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/14
+        /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/32
+        /// </remarks>
+        public static string GetCombinedPath(string root, string path)
+        {
+            if (string.IsNullOrEmpty(root)) throw new NullReferenceException($"The expected {nameof(root)} is not here.");
+            if (string.IsNullOrEmpty(path)) throw new NullReferenceException($"The expected {nameof(path)} is not here.");
+
+            return Path.Combine(NormalizePath(root), RemoveConventionalPrefixes(NormalizePath(path)));
         }
 
         /// <summary>
@@ -127,6 +156,46 @@ namespace Songhay
         }
 
         /// <summary>
+        /// Normalizes the specified path with respect
+        /// to the ambient value of <see cref="Path.DirectorySeparatorChar"/>.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static string NormalizePath(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return null;
+
+            return isForwardSlashSystem ?
+                path.Replace(backSlash, forwardSlash)
+                :
+                path.Replace(forwardSlash, backSlash);
+        }
+
+        /// <summary>
+        /// Removes conventional Directory prefixes
+        /// for relative paths, e.g. <c>../</c> or <c>./</c>
+        /// based on the ambient value of <see cref="Path.DirectorySeparatorChar"/>.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static string RemoveConventionalPrefixes(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return null;
+
+            return isForwardSlashSystem ?
+                path
+                .TrimStart(forwardSlash)
+                .Replace($"..{forwardSlash}", string.Empty)
+                .Replace($".{forwardSlash}", string.Empty)
+                :
+                path
+                .TrimStart(backSlash)
+                .Replace($"..{backSlash}", string.Empty)
+                .Replace($".{backSlash}", string.Empty)
+                ;
+        }
+
+        /// <summary>
         /// Trims the leading directory separator chars.
         /// </summary>
         /// <param name="path">The path.</param>
@@ -141,18 +210,8 @@ namespace Songhay
             return path.TrimStart(new[] { Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar });
         }
 
-        /// <summary>
-        /// Trims the parent directory chars.
-        /// </summary>
-        /// <param name="path">The path.</param>
-        /// <returns></returns>
-        public static string TrimParentDirectoryChars(string path)
-        {
-            if (string.IsNullOrEmpty(path)) return path;
-
-            return Regex.Replace(path, parentDirectoryCharsPattern, string.Empty);
-        }
-
-        static readonly string parentDirectoryCharsPattern;
+        static readonly bool isForwardSlashSystem;
+        static readonly char backSlash;
+        static readonly char forwardSlash;
     }
 }
