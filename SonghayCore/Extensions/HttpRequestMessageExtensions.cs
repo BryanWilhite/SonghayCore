@@ -1,5 +1,6 @@
 ﻿#if NETSTANDARD
 
+using Songhay.Models;
 using System;
 using System.Net.Http;
 using System.Text;
@@ -17,16 +18,36 @@ namespace Songhay.Extensions
         /// Gets a <see cref="string"/> from the derived <see cref="HttpResponseMessage"/>.
         /// </summary>
         /// <param name="request"></param>
-        /// <returns></returns>
         public static async Task<string> GetServerResponseAsync(this HttpRequestMessage request)
+        {
+            return await request.GetServerResponseAsync(responseMessageAction: null);
+        }
+
+        /// <summary>
+        /// Gets a <see cref="string"/> from the derived <see cref="HttpResponseMessage"/>.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="responseMessageAction"></param>
+        /// <returns></returns>
+        public static async Task<string> GetServerResponseAsync(this HttpRequestMessage request, Action<HttpResponseMessage> responseMessageAction)
         {
             if (request == null) throw new NullReferenceException($"The expected {nameof(HttpRequestMessage)} is not here.");
 
             var response = await GetHttpClient().SendAsync(request);
+            responseMessageAction?.Invoke(response);
 
             var content = await response.Content.ReadAsStringAsync();
             return content;
 
+        }
+
+        /// <summary>
+        /// Calls <see cref="HttpClient.SendAsync(HttpRequestMessage)" />
+        /// </summary>
+        /// <param name="request"></param>
+        public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage request)
+        {
+            return await request.SendAsync(requestMessageAction: null);
         }
 
         /// <summary>
@@ -46,6 +67,31 @@ namespace Songhay.Extensions
 
             var response = await GetHttpClient().SendAsync(request);
             return response;
+        }
+
+        /// <summary>
+        /// Calls <see cref="HttpClient.SendAsync(HttpRequestMessage)" />
+        /// with the specified request body, <see cref="Encoding.UTF8"/>
+        /// and <see cref="MimeTypes.ApplicationJson"/>.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestBody">The request body.</param>
+        public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage request, string requestBody)
+        {
+            return await request.SendBodyAsync(requestBody, Encoding.UTF8, MimeTypes.ApplicationJson, requestMessageAction: null);
+        }
+
+        /// <summary>
+        /// Calls <see cref="HttpClient.SendAsync(HttpRequestMessage)" />
+        /// with the specified request body.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestBody">The request body.</param>
+        /// <param name="encoding">The encoding.</param>
+        /// <param name="mediaType">Type of the media.</param>
+        public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage request, string requestBody, Encoding encoding, string mediaType)
+        {
+            return await request.SendBodyAsync(requestBody, encoding, mediaType, requestMessageAction: null);
         }
 
         /// <summary>
