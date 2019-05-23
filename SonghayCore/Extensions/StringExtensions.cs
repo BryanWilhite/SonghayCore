@@ -37,17 +37,6 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Escapes the interpolation tokens of <see cref="string.Format(string, object[])"/>.
-        /// </summary>
-        /// <param name="input">The input.</param>
-        /// <returns></returns>
-        public static string EscapeInterpolation(this string input)
-        {
-            if (string.IsNullOrEmpty(input)) return input;
-            return input.Replace("{", "{{").Replace("}", "}}");
-        }
-
-        /// <summary>
         /// Converts camel-case <see cref="System.String"/> to <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/>.
         /// </summary>
         /// <param name="input">The input.</param>
@@ -80,28 +69,6 @@ namespace Songhay.Extensions
 
             var set = delimitedValues.Split(separator);
             return set.Contains(input);
-        }
-
-        /// <summary>
-        /// Returns <see cref="string"/> in double quotes.
-        /// </summary>
-        /// <param name="input">The input.</param>
-        public static string InDoubleQuotes(this string input)
-        {
-            if (string.IsNullOrEmpty(input)) return null;
-            input = input.Replace("\"", "\"\"");
-            return string.Format("\"{0}\"", input);
-        }
-
-        /// <summary>
-        /// Returns <see cref="string"/> in double quotes or default.
-        /// </summary>
-        /// <param name="input">The input.</param>
-        /// <param name="defaultValue">The default value.</param>
-        public static string InDoubleQuotesOrDefault(this string input, string defaultValue)
-        {
-            if (string.IsNullOrEmpty(input)) return defaultValue;
-            return input.InDoubleQuotes();
         }
 
         /// <summary>
@@ -283,33 +250,6 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Converts the <see cref="String"/> into a blog slug.
-        /// </summary>
-        /// <param name="input">The input.</param>
-        public static string ToBlogSlug(this string input)
-        {
-            if (string.IsNullOrEmpty(input)) throw new NullReferenceException("The expected input is not here");
-
-            // Remove/replace entities:
-            input = input.Replace("&amp;", "and");
-            input = Regex.Replace(input, @"\&\w+\;", string.Empty, RegexOptions.IgnoreCase);
-            input = Regex.Replace(input, @"\&\#\d+\;", string.Empty, RegexOptions.IgnoreCase);
-
-            // Replace any characters that are not alphanumeric with hyphen:
-            input = Regex.Replace(input, "[^a-z^0-9]", "-", RegexOptions.IgnoreCase);
-
-            // Replace all double hyphens with single hyphen
-            var pattern = "--";
-            while (Regex.IsMatch(input, pattern)) input = Regex.Replace(input, pattern, "-", RegexOptions.IgnoreCase);
-
-            // Remove leading and trailing hyphens ("-")
-            pattern = "^-|-$";
-            input = Regex.Replace(input, pattern, "", RegexOptions.IgnoreCase);
-
-            return input.ToLower();
-        }
-
-        /// <summary>
         /// Returns the number of directory levels
         /// based on the conventions <c>../</c> or <c>..\</c>.
         /// </summary>
@@ -320,18 +260,6 @@ namespace Songhay.Extensions
             if (string.IsNullOrEmpty(path)) return 0;
             var relative_parent_path_matches = Regex.Matches(path, @"\.\./|\.\.\\");
             return relative_parent_path_matches.Count;
-        }
-
-        /// <summary>
-        /// Truncates the specified input.
-        /// </summary>
-        /// <param name="input">The input.</param>
-        /// <param name="length">The length.</param>
-        public static string Truncate(this string input, int length = 16)
-        {
-            if (string.IsNullOrEmpty(input)) return input;
-            if (input.Length < length) return input;
-            return string.Concat(input.Substring(0, length), "…");
         }
     }
 }

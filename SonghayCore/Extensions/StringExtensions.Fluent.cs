@@ -10,6 +10,39 @@ namespace Songhay.Extensions
     public static partial class StringExtensions
     {
         /// <summary>
+        /// Escapes the interpolation tokens of <see cref="string.Format(string, object[])"/>.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
+        public static string EscapeInterpolation(this string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+            return input.Replace("{", "{{").Replace("}", "}}");
+        }
+
+        /// <summary>
+        /// Returns <see cref="string"/> in double quotes.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        public static string InDoubleQuotes(this string input)
+        {
+            if (string.IsNullOrEmpty(input)) return null;
+            input = input.Replace("\"", "\"\"");
+            return string.Format("\"{0}\"", input);
+        }
+
+        /// <summary>
+        /// Returns <see cref="string"/> in double quotes or default.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="defaultValue">The default value.</param>
+        public static string InDoubleQuotesOrDefault(this string input, string defaultValue)
+        {
+            if (string.IsNullOrEmpty(input)) return defaultValue;
+            return input.InDoubleQuotes();
+        }
+
+        /// <summary>
         /// Reverse the string
         /// from http://en.wikipedia.org/wiki/Extension_method
         /// </summary>
@@ -86,6 +119,33 @@ namespace Songhay.Extensions
                     .Where(c => char.GetNumericValue(c) < 128);
                 return (chars.Count() > 0) ? new string(chars.ToArray()).Replace("--", "-").Trim(new char[] { spacer }) : null;
             }
+        }
+
+        /// <summary>
+        /// Converts the <see cref="String"/> into a blog slug.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        public static string ToBlogSlug(this string input)
+        {
+            if (string.IsNullOrEmpty(input)) throw new NullReferenceException("The expected input is not here");
+
+            // Remove/replace entities:
+            input = input.Replace("&amp;", "and");
+            input = Regex.Replace(input, @"\&\w+\;", string.Empty, RegexOptions.IgnoreCase);
+            input = Regex.Replace(input, @"\&\#\d+\;", string.Empty, RegexOptions.IgnoreCase);
+
+            // Replace any characters that are not alphanumeric with hyphen:
+            input = Regex.Replace(input, "[^a-z^0-9]", "-", RegexOptions.IgnoreCase);
+
+            // Replace all double hyphens with single hyphen
+            var pattern = "--";
+            while (Regex.IsMatch(input, pattern)) input = Regex.Replace(input, pattern, "-", RegexOptions.IgnoreCase);
+
+            // Remove leading and trailing hyphens ("-")
+            pattern = "^-|-$";
+            input = Regex.Replace(input, pattern, "", RegexOptions.IgnoreCase);
+
+            return input.ToLower();
         }
 
         /// <summary>
@@ -166,6 +226,18 @@ namespace Songhay.Extensions
 
                 return input.Substring(i0, i1);
             }
+        }
+
+        /// <summary>
+        /// Truncates the specified input.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="length">The length.</param>
+        public static string Truncate(this string input, int length = 16)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+            if (input.Length < length) return input;
+            return string.Concat(input.Substring(0, length), "…");
         }
 
         /// <summary>
