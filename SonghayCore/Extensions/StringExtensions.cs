@@ -248,6 +248,23 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
+        /// Determines whether the specified input is a UNC.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>
+        ///   <c>true</c> if is a UNC; otherwise, <c>false</c>.
+        /// </returns>
+        /// <remarks>
+        ///  📚 https://stackoverflow.com/a/47531093/22944
+        ///  📚 https://en.wikipedia.org/wiki/Path_(computing)#Uniform_Naming_Convention
+        /// </remarks>
+        public static bool IsUnc(this string input)
+        {
+            if (string.IsNullOrEmpty(input)) return false;
+            return Regex.IsMatch(input, @"^(\\(\\[^\s\\]+)+|([A-Za-z]:(\\)?|[A-z]:(\\[^\s\\]+)+))(\\)?$");
+        }
+
+        /// <summary>
         /// Determines whether the specified input looks like an email address.
         /// </summary>
         /// <param name="input">The input.</param>
