@@ -78,7 +78,7 @@ namespace Songhay.Extensions
         /// <param name="requestBody">The request body.</param>
         public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage request, string requestBody)
         {
-            return await request.SendBodyAsync(requestBody, Encoding.UTF8, MimeTypes.ApplicationJson, requestMessageAction: null);
+            return await request.SendBodyAsync(requestBody, Encoding.UTF8, MimeTypes.ApplicationJson);
         }
 
         /// <summary>
