@@ -30,7 +30,7 @@ namespace Songhay
         /// </remarks>
         public static int CountParentDirectoryChars(string path)
         {
-            if (string.IsNullOrEmpty(path)) return default;
+            if (string.IsNullOrEmpty(path)) return default(int);
 
             var parentDirectoryCharsPattern = string.Format(@"\.\.\{0}", Path.DirectorySeparatorChar);
             var matches = Regex.Matches(path, parentDirectoryCharsPattern);
