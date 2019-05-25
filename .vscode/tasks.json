@@ -152,6 +152,31 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "DocFX: build",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "docfx",
+            "args": [
+                "docfx.json"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "DocFX: serve",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "docfx",
+            "args": [
+                "serve",
+                "docs"
+            ],
+            "problemMatcher": []
+        },
+        {
             "label": "DocFX: add .nojekyll file for GitHub",
             "type": "shell",
             "options": {

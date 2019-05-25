@@ -1,15 +1,15 @@
 {
   "homepages": [],
-  "source_base_path": "E:/~sourceRoot/SonghayCore/docfx_project",
+  "source_base_path": "E:/~sourceRoot/SonghayCore",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
       "type": "Conceptual",
-      "source_relative_path": "api/index.md",
+      "source_relative_path": "docfx_project/api/index.md",
       "output": {
         ".html": {
-          "relative_path": "api/index.html",
-          "hash": "3Wir6uolXo/so8y+TbCZBA=="
+          "relative_path": "docfx_project/api/index.html",
+          "hash": "zJOdIs9rgtAVkQZG+e58qw=="
         }
       },
       "is_incremental": true,
@@ -17,10 +17,10 @@
     },
     {
       "type": "Toc",
-      "source_relative_path": "api/toc.yml",
+      "source_relative_path": "docfx_project/api/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "api/toc.html",
+          "relative_path": "docfx_project/api/toc.html",
           "hash": "eWl/m2iB2mgjZPbLc4xDqw=="
         }
       },
@@ -29,11 +29,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/intro.md",
+      "source_relative_path": "docfx_project/articles/intro.md",
       "output": {
         ".html": {
-          "relative_path": "articles/intro.html",
-          "hash": "Vmla17g3SRjTiR3O38OdlA=="
+          "relative_path": "docfx_project/articles/intro.html",
+          "hash": "clCnBdoGVEpkZDLxxVSiYA=="
         }
       },
       "is_incremental": true,
@@ -41,10 +41,10 @@
     },
     {
       "type": "Toc",
-      "source_relative_path": "articles/toc.yml",
+      "source_relative_path": "docfx_project/articles/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "articles/toc.html",
+          "relative_path": "docfx_project/articles/toc.html",
           "hash": "t7iiFrmuYmrKWisdq+lN6Q=="
         }
       },
@@ -53,11 +53,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "index.md",
+      "source_relative_path": "docfx_project/index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "jnMGT/x6uyCIoRqF/4AzmQ=="
+          "relative_path": "docfx_project/index.html",
+          "hash": "YArJuPw22WJFKeK4coBjpw=="
         }
       },
       "is_incremental": true,
@@ -65,10 +65,10 @@
     },
     {
       "type": "Toc",
-      "source_relative_path": "toc.yml",
+      "source_relative_path": "docfx_project/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "toc.html",
+          "relative_path": "docfx_project/toc.html",
           "hash": "k+/dkjFuwAVS32HduMpmBw=="
         }
       },
@@ -85,18 +85,18 @@
         "skipped_file_count": 0
       },
       "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
           "skipped_file_count": 0
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 3,
-          "skipped_file_count": 3
         }
       }
     },
