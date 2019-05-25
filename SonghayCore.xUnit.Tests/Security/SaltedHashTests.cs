@@ -1,19 +1,18 @@
 using Songhay.Security;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Songhay.Tests.Security
 {
-    [TestClass]
-    public class SaltedHashTest
+    public class SaltedHashTests
     {
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext { get; set; }
+        public SaltedHashTests(ITestOutputHelper helper)
+        {
+            this._testOutputHelper = helper;
+        }
 
-        [TestMethod]
-        public void ShouldGetHashAndSaltAndVerifyHash()
+        [Fact]
+        public void GetHashAndSalt_Test()
         {
             // We use the default SHA-256 & 4 byte length
             var demo = new SaltedHash();
@@ -24,7 +23,7 @@ namespace Songhay.Tests.Security
             string salt;
 
             demo.GetHashAndSalt(password, out hash, out salt);
-            TestContext.WriteLine("Password = {0} , Hash = {1} , Salt = {2}", password, hash, salt);
+            this._testOutputHelper.WriteLine("Password = {0} , Hash = {1} , Salt = {2}", password, hash, salt);
 
             // Password validation
             //
@@ -33,13 +32,15 @@ namespace Songhay.Tests.Security
             // First check if a wrong password passes
             var wrongPassword = "OopsOops";
             var actual = demo.VerifyHash(wrongPassword, hash, salt);
-            TestContext.WriteLine("Verifying {0} = {1}", wrongPassword, actual);
-            Assert.IsFalse(actual, "The expected password is not here.");
+            this._testOutputHelper.WriteLine("Verifying {0} = {1}", wrongPassword, actual);
+            Assert.False(actual, "The expected password is not here.");
 
             // Check if the correct password passes
             actual = demo.VerifyHash(password, hash, salt);
-            TestContext.WriteLine("Verifying {0} = {1}", password, actual);
-            Assert.IsTrue(actual, "The expected password is not here.");
+            this._testOutputHelper.WriteLine("Verifying {0} = {1}", password, actual);
+            Assert.True(actual, "The expected password is not here.");
         }
+
+        readonly ITestOutputHelper _testOutputHelper;
     }
 }
