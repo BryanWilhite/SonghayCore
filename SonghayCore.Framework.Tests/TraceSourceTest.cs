@@ -4,7 +4,7 @@ using Songhay.Extensions;
 using System;
 using System.Diagnostics;
 
-namespace SonghayCore.Framework.Tests
+namespace Songhay.Tests
 {
     [TestClass]
     public class TraceSourceTest

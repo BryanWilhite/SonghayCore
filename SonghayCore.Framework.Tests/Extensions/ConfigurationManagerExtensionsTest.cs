@@ -6,7 +6,7 @@ using System.Xml.Linq;
 using System.Linq;
 using Songhay.Models;
 
-namespace SonghayCore.Framework.Tests.Extensions
+namespace Songhay.Tests.Extensions
 {
     /// <summary>
     /// Tests for <see cref="ConfigurationManagerExtensions"/>

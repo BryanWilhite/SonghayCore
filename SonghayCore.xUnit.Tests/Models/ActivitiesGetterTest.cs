@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Songhay.Diagnostics;
 using Songhay.Extensions;
 using Songhay.Models;
@@ -7,10 +6,11 @@ using Songhay.Tests.Activities;
 using System;
 using System.Diagnostics;
 using System.IO;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Songhay.Tests.Models
 {
-    [TestClass]
     public class ActivitiesGetterTest
     {
         static ActivitiesGetterTest()
@@ -28,11 +28,13 @@ namespace Songhay.Tests.Models
             traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
         }
 
+        public ActivitiesGetterTest(ITestOutputHelper helper)
+        {
+            this._testOutputHelper = helper;
+        }
+
         static readonly TraceSource traceSource;
 
-        public TestContext TestContext { get; set; }
-
-        [TestMethod]
         public void ShouldGetActivityFromDefaultName()
         {
             using (var listener = new TextWriterTraceListener(Console.Out))
@@ -48,7 +50,7 @@ namespace Songhay.Tests.Models
 
                 var getter = new MyActivitiesGetter(args);
                 var activity = getter.GetActivity();
-                Assert.IsNotNull(activity);
+                Assert.NotNull(activity);
 
                 activity.Start(getter.Args);
 
@@ -56,7 +58,6 @@ namespace Songhay.Tests.Models
             }
         }
 
-        [TestMethod]
         public void ShouldHandleEmptyArgments()
         {
             try
@@ -65,11 +66,10 @@ namespace Songhay.Tests.Models
             }
             catch (ArgumentException ex)
             {
-                this.TestContext.WriteLine($"The expected exception: {ex.Message}");
+                this._testOutputHelper.WriteLine($"The expected exception: {ex.Message}");
             }
         }
 
-        [TestMethod]
         public void ShouldHandleNullArgments()
         {
             try
@@ -78,11 +78,10 @@ namespace Songhay.Tests.Models
             }
             catch (ArgumentNullException ex)
             {
-                this.TestContext.WriteLine($"The expected exception: {ex.Message}");
+                this._testOutputHelper.WriteLine($"The expected exception: {ex.Message}");
             }
         }
 
-        [TestMethod]
         public void ShouldShowHelpDisplayText()
         {
             using (var listener = new TextWriterTraceListener(Console.Out))
@@ -97,15 +96,17 @@ namespace Songhay.Tests.Models
 
                 var getter = new MyActivitiesGetter(args);
                 var activity = getter.GetActivity();
-                Assert.IsNotNull(activity);
+                Assert.NotNull(activity);
 
                 if (getter.Args.IsHelpRequest())
-                    this.TestContext.WriteLine(activity.DisplayHelp(getter.Args));
+                    this._testOutputHelper.WriteLine(activity.DisplayHelp(getter.Args));
 
                 activity.Start(getter.Args);
 
                 listener.Flush();
             }
         }
+
+        readonly ITestOutputHelper _testOutputHelper;
     }
 }
