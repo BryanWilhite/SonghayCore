@@ -13,6 +13,7 @@ namespace Songhay.Tests
         }
 
         [DebuggerAttachedTheory]
+        [ProjectFileData(typeof(NuGetTests), "../../../../SonghayCore/SonghayCore.nuspec")]
         [ProjectFileData(typeof(NuGetTests), "../../../../SonghayCore.xUnit/SonghayCore.xUnit.nuspec")]
         public void ShouldEditNuSpecFile(FileInfo nuspecInfo)
         {

@@ -1,21 +1,37 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyVersion>3.2.0</AssemblyVersion>
+    <RootNamespace>Songhay</RootNamespace>
+
+    <Title>Songhay Core Testing for xUnit</Title>
+    <Description>Core reusable definitions for .NET Core and .NET Framework</Description>
+    <Authors>Bryan D. Wilhite</Authors>
+    <Copyright>(c) 2019 Bryan D. Wilhite</Copyright>
+    <Company>Songhay System</Company>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/BryanWilhite/SonghayCore</RepositoryUrl>
+
+    <IncludeSource>false</IncludeSource>
+    <IncludeSymbols>false</IncludeSymbols>
+    <IsPackable>true</IsPackable>
+    <PackageIconUrl>https://songhaystorage.blob.core.windows.net/studio-public/songhay_icon.png</PackageIconUrl>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/BryanWilhite/SonghayCore/projects</PackageProjectUrl>
+    <PackageReleaseNotes>made breaking changes to display models, etc.; see https://github.com/BryanWilhite/SonghayCore/projects/1</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>Core;Songhay;Configuration;Cryptography;LINQ</PackageTags>
+    <PackageVersion>$(AssemblyVersion)</PackageVersion>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Version>$(AssemblyVersion)</Version>
+  </PropertyGroup>
+
   <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' "> 
     <TargetFrameworks>netstandard2.0;net462;net452</TargetFrameworks>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <Authors>Bryan D. Wilhite</Authors>
-    <Company>Songhay System</Company>
-    <Description>Core reusable definitions for .NET Core and .NET Framework</Description>
-    <Copyright>(c) 2019 Bryan D. Wilhite</Copyright>
-    <RepositoryUrl>https://github.com/BryanWilhite/Songhay.DataAccess</RepositoryUrl>
-    <AssemblyVersion>3.2.0</AssemblyVersion>
-    <Deterministic>False</Deterministic>
-    <RootNamespace>Songhay</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
@@ -53,6 +69,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
     <DocumentationFile>.\SonghayCore.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.md" Link="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
