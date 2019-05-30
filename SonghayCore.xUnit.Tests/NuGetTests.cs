@@ -12,7 +12,7 @@ namespace Songhay.Tests
             this._testOutputHelper = helper;
         }
 
-        [Theory]
+        [DebuggerAttachedTheory]
         [ProjectFileData(typeof(NuGetTests), "../../../../SonghayCore.xUnit/SonghayCore.xUnit.nuspec")]
         public void ShouldEditNuSpecFile(FileInfo nuspecInfo)
         {
