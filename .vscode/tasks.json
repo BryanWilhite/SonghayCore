@@ -114,6 +114,7 @@
                 "Release",
                 "--output",
                 "${workspaceFolder}/SonghayCore.xUnit",
+                "/p:NuspecFile=${workspaceFolder}/SonghayCore.xUnit/SonghayCore.xUnit.nuspec",
                 "--verbosity",
                 "normal"
             ],
@@ -148,6 +149,22 @@
             ],
             "options": {
                 "cwd": "${workspaceRoot}/SonghayCore.MSTest"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "command": "nuget",
+            "label": "NuGet pack SonghayCore.xUnit",
+            "isBackground": false,
+            "type": "shell",
+            "args": [
+                "pack",
+                "SonghayCore.xUnit.nuspec",
+                "-Verbosity",
+                "detailed"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/SonghayCore.xUnit"
             },
             "problemMatcher": "$msCompile"
         }
