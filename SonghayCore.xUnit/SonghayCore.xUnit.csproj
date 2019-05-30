@@ -1,15 +1,35 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Bryan D. Wilhite</Authors>
-    <Company>Songhay System</Company>
-    <Description>Songhay Core Testing for xUnit</Description>
-    <Copyright>(c) 2019 Bryan D. Wilhite</Copyright>
-    <RepositoryUrl>https://github.com/BryanWilhite/SonghayCore</RepositoryUrl>
-    <AssemblyVersion>3.0.2</AssemblyVersion>
     <RootNamespace>Songhay.Test</RootNamespace>
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <Title>Songhay Core Testing for xUnit</Title>
+    <Description>Songhay Core Testing for xUnit</Description>
+    <Authors>Bryan D. Wilhite</Authors>
+    <Copyright>(c) 2019 Bryan D. Wilhite</Copyright>
+    <Company>Songhay System</Company>
+    <RepositoryUrl>https://github.com/BryanWilhite/SonghayCore</RepositoryUrl>
+
+    <IsPackable>true</IsPackable>
+    <AssemblyVersion>3.0.3</AssemblyVersion>
+    <PackageVersion>3.0.3</PackageVersion>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageIconUrl>https://songhaystorage.blob.core.windows.net/studio-public/songhay_icon.png</PackageIconUrl>
+    <PackageReleaseNotes>re-factored ProjectFileDataAttribute</PackageReleaseNotes>
+    <IncludeSource>false</IncludeSource>
+    <NuspecProperties>
+      owners=rasx@songhaysystem.com;
+      summary=Extensions and Orderers for Songhay xUnit projects;
+      tags=Core Songhay xUnit VisualStudio;
+    </NuspecProperties>
+
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.md" Link="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="SonghayCore" Version="3.1.2" />
