@@ -15,118 +15,127 @@ namespace Songhay.Tests
         [DebuggerAttachedTheory]
         [ProjectFileData(typeof(NuGetTests), "../../../../SonghayCore/SonghayCore.nuspec")]
         [ProjectFileData(typeof(NuGetTests), "../../../../SonghayCore.xUnit/SonghayCore.xUnit.nuspec")]
-        public void ShouldEditNuSpecFile(FileInfo nuspecInfo)
+        public void ShouldEditNuSpecFiles(FileSystemInfo nuspecInfo)
         {
             var nuspecDoc = XDocument.Load(nuspecInfo.FullName);
+            Assert.NotNull(nuspecDoc);
+
+            var nuspecMetaElement = nuspecDoc?.Root?.Element("metadata");
+            Assert.NotNull(nuspecMetaElement);
+
             var csprojDoc = XDocument.Load(nuspecInfo.FullName.Replace(".nuspec", ".csproj"));
+            Assert.NotNull(csprojDoc);
+
+            var csprojPGElement = csprojDoc?.Root?.Element("PropertyGroup");
+            Assert.NotNull(csprojPGElement);
 
             this._testOutputHelper.WriteLine($"reading {nameof(csprojDoc)}...");
 
-            var version = csprojDoc.Root?.Element("PropertyGroup")?.Element("AssemblyVersion")?.Value;
+            var version = csprojPGElement.Element("AssemblyVersion")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(version)}: {version}");
             Assert.False(string.IsNullOrEmpty(version), $"Value for {nameof(version)} was not found.");
 
-            var versionElement = nuspecDoc.Root?.Element("metadata")?.Element(nameof(version));
+            var versionElement = nuspecMetaElement.Element(nameof(version));
             Assert.NotNull(versionElement);
             versionElement.Value = version;
 
-            var description = csprojDoc.Root?.Element("PropertyGroup")?.Element("Description")?.Value;
+            var description = csprojPGElement.Element("Description")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(description)}: {description}");
             Assert.False(string.IsNullOrEmpty(description), $"Value for {nameof(description)} was not found.");
 
-            var descriptionElement = nuspecDoc.Root?.Element("metadata")?.Element(nameof(description));
+            var descriptionElement = nuspecMetaElement.Element(nameof(description));
             Assert.NotNull(descriptionElement);
             descriptionElement.Value = description;
 
-            var authors = csprojDoc.Root?.Element("PropertyGroup")?.Element("Authors")?.Value;
+            var authors = csprojPGElement.Element("Authors")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(authors)}: {authors}");
             Assert.False(string.IsNullOrEmpty(authors), $"Value for {nameof(authors)} was not found.");
 
-            var authorsElement = nuspecDoc.Root?.Element("metadata")?.Element(nameof(authors));
+            var authorsElement = nuspecMetaElement.Element(nameof(authors));
             Assert.NotNull(authorsElement);
             authorsElement.Value = authors;
 
-            var title = csprojDoc.Root?.Element("PropertyGroup")?.Element("Title")?.Value;
+            var title = csprojPGElement.Element("Title")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(title)}: {title}");
             Assert.False(string.IsNullOrEmpty(title), $"Value for {nameof(title)} was not found.");
 
-            var titleElement = nuspecDoc.Root?.Element("metadata")?.Element(nameof(title));
+            var titleElement = nuspecMetaElement.Element(nameof(title));
             Assert.NotNull(titleElement);
             titleElement.Value = title;
 
-            var ownersElement = nuspecDoc.Root?.Element("metadata")?.Element("owners");
+            var ownersElement = nuspecMetaElement.Element("owners");
             Assert.NotNull(ownersElement);
             ownersElement.Value = authors;
 
-            var projectUrl = csprojDoc.Root?.Element("PropertyGroup")?.Element("PackageProjectUrl")?.Value;
+            var projectUrl = csprojPGElement.Element("PackageProjectUrl")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(projectUrl)}: {projectUrl}");
             Assert.False(string.IsNullOrEmpty(projectUrl), $"Value for {nameof(projectUrl)} was not found.");
 
-            var projectUrlElement = nuspecDoc.Root?.Element("metadata")?.Element(nameof(projectUrl));
+            var projectUrlElement = nuspecMetaElement.Element(nameof(projectUrl));
             Assert.NotNull(projectUrlElement);
             projectUrlElement.Value = projectUrl;
 
-            var license = csprojDoc.Root?.Element("PropertyGroup")?.Element("PackageLicenseFile")?.Value;
+            var license = csprojPGElement.Element("PackageLicenseFile")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(license)}: {license}");
             Assert.False(string.IsNullOrEmpty(license), $"Value for {nameof(license)} was not found.");
 
-            var licenseElement = nuspecDoc.Root?.Element("metadata")?.Element(nameof(license));
+            var licenseElement = nuspecMetaElement.Element(nameof(license));
             Assert.NotNull(licenseElement);
             licenseElement.Value = license;
 
-            var iconUrl = csprojDoc.Root?.Element("PropertyGroup")?.Element("PackageIconUrl")?.Value;
+            var iconUrl = csprojPGElement.Element("PackageIconUrl")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(iconUrl)}: {iconUrl}");
             Assert.False(string.IsNullOrEmpty(iconUrl), $"Value for {nameof(iconUrl)} was not found.");
 
-            var iconUrlElement = nuspecDoc.Root?.Element("metadata")?.Element(nameof(iconUrl));
+            var iconUrlElement = nuspecMetaElement.Element(nameof(iconUrl));
             Assert.NotNull(iconUrlElement);
             iconUrlElement.Value = iconUrl;
 
-            var requireLicenseAcceptance = csprojDoc.Root?.Element("PropertyGroup")?.Element("PackageRequireLicenseAcceptance")?.Value;
+            var requireLicenseAcceptance = csprojPGElement.Element("PackageRequireLicenseAcceptance")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(requireLicenseAcceptance)}: {requireLicenseAcceptance}");
             Assert.False(string.IsNullOrEmpty(requireLicenseAcceptance), $"Value for {nameof(requireLicenseAcceptance)} was not found.");
 
-            var requireLicenseAcceptanceElement = nuspecDoc.Root?.Element("metadata")?.Element(nameof(requireLicenseAcceptance));
+            var requireLicenseAcceptanceElement = nuspecMetaElement.Element(nameof(requireLicenseAcceptance));
             Assert.NotNull(requireLicenseAcceptanceElement);
             requireLicenseAcceptanceElement.Value = requireLicenseAcceptance;
 
-            var summaryElement = nuspecDoc.Root?.Element("metadata")?.Element("summary");
+            var summaryElement = nuspecMetaElement.Element("summary");
             Assert.NotNull(summaryElement);
             summaryElement.Value = description;
 
-            var releaseNotes = csprojDoc.Root?.Element("PropertyGroup")?.Element("PackageReleaseNotes")?.Value;
+            var releaseNotes = csprojPGElement.Element("PackageReleaseNotes")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(releaseNotes)}: {releaseNotes}");
             Assert.False(string.IsNullOrEmpty(releaseNotes), $"Value for {nameof(releaseNotes)} was not found.");
 
-            var releaseNotesElement = nuspecDoc.Root?.Element("metadata")?.Element(nameof(releaseNotes));
+            var releaseNotesElement = nuspecMetaElement.Element(nameof(releaseNotes));
             Assert.NotNull(releaseNotesElement);
             releaseNotesElement.Value = releaseNotes;
 
-            var copyright = csprojDoc.Root?.Element("PropertyGroup")?.Element("Copyright")?.Value;
+            var copyright = csprojPGElement.Element("Copyright")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(copyright)}: {copyright}");
             Assert.False(string.IsNullOrEmpty(copyright), $"Value for {nameof(copyright)} was not found.");
 
-            var copyrightElement = nuspecDoc.Root?.Element("metadata")?.Element(nameof(copyright));
+            var copyrightElement = nuspecMetaElement.Element(nameof(copyright));
             Assert.NotNull(copyrightElement);
             copyrightElement.Value = copyright;
 
-            var tags = csprojDoc.Root?.Element("PropertyGroup")?.Element("PackageTags")?.Value.Replace(';', ' ');
+            var tags = csprojPGElement.Element("PackageTags")?.Value.Replace(';', ' ');
             this._testOutputHelper.WriteLine($"{nameof(tags)}: {tags}");
             Assert.False(string.IsNullOrEmpty(tags), $"Value for {nameof(tags)} was not found.");
 
-            var tagsElement = nuspecDoc.Root?.Element("metadata")?.Element(nameof(tags));
+            var tagsElement = nuspecMetaElement.Element(nameof(tags));
             Assert.NotNull(tagsElement);
             tagsElement.Value = tags;
 
-            var repositoryType = csprojDoc.Root?.Element("PropertyGroup")?.Element("RepositoryType")?.Value.Replace(';', ' ');
+            var repositoryType = csprojPGElement.Element("RepositoryType")?.Value.Replace(';', ' ');
             this._testOutputHelper.WriteLine($"{nameof(repositoryType)}: {repositoryType}");
             Assert.False(string.IsNullOrEmpty(repositoryType), $"Value for {nameof(repositoryType)} was not found.");
 
-            var repositoryUrl = csprojDoc.Root?.Element("PropertyGroup")?.Element("RepositoryUrl")?.Value.Replace(';', ' ');
+            var repositoryUrl = csprojPGElement.Element("RepositoryUrl")?.Value.Replace(';', ' ');
             this._testOutputHelper.WriteLine($"{nameof(repositoryUrl)}: {repositoryUrl}");
             Assert.False(string.IsNullOrEmpty(repositoryUrl), $"Value for {nameof(repositoryUrl)} was not found.");
 
-            var repositoryElement = nuspecDoc.Root?.Element("metadata")?.Element("repository");
+            var repositoryElement = nuspecMetaElement.Element("repository");
             Assert.NotNull(repositoryElement);
             var typeAttribute = repositoryElement.Attribute("type");
             Assert.NotNull(typeAttribute);
