@@ -45,6 +45,18 @@ namespace Songhay.Tests.Extensions
         }
 
         [Theory]
+        [InlineData("", "nil", "nil")]
+        [InlineData("one", "nil", @"""one""")]
+        public void InDoubleQuotesOrDefault_Test(string input, string defaultValue, string expected)
+        {
+            var actual = input.InDoubleQuotesOrDefault(defaultValue);
+            this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+            this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+            this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+            Assert.Equal(actual, expected);
+        }
+
+        [Theory]
         [InlineData(@"\\one\two", true)]
         [InlineData(@"\\\one\two", false)]
         [InlineData(@"", false)]
@@ -71,6 +83,19 @@ namespace Songhay.Tests.Extensions
         public void IsTelephoneNumber_Test(string input, bool isTelephoneNumber)
         {
             Assert.Equal(isTelephoneNumber, input.IsTelephoneNumber());
+        }
+
+        [Theory]
+        [InlineData("$.05", "nil", "nil")]
+        [InlineData("$.45", "0", "0")]
+        [InlineData("$1,000.45", "0", "1000")]
+        public void ToIntString_Test(string input, string defaultValue, string expected)
+        {
+            var actual = input.ToIntString(defaultValue);
+            this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+            this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+            this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+            Assert.Equal(actual, expected);
         }
 
         [Theory]
@@ -122,6 +147,18 @@ namespace Songhay.Tests.Extensions
             var slug = input.ToBlogSlug();
             this._testOutputHelper.WriteLine("slug: {0}", slug);
             Assert.True(slug.EqualsInvariant(expectedOutput));
+        }
+
+        [Theory]
+        [InlineData("This is the long thing.", 8, "This is…")]
+        [InlineData("one", 3, "one")]
+        public void Truncate_Test(string input, int length, string expected)
+        {
+            var actual = input.Truncate(length);
+            this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+            this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+            this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+            Assert.Equal(actual, expected);
         }
 
         readonly ITestOutputHelper _testOutputHelper;

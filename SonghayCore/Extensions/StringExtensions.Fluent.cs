@@ -85,17 +85,18 @@ namespace Songhay.Extensions
         /// </remarks>
         public static string Reduce(this string s, int count, string endings)
         {
-            if (count < endings.Length)
-                throw new Exception("Failed to reduce to less then endings length.");
+            if (count < endings.Length) throw new Exception("Failed to reduce to less then endings length.");
+
             int sLength = s.Length;
             int len = sLength;
-            if (endings != null)
-                len += endings.Length;
-            if (count > sLength)
-                return s; //it's too short to reduce
+            if (endings != null) len += endings.Length;
+
+            if (count > sLength) return s; //it's too short to reduce
+
             s = s.Substring(0, sLength - len + count);
-            if (endings != null)
-                s += endings;
+
+            if (endings != null) s += endings;
+
             return s;
         }
 
@@ -279,15 +280,35 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
+        /// Truncates the specified input to 16 characters.
+        /// <param name="input">The input.</param>
+        /// </summary>
+        public static string Truncate(this string input)
+        {
+            return input.Truncate(length: 16, ellipsis: "…");
+        }
+
+        /// <summary>
+        /// Truncates the specified input to 16 characters.
+        /// <param name="input">The input.</param>
+        /// <param name="length">The length.</param>
+        /// </summary>
+        public static string Truncate(this string input, int length)
+        {
+            return input.Truncate(length, ellipsis: "…");
+        }
+
+        /// <summary>
         /// Truncates the specified input.
         /// </summary>
         /// <param name="input">The input.</param>
         /// <param name="length">The length.</param>
-        public static string Truncate(this string input, int length = 16)
+        /// <param name="ellipsis"></param>
+        public static string Truncate(this string input, int length, string ellipsis)
         {
             if (string.IsNullOrEmpty(input)) return input;
-            if (input.Length < length) return input;
-            return string.Concat(input.Substring(0, length), "…");
+            if (input.Length <= length) return input;
+            return string.Concat(input.Substring(0, length).TrimEnd(), ellipsis);
         }
 
         /// <summary>
