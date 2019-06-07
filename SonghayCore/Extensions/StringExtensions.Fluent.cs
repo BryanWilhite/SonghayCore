@@ -55,21 +55,6 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Reverse the string
-        /// from http://en.wikipedia.org/wiki/Extension_method
-        /// </summary>
-        /// <param name="input"></param>
-        /// <remarks>
-        /// From Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
-        /// </remarks>
-        public static string Reverse(this string input)
-        {
-            char[] chars = input.ToCharArray();
-            Array.Reverse(chars);
-            return new String(chars);
-        }
-
-        /// <summary>
         /// Reduce string to shorter preview which is optionally ended by some string (...).
         /// </summary>
         /// <param name="s">string to reduce</param>
@@ -98,6 +83,20 @@ namespace Songhay.Extensions
             if (endings != null) s += endings;
 
             return s;
+        }
+
+        /// <summary>
+        /// Reverse the string
+        /// from http://en.wikipedia.org/wiki/Extension_method
+        /// </summary>
+        /// <param name="input"></param>
+        /// <remarks>
+        /// Based on work by Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
+        /// </remarks>
+        public static string Reverse(this string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+            return input.ToCharArray().Reverse().FromCharsToString();
         }
 
         /// <summary>

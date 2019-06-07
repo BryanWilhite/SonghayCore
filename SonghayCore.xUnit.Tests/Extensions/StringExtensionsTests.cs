@@ -6,10 +6,6 @@ using Xunit.Abstractions;
 
 namespace Songhay.Tests.Extensions
 {
-
-    /// <summary>
-    /// Tests for <see cref="StringExtensions"/>
-    /// </summary>
     public class StringExtensionsTests
     {
         public StringExtensionsTests(ITestOutputHelper helper)
@@ -83,6 +79,18 @@ namespace Songhay.Tests.Extensions
         public void IsTelephoneNumber_Test(string input, bool isTelephoneNumber)
         {
             Assert.Equal(isTelephoneNumber, input.IsTelephoneNumber());
+        }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData("one", "eno")]
+        public void Reverse_Test(string input, string expected)
+        {
+            var actual = input.Reverse();
+            this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+            this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+            this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+            Assert.Equal(actual, expected);
         }
 
         [Theory]
