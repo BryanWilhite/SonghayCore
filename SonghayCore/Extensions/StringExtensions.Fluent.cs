@@ -55,37 +55,6 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Reduce string to shorter preview which is optionally ended by some string (...).
-        /// </summary>
-        /// <param name="s">string to reduce</param>
-        /// <param name="count">Length of returned string including endings.</param>
-        /// <param name="endings">optional endings of reduced text</param>
-        /// <example>
-        /// string description = "This is very long description of something";
-        /// string preview = description.Reduce(20,"...");
-        /// produce -> "This is very long..."
-        /// </example>
-        /// <remarks>
-        /// From Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
-        /// </remarks>
-        public static string Reduce(this string s, int count, string endings)
-        {
-            if (count < endings.Length) throw new Exception("Failed to reduce to less then endings length.");
-
-            int sLength = s.Length;
-            int len = sLength;
-            if (endings != null) len += endings.Length;
-
-            if (count > sLength) return s; //it's too short to reduce
-
-            s = s.Substring(0, sLength - len + count);
-
-            if (endings != null) s += endings;
-
-            return s;
-        }
-
-        /// <summary>
         /// Reverse the string
         /// from http://en.wikipedia.org/wiki/Extension_method
         /// </summary>
@@ -307,6 +276,7 @@ namespace Songhay.Extensions
         {
             if (string.IsNullOrEmpty(input)) return input;
             if (input.Length <= length) return input;
+            if (length <= 0) length = 0;
             return string.Concat(input.Substring(0, length).TrimEnd(), ellipsis);
         }
 
