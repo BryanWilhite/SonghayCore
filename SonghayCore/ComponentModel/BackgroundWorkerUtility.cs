@@ -13,7 +13,7 @@ namespace Songhay.ComponentModel
     public static class BackgroundWorkerUtility
     {
         /// <summary>
-        /// Encapsulates a thread of work that cannot be cancelled.
+        /// Encapsulates a thread of work that cannot be canceled.
         /// </summary>
         /// <param name="workAction">The work action.</param>
         /// <param name="workCompleteAction">The work complete action.</param>

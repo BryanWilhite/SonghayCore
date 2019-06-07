@@ -17,7 +17,7 @@ namespace Songhay.Security.Cryptography
 	{
         /// <summary>Default constructor.</summary>
         /// <param name="AlgorithmEnum">
-        /// <see cref="Songhay.Framework.Security.EncryptionAlgorithm"/>
+        /// <see cref="EncryptionAlgorithm"/>
         /// enumerated constant.
         /// </param>
         public Encryptor(EncryptionAlgorithm AlgorithmEnum)
@@ -105,8 +105,8 @@ namespace Songhay.Security.Cryptography
         /// </returns>
         /// <remarks>
         /// Calling this method generates random
-        /// <see cref="Songhay.Framework.Security.EncryptTransformer.IV"/>
-        /// and <see cref="Songhay.Framework.Security.EncryptTransformer.Key"/> values.
+        /// <see cref="EncryptTransformer.IV"/>
+        /// and <see cref="EncryptTransformer.Key"/> values.
         /// </remarks>
         public string Encrypt(string StringLiteral)
         {

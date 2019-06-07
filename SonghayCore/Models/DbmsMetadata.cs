@@ -4,7 +4,6 @@ namespace Songhay.Models
 {
     /// <summary>
     /// Defines DBMS metadata
-    /// <seealso cref="SonghaySystemMetadata"/>
     /// </summary>
     public class DbmsMetadata
     {

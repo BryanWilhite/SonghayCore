@@ -13,7 +13,7 @@ namespace Songhay.Security.Cryptography
 	{
         /// <summary>Default constructor.</summary>
         /// <param name="AlgorithmEnum">
-        /// <see cref="Songhay.Framework.Security.EncryptionAlgorithm"/>
+        /// <see cref="EncryptionAlgorithm"/>
         /// enumerated constant.
         /// </param>
         internal DecryptTransformer(EncryptionAlgorithm AlgorithmEnum)
@@ -24,7 +24,7 @@ namespace Songhay.Security.Cryptography
         /// <summary>
         /// Generates a decryption service provider
         /// from one of the known providers enumerated
-        /// in <see cref="Songhay.Framework.Security.EncryptionAlgorithm"/>.
+        /// in <see cref="EncryptionAlgorithm"/>.
         /// </summary>
         /// <param name="bytesKey">Encryption key.</param>
         internal ICryptoTransform GetCryptoServiceProvider(byte[] bytesKey)

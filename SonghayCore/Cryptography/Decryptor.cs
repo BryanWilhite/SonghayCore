@@ -17,7 +17,7 @@ namespace Songhay.Security.Cryptography
 	{
         /// <summary>Default constructor.</summary>
         /// <param name="AlgorithmEnum">
-        /// <see cref="Songhay.Framework.Security.EncryptionAlgorithm"/>
+        /// <see cref="EncryptionAlgorithm"/>
         /// enumerated constant.
         /// </param>
         public Decryptor(EncryptionAlgorithm AlgorithmEnum)

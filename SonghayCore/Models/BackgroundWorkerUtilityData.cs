@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if NET452 || NET462
+
+using System;
 using System.ComponentModel;
 
 namespace Songhay.Models
@@ -29,3 +31,5 @@ namespace Songhay.Models
         public Action<object, ProgressChangedEventArgs> Progress { get; set; }
     }
 }
+
+#endif

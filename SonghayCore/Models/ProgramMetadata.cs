@@ -39,6 +39,9 @@ namespace Songhay.Models
         /// </value>
         public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; set; }
 
+        /// <summary>
+        /// Represents this instance as a <c>string</c>.
+        /// </summary>
         public override string ToString()
         {
             var sb = new StringBuilder();
