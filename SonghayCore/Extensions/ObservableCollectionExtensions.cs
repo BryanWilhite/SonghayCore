@@ -9,14 +9,24 @@ namespace Songhay.Extensions
     public static class ObservableCollectionExtensions
     {
         /// <summary>
-        /// Sets the collection with digits.
+        /// Sets the collection with digits for <c>mantissaDigits = 2</c>.
         /// </summary>
         /// <param name="collectionOfByte">The collection of byte.</param>
         /// <param name="digits">The digits.</param>
         public static void SetCollectionWithDigits(this ObservableCollection<byte?> collectionOfByte, double digits)
         {
+            collectionOfByte.SetCollectionWithDigits(digits, mantissaDigits: 2);
+        }
+
+        /// <summary>
+        /// Sets the collection with digits.
+        /// </summary>
+        /// <param name="collectionOfByte">The collection of byte.</param>
+        /// <param name="digits">The digits.</param>
+        /// <param name="mantissaDigits">The mantissa digits.</param>
+        public static void SetCollectionWithDigits(this ObservableCollection<byte?> collectionOfByte, double digits, int mantissaDigits)
+        {
             if(collectionOfByte == null) return;
-            var mantissaDigits = 2; //TODO: allow digits to be variable.
             var x = Convert.ToInt32(100 * MathUtility.GetMantissa(digits, mantissaDigits));
             if(collectionOfByte.Count < mantissaDigits) return;
 
