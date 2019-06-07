@@ -34,6 +34,17 @@ namespace Songhay.Tests.Extensions
         }
 
         [Theory]
+        [InlineData("one_two_three", "oneTwoThree")]
+        public void FromSnakeToCaps_Test(string input, string expected)
+        {
+            var actual = input.FromSnakeToCaps();
+            this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+            this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+            this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+            Assert.Equal(actual, expected);
+        }
+
+        [Theory]
         [InlineData(@"\\one\two", true)]
         [InlineData(@"\\\one\two", false)]
         [InlineData(@"", false)]
@@ -60,6 +71,28 @@ namespace Songhay.Tests.Extensions
         public void IsTelephoneNumber_Test(string input, bool isTelephoneNumber)
         {
             Assert.Equal(isTelephoneNumber, input.IsTelephoneNumber());
+        }
+
+        [Theory]
+        [InlineData("oneTwoThree", "OneTwoThree")]
+        public void ToPascalCase_Test(string input, string expected)
+        {
+            var actual = input.ToPascalCase();
+            this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+            this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+            this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+            Assert.Equal(actual, expected);
+        }
+
+        [Theory]
+        [InlineData("OneTwoThree", "one_two_three")]
+        public void ToSnakeCase_Test(string input, string expected)
+        {
+            var actual = input.ToSnakeCase();
+            this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+            this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+            this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+            Assert.Equal(actual, expected);
         }
 
         [Theory]

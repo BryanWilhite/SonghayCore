@@ -21,6 +21,18 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
+        /// Replaces “snake” underscores with caps of first <see cref="char"/>
+        /// after the underscore.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static string FromSnakeToCaps(this string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+            return input.Split('_').Aggregate((a, i) => $"{a}{i.ToPascalCase()}");
+        }
+
+        /// <summary>
         /// Returns <see cref="string"/> in double quotes.
         /// </summary>
         /// <param name="input">The input.</param>
@@ -103,9 +115,9 @@ namespace Songhay.Extensions
         /// <param name="spacer">The spacer.</param>
         public static string ToAsciiLettersWithSpacer(this string input, char spacer)
         {
-            if(string.IsNullOrEmpty(input)) return null;
+            if (string.IsNullOrEmpty(input)) return null;
 
-            if(spacer == '\0')
+            if (spacer == '\0')
             {
                 var chars = input
                     .Where(c => char.IsLetter(c))
@@ -149,6 +161,17 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
+        /// Converts the <see cref="String"/> into camel case
+        /// by lower-casing the first character.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        public static string ToCamelCase(this string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+            return $"{input[0].ToString().ToLowerInvariant()}{input.Substring(1)}";
+        }
+
+        /// <summary>
         /// Converts the <see cref="String"/> into digits only.
         /// </summary>
         /// <param name="input">The input.</param>
@@ -177,18 +200,45 @@ namespace Songhay.Extensions
         /// <returns></returns>
         public static string ToIntString(this string input, string defaultValue)
         {
-            if(input == null) return null;
+            if (input == null) return null;
 
             var output = defaultValue;
             var array = input.Split('.');
 
-            if(array.Length == 0) return output;
-            if(string.IsNullOrEmpty(array[0].Trim())) return output;
+            if (array.Length == 0) return output;
+            if (string.IsNullOrEmpty(array[0].Trim())) return output;
 
             output = array[0].ToDigitsOnly();
-            if(string.IsNullOrEmpty(output)) return defaultValue;
+            if (string.IsNullOrEmpty(output)) return defaultValue;
 
             return output;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="String"/> into camel case
+        /// by upper-casing the first character.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        public static string ToPascalCase(this string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+            return $"{input[0].ToString().ToUpperInvariant()}{input.Substring(1)}";
+        }
+
+        /// <summary>
+        /// Converts the <see cref="String"/> into camel case
+        /// then replaces every upper case character
+        /// with an underscore and its lowercase equivalent.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        public static string ToSnakeCase(this string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+            return input.ToCamelCase()
+                .InsertSpacesBeforeCaps()
+                .FromCharsToString()
+                .Replace(' ', '_')
+                .ToLowerInvariant();
         }
 
         /// <summary>
@@ -200,21 +250,21 @@ namespace Songhay.Extensions
         /// <param name="contextLength">Length of the context.</param>
         public static string ToSubstringInContext(this string input, string searchText, int contextLength)
         {
-            if(string.IsNullOrEmpty(input)) return input;
-            if(string.IsNullOrEmpty(searchText)) return input;
+            if (string.IsNullOrEmpty(input)) return input;
+            if (string.IsNullOrEmpty(searchText)) return input;
 
-            if(input.Contains(searchText))
+            if (input.Contains(searchText))
             {
-                if(searchText.Length >= contextLength)
+                if (searchText.Length >= contextLength)
                     return searchText.Substring(0, contextLength);
 
                 var edgesLength = Convert.ToInt32(Math.Ceiling((contextLength - searchText.Length) / 2d));
 
                 var i0 = input.IndexOf(searchText) - edgesLength;
-                if(i0 < 0) i0 = 0;
+                if (i0 < 0) i0 = 0;
 
                 var i1 = i0 + searchText.Length + edgesLength;
-                if(i1 > (input.Length - 1)) i1 = input.Length;
+                if (i1 > (input.Length - 1)) i1 = input.Length;
 
                 return input.Substring(i0, i1);
             }
@@ -222,7 +272,7 @@ namespace Songhay.Extensions
             {
                 var i0 = 0;
                 var i1 = contextLength - 1;
-                if(i1 > (input.Length - 1)) i1 = input.Length;
+                if (i1 > (input.Length - 1)) i1 = input.Length;
 
                 return input.Substring(i0, i1);
             }

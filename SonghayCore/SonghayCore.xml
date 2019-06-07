@@ -17,7 +17,7 @@
         <member name="M:Songhay.Security.Cryptography.Decryptor.#ctor(Songhay.Security.Cryptography.EncryptionAlgorithm)">
             <summary>Default constructor.</summary>
             <param name="AlgorithmEnum">
-            <see cref="!:Songhay.Security.EncryptionAlgorithm"/>
+            <see cref="T:Songhay.Security.Cryptography.EncryptionAlgorithm"/>
             enumerated constant.
             </param>
         </member>
@@ -62,7 +62,7 @@
         <member name="M:Songhay.Security.Cryptography.DecryptTransformer.#ctor(Songhay.Security.Cryptography.EncryptionAlgorithm)">
             <summary>Default constructor.</summary>
             <param name="AlgorithmEnum">
-            <see cref="!:Songhay.Security.EncryptionAlgorithm"/>
+            <see cref="T:Songhay.Security.Cryptography.EncryptionAlgorithm"/>
             enumerated constant.
             </param>
         </member>
@@ -70,7 +70,7 @@
             <summary>
             Generates a decryption service provider
             from one of the known providers enumerated
-            in <see cref="!:Songhay.Security.EncryptionAlgorithm"/>.
+            in <see cref="T:Songhay.Security.Cryptography.EncryptionAlgorithm"/>.
             </summary>
             <param name="bytesKey">Encryption key.</param>
         </member>
@@ -92,7 +92,7 @@
         <member name="M:Songhay.Security.Cryptography.Encryptor.#ctor(Songhay.Security.Cryptography.EncryptionAlgorithm)">
             <summary>Default constructor.</summary>
             <param name="AlgorithmEnum">
-            <see cref="!:Songhay.Security.EncryptionAlgorithm"/>
+            <see cref="T:Songhay.Security.Cryptography.EncryptionAlgorithm"/>
             enumerated constant.
             </param>
         </member>
@@ -135,8 +135,8 @@
             </returns>
             <remarks>
             Calling this method generates random
-            <see cref="!:Songhay.Security.EncryptTransformer.IV"/>
-            and <see cref="!:Songhay.Security.EncryptTransformer.Key"/> values.
+            <see cref="P:Songhay.Security.Cryptography.EncryptTransformer.IV"/>
+            and <see cref="P:Songhay.Security.Cryptography.EncryptTransformer.Key"/> values.
             </remarks>
         </member>
         <member name="P:Songhay.Security.Cryptography.Encryptor.IV">
@@ -188,7 +188,7 @@
         <member name="M:Songhay.Security.Cryptography.EncryptTransformer.#ctor(Songhay.Security.Cryptography.EncryptionAlgorithm)">
             <summary>Default constructor.</summary>
             <param name="AlgorithmEnum">
-            <see cref="!:Songhay.Security.EncryptionAlgorithm"/>
+            <see cref="T:Songhay.Security.Cryptography.EncryptionAlgorithm"/>
             enumerated constant.
             </param>
         </member>
@@ -196,7 +196,7 @@
             <summary>
             Generates an encryption service provider
             from one of the known providers enumerated
-            in <see cref="!:Songhay.Security.EncryptionAlgorithm"/>.
+            in <see cref="T:Songhay.Security.Cryptography.EncryptionAlgorithm"/>.
             </summary>
             <param name="bytesKey">Encryption key.</param>
         </member>
@@ -474,6 +474,19 @@
             <summary>Gets the path from assembly.</summary>
             <param name="assembly">The assembly.</param>
             <exception cref="T:System.ArgumentNullException">assembly - The expected assembly is not here.</exception>
+        </member>
+        <member name="T:Songhay.Extensions.CharExtensions">
+            <summary>
+            Extension of <see cref="T:System.Char"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.CharExtensions.FromCharsToString(System.Collections.Generic.IEnumerable{System.Char})">
+            <summary>
+            Converts an enumeration of <see cref="T:System.Char"/>
+            to <see cref="T:System.String"/>
+            </summary>
+            <param name="chars"></param>
+            <returns></returns>
         </member>
         <member name="T:Songhay.Extensions.DataSetExtensions">
             <summary>
@@ -1580,10 +1593,18 @@
         </member>
         <member name="M:Songhay.Extensions.ObservableCollectionExtensions.SetCollectionWithDigits(System.Collections.ObjectModel.ObservableCollection{System.Nullable{System.Byte}},System.Double)">
             <summary>
+            Sets the collection with digits for <c>mantissaDigits = 2</c>.
+            </summary>
+            <param name="collectionOfByte">The collection of byte.</param>
+            <param name="digits">The digits.</param>
+        </member>
+        <member name="M:Songhay.Extensions.ObservableCollectionExtensions.SetCollectionWithDigits(System.Collections.ObjectModel.ObservableCollection{System.Nullable{System.Byte}},System.Double,System.Int32)">
+            <summary>
             Sets the collection with digits.
             </summary>
             <param name="collectionOfByte">The collection of byte.</param>
             <param name="digits">The digits.</param>
+            <param name="mantissaDigits">The mantissa digits.</param>
         </member>
         <member name="T:Songhay.Extensions.OpenAuthorizationDataExtensions">
             <summary>
@@ -1694,7 +1715,7 @@
             <param name="bindByPositionValues">The bind by position values.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">bindByPositionValues;The expected bind-by-position values are not here.</exception>
-            <exception cref="!:ConfigurationErrorsException">The expected REST API metadata URI template key is not here.</exception>
+            <exception cref="T:System.FormatException">The expected REST API metadata URI template key is not here.</exception>
         </member>
         <member name="T:Songhay.Extensions.StringBuilderExtensions">
             <summary>
@@ -1931,6 +1952,14 @@
             <param name="input">The input.</param>
             <returns></returns>
         </member>
+        <member name="M:Songhay.Extensions.StringExtensions.FromSnakeToCaps(System.String)">
+            <summary>
+            Replaces “snake” underscores with caps of first <see cref="T:System.Char"/>
+            after the underscore.
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="M:Songhay.Extensions.StringExtensions.InDoubleQuotes(System.String)">
             <summary>
             Returns <see cref="T:System.String"/> in double quotes.
@@ -1989,6 +2018,13 @@
             </summary>
             <param name="input">The input.</param>
         </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToCamelCase(System.String)">
+            <summary>
+            Converts the <see cref="T:System.String"/> into camel case
+            by lower-casing the first character.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToDigitsOnly(System.String)">
             <summary>
             Converts the <see cref="T:System.String"/> into digits only.
@@ -2010,6 +2046,21 @@
             <param name="input">The input.</param>
             <param name="defaultValue">The default value ("0" by default).</param>
             <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToPascalCase(System.String)">
+            <summary>
+            Converts the <see cref="T:System.String"/> into camel case
+            by upper-casing the first character.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToSnakeCase(System.String)">
+            <summary>
+            Converts the <see cref="T:System.String"/> into camel case
+            then replaces every upper case character
+            with an underscore and its lowercase equivalent.
+            </summary>
+            <param name="input">The input.</param>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToSubstringInContext(System.String,System.String,System.Int32)">
             <summary>
@@ -3480,30 +3531,6 @@
             </summary>
             <param name="activities">The activities.</param>
         </member>
-        <member name="T:Songhay.Models.BackgroundWorkerUtilityData">
-            <summary>
-            Defines the meta-data
-            for <see cref="!:Songhay.ComponentModel.BackgroundWorkerUtility"/>.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.BackgroundWorkerUtilityData.Input">
-            <summary>
-            Gets or sets the input.
-            </summary>
-            <value>The input.</value>
-        </member>
-        <member name="P:Songhay.Models.BackgroundWorkerUtilityData.Output">
-            <summary>
-            Gets or sets the output.
-            </summary>
-            <value>The output.</value>
-        </member>
-        <member name="P:Songhay.Models.BackgroundWorkerUtilityData.Progress">
-            <summary>
-            Gets or sets the progress.
-            </summary>
-            <value>The progress.</value>
-        </member>
         <member name="T:Songhay.Models.ColorDisplayItemModel">
             <summary>
             Model for color display
@@ -3652,7 +3679,6 @@
         <member name="T:Songhay.Models.DbmsMetadata">
             <summary>
             Defines DBMS metadata
-            <seealso cref="!:SonghaySystemMetadata"/>
             </summary>
         </member>
         <member name="P:Songhay.Models.DbmsMetadata.ConnectionString">
@@ -4828,6 +4854,11 @@
             <value>
             The API metadata set.
             </value>
+        </member>
+        <member name="M:Songhay.Models.ProgramMetadata.ToString">
+            <summary>
+            Represents this instance as a <c>string</c>.
+            </summary>
         </member>
         <member name="T:Songhay.Models.RestApiMetadata">
             <summary>
