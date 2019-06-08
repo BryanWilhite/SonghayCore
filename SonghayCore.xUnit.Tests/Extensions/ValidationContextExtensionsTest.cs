@@ -1,20 +1,18 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using Songhay.Extensions;
 using System.Linq;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Songhay.Tests.Extensions
 {
-    [TestClass]
     public class ValidationContextExtensionsTest
     {
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext { get; set; }
+        public ValidationContextExtensionsTest(ITestOutputHelper helper)
+        {
+            this._testOutputHelper = helper;
+        }
 
-        [TestMethod]
         public void ShouldGetDisplayText()
         {
             var mine = new MyModelOne
@@ -25,10 +23,12 @@ namespace Songhay.Tests.Extensions
             };
 
             var validation = mine.ToValidationResults();
-            Assert.IsNotNull(validation, "The expected validation results instance is not here.");
-            Assert.IsNotNull(validation.Any(), "The expected validation results are not here.");
-            this.TestContext.WriteLine(validation.ToDisplayText());
+            Assert.NotNull(validation);
+            Assert.True(validation.Any(), "The expected validation results are not here.");
+            this._testOutputHelper.WriteLine(validation.ToDisplayText());
         }
+
+        ITestOutputHelper _testOutputHelper;
     }
 
     class MyModelOne

@@ -1,25 +1,21 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Songhay.Extensions;
+﻿using Songhay.Extensions;
 using Songhay.Models;
 using System;
 using System.Collections.Generic;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Songhay.Tests.Extensions
 {
 
-    /// <summary>
-    /// Tests for <see cref="StringExtensions"/>
-    /// </summary>
-    [TestClass]
     public class RestApiMetadataExtensionsTest
     {
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext { get; set; }
+        public RestApiMetadataExtensionsTest(ITestOutputHelper helper)
+        {
+            this._testOutputHelper = helper;
+        }
 
-        [TestMethod]
+        [Fact]
         public void ShouldConvertToUri()
         {
             var key = "weather-template";
@@ -32,7 +28,9 @@ namespace Songhay.Tests.Extensions
                 }
             };
 
-            this.TestContext.WriteLine(meta.ToUri(key, "Washington", "Redmond", "Today").OriginalString);
+            this._testOutputHelper.WriteLine(meta.ToUri(key, "Washington", "Redmond", "Today").OriginalString);
         }
+
+        readonly ITestOutputHelper _testOutputHelper;
     }
 }

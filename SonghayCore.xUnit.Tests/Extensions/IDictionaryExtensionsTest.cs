@@ -1,16 +1,19 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Songhay.Extensions;
+﻿using Songhay.Extensions;
 using System;
 using System.Collections.Generic;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Songhay.Tests.Extensions
 {
-    [TestClass]
     public class IDictionaryExtensionsTest
     {
-        public TestContext TestContext { get; set; }
+        public IDictionaryExtensionsTest(ITestOutputHelper helper)
+        {
+            this._testOutputHelper = helper;
+        }
 
-        [TestMethod]
+        [Fact]
         public void ShouldConvertToNameValueCollection()
         {
             var dictionary = new Dictionary<int, string>
@@ -22,7 +25,7 @@ namespace Songhay.Tests.Extensions
             };
 
             var set = dictionary.ToNameValueCollection();
-            Assert.IsTrue(set.Count > 0, "The expected set items are not here.");
+            Assert.True(set.Count > 0, "The expected set items are not here.");
 
             /*
                 And now the tests that any decent tester would remove:
@@ -31,21 +34,19 @@ namespace Songhay.Tests.Extensions
             var setPair = new KeyValuePair<string, string>("3", "three again"); // shows that NameValueCollection is all about strings
             set.Add(setPair.Key, setPair.Value); // shows that KeyValuePair has little to do with NameValueCollection
 
-            Assert.AreEqual(dictionary.Count, set.Count,
-                "Equal dictionary and set counts were expected."); // shows that NameValueCollection acts like the set abstract data type
+            Assert.Equal(dictionary.Count, set.Count); // shows that NameValueCollection acts like the set abstract data type
 
-            Assert.AreEqual(string.Concat(dictionary[3], ",", setPair.Value), set[setPair.Key],
-                "The expected set concatenation is not here."); // shows how NameValueCollection concatenates to keep unique keys
+            Assert.Equal(string.Concat(dictionary[3], ",", setPair.Value), set[setPair.Key]); // shows how NameValueCollection concatenates to keep unique keys
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldTryGetValueWithKey()
         {
             #region local functions:
 
             void testException()
             {
-                this.TestContext.WriteLine("Testing for exception...");
+                this._testOutputHelper.WriteLine("Testing for exception...");
 
                 var hasThrownException = false;
 
@@ -61,16 +62,16 @@ namespace Songhay.Tests.Extensions
                 }
                 catch (NullReferenceException)
                 {
-                    this.TestContext.WriteLine("Exception expected.");
+                    this._testOutputHelper.WriteLine("Exception expected.");
                     hasThrownException = true;
                 }
 
-                Assert.IsTrue(hasThrownException, "The expected exception did not throw.");
+                Assert.True(hasThrownException, "The expected exception did not throw.");
             }
 
             void testRef()
             {
-                this.TestContext.WriteLine("Testing for refence value...");
+                this._testOutputHelper.WriteLine("Testing for refence value...");
 
                 var dictionary = new Dictionary<int, string>
                 {
@@ -81,12 +82,12 @@ namespace Songhay.Tests.Extensions
                 };
 
                 var actual = dictionary.TryGetValueWithKey(4);
-                Assert.AreEqual(default(string), actual, $"The expected default value {typeof(string)} is not here.");
+                Assert.Equal(default(string), actual);
             }
 
             void testValue()
             {
-                this.TestContext.WriteLine("Testing for value...");
+                this._testOutputHelper.WriteLine("Testing for value...");
 
                 var dictionary = new Dictionary<string, int>
                 {
@@ -97,7 +98,7 @@ namespace Songhay.Tests.Extensions
                 };
 
                 var actual = dictionary.TryGetValueWithKey("four");
-                Assert.AreEqual(default(int), actual, $"The expected default value {typeof(int)} is not here.");
+                Assert.Equal(default(int), actual);
             }
 
             #endregion
@@ -106,5 +107,7 @@ namespace Songhay.Tests.Extensions
             testRef();
             testValue();
         }
+
+        readonly ITestOutputHelper _testOutputHelper;
     }
 }
