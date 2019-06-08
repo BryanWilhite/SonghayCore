@@ -23,6 +23,20 @@ namespace Songhay.Tests
             Assert.True(File.Exists(actualPath));
         }
 
+        [Fact]
+        public void ProposedLocationTest()
+        {
+            var assembly = this.GetType().Assembly;
+            var proposedLocation = (string.IsNullOrEmpty(assembly.CodeBase))
+                      ? assembly.Location
+                      : assembly.CodeBase
+                          .Replace("file:///", string.Empty);
+
+            this._testOutputHelper.WriteLine($"{nameof(assembly.Location)}: {assembly.Location}");
+            this._testOutputHelper.WriteLine($"{nameof(assembly.CodeBase)}: {assembly.CodeBase}");
+            this._testOutputHelper.WriteLine($"{nameof(proposedLocation)}: {proposedLocation}");
+        }
+
         readonly ITestOutputHelper _testOutputHelper;
     }
 }
