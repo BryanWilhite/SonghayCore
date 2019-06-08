@@ -56,6 +56,19 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "test [SonghayCore.Tests]",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/SonghayCore.Tests/SonghayCore.Tests.csproj",
+                "--logger:trx",
+                "--results-directory:${workspaceFolder}/TestResults",
+                "--verbosity:normal"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "build [SonghayCore.Tests, Release]",
             "command": "dotnet",
             "type": "process",
@@ -122,6 +135,19 @@
                 "${workspaceFolder}/SonghayCore.xUnit.Tests/SonghayCore.xUnit.Tests.csproj",
                 "--configuration",
                 "Release"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test [SonghayCore.xUnit.Tests]",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/SonghayCore.xUnit.Tests/SonghayCore.xUnit.Tests.csproj",
+                "--logger:trx",
+                "--results-directory:${workspaceFolder}/TestResults",
+                "--verbosity:normal"
             ],
             "problemMatcher": "$msCompile"
         },
