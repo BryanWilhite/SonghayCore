@@ -156,6 +156,13 @@ namespace Songhay
         }
 
         /// <summary>
+        /// Returns <c>true</c> when the current OS
+        /// uses forward-slash (<c>/</c>) paths or not.
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsForwardSlashSystem() => isForwardSlashSystem;
+
+        /// <summary>
         /// Normalizes the specified path with respect
         /// to the ambient value of <see cref="Path.DirectorySeparatorChar"/>.
         /// </summary>

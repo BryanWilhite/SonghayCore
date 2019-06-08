@@ -27,10 +27,11 @@ namespace Songhay.Tests
         public void ProposedLocationTest()
         {
             var assembly = this.GetType().Assembly;
-            var proposedLocation = (string.IsNullOrEmpty(assembly.CodeBase))
-                      ? assembly.Location
-                      : assembly.CodeBase
-                          .Replace("file:///", string.Empty);
+
+            var proposedLocation = (!string.IsNullOrEmpty(assembly.CodeBase) &&
+                    !FrameworkFileUtility.IsForwardSlashSystem()) ?
+                assembly.CodeBase.Replace("file:///", string.Empty) :
+                assembly.Location;
 
             this._testOutputHelper.WriteLine($"{nameof(assembly.Location)}: {assembly.Location}");
             this._testOutputHelper.WriteLine($"{nameof(assembly.CodeBase)}: {assembly.CodeBase}");

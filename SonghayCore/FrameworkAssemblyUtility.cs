@@ -62,10 +62,10 @@ namespace Songhay
         {
             if (assembly == null) throw new ArgumentNullException("assembly", "The expected assembly is not here.");
 
-            var proposedLocation = (string.IsNullOrEmpty(assembly.CodeBase))
-                      ? assembly.Location
-                      : assembly.CodeBase
-                          .Replace("file:///", string.Empty);
+            var proposedLocation = (!string.IsNullOrEmpty(assembly.CodeBase) &&
+                    !FrameworkFileUtility.IsForwardSlashSystem()) ?
+                assembly.CodeBase.Replace("file:///", string.Empty) :
+                assembly.Location;
 
             var root = Path.GetDirectoryName(proposedLocation);
             return root;
