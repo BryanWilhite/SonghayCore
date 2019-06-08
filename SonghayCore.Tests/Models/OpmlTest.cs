@@ -7,16 +7,9 @@ using System.Linq;
 
 namespace Songhay.Tests
 {
-    /// <summary>
-    /// Summary description for OpmlTest
-    /// </summary>
     [TestClass]
     public class OpmlTest
     {
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
         public TestContext TestContext { get; set; }
 
         [TestMethod]
@@ -31,7 +24,7 @@ namespace Songhay.Tests
 
             var opmlFile = this.TestContext.Properties["opmlFile"].ToString();
 
-            var path = Path.Combine(projectFolder, opmlFile);
+            var path = FrameworkFileUtility.GetCombinedPath(projectFolder, opmlFile);
             this.TestContext.ShouldFindFile(path);
 
             var data = OpmlUtility.GetDocument(path);
@@ -52,7 +45,7 @@ namespace Songhay.Tests
 
             var opmlFile = this.TestContext.Properties["opmlFile"].ToString();
 
-            var path = Path.Combine(projectFolder, opmlFile);
+            var path = FrameworkFileUtility.GetCombinedPath(projectFolder, opmlFile);
             this.TestContext.ShouldFindFile(path);
 
             var data = OpmlUtility.GetDocument(path);
@@ -85,7 +78,7 @@ namespace Songhay.Tests
 
             var opmlFile = this.TestContext.Properties["opmlFile"].ToString();
 
-            var path = Path.Combine(projectFolder, opmlFile);
+            var path = FrameworkFileUtility.GetCombinedPath(projectFolder, opmlFile);
             this.TestContext.ShouldFindFile(path);
 
             var data = OpmlUtility.GetDocument(path);
@@ -113,7 +106,7 @@ namespace Songhay.Tests
 
             var opmlFile = this.TestContext.Properties["opmlFile"].ToString();
 
-            var path = Path.Combine(projectFolder, opmlFile);
+            var path = FrameworkFileUtility.GetCombinedPath(projectFolder, opmlFile);
             this.TestContext.ShouldFindFile(path);
 
             var data = OpmlUtility.GetDocument(path);
