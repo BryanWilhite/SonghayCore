@@ -3,7 +3,7 @@ using System.IO;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Songhay.Tests
+namespace Songhay.Tests.Extensions
 {
     public class DirectoryInfoExtensionsTests
     {
@@ -12,10 +12,10 @@ namespace Songhay.Tests
             this._testOutputHelper = testOutputHelper;
         }
 
-        [SkippableTheory]
-        [InlineData(0)]
-        [InlineData(3)]
-        public void GetParentDirectory_Test(int expectedNumberOfLevels)
+        [Theory]
+        [InlineData(0, null)]
+        [InlineData(3, "SonghayCore.xUnit.Tests")]
+        public void GetParentDirectory_Test(int expectedNumberOfLevels, string endsWith)
         {
             var path = this.GetType().Assembly.GetPathFromAssembly();
             this._testOutputHelper.WriteLine($"path from assembly: {path}");
@@ -24,18 +24,7 @@ namespace Songhay.Tests
             var nextDirectoryInfo = directoryInfo.GetParentDirectoryInfo(expectedNumberOfLevels);
             this._testOutputHelper.WriteLine($"path {expectedNumberOfLevels} levels above assembly: {nextDirectoryInfo.FullName}");
 
-            switch (expectedNumberOfLevels)
-            {
-                case 0:
-                    Assert.Equal(directoryInfo, nextDirectoryInfo);
-                    break;
-                case 3:
-                    Assert.EndsWith(this.GetType().Namespace, nextDirectoryInfo.FullName.Replace("Core.xUnit", string.Empty));
-                    break;
-                default:
-                    Skip.If(true, "unexpected inline data");
-                    break;
-            }
+            Assert.EndsWith(endsWith ?? directoryInfo.Name, nextDirectoryInfo.FullName);
         }
 
         [Theory]

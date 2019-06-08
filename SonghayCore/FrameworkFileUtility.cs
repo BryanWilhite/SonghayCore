@@ -214,7 +214,7 @@ namespace Songhay
         public static string TrimLeadingDirectorySeparatorChars(string path)
         {
             if (string.IsNullOrEmpty(path)) return path;
-            return path.TrimStart(new[] { Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar });
+            return path.TrimStart(new[] { backSlash, forwardSlash });
         }
 
         static readonly bool isForwardSlashSystem;

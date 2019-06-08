@@ -14,12 +14,17 @@ namespace Songhay.Extensions
         {
             if (assembly == null) throw new ArgumentNullException(nameof(assembly), "The expected assembly is not here.");
 
-            var proposedLocation = (string.IsNullOrEmpty(assembly.CodeBase))
-                ? assembly.Location
-                : assembly.CodeBase
-                    .Replace("file:///", string.Empty);
+            var hasCodeBaseOnWindows =
+                !string.IsNullOrEmpty(assembly.CodeBase)
+                &&
+                !FrameworkFileUtility.IsForwardSlashSystem()
+                ;
 
-            var root = Path.GetDirectoryName(proposedLocation);
+            var location = hasCodeBaseOnWindows ?
+                assembly.CodeBase.Replace("file:///", string.Empty) :
+                assembly.Location;
+
+            var root = Path.GetDirectoryName(location);
             return root;
         }
     }
