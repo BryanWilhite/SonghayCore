@@ -6,7 +6,7 @@ using Xunit.Abstractions;
 
 namespace Songhay.Tests.Extensions
 {
-    public class StringExtensionsTests
+    public partial class StringExtensionsTests
     {
         public StringExtensionsTests(ITestOutputHelper helper)
         {
