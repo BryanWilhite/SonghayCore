@@ -160,7 +160,10 @@ namespace Songhay
         /// uses forward-slash (<c>/</c>) paths or not.
         /// </summary>
         /// <returns></returns>
-        public static bool IsForwardSlashSystem() => isForwardSlashSystem;
+        public static bool IsForwardSlashSystem()
+        {
+            return isForwardSlashSystem;
+        }
 
         /// <summary>
         /// Normalizes the specified path with respect
