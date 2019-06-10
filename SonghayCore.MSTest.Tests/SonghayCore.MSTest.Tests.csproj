@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <DefineConstants>TRACE;NETCORE;NETSTANDARD</DefineConstants>
+    <IsPackable>false</IsPackable>
+    <AssemblyName>Songhay.MSTest.Tests</AssemblyName>
+    <RootNamespace>Songhay.Tests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions.IO.cs" Link="Extensions\TestContextExtensions.IO.cs" />
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions.IO.ShouldGetProjectDirectoryInfo.cs" Link="Extensions\TestContextExtensions.IO.ShouldGetProjectDirectoryInfo.cs" />
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions.Obsolete.cs" Link="Extensions\TestContextExtensions.Obsolete.cs" />
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions.ZipArchive.cs" Link="Extensions\TestContextExtensions.ZipArchive.cs" />
+    <Compile Include="..\SonghayCore.MSTest\Extensions\TestContextExtensions._.cs" Link="Extensions\TestContextExtensions._.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="2.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.1" />
+
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SonghayCore\SonghayCore.csproj" />
+  </ItemGroup>
+
+</Project>
