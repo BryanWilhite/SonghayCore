@@ -1,24 +1,14 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Songhay.Xml;
+﻿using Songhay.Xml;
 using System.IO;
 using System.Text;
 using System.Xml;
+using Xunit;
 
 namespace Songhay.Tests
 {
-    /// <summary>
-    /// Summary description for LinqToXmlTest
-    /// </summary>
-    [TestClass]
     public class XmlUtilityTest
     {
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext { get; set; }
-
-        [TestMethod]
+        [Fact]
         public void ShouldGetNavigableDocument()
         {
             var ms = new MemoryStream();
@@ -37,11 +27,11 @@ namespace Songhay.Tests
                 }
 
                 var doc = XmlUtility.GetNavigableDocument(ms);
-                Assert.IsNotNull(doc, "The expected navigable document is not here.");
+                Assert.NotNull(doc);
 
                 var nav = doc.CreateNavigator();
                 nav.MoveToFirstChild();
-                Assert.AreEqual<string>("DocumentData", nav.LocalName, "The expected root node is not here.");
+                Assert.Equal("DocumentData", nav.LocalName);
             }
             finally
             {

@@ -1,15 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Songhay.Diagnostics;
 using Songhay.Extensions;
 using Songhay.Models;
 using System;
 using System.Diagnostics;
 using System.IO;
+using Xunit;
 
 namespace Songhay.Tests
 {
-    [TestClass]
     public class TraceSourceTest
     {
         static TraceSourceTest()
@@ -33,11 +32,11 @@ namespace Songhay.Tests
         static readonly TraceSource nullTraceSource;
         static readonly TraceSource otherTraceSource;
 
-        [TestMethod]
+        [Fact]
         public void ShouldHaveConfiguredTraceSources()
         {
-            Assert.IsNotNull(traceSource);
-            Assert.IsNotNull(otherTraceSource);
+            Assert.NotNull(traceSource);
+            Assert.NotNull(otherTraceSource);
 
             using (var listener = new TextWriterTraceListener(Console.Out))
             {
@@ -60,10 +59,10 @@ namespace Songhay.Tests
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldNotHaveConfiguredTraceSource()
         {
-            Assert.IsNull(nullTraceSource);
+            Assert.Null(nullTraceSource);
 
             nullTraceSource?.TraceInformation("info!");
             nullTraceSource.TraceVerbose("info!");

@@ -1,13 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Songhay.Models;
+﻿using Songhay.Models;
+using Xunit;
 
 namespace Songhay.Tests
 {
 
-    [TestClass]
     public class PagedResultMetaTest
     {
-        [TestMethod]
+        [Fact]
         public void ShouldGetPageCount()
         {
             var model = new PagedResultMeta
@@ -17,7 +16,7 @@ namespace Songhay.Tests
                 TotalCount = 18
             };
 
-            Assert.AreEqual<int>(2, model.PageCount);
+            Assert.Equal(2, model.PageCount);
         }
     }
 }
