@@ -66,7 +66,7 @@ namespace Songhay
 
             var isParent = (info.Name == parentName);
             var hasNullParent = (info.Parent == null);
-            var hasTargetParent = (info.Parent.Name == parentName);
+            var hasTargetParent = !hasNullParent && (info.Parent.Name == parentName);
 
             if (!info.Exists) return null;
             if (isParent) return info;
