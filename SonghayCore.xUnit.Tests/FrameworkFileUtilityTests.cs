@@ -3,7 +3,7 @@ using Xunit.Abstractions;
 
 namespace Songhay.Tests
 {
-    public class FrameworkFileUtilityTests
+    public partial class FrameworkFileUtilityTests
     {
         public FrameworkFileUtilityTests(ITestOutputHelper helper)
         {

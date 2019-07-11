@@ -867,11 +867,6 @@
             <param name="fileInfo">The file information.</param>
             <param name="compressionLevel">The <see cref="T:System.IO.Compression.CompressionLevel"/></param>
         </member>
-        <member name="T:Songhay.Extensions.FileSystemInfoExtensions">
-            <summary>
-            Extensions of <see cref="T:System.IO.FileSystemInfo"/>
-            </summary>
-        </member>
         <member name="T:Songhay.Extensions.FuncExtensions">
             <summary>
             Extensions of <see cref="T:System.Func`1"/>.
@@ -2775,19 +2770,19 @@
             <summary>
             Read zip archive entries.
             </summary>
-            <param name="archiveInfo">The <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="fileAction">The file action.</param>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileAction">The action to take per text file.</param>
             <remarks>
             Use <c>entriesProjector</c> for any filtering or sorting.
             </remarks>
         </member>
-        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
             <summary>
             Read zip archive entries.
             </summary>
-            <param name="archiveInfo">The <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="fileAction">The file action.</param>
-            <param name="entriesProjector">The entries projector.</param>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileAction">The action to take per text file.</param>
+            <param name="entriesProjector">The entries projector for LINQ filtering/sorting.</param>
             <remarks>
             Use <c>entriesProjector</c> for any filtering or sorting.
             </remarks>
@@ -2796,20 +2791,20 @@
             <summary>
             Read zip archive entries as strings, line by line.
             </summary>
-            <param name="archiveInfo">The file and/or directory info.</param>
-            <param name="lineAction">The line action.</param>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="lineAction">The action to take per text file line.</param>
             <remarks>
             This member is designed for compressed text documents that are too large to load into memory.
             The <c>fileAction</c> includes the line number and the current line.
             </remarks>
         </member>
-        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
             <summary>
             Read zip archive entries as strings, line by line.
             </summary>
-            <param name="archiveInfo">The file and/or directory info.</param>
-            <param name="lineAction">The line action.</param>
-            <param name="entriesProjector">The filter zip archive entries.</param>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="lineAction">The action to take per text file line.</param>
+            <param name="entriesProjector">The entries projector for LINQ filtering/sorting.</param>
             <remarks>
             This member is designed for compressed text documents that are too large to load into memory.
             The <c>fileAction</c> includes the line number and the current line.
@@ -2818,38 +2813,47 @@
         <member name="M:Songhay.FrameworkFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})">
             <summary>
             Centralizes the use of <see cref="T:System.IO.Compression.ZipArchive"/>
+            in <see cref="F:System.IO.Compression.ZipArchiveMode.Read"/>.
             </summary>
-            <param name="archiveInfo"></param>
-            <param name="archiveAction"></param>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="archiveAction">The action to take for the ZIP archive in use.</param>
+        </member>
+        <member name="M:Songhay.FrameworkFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive},System.IO.Compression.ZipArchiveMode)">
+            <summary>
+            Centralizes the use of <see cref="T:System.IO.Compression.ZipArchive"/>
+            </summary>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="archiveAction">The action to take for the ZIP archive in use.</param>
+            <param name="zipArchiveMode">The <see cref="T:System.IO.Compression.ZipArchiveMode"/></param>
         </member>
         <member name="M:Songhay.FrameworkFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
             <summary>
             Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
             </summary>
-            <param name="archiveInfo"></param>
-            <param name="entriesAction"></param>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="entriesAction">The action to take for ZIP archive entries.</param>
         </member>
-        <member name="M:Songhay.FrameworkFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+        <member name="M:Songhay.FrameworkFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
             <summary>
             Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
             </summary>
-            <param name="archiveInfo"></param>
-            <param name="entriesAction"></param>
-            <param name="entriesProjector"></param>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="entriesAction">The action to take for ZIP archive entries.</param>
+            <param name="entriesProjector">The entries projector for LINQ filtering/sorting.</param>
         </member>
         <member name="M:Songhay.FrameworkFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo)">
             <summary>
             Write zip archive entry with <see cref="F:System.IO.Compression.CompressionLevel.Optimal"/>.
             </summary>
-            <param name="archiveInfo">The file and/or directory info.</param>
-            <param name="fileInfo">The file information.</param>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileInfo">The file information for writing the entry.</param>
         </member>
         <member name="M:Songhay.FrameworkFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo,System.IO.Compression.CompressionLevel)">
             <summary>
             Write zip archive entry.
             </summary>
-            <param name="archiveInfo">The file and/or directory info.</param>
-            <param name="fileInfo">The file information.</param>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileInfo">The file information for writing the entry.</param>
             <param name="compressionLevel">The <see cref="T:System.IO.Compression.CompressionLevel"/></param>
         </member>
         <member name="M:Songhay.FrameworkFileUtility.CountParentDirectoryChars(System.String)">

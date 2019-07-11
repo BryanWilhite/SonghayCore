@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Songhay.Tests
 {
-    public class FrameworkTypeUtilityTest
+    public class FrameworkTypeUtilityTests
     {
         [Theory]
         [InlineData("Warning", SourceLevels.All, SourceLevels.Warning)]

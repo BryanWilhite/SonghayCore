@@ -10,9 +10,9 @@ using Xunit.Abstractions;
 
 namespace Songhay.Tests
 {
-    public class FrameworkFileTest
+    public class FrameworkFileTests
     {
-        public FrameworkFileTest(ITestOutputHelper helper)
+        public FrameworkFileTests(ITestOutputHelper helper)
         {
             this._testOutputHelper = helper;
         }

@@ -9,9 +9,9 @@ using Xunit;
 
 namespace Songhay.Tests
 {
-    public class TraceSourceTest
+    public class TraceSourceTests
     {
-        static TraceSourceTest()
+        static TraceSourceTests()
         {
             Console.WriteLine("Loading configuration...");
             var builder = new ConfigurationBuilder()

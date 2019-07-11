@@ -2,7 +2,7 @@
 
 namespace Songhay.Tests
 {
-    public class OpcUtilityTest
+    public class OpcUtilityTests
     {
         [Theory]
         [InlineData("pack://application:,,,/ReferencedAssembly;component/Subfolder/ResourceFile.xaml")]
