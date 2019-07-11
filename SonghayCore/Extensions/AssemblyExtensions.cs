@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Reflection;
 
 namespace Songhay.Extensions
@@ -12,20 +11,16 @@ namespace Songhay.Extensions
         /// <exception cref="ArgumentNullException">assembly - The expected assembly is not here.</exception>
         public static string GetPathFromAssembly(this Assembly assembly)
         {
-            if (assembly == null) throw new ArgumentNullException(nameof(assembly), "The expected assembly is not here.");
+            return FrameworkAssemblyUtility.GetPathFromAssembly(assembly);
+        }
 
-            var hasCodeBaseOnWindows =
-                !string.IsNullOrEmpty(assembly.CodeBase)
-                &&
-                !FrameworkFileUtility.IsForwardSlashSystem()
-                ;
-
-            var location = hasCodeBaseOnWindows ?
-                assembly.CodeBase.Replace("file:///", string.Empty) :
-                assembly.Location;
-
-            var root = Path.GetDirectoryName(location);
-            return root;
+        /// <summary>Gets the path from assembly.</summary>
+        /// <param name="assembly">The assembly.</param>
+        /// <param name="fileSegment">The file segment.</param>
+        /// <exception cref="ArgumentNullException">assembly - The expected assembly is not here.</exception>
+        public static string GetPathFromAssembly(this Assembly assembly, string fileSegment)
+        {
+            return FrameworkAssemblyUtility.GetPathFromAssembly(assembly, fileSegment);
         }
     }
 }

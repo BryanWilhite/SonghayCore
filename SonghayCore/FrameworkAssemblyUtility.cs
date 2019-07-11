@@ -60,14 +60,19 @@ namespace Songhay
         /// <exception cref="ArgumentNullException">assembly;The expected assembly is not here.</exception>
         public static string GetPathFromAssembly(Assembly assembly)
         {
-            if (assembly == null) throw new ArgumentNullException("assembly", "The expected assembly is not here.");
+            if (assembly == null) throw new ArgumentNullException(nameof(assembly), "The expected assembly is not here.");
 
-            var proposedLocation = (!string.IsNullOrEmpty(assembly.CodeBase) &&
-                    !FrameworkFileUtility.IsForwardSlashSystem()) ?
+            var hasCodeBaseOnWindows =
+                !string.IsNullOrEmpty(assembly.CodeBase)
+                &&
+                !FrameworkFileUtility.IsForwardSlashSystem()
+                ;
+
+            var location = hasCodeBaseOnWindows ?
                 assembly.CodeBase.Replace("file:///", string.Empty) :
                 assembly.Location;
 
-            var root = Path.GetDirectoryName(proposedLocation);
+            var root = Path.GetDirectoryName(location);
             return root;
         }
 
