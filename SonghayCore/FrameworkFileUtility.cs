@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Songhay.Diagnostics;
+using Songhay.Extensions;
+using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -15,7 +18,10 @@ namespace Songhay
             backSlash = '\\';
             forwardSlash = '/';
             isForwardSlashSystem = Path.DirectorySeparatorChar.Equals(forwardSlash);
+            traceSource = TraceSources.Instance.GetConfiguredTraceSource();
         }
+
+        static readonly TraceSource traceSource;
 
         /// <summary>
         /// Counts the parent directory chars.

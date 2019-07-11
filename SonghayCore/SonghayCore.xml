@@ -781,6 +781,97 @@
             <param name="expression">The expression.</param>
             <returns></returns>
         </member>
+        <member name="T:Songhay.Extensions.FileInfoExtensions">
+            <summary>
+            Extension of <see cref="T:System.IO.FileInfo"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.FileInfoExtensions.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})">
+            <summary>
+            Read zip archive entries.
+            </summary>
+            <param name="archiveInfo">The <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileAction">The file action.</param>
+            <remarks>
+            Use <c>entriesProjector</c> for any filtering or sorting.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.FileInfoExtensions.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Read zip archive entries.
+            </summary>
+            <param name="archiveInfo">The <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileAction">The file action.</param>
+            <param name="entriesProjector">The entries projector.</param>
+            <remarks>
+            Use <c>entriesProjector</c> for any filtering or sorting.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.FileInfoExtensions.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String})">
+            <summary>
+            Read zip archive entries as strings, line by line.
+            </summary>
+            <param name="archiveInfo">The file and/or directory info.</param>
+            <param name="lineAction">The line action.</param>
+            <remarks>
+            This member is designed for compressed text documents that are too large to load into memory.
+            The <c>fileAction</c> includes the line number and the current line.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.FileInfoExtensions.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Read zip archive entries as strings, line by line.
+            </summary>
+            <param name="archiveInfo">The file and/or directory info.</param>
+            <param name="lineAction">The line action.</param>
+            <param name="entriesProjector">The filter zip archive entries.</param>
+            <remarks>
+            This member is designed for compressed text documents that are too large to load into memory.
+            The <c>fileAction</c> includes the line number and the current line.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.FileInfoExtensions.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})">
+            <summary>
+            Centralizes the use of <see cref="T:System.IO.Compression.ZipArchive"/>
+            </summary>
+            <param name="archiveInfo"></param>
+            <param name="archiveAction"></param>
+        </member>
+        <member name="M:Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
+            </summary>
+            <param name="archiveInfo"></param>
+            <param name="entriesAction"></param>
+        </member>
+        <member name="M:Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
+            </summary>
+            <param name="archiveInfo"></param>
+            <param name="entriesAction"></param>
+            <param name="entriesProjector"></param>
+        </member>
+        <member name="M:Songhay.Extensions.FileInfoExtensions.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo)">
+            <summary>
+            Write zip archive entry with <see cref="F:System.IO.Compression.CompressionLevel.Optimal"/>.
+            </summary>
+            <param name="archiveInfo">The file and/or directory info.</param>
+            <param name="fileInfo">The file information.</param>
+        </member>
+        <member name="M:Songhay.Extensions.FileInfoExtensions.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo,System.IO.Compression.CompressionLevel)">
+            <summary>
+            Write zip archive entry.
+            </summary>
+            <param name="archiveInfo">The file and/or directory info.</param>
+            <param name="fileInfo">The file information.</param>
+            <param name="compressionLevel">The <see cref="T:System.IO.Compression.CompressionLevel"/></param>
+        </member>
+        <member name="T:Songhay.Extensions.FileSystemInfoExtensions">
+            <summary>
+            Extensions of <see cref="T:System.IO.FileSystemInfo"/>
+            </summary>
+        </member>
         <member name="T:Songhay.Extensions.FuncExtensions">
             <summary>
             Extensions of <see cref="T:System.Func`1"/>.
@@ -2675,6 +2766,91 @@
             A few static helper members
             for <see cref="N:System.IO"/>.
             </summary>
+            <summary>
+            A few static helper members
+            for <see cref="N:System.IO"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})">
+            <summary>
+            Read zip archive entries.
+            </summary>
+            <param name="archiveInfo">The <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileAction">The file action.</param>
+            <remarks>
+            Use <c>entriesProjector</c> for any filtering or sorting.
+            </remarks>
+        </member>
+        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Read zip archive entries.
+            </summary>
+            <param name="archiveInfo">The <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileAction">The file action.</param>
+            <param name="entriesProjector">The entries projector.</param>
+            <remarks>
+            Use <c>entriesProjector</c> for any filtering or sorting.
+            </remarks>
+        </member>
+        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String})">
+            <summary>
+            Read zip archive entries as strings, line by line.
+            </summary>
+            <param name="archiveInfo">The file and/or directory info.</param>
+            <param name="lineAction">The line action.</param>
+            <remarks>
+            This member is designed for compressed text documents that are too large to load into memory.
+            The <c>fileAction</c> includes the line number and the current line.
+            </remarks>
+        </member>
+        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Read zip archive entries as strings, line by line.
+            </summary>
+            <param name="archiveInfo">The file and/or directory info.</param>
+            <param name="lineAction">The line action.</param>
+            <param name="entriesProjector">The filter zip archive entries.</param>
+            <remarks>
+            This member is designed for compressed text documents that are too large to load into memory.
+            The <c>fileAction</c> includes the line number and the current line.
+            </remarks>
+        </member>
+        <member name="M:Songhay.FrameworkFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})">
+            <summary>
+            Centralizes the use of <see cref="T:System.IO.Compression.ZipArchive"/>
+            </summary>
+            <param name="archiveInfo"></param>
+            <param name="archiveAction"></param>
+        </member>
+        <member name="M:Songhay.FrameworkFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
+            </summary>
+            <param name="archiveInfo"></param>
+            <param name="entriesAction"></param>
+        </member>
+        <member name="M:Songhay.FrameworkFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
+            </summary>
+            <param name="archiveInfo"></param>
+            <param name="entriesAction"></param>
+            <param name="entriesProjector"></param>
+        </member>
+        <member name="M:Songhay.FrameworkFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo)">
+            <summary>
+            Write zip archive entry with <see cref="F:System.IO.Compression.CompressionLevel.Optimal"/>.
+            </summary>
+            <param name="archiveInfo">The file and/or directory info.</param>
+            <param name="fileInfo">The file information.</param>
+        </member>
+        <member name="M:Songhay.FrameworkFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo,System.IO.Compression.CompressionLevel)">
+            <summary>
+            Write zip archive entry.
+            </summary>
+            <param name="archiveInfo">The file and/or directory info.</param>
+            <param name="fileInfo">The file information.</param>
+            <param name="compressionLevel">The <see cref="T:System.IO.Compression.CompressionLevel"/></param>
         </member>
         <member name="M:Songhay.FrameworkFileUtility.CountParentDirectoryChars(System.String)">
             <summary>
