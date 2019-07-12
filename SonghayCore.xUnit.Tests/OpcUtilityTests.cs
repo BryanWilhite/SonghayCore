@@ -13,7 +13,7 @@ namespace Songhay.Tests
         }
 
         [Theory]
-        [InlineData("pack://application:,,,/SonghayCore.xUnit.Tests;component/Subfolder/OpcUtilityTest.xaml")]
+        [InlineData("pack://application:,,,/SonghayCore.xUnit.Tests;component/Subfolder/OpcUtilityTests.xaml")]
         public void ShouldGetPackUriFromAssemblyFileName(string packUri)
         {
             var actualPackUri = OpcUtility.GetPackUriFromType(this.GetType(), OpcReferencedTypeStrategy.FromAssemblyFileName);
@@ -21,7 +21,7 @@ namespace Songhay.Tests
         }
 
         [Theory]
-        [InlineData("pack://application:,,,/Songhay.Tests;component/Subfolder/OpcUtilityTest.xaml")]
+        [InlineData("pack://application:,,,/Songhay.Tests;component/Subfolder/OpcUtilityTests.xaml")]
         public void ShouldGetPackUriFromTypeFullName(string packUri)
         {
             var actualPackUri = OpcUtility.GetPackUriFromType(this.GetType(), OpcReferencedTypeStrategy.FromTypeFullName);
