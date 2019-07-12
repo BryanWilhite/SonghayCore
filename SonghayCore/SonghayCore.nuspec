@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>SonghayCore</id>
-    <version>3.2.3</version>
+    <version>3.2.4</version>
     <description>Core reusable definitions for .NET Core and .NET Framework</description>
     <authors>Bryan D. Wilhite</authors>
     <title>Songhay Core Testing for xUnit</title>
@@ -12,7 +12,7 @@
     <license type="file">LICENSE.md</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Core reusable definitions for .NET Core and .NET Framework</summary>
-    <releaseNotes>see https://github.com/BryanWilhite/SonghayCore/projects/4</releaseNotes>
+    <releaseNotes>see https://github.com/BryanWilhite/SonghayCore/projects/5</releaseNotes>
     <copyright>(c) 2019 Bryan D. Wilhite</copyright>
     <tags>Core Songhay Configuration Cryptography LINQ</tags>
     <repository type="git" url="https://github.com/BryanWilhite/SonghayCore"></repository>
@@ -32,6 +32,11 @@
         <dependency id="System.ServiceModel.Primitives" version="4.5.3" />
       </group>
       <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.Extensions.Configuration" version="2.2.0" />
+        <dependency id="Microsoft.Extensions.Configuration.Binder" version="2.2.4" />
+        <dependency id="Microsoft.Extensions.Configuration.EnvironmentVariables" version="2.2.4" />
+        <dependency id="Microsoft.Extensions.Configuration.FileExtensions" version="2.2.0" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="2.2.0" />
         <dependency id="Microsoft.Extensions.Logging.TraceSource" version="2.2.0" />
         <dependency id="Newtonsoft.Json" version="12.0.2" />
         <dependency id="System.ComponentModel.Annotations" version="4.5.0" />
