@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.IO.Compression;
@@ -32,7 +33,7 @@ namespace Songhay.Extensions
         /// <remarks>
         /// Use <c>entriesProjector</c> for any filtering or sorting.
         /// </remarks>
-        public static void ReadZipArchiveEntries(this FileInfo archiveInfo, Action<string> fileAction, Func<ReadOnlyCollection<ZipArchiveEntry>, ReadOnlyCollection<ZipArchiveEntry>> entriesProjector)
+        public static void ReadZipArchiveEntries(this FileInfo archiveInfo, Action<string> fileAction, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>> entriesProjector)
         {
             FrameworkFileUtility.ReadZipArchiveEntries(archiveInfo, fileAction, entriesProjector);
         }
@@ -61,7 +62,7 @@ namespace Songhay.Extensions
         /// This member is designed for compressed text documents that are too large to load into memory.
         /// The <c>fileAction</c> includes the line number and the current line.
         /// </remarks>
-        public static void ReadZipArchiveEntriesByLine(this FileInfo archiveInfo, Action<int, string> lineAction, Func<ReadOnlyCollection<ZipArchiveEntry>, ReadOnlyCollection<ZipArchiveEntry>> entriesProjector)
+        public static void ReadZipArchiveEntriesByLine(this FileInfo archiveInfo, Action<int, string> lineAction, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>> entriesProjector)
         {
             FrameworkFileUtility.ReadZipArchiveEntriesByLine(archiveInfo, lineAction, entriesProjector);
         }
