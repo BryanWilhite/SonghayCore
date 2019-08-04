@@ -102,7 +102,7 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="archiveInfo">The file and/or directory info.</param>
         /// <param name="fileInfo">The file information.</param>
-        public static void WriteZipArchiveEntry(FileInfo archiveInfo, FileInfo fileInfo)
+        public static void WriteZipArchiveEntry(this FileInfo archiveInfo, FileInfo fileInfo)
         {
             FrameworkFileUtility.WriteZipArchiveEntry(archiveInfo, fileInfo);
         }
@@ -113,7 +113,7 @@ namespace Songhay.Extensions
         /// <param name="archiveInfo">The file and/or directory info.</param>
         /// <param name="fileInfo">The file information.</param>
         /// <param name="compressionLevel">The <see cref="CompressionLevel"/></param>
-        public static void WriteZipArchiveEntry(FileInfo archiveInfo, FileInfo fileInfo, CompressionLevel compressionLevel)
+        public static void WriteZipArchiveEntry(this FileInfo archiveInfo, FileInfo fileInfo, CompressionLevel compressionLevel)
         {
             FrameworkFileUtility.WriteZipArchiveEntry(archiveInfo, fileInfo, compressionLevel);
         }
