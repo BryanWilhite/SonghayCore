@@ -6,6 +6,8 @@ The _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/S
 
 **NuGet package 📦:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
 
+**Documentation 📚:** [`SonghayCore` API](https://bryanwilhite.github.io/SonghayCore/api/)
+
 ## _core_ reusable, opinionated concerns
 
 ### `Songhay.Diagnostics`
@@ -13,6 +15,8 @@ The _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/S
 This _Core_ is exclusively concerned with _tracing_. Logging concerns should be logically above this _Core_. [`TraceSources`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Diagnostics/TraceSources.cs) and [`TraceSourceExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/TraceSourceExtensions.cs) define how tracing should be implemented with a bias toward using all source levels. When tracing is not configured for this _Core_ then it will be ignored without throwing exceptions.
 
 For a review of the organizational difference between tracing and logging, see “[Tracing vs Logging vs Monitoring: What’s the Difference?](https://www.bmc.com/blogs/monitoring-logging-tracing/)” by [Chrissy Kidd](https://www.linkedin.com/in/chrissy-k-47294593).
+
+**Documentation 📚:** [`Songhay.Diagnostics`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Diagnostics/)
 
 ### `Songhay.Extensions`
 
@@ -36,6 +40,8 @@ Notable extensions:
 
 There are two kinds of support for [URI templates](http://tools.ietf.org/html/rfc6570) (to be used with [`RestApiMetadata`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs)), one is [for .NET Standard](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/RestApiMetadataExtensions.Tavis.cs) and the other is [for .NET Framework](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/RestApiMetadataExtensions.ServiceModel.cs). The .NET Standard extension methods are running on top of [`Tavis.UriTemplates`](https://github.com/tavis-software/Tavis.UriTemplates).
 
+**Documentation 📚:** [`Songhay.Extensions`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Extensions/)
+
 ### `Songhay.Models`
 
 The _Core_ models of the Songhay System define types for MIME, XHTML, OPML, REST, the Repository, the Display Item (for WPF and other MVVM solutions), etc.
@@ -50,9 +56,13 @@ Notable models:
 
 * [`RestApiMetadata`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs) — defines conventional REST API metadata.
 
+**Documentation 📚:** [`Songhay.Models`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Models/)
+
 ### `Songhay.Xml`
 
 The “core” of the _Core_ is concern for XML. The Songhay System started out as utilities around [`XPathDocument`](https://msdn.microsoft.com/en-us/library/system.xml.xpath.xpathdocument(v=vs.110).aspx) and grew into LINQ for XML—over [`XDocument`](https://msdn.microsoft.com/en-us/library/system.xml.linq.xdocument(v=vs.110).aspx).
+
+**Documentation 📚:** [`Songhay.Xml`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Xml/)
 
 ## satellite packages
 
@@ -67,5 +77,7 @@ The “core” of the _Core_ is concern for XML. The Songhay System started out 
 Defines reusable class definitions for [xUnit](https://xunit.net/). Featured is the [`ProjectFileDataAttribute`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.xUnit/ProjectFileDataAttribute.cs), allowing test data files to be loaded from a relative path.
 
 **NuGet package 📦:** [`SonghayCore.xUnit`](http://www.nuget.org/packages/SonghayCore.xUnit/)
+
+**Documentation 📚:** [`Songhay.Tests`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Tests/)
 
 @[BryanWilhite](https://twitter.com/BryanWilhite)
