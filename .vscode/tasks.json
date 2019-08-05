@@ -261,7 +261,7 @@
             "problemMatcher": []
         },
         {
-            "label": "wyam: copy source code to /tmp",
+            "label": "wyam: copy source code to /src",
             "type": "shell",
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -279,11 +279,33 @@
                     ".\\SonghayCore\\,.\\SonghayCore.MSTest\\,.\\SonghayCore.xUnit\\",
                     "-Recurse",
                     "-Destination",
-                    ".\\tmp"
+                    ".\\src"
+                ]
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "wyam: delete /src folder",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "linux": {
+                "command": "rm",
+                "args": [
+                    "-r",
+                    "/src"
+                ]
+            },
+            "windows": {
+                "command": "Remove-Item",
+                "args": [
+                    "-Path",
+                    ".\\src",
+                    "-Recurse"
                 ]
             },
             "problemMatcher": []
         }
-
     ]
 }
