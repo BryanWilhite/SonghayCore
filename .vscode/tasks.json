@@ -222,6 +222,28 @@
                 "cwd": "${workspaceRoot}/SonghayCore.xUnit"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "wyam: add .nojekyll file for GitHub",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/docs"
+            },
+            "linux": {
+                "command": "touch",
+                "args": [
+                    ".nojekyll"
+                ]
+            },
+            "windows": {
+                "command": "New-Item",
+                "args": [
+                    "-ItemType",
+                    "file",
+                    ".nojekyll"
+                ]
+            },
+            "problemMatcher": []
         }
     ]
 }
