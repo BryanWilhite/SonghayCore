@@ -224,6 +224,21 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "command": "wyam",
+            "label": "wyam",
+            "isBackground": false,
+            "type": "shell",
+            "args": [
+                "build",
+                "--output",
+                "./docs"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/SonghayCore.xUnit"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "wyam: add .nojekyll file for GitHub",
             "type": "shell",
             "options": {
@@ -244,6 +259,31 @@
                 ]
             },
             "problemMatcher": []
+        },
+        {
+            "label": "wyam: copy source code to /tmp",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "linux": {
+                "command": "cp",
+                "args": [
+                    "--recursive"
+                ]
+            },
+            "windows": {
+                "command": "Copy-Item",
+                "args": [
+                    "-Path",
+                    ".\\SonghayCore\\,.\\SonghayCore.MSTest\\,.\\SonghayCore.xUnit\\",
+                    "-Recurse",
+                    "-Destination",
+                    ".\\tmp"
+                ]
+            },
+            "problemMatcher": []
         }
+
     ]
 }
