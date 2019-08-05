@@ -1,0 +1,14 @@
+#recipe Docs
+
+Settings[Keys.CleanOutputPath] = true;
+Settings[Keys.Host] = "songhaysystem.com";
+Settings[Keys.LinksUseHttps] = false;
+// Settings[Keys.LinkRoot] = "";
+
+// DocsKeys: see https://wyam.io/recipes/docs/settings
+// Settings[DocsKeys.AssemblyFiles] = "wyam/*"; // totally does not work
+// Settings[DocsKeys.Logo] = "";
+// Settings[DocsKeys.ProjectFiles] = "";
+// Settings[DocsKeys.SolutionFiles] = "";
+Settings[DocsKeys.SourceFiles] = "tmp/**/{!.vs,!.vscode,!bin,!obj,!packages,!*.Tests,}/**/*.cs";
+Settings[DocsKeys.Title] = "SonghayCore Documentation";

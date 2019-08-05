@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html><html><head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description">
+        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+        <title>SonghayCore Documentation - API - XmlUtility.StripNamespaces(IXPathNavigable) Method</title>
+        <link href="/assets/css/highlight.css" rel="stylesheet">
+        <link href="/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
+        <link href="/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
+        <link href="/assets/css/theme/theme.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
+        <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/assets/css/override.css" rel="stylesheet">
+        <script src="/assets/js/jquery-2.2.3.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>        
+        <script src="/assets/js/app.min.js"></script>         
+        <script src="/assets/js/highlight.pack.js"></script>   
+        <script src="/assets/js/jquery.slimscroll.min.js"></script>
+        <script src="/assets/js/jquery.sticky-kit.min.js"></script>
+        <script src="/assets/js/mermaid.min.js"></script>
+        <script src="/assets/js/svg-pan-zoom.min.js"></script>
+        <!--[if lt IE 9]>
+        <script src="/assets/js/html5shiv.min.js"></script>
+        <script src="/assets/js/respond.min.js"></script>
+        <![endif]-->  
+
+        
+    </head>
+    <body class="hold-transition wyam layout-boxed  ">    
+        <div class="top-banner"></div>
+        <div class="wrapper with-container">
+            <!-- Header -->
+            <header class="main-header">   
+                     
+                <a href="/" class="logo">
+                            <span>SonghayCore Documentation</span>
+                </a>   
+                         
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                        <a href="#" class="sidebar-toggle visible-xs-block" data-toggle="offcanvas" role="button">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                                        
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </button>
+                    </div>
+            
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                        <ul class="nav navbar-nav">                            
+                                    <li class="active"><a href="/api">API</a></li>
+ 
+                        </ul>       
+                    </div>
+                    <!-- /.navbar-collapse -->
+                
+                    <!-- Navbar Right Menu -->
+                </nav>
+            </header>
+            
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar ">
+                <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
+                    	
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
+<p><a href="#Syntax">Syntax</a></p>
+<p><a href="#Remarks">Remarks</a></p>
+<p><a href="#Attributes">Attributes</a></p>
+<p><a href="#Parameters">Parameters</a></p>
+<p><a href="#ReturnValue">Return Value</a></p>
+<hr class="infobar-hidden">
+</div>
+
+                </section>
+                <section class="sidebar">    
+                                     
+                    	
+	    <script src="/assets/js/lunr.min.js"></script>
+    <script src="/assets/js/searchIndex.js"></script>
+    <div class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
+            <span class="input-group-btn">
+                <button class="btn btn-flat"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </div>
+    <div id="search-results">
+    </div>
+    <script>
+        function runSearch(query){
+            $("#search-results").empty();			
+            if( query.length < 2 ){
+                return;
+            }			
+            var results = searchModule.search("*" + query + "*");
+            var listHtml = "<ul class='sidebar-menu'>";	
+            listHtml += "<li class='header'>Type Results</li>";	
+            if(results.length == 0 ){
+                listHtml += "<li>No results found</li>";
+            } else {					
+                for(var i = 0; i < results.length; ++i){
+                    var res = results[i];
+                    listHtml += "<li><a href='" + res.url + "'>" + htmlEscape(res.title) + "</a></li>";
+                }				
+            }
+            listHtml += "</ul>";				
+            $("#search-results").append(listHtml);
+        }
+
+        $(document).ready(function(){
+            $("#search").on('input propertychange paste', function() {
+                runSearch($("#search").val());
+            });
+        });
+
+        function htmlEscape(html) {
+            return document.createElement('div')
+                .appendChild(document.createTextNode(html))
+                .parentNode
+                .innerHTML;
+        }
+    </script>
+	
+    <hr>
+
+                    <ul class="sidebar-menu">
+                        
+			<li class="header">Namespace</li>
+		<li><a href="/api/Songhay.Xml">Songhay<wbr>.Xml</a></li>
+		<li class="header">Type</li>
+		<li><a href="/api/Songhay.Xml/XmlUtility">XmlUtility</a></li>
+		<li role="separator" class="divider"></li>
+			<li class="header">Method Members</li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/9A211F99">Combine<wbr>Navigable<wbr>Documents<wbr>(IXPathNavigable, <wbr>IXPathNavigable)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/74E63B07">Combine<wbr>Navigable<wbr>Documents<wbr>(IXPathNavigable, <wbr>IXPathNavigable, <wbr>string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/07F81BCF">ExpandSpecialChars<wbr>(string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/21FA3A81">GetAttributeValue<wbr>(IXPathNavigable, <wbr>string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/F14331CC">GetAttributeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/D771E748">GetInstance<wbr>&lt;T&gt;<wbr><wbr>(string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/0EA40411">GetInstanceRaw<wbr>&lt;T&gt;<wbr><wbr>(string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/07ADBCCE">GetInternalMessage<wbr>(string, <wbr>string[], <wbr>XmlWriter)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/43B89D86">GetInternalMessage<wbr>(string, <wbr>string, <wbr>string[], <wbr>XmlWriter)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/7F6E5BB0">GetInternalMessage<wbr>(string, <wbr>string[], <wbr>XmlWriter, <wbr>bool)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/1E714A4A">GetInternalMessage<wbr>(string, <wbr>string, <wbr>string[], <wbr>XmlWriter, <wbr>bool)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/1E1562F7">GetInternalMessage<wbr>(string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/0199A63E">GetInternalMessage<wbr>(string, <wbr>string[])<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/A2D63BB1">GetInternalMessage<wbr>(string, <wbr>ReadOnlyCollection<wbr>&lt;string&gt;<wbr>)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/E4B2B4D4">GetInternalMessage<wbr>(string, <wbr>string, <wbr>string[])<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/622BF1FA">GetInternalMessage<wbr>(string, <wbr>string, <wbr>ReadOnlyCollection<wbr>&lt;string&gt;<wbr>)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/B65372CD">Get<wbr>Internal<wbr>Message<wbr>Document<wbr>(string, <wbr>string[])<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/166EFFF1">Get<wbr>Internal<wbr>Message<wbr>Document<wbr>(string, <wbr>string, <wbr>string[])<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/6615EFCF">GetNamespaceManager<wbr>(IXPathNavigable)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/D11CCD56">GetNavigableDocument<wbr>(object)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/D7BA4D50">GetNavigableDocument<wbr>(string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/7C02482C">GetNavigableDocument<wbr>(IXPathNavigable)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/4820C9F3">GetNavigableDocument<wbr>(Stream)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/4BE54B82">GetNavigableNode<wbr>(IXPathNavigable, <wbr>string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/3BC75D91">GetNavigableNode<wbr>(IXPathNavigable, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/563AB55C">GetNavigableNodes<wbr>(IXPathNavigable, <wbr>string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/B85C9F8F">GetNavigableNodes<wbr>(IXPathNavigable, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/58FE9ABD">GetNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/3ABFAE62">GetNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>object)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/C3B8947C">GetNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>object, <wbr>XmlNamespaceManager)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/DF6A6425">GetNodeValueAndParse<wbr>&lt;T&gt;<wbr><wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>T)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/F4108D92">GetNodeValueAndParse<wbr>&lt;T&gt;<wbr><wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>T, <wbr>XmlNamespaceManager)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/5C7D0218">GetText<wbr>(MemoryStream)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/92800462">GetXmlSchema<wbr>(IXPathNavigable, <wbr>Validation<wbr>Event<wbr>Handler)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/D1DFCB8F">GetXslResult<wbr>(IXPathNavigable, <wbr>IXPathNavigable)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/6F9A959C">GetXslResult<wbr>(IXPathNavigable, <wbr>XsltArgumentList, <wbr>IXPathNavigable)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/258544DC">GetXslString<wbr>(IXPathNavigable, <wbr>IXPathNavigable)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/13172A4C">GetXslString<wbr>(IXPathNavigable, <wbr>XsltArgumentList, <wbr>IXPathNavigable)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/05169DC6">GetXslString<wbr>(IXPathNavigable, <wbr>XsltArgumentList, <wbr>IXPathNavigable, <wbr>XmlWriterSettings)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/2D9F2E24">InputAs<wbr>&lt;TIn&gt;<wbr><wbr>(TIn)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/9E82ABD9">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/D9DF7C77">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string, <wbr>StringComparison)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/0E8B9793">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/04D4392F">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string, <wbr>Xml<wbr>Namespace<wbr>Manager, <wbr>StringComparison)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/C8D60423">IsNoNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/23DF6A86">IsXml<wbr>(string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/8C67B1A3">IsYesNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/CDDBACC1">LoadXmlSchema<wbr>(string, <wbr>Validation<wbr>Event<wbr>Handler)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/A9EFE9C1">LoadXslTransform<wbr>(string, <wbr>string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/8248405E">LoadXslTransform<wbr>(string, <wbr>string, <wbr>string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/503637B8">LoadXslTransform<wbr>(string, <wbr>string, <wbr>IXPathNavigable)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/488370A5">LoadXslTransform<wbr>(string, <wbr>XsltArgumentList, <wbr>string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/284F8DF6">OutputAs<wbr>&lt;TOut&gt;<wbr><wbr>(string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/5D5FBB72">OutputAs<wbr>&lt;TOut&gt;<wbr><wbr>(IXPathNavigable)<wbr></a></li>
+				<li class="selected"><a href="/api/Songhay.Xml/XmlUtility/256AA925">StripNamespaces<wbr>(IXPathNavigable)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/8CE130A7">StripNamespaces<wbr>(IXPathNavigable, <wbr>bool)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/A3938A1C">StripNamespaces<wbr>(string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/8C4D338B">StripNamespaces<wbr>(string, <wbr>bool)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/8E871339">Validate<wbr>Navigable<wbr>Node<wbr>(IXPathNavigable, <wbr>XmlSchema, <wbr>Validation<wbr>Event<wbr>Handler)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/3F1BEC25">Write<wbr>&lt;T&gt;<wbr><wbr>(T, <wbr>string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/4B927B08">WriteReader<wbr>(XmlReader, <wbr>XmlWriter)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/095093A9">WriteXslTransform<wbr>(IXPathNavigable, <wbr>IXPathNavigable, <wbr>string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/3F282C7B">WriteXslTransform<wbr>(XmlReader, <wbr>IXPathNavigable, <wbr>string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/F8B91B1A">XmlDecode<wbr>(string)<wbr></a></li>
+				<li><a href="/api/Songhay.Xml/XmlUtility/1EA1B3B7">XmlEncode<wbr>(string)<wbr></a></li>
+
+
+                    </ul>
+                            
+                </section>                
+            </aside>
+            
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                
+
+
+
+<section class="content-header">
+			<h3><a href="/api/Songhay.Xml/XmlUtility">XmlUtility</a>.</h3>
+	<h1>StripNamespaces<wbr>(IXPathNavigable)<wbr> <small>Method</small></h1>
+</section>
+<section class="content">
+	
+	
+		<h1 id="Summary">Summary</h1>
+	<div class="lead">
+    Strip the namespaces from specified document.
+    </div>
+
+		<div class="panel panel-default">
+  			<div class="panel-body">	
+				<dl class="dl-horizontal">	
+						
+						<dt>Namespace</dt>
+						<dd><a href="/api/Songhay.Xml">Songhay<wbr>.Xml</a></dd>
+					
+						<dt>Containing Type</dt>
+						<dd><a href="/api/Songhay.Xml/XmlUtility">XmlUtility</a></dd>		
+					
+				</dl>
+  			</div>
+		</div>
+
+	<h1 id="Syntax">Syntax</h1>
+	<pre><code>[SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes", Justification = "Specific functionality provided by the concrete type may be required.")]
+public static XPathDocument StripNamespaces(IXPathNavigable navigableSet)</code></pre>
+
+
+	<h1 id="Remarks">Remarks</h1>
+	<div>
+    WARNING: Stripping namespaces “flattens” the document
+    and can cause local-name collisions.
+    
+    This routine does not remove namespace prefixes.
+    
+    </div>
+
+	<h1 id="Attributes">Attributes</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover two-cols">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+					<tbody><tr>
+						<td>Suppress<wbr>Message<wbr>Attribute</td>
+						<td></td>
+					</tr>
+			</tbody></table>
+		</div>
+	</div>	
+
+
+	<h1 id="Parameters">Parameters</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover three-cols">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+					<tbody><tr>
+						<td>navigableSet</td>
+						<td>IXPathNavigable</td>
+						<td>
+    The source <code class="cs">System.Xml.XPath.IXPathNavigable</code> set.
+    </td>
+					</tr>
+			</tbody></table>
+		</div>
+	</div>	
+
+	<h1 id="ReturnValue">Return Value</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover two-cols">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody><tr>
+					<td>XPathDocument</td>
+					<td></td>
+				</tr>
+			</tbody></table>
+		</div>
+	</div>	
+
+
+	
+</section>
+                
+            </div>           
+            
+            <!-- Footer -->
+            <footer class="main-footer">
+            </footer>
+            
+        </div>
+        <div class="wrapper bottom-wrapper">
+            <footer class="bottom-footer">
+                Generated by <a href="https://wyam.io">Wyam</a>
+            </footer>
+        </div>
+        <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <script>           
+            // Close the sidebar if we select an anchor link
+            $(".main-sidebar a[href^='#']:not('.expand')").click(function(){
+                $(document.body).removeClass('sidebar-open');
+            });
+            
+            $(document).ready(function() {
+                mermaid.initialize(
+                {
+                    flowchart:
+                    {
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
+                
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });  
+            });
+
+            hljs.initHighlightingOnLoad();
+
+            // Back to top
+            $(window).scroll(function() {
+                if ($(this).scrollTop() >= 200) {        // If page is scrolled more than 50px
+                    $('#return-to-top').fadeIn(1000);    // Fade in the arrow
+                } else {
+                    $('#return-to-top').fadeOut(1000);   // Else fade out the arrow
+                }
+            });
+            $('#return-to-top').click(function() {      // When arrow is clicked
+                $('body,html').animate({
+                    scrollTop : 0                       // Scroll to top of body
+                }, 500);
+            });
+        </script>
+    
+</body></html>
