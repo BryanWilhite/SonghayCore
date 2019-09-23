@@ -51,9 +51,14 @@ namespace Songhay.Tests
         [Fact]
         public void ShouldHaveEnvironmentNewline()
         {
-            if (Environment.OSVersion.Platform == PlatformID.Win32NT) Assert.Equal("\r\n", Environment.NewLine);
-            else if (Environment.OSVersion.Platform == PlatformID.Unix) Assert.Equal("\r", Environment.NewLine);
-            else throw new NotSupportedException($"{Environment.OSVersion} is not supported.");
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+                Assert.Equal("\r\n", Environment.NewLine);
+
+            else if (Environment.OSVersion.Platform == PlatformID.Unix)
+                Assert.Equal("\n", Environment.NewLine);
+
+            else
+                throw new NotSupportedException($"{Environment.OSVersion} is not supported.");
         }
 
         [Theory, InlineData(@"content\FrameworkFileTest-ShouldSortTextFileData.txt")]
