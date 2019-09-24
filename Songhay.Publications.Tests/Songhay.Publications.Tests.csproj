@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Songhay.Publications\Songhay.Publications.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="2.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    <PackageReference Include="Xunit.SkippableFact" Version="1.3.12" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Include="..\SonghayCore.xUnit\Extensions\DataAttributeExtensions.cs" Link="Extensions\DataAttributeExtensions.cs" />
+    <Compile Include="..\SonghayCore.xUnit\Orderers\OrderedTestBase.cs" Link="Orderers\OrderedTestBase.cs" />
+    <Compile Include="..\SonghayCore.xUnit\Orderers\TestCaseOrderer.cs" Link="Orderers\TestCaseOrderer.cs" />
+    <Compile Include="..\SonghayCore.xUnit\Orderers\TestOrderAttribute.cs" Link="Orderers\TestOrderAttribute.cs" />
+    <Compile Include="..\SonghayCore.xUnit\DebuggerAttachedFactAttribute.cs" Link="DebuggerAttachedFactAttribute.cs" />
+    <Compile Include="..\SonghayCore.xUnit\DebuggerAttachedTheoryAttribute.cs" Link="DebuggerAttachedTheoryAttribute.cs" />
+    <Compile Include="..\SonghayCore.xUnit\ProjectFileDataAttribute.cs" Link="ProjectFileDataAttribute.cs" />
+  </ItemGroup>
+
+</Project>

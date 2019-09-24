@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using Songhay.Extensions;
 using Songhay.Publications.Models;
 
-namespace Songhay.Publications
+namespace Songhay.Publications.Extensions
 {
     /// <summary>
     /// Extensions of <see cref="MarkdownEntry" />
@@ -196,9 +196,12 @@ namespace Songhay.Publications
         public static string[] ToParagraphs(this MarkdownEntry entry)
         {
             entry.DoNullCheck();
+
+            var delimiter = new string[] { $"{MarkdownEntry.NewLine}{MarkdownEntry.NewLine}" };
+
             var paragraphs = entry.Content
                 .Trim()
-                .Split($"{MarkdownEntry.NewLine}{MarkdownEntry.NewLine}");
+                .Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
             return paragraphs;
         }
 
