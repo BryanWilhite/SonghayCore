@@ -1,4 +1,5 @@
-﻿using Songhay.Publications.Extensions;
+﻿using Songhay.Extensions;
+using Songhay.Publications.Extensions;
 using Songhay.Publications.Models;
 using Songhay.Tests;
 using System;
@@ -20,8 +21,10 @@ namespace Songhay.Publications.Tests.Extensions
         }
 
         [Theory]
-        [ProjectFileData(typeof(MarkdownEntryExtensionsTests), "../../../markdown/to-markdown-entry-test.md")]
-        public void ToMarkdownEntry_Test(FileInfo entryInfo)
+        [ProjectFileData(typeof(MarkdownEntryExtensionsTests),
+            new object[] { "2005-01-18-msn-video-replaces-feedroomcom" },
+            "../../../markdown/to-markdown-entry-test.md")]
+        public void ToMarkdownEntry_Test(string clientId, FileInfo entryInfo)
         {
             // arrange
             var entry = entryInfo.ToMarkdownEntry();
@@ -31,6 +34,7 @@ namespace Songhay.Publications.Tests.Extensions
 
             // assert
             Assert.NotNull(jFrontMatter);
+            // Assert.Equal(clientId, jFrontMatter.GetValue<string>("clientID"));
         }
     }
 }
