@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
@@ -55,6 +56,15 @@ namespace Songhay.Extensions.Tests
             Assert.Null(e_clone);
         }
 
+        [Theory, InlineData(3, @"{ ""x"": { ""y"": { ""z"": 3 } } }")]
+        public void ShouldGetJObject(int expectedValue, string json)
+        {
+            var jZ = JObject.Parse(json)
+                .GetJObject("x")
+                .GetJObject("y");
+            Assert.Equal(expectedValue, jZ.GetValue<int>("z"));
+        }
+
         [Theory, InlineData(1, 2, @"{ ""items"": [ { ""x"": 1 }, { ""x"": 2 }, { ""x"": 3 } ] }")]
         public void ShouldGetJTokenFromJArray(int arrayIndex, int expectedValue, string json)
         {
@@ -67,9 +77,16 @@ namespace Songhay.Extensions.Tests
             var token = jO.GetJTokenFromJArray("items", "x", arrayIndex, throwException: true);
             Assert.NotNull((token as JValue));
 
-            var actualValue = (token as JValue).Value<int>();
+            var actualValue = token.GetValue<int>();
             this._testOutputHelper.WriteLine("actualValue: {0}", actualValue);
             Assert.Equal(expectedValue, actualValue);
+        }
+
+        [Theory, InlineData(2, @"{ ""x"": 2 }")]
+        public void ShouldGetValueFromJObject(int expectedValue, string json)
+        {
+            var jO = JObject.Parse(json);
+            Assert.Equal(expectedValue, jO.GetValue<int>("x"));
         }
 
         [Theory, InlineData(@"{ ""items"": [], ""otherItems"": null }")]
@@ -85,8 +102,13 @@ namespace Songhay.Extensions.Tests
             var jA_other = jO.GetJArray("otherItems", throwException: false);
             Assert.Null(jA_other);
 
-            var jA_otherOther = jO.GetJArray("otherOtherItems", throwException: false);
-            Assert.Null(jA_other);
+            Assert.Throws<NullReferenceException>(() => jO.GetJArray("otherOtherItems"));
+        }
+
+        [Theory, InlineData(@"{ ""x"": { ""y"": { ""z"": 3 } } }")]
+        public void ShouldNotGetJObject(string json)
+        {
+            Assert.Throws<NullReferenceException>(() => JObject.Parse(json).GetValue<int>("z"));
         }
 
         readonly ITestOutputHelper _testOutputHelper;

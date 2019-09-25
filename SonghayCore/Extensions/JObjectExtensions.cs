@@ -13,7 +13,7 @@ namespace Songhay.Extensions
         /// <summary>
         /// Gets the <see cref="Dictionary{TKey, TValue}"/>.
         /// </summary>
-        /// <param name="jObject">The json object.</param>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
         /// <param name="dictionaryPropertyName">Name of the dictionary property.</param>
         /// <returns></returns>
         public static Dictionary<string, string> GetDictionary(this JObject jObject, string dictionaryPropertyName)
@@ -24,7 +24,7 @@ namespace Songhay.Extensions
         /// <summary>
         /// Gets the <see cref="Dictionary{TKey, TValue}"/>.
         /// </summary>
-        /// <param name="jObject">The json object.</param>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
         /// <param name="dictionaryPropertyName">Name of the dictionary property.</param>
         /// <param name="throwException">when set to <c>true</c> then [throw exception].</param>
         /// <returns></returns>
@@ -44,7 +44,7 @@ namespace Songhay.Extensions
         /// <summary>
         /// Gets the <see cref="Dictionary{TKey, TValue}"/>.
         /// </summary>
-        /// <param name="jObject">The json object.</param>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
         /// <returns></returns>
         public static Dictionary<string, string[]> GetDictionary(this JObject jObject)
         {
@@ -54,7 +54,7 @@ namespace Songhay.Extensions
         /// <summary>
         /// Gets the <see cref="Dictionary{TKey, TValue}"/>.
         /// </summary>
-        /// <param name="jObject">The json object.</param>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
         /// <param name="throwException">when set to <c>true</c> then [throw exception].</param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentNullException">jObject;The expected JObject is not here.</exception>
@@ -70,7 +70,7 @@ namespace Songhay.Extensions
         /// <summary>
         /// Gets the <see cref="JArray" /> or will throw <see cref="FormatException"/>.
         /// </summary>
-        /// <param name="jObject">The json object.</param>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
         /// <param name="arrayPropertyName">Name of the array property.</param>
         /// <returns></returns>
         public static JArray GetJArray(this JObject jObject, string arrayPropertyName)
@@ -81,7 +81,7 @@ namespace Songhay.Extensions
         /// <summary>
         /// Gets the <see cref="JArray" />.
         /// </summary>
-        /// <param name="jObject">The json object.</param>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
         /// <param name="arrayPropertyName">Name of the array property.</param>
         /// <param name="throwException">when set to <c>true</c> then throw <see cref="FormatException"/>.</param>
         /// <returns></returns>
@@ -101,7 +101,18 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Gets the <see cref="JObject"/>.
+        /// Gets the <see cref="JObject"/> by the specified property name.
+        /// </summary>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
+        /// <param name="objectPropertyName">Name of the <see cref="JObject" /> property.</param>
+        /// <returns></returns>
+        public static JObject GetJObject(this JObject jObject, string objectPropertyName)
+        {
+            return jObject.GetJObject(objectPropertyName, throwException: true);
+        }
+
+        /// <summary>
+        /// Gets the <see cref="JObject"/> by the specified property name.
         /// </summary>
         /// <param name="jObject">The <see cref="JObject"/>.</param>
         /// <param name="objectPropertyName">Name of the <see cref="JObject" /> property.</param>
@@ -109,9 +120,7 @@ namespace Songhay.Extensions
         /// <returns></returns>
         public static JObject GetJObject(this JObject jObject, string objectPropertyName, bool throwException)
         {
-            if ((jObject == null) && !throwException) return null;
-            if ((jObject == null) && throwException) throw new NullReferenceException($"The expected {nameof(JObject)} is not here.");
-            return jObject[objectPropertyName]?.GetValue<JObject>(throwException);
+            return jObject.GetValue<JObject>(objectPropertyName, throwException);
         }
 
         /// <summary>
@@ -129,15 +138,13 @@ namespace Songhay.Extensions
         /// <exception cref="System.FormatException"></exception>
         public static JToken GetJToken(this JObject jObject, string objectPropertyName, bool throwException)
         {
-            if ((jObject == null) && !throwException) return null;
-            if ((jObject == null) && throwException) throw new NullReferenceException($"The expected {nameof(JObject)} is not here.");
-            return jObject[objectPropertyName]?.GetValue<JToken>(throwException);
+            return jObject.GetValue<JToken>(objectPropertyName, throwException);
         }
 
         /// <summary>
         /// Gets the <see cref="JToken" /> from <see cref="JArray" /> or will throw <see cref="FormatException"/>.
         /// </summary>
-        /// <param name="jObject">The json object.</param>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
         /// <param name="arrayPropertyName">Name of the array property.</param>
         /// <param name="objectPropertyName">Name of the <see cref="JObject" /> property.</param>
         /// <param name="arrayIndex">Index of the array.</param>
@@ -150,7 +157,7 @@ namespace Songhay.Extensions
         /// <summary>
         /// Gets the <see cref="JToken" /> from <see cref="JArray" />.
         /// </summary>
-        /// <param name="jObject">The json object.</param>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
         /// <param name="arrayPropertyName">Name of the array property.</param>
         /// <param name="objectPropertyName">Name of the <see cref="JObject" /> property.</param>
         /// <param name="arrayIndex">Index of the array.</param>
@@ -165,7 +172,7 @@ namespace Songhay.Extensions
             var jsonToken = jsonArray.ElementAtOrDefault(arrayIndex);
             if (jsonToken == default(JToken))
             {
-                var errorMessage = string.Format("The expected JToken in the JArray at index {0} is not here.", arrayIndex);
+                var errorMessage = $"The expected JToken in the JArray at index {arrayIndex} is not here.";
                 if (throwException) throw new NullReferenceException(errorMessage);
                 else return null;
             }
@@ -186,29 +193,32 @@ namespace Songhay.Extensions
         /// Get the value by property name
         /// from the specified <see cref="JObject"/>.
         /// </summary>
-        /// <typeparam name="TValue"></typeparam>
-        /// <param name="jObject"></param>
-        /// <param name="objectPropertyName"></param>
+        /// <typeparam name="TValue">type of returned value</typeparam>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
+        /// <param name="objectPropertyName">Name of the <see cref="JObject" /> property.</param>
         /// <returns></returns>
         public static TValue GetValue<TValue>(this JObject jObject, string objectPropertyName)
         {
-            return jObject.GetValue<TValue>(throwException: true);
+            return jObject.GetValue<TValue>(objectPropertyName, throwException: true);
         }
 
         /// <summary>
         /// Get the value by property name
         /// from the specified <see cref="JObject"/>.
         /// </summary>
-        /// <typeparam name="TValue"></typeparam>
+        /// <typeparam name="TValue">type of returned value</typeparam>
         /// <param name="jObject"></param>
         /// <param name="objectPropertyName"></param>
         /// <param name="throwException">when set to <c>true</c> then throw exception.</param>
         /// <returns></returns>
         public static TValue GetValue<TValue>(this JObject jObject, string objectPropertyName, bool throwException)
         {
+            if (string.IsNullOrWhiteSpace(objectPropertyName)) throw new ArgumentNullException(nameof(objectPropertyName));
             if ((jObject == null) && !throwException) return default(TValue);
             if ((jObject == null) && throwException) throw new NullReferenceException($"The expected {nameof(JObject)} is not here.");
-            return jObject[objectPropertyName].GetValue<TValue>(throwException);
+            var jToken = jObject[objectPropertyName];
+            if ((jToken == null) && throwException) throw new NullReferenceException($"The expected {nameof(JToken)} of `{objectPropertyName}` is not here.");
+            return jToken.GetValue<TValue>(throwException);
         }
     }
 }

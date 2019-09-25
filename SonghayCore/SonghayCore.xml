@@ -1487,7 +1487,7 @@
             <summary>
             Gets the <see cref="T:System.Collections.Generic.Dictionary`2"/>.
             </summary>
-            <param name="jObject">The json object.</param>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
             <param name="dictionaryPropertyName">Name of the dictionary property.</param>
             <returns></returns>
         </member>
@@ -1495,7 +1495,7 @@
             <summary>
             Gets the <see cref="T:System.Collections.Generic.Dictionary`2"/>.
             </summary>
-            <param name="jObject">The json object.</param>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
             <param name="dictionaryPropertyName">Name of the dictionary property.</param>
             <param name="throwException">when set to <c>true</c> then [throw exception].</param>
             <returns></returns>
@@ -1506,14 +1506,14 @@
             <summary>
             Gets the <see cref="T:System.Collections.Generic.Dictionary`2"/>.
             </summary>
-            <param name="jObject">The json object.</param>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.JObjectExtensions.GetDictionary(Newtonsoft.Json.Linq.JObject,System.Boolean)">
             <summary>
             Gets the <see cref="T:System.Collections.Generic.Dictionary`2"/>.
             </summary>
-            <param name="jObject">The json object.</param>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
             <param name="throwException">when set to <c>true</c> then [throw exception].</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">jObject;The expected JObject is not here.</exception>
@@ -1522,7 +1522,7 @@
             <summary>
             Gets the <see cref="T:Newtonsoft.Json.Linq.JArray" /> or will throw <see cref="T:System.FormatException"/>.
             </summary>
-            <param name="jObject">The json object.</param>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
             <param name="arrayPropertyName">Name of the array property.</param>
             <returns></returns>
         </member>
@@ -1530,7 +1530,7 @@
             <summary>
             Gets the <see cref="T:Newtonsoft.Json.Linq.JArray" />.
             </summary>
-            <param name="jObject">The json object.</param>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
             <param name="arrayPropertyName">Name of the array property.</param>
             <param name="throwException">when set to <c>true</c> then throw <see cref="T:System.FormatException"/>.</param>
             <returns></returns>
@@ -1538,9 +1538,17 @@
             <exception cref="T:System.FormatException">
             </exception>
         </member>
+        <member name="M:Songhay.Extensions.JObjectExtensions.GetJObject(Newtonsoft.Json.Linq.JObject,System.String)">
+            <summary>
+            Gets the <see cref="T:Newtonsoft.Json.Linq.JObject"/> by the specified property name.
+            </summary>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
+            <param name="objectPropertyName">Name of the <see cref="T:Newtonsoft.Json.Linq.JObject" /> property.</param>
+            <returns></returns>
+        </member>
         <member name="M:Songhay.Extensions.JObjectExtensions.GetJObject(Newtonsoft.Json.Linq.JObject,System.String,System.Boolean)">
             <summary>
-            Gets the <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
+            Gets the <see cref="T:Newtonsoft.Json.Linq.JObject"/> by the specified property name.
             </summary>
             <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
             <param name="objectPropertyName">Name of the <see cref="T:Newtonsoft.Json.Linq.JObject" /> property.</param>
@@ -1566,7 +1574,7 @@
             <summary>
             Gets the <see cref="T:Newtonsoft.Json.Linq.JToken" /> from <see cref="T:Newtonsoft.Json.Linq.JArray" /> or will throw <see cref="T:System.FormatException"/>.
             </summary>
-            <param name="jObject">The json object.</param>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
             <param name="arrayPropertyName">Name of the array property.</param>
             <param name="objectPropertyName">Name of the <see cref="T:Newtonsoft.Json.Linq.JObject" /> property.</param>
             <param name="arrayIndex">Index of the array.</param>
@@ -1576,7 +1584,7 @@
             <summary>
             Gets the <see cref="T:Newtonsoft.Json.Linq.JToken" /> from <see cref="T:Newtonsoft.Json.Linq.JArray" />.
             </summary>
-            <param name="jObject">The json object.</param>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
             <param name="arrayPropertyName">Name of the array property.</param>
             <param name="objectPropertyName">Name of the <see cref="T:Newtonsoft.Json.Linq.JObject" /> property.</param>
             <param name="arrayIndex">Index of the array.</param>
@@ -1589,9 +1597,9 @@
             Get the value by property name
             from the specified <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
             </summary>
-            <typeparam name="TValue"></typeparam>
-            <param name="jObject"></param>
-            <param name="objectPropertyName"></param>
+            <typeparam name="TValue">type of returned value</typeparam>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
+            <param name="objectPropertyName">Name of the <see cref="T:Newtonsoft.Json.Linq.JObject" /> property.</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.JObjectExtensions.GetValue``1(Newtonsoft.Json.Linq.JObject,System.String,System.Boolean)">
@@ -1599,7 +1607,7 @@
             Get the value by property name
             from the specified <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
             </summary>
-            <typeparam name="TValue"></typeparam>
+            <typeparam name="TValue">type of returned value</typeparam>
             <param name="jObject"></param>
             <param name="objectPropertyName"></param>
             <param name="throwException">when set to <c>true</c> then throw exception.</param>
