@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Songhay.Publications</id>
+    <version>1.0.0</version>
+    <description>Core reusable definitions for Songhay Studio Publications</description>
+    <authors>Bryan D. Wilhite</authors>
+    <title>Songhay Publications</title>
+    <owners>Bryan D. Wilhite</owners>
+    <projectUrl>https://github.com/BryanWilhite/SonghayCore/projects</projectUrl>
+    <iconUrl>https://songhaystorage.blob.core.windows.net/studio-public/songhay_icon.png</iconUrl>
+    <license type="file">LICENSE.md</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Core reusable definitions for Songhay Studio Publications</summary>
+    <releaseNotes>inaugural release</releaseNotes>
+    <copyright>(c) 2019 Bryan D. Wilhite</copyright>
+    <tags>Core Songhay Markdown JSON</tags>
+    <repository type="git" url="https://github.com/BryanWilhite/SonghayCore"></repository>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="SonghayCore" version="3.2.7" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\netstandard2.0\Songhay*.dll" target="lib\netstandard2.0" />
+    <file src="bin\Release\netstandard2.0\Songhay*.json" target="lib\netstandard2.0" />
+    <file src="**\*.cs" exclude="**\obj\**" target="src" />
+    <file src="..\LICENSE.md" target="" />
+  </files>
+</package>

@@ -104,7 +104,7 @@ namespace Songhay.Publications.Tests.Extensions
             var title = "Hello World!";
             var inceptDate = DateTime.Now.AddSeconds(-3);
             var entry = new MarkdownEntry()
-                .WithNew11tyFrontMatter(title, inceptDate, "/path/to/entry", "entry_tag")
+                .WithNew11tyFrontMatter(title, inceptDate, "/path/to/entry/", "entry_tag")
                 .WithEdit(i => i.Content = $"##{title}{MarkdownEntry.NewLine}{MarkdownEntry.NewLine}");
 
             //act

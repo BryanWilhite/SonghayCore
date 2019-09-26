@@ -22,6 +22,18 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "build [Songhay.Publications, Release]",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Songhay.Publications/Songhay.Publications.csproj",
+                "--configuration",
+                "Release"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "build [SonghayCore]",
             "command": "dotnet",
             "type": "process",
@@ -183,6 +195,22 @@
                 "--results-directory:${workspaceFolder}/TestResults",
                 "--verbosity:normal"
             ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "command": "nuget",
+            "label": "NuGet pack Songhay.Publications",
+            "isBackground": false,
+            "type": "shell",
+            "args": [
+                "pack",
+                "Songhay.Publications.nuspec",
+                "-Verbosity",
+                "detailed"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/Songhay.Publications"
+            },
             "problemMatcher": "$msCompile"
         },
         {
