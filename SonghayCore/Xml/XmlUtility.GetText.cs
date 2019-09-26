@@ -17,7 +17,7 @@ namespace Songhay.Xml
             if(ramStream == null) return s;
             s = Encoding.UTF8.GetString(ramStream.ToArray());
 
-            if(!string.IsNullOrEmpty(s))
+            if(!string.IsNullOrWhiteSpace(s))
                 s = s.Trim().Replace("\0", string.Empty);
 
             return s;

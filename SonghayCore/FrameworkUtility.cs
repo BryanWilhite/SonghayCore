@@ -12,7 +12,7 @@ namespace Songhay
         /// <returns>Returns formatted input.</returns>
         public static string GetConsoleCharacters(string input)
         {
-            if(string.IsNullOrEmpty(input)) return null;
+            if(string.IsNullOrWhiteSpace(input)) return null;
 
             #region replace operations:
 

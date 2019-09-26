@@ -108,7 +108,7 @@ namespace Songhay.Xml
                 {
                     p = defaultValue;
                 }
-                else if(string.IsNullOrEmpty(p.ToString().Trim()))
+                else if(string.IsNullOrWhiteSpace(p.ToString().Trim()))
                 {
                     p = defaultValue;
                 }

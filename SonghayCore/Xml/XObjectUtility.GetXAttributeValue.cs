@@ -109,7 +109,7 @@ namespace Songhay.Xml
 
             try
             {
-                if(string.IsNullOrEmpty(s.Trim()))
+                if(string.IsNullOrWhiteSpace(s.Trim()))
                 {
                     return defaultValue;
                 }

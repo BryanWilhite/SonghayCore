@@ -19,10 +19,10 @@ namespace Songhay.Tests.Security
 
             var crypt = new SymmetricCrypt();
 
-            var key = string.IsNullOrEmpty(passwordKey) ? SymmetricCrypt.GetKey() : passwordKey;
+            var key = string.IsNullOrWhiteSpace(passwordKey) ? SymmetricCrypt.GetKey() : passwordKey;
             this._testOutputHelper.WriteLine($"key: {key}");
 
-            var iv = string.IsNullOrEmpty(passwordInitialVector) ? SymmetricCrypt.GetInitialVector() : passwordInitialVector;
+            var iv = string.IsNullOrWhiteSpace(passwordInitialVector) ? SymmetricCrypt.GetInitialVector() : passwordInitialVector;
             this._testOutputHelper.WriteLine("initial vector: {0}", iv);
 
             var encrypted = crypt.Encrypt(password, key, iv);

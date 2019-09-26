@@ -12,7 +12,7 @@
         {
             string s = rawValue;
 
-            if (string.IsNullOrEmpty(s)) return s;
+            if (string.IsNullOrWhiteSpace(s)) return s;
 
             s = s.Replace("&", "&amp;");
             s = s.Replace("'", "&apos;");

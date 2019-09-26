@@ -60,7 +60,7 @@ namespace Songhay.Xml
             sb.AppendLine("<InternalMessage>");
 
             sb.AppendFormat("<Header>{0}</Header>\n", messageHeader);
-            if (!string.IsNullOrEmpty(messageCode)) sb.AppendFormat("<Code>{0}</Code>\n", messageCode);
+            if (!string.IsNullOrWhiteSpace(messageCode)) sb.AppendFormat("<Code>{0}</Code>\n", messageCode);
 
             if ((messageLines != null) && (messageLines.Length > 0))
             {
@@ -87,7 +87,7 @@ namespace Songhay.Xml
             string s = "<InternalMessage>\n";
 
             s += string.Format(CultureInfo.InvariantCulture, "<Header>{0}</Header>\n", messageHeader);
-            if (!string.IsNullOrEmpty(messageCode)) s += string.Format(CultureInfo.InvariantCulture, "<Code>{0}</Code>\n", messageCode);
+            if (!string.IsNullOrWhiteSpace(messageCode)) s += string.Format(CultureInfo.InvariantCulture, "<Code>{0}</Code>\n", messageCode);
 
             if ((messageLines != null) && (messageLines.Count > 0))
             {

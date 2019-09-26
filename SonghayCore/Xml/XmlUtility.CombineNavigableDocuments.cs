@@ -45,7 +45,7 @@ namespace Songhay.Xml
 
             XPathNavigator domNavigator = dom.CreateNavigator();
 
-            if(!string.IsNullOrEmpty(setQuery))
+            if(!string.IsNullOrWhiteSpace(setQuery))
             {
                 XPathNodeIterator nodes = domNavigator.Select(setQuery);
                 foreach(XPathNavigator n in nodes)

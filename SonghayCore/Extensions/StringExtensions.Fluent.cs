@@ -16,7 +16,7 @@ namespace Songhay.Extensions
         /// <returns></returns>
         public static string EscapeInterpolation(this string input)
         {
-            if (string.IsNullOrEmpty(input)) return input;
+            if (string.IsNullOrWhiteSpace(input)) return input;
             return input.Replace("{", "{{").Replace("}", "}}");
         }
 
@@ -28,7 +28,7 @@ namespace Songhay.Extensions
         /// <returns></returns>
         public static string FromSnakeToCaps(this string input)
         {
-            if (string.IsNullOrEmpty(input)) return input;
+            if (string.IsNullOrWhiteSpace(input)) return input;
             return input.Split('_').Aggregate((a, i) => $"{a}{i.ToPascalCase()}");
         }
 
@@ -38,7 +38,7 @@ namespace Songhay.Extensions
         /// <param name="input">The input.</param>
         public static string InDoubleQuotes(this string input)
         {
-            if (string.IsNullOrEmpty(input)) return null;
+            if (string.IsNullOrWhiteSpace(input)) return null;
             input = input.Replace("\"", "\"\"");
             return string.Format("\"{0}\"", input);
         }
@@ -50,7 +50,7 @@ namespace Songhay.Extensions
         /// <param name="defaultValue">The default value.</param>
         public static string InDoubleQuotesOrDefault(this string input, string defaultValue)
         {
-            if (string.IsNullOrEmpty(input)) return defaultValue;
+            if (string.IsNullOrWhiteSpace(input)) return defaultValue;
             return input.InDoubleQuotes();
         }
 
@@ -64,7 +64,7 @@ namespace Songhay.Extensions
         /// </remarks>
         public static string Reverse(this string input)
         {
-            if (string.IsNullOrEmpty(input)) return input;
+            if (string.IsNullOrWhiteSpace(input)) return input;
             return input.ToCharArray().Reverse().FromCharsToString();
         }
 
@@ -84,7 +84,7 @@ namespace Songhay.Extensions
         /// <param name="spacer">The spacer.</param>
         public static string ToAsciiLettersWithSpacer(this string input, char spacer)
         {
-            if (string.IsNullOrEmpty(input)) return null;
+            if (string.IsNullOrWhiteSpace(input)) return null;
 
             if (spacer == '\0')
             {
@@ -108,7 +108,7 @@ namespace Songhay.Extensions
         /// <param name="input">The input.</param>
         public static string ToBlogSlug(this string input)
         {
-            if (string.IsNullOrEmpty(input)) throw new NullReferenceException("The expected input is not here");
+            if (string.IsNullOrWhiteSpace(input)) throw new NullReferenceException("The expected input is not here");
 
             // Remove/replace entities:
             input = input.Replace("&amp;", "and");
@@ -136,7 +136,7 @@ namespace Songhay.Extensions
         /// <param name="input">The input.</param>
         public static string ToCamelCase(this string input)
         {
-            if (string.IsNullOrEmpty(input)) return input;
+            if (string.IsNullOrWhiteSpace(input)) return input;
             return $"{input[0].ToString().ToLowerInvariant()}{input.Substring(1)}";
         }
 
@@ -175,10 +175,10 @@ namespace Songhay.Extensions
             var array = input.Split('.');
 
             if (array.Length == 0) return output;
-            if (string.IsNullOrEmpty(array[0].Trim())) return output;
+            if (string.IsNullOrWhiteSpace(array[0].Trim())) return output;
 
             output = array[0].ToDigitsOnly();
-            if (string.IsNullOrEmpty(output)) return defaultValue;
+            if (string.IsNullOrWhiteSpace(output)) return defaultValue;
 
             return output;
         }
@@ -190,7 +190,7 @@ namespace Songhay.Extensions
         /// <param name="input">The input.</param>
         public static string ToPascalCase(this string input)
         {
-            if (string.IsNullOrEmpty(input)) return input;
+            if (string.IsNullOrWhiteSpace(input)) return input;
             return $"{input[0].ToString().ToUpperInvariant()}{input.Substring(1)}";
         }
 
@@ -202,7 +202,7 @@ namespace Songhay.Extensions
         /// <param name="input">The input.</param>
         public static string ToSnakeCase(this string input)
         {
-            if (string.IsNullOrEmpty(input)) return input;
+            if (string.IsNullOrWhiteSpace(input)) return input;
             return input.ToCamelCase()
                 .InsertSpacesBeforeCaps()
                 .FromCharsToString()
@@ -219,8 +219,8 @@ namespace Songhay.Extensions
         /// <param name="contextLength">Length of the context.</param>
         public static string ToSubstringInContext(this string input, string searchText, int contextLength)
         {
-            if (string.IsNullOrEmpty(input)) return input;
-            if (string.IsNullOrEmpty(searchText)) return input;
+            if (string.IsNullOrWhiteSpace(input)) return input;
+            if (string.IsNullOrWhiteSpace(searchText)) return input;
 
             if (input.Contains(searchText))
             {
@@ -274,7 +274,7 @@ namespace Songhay.Extensions
         /// <param name="ellipsis"></param>
         public static string Truncate(this string input, int length, string ellipsis)
         {
-            if (string.IsNullOrEmpty(input)) return input;
+            if (string.IsNullOrWhiteSpace(input)) return input;
             if (input.Length <= length) return input;
             if (length <= 0) length = 0;
             return string.Concat(input.Substring(0, length).TrimEnd(), ellipsis);
@@ -287,8 +287,8 @@ namespace Songhay.Extensions
         /// <param name="riaEndpointName">Name of the RIA endpoint.</param>
         public static string UnwrapForRiaEndpoint(this string input, string riaEndpointName)
         {
-            if (string.IsNullOrEmpty(input)) return null;
-            if (string.IsNullOrEmpty(riaEndpointName)) return null;
+            if (string.IsNullOrWhiteSpace(input)) return null;
+            if (string.IsNullOrWhiteSpace(riaEndpointName)) return null;
 
             var riaResultName = riaEndpointName + "Result";
 
@@ -303,8 +303,8 @@ namespace Songhay.Extensions
         /// <param name="riaParameter">The RIA parameter.</param>
         public static string WrapForRiaEndpoint(this string input, string riaParameter)
         {
-            if (string.IsNullOrEmpty(input)) return null;
-            if (string.IsNullOrEmpty(riaParameter)) return null;
+            if (string.IsNullOrWhiteSpace(input)) return null;
+            if (string.IsNullOrWhiteSpace(riaParameter)) return null;
 
             string wrapperFormat = @"{{""" + riaParameter + @""":{0}}}";
             return string.Format(wrapperFormat, input);

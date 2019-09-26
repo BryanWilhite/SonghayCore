@@ -13,7 +13,7 @@ namespace Songhay.Tests
         }
 
         [Theory]
-        [InlineData("pack://application:,,,/SonghayCore.xUnit.Tests;component/Subfolder/OpcUtilityTests.xaml")]
+        [InlineData("pack://application:,,,/SonghayCore.Tests;component/Subfolder/OpcUtilityTests.xaml")]
         public void ShouldGetPackUriFromAssemblyFileName(string packUri)
         {
             var actualPackUri = OpcUtility.GetPackUriFromType(this.GetType(), OpcReferencedTypeStrategy.FromAssemblyFileName);

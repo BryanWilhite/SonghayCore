@@ -15,7 +15,7 @@ namespace Songhay.Extensions
         /// <param name="elementName">Name of the element.</param>
         public static XName ToXName(this XNamespace ns, string elementName)
         {
-            if (string.IsNullOrEmpty(elementName)) return null;
+            if (string.IsNullOrWhiteSpace(elementName)) return null;
             return (ns == null) ? elementName : ns + elementName;
         }
     }

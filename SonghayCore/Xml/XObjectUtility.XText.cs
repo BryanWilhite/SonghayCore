@@ -48,7 +48,7 @@ namespace Songhay.Xml
         public static string JoinFlattenedXTextNodes(XElement rootElement, bool includeRootElement, string joinDelimiter)
         {
             if (rootElement == null) return null;
-            if (string.IsNullOrEmpty(joinDelimiter)) joinDelimiter = string.Empty;
+            if (string.IsNullOrWhiteSpace(joinDelimiter)) joinDelimiter = string.Empty;
 
             var nodes = includeRootElement ?
                 rootElement.DescendantNodesAndSelf().Where(i => i.NodeType == XmlNodeType.Text)

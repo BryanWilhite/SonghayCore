@@ -35,7 +35,7 @@ namespace Songhay.Extensions
             if (instance == null) return null;
 
             var name = ConfigurationManager.AppSettings[key];
-            if (string.IsNullOrEmpty(name)) return null;
+            if (string.IsNullOrWhiteSpace(name)) return null;
 
             return TraceSources.Instance.GetTraceSource(name);
         }

@@ -24,7 +24,7 @@ namespace Songhay.Extensions
 
             var index = Array.IndexOf(args.Args, arg);
             var @value = args.Args.ElementAtOrDefault(index + 1);
-            if (string.IsNullOrEmpty(@value)) throw new ArgumentException($"Argument {arg} is not here.");
+            if (string.IsNullOrWhiteSpace(@value)) throw new ArgumentException($"Argument {arg} is not here.");
 
             return value;
         }
@@ -76,7 +76,7 @@ namespace Songhay.Extensions
         /// <exception cref="System.NullReferenceException">The expected argument key is not here.</exception>
         public static string ToConfigurationKey(this ProgramArgs args, string argKey)
         {
-            if (string.IsNullOrEmpty(argKey)) throw new NullReferenceException("The expected argument key is not here.");
+            if (string.IsNullOrWhiteSpace(argKey)) throw new NullReferenceException("The expected argument key is not here.");
             return argKey
                     .TrimStart('-')
                     .Replace("/", string.Empty)

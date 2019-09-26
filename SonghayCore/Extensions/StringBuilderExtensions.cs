@@ -45,7 +45,7 @@ namespace Songhay.Extensions
         public static void AppendLabelWithValue(this StringBuilder builder, string name, object value, string defaultValue, bool hasLineBreak)
         {
             if (builder == null) return;
-            if ((value == null) && string.IsNullOrEmpty(defaultValue)) return;
+            if ((value == null) && string.IsNullOrWhiteSpace(defaultValue)) return;
 
             if (hasLineBreak)
             {

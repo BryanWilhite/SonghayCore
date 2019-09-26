@@ -212,7 +212,7 @@ namespace Songhay
         public static string ParseDateTimeWithFormat(object frameworkValue, string formatExpression, string defaultValue)
         {
             string d = FrameworkTypeUtility.ParseDateTimeWithFormat(frameworkValue, formatExpression);
-            if (string.IsNullOrEmpty(d)) return defaultValue;
+            if (string.IsNullOrWhiteSpace(d)) return defaultValue;
             else return d;
         }
 
@@ -313,7 +313,7 @@ namespace Songhay
         /// </remarks>
         public static TEnum ParseEnum<TEnum>(string frameworkValue, TEnum defaultValue) where TEnum : struct
         {
-            var isDefined = string.IsNullOrEmpty(frameworkValue) ? false : Enum.IsDefined(typeof(TEnum), frameworkValue);
+            var isDefined = string.IsNullOrWhiteSpace(frameworkValue) ? false : Enum.IsDefined(typeof(TEnum), frameworkValue);
             return isDefined ? (TEnum)Enum.Parse(typeof(TEnum), frameworkValue) : defaultValue;
         }
 
@@ -453,7 +453,7 @@ namespace Songhay
         public static DateTime ParseRfc3339DateTime(string frameworkValue)
         {
             DateTime minValue = DateTime.MinValue;
-            if (string.IsNullOrEmpty(frameworkValue)) throw new ArgumentNullException("frameworkValue", "The specified Framework Value is null.");
+            if (string.IsNullOrWhiteSpace(frameworkValue)) throw new ArgumentNullException("frameworkValue", "The specified Framework Value is null.");
             if (!TryParseRfc3339DateTime(frameworkValue, out minValue))
             {
                 throw new FormatException(string.Format(CultureInfo.CurrentCulture, "'{0}' is not a valid RFC-3339 formatted date-time Framework Value.", new object[] { frameworkValue }));
@@ -471,7 +471,7 @@ namespace Songhay
         public static DateTime ParseRfc822DateTime(string frameworkValue)
         {
             DateTime minValue = DateTime.MinValue;
-            if (string.IsNullOrEmpty(frameworkValue)) throw new ArgumentNullException("frameworkValue", "The specified Framework Value is null.");
+            if (string.IsNullOrWhiteSpace(frameworkValue)) throw new ArgumentNullException("frameworkValue", "The specified Framework Value is null.");
             if (!TryParseRfc822DateTime(frameworkValue, out minValue))
             {
                 throw new FormatException(string.Format(CultureInfo.CurrentCulture, "'{0}' is not a valid RFC-822 formatted date-time Framework Value.", new object[] { frameworkValue }));
@@ -514,7 +514,7 @@ namespace Songhay
         {
             DateTimeFormatInfo dateTimeFormat = CultureInfo.InvariantCulture.DateTimeFormat;
             string[] formats = new string[] { dateTimeFormat.SortableDateTimePattern, dateTimeFormat.UniversalSortableDateTimePattern, "yyyy'-'MM'-'dd'T'HH:mm:ss'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.f'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.fff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.fffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:sszzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.fffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.fffffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffffzzz" };
-            if (string.IsNullOrEmpty(frameworkValue))
+            if (string.IsNullOrWhiteSpace(frameworkValue))
             {
                 result = DateTime.MinValue;
                 return false;
@@ -534,7 +534,7 @@ namespace Songhay
         {
             DateTimeFormatInfo dateTimeFormat = CultureInfo.InvariantCulture.DateTimeFormat;
             string[] formats = new string[] { dateTimeFormat.RFC1123Pattern, "ddd',' d MMM yyyy HH:mm:ss zzz", "ddd',' dd MMM yyyy HH:mm:ss zzz" };
-            if (string.IsNullOrEmpty(frameworkValue))
+            if (string.IsNullOrWhiteSpace(frameworkValue))
             {
                 result = DateTime.MinValue;
                 return false;
@@ -544,7 +544,7 @@ namespace Songhay
 
         static string ReplaceRfc822TimeZoneWithOffset(string frameworkValue)
         {
-            if (string.IsNullOrEmpty(frameworkValue)) throw new ArgumentNullException("frameworkValue", "The specified Framework Value is null.");
+            if (string.IsNullOrWhiteSpace(frameworkValue)) throw new ArgumentNullException("frameworkValue", "The specified Framework Value is null.");
             frameworkValue = frameworkValue.Trim();
             if (frameworkValue.EndsWith("UT", StringComparison.OrdinalIgnoreCase))
             {

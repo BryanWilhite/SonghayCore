@@ -25,7 +25,7 @@ namespace Songhay.Tests.Diagnostics
 
             var configuration = builder.Build();
             var name = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
-            Assert.False(string.IsNullOrEmpty(name), "The expected configuration trace source name is not here.");
+            Assert.False(string.IsNullOrWhiteSpace(name), "The expected configuration trace source name is not here.");
             this._testOutputHelper.WriteLine($"configuration trace source name: {name}");
 
             TraceSources.ConfiguredTraceSourceName = name;

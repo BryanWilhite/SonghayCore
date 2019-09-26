@@ -50,7 +50,7 @@ namespace Songhay.Models
             var sb = new StringBuilder();
 
             if (this.ApiBase != null) sb.AppendFormat("ApiBase: {0}", this.ApiBase);
-            if (!string.IsNullOrEmpty(this.ApiKey)) sb.AppendFormat(" ApiKey: {0}", this.ApiKey);
+            if (!string.IsNullOrWhiteSpace(this.ApiKey)) sb.AppendFormat(" ApiKey: {0}", this.ApiKey);
 
             if ((this.ClaimsSet != null) && (this.ClaimsSet.Count > 0))
             {

@@ -41,7 +41,7 @@ namespace Songhay.Tests.Extensions
             Assert.True(File.Exists(file), "The expected target download file is not here.");
 
             var response = await GetHttpClient().DownloadToStringAsync(new Uri(uri, UriKind.Absolute));
-            Assert.False(string.IsNullOrEmpty(response), "The expected response is not here.");
+            Assert.False(string.IsNullOrWhiteSpace(response), "The expected response is not here.");
             this._testOutputHelper.WriteLine(response);
         }
 

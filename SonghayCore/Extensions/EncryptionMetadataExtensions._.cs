@@ -25,7 +25,7 @@ namespace Songhay.Extensions
         public static string Decrypt(this EncryptionMetadata encryptionMeta, string encryptedString)
         {
             if (encryptionMeta == null) throw new ArgumentNullException("encryptionMeta", "The expected metadata is not here.");
-            if (string.IsNullOrEmpty(encryptedString)) throw new ArgumentNullException("encryptedString", "The expected encrypted string is not here.");
+            if (string.IsNullOrWhiteSpace(encryptedString)) throw new ArgumentNullException("encryptedString", "The expected encrypted string is not here.");
 
             var crypt = new SymmetricCrypt();
             return crypt.Decrypt(encryptedString, encryptionMeta.Key, encryptionMeta.InitialVector);
@@ -47,7 +47,7 @@ namespace Songhay.Extensions
         public static string GetConnectionStringWithDecryptedValue(this EncryptionMetadata encryptionMeta, string connectionString, string connectionStringKey)
         {
             if (encryptionMeta == null) throw new ArgumentNullException("encryptionMeta", "The expected metadata is not here.");
-            if (string.IsNullOrEmpty(connectionString)) throw new ArgumentNullException("connectionString", "The expected configuration settings are not here.");
+            if (string.IsNullOrWhiteSpace(connectionString)) throw new ArgumentNullException("connectionString", "The expected configuration settings are not here.");
 
             var builder = new DbConnectionStringBuilder
             {

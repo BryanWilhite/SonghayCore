@@ -63,7 +63,7 @@ namespace Songhay
             if (assembly == null) throw new ArgumentNullException(nameof(assembly), "The expected assembly is not here.");
 
             var hasCodeBaseOnWindows =
-                !string.IsNullOrEmpty(assembly.CodeBase)
+                !string.IsNullOrWhiteSpace(assembly.CodeBase)
                 &&
                 !FrameworkFileUtility.IsForwardSlashSystem()
                 ;
@@ -83,7 +83,7 @@ namespace Songhay
         /// <param name="fileSegment">The file segment.</param>
         public static string GetPathFromAssembly(Assembly assembly, string fileSegment)
         {
-            if (string.IsNullOrEmpty(fileSegment)) throw new ArgumentNullException("fileSegment", "The expected file segment is not here.");
+            if (string.IsNullOrWhiteSpace(fileSegment)) throw new ArgumentNullException("fileSegment", "The expected file segment is not here.");
 
             fileSegment = FrameworkFileUtility.TrimLeadingDirectorySeparatorChars(fileSegment);
             if (Path.IsPathRooted(fileSegment)) throw new FormatException("The expected relative path is not here.");

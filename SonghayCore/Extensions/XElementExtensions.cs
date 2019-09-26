@@ -90,7 +90,7 @@ namespace Songhay.Extensions
         public static string ToAttributeValueOrDefault(this XElement element, string attributeName, string defaultValue)
         {
             var s = element.ToAttributeValueOrNull(attributeName);
-            if (string.IsNullOrEmpty(s)) return defaultValue;
+            if (string.IsNullOrWhiteSpace(s)) return defaultValue;
             return s;
         }
 
@@ -106,7 +106,7 @@ namespace Songhay.Extensions
             string s = null;
             var attr = element.Attribute(attributeName);
             if (attr != null) s = attr.Value;
-            if (string.IsNullOrEmpty(s)) return null;
+            if (string.IsNullOrWhiteSpace(s)) return null;
             return s;
         }
 
@@ -118,7 +118,7 @@ namespace Songhay.Extensions
         public static string ToElementValueOrDefault(this XElement element, string defaultValue)
         {
             var s = element.ToElementValueOrNull();
-            if (string.IsNullOrEmpty(s)) return defaultValue;
+            if (string.IsNullOrWhiteSpace(s)) return defaultValue;
             return s;
         }
 
@@ -130,7 +130,7 @@ namespace Songhay.Extensions
         {
             string s = null;
             if (element != null) s = element.Value;
-            if (string.IsNullOrEmpty(s)) return null;
+            if (string.IsNullOrWhiteSpace(s)) return null;
             return s;
         }
 

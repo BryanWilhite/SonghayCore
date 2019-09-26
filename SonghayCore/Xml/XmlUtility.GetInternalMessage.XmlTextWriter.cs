@@ -65,7 +65,7 @@ namespace Songhay.Xml
             xmlDataWriter.WriteStartElement("InternalMessage");
 
             xmlDataWriter.WriteElementString("Header", messageHeader);
-            if (!string.IsNullOrEmpty(messageCode)) xmlDataWriter.WriteElementString("Code", messageCode);
+            if (!string.IsNullOrWhiteSpace(messageCode)) xmlDataWriter.WriteElementString("Code", messageCode);
 
             if ((messageLines != null) && (messageLines.Length > 0))
             {

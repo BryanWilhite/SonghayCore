@@ -19,7 +19,7 @@ namespace Songhay.Xml
         /// <param name="innerXml">The inner XML.</param>
         public static XElement GetXElement(string rootElement, object innerXml)
         {
-            if(string.IsNullOrEmpty(rootElement)) throw new ArgumentNullException("rootElement", "The expected root element name is not here.");
+            if(string.IsNullOrWhiteSpace(rootElement)) throw new ArgumentNullException("rootElement", "The expected root element name is not here.");
             return XElement.Parse(string.Format("<{0}>{1}</{0}>", rootElement, innerXml));
         }
 

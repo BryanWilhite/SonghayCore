@@ -17,7 +17,7 @@ namespace Songhay.Extensions
         public static UriBuilder WithPath(this UriBuilder builder, string path)
         {
             if (builder == null) return null;
-            if (string.IsNullOrEmpty(path)) return builder;
+            if (string.IsNullOrWhiteSpace(path)) return builder;
 
             var delimiter = "/";
             var delimiterChar = '/';
@@ -26,7 +26,7 @@ namespace Songhay.Extensions
                 .Where(i => i != delimiter)
                 .Select(i => i.Trim(delimiterChar));
             var pathSegments = path.Split(delimiterChar)
-                .Where(i => !string.IsNullOrEmpty(i));
+                .Where(i => !string.IsNullOrWhiteSpace(i));
             var combinedSegments = baseSegments.Union(pathSegments);
 
             builder.Path = string.Join(delimiter, combinedSegments.ToArray());

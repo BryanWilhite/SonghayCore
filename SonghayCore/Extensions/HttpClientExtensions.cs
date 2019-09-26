@@ -162,7 +162,7 @@ namespace Songhay.Extensions
 
                 foreach (DictionaryEntry entry in postData)
                 {
-                    s = (string.IsNullOrEmpty(s))
+                    s = (string.IsNullOrWhiteSpace(s))
                         ? string.Format(CultureInfo.InvariantCulture, "{0}={1}", entry.Key, entry.Value)
                         : string.Format(CultureInfo.InvariantCulture, "&{0}={1}", entry.Key, entry.Value);
                     sb.Append(s);
@@ -348,8 +348,8 @@ namespace Songhay.Extensions
         {
             if (client == null) return null;
             if (uri == null) throw new ArgumentNullException(nameof(uri), "The expected URI is not here.");
-            if (string.IsNullOrEmpty(requestBody)) throw new ArgumentNullException(nameof(requestBody), "The expected request body is not here.");
-            if (string.IsNullOrEmpty(mediaType)) throw new ArgumentNullException(nameof(mediaType), "The expected request body media type is not here.");
+            if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody), "The expected request body is not here.");
+            if (string.IsNullOrWhiteSpace(mediaType)) throw new ArgumentNullException(nameof(mediaType), "The expected request body media type is not here.");
 
             var request = new HttpRequestMessage(method, uri)
             {

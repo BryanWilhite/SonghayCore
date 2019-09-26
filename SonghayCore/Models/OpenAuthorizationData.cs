@@ -33,7 +33,7 @@ namespace Songhay.Models
         /// <param name="data">The data.</param>
         public OpenAuthorizationData(string nonce, NameValueCollection data)
         {
-            this.Nonce = string.IsNullOrEmpty(nonce) ? Convert.ToBase64String(new ASCIIEncoding().GetBytes(DateTime.Now.Ticks.ToString())) : nonce;
+            this.Nonce = string.IsNullOrWhiteSpace(nonce) ? Convert.ToBase64String(new ASCIIEncoding().GetBytes(DateTime.Now.Ticks.ToString())) : nonce;
             this.SignatureMethod = "HMAC-SHA1";
             var timeSpan = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
             this.TimeStamp = Convert.ToInt64(timeSpan.TotalSeconds).ToString();

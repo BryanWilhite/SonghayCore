@@ -170,7 +170,7 @@ namespace Songhay
         public static bool IsNullOrEmptyString(object boxedString)
         {
             if(boxedString == null) return true;
-            else return string.IsNullOrEmpty(boxedString.ToString());
+            else return string.IsNullOrWhiteSpace(boxedString.ToString());
         }
 
         /// <summary>

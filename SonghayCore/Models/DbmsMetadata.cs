@@ -49,8 +49,8 @@ namespace Songhay.Models
         {
             var sb = new StringBuilder();
 
-            if (!string.IsNullOrEmpty(this.ProviderName)) sb.Append($"{nameof(this.ProviderName)}: {this.ProviderName} | ");
-            if (!string.IsNullOrEmpty(this.ConnectionString)) sb.Append($"{nameof(this.ConnectionString)}: {this.ConnectionString.Substring(0, 72)}... ");
+            if (!string.IsNullOrWhiteSpace(this.ProviderName)) sb.Append($"{nameof(this.ProviderName)}: {this.ProviderName} | ");
+            if (!string.IsNullOrWhiteSpace(this.ConnectionString)) sb.Append($"{nameof(this.ConnectionString)}: {this.ConnectionString.Substring(0, 72)}... ");
             if (this.EncryptionMetadata != null) sb.Append("| has encryption metadata");
 
             return (sb.Length > 0) ? sb.ToString() : base.ToString();

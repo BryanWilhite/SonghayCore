@@ -40,7 +40,7 @@ namespace Songhay.Xml
         /// </remarks>
         public static string StripNamespaces(string xml, bool removeDocType)
         {
-            if(string.IsNullOrEmpty(xml)) return null;
+            if(string.IsNullOrWhiteSpace(xml)) return null;
 
             if(removeDocType)
             {
@@ -77,7 +77,7 @@ namespace Songhay.Xml
                 @"\s*([a-zA-z0-9:]*schemaLocation\s*=[""][^""]*[""])\s*", string.Empty,
                 RegexOptions.IgnoreCase);
 
-            return (!string.IsNullOrEmpty(xml)) ? xml.Trim() : null;
+            return (!string.IsNullOrWhiteSpace(xml)) ? xml.Trim() : null;
         }
     }
 }

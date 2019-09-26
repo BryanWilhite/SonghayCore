@@ -29,7 +29,7 @@ namespace Songhay.Extensions
         /// </returns>
         public static string ToNumericString(this string input, string defaultValue)
         {
-            if(string.IsNullOrEmpty(input)) return defaultValue;
+            if(string.IsNullOrWhiteSpace(input)) return defaultValue;
             if(string.IsNullOrWhiteSpace(input)) return defaultValue;
             return new string(input.Trim().Where(i => char.IsDigit(i) || i.Equals('.')).ToArray());
         }

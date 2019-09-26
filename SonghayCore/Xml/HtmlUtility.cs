@@ -19,7 +19,7 @@ namespace Songhay.Xml
         /// </param>
         public static string ConvertToHtml(string inputValue)
         {
-            if (string.IsNullOrEmpty(inputValue)) return null;
+            if (string.IsNullOrWhiteSpace(inputValue)) return null;
 
             //Minimize selected XHTML block elements.
             inputValue
@@ -63,7 +63,7 @@ namespace Songhay.Xml
         /// <remarks>This task is simpler than converting to XHTML.</remarks>
         public static string ConvertToXml(string html)
         {
-            if (string.IsNullOrEmpty(html)) return null;
+            if (string.IsNullOrWhiteSpace(html)) return null;
 
             Regex re;
             MatchEvaluator me;
@@ -119,7 +119,7 @@ namespace Songhay.Xml
         /// </remarks>
         public static string FormatXhtmlElements(string xmlFragment)
         {
-            if (string.IsNullOrEmpty(xmlFragment)) return null;
+            if (string.IsNullOrWhiteSpace(xmlFragment)) return null;
 
             //Maximize selected empty minimized block elements.
             string newValue;
@@ -148,7 +148,7 @@ namespace Songhay.Xml
         /// </param>
         public static string GetInnerXml(string xmlFragment, string elementName)
         {
-            if (string.IsNullOrEmpty(xmlFragment)) return null;
+            if (string.IsNullOrWhiteSpace(xmlFragment)) return null;
 
             string ret = xmlFragment;
 

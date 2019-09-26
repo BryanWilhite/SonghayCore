@@ -71,7 +71,7 @@ namespace Songhay.Extensions
         public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName, string delimiter, bool throwConfigurationErrorsException)
         {
             if (collection == null) return null;
-            if (string.IsNullOrEmpty(unqualifiedKey)) throw new ArgumentNullException("unqualifiedKey", "The expected App Settings key is not here.");
+            if (string.IsNullOrWhiteSpace(unqualifiedKey)) throw new ArgumentNullException("unqualifiedKey", "The expected App Settings key is not here.");
 
             var name1 = string.Concat(environmentName, delimiter, unqualifiedKey);
             var name2 = string.Concat(unqualifiedKey, delimiter, environmentName);
@@ -108,7 +108,7 @@ namespace Songhay.Extensions
         public static ConnectionStringSettings GetConnectionStringSettings(this ConnectionStringSettingsCollection collection, string connectionName, bool throwConfigurationErrorsException)
         {
             if (collection == null) return null;
-            if (string.IsNullOrEmpty(connectionName)) return null;
+            if (string.IsNullOrWhiteSpace(connectionName)) return null;
 
             var setting = collection[connectionName];
             if ((setting == null) && throwConfigurationErrorsException)
@@ -167,10 +167,10 @@ namespace Songhay.Extensions
 
             var hasKey = settings.AllKeys.Contains(environmentKey);
 
-            if (!hasKey && !string.IsNullOrEmpty(defaultEnvironmentName))
+            if (!hasKey && !string.IsNullOrWhiteSpace(defaultEnvironmentName))
                 return defaultEnvironmentName;
 
-            if (!hasKey && string.IsNullOrEmpty(defaultEnvironmentName))
+            if (!hasKey && string.IsNullOrWhiteSpace(defaultEnvironmentName))
             {
                 if (throwConfigurationErrorsException) throw new ConfigurationErrorsException(string.Format("The expected Environment Key, `{0}`, is not here.", environmentKey));
                 return null;
@@ -233,7 +233,7 @@ namespace Songhay.Extensions
         public static string GetKeyWithEnvironmentName(this NameValueCollection settings, string unqualifiedKey, string environmentName, string delimiter, bool throwConfigurationErrorsException)
         {
             if (settings == null) return null;
-            if (string.IsNullOrEmpty(unqualifiedKey)) throw new ArgumentNullException("unqualifiedKey", "The expected App Settings key is not here.");
+            if (string.IsNullOrWhiteSpace(unqualifiedKey)) throw new ArgumentNullException("unqualifiedKey", "The expected App Settings key is not here.");
 
             var key1 = string.Concat(environmentName, delimiter, unqualifiedKey);
             var key2 = string.Concat(unqualifiedKey, delimiter, environmentName);
@@ -269,7 +269,7 @@ namespace Songhay.Extensions
         public static string GetSetting(this NameValueCollection settings, string key, bool throwConfigurationErrorsException)
         {
             if (settings == null) return null;
-            if (string.IsNullOrEmpty(key)) return null;
+            if (string.IsNullOrWhiteSpace(key)) return null;
 
             var setting = settings[key];
             if ((setting == null) && throwConfigurationErrorsException)

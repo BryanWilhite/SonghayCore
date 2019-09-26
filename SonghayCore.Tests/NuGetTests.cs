@@ -33,7 +33,7 @@ namespace Songhay.Tests
 
             var version = csprojPGElement.Element("AssemblyVersion")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(version)}: {version}");
-            Assert.False(string.IsNullOrEmpty(version), $"Value for {nameof(version)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(version), $"Value for {nameof(version)} was not found.");
 
             var versionElement = nuspecMetaElement.Element(nameof(version));
             Assert.NotNull(versionElement);
@@ -41,7 +41,7 @@ namespace Songhay.Tests
 
             var description = csprojPGElement.Element("Description")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(description)}: {description}");
-            Assert.False(string.IsNullOrEmpty(description), $"Value for {nameof(description)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(description), $"Value for {nameof(description)} was not found.");
 
             var descriptionElement = nuspecMetaElement.Element(nameof(description));
             Assert.NotNull(descriptionElement);
@@ -49,7 +49,7 @@ namespace Songhay.Tests
 
             var authors = csprojPGElement.Element("Authors")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(authors)}: {authors}");
-            Assert.False(string.IsNullOrEmpty(authors), $"Value for {nameof(authors)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(authors), $"Value for {nameof(authors)} was not found.");
 
             var authorsElement = nuspecMetaElement.Element(nameof(authors));
             Assert.NotNull(authorsElement);
@@ -57,7 +57,7 @@ namespace Songhay.Tests
 
             var title = csprojPGElement.Element("Title")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(title)}: {title}");
-            Assert.False(string.IsNullOrEmpty(title), $"Value for {nameof(title)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(title), $"Value for {nameof(title)} was not found.");
 
             var titleElement = nuspecMetaElement.Element(nameof(title));
             Assert.NotNull(titleElement);
@@ -69,7 +69,7 @@ namespace Songhay.Tests
 
             var projectUrl = csprojPGElement.Element("PackageProjectUrl")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(projectUrl)}: {projectUrl}");
-            Assert.False(string.IsNullOrEmpty(projectUrl), $"Value for {nameof(projectUrl)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(projectUrl), $"Value for {nameof(projectUrl)} was not found.");
 
             var projectUrlElement = nuspecMetaElement.Element(nameof(projectUrl));
             Assert.NotNull(projectUrlElement);
@@ -77,7 +77,7 @@ namespace Songhay.Tests
 
             var license = csprojPGElement.Element("PackageLicenseFile")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(license)}: {license}");
-            Assert.False(string.IsNullOrEmpty(license), $"Value for {nameof(license)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(license), $"Value for {nameof(license)} was not found.");
 
             var licenseElement = nuspecMetaElement.Element(nameof(license));
             Assert.NotNull(licenseElement);
@@ -85,7 +85,7 @@ namespace Songhay.Tests
 
             var iconUrl = csprojPGElement.Element("PackageIconUrl")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(iconUrl)}: {iconUrl}");
-            Assert.False(string.IsNullOrEmpty(iconUrl), $"Value for {nameof(iconUrl)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(iconUrl), $"Value for {nameof(iconUrl)} was not found.");
 
             var iconUrlElement = nuspecMetaElement.Element(nameof(iconUrl));
             Assert.NotNull(iconUrlElement);
@@ -93,7 +93,7 @@ namespace Songhay.Tests
 
             var requireLicenseAcceptance = csprojPGElement.Element("PackageRequireLicenseAcceptance")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(requireLicenseAcceptance)}: {requireLicenseAcceptance}");
-            Assert.False(string.IsNullOrEmpty(requireLicenseAcceptance), $"Value for {nameof(requireLicenseAcceptance)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(requireLicenseAcceptance), $"Value for {nameof(requireLicenseAcceptance)} was not found.");
 
             var requireLicenseAcceptanceElement = nuspecMetaElement.Element(nameof(requireLicenseAcceptance));
             Assert.NotNull(requireLicenseAcceptanceElement);
@@ -105,7 +105,7 @@ namespace Songhay.Tests
 
             var releaseNotes = csprojPGElement.Element("PackageReleaseNotes")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(releaseNotes)}: {releaseNotes}");
-            Assert.False(string.IsNullOrEmpty(releaseNotes), $"Value for {nameof(releaseNotes)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(releaseNotes), $"Value for {nameof(releaseNotes)} was not found.");
 
             var releaseNotesElement = nuspecMetaElement.Element(nameof(releaseNotes));
             Assert.NotNull(releaseNotesElement);
@@ -113,7 +113,7 @@ namespace Songhay.Tests
 
             var copyright = csprojPGElement.Element("Copyright")?.Value;
             this._testOutputHelper.WriteLine($"{nameof(copyright)}: {copyright}");
-            Assert.False(string.IsNullOrEmpty(copyright), $"Value for {nameof(copyright)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(copyright), $"Value for {nameof(copyright)} was not found.");
 
             var copyrightElement = nuspecMetaElement.Element(nameof(copyright));
             Assert.NotNull(copyrightElement);
@@ -121,7 +121,7 @@ namespace Songhay.Tests
 
             var tags = csprojPGElement.Element("PackageTags")?.Value.Replace(';', ' ');
             this._testOutputHelper.WriteLine($"{nameof(tags)}: {tags}");
-            Assert.False(string.IsNullOrEmpty(tags), $"Value for {nameof(tags)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(tags), $"Value for {nameof(tags)} was not found.");
 
             var tagsElement = nuspecMetaElement.Element(nameof(tags));
             Assert.NotNull(tagsElement);
@@ -129,11 +129,11 @@ namespace Songhay.Tests
 
             var repositoryType = csprojPGElement.Element("RepositoryType")?.Value.Replace(';', ' ');
             this._testOutputHelper.WriteLine($"{nameof(repositoryType)}: {repositoryType}");
-            Assert.False(string.IsNullOrEmpty(repositoryType), $"Value for {nameof(repositoryType)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(repositoryType), $"Value for {nameof(repositoryType)} was not found.");
 
             var repositoryUrl = csprojPGElement.Element("RepositoryUrl")?.Value.Replace(';', ' ');
             this._testOutputHelper.WriteLine($"{nameof(repositoryUrl)}: {repositoryUrl}");
-            Assert.False(string.IsNullOrEmpty(repositoryUrl), $"Value for {nameof(repositoryUrl)} was not found.");
+            Assert.False(string.IsNullOrWhiteSpace(repositoryUrl), $"Value for {nameof(repositoryUrl)} was not found.");
 
             var repositoryElement = nuspecMetaElement.Element("repository");
             Assert.NotNull(repositoryElement);

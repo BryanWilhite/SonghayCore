@@ -108,8 +108,8 @@ namespace Songhay.Extensions
         public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage request, string requestBody, Encoding encoding, string mediaType, Action<HttpRequestMessage> requestMessageAction)
         {
             if (request == null) throw new NullReferenceException($"The expected {nameof(HttpRequestMessage)} is not here.");
-            if (string.IsNullOrEmpty(requestBody)) throw new ArgumentNullException(nameof(requestBody), "The expected request body is not here.");
-            if (string.IsNullOrEmpty(mediaType)) throw new ArgumentNullException(nameof(mediaType), "The expected request body media type is not here.");
+            if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody), "The expected request body is not here.");
+            if (string.IsNullOrWhiteSpace(mediaType)) throw new ArgumentNullException(nameof(mediaType), "The expected request body media type is not here.");
 
             request.Content = new StringContent(requestBody, encoding, mediaType);
 

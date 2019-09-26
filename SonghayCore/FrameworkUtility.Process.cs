@@ -25,7 +25,7 @@ namespace Songhay
 #endif
         public static void StartProcess(string command)
         {
-            if(string.IsNullOrEmpty(command)) return;
+            if(string.IsNullOrWhiteSpace(command)) return;
 
             string file = Environment.ExpandEnvironmentVariables(command);
             string args = string.Empty;

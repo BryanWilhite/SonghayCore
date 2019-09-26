@@ -22,7 +22,7 @@ namespace Songhay.Extensions
         public static IEnumerable<ValidationResult> ToValidationResults(this object objectToValidate, object propertyValue, [CallerMemberName] string propertyName = "")
         {
             if (objectToValidate == null) return Enumerable.Empty<ValidationResult>();
-            if (string.IsNullOrEmpty(propertyName)) throw new ArgumentNullException("The expected Property Name to validate is not here.");
+            if (string.IsNullOrWhiteSpace(propertyName)) throw new ArgumentNullException("The expected Property Name to validate is not here.");
 
             var results = new List<ValidationResult>();
             var context = objectToValidate.ToValidationContext();

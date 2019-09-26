@@ -114,7 +114,7 @@ namespace Songhay
         public static bool IsPackUriValid(string uri)
         {
             bool test = false;
-            if (string.IsNullOrEmpty(uri)) return test;
+            if (string.IsNullOrWhiteSpace(uri)) return test;
 
             string Authority = ":///";
             string AuthorityPacked = ":,,,";

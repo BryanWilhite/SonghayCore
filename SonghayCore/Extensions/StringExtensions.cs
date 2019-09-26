@@ -43,7 +43,7 @@ namespace Songhay.Extensions
         public static IEnumerable<string> FromCamelCaseToEnumerable(this string input)
         {
             return new string(input.InsertSpacesBeforeCaps().ToArray())
-                .Split(' ').Where(i => !string.IsNullOrEmpty(i));
+                .Split(' ').Where(i => !string.IsNullOrWhiteSpace(i));
         }
 
         /// <summary>
@@ -64,8 +64,8 @@ namespace Songhay.Extensions
         /// <param name="separator">The separator.</param>
         public static bool In(this string input, string delimitedValues, char separator)
         {
-            if (string.IsNullOrEmpty(input)) return false;
-            if (string.IsNullOrEmpty(delimitedValues)) return false;
+            if (string.IsNullOrWhiteSpace(input)) return false;
+            if (string.IsNullOrWhiteSpace(delimitedValues)) return false;
 
             var set = delimitedValues.Split(separator);
             return set.Contains(input);
@@ -77,7 +77,7 @@ namespace Songhay.Extensions
         /// <param name="input">The input.</param>
         public static IEnumerable<char> InsertSpacesBeforeCaps(this string input)
         {
-            if (string.IsNullOrEmpty(input)) yield return '\0';
+            if (string.IsNullOrWhiteSpace(input)) yield return '\0';
             foreach (char c in input)
             {
                 if (char.IsUpper(c)) yield return ' ';
@@ -210,7 +210,7 @@ namespace Songhay.Extensions
         /// </returns>
         public static bool IsTelephoneNumber(this string input)
         {
-            if (string.IsNullOrEmpty(input)) return false;
+            if (string.IsNullOrWhiteSpace(input)) return false;
             return Regex.IsMatch(input, @"^\(?[0-9]\d{2}\)?([-., ])?[0-9]\d{2}([-., ])?\d{4}$");
         }
 
@@ -227,7 +227,7 @@ namespace Songhay.Extensions
         /// </remarks>
         public static bool IsUnc(this string input)
         {
-            if (string.IsNullOrEmpty(input)) return false;
+            if (string.IsNullOrWhiteSpace(input)) return false;
             return Regex.IsMatch(input, @"^(\\(\\[^\s\\]+)+|([A-Za-z]:(\\)?|[A-z]:(\\[^\s\\]+)+))(\\)?$");
         }
 
@@ -257,7 +257,7 @@ namespace Songhay.Extensions
         /// <returns></returns>
         public static int ToNumberOfDirectoryLevels(this string path)
         {
-            if (string.IsNullOrEmpty(path)) return 0;
+            if (string.IsNullOrWhiteSpace(path)) return 0;
             var relative_parent_path_matches = Regex.Matches(path, @"\.\./|\.\.\\");
             return relative_parent_path_matches.Count;
         }

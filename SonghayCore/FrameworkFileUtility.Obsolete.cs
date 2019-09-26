@@ -36,7 +36,7 @@ namespace Songhay
         [Obsolete("Since .NET 1.1 use System.IO.Path.GetFileName().")]
         public static string GetFileName(string pathWithFile, char? pathDelimiter)
         {
-            if(string.IsNullOrEmpty(pathWithFile)) return null;
+            if(string.IsNullOrWhiteSpace(pathWithFile)) return null;
 
             char delim = (pathDelimiter.HasValue) ? pathDelimiter.Value : Path.DirectorySeparatorChar;
             int pos = pathWithFile.LastIndexOf(delim);
@@ -73,7 +73,7 @@ namespace Songhay
         [Obsolete("Since .NET 1.1 use System.IO.Path.GetDirectoryName().")]
         public static string GetPathRoot(string pathWithFile, char? pathDelimiter)
         {
-            if(string.IsNullOrEmpty(pathWithFile)) return null;
+            if(string.IsNullOrWhiteSpace(pathWithFile)) return null;
             string ret = GetFileName(pathWithFile, pathDelimiter);
             return pathWithFile.Replace(ret, string.Empty);
         }
@@ -100,7 +100,7 @@ namespace Songhay
         [Obsolete("Since .NET 4.0 use System.IO.Path.Combine().")]
         public static string JoinPathAndRoot(string path, string root, char? pathDelimiter)
         {
-            if(string.IsNullOrEmpty(path) || string.IsNullOrEmpty(root)) return root;
+            if(string.IsNullOrWhiteSpace(path) || string.IsNullOrWhiteSpace(root)) return root;
 
             char delim = (pathDelimiter.HasValue) ? pathDelimiter.Value : Path.DirectorySeparatorChar;
             path = path.Replace("./", string.Empty);

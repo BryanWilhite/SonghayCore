@@ -87,7 +87,7 @@ namespace Songhay.Tests
 
         static int GetNumberOfDirectoryLevels(string path)
         {
-            if (string.IsNullOrEmpty(path)) return 0;
+            if (string.IsNullOrWhiteSpace(path)) return 0;
             var relative_parent_path_matches = Regex.Matches(path, @"\.\./|\.\.\\");
             return relative_parent_path_matches.Count;
         }

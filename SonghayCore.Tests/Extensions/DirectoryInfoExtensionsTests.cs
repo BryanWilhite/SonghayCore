@@ -14,7 +14,7 @@ namespace Songhay.Tests.Extensions
 
         [Theory]
         [InlineData(0, null)]
-        [InlineData(3, "SonghayCore.xUnit.Tests")]
+        [InlineData(3, "SonghayCore.Tests")]
         public void GetParentDirectory_Test(int expectedNumberOfLevels, string endsWith)
         {
             var path = this.GetType().Assembly.GetPathFromAssembly();

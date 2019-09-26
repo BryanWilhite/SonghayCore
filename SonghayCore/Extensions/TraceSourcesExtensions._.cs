@@ -74,7 +74,7 @@ namespace Songhay.Extensions
 
             if (configuration != null)
             {
-                if (string.IsNullOrEmpty(key)) key = DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey;
+                if (string.IsNullOrWhiteSpace(key)) key = DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey;
                 TraceSources.ConfiguredTraceSourceName = configuration[key];
             }
 

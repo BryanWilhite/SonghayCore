@@ -60,18 +60,18 @@ namespace Songhay.Xml
         /// </remarks>
         public static string GetLocalNameXPathQuery(string namespacePrefixOrUri, string childElementName, string childAttributeName)
         {
-            if (string.IsNullOrEmpty(childElementName)) return null;
+            if (string.IsNullOrWhiteSpace(childElementName)) return null;
 
-            if (string.IsNullOrEmpty(childAttributeName))
+            if (string.IsNullOrWhiteSpace(childAttributeName))
             {
-                return string.IsNullOrEmpty(namespacePrefixOrUri) ?
+                return string.IsNullOrWhiteSpace(namespacePrefixOrUri) ?
                     string.Format("./*[local-name()='{0}']", childElementName)
                     :
                     string.Format("./*[namespace-uri()='{0}' and local-name()='{1}']", namespacePrefixOrUri, childElementName);
             }
             else
             {
-                return string.IsNullOrEmpty(namespacePrefixOrUri) ?
+                return string.IsNullOrWhiteSpace(namespacePrefixOrUri) ?
                     string.Format("./*[local-name()='{0}']/@{1}", childElementName, childAttributeName)
                     :
                     string.Format("./*[namespace-uri()='{0}' and local-name()='{1}']/@{2}", namespacePrefixOrUri, childElementName, childAttributeName);

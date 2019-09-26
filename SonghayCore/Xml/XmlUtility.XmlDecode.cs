@@ -23,7 +23,7 @@ namespace Songhay.Xml
         /// <param name="value">The value.</param>
         public static string XmlEncode(string value)
         {
-            if (string.IsNullOrEmpty(value)) return null;
+            if (string.IsNullOrWhiteSpace(value)) return null;
 
             return value
               .Replace("<", "&lt;")
@@ -39,7 +39,7 @@ namespace Songhay.Xml
         /// <param name="value">The value.</param>
         public static string XmlDecode(string value)
         {
-            if (string.IsNullOrEmpty(value)) return null;
+            if (string.IsNullOrWhiteSpace(value)) return null;
 
             return value
               .Replace("&lt;", "<")

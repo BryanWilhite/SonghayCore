@@ -208,7 +208,7 @@ namespace Songhay.Extensions
 
             request.Credentials = CredentialCache.DefaultNetworkCredentials;
 
-            if ((proxyLocation != null) && (!string.IsNullOrEmpty(proxyLocation.AbsoluteUri)))
+            if ((proxyLocation != null) && (!string.IsNullOrWhiteSpace(proxyLocation.AbsoluteUri)))
                 request.Proxy = new WebProxy(proxyLocation, bypassProxy);
 
             return request;
@@ -229,8 +229,8 @@ namespace Songhay.Extensions
         public static HttpWebRequest WithRequestBody(this HttpWebRequest request, string requestBody, string requestMethod)
         {
             if (request == null) return null;
-            if (string.IsNullOrEmpty(requestBody)) throw new ArgumentNullException("requestBody", "The expected request body is not here.");
-            if (string.IsNullOrEmpty(requestMethod)) throw new ArgumentNullException("method", "The expected request method is not here.");
+            if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException("requestBody", "The expected request body is not here.");
+            if (string.IsNullOrWhiteSpace(requestMethod)) throw new ArgumentNullException("method", "The expected request method is not here.");
 
             request.Method = requestMethod;
 
@@ -251,7 +251,7 @@ namespace Songhay.Extensions
 
             foreach (DictionaryEntry entry in postData)
             {
-                s = (string.IsNullOrEmpty(s))
+                s = (string.IsNullOrWhiteSpace(s))
                     ? string.Format(CultureInfo.InvariantCulture, "{0}={1}", entry.Key, entry.Value)
                     : string.Format(CultureInfo.InvariantCulture, "&{0}={1}", entry.Key, entry.Value);
                 sb.Append(s);

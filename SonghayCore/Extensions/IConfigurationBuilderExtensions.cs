@@ -68,7 +68,7 @@ namespace Songhay.Extensions
 
             var args = new ProgramArgs(Environment.GetCommandLineArgs());
 
-            if (string.IsNullOrEmpty(settingsFileName)) settingsFileName = defaultSettingsFileName;
+            if (string.IsNullOrWhiteSpace(settingsFileName)) settingsFileName = defaultSettingsFileName;
 
             var isBasePathRequired = args.HasArg(ProgramArgs.BasePathRequired, requiresValue: false);
             if (args.HasArg(ProgramArgs.BasePath, isBasePathRequired))
@@ -83,7 +83,7 @@ namespace Songhay.Extensions
                     builder.AddJsonFile(settingsFileName, optional: true, reloadOnChange: true);
                 }
             }
-            else if(!string.IsNullOrEmpty(basePath))
+            else if(!string.IsNullOrWhiteSpace(basePath))
             {
                 if (!Directory.Exists(basePath)) throw new ArgumentException($"{basePath} does not exist.");
                 builder.SetBasePath(basePath);

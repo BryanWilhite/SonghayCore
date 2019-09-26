@@ -36,7 +36,7 @@ namespace Songhay
         /// </remarks>
         public static int CountParentDirectoryChars(string path)
         {
-            if (string.IsNullOrEmpty(path)) return default(int);
+            if (string.IsNullOrWhiteSpace(path)) return default(int);
 
             var parentDirectoryCharsPattern = string.Format(@"\.\.\{0}", Path.DirectorySeparatorChar);
             var matches = Regex.Matches(path, parentDirectoryCharsPattern);
@@ -66,7 +66,7 @@ namespace Songhay
         /// <exception cref="DirectoryNotFoundException">The expected directory is not here.</exception>
         public static DirectoryInfo FindParentDirectoryInfo(string path, string parentName, int levels)
         {
-            if (string.IsNullOrEmpty(path)) throw new DirectoryNotFoundException("The expected directory is not here.");
+            if (string.IsNullOrWhiteSpace(path)) throw new DirectoryNotFoundException("The expected directory is not here.");
 
             var info = new DirectoryInfo(path);
 
@@ -105,8 +105,8 @@ namespace Songhay
         /// </remarks>
         public static string GetCombinedPath(string root, string path)
         {
-            if (string.IsNullOrEmpty(root)) throw new NullReferenceException($"The expected {nameof(root)} is not here.");
-            if (string.IsNullOrEmpty(path)) throw new NullReferenceException($"The expected {nameof(path)} is not here.");
+            if (string.IsNullOrWhiteSpace(root)) throw new NullReferenceException($"The expected {nameof(root)} is not here.");
+            if (string.IsNullOrWhiteSpace(path)) throw new NullReferenceException($"The expected {nameof(path)} is not here.");
 
             return Path.Combine(NormalizePath(root), RemoveConventionalPrefixes(NormalizePath(path)));
         }
@@ -122,7 +122,7 @@ namespace Songhay
         /// </remarks>
         public static string GetParentDirectory(string path, int levels)
         {
-            if (string.IsNullOrEmpty(path)) return path;
+            if (string.IsNullOrWhiteSpace(path)) return path;
 
             levels = Math.Abs(levels);
             if (levels == 0) return path;
@@ -147,7 +147,7 @@ namespace Songhay
         /// </remarks>
         public static DirectoryInfo GetParentDirectoryInfo(string path, int levels)
         {
-            if (string.IsNullOrEmpty(path)) return null;
+            if (string.IsNullOrWhiteSpace(path)) return null;
 
             var info = new DirectoryInfo(path);
 
@@ -179,7 +179,7 @@ namespace Songhay
         /// <returns></returns>
         public static string NormalizePath(string path)
         {
-            if (string.IsNullOrEmpty(path)) return null;
+            if (string.IsNullOrWhiteSpace(path)) return null;
 
             return isForwardSlashSystem ?
                 path.Replace(backSlash, forwardSlash)
@@ -196,7 +196,7 @@ namespace Songhay
         /// <returns></returns>
         public static string RemoveConventionalPrefixes(string path)
         {
-            if (string.IsNullOrEmpty(path)) return null;
+            if (string.IsNullOrWhiteSpace(path)) return null;
 
             return isForwardSlashSystem ?
                 path
@@ -222,7 +222,7 @@ namespace Songhay
         /// </remarks>
         public static string TrimLeadingDirectorySeparatorChars(string path)
         {
-            if (string.IsNullOrEmpty(path)) return path;
+            if (string.IsNullOrWhiteSpace(path)) return path;
             return path.TrimStart(new[] { backSlash, forwardSlash });
         }
 

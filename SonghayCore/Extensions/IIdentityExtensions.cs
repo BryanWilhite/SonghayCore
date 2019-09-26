@@ -17,7 +17,7 @@ namespace Songhay.Extensions
             if (id == null) return null;
 
             var ntlmUserName = id.Name;
-            if (string.IsNullOrEmpty(ntlmUserName)) throw new ArgumentNullException("The expected user name is not here.");
+            if (string.IsNullOrWhiteSpace(ntlmUserName)) throw new ArgumentNullException("The expected user name is not here.");
             return ntlmUserName.Split(new char[] { '\\' }).Last();
         }
     }

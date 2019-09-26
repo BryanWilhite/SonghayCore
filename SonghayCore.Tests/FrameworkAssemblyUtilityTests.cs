@@ -28,7 +28,7 @@ namespace Songhay.Tests
         {
             var assembly = this.GetType().Assembly;
 
-            var proposedLocation = (!string.IsNullOrEmpty(assembly.CodeBase) &&
+            var proposedLocation = (!string.IsNullOrWhiteSpace(assembly.CodeBase) &&
                     !FrameworkFileUtility.IsForwardSlashSystem()) ?
                 assembly.CodeBase.Replace("file:///", string.Empty) :
                 assembly.Location;

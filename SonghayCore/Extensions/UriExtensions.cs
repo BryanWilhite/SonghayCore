@@ -52,7 +52,7 @@ namespace Songhay.Extensions
         {
             if (input == null) return null;
             var query = input.OriginalString.Split('?').Last();
-            if (string.IsNullOrEmpty(query)) return null;
+            if (string.IsNullOrWhiteSpace(query)) return null;
 
             return new Uri(query, UriKind.Relative);
         }

@@ -46,7 +46,7 @@ namespace Songhay.Xml
             var xd = XDocument.Load(path);
 
             XNamespace ns = xd.Root.GetDefaultNamespace();
-            if ((ns != null) && !string.IsNullOrEmpty(ns.ToString())) return OpmlUtility.GetDocument(xd.Root, ns);
+            if ((ns != null) && !string.IsNullOrWhiteSpace(ns.ToString())) return OpmlUtility.GetDocument(xd.Root, ns);
 
             ns = xd.Root.GetNamespaceOfPrefix(nameof(OpmlUtility.rx));
             if (ns == OpmlUtility.rx) return OpmlUtility.GetDocument(xd.Root, OpmlUtility.rx);
@@ -167,10 +167,10 @@ namespace Songhay.Xml
             var s = string.Empty;
 
             s = root.Elements(dateCreated).ToElementValueOrNull();
-            if (!string.IsNullOrEmpty(s)) data.DateCreated = FrameworkTypeUtility.ParseRfc822DateTime(s);
+            if (!string.IsNullOrWhiteSpace(s)) data.DateCreated = FrameworkTypeUtility.ParseRfc822DateTime(s);
 
             s = root.Elements(dateModified).ToElementValueOrNull();
-            if (!string.IsNullOrEmpty(s)) data.DateModified = FrameworkTypeUtility.ParseRfc822DateTime(s);
+            if (!string.IsNullOrWhiteSpace(s)) data.DateModified = FrameworkTypeUtility.ParseRfc822DateTime(s);
 
             return data;
         }

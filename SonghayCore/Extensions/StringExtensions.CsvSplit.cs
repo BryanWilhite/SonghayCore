@@ -19,7 +19,7 @@ namespace Songhay.Extensions
         /// </remarks>
         public static string[] CsvSplit(this String source)
         {
-            if(string.IsNullOrEmpty(source)) return null;
+            if(string.IsNullOrWhiteSpace(source)) return null;
 
             List<string> splitString = new List<string>();
             List<int> slashesToRemove = null;
