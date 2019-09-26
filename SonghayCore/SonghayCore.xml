@@ -3154,6 +3154,14 @@
             1 point = 0.013837 inch
             </remarks>
         </member>
+        <member name="M:Songhay.FrameworkTypeUtility.ConvertLocalToUtc(System.DateTime)">
+            <summary>
+            Converts the specified local <see cref="T:System.DateTime"/> to UTC.
+            </summary>
+            <param name="local">The local <see cref="T:System.DateTime"/></param>
+            <remarks>For detail, see https://stackoverflow.com/a/1820948/22944 </remarks>
+            <returns></returns>
+        </member>
         <member name="M:Songhay.FrameworkTypeUtility.ConvertPointsToInches(System.Single)">
             <summary>
             Converts points as a <see cref="T:System.Single"/>
@@ -7738,6 +7746,18 @@
             <summary>
             Static helper members for XML-related routines.
             </summary>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XElement)">
+            <summary>
+            Get the CDATA value from the specified <see cref="T:System.Xml.Linq.XElement"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Xml.Linq.XElement"/></param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XNode)">
+            <summary>
+            Get the CDATA value from the specified <see cref="T:System.Xml.Linq.XNode"/>.
+            </summary>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String)">
             <summary>

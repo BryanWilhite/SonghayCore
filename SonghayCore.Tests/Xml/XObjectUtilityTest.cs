@@ -14,6 +14,17 @@ namespace Songhay.Tests
         }
 
         [Theory]
+        [InlineData(@"<category domain=""category"" nicename=""root""><![CDATA[root]]></category>", "root")]
+        public void GetCDataValue_Test(string xmlString, string expectedValue)
+        {
+            //arrange
+            var xElement = XElement.Parse(xmlString);
+
+            //assert
+            Assert.Equal(expectedValue, XObjectUtility.GetCDataValue(xElement));
+        }
+
+        [Theory]
         [InlineData("one-text-node-child-at-the-end", "<root><one>one-text-node<one-child>-child</one-child>-at-the-end</one></root>")]
         public void ShouldJoinFlattenedXTextNodes(string expectedValue, string sampleOne)
         {

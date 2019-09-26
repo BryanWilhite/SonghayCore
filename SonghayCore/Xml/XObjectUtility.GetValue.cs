@@ -9,6 +9,25 @@ namespace Songhay.Xml
     public static partial class XObjectUtility
     {
         /// <summary>
+        /// Get the CDATA value from the specified <see cref="XElement"/>.
+        /// </summary>
+        /// <param name="element">The <see cref="XElement"/></param>
+        public static string GetCDataValue(XElement element)
+        {
+            return GetCDataValue(element?.FirstNode);
+        }
+
+        /// <summary>
+        /// Get the CDATA value from the specified <see cref="XNode"/>.
+        /// </summary>
+        /// <param name="node">The <see cref="XNode"/></param>
+        public static string GetCDataValue(XNode node)
+        {
+            var cData = node as XCData;
+            return cData?.Value;
+        }
+
+        /// <summary>
         /// Gets the <see cref="XNode" /> into a <c>local-name()</c>, XPath-predicate query.
         /// </summary>
         /// <param name="childElementName">Name of the child element.</param>

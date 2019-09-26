@@ -91,6 +91,19 @@ namespace Songhay
         }
 
         /// <summary>
+        /// Converts the specified local <see cref="DateTime"/> to UTC.
+        /// </summary>
+        /// <param name="local">The local <see cref="DateTime"/></param>
+        /// <remarks>For detail, see https://stackoverflow.com/a/1820948/22944 </remarks>
+        /// <returns></returns>
+        public static string ConvertLocalToUtc(DateTime local)
+        {
+            return local
+                .ToUniversalTime()
+                .ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'");
+        }
+
+        /// <summary>
         /// Converts points as a <see cref="System.Single"/>
         /// to inches.
         /// </summary>
@@ -172,7 +185,6 @@ namespace Songhay
             Array array = boxedArray as Array;
             return ((array == null) || (array.Length == 0));
         }
-
 
         /// <summary>
         /// Sets the properties of the output <see cref="System.Type" />.
