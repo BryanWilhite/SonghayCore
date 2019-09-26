@@ -34,7 +34,7 @@ namespace Songhay.Publications.Tests.Extensions
 
             // assert
             Assert.NotNull(jFrontMatter);
-            // Assert.Equal(clientId, jFrontMatter.GetValue<string>("clientID"));
+            Assert.Equal(clientId, jFrontMatter.GetValue<string>("clientId"));
         }
     }
 }
