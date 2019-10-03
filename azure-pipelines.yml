@@ -25,10 +25,11 @@ queue:
 
 steps:
 
-- task: DotNetCoreInstaller@0
-  displayName: 'Use .NET Core SDK 2.2.402'
+- task: UseDotNet@2
+  displayName: 'Use .NET Core SDK 2.x'
   inputs:
-    version: 2.2.402
+    packageType: sdk
+    version: 2.x
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
