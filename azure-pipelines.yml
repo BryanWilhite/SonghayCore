@@ -50,16 +50,16 @@ steps:
     projects: '**/$(RepoName).Tests/*.csproj'
     arguments: '--configuration $(BuildConfiguration)'
 
-- task: VSTest@2
-  displayName: 'Visual Studio Test'
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\SonghayCore.Framework.Tests.dll
-
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test (MSTest)'
   inputs:
     command: test
     projects: '**/$(RepoName).MSTest.Tests/*.csproj'
     arguments: '--configuration $(BuildConfiguration)'
+
+- task: VSTest@2
+  displayName: 'Visual Studio Test (Framework)'
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\$(RepoName).Framework.Tests.dll
