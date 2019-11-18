@@ -220,5 +220,19 @@ namespace Songhay.Extensions
             if ((jToken == null) && throwException) throw new NullReferenceException($"The expected {nameof(JToken)} of `{objectPropertyName}` is not here.");
             return jToken.GetValue<TValue>(throwException);
         }
+
+        /// <summary>
+        /// Returns <c>true</c> when <see cref="JObject.Properties"/>
+        /// has a <see cref="JProperty"/> with the specified name.
+        /// </summary>
+        /// <param name="jObject"></param>
+        /// <param name="objectPropertyName"></param>
+        /// <returns></returns>
+        public static bool HasProperty(this JObject jObject, string objectPropertyName)
+        {
+            if (string.IsNullOrWhiteSpace(objectPropertyName)) throw new ArgumentNullException(nameof(objectPropertyName));
+            if (jObject == null) return false;
+            return jObject.Properties().Any(i => i.Name.EqualsInvariant(objectPropertyName));
+        }
     }
 }

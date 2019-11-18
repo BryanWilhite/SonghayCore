@@ -89,6 +89,13 @@ namespace Songhay.Extensions.Tests
             Assert.Equal(expectedValue, jO.GetValue<int>("x"));
         }
 
+        [Theory, InlineData("X", @"{ ""x"": 2 }")]
+        public void ShouldHaveProperty(string expectedPropertyValue, string json)
+        {
+            var jO = JObject.Parse(json);
+            Assert.True(jO.HasProperty(expectedPropertyValue));
+        }
+
         [Theory, InlineData(@"{ ""items"": [], ""otherItems"": null }")]
         public void ShouldNotGetJArray(string json)
         {
