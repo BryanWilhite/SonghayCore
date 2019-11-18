@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿#if NETSTANDARD
+
+using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -28,3 +30,5 @@ namespace Songhay.Extensions
         }
     }
 }
+
+#endif
