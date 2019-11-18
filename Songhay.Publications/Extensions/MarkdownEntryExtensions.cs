@@ -18,6 +18,38 @@ namespace Songhay.Publications.Extensions
         /// <param name="entry">the <see cref="MarkdownEntry" /> entry</param>
         public static MarkdownEntry DoNullCheck(this MarkdownEntry entry)
         {
+            entry.DoNullCheckForFrontMatter();
+
+            entry.DoNullCheckForContent();
+
+            return entry;
+        }
+
+        /// <summary>
+        /// Effectively validates <see cref="MarkdownEntry.Content" />
+        /// </summary>
+        /// <param name="entry">the <see cref="MarkdownEntry" /> entry</param>
+        public static MarkdownEntry DoNullCheckForContent(this MarkdownEntry entry)
+        {
+            if (entry == null)
+            {
+                throw new NullReferenceException($"The expected {nameof(MarkdownEntry)} is not here.");
+            }
+
+            if (string.IsNullOrWhiteSpace(entry.Content))
+            {
+                throw new NullReferenceException($"The expected {nameof(MarkdownEntry.Content)} is not here.");
+            }
+
+            return entry;
+        }
+
+        /// <summary>
+        /// Effectively validates <see cref="MarkdownEntry.FrontMatter" />
+        /// </summary>
+        /// <param name="entry">the <see cref="MarkdownEntry" /> entry</param>
+        public static MarkdownEntry DoNullCheckForFrontMatter(this MarkdownEntry entry)
+        {
             if (entry == null)
             {
                 throw new NullReferenceException($"The expected {nameof(MarkdownEntry)} is not here.");
@@ -26,11 +58,6 @@ namespace Songhay.Publications.Extensions
             if (entry.FrontMatter == null)
             {
                 throw new NullReferenceException($"The expected {nameof(MarkdownEntry.FrontMatter)} is not here.");
-            }
-
-            if (string.IsNullOrWhiteSpace(entry.Content))
-            {
-                throw new NullReferenceException($"The expected {nameof(MarkdownEntry.Content)} is not here.");
             }
 
             return entry;
@@ -116,7 +143,51 @@ namespace Songhay.Publications.Extensions
                     .ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'");
             }
 
-            return entry.WithEdit(i => i.FrontMatter["modificationDate"] = ConvertLocalToUtc(date));
+            return entry.WithEdit(i =>
+            {
+                i.DoNullCheckForFrontMatter();
+
+                var propertyName = "modificationDate";
+
+                if (!i.FrontMatter.HasProperty(propertyName))
+                    throw new FormatException($"The expected date property, `{propertyName ?? "[null]"}`, is not here.");
+
+                i.FrontMatter[propertyName] = ConvertLocalToUtc(date);
+            });
+        }
+
+        /// <summary>
+        /// Returns the <see cref="MarkdownEntry"/>
+        /// based on <see cref="MarkdownEntry.FrontMatter"/>
+        /// with a <c>title</c> property.
+        /// </summary>
+        /// <param name="entry">the <see cref="MarkdownEntry" /> entry</param>
+        /// <returns></returns>
+        public static MarkdownEntry WithContentHeader(this MarkdownEntry entry)
+        {
+            return entry.WithContentHeader(headerLevel: 1);
+        }
+
+        /// <summary>
+        /// Returns the <see cref="MarkdownEntry"/>
+        /// based on <see cref="MarkdownEntry.FrontMatter"/>
+        /// with a <c>title</c> property.
+        /// </summary>
+        /// <param name="entry">the <see cref="MarkdownEntry" /> entry</param>
+        /// <param name="headerLevel"></param>
+        /// <returns></returns>
+        public static MarkdownEntry WithContentHeader(this MarkdownEntry entry, int headerLevel)
+        {
+            entry.DoNullCheckForFrontMatter();
+
+            var propertyName = "title";
+
+            if (!entry.FrontMatter.HasProperty(propertyName))
+                throw new FormatException($"The expected date property, `{propertyName ?? "[null]"}`, is not here.");
+
+            headerLevel = (headerLevel == 0) ? 1 : Math.Abs(headerLevel);
+            var markdownHeader = new string(Enumerable.Repeat('#', (headerLevel > 6) ? 6 : headerLevel).ToArray());
+            return entry.WithEdit(i => i.Content = $"{markdownHeader} {i.FrontMatter[propertyName]}{MarkdownEntry.NewLine}{MarkdownEntry.NewLine}");
         }
 
         /// <summary>
@@ -134,8 +205,7 @@ namespace Songhay.Publications.Extensions
                 documentId: 0, fileName: "index.html", path: path, segmentId: 0, tag: tag)
                 .WithEdit(i => i.FrontMatter["clientId"] = $"{inceptDate.ToString("yyyy-MM-dd")}-{i.FrontMatter["clientId"]}")
                 .WithEdit(i => i.FrontMatter["documentShortName"] = i.FrontMatter["clientId"])
-                .WithEdit(i => i.FrontMatter["path"] = $"{i.FrontMatter["path"]}{i.FrontMatter["clientId"]}")
-                .WithEdit(i => i.Content = $"## {i.FrontMatter["title"]}{MarkdownEntry.NewLine}");
+                .WithEdit(i => i.FrontMatter["path"] = $"{i.FrontMatter["path"]}{i.FrontMatter["clientId"]}");
         }
 
         /// <summary>

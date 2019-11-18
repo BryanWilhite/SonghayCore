@@ -98,14 +98,14 @@ namespace Songhay.Publications.Tests.Extensions
         }
 
         [Fact]
-        public void WithNew11tyFrontMatterAndTouch_Test()
+        public void WithNew11tyFrontMatterAndContentHeaderAndTouch_Test()
         {
             //arrange
             var title = "Hello World!";
             var inceptDate = DateTime.Now.AddSeconds(-3);
             var entry = new MarkdownEntry()
                 .WithNew11tyFrontMatter(title, inceptDate, "/path/to/entry/", "entry_tag")
-                .WithEdit(i => i.Content = $"##{title}{MarkdownEntry.NewLine}{MarkdownEntry.NewLine}");
+                .WithContentHeader();
 
             //act
             this._testOutputHelper.WriteLine(entry.ToFinalEdit());
