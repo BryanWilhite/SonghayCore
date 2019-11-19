@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Songhay.Publications.Tests
 {
-    public class MarkdownEntryContextTests
+    public class MarkdownEntryUtilityTests
     {
         [DebuggerAttachedTheory]
         [InlineData("../../../markdown/presentation-drafts", "Hello World!")]
@@ -13,7 +13,7 @@ namespace Songhay.Publications.Tests
         {
             entryRoot = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, entryRoot);
 
-            var entry = MarkdownEntryContext.GenerateEntryFor11ty(entryRoot, title);
+            var entry = MarkdownEntryUtility.GenerateEntryFor11ty(entryRoot, title);
 
             Assert.NotNull(entry);
             Assert.True(File.Exists(FrameworkFileUtility.GetCombinedPath(entryRoot, $"{entry.FrontMatter.GetValue<string>("clientId")}.md")));
@@ -26,7 +26,7 @@ namespace Songhay.Publications.Tests
             entryRoot = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, entryRoot);
             presentationRoot = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, presentationRoot);
 
-            var path = MarkdownEntryContext.PublishEntryFor11ty(entryRoot, presentationRoot, fileName);
+            var path = MarkdownEntryUtility.PublishEntryFor11ty(entryRoot, presentationRoot, fileName);
 
             Assert.True(File.Exists(path));
 

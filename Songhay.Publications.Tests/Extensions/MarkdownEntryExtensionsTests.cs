@@ -1,4 +1,5 @@
-﻿using Songhay.Extensions;
+﻿using Newtonsoft.Json.Linq;
+using Songhay.Extensions;
 using Songhay.Publications.Extensions;
 using Songhay.Publications.Models;
 using Songhay.Tests;
@@ -95,6 +96,22 @@ namespace Songhay.Publications.Tests.Extensions
 
             //assert
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("Hello World!", "It was the best of times.", "./path", null, 8)]
+        public void With11tyExtract_Test(string title, string content, string path, string tag, int length)
+        {
+            var entry = (new MarkdownEntry())
+                .WithNew11tyFrontMatter(title, DateTime.Now, path, tag)
+                .WithContentHeader()
+                .WithEdit(i => i.Content = string.Concat(i.Content, content))
+                .With11tyExtract(length);
+            var jO = JObject.Parse(entry.FrontMatter.GetValue<string>("tag"));
+            Assert.NotNull(jO);
+
+            var extract = jO.GetValue<string>("extract");
+            Assert.False(string.IsNullOrWhiteSpace(extract));
         }
 
         [Fact]

@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using Markdig;
 using Newtonsoft.Json.Linq;
 using Songhay.Extensions;
 using Songhay.Publications.Models;
@@ -61,6 +62,25 @@ namespace Songhay.Publications.Extensions
             }
 
             return entry;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="MarkdownEntry"/>
+        /// to an extract of the specified length
+        /// </summary>
+        /// <param name="entry">the <see cref="MarkdownEntry" /></param>
+        /// <param name="length">the string-length of the extract</param>
+        /// <returns></returns>
+        public static string ToExtract(this MarkdownEntry entry, int length)
+        {
+            var paragraphs = entry.ToParagraphs();
+            var skip = paragraphs.Count() > 1 ? 1 : 0;
+            var content = paragraphs.Skip(1).Aggregate(string.Empty, (a, i) => $"{a} {i}");
+            content = Markdown.ToPlainText(content);
+
+            return (content.Length > length) ?
+                string.Concat(content.Substring(0, length), "…") :
+                content;
         }
 
         /// <summary>
@@ -129,6 +149,22 @@ namespace Songhay.Publications.Extensions
         }
 
         /// <summary>
+        /// Converts <see cref="MarkdownEntry.Content" /> to paragraphs
+        /// </summary>
+        /// <param name="entry">the <see cref="MarkdownEntry" /> entry</param>
+        public static string[] ToParagraphs(this MarkdownEntry entry)
+        {
+            entry.DoNullCheck();
+
+            var delimiter = new string[] { $"{MarkdownEntry.NewLine}{MarkdownEntry.NewLine}" };
+
+            var paragraphs = entry.Content
+                .Trim()
+                .Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+            return paragraphs;
+        }
+
+        /// <summary>
         /// Sets the modification date of the <see cref="MarkdownEntry" />.
         /// </summary>
         /// <param name="entry">the <see cref="MarkdownEntry" /> entry</param>
@@ -154,6 +190,48 @@ namespace Songhay.Publications.Extensions
 
                 i.FrontMatter[propertyName] = ConvertLocalToUtc(date);
             });
+        }
+
+        /// <summary>
+        /// Returns the <see cref="MarkdownEntry"/>
+        /// with the conventional eleventy extract
+        /// of the specified length.
+        /// </summary>
+        /// <param name="entry">the <see cref="MarkdownEntry" /></param>
+        /// <param name="length">the string-length of the extract</param>
+        /// <returns></returns>
+        public static MarkdownEntry With11tyExtract(this MarkdownEntry entry, int length)
+        {
+            entry.WithEdit(i =>
+            {
+                string UpdateExtractAndReturnTag(string s, string e)
+                {
+                    var extractPropertyName = "extract";
+
+                    var jO = s.TrimStart().StartsWith("{") ?
+                        JObject.Parse(s) :
+                        JObject.FromObject(new { legacy = s });
+
+                    if (!jO.HasProperty(extractPropertyName))
+                    {
+                        jO.Add(extractPropertyName, null);
+                    }
+
+                    jO[extractPropertyName] = e;
+                    return jO.ToString();
+                }
+
+                var tagPropertyName = "tag";
+                var tagToken = i.FrontMatter.GetValue<JToken>(tagPropertyName);
+
+                var extract = i.ToExtract(length);
+
+                i.FrontMatter[tagPropertyName] = tagToken.HasValues ?
+                    UpdateExtractAndReturnTag(tagToken.GetValue<string>(), extract) :
+                    JObject.FromObject(new { extract }).ToString();
+            });
+
+            return entry;
         }
 
         /// <summary>
@@ -188,6 +266,17 @@ namespace Songhay.Publications.Extensions
             headerLevel = (headerLevel == 0) ? 1 : Math.Abs(headerLevel);
             var markdownHeader = new string(Enumerable.Repeat('#', (headerLevel > 6) ? 6 : headerLevel).ToArray());
             return entry.WithEdit(i => i.Content = $"{markdownHeader} {i.FrontMatter[propertyName]}{MarkdownEntry.NewLine}{MarkdownEntry.NewLine}");
+        }
+
+        /// <summary>
+        /// Edits the <see cref="MarkdownEntry" /> with the specified edit action.
+        /// </summary>
+        /// <param name="entry">the <see cref="MarkdownEntry" /></param>
+        /// <param name="editAction">the edit <see cref="Action{MarkdownEntry}" /></param>
+        public static MarkdownEntry WithEdit(this MarkdownEntry entry, Action<MarkdownEntry> editAction)
+        {
+            editAction?.Invoke(entry);
+            return entry;
         }
 
         /// <summary>
@@ -256,33 +345,6 @@ namespace Songhay.Publications.Extensions
 
             entry.FrontMatter = JObject.FromObject(fm);
 
-            return entry;
-        }
-
-        /// <summary>
-        /// Converts <see cref="MarkdownEntry.Content" /> to paragraphs
-        /// </summary>
-        /// <param name="entry">the <see cref="MarkdownEntry" /> entry</param>
-        public static string[] ToParagraphs(this MarkdownEntry entry)
-        {
-            entry.DoNullCheck();
-
-            var delimiter = new string[] { $"{MarkdownEntry.NewLine}{MarkdownEntry.NewLine}" };
-
-            var paragraphs = entry.Content
-                .Trim()
-                .Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
-            return paragraphs;
-        }
-
-        /// <summary>
-        /// Edits the <see cref="MarkdownEntry" /> with the specified edit action.
-        /// </summary>
-        /// <param name="entry"></param>
-        /// <param name="editAction">the edit <see cref="Action{MarkdownEntry}" /></param>
-        public static MarkdownEntry WithEdit(this MarkdownEntry entry, Action<MarkdownEntry> editAction)
-        {
-            editAction?.Invoke(entry);
             return entry;
         }
     }

@@ -11,7 +11,7 @@ namespace Songhay.Publications
     /// <summary>
     /// Shares routines for <see cref="MarkdownEntry"/>.
     /// </summary>
-    public static class MarkdownEntryContext
+    public static class MarkdownEntryUtility
     {
         /// <summary>
         /// Generates or overwrites a <see cref="MarkdownEntry"/> file
