@@ -6757,13 +6757,22 @@
             <param name="basePath">The base path.</param>
             <returns></returns>
         </member>
-        <member name="M:Songhay.ProgramUtility.LoadConfiguration(System.String,System.Func{Microsoft.Extensions.Configuration.IConfigurationBuilder,Microsoft.Extensions.Configuration.IConfigurationBuilder})">
+        <member name="M:Songhay.ProgramUtility.LoadConfiguration(System.String,System.String[])">
             <summary>
-            Loads the configuration.
+            Loads the built configuration.
             </summary>
             <param name="basePath">The base path.</param>
-            <param name="passThroughBuilder">The pass builder.</param>
-            <returns></returns>
+            <param name="requiredJsonConfigurationFiles">specify any additional JSON configuration files before build</param>
+            <returns>Returns the built configuration.</returns>
+        </member>
+        <member name="M:Songhay.ProgramUtility.LoadConfiguration(System.String,System.Func{Microsoft.Extensions.Configuration.IConfigurationBuilder,Microsoft.Extensions.Configuration.IConfigurationBuilder},System.String[])">
+            <summary>
+            Loads the built configuration.
+            </summary>
+            <param name="basePath">The base path.</param>
+            <param name="builderModifier">Allows modification of <see cref="T:Microsoft.Extensions.Configuration.ConfigurationBuilder"/> before build.</param>
+            <param name="requiredJsonConfigurationFiles">specify any additional JSON configuration files before build</param>
+            <returns>Returns the built configuration.</returns>
         </member>
         <member name="M:Songhay.ProgramUtility.HandleDebug">
             <summary>
