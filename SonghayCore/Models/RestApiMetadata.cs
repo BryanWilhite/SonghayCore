@@ -10,6 +10,37 @@ namespace Songhay.Models
     public class RestApiMetadata
     {
         /// <summary>
+        /// A convential name representing an API key
+        /// to sent in the HTTP headers for authentication.
+        /// </summary>
+        /// <remarks>
+        /// Usually <c>"headerAuthorization": "Authorization"</c>.
+        /// 
+        /// See https://docs.microsoft.com/en-us/rest/api/azure/#request-header
+        /// </remarks>
+        public const string ClaimsSetHeaderApiAuthorization = "headerAuthorization";
+
+        /// <summary>
+        /// A convential name representing an API key
+        /// to sent in the HTTP headers for authentication.
+        /// </summary>
+        /// <remarks>
+        /// Usually <c>"headerContentType": "Content-Type"</c>.
+        /// 
+        /// See https://docs.microsoft.com/en-us/rest/api/azure/#request-header
+        /// </remarks>
+        public const string ClaimsSetHeaderApiContentType = "headerContentType";
+
+        /// <summary>
+        /// A convential name representing an API key
+        /// to sent in the HTTP headers for authentication.
+        /// </summary>
+        /// <remarks>
+        /// Usually <c>"headerKey": "X-ApiKey"</c>.
+        /// </remarks>
+        public const string ClaimsSetHeaderApiKey = "headerKey";
+
+        /// <summary>
         /// Gets or sets the API base.
         /// </summary>
         /// <value>

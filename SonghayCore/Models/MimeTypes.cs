@@ -1,8 +1,12 @@
 ﻿namespace Songhay.Models
 {
     /// <summary>
-    /// Selected MIME types
+    /// Selected MIME types for this Studio
     /// </summary>
+    /// <remarks>
+    /// Multipurpose Internet Mail Extensions: https://tools.ietf.org/html/rfc6838
+    /// See: https://www.iana.org/assignments/media-types/media-types.xhtml
+    /// </remarks>
     public static class MimeTypes
     {
         /// <summary>
