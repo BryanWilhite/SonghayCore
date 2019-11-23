@@ -14,10 +14,10 @@ namespace Songhay
     {
         /// <summary>
         /// Converts Unix time stamps
-        /// to <see cref="System.DateTime"/>.
+        /// to <see cref="DateTime"/>.
         /// </summary>
-        /// <param name="time">A <see cref="System.Double"/>.</param>
-        /// <returns>A <see cref="System.DateTime"/>.</returns>
+        /// <param name="time">A <see cref="Double"/>.</param>
+        /// <returns>A <see cref="DateTime"/>.</returns>
         public static DateTime ConvertDateTimeFromUnixTime(double time)
         {
             return (new DateTime(1970, 1, 1, 0, 0, 0)).AddSeconds(time);
@@ -58,7 +58,7 @@ namespace Songhay
         /// Converts the current time
         /// to a Unix time stamp.
         /// </summary>
-        /// <returns>A <see cref="System.Double"/>.</returns>
+        /// <returns>A <see cref="Double"/>.</returns>
         public static double ConvertDateTimeToUnixTime()
         {
             return (DateTime.UtcNow
@@ -66,11 +66,11 @@ namespace Songhay
         }
 
         /// <summary>
-        /// Converts a <see cref="System.DateTime"/>
+        /// Converts a <see cref="DateTime"/>
         /// to a Unix time stamp.
         /// </summary>
-        /// <param name="dateValue">The <see cref="System.DateTime"/>.</param>
-        /// <returns>A <see cref="System.Double"/>.</returns>
+        /// <param name="dateValue">The <see cref="DateTime"/>.</param>
+        /// <returns>A <see cref="Double"/>.</returns>
         public static double ConvertDateTimeToUnixTime(DateTime dateValue)
         {
             return (dateValue.ToUniversalTime()
@@ -78,7 +78,23 @@ namespace Songhay
         }
 
         /// <summary>
-        /// Converts inches as a <see cref="System.Single"/>
+        /// Converts a <see cref="DateTime"/>
+        /// to UTC (ISO 8601).
+        /// </summary>
+        /// <param name="dateValue">The <see cref="DateTime"/>.</param>
+        /// <remarks>
+        /// For detail, see https://stackoverflow.com/a/1728437/22944
+        /// </remarks>
+        /// <returns></returns>
+        public static string ConvertDateTimeToUtc(DateTime dateValue)
+        {
+            return dateValue
+                .ToUniversalTime()
+                .ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'");
+        }
+
+        /// <summary>
+        /// Converts inches as a <see cref="Single"/>
         /// to points.
         /// </summary>
         /// <param name="inches">The inches.</param>
@@ -91,20 +107,7 @@ namespace Songhay
         }
 
         /// <summary>
-        /// Converts the specified local <see cref="DateTime"/> to UTC.
-        /// </summary>
-        /// <param name="local">The local <see cref="DateTime"/></param>
-        /// <remarks>For detail, see https://stackoverflow.com/a/1820948/22944 </remarks>
-        /// <returns></returns>
-        public static string ConvertLocalToUtc(DateTime local)
-        {
-            return local
-                .ToUniversalTime()
-                .ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'");
-        }
-
-        /// <summary>
-        /// Converts points as a <see cref="System.Single"/>
+        /// Converts points as a <see cref="Single"/>
         /// to inches.
         /// </summary>
         /// <param name="points">The points.</param>
@@ -164,7 +167,7 @@ namespace Songhay
 
         /// <summary>
         /// Returns <c>true</c> when the specified value
-        /// is <c>null</c> or <see cref="System.String.Empty"/>.
+        /// is <c>null</c> or <see cref="String.Empty"/>.
         /// </summary>
         /// <param name="boxedString">The framework value.</param>
         public static bool IsNullOrEmptyString(object boxedString)
@@ -187,7 +190,7 @@ namespace Songhay
         }
 
         /// <summary>
-        /// Sets the properties of the output <see cref="System.Type" />.
+        /// Sets the properties of the output <see cref="Type" />.
         /// </summary>
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <typeparam name="TOut">The type of the out.</typeparam>
@@ -202,7 +205,7 @@ namespace Songhay
         }
 
         /// <summary>
-        /// Sets the properties of the output <see cref="System.Type" />.
+        /// Sets the properties of the output <see cref="Type" />.
         /// </summary>
         /// <typeparam name="TIn">The type of the in.</typeparam>
         /// <typeparam name="TOut">The type of the out.</typeparam>
@@ -265,10 +268,10 @@ namespace Songhay
 
         /// <summary>
         /// Returns the conventional database null
-        /// (<see cref="System.DBNull"/>)
+        /// (<see cref="DBNull"/>)
         /// for Microsoft SQL Server systems.
         /// </summary>
-        /// <returns><see cref="System.DBNull"/></returns>
+        /// <returns><see cref="DBNull"/></returns>
         public static DBNull SqlDatabaseNull()
         {
             return DBNull.Value;
