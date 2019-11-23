@@ -1284,6 +1284,19 @@
              When <see cref="F:Songhay.Models.ProgramArgs.SettingsFile"/> is not specified then <see cref="F:Songhay.Extensions.IConfigurationBuilderExtensions.defaultSettingsFileName"/> will be used.
              </remarks>
         </member>
+        <member name="T:Songhay.Extensions.IContractResolverExtensions">
+            <summary>
+            Extensions of <see cref="T:Newtonsoft.Json.Serialization.IContractResolver"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IContractResolverExtensions.ToJsonSerializerSettings(Newtonsoft.Json.Serialization.IContractResolver)">
+            <summary>
+            Converts the <see cref="T:Newtonsoft.Json.Serialization.IContractResolver" />
+            to <see cref="T:Newtonsoft.Json.JsonSerializerSettings" />.
+            </summary>
+            <param name="resolver">The resolver.</param>
+            <returns></returns>
+        </member>
         <member name="T:Songhay.Extensions.IDictionaryExtensions">
             <summary>
             Extensions of <see cref="T:System.Collections.IDictionary"/>
@@ -1495,6 +1508,30 @@
             <summary>
             Extensions of <see cref="T:Newtonsoft.Json.Linq.JObject"/>
             </summary>
+        </member>
+        <member name="M:Songhay.Extensions.JObjectExtensions.FromJObject``2(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Converts to <see cref="!:TDomainData" /> from <see cref="T:Newtonsoft.Json.Linq.JObject" />.
+            </summary>
+            <typeparam name="TInterface">The type of the interface.</typeparam>
+            <typeparam name="TDomainData">The type of the domain data.</typeparam>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject" />.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.JObjectExtensions.FromJObject``2(Newtonsoft.Json.Linq.JObject,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Converts to <see cref="!:TDomainData" /> from <see cref="T:Newtonsoft.Json.Linq.JObject" />.
+            </summary>
+            <typeparam name="TInterface">The type of the interface.</typeparam>
+            <typeparam name="TDomainData">The type of the domain data.</typeparam>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject" />.</param>
+            <param name="settings">The settings.</param>
+            <returns></returns>
+            <remarks>
+            The default <see cref="T:Newtonsoft.Json.JsonSerializerSettings" />
+            from <see cref="!:GenericWebContext.GetJsonSerializerSettings&lt;TDomainData&gt;" />
+            assumes <c>TDomainData</c> derives from an Interface.
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.JObjectExtensions.GetDictionary(Newtonsoft.Json.Linq.JObject,System.String)">
             <summary>
@@ -3737,6 +3774,19 @@
             [http://www.cumbrowski.com/CarstenC/articles/20070623_Title_Capitalization_in_the_English_Language.asp]
             </summary>
         </member>
+        <member name="T:Songhay.JsonSerializationUtility">
+            <summary>
+            static members for JSON serialization
+            </summary>
+        </member>
+        <member name="M:Songhay.JsonSerializationUtility.GetConventionalResolver``1(System.Boolean)">
+            <summary>
+            Gets the conventional resolver.
+            </summary>
+            <typeparam name="TInterface">The type of the interface.</typeparam>
+            <param name="useJavaScriptCase">if set to <c>true</c> [use java script case].</param>
+            <returns></returns>
+        </member>
         <member name="T:Songhay.MathUtility">
             <summary>
             Static helpers for Math.
@@ -4397,6 +4447,40 @@
             <summary>
             Returns `true` when group is visually collapsed
             </summary>
+        </member>
+        <member name="T:Songhay.Models.InterfaceContractResolver`1">
+            <summary>
+            JSON.NET Contract Resolver to serialize a type through another type
+            (usually an interface).
+            </summary>
+            <typeparam name="TInterface">The type of the interface.</typeparam>
+        </member>
+        <member name="M:Songhay.Models.InterfaceContractResolver`1.CreateProperties(System.Type,Newtonsoft.Json.MemberSerialization)">
+            <summary>
+            Creates properties for the given <see cref="T:Newtonsoft.Json.Serialization.JsonContract" />.
+            </summary>
+            <param name="type">The type to create properties for.</param>
+            <param name="memberSerialization">The member serialization mode for the type.</param>
+            <returns>
+            Properties for the given <see cref="T:Newtonsoft.Json.Serialization.JsonContract" />.
+            </returns>
+        </member>
+        <member name="T:Songhay.Models.InterfaceContractResolverWithCamelCasing`1">
+            <summary>
+            JSON.NET Contract Resolver to serialize a type through another type
+            (usually an interface).
+            </summary>
+            <typeparam name="TInterface">The type of the interface.</typeparam>
+        </member>
+        <member name="M:Songhay.Models.InterfaceContractResolverWithCamelCasing`1.CreateProperties(System.Type,Newtonsoft.Json.MemberSerialization)">
+            <summary>
+            Creates properties for the given <see cref="T:Newtonsoft.Json.Serialization.JsonContract" />.
+            </summary>
+            <param name="type">The type to create properties for.</param>
+            <param name="memberSerialization">The member serialization mode for the type.</param>
+            <returns>
+            Properties for the given <see cref="T:Newtonsoft.Json.Serialization.JsonContract" />.
+            </returns>
         </member>
         <member name="T:Songhay.Models.IRepository">
             <summary>
@@ -6654,6 +6738,37 @@
                 “Pack URIs in WPF” (http://msdn.microsoft.com/en-us/library/aa970069.aspx)
                 “The "pack" URI Scheme” (http://tools.ietf.org/html/draft-shur-pack-uri-scheme-05)
             </remarks>
+        </member>
+        <member name="T:Songhay.ProgramUtility">
+            <summary>
+            Defines shared routines for Studio programs
+            </summary>
+        </member>
+        <member name="M:Songhay.ProgramUtility.InitializeTraceSource(System.Diagnostics.TraceListener)">
+            <summary>
+            Initializes the trace source.
+            </summary>
+            <param name="listener">The listener.</param>
+        </member>
+        <member name="M:Songhay.ProgramUtility.LoadConfiguration(System.String)">
+            <summary>
+            Loads the configuration.
+            </summary>
+            <param name="basePath">The base path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.ProgramUtility.LoadConfiguration(System.String,System.Func{Microsoft.Extensions.Configuration.IConfigurationBuilder,Microsoft.Extensions.Configuration.IConfigurationBuilder})">
+            <summary>
+            Loads the configuration.
+            </summary>
+            <param name="basePath">The base path.</param>
+            <param name="passThroughBuilder">The pass builder.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.ProgramUtility.HandleDebug">
+            <summary>
+            Handles the debug.
+            </summary>
         </member>
         <member name="T:Songhay.Text.CsvExporter`1">
             <summary>

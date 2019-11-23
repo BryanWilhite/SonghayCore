@@ -1,4 +1,6 @@
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Songhay.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,45 @@ namespace Songhay.Extensions
     /// </summary>
     public static class JObjectExtensions
     {
+        /// <summary>
+        /// Converts to <see cref="TDomainData" /> from <see cref="JObject" />.
+        /// </summary>
+        /// <typeparam name="TInterface">The type of the interface.</typeparam>
+        /// <typeparam name="TDomainData">The type of the domain data.</typeparam>
+        /// <param name="jObject">The <see cref="JObject" />.</param>
+        /// <returns></returns>
+        public static TDomainData FromJObject<TInterface, TDomainData>(this JObject jObject)
+            where TDomainData : class
+            where TInterface : class
+        {
+            return jObject.FromJObject<TInterface, TDomainData>(settings: null);
+        }
+
+        /// <summary>
+        /// Converts to <see cref="TDomainData" /> from <see cref="JObject" />.
+        /// </summary>
+        /// <typeparam name="TInterface">The type of the interface.</typeparam>
+        /// <typeparam name="TDomainData">The type of the domain data.</typeparam>
+        /// <param name="jObject">The <see cref="JObject" />.</param>
+        /// <param name="settings">The settings.</param>
+        /// <returns></returns>
+        /// <remarks>
+        /// The default <see cref="JsonSerializerSettings" />
+        /// from <see cref="GenericWebContext.GetJsonSerializerSettings{TDomainData}" />
+        /// assumes <c>TDomainData</c> derives from an Interface.
+        /// </remarks>
+        public static TDomainData FromJObject<TInterface, TDomainData>(this JObject jObject, JsonSerializerSettings settings)
+            where TDomainData : class
+            where TInterface : class
+        {
+            if (jObject == null) return null;
+            if (settings == null) settings = new InterfaceContractResolver<TInterface>().ToJsonSerializerSettings();
+
+            var domainData = jObject.ToObject<TDomainData>(JsonSerializer.Create(settings));
+
+            return domainData;
+        }
+
         /// <summary>
         /// Gets the <see cref="Dictionary{TKey, TValue}"/>.
         /// </summary>

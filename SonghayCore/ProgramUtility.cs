@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿#if NETSTANDARD
+
+using Microsoft.Extensions.Configuration;
 using Songhay.Diagnostics;
 using Songhay.Extensions;
 using System;
@@ -74,3 +76,5 @@ namespace Songhay
         }
     }
 }
+
+#endif
