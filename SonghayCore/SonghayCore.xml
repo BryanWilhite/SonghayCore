@@ -1511,7 +1511,7 @@
         </member>
         <member name="M:Songhay.Extensions.JObjectExtensions.FromJObject``2(Newtonsoft.Json.Linq.JObject)">
             <summary>
-            Converts to <see cref="!:TDomainData" /> from <see cref="T:Newtonsoft.Json.Linq.JObject" />.
+            Converts to <c>TDomainData</c> from <see cref="T:Newtonsoft.Json.Linq.JObject" />.
             </summary>
             <typeparam name="TInterface">The type of the interface.</typeparam>
             <typeparam name="TDomainData">The type of the domain data.</typeparam>
@@ -1520,16 +1520,16 @@
         </member>
         <member name="M:Songhay.Extensions.JObjectExtensions.FromJObject``2(Newtonsoft.Json.Linq.JObject,Newtonsoft.Json.JsonSerializerSettings)">
             <summary>
-            Converts to <see cref="!:TDomainData" /> from <see cref="T:Newtonsoft.Json.Linq.JObject" />.
+            Converts to <c>TDomainData</c> from <see cref="T:Newtonsoft.Json.Linq.JObject" />.
             </summary>
             <typeparam name="TInterface">The type of the interface.</typeparam>
             <typeparam name="TDomainData">The type of the domain data.</typeparam>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject" />.</param>
-            <param name="settings">The settings.</param>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject" /> in the shape of <c>TInterface</c>.</param>
+            <param name="settings">The <see cref="T:Newtonsoft.Json.JsonSerializerSettings" />.</param>
             <returns></returns>
             <remarks>
             The default <see cref="T:Newtonsoft.Json.JsonSerializerSettings" />
-            from <see cref="!:GenericWebContext.GetJsonSerializerSettings&lt;TDomainData&gt;" />
+            from <see cref="M:Songhay.Extensions.IContractResolverExtensions.ToJsonSerializerSettings(Newtonsoft.Json.Serialization.IContractResolver)" />
             assumes <c>TDomainData</c> derives from an Interface.
             </remarks>
         </member>

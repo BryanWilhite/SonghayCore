@@ -7,9 +7,9 @@ using Xunit.Abstractions;
 namespace Songhay.Extensions.Tests
 {
 
-    public class JObjectExtensionsTest
+    public partial class JObjectExtensionsTests
     {
-        public JObjectExtensionsTest(ITestOutputHelper helper)
+        public JObjectExtensionsTests(ITestOutputHelper helper)
         {
             this._testOutputHelper = helper;
         }

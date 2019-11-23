@@ -13,7 +13,7 @@ namespace Songhay.Extensions
     public static class JObjectExtensions
     {
         /// <summary>
-        /// Converts to <see cref="TDomainData" /> from <see cref="JObject" />.
+        /// Converts to <c>TDomainData</c> from <see cref="JObject" />.
         /// </summary>
         /// <typeparam name="TInterface">The type of the interface.</typeparam>
         /// <typeparam name="TDomainData">The type of the domain data.</typeparam>
@@ -27,16 +27,16 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Converts to <see cref="TDomainData" /> from <see cref="JObject" />.
+        /// Converts to <c>TDomainData</c> from <see cref="JObject" />.
         /// </summary>
         /// <typeparam name="TInterface">The type of the interface.</typeparam>
         /// <typeparam name="TDomainData">The type of the domain data.</typeparam>
-        /// <param name="jObject">The <see cref="JObject" />.</param>
-        /// <param name="settings">The settings.</param>
+        /// <param name="jObject">The <see cref="JObject" /> in the shape of <c>TInterface</c>.</param>
+        /// <param name="settings">The <see cref="JsonSerializerSettings" />.</param>
         /// <returns></returns>
         /// <remarks>
         /// The default <see cref="JsonSerializerSettings" />
-        /// from <see cref="GenericWebContext.GetJsonSerializerSettings{TDomainData}" />
+        /// from <see cref="IContractResolverExtensions.ToJsonSerializerSettings(Newtonsoft.Json.Serialization.IContractResolver)" />
         /// assumes <c>TDomainData</c> derives from an Interface.
         /// </remarks>
         public static TDomainData FromJObject<TInterface, TDomainData>(this JObject jObject, JsonSerializerSettings settings)
