@@ -2,12 +2,12 @@
 <package >
   <metadata>
     <id>SonghayCore.MSTest</id>
-    <version>3.0.2</version>
+    <version>3.0.3</version>
     <title>Songhay Core Testing for MSTest2 (and greater)</title>
     <authors>bryan.wilhite@gmail.com</authors>
     <owners>rasx@songhaysystem.com</owners>
     <projectUrl>https://github.com/BryanWilhite/SonghayCore</projectUrl>
-    <iconUrl>https://songhaystorage.blob.core.windows.net/studio-public/songhay_icon.png</iconUrl>
+    <icon>images\songhay_icon.png</icon>
     <license type="file">LICENSE.md</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Extensions of Microsoft.VisualStudio.TestTools.UnitTesting.TestContext for Songhay VSTEST projects</summary>
@@ -19,17 +19,17 @@
       <group targetFramework=".NETFramework4.5.2">
         <dependency id="MSTest.TestAdapter" version="1.4.0" />
         <dependency id="MSTest.TestFramework" version="1.4.0" />
-        <dependency id="SonghayCore" version="3.2.3" />
+        <dependency id="SonghayCore" version="3.2.9" />
       </group>
       <group targetFramework=".NETFramework4.6.2">
         <dependency id="MSTest.TestAdapter" version="1.4.0" />
         <dependency id="MSTest.TestFramework" version="1.4.0" />
-        <dependency id="SonghayCore" version="3.2.3" />
+        <dependency id="SonghayCore" version="3.2.9" />
       </group>
       <group targetFramework=".NETStandard2.0">
         <dependency id="MSTest.TestAdapter" version="1.4.0" />
         <dependency id="MSTest.TestFramework" version="1.4.0" />
-        <dependency id="SonghayCore" version="3.2.3" />
+        <dependency id="SonghayCore" version="3.2.9" />
       </group>
     </dependencies>
   </metadata>
@@ -48,5 +48,6 @@
 
     <file src="**\*.cs" exclude="obj\**" target="src" />
     <file src="..\LICENSE.md" target="" />
+     <file src="..\songhay_icon.png" target="images\" />
   </files>
 </package>

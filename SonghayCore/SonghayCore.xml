@@ -1904,6 +1904,30 @@
             </summary>
             <param name="args">The arguments.</param>
         </member>
+        <member name="T:Songhay.Extensions.ProgramMetadataExtensions">
+            <summary>
+            Extensions of <see cref="T:Songhay.Models.ProgramMetadata"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.ProgramMetadataExtensions.GetConnectionStringWithDecryptedValue(Songhay.Models.ProgramMetadata,System.String)">
+            <summary>
+            Gets the connection string with decrypted value.
+            </summary>
+            <param name="meta">The <see cref="T:Songhay.Models.ProgramMetadata"/>.</param>
+            <param name="connectionStringName">Name of the connection string.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">meta - The expected Songhay System metadata is not here.</exception>
+            <exception cref="T:System.NotSupportedException">connectionStringName</exception>
+        </member>
+        <member name="M:Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(Songhay.Models.ProgramMetadata,System.String)">
+            <summary>
+            Converts <see cref="T:Songhay.Models.ProgramMetadata" />
+            to the conventional <see cref="T:System.Net.Http.Headers.HttpRequestHeaders"/>.
+            </summary>
+            <param name="meta">The <see cref="T:Songhay.Models.ProgramMetadata"/>.</param>
+            <param name="restApiMetadataSetKey">The key for <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/>.</param>
+            <returns></returns>
+        </member>
         <member name="T:Songhay.Extensions.RestApiMetadataExtensions">
             <summary>
             Extensions of <see cref="T:Songhay.Models.RestApiMetadata"/>.
@@ -3203,6 +3227,17 @@
             <param name="dateValue">The <see cref="T:System.DateTime"/>.</param>
             <returns>A <see cref="T:System.Double"/>.</returns>
         </member>
+        <member name="M:Songhay.FrameworkTypeUtility.ConvertDateTimeToUtc(System.DateTime)">
+            <summary>
+            Converts a <see cref="T:System.DateTime"/>
+            to UTC (ISO 8601).
+            </summary>
+            <param name="dateValue">The <see cref="T:System.DateTime"/>.</param>
+            <remarks>
+            For detail, see https://stackoverflow.com/a/1728437/22944
+            </remarks>
+            <returns></returns>
+        </member>
         <member name="M:Songhay.FrameworkTypeUtility.ConvertInchesToPoints(System.Single)">
             <summary>
             Converts inches as a <see cref="T:System.Single"/>
@@ -3212,14 +3247,6 @@
             <remarks>
             1 point = 0.013837 inch
             </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ConvertLocalToUtc(System.DateTime)">
-            <summary>
-            Converts the specified local <see cref="T:System.DateTime"/> to UTC.
-            </summary>
-            <param name="local">The local <see cref="T:System.DateTime"/></param>
-            <remarks>For detail, see https://stackoverflow.com/a/1820948/22944 </remarks>
-            <returns></returns>
         </member>
         <member name="M:Songhay.FrameworkTypeUtility.ConvertPointsToInches(System.Single)">
             <summary>
@@ -4704,8 +4731,12 @@
         </member>
         <member name="T:Songhay.Models.MimeTypes">
             <summary>
-            Selected MIME types
+            Selected MIME types for this Studio
             </summary>
+            <remarks>
+            Multipurpose Internet Mail Extensions: https://tools.ietf.org/html/rfc6838
+            See: https://www.iana.org/assignments/media-types/media-types.xhtml
+            </remarks>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ApplicationAtomXml">
             <summary>
@@ -5264,6 +5295,37 @@
             <summary>
             REST API Metadata
             </summary>
+        </member>
+        <member name="F:Songhay.Models.RestApiMetadata.ClaimsSetHeaderApiAuthorization">
+            <summary>
+            A convential name representing an API key
+            to sent in the HTTP headers for authentication.
+            </summary>
+            <remarks>
+            Usually <c>"headerAuthorization": "Authorization"</c>.
+            
+            See https://docs.microsoft.com/en-us/rest/api/azure/#request-header
+            </remarks>
+        </member>
+        <member name="F:Songhay.Models.RestApiMetadata.ClaimsSetHeaderApiContentType">
+            <summary>
+            A convential name representing an API key
+            to sent in the HTTP headers for authentication.
+            </summary>
+            <remarks>
+            Usually <c>"headerContentType": "Content-Type"</c>.
+            
+            See https://docs.microsoft.com/en-us/rest/api/azure/#request-header
+            </remarks>
+        </member>
+        <member name="F:Songhay.Models.RestApiMetadata.ClaimsSetHeaderApiKey">
+            <summary>
+            A convential name representing an API key
+            to sent in the HTTP headers for authentication.
+            </summary>
+            <remarks>
+            Usually <c>"headerKey": "X-ApiKey"</c>.
+            </remarks>
         </member>
         <member name="P:Songhay.Models.RestApiMetadata.ApiBase">
             <summary>
