@@ -2,6 +2,7 @@
 using Songhay.Extensions;
 using Songhay.Models;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Songhay.Tests.Activities
 {
@@ -18,6 +19,11 @@ namespace Songhay.Tests.Activities
         public void Start(ProgramArgs args)
         {
             traceSource.TraceInformation("Sorry, but the Hello Worlds reports are not yet available :(");
+        }
+
+        public Task<TResult> StartAsync<TResult>(ProgramArgs args)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
