@@ -22,11 +22,7 @@ namespace Songhay.Extensions
             var content = await response.Content.ReadAsStringAsync();
             if (string.IsNullOrWhiteSpace(content)) return null;
 
-            return content.TrimStart().StartsWith("[") ?
-                JArray.Parse(content) as JContainer
-                :
-                JObject.Parse(content) as JContainer
-                ;
+            return JToken.Parse(content) as JContainer;
         }
     }
 }
