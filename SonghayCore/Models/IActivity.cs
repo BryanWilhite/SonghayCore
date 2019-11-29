@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Songhay.Models
+﻿namespace Songhay.Models
 {
     /// <summary>
     /// Defines an Activity in a shell environment.
@@ -23,12 +21,5 @@ namespace Songhay.Models
         /// </summary>
         /// <param name="args">The arguments.</param>
         void Start(ProgramArgs args);
-
-        /// <summary>
-        /// Starts with the specified arguments
-        /// and asynchronously returns <c>TResult</c>.
-        /// </summary>
-        /// <param name="args">The arguments.</param>
-        Task<TResult> StartAsync<TResult>(ProgramArgs args);
     }
 }

@@ -1215,6 +1215,9 @@
             <summary>
             Extensions of <see cref="T:Songhay.Models.IActivity"/>
             </summary>
+            <summary>
+            Extensions of <see cref="T:Songhay.Models.IActivity"/>
+            </summary>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.WithConfiguration(Songhay.Models.IActivity,Microsoft.Extensions.Configuration.IConfigurationRoot)">
             <summary>
@@ -1236,6 +1239,29 @@
             The expected Activity name is not here.
             or
             </exception>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToIActivityOutput``1(Songhay.Models.IActivity)">
+            <summary>
+            Converts the specified <see cref="T:Songhay.Models.IActivity" />
+            to <see cref="T:Songhay.Models.IActivityOutput`1" />.
+            </summary>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <param name="activity">The activity.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The expected Activity name is not here.
+            or</exception>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToIActivityOutput``1(Songhay.Models.IActivity,System.Boolean)">
+            <summary>
+            Converts the specified <see cref="T:Songhay.Models.IActivity" />
+            to <see cref="T:Songhay.Models.IActivityOutput`1" />.
+            </summary>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <param name="activity">The activity.</param>
+            <param name="throwException">if set to <c>true</c> throw exception.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">The expected Activity name is not here.
+            or</exception>
         </member>
         <member name="T:Songhay.Extensions.IConfigurationBuilderExtensions">
             <summary>
@@ -4355,13 +4381,6 @@
             </summary>
             <param name="args">The arguments.</param>
         </member>
-        <member name="M:Songhay.Models.IActivity.StartAsync``1(Songhay.Models.ProgramArgs)">
-            <summary>
-            Starts with the specified arguments
-            and asynchronously returns <c>TResult</c>.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
         <member name="T:Songhay.Models.IActivityConfigurationSupport">
             <summary>
             Defines <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> support
@@ -4373,6 +4392,20 @@
             Adds the configuration.
             </summary>
             <param name="configuration">The configuration.</param>
+        </member>
+        <member name="T:Songhay.Models.IActivityOutput`1">
+            <summary>
+            Extends <see cref="T:Songhay.Models.IActivity"/> with output support.
+            </summary>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <seealso cref="T:Songhay.Models.IActivity" />
+        </member>
+        <member name="M:Songhay.Models.IActivityOutput`1.StartAsync(Songhay.Models.ProgramArgs)">
+            <summary>
+            Starts with the specified arguments
+            and asynchronously returns <c>TResult</c>.
+            </summary>
+            <param name="args">The arguments.</param>
         </member>
         <member name="T:Songhay.Models.IColorable">
             <summary>

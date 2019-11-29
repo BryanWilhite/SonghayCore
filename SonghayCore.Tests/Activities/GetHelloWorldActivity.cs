@@ -3,7 +3,6 @@ using Songhay.Extensions;
 using Songhay.Models;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Songhay.Tests.Activities
 {
@@ -28,11 +27,6 @@ namespace Songhay.Tests.Activities
 
             var worldName = args.GetArgValue(argWorldName);
             traceSource.EnsureTraceSource().TraceInformation($"Hello from world {worldName}!");
-        }
-
-        public Task<TResult> StartAsync<TResult>(ProgramArgs args)
-        {
-            throw new System.NotImplementedException();
         }
 
         void SetupHelp(ProgramArgs args)
