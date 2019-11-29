@@ -1240,26 +1240,29 @@
             or
             </exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToIActivityOutput``1(Songhay.Models.IActivity)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToIActivityOutput``2(Songhay.Models.IActivity)">
             <summary>
             Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityOutput`1" />.
+            to <see cref="T:Songhay.Models.IActivityOutput`2" />.
             </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">The expected Activity name is not here.
             or</exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToIActivityOutput``1(Songhay.Models.IActivity,System.Boolean)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToIActivityOutput``2(Songhay.Models.IActivity,System.Boolean)">
             <summary>
             Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityOutput`1" />.
+            to <see cref="T:Songhay.Models.IActivityOutput`2" />.
             </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
             <param name="throwException">if set to <c>true</c> throw exception.</param>
             <returns></returns>
+            <exception cref="T:System.NullReferenceException">The expected IActivityOutput{TInput, TOutput} is not here.</exception>
             <exception cref="T:System.ArgumentNullException">The expected Activity name is not here.
             or</exception>
         </member>
@@ -4393,19 +4396,22 @@
             </summary>
             <param name="configuration">The configuration.</param>
         </member>
-        <member name="T:Songhay.Models.IActivityOutput`1">
+        <member name="T:Songhay.Models.IActivityOutput`2">
             <summary>
-            Extends <see cref="T:Songhay.Models.IActivity"/> with output support.
+            Extends <see cref="T:Songhay.Models.IActivity" /> with output support.
             </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
             <seealso cref="T:Songhay.Models.IActivity" />
+            <seealso cref="T:Songhay.Models.IActivity" />
         </member>
-        <member name="M:Songhay.Models.IActivityOutput`1.StartAsync(Songhay.Models.ProgramArgs)">
+        <member name="M:Songhay.Models.IActivityOutput`2.StartAsync(`0)">
             <summary>
-            Starts with the specified arguments
+            Starts with the specified input
             and asynchronously returns <c>TResult</c>.
             </summary>
-            <param name="args">The arguments.</param>
+            <param name="input">The input.</param>
+            <returns></returns>
         </member>
         <member name="T:Songhay.Models.IColorable">
             <summary>
