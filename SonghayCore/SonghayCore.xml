@@ -1795,6 +1795,54 @@
             Extensions of <see cref="T:System.Object"/>.
             </summary>
         </member>
+        <member name="M:Songhay.Extensions.ObjectExtensions.IsSerializable``1(System.Object)">
+            <summary>
+            Determines whether the specified throw exception is serializable.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="objectOfDomain">The object of domain.</param>
+            <returns>
+              <c>true</c> if the specified throw exception is serializable; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">The expected serializable Type is not here.</exception>
+            <remarks>
+            For detail, see https://stackoverflow.com/a/945528/22944
+            For background, see https://manski.net/2014/10/net-serializers-comparison-chart/
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.ObjectExtensions.IsSerializable``1(System.Object,System.Boolean)">
+            <summary>
+            Determines whether the specified throw exception is serializable.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="objectOfDomain">The object of domain.</param>
+            <param name="throwException">if set to <c>true</c> throw exception.</param>
+            <returns>
+              <c>true</c> if the specified throw exception is serializable; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">The expected serializable Type is not here.</exception>
+            <remarks>
+            For detail, see https://stackoverflow.com/a/945528/22944
+            For background, see https://manski.net/2014/10/net-serializers-comparison-chart/
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.ObjectExtensions.IsSerializable``1(System.Object,System.Boolean,System.Boolean)">
+            <summary>
+            Determines whether the specified throw exception is serializable.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="objectOfDomain">The object of domain.</param>
+            <param name="shouldExtendISerializable">if set to <c>true</c> should extend <see cref="T:System.Runtime.Serialization.ISerializable"/>.</param>
+            <param name="throwException">if set to <c>true</c> throw exception.</param>
+            <returns>
+              <c>true</c> if the specified throw exception is serializable; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">The expected serializable Type is not here.</exception>
+            <remarks>
+            For detail, see https://stackoverflow.com/a/945528/22944
+            For background, see https://manski.net/2014/10/net-serializers-comparison-chart/
+            </remarks>
+        </member>
         <member name="M:Songhay.Extensions.ObjectExtensions.IsType``1(System.Object)">
             <summary>
             Determines whether this instance is type.
