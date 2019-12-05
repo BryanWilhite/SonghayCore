@@ -1240,10 +1240,31 @@
             or
             </exception>
         </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivity(Songhay.Models.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/>.
+            </summary>
+            <param name="activity">The activity.</param>
+            <param name="args">The arguments.</param>
+            <param name="traceSource">The trace source.</param>
+            <returns>The trace source log.</returns>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <param name="activity">The activity.</param>
+            <param name="input">The input.</param>
+            <param name="traceSource">The trace source.</param>
+            <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
+            <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
+        </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.ToIActivityOutput``2(Songhay.Models.IActivity)">
             <summary>
             Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityOutput`2" />.
+            to <see cref="T:Songhay.Models.IActivityWithOutput`2" />.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -1252,10 +1273,10 @@
             <exception cref="T:System.ArgumentNullException">The expected Activity name is not here.
             or</exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToIActivityOutput``2(Songhay.Models.IActivity,System.Boolean)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithOutput``2(Songhay.Models.IActivity,System.Boolean)">
             <summary>
             Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityOutput`2" />.
+            to <see cref="T:Songhay.Models.IActivityWithOutput`2" />.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -3910,6 +3931,29 @@
             </summary>
             <param name="activities">The activities.</param>
         </member>
+        <member name="T:Songhay.Models.ActivityOutput`1">
+            <summary>
+            Defines the conventional output
+            of <see cref="T:Songhay.Models.IActivityWithOutput`2"/>
+            </summary>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+        </member>
+        <member name="P:Songhay.Models.ActivityOutput`1.Output">
+            <summary>
+            Gets or sets the output.
+            </summary>
+            <value>
+            The output.
+            </value>
+        </member>
+        <member name="P:Songhay.Models.ActivityOutput`1.Log">
+            <summary>
+            Gets or sets the log.
+            </summary>
+            <value>
+            The log.
+            </value>
+        </member>
         <member name="T:Songhay.Models.ColorDisplayItemModel">
             <summary>
             Model for color display
@@ -4396,16 +4440,15 @@
             </summary>
             <param name="configuration">The configuration.</param>
         </member>
-        <member name="T:Songhay.Models.IActivityOutput`2">
+        <member name="T:Songhay.Models.IActivityWithOutput`2">
             <summary>
             Extends <see cref="T:Songhay.Models.IActivity" /> with output support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
             <seealso cref="T:Songhay.Models.IActivity" />
-            <seealso cref="T:Songhay.Models.IActivity" />
         </member>
-        <member name="M:Songhay.Models.IActivityOutput`2.StartAsync(`0)">
+        <member name="M:Songhay.Models.IActivityWithOutput`2.StartAsync(`0)">
             <summary>
             Starts with the specified input
             and asynchronously returns <c>TResult</c>.

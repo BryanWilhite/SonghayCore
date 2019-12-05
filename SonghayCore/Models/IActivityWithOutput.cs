@@ -7,9 +7,8 @@ namespace Songhay.Models
     /// </summary>
     /// <typeparam name="TInput">The type of the input.</typeparam>
     /// <typeparam name="TOutput">The type of the output.</typeparam>
-    /// <seealso cref="Songhay.Models.IActivity" />
     /// <seealso cref="IActivity" />
-    public interface IActivityOutput<TInput, TOutput> : IActivity
+    public interface IActivityWithOutput<TInput, TOutput> : IActivity
     {
         /// <summary>
         /// Starts with the specified input
