@@ -1227,6 +1227,14 @@
             Extensions of <see cref="T:System.Net.Http.HttpResponseMessage"/>.
             </summary>
         </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Returns <c>true</c> when <see cref="T:System.Net.Http.HttpResponseMessage"/>
+            is <see cref="F:System.Net.HttpStatusCode.Moved"/>, <see cref="F:System.Net.HttpStatusCode.MovedPermanently"/>
+            or <see cref="F:System.Net.HttpStatusCode.Redirect"/>.
+            </summary>
+            <param name="response">The response.</param>
+        </member>
         <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.ToJContainerAsync(System.Net.Http.HttpResponseMessage)">
             <summary>
             Converts the specified <see cref="T:System.Net.Http.HttpResponseMessage"/>
@@ -2701,6 +2709,22 @@
             <returns>
             Returns <see cref="T:System.String"/> like: <c>https://MyServer:8080/</c>
             </returns>
+        </member>
+        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)">
+            <summary>
+            Converts the specified <see cref="T:System.Uri" />
+            to its ‘expanded’ version.
+            </summary>
+            <param name="expandableUri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)">
+            <summary>
+            Converts the specified <see cref="T:System.Uri" />
+            to its ‘expanded’ version.
+            </summary>
+            <param name="expandableUri"></param>
+            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)">
             <summary>
