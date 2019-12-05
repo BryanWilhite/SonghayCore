@@ -60,20 +60,20 @@ namespace Songhay.Extensions
             {
                 traceSource?.Listeners.Add(listener);
 
-                ActivityOutput<TOutput> thing = null;
+                var activityOutput = new ActivityOutput<TOutput>();
 
                 try
                 {
                     var activityWithOutput = activity.ToActivityWithOutput<TInput, TOutput>();
-                    thing.Output = await activityWithOutput.StartAsync(input);
+                    activityOutput.Output = await activityWithOutput.StartAsync(input);
                 }
                 finally
                 {
                     listener.Flush();
-                    thing.Log = writer.ToString();
+                    activityOutput.Log = writer.ToString();
                 }
 
-                return thing;
+                return activityOutput;
             }
         }
 
