@@ -64,8 +64,8 @@ namespace Songhay.Extensions
 
                 try
                 {
-                    var activityOutput = activity.ToIActivityOutput<TInput, TOutput>();
-                    thing.Output = await activityOutput.StartAsync(input);
+                    var activityWithOutput = activity.ToActivityWithOutput<TInput, TOutput>();
+                    thing.Output = await activityWithOutput.StartAsync(input);
                 }
                 finally
                 {
@@ -87,7 +87,7 @@ namespace Songhay.Extensions
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">The expected Activity name is not here.
         /// or</exception>
-        public static IActivityWithOutput<TInput, TOutput> ToIActivityOutput<TInput, TOutput>(this IActivity activity)
+        public static IActivityWithOutput<TInput, TOutput> ToActivityWithOutput<TInput, TOutput>(this IActivity activity)
         {
             return activity.ToActivityWithOutput<TInput, TOutput>(throwException: true);
         }
