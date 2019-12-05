@@ -644,6 +644,24 @@
         <member name="T:Songhay.Extensions.DirectoryInfoExtensions">
             <summary>Extensions of <see cref="T:System.IO.DirectoryInfo"/>.</summary>
         </member>
+        <member name="M:Songhay.Extensions.DirectoryInfoExtensions.FindDirectory(System.IO.DirectoryInfo,System.String)">
+            <summary>
+            Finds the specified sub <see cref="T:System.IO.DirectoryInfo"/>
+            under the specified <see cref="T:System.IO.DirectoryInfo"/>.
+            </summary>
+            <param name="directoryInfo">the specified <see cref="T:System.IO.DirectoryInfo"/></param>
+            <param name="expectedDirectoryName">the specified sub <see cref="P:System.IO.DirectoryInfo.Name"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.DirectoryInfoExtensions.FindFile(System.IO.DirectoryInfo,System.String)">
+            <summary>
+            Finds the specified <see cref="T:System.IO.FileInfo"/>
+            under the specified <see cref="T:System.IO.DirectoryInfo"/>.
+            </summary>
+            <param name="directoryInfo">the specified <see cref="T:System.IO.DirectoryInfo"/></param>
+            <param name="expectedFileName">the specified <see cref="P:System.IO.FileInfo.Name"/></param>
+            <returns></returns>
+        </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory(System.IO.DirectoryInfo,System.Int32)">
             <summary>Gets the parent directory.</summary>
             <param name="directoryInfo">The directory information.</param>
@@ -667,6 +685,15 @@
             or
             The expected path is not here.</exception>
             <remarks>For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14.</remarks>
+        </member>
+        <member name="M:Songhay.Extensions.DirectoryInfoExtensions.VerifyDirectory(System.IO.DirectoryInfo,System.String)">
+            <summary>
+            Verifies the specified <see cref="T:System.IO.DirectoryInfo"/>
+            with conventional error handling.
+            </summary>
+            <param name="directoryInfo">the specified <see cref="T:System.IO.DirectoryInfo"/></param>
+            <param name="expectedDirectoryName">the expected directory name</param>
+            <returns></returns>
         </member>
         <member name="T:Songhay.Extensions.DisplayItemModelExtensions">
             <summary>
@@ -1795,52 +1822,21 @@
             Extensions of <see cref="T:System.Object"/>.
             </summary>
         </member>
-        <member name="M:Songhay.Extensions.ObjectExtensions.IsSerializable``1(System.Object)">
+        <member name="M:Songhay.Extensions.ObjectExtensions.IsAssignableToISerializable``1(``0)">
             <summary>
-            Determines whether the specified throw exception is serializable.
+            Determines whether the specified type
+            can be assigned to <see cref="T:System.Runtime.Serialization.ISerializable" />.
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">the specified type</typeparam>
             <param name="objectOfDomain">The object of domain.</param>
             <returns>
               <c>true</c> if the specified throw exception is serializable; otherwise, <c>false</c>.
             </returns>
             <exception cref="T:System.InvalidOperationException">The expected serializable Type is not here.</exception>
             <remarks>
-            For detail, see https://stackoverflow.com/a/945528/22944
+            For detail, see https://stackoverflow.com/a/945528/22944.
             For background, see https://manski.net/2014/10/net-serializers-comparison-chart/
-            </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.ObjectExtensions.IsSerializable``1(System.Object,System.Boolean)">
-            <summary>
-            Determines whether the specified throw exception is serializable.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="objectOfDomain">The object of domain.</param>
-            <param name="throwException">if set to <c>true</c> throw exception.</param>
-            <returns>
-              <c>true</c> if the specified throw exception is serializable; otherwise, <c>false</c>.
-            </returns>
-            <exception cref="T:System.InvalidOperationException">The expected serializable Type is not here.</exception>
-            <remarks>
-            For detail, see https://stackoverflow.com/a/945528/22944
-            For background, see https://manski.net/2014/10/net-serializers-comparison-chart/
-            </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.ObjectExtensions.IsSerializable``1(System.Object,System.Boolean,System.Boolean)">
-            <summary>
-            Determines whether the specified throw exception is serializable.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="objectOfDomain">The object of domain.</param>
-            <param name="shouldExtendISerializable">if set to <c>true</c> should extend <see cref="T:System.Runtime.Serialization.ISerializable"/>.</param>
-            <param name="throwException">if set to <c>true</c> throw exception.</param>
-            <returns>
-              <c>true</c> if the specified throw exception is serializable; otherwise, <c>false</c>.
-            </returns>
-            <exception cref="T:System.InvalidOperationException">The expected serializable Type is not here.</exception>
-            <remarks>
-            For detail, see https://stackoverflow.com/a/945528/22944
-            For background, see https://manski.net/2014/10/net-serializers-comparison-chart/
+            and https://github.com/BryanWilhite/SonghayCore/issues/76
             </remarks>
         </member>
         <member name="M:Songhay.Extensions.ObjectExtensions.IsType``1(System.Object)">
