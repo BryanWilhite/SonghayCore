@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
-        <title>SonghayCore Documentation - API - TestContextExtensions.ShouldFindDirectory(TestContext, string) Method</title>
+        <title>SonghayCore Documentation - API - DirectoryInfoExtensions.FindDirectory(DirectoryInfo, string) Method</title>
         <link href="/SonghayCore/assets/css/highlight.css" rel="stylesheet">
         <link href="/SonghayCore/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/SonghayCore/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -135,22 +135,15 @@
 			<li class="header">Namespace</li>
 		<li><a href="/SonghayCore/api/Songhay.Extensions">Songhay<wbr>.Extensions</a></li>
 		<li class="header">Type</li>
-		<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions">Test<wbr>Context<wbr>Extensions</a></li>
+		<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></li>
 		<li role="separator" class="divider"></li>
 			<li class="header">Method Members</li>
-				<li class="selected"><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/B84FB0F9">ShouldFindDirectory<wbr>(TestContext, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/555BF1AD">ShouldFindFile<wbr>(TestContext, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/5440AE87">ShouldFindFolder<wbr>(TestContext, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/23A4AA17">Should<wbr>Get<wbr>Assembly<wbr>Directory<wbr>(TestContext, <wbr>Type)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/6149C7D0">Should<wbr>Get<wbr>Assembly<wbr>Directory<wbr>Info<wbr>(TestContext, <wbr>Type)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/2998B0EC">Should<wbr>Get<wbr>Assembly<wbr>Directory<wbr>Parent<wbr>(TestContext, <wbr>Type, <wbr>int)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/3ED4E558">Should<wbr>Get<wbr>Conventional<wbr>Project<wbr>Directory<wbr>Info<wbr>(TestContext, <wbr>Type)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/40F50AF3">Should<wbr>Get<wbr>Projects<wbr>Folder<wbr>(TestContext, <wbr>Type)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/1AEE716F">Should<wbr>Get<wbr>Projects<wbr>Folder<wbr>(TestContext, <wbr>Type, <wbr>Func<wbr>&lt;string[], <wbr>string[]&gt;<wbr>)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/FB13587A">Should<wbr>Get<wbr>Sibling<wbr>Directory<wbr>Info<wbr>By<wbr>Name<wbr>(TestContext, <wbr>Type, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/CF276DC5">Should<wbr>Get<wbr>Solution<wbr>Folder<wbr>(TestContext, <wbr>Type)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/5CB6C064">Should<wbr>Get<wbr>Solution<wbr>Folder<wbr>(TestContext, <wbr>Type, <wbr>Func<wbr>&lt;string[], <wbr>string[]&gt;<wbr>)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions/CC15CE5C">Should<wbr>Load<wbr>List<wbr>Of<wbr>Strings<wbr>(TestContext, <wbr>string)<wbr></a></li>
+				<li class="selected"><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions/D18C3CED">FindDirectory<wbr>(DirectoryInfo, <wbr>string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions/B41A6D5B">FindFile<wbr>(DirectoryInfo, <wbr>string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions/688F57EE">GetParentDirectory<wbr>(DirectoryInfo, <wbr>int)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions/AA38E6C8">Get<wbr>Parent<wbr>Directory<wbr>Info<wbr>(DirectoryInfo, <wbr>int)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions/21BE4813">ToCombinedPath<wbr>(DirectoryInfo, <wbr>string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions/A227E924">VerifyDirectory<wbr>(DirectoryInfo, <wbr>string)<wbr></a></li>
 
 
                     </ul>
@@ -165,15 +158,16 @@
 
 
 <section class="content-header">
-			<h3><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions">Test<wbr>Context<wbr>Extensions</a>.</h3>
-	<h1>ShouldFindDirectory<wbr>(TestContext, <wbr>string)<wbr> <small>Method</small></h1>
+			<h3><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a>.</h3>
+	<h1>FindDirectory<wbr>(DirectoryInfo, <wbr>string)<wbr> <small>Method</small></h1>
 </section>
 <section class="content">
 	
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Test context extensions: should find the specified directory.
+    Finds the specified sub <code class="cs">DirectoryInfo</code>
+    under the specified <code class="cs">DirectoryInfo</code>.
     </div>
 
 		<div class="panel panel-default">
@@ -184,14 +178,14 @@
 						<dd><a href="/SonghayCore/api/Songhay.Extensions">Songhay<wbr>.Extensions</a></dd>
 					
 						<dt>Containing Type</dt>
-						<dd><a href="/SonghayCore/api/Songhay.Extensions/TestContextExtensions">Test<wbr>Context<wbr>Extensions</a></dd>		
+						<dd><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></dd>		
 					
 				</dl>
   			</div>
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public static void ShouldFindDirectory(this TestContext context, string path)</code></pre>
+	<pre><code>public static DirectoryInfo FindDirectory(this DirectoryInfo directoryInfo, string expectedDirectoryName)</code></pre>
 
 
 
@@ -209,14 +203,14 @@
 					</tr>
 				</thead>
 					<tbody><tr>
-						<td>context</td>
-						<td>TestContext</td>
-						<td>The context.</td>
+						<td>directoryInfo</td>
+						<td>DirectoryInfo</td>
+						<td>the specified <code class="cs">DirectoryInfo</code></td>
 					</tr>
 					<tr>
-						<td>path</td>
+						<td>expectedDirectoryName</td>
 						<td>string</td>
-						<td>The path.</td>
+						<td>the specified sub <code class="cs">DirectoryInfo.Name</code></td>
 					</tr>
 			</tbody></table>
 		</div>
@@ -233,7 +227,7 @@
 					</tr>
 				</thead>
 				<tbody><tr>
-					<td>void</td>
+					<td>DirectoryInfo</td>
 					<td></td>
 				</tr>
 			</tbody></table>

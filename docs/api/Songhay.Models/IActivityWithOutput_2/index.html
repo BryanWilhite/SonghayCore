@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
-        <title>SonghayCore Documentation - API - TestOrderAttribute Class</title>
+        <title>SonghayCore Documentation - API - IActivityWithOutput&lt;TInput, TOutput&gt; Interface</title>
         <link href="/SonghayCore/assets/css/highlight.css" rel="stylesheet">
         <link href="/SonghayCore/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/SonghayCore/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -72,8 +72,8 @@
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
 <p><a href="#Syntax">Syntax</a></p>
-<p><a href="#Constructors">Constructors</a></p>
-<p><a href="#Properties">Properties</a></p>
+<p><a href="#TypeParameters">Type Parameters</a></p>
+<p><a href="#Methods">Methods</a></p>
 <p><a href="#ExtensionMethods">Extension Methods</a></p>
 <p><a href="#SeeAlso">See Also</a></p>
 <hr class="infobar-hidden">
@@ -135,12 +135,61 @@
                     <ul class="sidebar-menu">
                         
 			<li class="header">Namespace</li>
-		<li><a href="/SonghayCore/api/Songhay.Tests.Orderers">Songhay<wbr>.Tests<wbr>.Orderers</a></li>
+		<li><a href="/SonghayCore/api/Songhay.Models">Songhay<wbr>.Models</a></li>
 		<li role="separator" class="divider"></li>
 			<li class="header">Class Types</li>
-				<li><a href="/SonghayCore/api/Songhay.Tests.Orderers/OrderedTestBase">OrderedTestBase</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Tests.Orderers/TestCaseOrderer">TestCaseOrderer</a></li>
-				<li class="selected"><a href="/SonghayCore/api/Songhay.Tests.Orderers/TestOrderAttribute">TestOrderAttribute</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/ActivitiesGetter">ActivitiesGetter</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/ActivityOutput_1">ActivityOutput<wbr>&lt;TOutput&gt;<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/ColorDisplayItemModel">Color<wbr>Display<wbr>Item<wbr>Model</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/CorsOrigins">CorsOrigins</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/DataParameterMetadata">Data<wbr>Parameter<wbr>Metadata</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/DbmsMetadata">DbmsMetadata</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/DeploymentEnvironment">Deployment<wbr>Environment</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/DisplayItemModel">DisplayItemModel</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/EditableObjectCache">EditableObjectCache</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/EncryptionMetadata">EncryptionMetadata</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/FrameworkAssemblyInfo">Framework<wbr>Assembly<wbr>Info</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/HierarchicalNameValuePair">Hierarchical<wbr>Name<wbr>Value<wbr>Pair</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/HttpMethods">HttpMethods</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/InterfaceContractResolver_1">Interface<wbr>Contract<wbr>Resolver<wbr>&lt;TInterface&gt;<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/InterfaceContractResolverWithCamelCasing_1">Interface<wbr>Contract<wbr>Resolver<wbr>With<wbr>Camel<wbr>Casing<wbr>&lt;TInterface&gt;<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/LazyDisplayItem_1">LazyDisplayItem<wbr>&lt;T&gt;<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/MenuDisplayItemModel">MenuDisplayItemModel</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/MenuDisplayItemModelGroups">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Groups</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/MimeTypes">MimeTypes</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/NameValuePair">NameValuePair</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/OpenAuthorizationData">Open<wbr>Authorization<wbr>Data</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/OpmlBody">OpmlBody</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/OpmlDocument">OpmlDocument</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/OpmlHead">OpmlHead</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/OpmlOutline">OpmlOutline</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/PackedResource_1">PackedResource<wbr>&lt;TResource&gt;<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/PackedResource">PackedResource</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/PagedResult">PagedResult</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/PagedResultMeta">PagedResultMeta</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/ProgramArgs">ProgramArgs</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/ProgramMetadata">ProgramMetadata</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/RestApiMetadata">RestApiMetadata</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/RestPagingMetadata">RestPagingMetadata</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/SystemErrorCodes">SystemErrorCodes</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/SystemVariable_1">SystemVariable<wbr>&lt;T&gt;<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/SystemVariable">SystemVariable</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/XEncoding">XEncoding</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/XhtmlDocument">XhtmlDocument</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/XhtmlDocuments">XhtmlDocuments</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/XhtmlImage">XhtmlImage</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/XObjectMetadata">XObjectMetadata</a></li>
+			<li class="header">Interface Types</li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></li>
+				<li class="selected"><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IColorable">IColorable</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IControlInteractionMessage">I<wbr>Control<wbr>Interaction<wbr>Message</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IFrameworkAssemblyInfo">I<wbr>Framework<wbr>Assembly<wbr>Info</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IGroupable">IGroupable</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IRepository">IRepository</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/ISelectable">ISelectable</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/ISortable">ISortable</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/ITemporal">ITemporal</a></li>
 
 
                     </ul>
@@ -155,15 +204,14 @@
 
 
 <section class="content-header">
-	<h1>TestOrderAttribute <small>Class</small></h1>
+	<h1>IActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr> <small>Interface</small></h1>
 </section>
 <section class="content">
 	
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Defines the attribute used to order tests
-    by the specified ordinal.
+    Extends <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code> with output support.
     </div>
 
 		<div class="panel panel-default">
@@ -173,16 +221,15 @@
 						<dl class="dl-horizontal">		
 
 								<dt>Namespace</dt>
-								<dd><a href="/SonghayCore/api/Songhay.Tests.Orderers">Songhay<wbr>.Tests<wbr>.Orderers</a></dd>
+								<dd><a href="/SonghayCore/api/Songhay.Models">Songhay<wbr>.Models</a></dd>
 											
-							
-								<dt>Base Types</dt>
+								<dt>Interfaces</dt>
 								<dd>
-									<ul class="list-unstyled">										
-											<li>object</li>								
-											<li>Attribute</li>								
+									<ul class="list-unstyled">
+											<li><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></li>								
 									</ul>
-								</dd>				
+								</dd>
+							
 							
 							
 						</dl>
@@ -190,9 +237,9 @@
 					<div class="col-md-6">
 						<div class="mermaid">
 							graph BT
-	Type--&gt;Base0["Attribute"]
-	Base0--&gt;Base1["object"]
-	Type["TestOrderAttribute"]
+	Type-.-&gt;Interface0["IActivity"]
+	click Interface0 "/SonghayCore/api/Songhay.Models/IActivity"
+	Type["IActivityWithOutput&lt;TInput, TOutput&gt;"]
 class Type type-node
 
 						</div>
@@ -202,7 +249,32 @@ class Type type-node
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public class TestOrderAttribute : Attribute</code></pre>
+	<pre><code>public interface IActivityWithOutput&lt;TInput, TOutput&gt; : IActivity</code></pre>
+
+
+
+
+	<h1 id="TypeParameters">Type Parameters</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover two-cols">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+					<tbody><tr id="typeparam-TInput">
+						<td>TInput</td>
+						<td>The type of the input.</td>
+					</tr>
+					<tr id="typeparam-TOutput">
+						<td>TOutput</td>
+						<td>The type of the output.</td>
+					</tr>
+			</tbody></table>
+		</div>
+	</div>	
 
 
 
@@ -210,32 +282,7 @@ class Type type-node
 
 
 
-			<h1 id="Constructors">Constructors</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover two-cols">
-						<thead>
-							<tr>
-								<th>Name</th>
-									<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/SonghayCore/api/Songhay.Tests.Orderers/TestOrderAttribute/10AFC6CE">TestOrderAttribute<wbr>(int)<wbr></a></td>
-									<td>Initializes a new instance of the <code class="cs"><a href="/SonghayCore/api/Songhay.Tests.Orderers/TestOrderAttribute">TestOrderAttribute</a></code> class.</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Tests.Orderers/TestOrderAttribute/703D639C">TestOrderAttribute<wbr>(int, <wbr>string)<wbr></a></td>
-									<td>Initializes a new instance of the <code class="cs"><a href="/SonghayCore/api/Songhay.Tests.Orderers/TestOrderAttribute">TestOrderAttribute</a></code> class.</td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
-
-
-
-			<h1 id="Properties">Properties</h1>
+			<h1 id="Methods">Methods</h1>
 			<div class="box">
 				<div class="box-body no-padding table-responsive">
 					<table class="table table-striped table-hover three-cols">
@@ -247,24 +294,19 @@ class Type type-node
 							</tr>
 						</thead>
 							<tbody><tr>
-								<td><a href="/SonghayCore/api/Songhay.Tests.Orderers/TestOrderAttribute/451FE3E9">Ordinal</a></td>
-								<td>int</td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2/7C5DD021">StartAsync<wbr>(TInput)<wbr></a></td>
+								<td>Task<wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2#typeparam-TOutput">TOutput</a>&gt;<wbr></td>
 								<td>
-									<div>Gets the ordinal.</div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Tests.Orderers/TestOrderAttribute/DFA0934D">Reason</a></td>
-								<td>string</td>
-								<td>
-									<div>Gets the reason for choosing the order.</div>
+									<div>
+    Starts with the specified input
+    and asynchronously returns <code class="cs">TResult</code>.
+    </div>
 								</td>
 							</tr>
 					</tbody></table>
 				</div>
 			</div>
 		
-
 
 
 			<h1 id="ExtensionMethods">Extension Methods</h1>
@@ -309,6 +351,17 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions/920C8F54">Is<wbr>Assignable<wbr>To<wbr>I<wbr>Serializable<wbr>&lt;<wbr>I<wbr>Activity<wbr>With<wbr>Output<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr>&gt;<wbr><wbr>()<wbr></a></td>
+								<td>bool</td>
+								<td>
+									<div>
+    Determines whether the specified type
+    can be assigned to <code class="cs">System.Runtime.Serialization.ISerializable</code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions/BD86D709">IsEnumerableType<wbr>&lt;TEnumerable&gt;<wbr><wbr>()<wbr></a></td>
 								<td>bool</td>
 								<td>
@@ -326,6 +379,48 @@ class Type type-node
     Determines whether this instance is type.
     </div>
 										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/383F177F">StartActivity<wbr>(ProgramArgs, <wbr>TraceSource)<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Starts the <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/6E37B743">StartActivityAsync<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(TInput, <wbr>TraceSource)<wbr></a></td>
+								<td>Task<wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/ActivityOutput_1">ActivityOutput</a><wbr>&lt;TOutput&gt;<wbr>&gt;<wbr></td>
+								<td>
+									<div>
+    Starts the <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>, asynchronously.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/D72D89FF">ToActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></td>
+								<td>
+									<div>
+    Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput&lt;TInput, TOutput&gt;</a></code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/43B1EC66">ToActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></td>
+								<td>
+									<div>
+    Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput&lt;TInput, TOutput&gt;</a></code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
 								</td>
 							</tr>
 							<tr>
@@ -374,7 +469,7 @@ class Type type-node
 		
 	<h1 id="SeeAlso">See Also</h1>
 	<ul class="list-unstyled">
-			<li>System.Attribute</li>
+			<li><code><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code></li>
 	</ul>
 
 	
