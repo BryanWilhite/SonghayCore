@@ -9,14 +9,14 @@ namespace Songhay.Tests.Diagnostics
         static MyClass()
         {
             traceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels().EnsureTraceSource();
-            traceSource.TraceInformation($"static constructor: {nameof(MyClass)}");
+            traceSource.WriteLine($"static constructor: {nameof(MyClass)}");
         }
 
         static readonly TraceSource traceSource;
 
         public MyClass()
         {
-            traceSource.TraceInformation($"{nameof(MyClass)} constructed.");
+            traceSource.WriteLine($"{nameof(MyClass)} constructed.");
         }
 
         public string GetConfiguredTraceSourceName() => traceSource.Name;

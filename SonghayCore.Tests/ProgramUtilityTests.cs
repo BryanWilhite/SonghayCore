@@ -1,7 +1,6 @@
 ﻿using Songhay.Diagnostics;
 using Songhay.Models;
 using Songhay.Tests.Diagnostics;
-using System;
 using System.Diagnostics;
 using System.IO;
 using Xunit;
@@ -28,13 +27,17 @@ namespace Songhay.Tests
             TraceSources.ConfiguredTraceSourceName = name;
             Assert.True(TraceSources.IsConfiguredTraceSourceNameLoaded, $"The expected {nameof(TraceSources)} state is not here.");
 
-            using (var listener = new TextWriterTraceListener(Console.Out))
+            using (var writer = new StringWriter())
+            using (var listener = new TextWriterTraceListener(writer))
             {
                 ProgramUtility.InitializeTraceSource(listener);
 
                 this._testOutputHelper.WriteLine($"instantiating {nameof(MyClass)}...");
                 var mine = new MyClass();
                 Assert.True(mine.GetConfiguredTraceSourceName() == name, "The expected configured configuration trace source name is not here.");
+
+                listener.Flush();
+                this._testOutputHelper.WriteLine(writer.ToString());
             }
         }
 

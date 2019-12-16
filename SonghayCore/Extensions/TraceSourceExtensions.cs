@@ -33,7 +33,7 @@ namespace Songhay.Extensions
         public static void TraceError(this TraceSource traceSource, string format, params object[] args)
         {
             if (traceSource == null) return;
-            traceSource.TraceEvent(TraceEventType.Error, 0, format, args);
+            traceSource.TraceEvent(TraceEventType.Error, ++eventId, format, args);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Songhay.Extensions
         public static void TraceError(this TraceSource traceSource, string message)
         {
             if (traceSource == null) return;
-            traceSource.TraceEvent(TraceEventType.Error, 0, message);
+            traceSource.TraceEvent(TraceEventType.Error, ++eventId, message);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Songhay.Extensions
         public static void TraceWarning(this TraceSource traceSource, string message)
         {
             if (traceSource == null) return;
-            traceSource.TraceEvent(TraceEventType.Warning, 0, message);
+            traceSource.TraceEvent(TraceEventType.Warning, ++eventId, message);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Songhay.Extensions
         public static void TraceWarning(this TraceSource traceSource, string format, params object[] args)
         {
             if (traceSource == null) return;
-            traceSource.TraceEvent(TraceEventType.Warning, 0, format, args);
+            traceSource.TraceEvent(TraceEventType.Warning, ++eventId, format, args);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace Songhay.Extensions
         public static void TraceVerbose(this TraceSource traceSource, string message)
         {
             if (traceSource == null) return;
-            traceSource.TraceEvent(TraceEventType.Verbose, 0, message);
+            traceSource.TraceEvent(TraceEventType.Verbose, ++eventId, message);
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace Songhay.Extensions
         public static void TraceVerbose(this TraceSource traceSource, string format, params object[] args)
         {
             if (traceSource == null) return;
-            traceSource.TraceEvent(TraceEventType.Verbose, 0, format, args);
+            traceSource.TraceEvent(TraceEventType.Verbose, ++eventId, format, args);
         }
 
         /// <summary>
@@ -137,13 +137,13 @@ namespace Songhay.Extensions
         /// <param name="traceSource">The trace source.</param>
         /// <param name="message">The message.</param>
         /// <remarks>
-        /// This member has a null check unlike <see cref="TraceSource.TraceInformation(string)"/>
+        /// This member was previously marked with <see cref="ObsoleteAttribute"/>.
+        /// For detail, see https://github.com/BryanWilhite/SonghayCore/issues/82#issuecomment-566214635
         /// </remarks>
-        [Obsolete("Use TraceSource?.TraceInformation instead.")]
         public static void WriteLine(this TraceSource traceSource, string message)
         {
             if (traceSource == null) return;
-            traceSource.TraceInformation(message);
+            traceSource.TraceEvent(TraceEventType.Information, ++eventId, message);
         }
 
         /// <summary>
@@ -153,14 +153,17 @@ namespace Songhay.Extensions
         /// <param name="format">The format.</param>
         /// <param name="args">The arguments.</param>
         /// <remarks>
-        /// This member has a null check unlike <see cref="TraceSource.TraceInformation(string, object[])"/>
+        /// This member was previously marked with <see cref="ObsoleteAttribute"/>.
+        /// For detail, see https://github.com/BryanWilhite/SonghayCore/issues/82#issuecomment-566214635
         /// </remarks>
-        [Obsolete("Use TraceSource?.TraceInformation instead.")]
         public static void WriteLine(this TraceSource traceSource, string format, params object[] args)
         {
             if (traceSource == null) return;
-            traceSource.TraceInformation(format, args);
+            traceSource.TraceEvent(TraceEventType.Information, ++eventId, format, args);
         }
+
+        [ThreadStatic]
+        static int eventId;
 
     }
 }

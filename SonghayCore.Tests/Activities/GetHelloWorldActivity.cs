@@ -26,7 +26,7 @@ namespace Songhay.Tests.Activities
             if (args.IsHelpRequest()) return;
 
             var worldName = args.GetArgValue(argWorldName);
-            traceSource.EnsureTraceSource().TraceInformation($"Hello from world {worldName}!");
+            traceSource.EnsureTraceSource().WriteLine($"Hello from world {worldName}!");
         }
 
         void SetupHelp(ProgramArgs args)

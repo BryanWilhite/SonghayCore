@@ -3,6 +3,7 @@ using Songhay.Diagnostics;
 using Songhay.Extensions;
 using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace Songhay.Tests
 {
@@ -31,8 +32,8 @@ namespace Songhay.Tests
                 traceSource.Listeners.Add(listener);
                 otherTraceSource.Listeners.Add(listener);
 
-                traceSource?.TraceInformation("info!");
-                otherTraceSource?.TraceInformation("other info!");
+                traceSource?.WriteLine("info!");
+                otherTraceSource?.WriteLine("other info!");
 
                 traceSource.TraceVerbose("verbose!");
                 otherTraceSource.TraceVerbose("other verbose!");
@@ -52,7 +53,7 @@ namespace Songhay.Tests
         {
             Assert.IsNull(nullTraceSource);
 
-            nullTraceSource?.TraceInformation("info!");
+            nullTraceSource?.WriteLine("info!");
             nullTraceSource.TraceVerbose("info!");
             nullTraceSource.TraceWarning("info!");
             nullTraceSource.TraceError("info!");

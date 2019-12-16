@@ -35,9 +35,11 @@ namespace Songhay.Tests.Models
 
         static readonly TraceSource traceSource;
 
+        [Fact]
         public void ShouldGetActivityFromDefaultName()
         {
-            using (var listener = new TextWriterTraceListener(Console.Out))
+            using (var writer = new StringWriter())
+            using (var listener = new TextWriterTraceListener(writer))
             {
                 traceSource.Listeners.Add(listener);
 
@@ -55,9 +57,11 @@ namespace Songhay.Tests.Models
                 activity.Start(getter.Args);
 
                 listener.Flush();
+                this._testOutputHelper.WriteLine(writer.ToString());
             }
         }
 
+        [Fact]
         public void ShouldHandleEmptyArgments()
         {
             try
@@ -70,6 +74,7 @@ namespace Songhay.Tests.Models
             }
         }
 
+        [Fact]
         public void ShouldHandleNullArgments()
         {
             try
@@ -82,9 +87,11 @@ namespace Songhay.Tests.Models
             }
         }
 
+        [Fact]
         public void ShouldShowHelpDisplayText()
         {
-            using (var listener = new TextWriterTraceListener(Console.Out))
+            using (var writer = new StringWriter())
+            using (var listener = new TextWriterTraceListener(writer))
             {
                 traceSource.Listeners.Add(listener);
 
@@ -104,6 +111,7 @@ namespace Songhay.Tests.Models
                 activity.Start(getter.Args);
 
                 listener.Flush();
+                this._testOutputHelper.WriteLine(writer.ToString());
             }
         }
 

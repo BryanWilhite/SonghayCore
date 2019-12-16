@@ -17,7 +17,7 @@ namespace Songhay.Tests.Activities
 
         public void Start(ProgramArgs args)
         {
-            traceSource.TraceInformation("Sorry, but the Hello Worlds reports are not yet available :(");
+            traceSource.WriteLine("Sorry, but the Hello Worlds reports are not yet available :(");
         }
     }
 }
