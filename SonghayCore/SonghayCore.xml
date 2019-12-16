@@ -1296,6 +1296,26 @@
             <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``1(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <param name="activity">The activity.</param>
+            <param name="input">The input.</param>
+            <param name="traceSource">The trace source.</param>
+            <returns>The trace source log.</returns>
+            <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync(Songhay.Models.IActivity,System.Diagnostics.TraceSource)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            </summary>
+            <param name="activity">The activity.</param>
+            <param name="traceSource">The trace source.</param>
+            <returns>The trace source log.</returns>
+            <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
+        </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithOutput``2(Songhay.Models.IActivity)">
             <summary>
             Converts the specified <see cref="T:Songhay.Models.IActivity" />
@@ -1321,6 +1341,81 @@
             <exception cref="T:System.NullReferenceException">The expected IActivityOutput{TInput, TOutput} is not here.</exception>
             <exception cref="T:System.ArgumentNullException">The expected Activity name is not here.
             or</exception>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``2(Songhay.Models.IActivity)">
+            <summary>
+            Converts the specified <see cref="T:Songhay.Models.IActivity" />
+            to <see cref="T:Songhay.Models.IActivityWithTask`2" />.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <param name="activity">The activity.</param>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException">
+            The expected IActivityWithTask{TInput, TOutput} is not here.
+            </exception>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``2(Songhay.Models.IActivity,System.Boolean)">
+            <summary>
+            Converts the specified <see cref="T:Songhay.Models.IActivity" />
+            to <see cref="T:Songhay.Models.IActivityWithTask`2" />.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <param name="activity">The activity.</param>
+            <param name="throwException">if set to <c>true</c> throw exception.</param>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException">
+            The expected IActivityWithTask{TInput, TOutput} is not here.
+            </exception>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``1(Songhay.Models.IActivity)">
+            <summary>
+            Converts the specified <see cref="T:Songhay.Models.IActivity" />
+            to <see cref="T:Songhay.Models.IActivityWithTask`1" />.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <param name="activity">The activity.</param>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException">
+            The expected IActivityWithTask{TInput, TOutput} is not here.
+            </exception>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``1(Songhay.Models.IActivity,System.Boolean)">
+            <summary>
+            Converts the specified <see cref="T:Songhay.Models.IActivity" />
+            to <see cref="T:Songhay.Models.IActivityWithTask`1" />.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <param name="activity">The activity.</param>
+            <param name="throwException">if set to <c>true</c> throw exception.</param>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException">
+            The expected IActivityWithTask{TInput} is not here.
+            </exception>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask(Songhay.Models.IActivity)">
+            <summary>
+            Converts the specified <see cref="T:Songhay.Models.IActivity" />
+            to <see cref="T:Songhay.Models.IActivityWithTask" />.
+            </summary>
+            <param name="activity">The activity.</param>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException">
+            The expected IActivityWithTask{TInput, TOutput} is not here.
+            </exception>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask(Songhay.Models.IActivity,System.Boolean)">
+            <summary>
+            Converts the specified <see cref="T:Songhay.Models.IActivity" />
+            to <see cref="T:Songhay.Models.IActivityWithTask" />.
+            </summary>
+            <param name="activity">The activity.</param>
+            <param name="throwException">if set to <c>true</c> throw exception.</param>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException">
+            The expected IActivityWithTask is not here.
+            </exception>
         </member>
         <member name="T:Songhay.Extensions.IConfigurationBuilderExtensions">
             <summary>
@@ -4004,7 +4099,7 @@
         <member name="T:Songhay.Models.ActivityOutput`1">
             <summary>
             Defines the conventional output
-            of <see cref="T:Songhay.Models.IActivityWithOutput`2"/>
+            of <see cref="T:Songhay.Models.IActivityWithTask`2"/>
             </summary>
             <typeparam name="TOutput">The type of the output.</typeparam>
         </member>
@@ -4525,6 +4620,55 @@
             </summary>
             <param name="input">The input.</param>
             <returns></returns>
+        </member>
+        <member name="T:Songhay.Models.IActivityWithTask">
+            <summary>
+            Extends <see cref="T:Songhay.Models.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            </summary>
+            <seealso cref="T:Songhay.Models.IActivity" />
+            <remarks>
+            For detail aound why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Models.IActivityWithTask.StartAsync">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/> asynchronously.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Songhay.Models.IActivityWithTask`1">
+            <summary>
+            Extends <see cref="T:Songhay.Models.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <seealso cref="T:Songhay.Models.IActivity" />
+            <remarks>
+            For detail aound why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Models.IActivityWithTask`1.StartAsync(`0)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/> asynchronously.
+            </summary>
+        </member>
+        <member name="T:Songhay.Models.IActivityWithTask`2">
+            <summary>
+            Extends <see cref="T:Songhay.Models.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <seealso cref="T:Songhay.Models.IActivity" />
+            <remarks>
+            For detail aound why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Models.IActivityWithTask`2.StartAsync(`0)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/> asynchronously.
+            </summary>
         </member>
         <member name="T:Songhay.Models.IColorable">
             <summary>

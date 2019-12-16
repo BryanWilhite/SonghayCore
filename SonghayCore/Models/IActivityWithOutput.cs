@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace Songhay.Models
 {
@@ -8,6 +9,7 @@ namespace Songhay.Models
     /// <typeparam name="TInput">The type of the input.</typeparam>
     /// <typeparam name="TOutput">The type of the output.</typeparam>
     /// <seealso cref="IActivity" />
+    [Obsolete("use `IActivityWithTask<TInput, TOutput>` instead", error: false)]
     public interface IActivityWithOutput<TInput, TOutput> : IActivity
     {
         /// <summary>
