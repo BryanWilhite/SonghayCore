@@ -180,6 +180,9 @@
 			<li class="header">Interface Types</li>
 				<li><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask<wbr>&lt;TInput&gt;<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></a></li>
 				<li class="selected"><a href="/SonghayCore/api/Songhay.Models/IColorable">IColorable</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/IControlInteractionMessage">I<wbr>Control<wbr>Interaction<wbr>Message</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/IFrameworkAssemblyInfo">I<wbr>Framework<wbr>Assembly<wbr>Info</a></li>
@@ -227,8 +230,8 @@
 								<dt>Implementing Types</dt>
 								<dd>
 									<ul class="list-unstyled">
-											<li><a href="/SonghayCore/api/Songhay.Models/MenuDisplayItemModel">MenuDisplayItemModel</a></li>								
 											<li><a href="/SonghayCore/api/Songhay.Models/ColorDisplayItemModel">Color<wbr>Display<wbr>Item<wbr>Model</a></li>								
+											<li><a href="/SonghayCore/api/Songhay.Models/MenuDisplayItemModel">MenuDisplayItemModel</a></li>								
 									</ul>
 								</dd>				
 						</dl>
@@ -238,10 +241,10 @@
 							graph BT
 	Type["IColorable"]
 class Type type-node
-	Implementing0["MenuDisplayItemModel"]-.-&gt;Type
-	click Implementing0 "/SonghayCore/api/Songhay.Models/MenuDisplayItemModel"
-	Implementing1["ColorDisplayItemModel"]-.-&gt;Type
-	click Implementing1 "/SonghayCore/api/Songhay.Models/ColorDisplayItemModel"
+	Implementing0["ColorDisplayItemModel"]-.-&gt;Type
+	click Implementing0 "/SonghayCore/api/Songhay.Models/ColorDisplayItemModel"
+	Implementing1["MenuDisplayItemModel"]-.-&gt;Type
+	click Implementing1 "/SonghayCore/api/Songhay.Models/MenuDisplayItemModel"
 
 						</div>
 					</div>

@@ -181,6 +181,9 @@
 			<li class="header">Interface Types</li>
 				<li class="selected"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask<wbr>&lt;TInput&gt;<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/IColorable">IColorable</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/IControlInteractionMessage">I<wbr>Control<wbr>Interaction<wbr>Message</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/IFrameworkAssemblyInfo">I<wbr>Framework<wbr>Assembly<wbr>Info</a></li>
@@ -228,7 +231,10 @@
 								<dt>Implementing Types</dt>
 								<dd>
 									<ul class="list-unstyled">
+											<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></li>								
+											<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask</a><wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1#typeparam-TInput">TInput</a>&gt;<wbr></li>								
 											<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2#typeparam-TInput">TInput</a>, <wbr><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2#typeparam-TOutput">TOutput</a>&gt;<wbr></li>								
+											<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask</a><wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2#typeparam-TInput">TInput</a>, <wbr><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2#typeparam-TOutput">TOutput</a>&gt;<wbr></li>								
 									</ul>
 								</dd>				
 						</dl>
@@ -238,8 +244,14 @@
 							graph BT
 	Type["IActivity"]
 class Type type-node
-	Implementing0["IActivityWithOutput&lt;TInput, TOutput&gt;"]-.-&gt;Type
-	click Implementing0 "/SonghayCore/api/Songhay.Models/IActivityWithOutput_2"
+	Implementing0["IActivityWithTask"]-.-&gt;Type
+	click Implementing0 "/SonghayCore/api/Songhay.Models/IActivityWithTask"
+	Implementing1["IActivityWithTask&lt;TInput&gt;"]-.-&gt;Type
+	click Implementing1 "/SonghayCore/api/Songhay.Models/IActivityWithTask_1"
+	Implementing2["IActivityWithOutput&lt;TInput, TOutput&gt;"]-.-&gt;Type
+	click Implementing2 "/SonghayCore/api/Songhay.Models/IActivityWithOutput_2"
+	Implementing3["IActivityWithTask&lt;TInput, TOutput&gt;"]-.-&gt;Type
+	click Implementing3 "/SonghayCore/api/Songhay.Models/IActivityWithTask_2"
 
 						</div>
 					</div>
@@ -383,8 +395,28 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/F3BF8FA6">StartActivityAsync<wbr>(TraceSource)<wbr></a></td>
+								<td>Task<wbr>&lt;string&gt;<wbr></td>
+								<td>
+									<div>
+    Starts the <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>, asynchronously.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/6E37B743">StartActivityAsync<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(TInput, <wbr>TraceSource)<wbr></a></td>
 								<td>Task<wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/ActivityOutput_1">ActivityOutput</a><wbr>&lt;TOutput&gt;<wbr>&gt;<wbr></td>
+								<td>
+									<div>
+    Starts the <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>, asynchronously.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/632C838A">StartActivityAsync<wbr>&lt;TInput&gt;<wbr><wbr>(TInput, <wbr>TraceSource)<wbr></a></td>
+								<td>Task<wbr>&lt;string&gt;<wbr></td>
 								<td>
 									<div>
     Starts the <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>, asynchronously.
@@ -410,6 +442,72 @@ class Type type-node
 									<div>
     Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
     to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput&lt;TInput, TOutput&gt;</a></code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/2A4E16DA">ToActivityWithTask<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></td>
+								<td>
+									<div>
+    Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/BAB90A91">ToActivityWithTask<wbr>(bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></td>
+								<td>
+									<div>
+    Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/C238E812">ToActivityWithTask<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask</a><wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></td>
+								<td>
+									<div>
+    Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask&lt;TInput, TOutput&gt;</a></code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/5BC347F6">ToActivityWithTask<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask</a><wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></td>
+								<td>
+									<div>
+    Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask&lt;TInput, TOutput&gt;</a></code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/01157CA1">ToActivityWithTask<wbr>&lt;TInput&gt;<wbr><wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask</a><wbr>&lt;TInput&gt;<wbr></td>
+								<td>
+									<div>
+    Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask&lt;TInput&gt;</a></code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/28487CCE">ToActivityWithTask<wbr>&lt;TInput&gt;<wbr><wbr>(bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask</a><wbr>&lt;TInput&gt;<wbr></td>
+								<td>
+									<div>
+    Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask&lt;TInput&gt;</a></code>.
     </div>
 										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
 								</td>
