@@ -14,6 +14,7 @@ namespace Songhay.Tests.Extensions
         }
 
         [Theory]
+        [InlineData("http://ow.ly/i/8Tq32")] //does not expand
         [InlineData("https://t.co/bS1b8WklHh")]
         [InlineData("https://t.co/DdK08h4AZh")]
         [InlineData("https://t.co/ug1txCNmU6")] //returns shortened URI
