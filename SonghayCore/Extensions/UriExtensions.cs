@@ -69,8 +69,7 @@ namespace Songhay.Extensions
             var message = new HttpRequestMessage(HttpMethod.Get, expandableUri);
             var response = await message.SendAsync();
 
-            if ((response.Headers.Location == null) &&
-                (response.StatusCode == HttpStatusCode.OK))
+            if (response.Headers.Location == null)
             {
                 return message.RequestUri;
             }
