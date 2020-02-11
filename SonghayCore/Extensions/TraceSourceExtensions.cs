@@ -55,7 +55,14 @@ namespace Songhay.Extensions
         public static void TraceError(this TraceSource traceSource, Exception ex)
         {
             if (traceSource == null) return;
-            var message = string.Format("{0}\n{1}", ex.Message, ex.StackTrace);
+            if (ex == null) return;
+
+            var message = $@"
+{ex.GetType().Name}
+{nameof(ex.Message)}: {ex.Message}
+{nameof(ex.StackTrace)}:
+{ex.StackTrace}
+".Trim();
             traceSource.TraceError(message);
         }
 
