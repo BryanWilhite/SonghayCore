@@ -275,5 +275,31 @@ namespace Songhay.Extensions
             if (jObject == null) return false;
             return jObject.Properties().Any(i => i.Name.EqualsInvariant(objectPropertyName));
         }
+
+        /// <summary>
+        /// Parses the <see cref="JObject"/>
+        /// serialized as a string
+        /// at the specified property name.
+        /// </summary>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
+        /// <param name="objectPropertyName">Name of the object property.</param>
+        /// <param name="throwException">when <c>true</c> throw any exceptions; otherwise, return <c>null</c>.</param>
+        /// <returns></returns>
+        public static JObject ParseJObject(this JObject jObject, string objectPropertyName, bool throwException)
+        {
+            var json = jObject.GetValue<string>(objectPropertyName, throwException);
+
+            JObject jO = null;
+            try
+            {
+                jO = JObject.Parse(json);
+            }
+            catch (Exception)
+            {
+                if(throwException) throw;
+            }
+
+            return jO;
+        }
     }
 }
