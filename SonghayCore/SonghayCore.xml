@@ -1852,6 +1852,29 @@
             <param name="objectPropertyName"></param>
             <returns></returns>
         </member>
+        <member name="M:Songhay.Extensions.JObjectExtensions.ParseJObject(Newtonsoft.Json.Linq.JObject,System.String)">
+            <summary>
+            Parses the <see cref="T:Newtonsoft.Json.Linq.JObject"/>
+            serialized as a string
+            at the specified property name.
+            
+            It will throw any exceptions.
+            </summary>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
+            <param name="objectPropertyName">Name of the object property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.JObjectExtensions.ParseJObject(Newtonsoft.Json.Linq.JObject,System.String,System.Boolean)">
+            <summary>
+            Parses the <see cref="T:Newtonsoft.Json.Linq.JObject"/>
+            serialized as a string
+            at the specified property name.
+            </summary>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
+            <param name="objectPropertyName">Name of the object property.</param>
+            <param name="throwException">when <c>true</c> throw any exceptions; otherwise, return <c>null</c>.</param>
+            <returns></returns>
+        </member>
         <member name="T:Songhay.Extensions.JTokenExtensions">
             <summary>
             Extensions of <see cref="T:Newtonsoft.Json.Linq.JToken"/>

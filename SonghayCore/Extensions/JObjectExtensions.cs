@@ -280,6 +280,21 @@ namespace Songhay.Extensions
         /// Parses the <see cref="JObject"/>
         /// serialized as a string
         /// at the specified property name.
+        /// 
+        /// It will throw any exceptions.
+        /// </summary>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
+        /// <param name="objectPropertyName">Name of the object property.</param>
+        /// <returns></returns>
+        public static JObject ParseJObject(this JObject jObject, string objectPropertyName)
+        {
+            return jObject.ParseJObject(objectPropertyName, throwException: true);
+        }
+
+        /// <summary>
+        /// Parses the <see cref="JObject"/>
+        /// serialized as a string
+        /// at the specified property name.
         /// </summary>
         /// <param name="jObject">The <see cref="JObject"/>.</param>
         /// <param name="objectPropertyName">Name of the object property.</param>

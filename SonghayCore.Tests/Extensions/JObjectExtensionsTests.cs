@@ -1,10 +1,11 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Linq;
+using Newtonsoft.Json.Linq;
+using Songhay.Extensions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Songhay.Extensions.Tests
+namespace Songhay.Tests.Extensions
 {
 
     public partial class JObjectExtensionsTests
@@ -21,7 +22,7 @@ namespace Songhay.Extensions.Tests
 
             var jO = JObject.Parse(json);
 
-            var data = jO.GetDictionary("data", throwException: true);
+            var data = jO.GetDictionary("data", throwException : true);
             this._testOutputHelper.WriteLine("Dictionary keys: {0}", string.Join(",", data.Keys.ToArray()));
         }
 
@@ -43,7 +44,7 @@ namespace Songhay.Extensions.Tests
 
             var jO = JObject.Parse(json);
 
-            var jA = jO.GetJArray("items", throwException: true);
+            var jA = jO.GetJArray("items", throwException : true);
             var jA_clone = jA.DeepClone();
 
             jA.Add("four");
@@ -74,7 +75,7 @@ namespace Songhay.Extensions.Tests
 
             var jO = JObject.Parse(json);
 
-            var token = jO.GetJTokenFromJArray("items", "x", arrayIndex, throwException: true);
+            var token = jO.GetJTokenFromJArray("items", "x", arrayIndex, throwException : true);
             Assert.NotNull((token as JValue));
 
             var actualValue = token.GetValue<int>();
@@ -103,10 +104,10 @@ namespace Songhay.Extensions.Tests
 
             var jO = JObject.Parse(json);
 
-            var jA = jO.GetJArray("items", throwException: false);
+            var jA = jO.GetJArray("items", throwException : false);
             Assert.Null(jA);
 
-            var jA_other = jO.GetJArray("otherItems", throwException: false);
+            var jA_other = jO.GetJArray("otherItems", throwException : false);
             Assert.Null(jA_other);
 
             Assert.Throws<NullReferenceException>(() => jO.GetJArray("otherOtherItems"));
@@ -116,6 +117,20 @@ namespace Songhay.Extensions.Tests
         public void ShouldNotGetJObject(string json)
         {
             Assert.Throws<NullReferenceException>(() => JObject.Parse(json).GetValue<int>("z"));
+        }
+
+        [Theory]
+        [InlineData("{ \"childObject\": \"{}\" }")]
+        [InlineData("{ \"childObject\": \"{ \\\"a\\\": true }\" }")]
+        [InlineData("{ \"childObject\": \"{ \\\"a\\\": \\\"one\\\", \\\"b\\\": 23.3 }\" }")]
+        public void ShouldParseJObject(string json)
+        {
+            var objectPropertyName = "childObject";
+            var jO = JObject.Parse(json);
+            var jO_child = jO.ParseJObject(objectPropertyName);
+
+            this._testOutputHelper.WriteLine($"{nameof(json)}: {json}");
+            this._testOutputHelper.WriteLine($"{nameof(jO_child)}:{Environment.NewLine}{jO_child.ToString()}");
         }
 
         readonly ITestOutputHelper _testOutputHelper;
