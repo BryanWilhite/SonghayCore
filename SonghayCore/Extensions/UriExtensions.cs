@@ -44,7 +44,7 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="input">The input.</param>
         /// <returns>
-        /// Returns <see cref="System.String"/> like: <c>https://MyServer:8080/</c>
+        /// Returns <see cref="string"/> like: <c>https://MyServer:8080/</c>
         /// </returns>
         public static string ToBaseUri(this Uri input)
         {
@@ -52,6 +52,17 @@ namespace Songhay.Extensions
             var baseLocation = string.Format("{0}/",
                 input.GetComponents(UriComponents.SchemeAndServer, UriFormat.SafeUnescaped));
             return baseLocation;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="Uri" /> into its file name.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>
+        /// </returns>
+        public static string ToFileName(this Uri input)
+        {
+            return Path.GetFileName(input?.LocalPath);
         }
 
 #if NETSTANDARD

@@ -1227,6 +1227,40 @@
             Extensions of <see cref="T:System.Net.Http.HttpResponseMessage"/>.
             </summary>
         </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadByteArrayToFile(System.Net.Http.HttpResponseMessage,System.IO.FileSystemInfo)">
+            <summary>
+            Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
+            from <see cref="T:System.Byte"/> array to file.
+            </summary>
+            <param name="response">The response.</param>
+            <param name="fileInfo">The file information.</param>
+            <exception cref="T:System.NullReferenceException">The expected {nameof(FileSystemInfo)} is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadByteArrayToFile(System.Net.Http.HttpResponseMessage,System.String)">
+            <summary>
+            Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
+            from <see cref="T:System.Byte"/> array to file.
+            </summary>
+            <param name="response">The response.</param>
+            <param name="target">The target.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadStringToFile(System.Net.Http.HttpResponseMessage,System.IO.FileSystemInfo)">
+            <summary>
+            Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
+            from <see cref="T:System.Byte"/> array to file.
+            </summary>
+            <param name="response">The response.</param>
+            <param name="fileInfo">The file information.</param>
+            <exception cref="T:System.NullReferenceException">The expected {nameof(FileSystemInfo)} is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadStringToFile(System.Net.Http.HttpResponseMessage,System.String)">
+            <summary>
+            Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
+            from <see cref="T:System.Byte"/> array to file.
+            </summary>
+            <param name="response">The response.</param>
+            <param name="target">The target.</param>
+        </member>
         <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)">
             <summary>
             Returns <c>true</c> when <see cref="T:System.Net.Http.HttpResponseMessage"/>
@@ -2828,6 +2862,14 @@
             <param name="input">The input.</param>
             <returns>
             Returns <see cref="T:System.String"/> like: <c>https://MyServer:8080/</c>
+            </returns>
+        </member>
+        <member name="M:Songhay.Extensions.UriExtensions.ToFileName(System.Uri)">
+            <summary>
+            Converts the <see cref="T:System.Uri" /> into its file name.
+            </summary>
+            <param name="input">The input.</param>
+            <returns>
             </returns>
         </member>
         <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)">

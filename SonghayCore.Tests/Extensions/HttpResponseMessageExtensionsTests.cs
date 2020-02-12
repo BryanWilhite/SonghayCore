@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Songhay.Extensions;
 using System;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -15,6 +16,42 @@ namespace Songhay.Tests.Extensions
         public HttpResponseMessageExtensionsTests(ITestOutputHelper helper)
         {
             this._testOutputHelper = helper;
+        }
+
+        [Theory]
+        [InlineData("https://songhaystorage.blob.core.windows.net/studio-public/songhay_icon.png", "../../../content")]
+        public async Task DownloadByteArrayToFile_Test(string location, string target)
+        {
+            var root = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, target);
+            var rootInfo = new DirectoryInfo(root);
+            Assert.True(rootInfo.Exists);
+
+            var uri = new Uri(location);
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            var response = await request.SendAsync();
+
+            var targetInfo = new FileInfo(rootInfo.ToCombinedPath(uri.ToFileName()));
+            this._testOutputHelper.WriteLine($"Downloading to {targetInfo.FullName}...");
+
+            await response.DownloadByteArrayToFile(targetInfo);
+        }
+
+        [Theory]
+        [InlineData("https://songhaystorage.blob.core.windows.net/studio-dash/app.json", "../../../json")]
+        public async Task DownloadStringToFile_Test(string location, string target)
+        {
+            var root = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, target);
+            var rootInfo = new DirectoryInfo(root);
+            Assert.True(rootInfo.Exists);
+
+            var uri = new Uri(location);
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            var response = await request.SendAsync();
+
+            var targetInfo = new FileInfo(rootInfo.ToCombinedPath(uri.ToFileName()));
+            this._testOutputHelper.WriteLine($"Downloading to {targetInfo.FullName}...");
+
+            await response.DownloadStringToFile(targetInfo);
         }
 
         [Trait("Category", "Integration")]
