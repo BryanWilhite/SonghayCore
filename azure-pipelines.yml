@@ -42,8 +42,8 @@ steps:
   displayName: 'dotnet build'
   inputs:
     projects: |
-      '**/*.csproj'
-      !'**/SonghayCore.Framework.Tests.csproj'
+      **/*.csproj
+      !**/SonghayCore.Framework.Tests.csproj
     arguments: '--configuration $(BuildConfiguration)'
 
 - task: DotNetCoreCLI@2
