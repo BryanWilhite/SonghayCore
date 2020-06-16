@@ -86,7 +86,8 @@
                 "${workspaceFolder}/SonghayCore.Tests/SonghayCore.Tests.csproj",
                 "--logger:trx",
                 "--results-directory:${workspaceFolder}/TestResults",
-                "--verbosity:normal"
+                "--verbosity:normal",
+                "/p:CollectCoverage=true"
             ],
             "problemMatcher": "$msCompile"
         },

@@ -17,7 +17,7 @@ namespace Songhay.Tests.Extensions
         }
 
         [Trait("Category", "Integration")]
-        [Theory]
+        [DebuggerAttachedTheory]
         [InlineData(@"photos/{photoId}", 1)]
         public async Task ShouldDeletePhoto(string input, int id)
         {
@@ -42,7 +42,7 @@ namespace Songhay.Tests.Extensions
         }
 
         [Trait("Category", "Integration")]
-        [Theory]
+        [DebuggerAttachedTheory]
         [InlineData(@"photos/{photoId}", 1, 999)]
         public async Task ShouldPatchPhoto(string input, int id, int albumId)
         {
@@ -62,7 +62,7 @@ namespace Songhay.Tests.Extensions
         }
 
         [Trait("Category", "Integration")]
-        [Theory]
+        [DebuggerAttachedTheory]
         [InlineData(@"photos/{photoId}", 1, 999)]
         public async Task ShouldPutPhoto(string input, int id, int albumId)
         {
