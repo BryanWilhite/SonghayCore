@@ -69,7 +69,7 @@ namespace Songhay.Extensions
         }
 
         /// <summary>
-        /// Converts the <see cref="String" /> into a ASCII letters with spacer.
+        /// Converts the <see cref="String" /> into a ASCII letters with spacer <c>\0</c>.
         /// </summary>
         /// <param name="input">The input.</param>
         public static string ToAsciiLettersWithSpacer(this string input)
@@ -82,23 +82,32 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="input">The input.</param>
         /// <param name="spacer">The spacer.</param>
+        /// <remarks>
+        /// 📖 https://en.wikipedia.org/wiki/ASCII
+        /// 📖 https://stackoverflow.com/a/7826216/22944
+        /// </remarks>
         public static string ToAsciiLettersWithSpacer(this string input, char spacer)
         {
             if (string.IsNullOrWhiteSpace(input)) return null;
 
+            const int ASCII_DECIMAL_MAXIMUM = 127;
+
+            int GetAsciiDecimal(char c)
+            {
+                int i = c;
+                return i;
+            }
+
+            var chars = input
+                .Where(c => GetAsciiDecimal(c) <= ASCII_DECIMAL_MAXIMUM);
+
             if (spacer == '\0')
             {
-                var chars = input
-                    .Where(c => char.IsLetter(c))
-                    .Where(c => char.GetNumericValue(c) < 128);
                 return (chars.Count() > 0) ? new string(chars.ToArray()) : null;
             }
             else
             {
-                var chars = input
-                    .Where(c => (char.IsLetter(c)) || (c == spacer))
-                    .Where(c => char.GetNumericValue(c) < 128);
-                return (chars.Count() > 0) ? new string(chars.ToArray()).Replace("--", "-").Trim(new char[] { spacer }) : null;
+                return (chars.Count() > 0) ? new string(chars.ToArray()).Trim(new char[] { spacer }) : null;
             }
         }
 

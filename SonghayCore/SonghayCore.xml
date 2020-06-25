@@ -2466,7 +2466,7 @@
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToAsciiLettersWithSpacer(System.String)">
             <summary>
-            Converts the <see cref="T:System.String" /> into a ASCII letters with spacer.
+            Converts the <see cref="T:System.String" /> into a ASCII letters with spacer <c>\0</c>.
             </summary>
             <param name="input">The input.</param>
         </member>
@@ -2476,6 +2476,10 @@
             </summary>
             <param name="input">The input.</param>
             <param name="spacer">The spacer.</param>
+            <remarks>
+            📖 https://en.wikipedia.org/wiki/ASCII
+            📖 https://stackoverflow.com/a/7826216/22944
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToBlogSlug(System.String)">
             <summary>

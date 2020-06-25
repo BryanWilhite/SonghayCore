@@ -37,7 +37,7 @@ namespace Songhay.Tests.Extensions
             this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
             this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
             this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -49,7 +49,7 @@ namespace Songhay.Tests.Extensions
             this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
             this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
             this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -90,7 +90,19 @@ namespace Songhay.Tests.Extensions
             this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
             this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
             this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("", '\0', null)]
+        [InlineData("", 'x', null)]
+        [InlineData("kinté space", '\0', "kint space")]
+        [InlineData("|kinté space|", '|', "kint space")]
+        [InlineData("|kinté|space|", '\0', "|kint|space|")]
+        public void ToAsciiLettersWithSpacer_Test(string input, char spacer, string expected)
+        {
+            var actual = input.ToAsciiLettersWithSpacer(spacer);
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -103,7 +115,7 @@ namespace Songhay.Tests.Extensions
             this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
             this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
             this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -114,7 +126,7 @@ namespace Songhay.Tests.Extensions
             this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
             this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
             this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -125,7 +137,7 @@ namespace Songhay.Tests.Extensions
             this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
             this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
             this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         [Theory]
@@ -166,7 +178,7 @@ namespace Songhay.Tests.Extensions
             this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
             this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
             this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
-            Assert.Equal(actual, expected);
+            Assert.Equal(expected, actual);
         }
 
         readonly ITestOutputHelper _testOutputHelper;
