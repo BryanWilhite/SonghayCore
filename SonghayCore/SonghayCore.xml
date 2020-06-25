@@ -1723,6 +1723,20 @@
             Extensions of <see cref="T:Newtonsoft.Json.Linq.JObject"/>
             </summary>
         </member>
+        <member name="M:Songhay.Extensions.JObjectExtensions.DisplayTopProperties(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Displays the top properties of <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
+            </summary>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JObjectExtensions.Ensure(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Ensures the specified <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
+            </summary>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException">The expected {nameof(JObject)} is not here.</exception>
+        </member>
         <member name="M:Songhay.Extensions.JObjectExtensions.FromJObject``2(Newtonsoft.Json.Linq.JObject)">
             <summary>
             Converts to <c>TDomainData</c> from <see cref="T:Newtonsoft.Json.Linq.JObject" />.
@@ -1908,6 +1922,21 @@
             <param name="objectPropertyName">Name of the object property.</param>
             <param name="throwException">when <c>true</c> throw any exceptions; otherwise, return <c>null</c>.</param>
             <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.JObjectExtensions.WithProperty(Newtonsoft.Json.Linq.JObject,System.String)">
+            <summary>
+            Ensures the <see cref="T:Newtonsoft.Json.Linq.JObject"/> has the specified property.
+            </summary>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
+            <param name="objectPropertyName">Name of the object property.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JObjectExtensions.WithProperty(Newtonsoft.Json.Linq.JObject,System.String,System.Boolean)">
+            <summary>
+            Ensures the <see cref="T:Newtonsoft.Json.Linq.JObject"/> has the specified property.
+            </summary>
+            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
+            <param name="objectPropertyName">Name of the object property.</param>
+            <param name="throwException">if set to <c>true</c> [throw exception].</param>
         </member>
         <member name="T:Songhay.Extensions.JTokenExtensions">
             <summary>

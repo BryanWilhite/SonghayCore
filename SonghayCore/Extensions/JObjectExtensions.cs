@@ -13,6 +13,38 @@ namespace Songhay.Extensions
     public static class JObjectExtensions
     {
         /// <summary>
+        /// Displays the top properties of <see cref="JObject"/>.
+        /// </summary>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
+        public static string DisplayTopProperties(this JObject jObject)
+        {
+            var properties = jObject?
+                .Properties()
+                .Select(p => p.Name);
+
+            return ((properties != null) && properties.Any()) ?
+                properties.Aggregate((a, name) => string.Concat(a, Environment.NewLine, name))
+                :
+                string.Empty;
+        }
+
+        /// <summary>
+        /// Ensures the specified <see cref="JObject"/>.
+        /// </summary>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
+        /// <returns></returns>
+        /// <exception cref="NullReferenceException">The expected {nameof(JObject)} is not here.</exception>
+        public static JObject Ensure(this JObject jObject)
+        {
+            if (jObject == null)
+            {
+                throw new NullReferenceException($"The expected {nameof(JObject)} is not here.");
+            }
+
+            return jObject;
+        }
+
+        /// <summary>
         /// Converts to <c>TDomainData</c> from <see cref="JObject" />.
         /// </summary>
         /// <typeparam name="TInterface">The type of the interface.</typeparam>
@@ -76,7 +108,7 @@ namespace Songhay.Extensions
             var token = jObject.GetJToken(dictionaryPropertyName, throwException);
             JObject jO = null;
             if (token.HasValues) jO = (JObject)token;
-            else if (throwException) throw new FormatException($"The expected property name “{dictionaryPropertyName}” is not here.");
+            else if (throwException) throw new FormatException($"The expected property name `{dictionaryPropertyName}` is not here.");
 
             var data = jO.ToObject<Dictionary<string, string>>();
             return data;
@@ -101,8 +133,8 @@ namespace Songhay.Extensions
         /// <exception cref="System.ArgumentNullException">jObject;The expected JObject is not here.</exception>
         public static Dictionary<string, string[]> GetDictionary(this JObject jObject, bool throwException)
         {
+            if (throwException) jObject.Ensure();
             if ((jObject == null) && !throwException) return null;
-            if ((jObject == null) && throwException) throw new ArgumentNullException("jObject", "The expected JObject is not here.");
 
             var data = jObject.ToObject<Dictionary<string, string[]>>();
             return data;
@@ -136,7 +168,7 @@ namespace Songhay.Extensions
 
             JArray jsonArray = null;
             if (token.HasValues) jsonArray = (JArray)token;
-            else if (throwException) throw new FormatException($"The expected array “{arrayPropertyName}” is not here.");
+            else if (throwException) throw new FormatException($"The expected array `{arrayPropertyName}` is not here.");
 
             return jsonArray;
         }
@@ -255,8 +287,9 @@ namespace Songhay.Extensions
         public static TValue GetValue<TValue>(this JObject jObject, string objectPropertyName, bool throwException)
         {
             if (string.IsNullOrWhiteSpace(objectPropertyName)) throw new ArgumentNullException(nameof(objectPropertyName));
+            if (throwException) jObject.Ensure();
             if ((jObject == null) && !throwException) return default(TValue);
-            if ((jObject == null) && throwException) throw new NullReferenceException($"The expected {nameof(JObject)} is not here.");
+
             var jToken = jObject[objectPropertyName];
             if ((jToken == null) && throwException) throw new NullReferenceException($"The expected {nameof(JToken)} of `{objectPropertyName}` is not here.");
             return jToken.GetValue<TValue>(throwException);
@@ -311,10 +344,45 @@ namespace Songhay.Extensions
             }
             catch (Exception)
             {
-                if(throwException) throw;
+                if (throwException) throw;
             }
 
             return jO;
+        }
+
+        /// <summary>
+        /// Ensures the <see cref="JObject"/> has the specified property.
+        /// </summary>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
+        /// <param name="objectPropertyName">Name of the object property.</param>
+        public static JObject WithProperty(this JObject jObject, string objectPropertyName)
+        {
+            return jObject.WithProperty(objectPropertyName, throwException: true);
+        }
+
+        /// <summary>
+        /// Ensures the <see cref="JObject"/> has the specified property.
+        /// </summary>
+        /// <param name="jObject">The <see cref="JObject"/>.</param>
+        /// <param name="objectPropertyName">Name of the object property.</param>
+        /// <param name="throwException">if set to <c>true</c> [throw exception].</param>
+        public static JObject WithProperty(this JObject jObject, string objectPropertyName, bool throwException)
+        {
+            if (string.IsNullOrWhiteSpace(objectPropertyName)) throw new ArgumentNullException(nameof(objectPropertyName));
+            if (throwException && !jObject.HasProperty(objectPropertyName))
+            {
+                jObject.Ensure();
+
+                var msg = $@"
+The expected property name `{objectPropertyName}` is not here.
+
+Actual properties:
+{jObject.DisplayTopProperties()}
+".Trim();
+                throw new FormatException(msg);
+            }
+
+            return jObject;
         }
     }
 }

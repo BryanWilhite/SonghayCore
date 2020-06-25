@@ -15,6 +15,38 @@ namespace Songhay.Tests.Extensions
             this._testOutputHelper = helper;
         }
 
+        [Theory]
+        [InlineData(@"{ ""one"": ""uno"", ""two"": { ""dos"": ""tres"" } }", "dos")]
+        [InlineData(@"{ ""one"": ""uno"", ""two"": { ""dos"": ""tres"" } }", "tres")]
+        [InlineData(@"{ }", "")]
+        [InlineData(null, "")]
+        public void ShouldDisplayTopProperties(string json, string unexpectedString)
+        {
+            if (json == null)
+            {
+                this._testOutputHelper.WriteLine("json is null");
+
+                JObject jO = null;
+                var topProperties = jO.DisplayTopProperties();
+                Assert.Equal(unexpectedString, topProperties);
+            }
+            else
+            {
+                this._testOutputHelper.WriteLine("json: {0}", json);
+
+                var jO = JObject.Parse(json);
+
+                var topProperties = jO.DisplayTopProperties();
+
+                this._testOutputHelper.WriteLine($"{nameof(topProperties)}:{Environment.NewLine}{topProperties}");
+
+                if (unexpectedString == string.Empty)
+                    Assert.Equal(unexpectedString, topProperties);
+                else
+                    Assert.DoesNotContain(unexpectedString, topProperties);
+            }
+        }
+
         [Theory, InlineData(@"{ ""data"": { ""one"":""uno"", ""two"":""dos"" } }")]
         public void ShouldGetDictionaryOfStrings(string json)
         {
@@ -22,11 +54,11 @@ namespace Songhay.Tests.Extensions
 
             var jO = JObject.Parse(json);
 
-            var data = jO.GetDictionary("data", throwException : true);
+            var data = jO.GetDictionary("data", throwException: true);
             this._testOutputHelper.WriteLine("Dictionary keys: {0}", string.Join(",", data.Keys.ToArray()));
         }
 
-        [Theory, InlineData(@"{ ""one"":[""uno"", ""un""], ""two"":[""dos"", ""deux""] }")]
+        [Theory, InlineData(@"{ ""one"": [ ""uno"", ""un"" ], ""two"": [ ""dos"", ""deux"" ] }")]
         public void ShouldGetDictionaryOfArrayOfStrings(string json)
         {
             this._testOutputHelper.WriteLine("json: {0}", json);
@@ -44,7 +76,7 @@ namespace Songhay.Tests.Extensions
 
             var jO = JObject.Parse(json);
 
-            var jA = jO.GetJArray("items", throwException : true);
+            var jA = jO.GetJArray("items", throwException: true);
             var jA_clone = jA.DeepClone();
 
             jA.Add("four");
@@ -75,7 +107,7 @@ namespace Songhay.Tests.Extensions
 
             var jO = JObject.Parse(json);
 
-            var token = jO.GetJTokenFromJArray("items", "x", arrayIndex, throwException : true);
+            var token = jO.GetJTokenFromJArray("items", "x", arrayIndex, throwException: true);
             Assert.NotNull((token as JValue));
 
             var actualValue = token.GetValue<int>();
@@ -104,10 +136,10 @@ namespace Songhay.Tests.Extensions
 
             var jO = JObject.Parse(json);
 
-            var jA = jO.GetJArray("items", throwException : false);
+            var jA = jO.GetJArray("items", throwException: false);
             Assert.Null(jA);
 
-            var jA_other = jO.GetJArray("otherItems", throwException : false);
+            var jA_other = jO.GetJArray("otherItems", throwException: false);
             Assert.Null(jA_other);
 
             Assert.Throws<NullReferenceException>(() => jO.GetJArray("otherOtherItems"));
@@ -131,6 +163,24 @@ namespace Songhay.Tests.Extensions
 
             this._testOutputHelper.WriteLine($"{nameof(json)}: {json}");
             this._testOutputHelper.WriteLine($"{nameof(jO_child)}:{Environment.NewLine}{jO_child.ToString()}");
+        }
+
+        [Theory]
+        [InlineData(@"{ ""one"": ""uno"", ""two"": { ""dos"": ""tres"" } }", "one", false)]
+        [InlineData(@"{ ""one"": ""uno"", ""two"": { ""dos"": ""tres"" } }", "two", false)]
+        [InlineData(@"{ ""one"": ""uno"", ""two"": { ""dos"": ""tres"" } }", "dos", true)]
+        public void WithProperty_Test(string json, string expectedPropertyName, bool throwException)
+        {
+            var jO = JObject.Parse(json);
+            if (throwException)
+            {
+                Assert.Throws<FormatException>(() => jO.WithProperty(expectedPropertyName));
+            }
+            else
+            {
+                var output = jO.WithProperty(expectedPropertyName);
+                Assert.Equal(jO, output);
+            }
         }
 
         readonly ITestOutputHelper _testOutputHelper;
