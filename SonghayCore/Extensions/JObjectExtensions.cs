@@ -76,7 +76,7 @@ namespace Songhay.Extensions
             var token = jObject.GetJToken(dictionaryPropertyName, throwException);
             JObject jO = null;
             if (token.HasValues) jO = (JObject)token;
-            else if (throwException) throw new FormatException(string.Format("The expected property name “{0}” is not here.", dictionaryPropertyName));
+            else if (throwException) throw new FormatException($"The expected property name “{dictionaryPropertyName}” is not here.");
 
             var data = jO.ToObject<Dictionary<string, string>>();
             return data;
@@ -136,7 +136,7 @@ namespace Songhay.Extensions
 
             JArray jsonArray = null;
             if (token.HasValues) jsonArray = (JArray)token;
-            else if (throwException) throw new FormatException(string.Format("The expected array “{0}” is not here.", arrayPropertyName));
+            else if (throwException) throw new FormatException($"The expected array “{arrayPropertyName}” is not here.");
 
             return jsonArray;
         }
