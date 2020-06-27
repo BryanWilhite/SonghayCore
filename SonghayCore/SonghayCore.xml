@@ -4660,12 +4660,12 @@
             The windows1252 URL encoding.
             </value>
         </member>
-        <member name="P:Songhay.Models.FrameworkGlyph.Utf8Encoding">
+        <member name="P:Songhay.Models.FrameworkGlyph.Utf8UrlEncoding">
             <summary>
-            Gets or sets the UTF8 encoding.
+            Gets or sets the UTF8 URL encoding.
             </summary>
             <value>
-            The UTF8 encoding.
+            The UTF8 URL encoding.
             </value>
         </member>
         <member name="P:Songhay.Models.FrameworkGlyph.HtmlEntityName">
@@ -7479,10 +7479,30 @@
             with decimal entities.
             </returns>
         </member>
+        <member name="M:Songhay.Xml.LatinGlyphs.GetGlyphs">
+            <summary>
+            Gets the glyphs.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Songhay.Xml.LatinGlyphs.GetGlyphsForCondenseOrExpand">
             <summary>
             Gets the glyphs for <see cref="M:Songhay.Xml.LatinGlyphs.Condense(System.String)"/> or <see cref="M:Songhay.Xml.LatinGlyphs.Expand(System.String)"/>.
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Xml.LatinGlyphs.RemoveUrlEncodings(System.String)">
+            <summary>
+            Removes the URL encodings.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:Songhay.Xml.LatinGlyphs.RemoveUrlEncodings(System.String,System.Boolean)">
+            <summary>
+            Removes the URL encodings.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="includeWindows1252UrlEncoding">if set to <c>true</c> [include windows1252 URL encoding].</param>
             <returns></returns>
         </member>
         <member name="T:Songhay.Xml.OpmlUtility">

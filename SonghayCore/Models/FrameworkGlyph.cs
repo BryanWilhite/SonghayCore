@@ -48,12 +48,12 @@ namespace Songhay.Models
         public string Windows1252UrlEncoding { get; set; }
 
         /// <summary>
-        /// Gets or sets the UTF8 encoding.
+        /// Gets or sets the UTF8 URL encoding.
         /// </summary>
         /// <value>
-        /// The UTF8 encoding.
+        /// The UTF8 URL encoding.
         /// </value>
-        public string Utf8Encoding { get; set; }
+        public string Utf8UrlEncoding { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the HTML entity.

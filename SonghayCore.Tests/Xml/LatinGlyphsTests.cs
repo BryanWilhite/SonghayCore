@@ -43,9 +43,22 @@ namespace Songhay.Tests.Xml
             Assert.Equal(expectedOutput, actual);
         }
 
+        [Theory]
+        [InlineData("%e2%80%a6,%e2%80%98,%e2%80%99,%e2%80%9c,%e2%80%9d,%e2%80%a2,%c2%a9,%c2%ae", ",,,,,,,")]
+        public void RemoveUrlEncodings_Test(string input, string expectedOutput)
+        {
+            this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+
+            var actual = LatinGlyphs.RemoveUrlEncodings(input);
+
+            this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+
+            Assert.Equal(expectedOutput, actual);
+        }
+
         [DebuggerAttachedTheory]
         [InlineData("./xlsx/latin-glyphs.xlsx", "./txt/latin-glyphs.txt")]
-        public void ShouldReadGlyphData(string input, string output)
+        public void ShouldWriteFrameworkGlyphData(string input, string output)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
@@ -93,7 +106,7 @@ namespace Songhay.Tests.Xml
                     UnicodeGroup = reader.GetString(1),
                     Character = GetCharacter(reader),
                     Windows1252UrlEncoding = reader.GetValue(3) as string,
-                    Utf8Encoding = reader.GetValue(4) as string,
+                    Utf8UrlEncoding = reader.GetValue(4) as string,
                     HtmlEntityName = reader.GetValue(5) as string,
                     XmlEntityNumber = reader.GetValue(6) as string,
                 };
@@ -104,7 +117,7 @@ namespace Songhay.Tests.Xml
                     $"{nameof(glyph.UnicodeGroup)} = \"{glyph.UnicodeGroup}\",",
                     $"{nameof(glyph.Character)} = \"{glyph.Character}\",",
                     $"{nameof(glyph.Windows1252UrlEncoding)} = \"{glyph.Windows1252UrlEncoding}\",",
-                    $"{nameof(glyph.Utf8Encoding)} = \"{glyph.Utf8Encoding}\",",
+                    $"{nameof(glyph.Utf8UrlEncoding)} = \"{glyph.Utf8UrlEncoding}\",",
                     $"{nameof(glyph.HtmlEntityName)} = \"{glyph.HtmlEntityName}\",",
                     $"{nameof(glyph.XmlEntityNumber)} = \"{glyph.XmlEntityNumber}\"",
                 };
