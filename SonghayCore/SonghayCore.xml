@@ -7278,6 +7278,38 @@
             DOCTYPE XHTML Transitional
             </summary>
         </member>
+        <member name="T:Songhay.Net.TimeoutHandler">
+            <summary>
+            Defines timeout and cancellation support
+            for <see cref="T:System.Net.Http.HttpClient"/>.
+            </summary>
+            <seealso cref="T:System.Net.Http.DelegatingHandler" />
+            <remarks>
+            📖 see “Better timeout handling with HttpClient”
+            by @thomaslevesque [ https://github.com/thomaslevesque ]
+            [ https://thomaslevesque.com/2018/02/25/better-timeout-handling-with-httpclient/ ]
+            
+            </remarks>
+        </member>
+        <member name="P:Songhay.Net.TimeoutHandler.DefaultTimeout">
+            <summary>
+            Gets or sets the default timeout.
+            </summary>
+            <value>
+            The default timeout.
+            </value>
+        </member>
+        <member name="M:Songhay.Net.TimeoutHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            Sends an HTTP request to the inner handler to send to the server as an asynchronous operation.
+            </summary>
+            <param name="request">The HTTP request message to send to the server.</param>
+            <param name="cancellationToken">A cancellation token to cancel operation.</param>
+            <returns>
+            The task object representing the asynchronous operation.
+            </returns>
+            <exception cref="T:System.TimeoutException"></exception>
+        </member>
         <member name="T:Songhay.OpcReferencedTypeStrategy">
             <summary>
             Names the strategies to use
