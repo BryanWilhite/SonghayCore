@@ -1163,15 +1163,33 @@
             <summary>
             Gets a <see cref="T:System.String"/> from the derived <see cref="T:System.Net.Http.HttpResponseMessage"/>.
             </summary>
-            <param name="request"></param>
+            <param name="request">The request.</param>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetServerResponseAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})">
             <summary>
-            Gets a <see cref="T:System.String"/> from the derived <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            Gets a <see cref="T:System.String" /> from the derived <see cref="T:System.Net.Http.HttpResponseMessage" />.
             </summary>
-            <param name="request"></param>
-            <param name="responseMessageAction"></param>
+            <param name="request">The request.</param>
+            <param name="responseMessageAction">The response message action.</param>
             <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetServerResponseAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})">
+            <summary>
+            Gets a <see cref="T:System.String" /> from the derived <see cref="T:System.Net.Http.HttpResponseMessage" />.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="responseMessageAction">The response message action.</param>
+            <param name="optionalClientGetter">The optional client getter.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">request</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetTimeout(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Gets any <see cref="T:System.Threading.Timeout"/> in <see cref="P:System.Net.Http.HttpRequestMessage.Properties"/>.
+            </summary>
+            <param name="request">The request.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">request</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)">
             <summary>
@@ -1183,8 +1201,16 @@
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             </summary>
-            <param name="request"></param>
+            <param name="request">The request.</param>
             <param name="requestMessageAction">The request message action.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            </summary>
+            <param name="request">The request.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <param name="optionalClientGetter">The optional client getter.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">uri - The expected URI is not here.
             or
@@ -1196,7 +1222,7 @@
             with the specified request body, <see cref="P:System.Text.Encoding.UTF8"/>
             and <see cref="F:Songhay.Models.MimeTypes.ApplicationJson"/>.
             </summary>
-            <param name="request"></param>
+            <param name="request">The request.</param>
             <param name="requestBody">The request body.</param>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)">
@@ -1204,7 +1230,7 @@
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             with the specified request body.
             </summary>
-            <param name="request"></param>
+            <param name="request">The request.</param>
             <param name="requestBody">The request body.</param>
             <param name="encoding">The encoding.</param>
             <param name="mediaType">Type of the media.</param>
@@ -1214,13 +1240,34 @@
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             with the specified request body.
             </summary>
-            <param name="request"></param>
+            <param name="request">The request.</param>
             <param name="requestBody">The request body.</param>
             <param name="encoding">The encoding.</param>
             <param name="mediaType">Type of the media.</param>
             <param name="requestMessageAction">The request message action.</param>
             <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified request body.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="encoding">The encoding.</param>
+            <param name="mediaType">Type of the media.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <param name="optionalClientGetter">The optional client getter.</param>
+            <returns></returns>
             <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SetTimeout(System.Net.Http.HttpRequestMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Sets the <see cref="T:System.Threading.Timeout" /> in <see cref="P:System.Net.Http.HttpRequestMessage.Properties" />.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="timeout">The timeout.</param>
+            <exception cref="T:System.ArgumentNullException">request</exception>
         </member>
         <member name="T:Songhay.Extensions.HttpResponseMessageExtensions">
             <summary>
