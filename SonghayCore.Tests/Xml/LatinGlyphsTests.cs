@@ -1,0 +1,129 @@
+﻿using ExcelDataReader;
+using Songhay.Extensions;
+using Songhay.Models;
+using Songhay.Xml;
+using System.IO;
+using System.Linq;
+using System.Text;
+using Xunit;
+using Xunit.Abstractions;
+
+namespace Songhay.Tests.Xml
+{
+    public class LatinGlyphsTests
+    {
+        public LatinGlyphsTests(ITestOutputHelper helper)
+        {
+            this._testOutputHelper = helper;
+        }
+
+        [Theory]
+        [InlineData("1 &amp; 2; 3 &#38; 4; it&apos;s done", "1 & 2; 3 & 4; it's done")]
+        public void Condense_Test(string input, string expectedOutput)
+        {
+            this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+
+            var actual = LatinGlyphs.Condense(input);
+
+            this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+
+            Assert.Equal(expectedOutput, actual);
+        }
+
+        [Theory]
+        [InlineData("1 & 2; 3 & 4; it's done", "1 &#38; 2; 3 &#38; 4; it&#39;s done")]
+        public void Expand_Test(string input, string expectedOutput)
+        {
+            this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+
+            var actual = LatinGlyphs.Expand(input);
+
+            this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+
+            Assert.Equal(expectedOutput, actual);
+        }
+
+        [DebuggerAttachedTheory]
+        [InlineData("./xlsx/latin-glyphs.xlsx", "./txt/latin-glyphs.txt")]
+        public void ShouldReadGlyphData(string input, string output)
+        {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            var sb = new StringBuilder();
+            var projectRoot = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+            var projectInfo = new DirectoryInfo(projectRoot);
+            Assert.True(projectInfo.Exists);
+
+            input = projectInfo.ToCombinedPath(input);
+            Assert.True(File.Exists(input));
+
+            output = projectInfo.ToCombinedPath(output);
+            Assert.True(File.Exists(output));
+
+            string GetCharacter(IExcelDataReader reader)
+            {
+                var unicodePoint = reader.GetValue(0) as string;
+
+                switch (unicodePoint)
+                {
+                    case "22":
+                        return "\\\"";
+                    case "5c":
+                        return "\\\\";
+                    default:
+                        return reader.GetValue(2) as string;
+                }
+            }
+
+            string GetUnicodePoint(IExcelDataReader reader)
+            {
+                var @type = reader.GetFieldType(0);
+
+                return (@type == typeof(double)) ?
+                    reader.GetDouble(0).ToString()
+                    :
+                    reader.GetValue(0) as string;
+            }
+
+            string ReadLine(IExcelDataReader reader)
+            {
+                var glyph = new FrameworkGlyph
+                {
+                    UnicodePoint = GetUnicodePoint(reader),
+                    UnicodeGroup = reader.GetString(1),
+                    Character = GetCharacter(reader),
+                    Windows1252UrlEncoding = reader.GetValue(3) as string,
+                    Utf8Encoding = reader.GetValue(4) as string,
+                    HtmlEntityName = reader.GetValue(5) as string,
+                    XmlEntityNumber = reader.GetValue(6) as string,
+                };
+
+                var properties = new[]
+                {
+                    $"{nameof(glyph.UnicodePoint)} = \"{glyph.UnicodePoint}\",",
+                    $"{nameof(glyph.UnicodeGroup)} = \"{glyph.UnicodeGroup}\",",
+                    $"{nameof(glyph.Character)} = \"{glyph.Character}\",",
+                    $"{nameof(glyph.Windows1252UrlEncoding)} = \"{glyph.Windows1252UrlEncoding}\",",
+                    $"{nameof(glyph.Utf8Encoding)} = \"{glyph.Utf8Encoding}\",",
+                    $"{nameof(glyph.HtmlEntityName)} = \"{glyph.HtmlEntityName}\",",
+                    $"{nameof(glyph.XmlEntityNumber)} = \"{glyph.XmlEntityNumber}\"",
+                };
+
+                return $"new {nameof(FrameworkGlyph)} {{ {properties.Aggregate((a, i) => $"{a} {i}")} }},";
+            }
+
+            using (var stream = File.Open(input, FileMode.Open, FileAccess.Read))
+            {
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
+                {
+                    reader.Read(); // skip header
+                    while (reader.Read()) sb.AppendLine(ReadLine(reader));
+                }
+            }
+
+            File.WriteAllText(output, sb.ToString().Replace("\t", string.Empty));
+        }
+
+        readonly ITestOutputHelper _testOutputHelper;
+    }
+}
