@@ -31,9 +31,23 @@ namespace Songhay.Models
     public interface IActivityWithTask<TInput> : IActivity
     {
         /// <summary>
-        /// Starts the <see cref="IActivity"/> asynchronously.
+        /// Starts the <see cref="IActivity" /> asynchronously.
         /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
         Task StartAsync(TInput input);
+    }
+
+    /// <summary>
+    /// Extends <see cref="IActivity" /> with <see cref="Task"/> output support.
+    /// </summary>
+    public interface IActivityWithTaskOutput<TOutput> : IActivity
+    {
+        /// <summary>
+        /// Starts the <see cref="IActivity" /> asynchronously.
+        /// </summary>
+        /// <returns></returns>
+        Task<TOutput> StartAsync();
     }
 
     /// <summary>

@@ -299,5 +299,43 @@ namespace Songhay.Extensions
 
             return output;
         }
+
+        /// <summary>
+        /// Converts the specified <see cref="IActivity" />
+        /// to <see cref="IActivityWithTaskOutput{TOutput}" />.
+        /// </summary>
+        /// <typeparam name="TOutput">The type of the output.</typeparam>
+        /// <param name="activity">The activity.</param>
+        /// <returns></returns>
+        /// <exception cref="NullReferenceException">
+        /// The expected IActivityWithTaskOutput{TOutput} is not here.
+        /// </exception>
+        public static IActivityWithTaskOutput<TOutput> ToActivityWithTaskOutput<TOutput>(this IActivity activity)
+        {
+            return activity.ToActivityWithTaskOutput<TOutput>(throwException: true);
+        }
+        
+        /// <summary>
+        /// Converts the specified <see cref="IActivity" />
+        /// to <see cref="IActivityWithTaskOutput{TOutput}" />.
+        /// </summary>
+        /// <typeparam name="TOutput">The type of the output.</typeparam>
+        /// <param name="activity">The activity.</param>
+        /// <param name="throwException">if set to <c>true</c> throw exception.</param>
+        /// <returns></returns>
+        /// <exception cref="NullReferenceException">
+        /// The expected IActivityWithTaskOutput{TOutput} is not here.
+        /// </exception>
+        public static IActivityWithTaskOutput<TOutput> ToActivityWithTaskOutput<TOutput>(this IActivity activity, bool throwException)
+        {
+            if (activity == null) return null;
+
+            var output = activity as IActivityWithTaskOutput<TOutput>;
+
+            if (throwException && (output == null))
+                throw new NullReferenceException($"The expected {nameof(IActivityWithTaskOutput<TOutput>)} is not here.");
+
+            return output;
+        }
     }
 }
