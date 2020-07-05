@@ -80,4 +80,8 @@ Defines reusable class definitions for [xUnit](https://xunit.net/). Featured is 
 
 **Documentation 📚:** [`Songhay.Tests`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Tests/)
 
+The diagram below shows all of the packages supported by `SonghayCore` in my Studio:
+
+![packages supported by `SonghayCore`](./SonghayCore/images/image-2020-07-04-17-46-09.png)
+
 @[BryanWilhite](https://twitter.com/BryanWilhite)
