@@ -56,6 +56,16 @@ namespace Songhay.Tests.Xml
             Assert.Equal(expectedOutput, actual);
         }
 
+        [Fact]
+        public void ShouldVerifyPoints()
+        {
+            var glyphs = LatinGlyphs.GetGlyphs();
+            foreach (var glyph in glyphs)
+            {
+                Assert.Equal(glyph.XmlEntityNumber, $"&#{glyph.UnicodeInteger};");
+            }
+        }
+
         [DebuggerAttachedTheory]
         [InlineData("./xlsx/latin-glyphs.xlsx", "./txt/latin-glyphs.txt")]
         public void ShouldWriteFrameworkGlyphData(string input, string output)
