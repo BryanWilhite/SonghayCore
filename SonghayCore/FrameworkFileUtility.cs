@@ -102,13 +102,19 @@ namespace Songhay
         /// For detail, see:
         /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/14
         /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/32
+        /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/97
         /// </remarks>
         public static string GetCombinedPath(string root, string path)
         {
             if (string.IsNullOrWhiteSpace(root)) throw new NullReferenceException($"The expected {nameof(root)} is not here.");
             if (string.IsNullOrWhiteSpace(path)) throw new NullReferenceException($"The expected {nameof(path)} is not here.");
 
-            return Path.Combine(NormalizePath(root), RemoveConventionalPrefixes(NormalizePath(path)));
+            path = GetRelativePath(path);
+
+            return Path.IsPathRooted(path) ?
+                path
+                :
+                Path.Combine(NormalizePath(root), path);
         }
 
         /// <summary>
@@ -162,6 +168,32 @@ namespace Songhay
         }
 
         /// <summary>
+        /// Gets the relative path from the specified file segment
+        /// without leading dots (<c>.</c>) or <see cref="Path.DirectorySeparatorChar" /> chars.
+        /// </summary>
+        /// <param name="fileSegment">The file segment.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">fileSegment</exception>
+        /// <remarks>
+        /// This method is the equivalent of calling:
+        ///  * <see cref="TrimLeadingDirectorySeparatorChars(string)"/>
+        ///  * <see cref="NormalizePath(string)"/>
+        ///  * <see cref="RemoveBackslashPrefixes(string)"/>
+        ///  * <see cref="RemoveForwardslashPrefixes(string)"/>
+        /// </remarks>
+        public static string GetRelativePath(string fileSegment)
+        {
+            if (string.IsNullOrWhiteSpace(fileSegment)) throw new ArgumentNullException(nameof(fileSegment));
+
+            fileSegment = TrimLeadingDirectorySeparatorChars(fileSegment);
+            fileSegment = NormalizePath(fileSegment);
+            fileSegment = RemoveBackslashPrefixes(fileSegment);
+            fileSegment = RemoveForwardslashPrefixes(fileSegment);
+
+            return fileSegment;
+        }
+
+        /// <summary>
         /// Returns <c>true</c> when the current OS
         /// uses forward-slash (<c>/</c>) paths or not.
         /// </summary>
@@ -189,27 +221,40 @@ namespace Songhay
 
         /// <summary>
         /// Removes conventional Directory prefixes
-        /// for relative paths, e.g. <c>../</c> or <c>./</c>
-        /// based on the ambient value of <see cref="Path.DirectorySeparatorChar"/>.
+        /// for relative paths, e.g. <c>..\</c> or <c>.\</c>
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public static string RemoveConventionalPrefixes(string path)
-        {
-            if (string.IsNullOrWhiteSpace(path)) return null;
-
-            return isForwardSlashSystem ?
-                path
-                .TrimStart(forwardSlash)
-                .Replace($"..{forwardSlash}", string.Empty)
-                .Replace($".{forwardSlash}", string.Empty)
-                :
-                path
+        public static string RemoveBackslashPrefixes(string path) =>
+            path?
                 .TrimStart(backSlash)
                 .Replace($"..{backSlash}", string.Empty)
-                .Replace($".{backSlash}", string.Empty)
-                ;
-        }
+                .Replace($".{backSlash}", string.Empty);
+
+        /// <summary>
+        /// Removes conventional Directory prefixes
+        /// for relative paths based on the ambient value\
+        /// of <see cref="Path.DirectorySeparatorChar"/>.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static string RemoveConventionalPrefixes(string path) =>
+            isForwardSlashSystem ?
+                RemoveForwardslashPrefixes(path)
+                :
+                RemoveBackslashPrefixes(path);
+
+        /// <summary>
+        /// Removes conventional Directory prefixes
+        /// for relative paths, e.g. <c>../</c> or <c>./</c>.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static string RemoveForwardslashPrefixes(string path) =>
+            path?
+                .TrimStart(forwardSlash)
+                .Replace($"..{forwardSlash}", string.Empty)
+                .Replace($".{forwardSlash}", string.Empty);
 
         /// <summary>
         /// Trims the leading directory separator chars.

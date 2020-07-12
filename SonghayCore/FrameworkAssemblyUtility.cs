@@ -15,20 +15,20 @@ namespace Songhay
     public static partial class FrameworkAssemblyUtility
     {
         /// <summary>
-        /// Returns a <see cref="System.String"/>
+        /// Returns a <see cref="string"/>
         /// about the executing assembly.
         /// </summary>
         /// <param name="targetAssembly">
         /// The executing <see cref="System.Reflection.Assembly"/>.
         /// </param>
-        /// <returns>Returns <see cref="System.String"/></returns>
+        /// <returns>Returns <see cref="string"/></returns>
         public static string GetAssemblyInfo(Assembly targetAssembly)
         {
             return GetAssemblyInfo(targetAssembly, false);
         }
 
         /// <summary>
-        /// Returns a <see cref="System.String"/>
+        /// Returns a <see cref="string"/>
         /// about the executing assembly.
         /// </summary>
         /// <param name="targetAssembly">
@@ -37,7 +37,7 @@ namespace Songhay
         /// <param name="useConsoleChars">
         /// When <c>true</c> selected “special” characters are formatted for the Windows Console.
         /// </param>
-        /// <returns>Returns <see cref="System.String"/></returns>
+        /// <returns>Returns <see cref="string"/></returns>
         public static string GetAssemblyInfo(Assembly targetAssembly, bool useConsoleChars)
         {
             var sb = new StringBuilder();

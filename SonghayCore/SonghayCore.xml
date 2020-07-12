@@ -3447,6 +3447,15 @@
             A recursive wrapper for <see cref="M:System.IO.Directory.GetParent(System.String)"/>.
             </remarks>
         </member>
+        <member name="M:Songhay.FrameworkFileUtility.GetRelativePath(System.String)">
+            <summary>
+            Gets the relative path from the specified file segment
+            without leading dots (<c>.</c>) or <see cref="F:System.IO.Path.DirectorySeparatorChar" /> chars.
+            </summary>
+            <param name="fileSegment">The file segment.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">fileSegment</exception>
+        </member>
         <member name="M:Songhay.FrameworkFileUtility.IsForwardSlashSystem">
             <summary>
             Returns <c>true</c> when the current OS
@@ -3462,11 +3471,27 @@
             <param name="path"></param>
             <returns></returns>
         </member>
+        <member name="M:Songhay.FrameworkFileUtility.RemoveBackslashPrefixes(System.String)">
+            <summary>
+            Removes conventional Directory prefixes
+            for relative paths, e.g. <c>..\</c> or <c>.\</c>
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
         <member name="M:Songhay.FrameworkFileUtility.RemoveConventionalPrefixes(System.String)">
             <summary>
             Removes conventional Directory prefixes
-            for relative paths, e.g. <c>../</c> or <c>./</c>
-            based on the ambient value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
+            for relative paths based on the ambient value\
+            of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.FrameworkFileUtility.RemoveForwardslashPrefixes(System.String)">
+            <summary>
+            Removes conventional Directory prefixes
+            for relative paths, e.g. <c>../</c> or <c>./</c>.
             </summary>
             <param name="path"></param>
             <returns></returns>
