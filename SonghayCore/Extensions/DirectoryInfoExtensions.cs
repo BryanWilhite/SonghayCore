@@ -84,14 +84,14 @@ namespace Songhay.Extensions
 
         /// <summary>Combines path and root based
         /// on the current value of <see cref="Path.DirectorySeparatorChar"/>
-        /// of the current OS.</summary>
+        /// of the current OS or passes through a drive-letter rooted path.</summary>
         /// <param name="directoryInfo">The directory information.</param>
         /// <param name="path">The path.</param>
         /// <returns></returns>
         /// <exception cref="NullReferenceException">The expected root path is not here.
         /// or
         /// The expected path is not here.</exception>
-        /// <remarks>For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14.</remarks>
+        /// <remarks>For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14 and <see cref="FrameworkFileUtility.GetCombinedPath(string, string)" />.</remarks>
         public static string ToCombinedPath(this DirectoryInfo directoryInfo, string path)
         {
             if (directoryInfo == null) throw new NullReferenceException($"The expected {nameof(DirectoryInfo)} is not here.");

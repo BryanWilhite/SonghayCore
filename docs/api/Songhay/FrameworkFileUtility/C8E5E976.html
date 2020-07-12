@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
-        <title>SonghayCore Documentation - API - XmlUtility.GetNodeValue(IXPathNavigable, string, bool) Method</title>
+        <title>SonghayCore Documentation - API - FrameworkFileUtility.RemoveBackslashPrefixes(string) Method</title>
         <link href="/SonghayCore/assets/css/highlight.css" rel="stylesheet">
         <link href="/SonghayCore/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/SonghayCore/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -133,76 +133,43 @@
                     <ul class="sidebar-menu">
                         
 			<li class="header">Namespace</li>
-		<li><a href="/SonghayCore/api/Songhay.Xml">Songhay<wbr>.Xml</a></li>
+		<li><a href="/SonghayCore/api/Songhay">Songhay</a></li>
 		<li class="header">Type</li>
-		<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility">XmlUtility</a></li>
+		<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility">FrameworkFileUtility</a></li>
 		<li role="separator" class="divider"></li>
 			<li class="header">Method Members</li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/9A211F99">Combine<wbr>Navigable<wbr>Documents<wbr>(IXPathNavigable, <wbr>IXPathNavigable)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/74E63B07">Combine<wbr>Navigable<wbr>Documents<wbr>(IXPathNavigable, <wbr>IXPathNavigable, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/07F81BCF">ExpandSpecialChars<wbr>(string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/21FA3A81">GetAttributeValue<wbr>(IXPathNavigable, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/F14331CC">GetAttributeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/D771E748">GetInstance<wbr>&lt;T&gt;<wbr><wbr>(string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/0EA40411">GetInstanceRaw<wbr>&lt;T&gt;<wbr><wbr>(string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/07ADBCCE">GetInternalMessage<wbr>(string, <wbr>string[], <wbr>XmlWriter)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/43B89D86">GetInternalMessage<wbr>(string, <wbr>string, <wbr>string[], <wbr>XmlWriter)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/7F6E5BB0">GetInternalMessage<wbr>(string, <wbr>string[], <wbr>XmlWriter, <wbr>bool)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/1E714A4A">GetInternalMessage<wbr>(string, <wbr>string, <wbr>string[], <wbr>XmlWriter, <wbr>bool)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/1E1562F7">GetInternalMessage<wbr>(string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/0199A63E">GetInternalMessage<wbr>(string, <wbr>string[])<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/A2D63BB1">GetInternalMessage<wbr>(string, <wbr>ReadOnlyCollection<wbr>&lt;string&gt;<wbr>)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/E4B2B4D4">GetInternalMessage<wbr>(string, <wbr>string, <wbr>string[])<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/622BF1FA">GetInternalMessage<wbr>(string, <wbr>string, <wbr>ReadOnlyCollection<wbr>&lt;string&gt;<wbr>)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/B65372CD">Get<wbr>Internal<wbr>Message<wbr>Document<wbr>(string, <wbr>string[])<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/166EFFF1">Get<wbr>Internal<wbr>Message<wbr>Document<wbr>(string, <wbr>string, <wbr>string[])<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/6615EFCF">GetNamespaceManager<wbr>(IXPathNavigable)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/D7BA4D50">GetNavigableDocument<wbr>(string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/7C02482C">GetNavigableDocument<wbr>(IXPathNavigable)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/4820C9F3">GetNavigableDocument<wbr>(Stream)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/D11CCD56">GetNavigableDocument<wbr>(object)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/4BE54B82">GetNavigableNode<wbr>(IXPathNavigable, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/3BC75D91">GetNavigableNode<wbr>(IXPathNavigable, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/563AB55C">GetNavigableNodes<wbr>(IXPathNavigable, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/B85C9F8F">GetNavigableNodes<wbr>(IXPathNavigable, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></li>
-				<li class="selected"><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/58FE9ABD">GetNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/3ABFAE62">GetNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>object)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/C3B8947C">GetNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>object, <wbr>XmlNamespaceManager)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/DF6A6425">GetNodeValueAndParse<wbr>&lt;T&gt;<wbr><wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>T)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/F4108D92">GetNodeValueAndParse<wbr>&lt;T&gt;<wbr><wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>T, <wbr>XmlNamespaceManager)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/5C7D0218">GetText<wbr>(MemoryStream)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/92800462">GetXmlSchema<wbr>(IXPathNavigable, <wbr>Validation<wbr>Event<wbr>Handler)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/D1DFCB8F">GetXslResult<wbr>(IXPathNavigable, <wbr>IXPathNavigable)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/6F9A959C">GetXslResult<wbr>(IXPathNavigable, <wbr>XsltArgumentList, <wbr>IXPathNavigable)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/258544DC">GetXslString<wbr>(IXPathNavigable, <wbr>IXPathNavigable)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/13172A4C">GetXslString<wbr>(IXPathNavigable, <wbr>XsltArgumentList, <wbr>IXPathNavigable)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/05169DC6">GetXslString<wbr>(IXPathNavigable, <wbr>XsltArgumentList, <wbr>IXPathNavigable, <wbr>XmlWriterSettings)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/2D9F2E24">InputAs<wbr>&lt;TIn&gt;<wbr><wbr>(TIn)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/9E82ABD9">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/D9DF7C77">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string, <wbr>StringComparison)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/0E8B9793">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/04D4392F">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string, <wbr>Xml<wbr>Namespace<wbr>Manager, <wbr>StringComparison)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/C8D60423">IsNoNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/23DF6A86">IsXml<wbr>(string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/8C67B1A3">IsYesNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/CDDBACC1">LoadXmlSchema<wbr>(string, <wbr>Validation<wbr>Event<wbr>Handler)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/A9EFE9C1">LoadXslTransform<wbr>(string, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/8248405E">LoadXslTransform<wbr>(string, <wbr>string, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/503637B8">LoadXslTransform<wbr>(string, <wbr>string, <wbr>IXPathNavigable)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/488370A5">LoadXslTransform<wbr>(string, <wbr>XsltArgumentList, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/284F8DF6">OutputAs<wbr>&lt;TOut&gt;<wbr><wbr>(string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/5D5FBB72">OutputAs<wbr>&lt;TOut&gt;<wbr><wbr>(IXPathNavigable)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/256AA925">StripNamespaces<wbr>(IXPathNavigable)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/8CE130A7">StripNamespaces<wbr>(IXPathNavigable, <wbr>bool)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/A3938A1C">StripNamespaces<wbr>(string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/8C4D338B">StripNamespaces<wbr>(string, <wbr>bool)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/8E871339">Validate<wbr>Navigable<wbr>Node<wbr>(IXPathNavigable, <wbr>XmlSchema, <wbr>Validation<wbr>Event<wbr>Handler)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/3F1BEC25">Write<wbr>&lt;T&gt;<wbr><wbr>(T, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/4B927B08">WriteReader<wbr>(XmlReader, <wbr>XmlWriter)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/095093A9">WriteXslTransform<wbr>(IXPathNavigable, <wbr>IXPathNavigable, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/3F282C7B">WriteXslTransform<wbr>(XmlReader, <wbr>IXPathNavigable, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/F8B91B1A">XmlDecode<wbr>(string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility/1EA1B3B7">XmlEncode<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/4C73DC83">Count<wbr>Parent<wbr>Directory<wbr>Chars<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/B9B26F44">FindParentDirectory<wbr>(string, <wbr>string, <wbr>int)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/45FB620E">Find<wbr>Parent<wbr>Directory<wbr>Info<wbr>(string, <wbr>string, <wbr>int)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/627B732F">GetCombinedPath<wbr>(string, <wbr>string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/1D0AD43B">GetEncodedString<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/8FFB7627">GetEncodedString<wbr>(string, <wbr>Encoding)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/F14588EE">GetFileName<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/80AA7C1F">GetFileName<wbr>(string, <wbr>char?)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/0AEA2865">GetParentDirectory<wbr>(string, <wbr>int)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/DA2F33AE">Get<wbr>Parent<wbr>Directory<wbr>Info<wbr>(string, <wbr>int)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/DC8CE115">GetPathRoot<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/74A0104E">GetPathRoot<wbr>(string, <wbr>char?)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/D16BE209">GetRelativePath<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/C501AD9A">IsForwardSlashSystem<wbr>()<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/3DBF8158">JoinPathAndRoot<wbr>(string, <wbr>string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/5CD42A0D">JoinPathAndRoot<wbr>(string, <wbr>string, <wbr>char?)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/8A366D44">NormalizePath<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/7FCE151E">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>(FileInfo, <wbr>Action<wbr>&lt;string&gt;<wbr>)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/24CD4D82">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>(FileInfo, <wbr>Action<wbr>&lt;string&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/0EBBB0E7">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>By<wbr>Line<wbr>(FileInfo, <wbr>Action<wbr>&lt;int, <wbr>string&gt;<wbr>)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/02DC5AC5">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>By<wbr>Line<wbr>(FileInfo, <wbr>Action<wbr>&lt;int, <wbr>string&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></li>
+				<li class="selected"><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/C8E5E976">Remove<wbr>Backslash<wbr>Prefixes<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/51FDFA58">Remove<wbr>Conventional<wbr>Prefixes<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/63DA1C0E">Remove<wbr>Forwardslash<wbr>Prefixes<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/43FB1E00">Trim<wbr>Leading<wbr>Directory<wbr>Separator<wbr>Chars<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/99296E37">UseZipArchive<wbr>(FileInfo, <wbr>Action<wbr>&lt;ZipArchive&gt;<wbr>)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/8BEE6449">UseZipArchive<wbr>(FileInfo, <wbr>Action<wbr>&lt;ZipArchive&gt;<wbr>, <wbr>ZipArchiveMode)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/EFE69982">UseZipArchiveEntries<wbr>(FileInfo, <wbr>Action<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/73703CBF">UseZipArchiveEntries<wbr>(FileInfo, <wbr>Action<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/12A7AFED">Write<wbr>(string, <wbr>string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/F14347A5">WriteZipArchiveEntry<wbr>(FileInfo, <wbr>FileInfo)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/55D3C495">WriteZipArchiveEntry<wbr>(FileInfo, <wbr>FileInfo, <wbr>CompressionLevel)<wbr></a></li>
 
 
                     </ul>
@@ -217,16 +184,16 @@
 
 
 <section class="content-header">
-			<h3><a href="/SonghayCore/api/Songhay.Xml/XmlUtility">XmlUtility</a>.</h3>
-	<h1>GetNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool)<wbr> <small>Method</small></h1>
+			<h3><a href="/SonghayCore/api/Songhay/FrameworkFileUtility">FrameworkFileUtility</a>.</h3>
+	<h1>Remove<wbr>Backslash<wbr>Prefixes<wbr>(string)<wbr> <small>Method</small></h1>
 </section>
 <section class="content">
 	
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Returns an object for parsing
-    and adding to a list of parameters for data access.
+    Removes conventional Directory prefixes
+    for relative paths, e.g. <code class="cs">..\</code> or <code class="cs">.\</code>
     </div>
 
 		<div class="panel panel-default">
@@ -234,17 +201,17 @@
 				<dl class="dl-horizontal">	
 						
 						<dt>Namespace</dt>
-						<dd><a href="/SonghayCore/api/Songhay.Xml">Songhay<wbr>.Xml</a></dd>
+						<dd><a href="/SonghayCore/api/Songhay">Songhay</a></dd>
 					
 						<dt>Containing Type</dt>
-						<dd><a href="/SonghayCore/api/Songhay.Xml/XmlUtility">XmlUtility</a></dd>		
+						<dd><a href="/SonghayCore/api/Songhay/FrameworkFileUtility">FrameworkFileUtility</a></dd>		
 					
 				</dl>
   			</div>
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public static object GetNodeValue(IXPathNavigable node, string setQuery, bool throwException)</code></pre>
+	<pre><code>public static string RemoveBackslashPrefixes(string path)</code></pre>
 
 
 
@@ -262,19 +229,9 @@
 					</tr>
 				</thead>
 					<tbody><tr>
-						<td>node</td>
-						<td>IXPathNavigable</td>
-						<td>The <code class="cs">System.Xml.XPath.IXPathNavigable</code></td>
-					</tr>
-					<tr>
-						<td>setQuery</td>
+						<td>path</td>
 						<td>string</td>
-						<td>The <code class="cs"><a href="/SonghayCore">string</a></code></td>
-					</tr>
-					<tr>
-						<td>throwException</td>
-						<td>bool</td>
-						<td>When <pre><code class="cs">true</code></pre>, throw an exception for null nodes.</td>
+						<td></td>
 					</tr>
 			</tbody></table>
 		</div>
@@ -291,7 +248,7 @@
 					</tr>
 				</thead>
 				<tbody><tr>
-					<td>object</td>
+					<td>string</td>
 					<td></td>
 				</tr>
 			</tbody></table>

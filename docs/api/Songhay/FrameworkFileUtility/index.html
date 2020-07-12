@@ -356,6 +356,17 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/D16BE209">GetRelativePath<wbr>(string)<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Gets the relative path from the specified file segment
+    without leading dots (<code class="cs">.</code>) or <code class="cs">System.IO.Path.DirectorySeparatorChar</code> chars.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/C501AD9A">IsForwardSlashSystem<wbr>()<wbr></a></td>
 								<td>bool</td>
 								<td>
@@ -438,13 +449,35 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/C8E5E976">Remove<wbr>Backslash<wbr>Prefixes<wbr>(string)<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Removes conventional Directory prefixes
+    for relative paths, e.g. <code class="cs">..\</code> or <code class="cs">.\</code>
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/51FDFA58">Remove<wbr>Conventional<wbr>Prefixes<wbr>(string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
     Removes conventional Directory prefixes
-    for relative paths, e.g. <code class="cs">../</code> or <code class="cs">./</code>
-    based on the ambient value of <code class="cs">System.IO.Path.DirectorySeparatorChar</code>.
+    for relative paths based on the ambient value\
+    of <code class="cs">System.IO.Path.DirectorySeparatorChar</code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay/FrameworkFileUtility/63DA1C0E">Remove<wbr>Forwardslash<wbr>Prefixes<wbr>(string)<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Removes conventional Directory prefixes
+    for relative paths, e.g. <code class="cs">../</code> or <code class="cs">./</code>.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -495,7 +528,7 @@ class Type type-node
 								<td>void</td>
 								<td>
 									<div>
-    Centralizes the use of <code class="cs"><a href="/SonghayCore">ReadOnlyCollection&lt;T&gt;</a></code>.
+    Centralizes the use of <code class="cs">System.Collections.ObjectModel.ReadOnlyCollection`1</code>.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
