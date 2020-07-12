@@ -3423,6 +3423,7 @@
             For detail, see:
             📚 https://github.com/BryanWilhite/SonghayCore/issues/14
             📚 https://github.com/BryanWilhite/SonghayCore/issues/32
+            📚 https://github.com/BryanWilhite/SonghayCore/issues/97
             </remarks>
         </member>
         <member name="M:Songhay.FrameworkFileUtility.GetParentDirectory(System.String,System.Int32)">
@@ -3455,6 +3456,13 @@
             <param name="fileSegment">The file segment.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">fileSegment</exception>
+            <remarks>
+            This method is the equivalent of calling:
+             * <see cref="M:Songhay.FrameworkFileUtility.TrimLeadingDirectorySeparatorChars(System.String)"/>
+             * <see cref="M:Songhay.FrameworkFileUtility.NormalizePath(System.String)"/>
+             * <see cref="M:Songhay.FrameworkFileUtility.RemoveBackslashPrefixes(System.String)"/>
+             * <see cref="M:Songhay.FrameworkFileUtility.RemoveForwardslashPrefixes(System.String)"/>
+            </remarks>
         </member>
         <member name="M:Songhay.FrameworkFileUtility.IsForwardSlashSystem">
             <summary>
