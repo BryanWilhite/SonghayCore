@@ -12,17 +12,14 @@ trigger:
     - releases/*
   paths:
     exclude:
-    - /azure*.yml
-    - /docs/*
+    - ./azure*.yml
+    - ./docs/*
     - $SonghayCore.Tests/*
     - $SonghayCore.Framework.Tests/*
     - $SonghayCore.xUnit.Tests/*
 
 resources:
 - repo: self
-
-queue:
-  name: Hosted Windows 2019 with VS2019
 
 steps:
 
