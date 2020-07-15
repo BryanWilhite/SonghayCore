@@ -11,7 +11,7 @@ namespace Songhay.Tests
             this._testOutputHelper = helper;
         }
 
-        [Theory]
+        [DebuggerAttachedTheory]
         [InlineData("root1", @"z:\one", "z:|one")]
         [InlineData(@"z:\root1", @"one", "z:|root1|one")]
         [InlineData("root2", @"/home/one", "root2|home|one")]
