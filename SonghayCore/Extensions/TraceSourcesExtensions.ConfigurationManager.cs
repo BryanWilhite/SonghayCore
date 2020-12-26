@@ -1,4 +1,4 @@
-﻿#if NET452 || NET462
+﻿#if NET5_0
 
 using Songhay.Diagnostics;
 using Songhay.Models;
