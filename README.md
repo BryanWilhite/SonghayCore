@@ -8,6 +8,22 @@ The _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/S
 
 **Documentation 📚:** [`SonghayCore` API](https://bryanwilhite.github.io/SonghayCore/api/)
 
+## version 5.0 breaking changes
+
+The dominant theme in version 5.0 is about dropping direct support for .NET Framework. Microsoft strongly suggests that we support the .NET Framework legacy through targeting .NET Standard 2.0 because .NET Framework 4.71 supports .NET Standard 2.0.
+
+>We recommend you skip .NET Standard 2.1 and go straight to .NET 5. Most widely used libraries will end up multi-targeting for both .NET Standard 2.0 and .NET 5. Supporting .NET Standard 2.0 gives you the most reach, while supporting .NET 5 ensures you can leverage the latest platform features for customers that are already on .NET 5.
+>
+><https://docs.microsoft.com/en-us/dotnet/standard/net-standard#when-to-target-net50-vs-netstandard>
+
+[An issue covers](https://github.com/BryanWilhite/SonghayCore/issues/67#issuecomment-727517773) this particular subject.
+
+Other notable breaking changes:
+
+- The `Framework*` prefix was replaced with `Program*` [[#68](https://github.com/BryanWilhite/SonghayCore/issues/68)]
+- `LatinGlyphs` was renamed to `LatinGlyphsUtility` [[#94](https://github.com/BryanWilhite/SonghayCore/issues/94)]
+- `SonghayCore.MSTest` is no longer included going forward. It has been removed. 🚜🔥
+
 ## _core_ reusable, opinionated concerns
 
 ### `Songhay.Diagnostics`
@@ -26,19 +42,19 @@ The preference for [extension methods](https://github.com/BryanWilhite/SonghayCo
 
 Notable extensions:
 
-* [`ConfigurationManagerExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/ConfigurationManagerExtensions.cs) — defines shared routines for .NET Framework application configuration management.
+- [`ConfigurationManagerExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/ConfigurationManagerExtensions.cs) — defines shared routines for .NET Framework application configuration management.
 
-* [`IConfigurationBuilderExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/IConfigurationBuilderExtensions.cs) — defines shared routines for application configuration building under .NET Standard.
+- [`IConfigurationBuilderExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/IConfigurationBuilderExtensions.cs) — defines shared routines for application configuration building under .NET Standard.
 
-* [`HttpRequestMessageExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/HttpRequestMessageExtensions.cs) — defines shared routines for HTTP access under .NET Standard with a lazy-loaded `HttpClient`.
+- [`HttpRequestMessageExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/HttpRequestMessageExtensions.cs) — defines shared routines for HTTP access under .NET Standard with a lazy-loaded `HttpClient`.
 
-* [`HttpWebRequestExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/HttpWebRequestExtensions.cs) — defines shared routines for HTTP access for the legacy .NET Framework.
+- [`HttpWebRequestExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/HttpWebRequestExtensions.cs) — defines shared routines for HTTP access for the legacy .NET Framework.
 
-* [`TraceSourceExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/TraceSourceExtensions.cs) — defines shared routines for `TraceSource`-based logging, using work by [Zijian Huang](https://github.com/zijianhuang/Fonlow.Diagnostics).
+- [`TraceSourceExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/TraceSourceExtensions.cs) — defines shared routines for `TraceSource`-based logging, using work by [Zijian Huang](https://github.com/zijianhuang/Fonlow.Diagnostics).
 
-* [`JObjectExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/JObjectExtensions.cs) — defines conventions around the `Newtonsoft.Json.Linq.JObject` from [James Newton King](https://github.com/JamesNK).
+- [`JObjectExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/JObjectExtensions.cs) — defines conventions around the `Newtonsoft.Json.Linq.JObject` from [James Newton King](https://github.com/JamesNK).
 
-There are two kinds of support for [URI templates](http://tools.ietf.org/html/rfc6570) (to be used with [`RestApiMetadata`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs)), one is [for .NET Standard](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/RestApiMetadataExtensions.Tavis.cs) and the other is [for .NET Framework](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/RestApiMetadataExtensions.ServiceModel.cs). The .NET Standard extension methods are running on top of [`Tavis.UriTemplates`](https://github.com/tavis-software/Tavis.UriTemplates).
+There is support for [URI templates](http://tools.ietf.org/html/rfc6570) (to be used with [`RestApiMetadata`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs)) in the form of [extension methods](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/RestApiMetadataExtensions.Tavis.cs), running on top of [`Tavis.UriTemplates`](https://github.com/tavis-software/Tavis.UriTemplates).
 
 **Documentation 📚:** [`Songhay.Extensions`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Extensions/)
 
@@ -50,11 +66,11 @@ The _Core_ models are “anemic” by design (there are very few abstract classe
 
 Notable models:
 
-* [`DisplayItemModel`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/DisplayItemModel.cs) — defines the conventional way to display data.
+- [`DisplayItemModel`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/DisplayItemModel.cs) — defines the conventional way to display data.
 
-* [`MenuDisplayItemModel`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/MenuDisplayItemModel.cs) — defines the conventional way to display nested/grouped data.
+- [`MenuDisplayItemModel`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/MenuDisplayItemModel.cs) — defines the conventional way to display nested/grouped data.
 
-* [`RestApiMetadata`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs) — defines conventional REST API metadata.
+- [`RestApiMetadata`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs) — defines conventional REST API metadata.
 
 **Documentation 📚:** [`Songhay.Models`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Models/)
 
@@ -77,7 +93,5 @@ Defines reusable class definitions for [xUnit](https://xunit.net/). Featured is 
 The diagram below shows all of the packages depending on `SonghayCore` in my Studio:
 
 ![Studio packages depending on `SonghayCore`](./SonghayCore/images/image-2020-12-26-11-51-11.png)
-
-⚠🚜🔥 Note that `SonghayCore.MSTest` is no longer supported going forward.
 
 @[BryanWilhite](https://twitter.com/BryanWilhite)
