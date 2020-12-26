@@ -73,7 +73,7 @@ namespace Songhay.Tests.Xml
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             var sb = new StringBuilder();
-            var projectRoot = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+            var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
             var projectInfo = new DirectoryInfo(projectRoot);
             Assert.True(projectInfo.Exists);
 
@@ -110,7 +110,7 @@ namespace Songhay.Tests.Xml
 
             string ReadLine(IExcelDataReader reader)
             {
-                var glyph = new FrameworkGlyph
+                var glyph = new ProgramGlyph
                 {
                     UnicodePoint = GetUnicodePoint(reader),
                     UnicodeGroup = reader.GetString(1),
@@ -132,7 +132,7 @@ namespace Songhay.Tests.Xml
                     $"{nameof(glyph.XmlEntityNumber)} = \"{glyph.XmlEntityNumber}\"",
                 };
 
-                return $"new {nameof(FrameworkGlyph)} {{ {properties.Aggregate((a, i) => $"{a} {i}")} }},";
+                return $"new {nameof(ProgramGlyph)} {{ {properties.Aggregate((a, i) => $"{a} {i}")} }},";
             }
 
             using (var stream = File.Open(input, FileMode.Open, FileAccess.Read))

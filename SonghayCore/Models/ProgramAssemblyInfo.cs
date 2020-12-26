@@ -1,11 +1,8 @@
-﻿// <copyright file="FrameworkAssemblyInfo.cs" company="Songhay System">
-//     Copyright 2008, Bryan D. Wilhite, Songhay System. All rights reserved.
-// </copyright>
+﻿using System.Globalization;
+using System.Reflection;
+
 namespace Songhay.Models
 {
-    using System;
-    using System.Globalization;
-    using System.Reflection;
 
     /// <summary>
     /// Defines Assembly information.
@@ -14,13 +11,13 @@ namespace Songhay.Models
     /// This definition was developed
     /// for About… dialogs in Windows Forms.
     /// </remarks>
-    public class FrameworkAssemblyInfo : IFrameworkAssemblyInfo
+    public class ProgramAssemblyInfo : IProgramAssemblyInfo
     {
         /// <summary>
         /// Constructor of this class.
         /// </summary>
         /// <param name="targetAssembly">The target <see cref="System.Reflection.Assembly"/></param>
-        public FrameworkAssemblyInfo(Assembly targetAssembly)
+        public ProgramAssemblyInfo(Assembly targetAssembly)
         {
             this._dll = targetAssembly;
         }

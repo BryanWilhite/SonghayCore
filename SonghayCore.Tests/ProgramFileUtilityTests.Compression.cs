@@ -6,16 +6,16 @@ using Xunit;
 
 namespace Songhay.Tests
 {
-    public partial class FrameworkFileUtilityTests
+    public partial class ProgramFileUtilityTests
     {
-        [Theory, ProjectFileData(typeof(FrameworkFileUtilityTests), "../../../zip/ReadZipArchiveEntries.zip")]
+        [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/ReadZipArchiveEntries.zip")]
         public void ReadZipArchiveEntries_Test(FileInfo archiveInfo)
         {
             // arrange
             var isReading = false;
 
             // act
-            FrameworkFileUtility.ReadZipArchiveEntries(archiveInfo, entry =>
+            ProgramFileUtility.ReadZipArchiveEntries(archiveInfo, entry =>
             {
                 this._testOutputHelper.WriteLine(entry);
                 isReading = true;
@@ -25,7 +25,7 @@ namespace Songhay.Tests
             Assert.True(isReading);
         }
 
-        [Theory, ProjectFileData(typeof(FrameworkFileUtilityTests), "../../../zip/ReadZipArchiveEntries.zip")]
+        [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/ReadZipArchiveEntries.zip")]
         public void ReadZipArchiveEntriesBackwards_Test(FileInfo archiveInfo)
         {
             // arrange
@@ -34,7 +34,7 @@ namespace Songhay.Tests
             var builder = new StringBuilder();
 
             // act
-            FrameworkFileUtility.ReadZipArchiveEntries(archiveInfo, entry =>
+            ProgramFileUtility.ReadZipArchiveEntries(archiveInfo, entry =>
             {
                 isReading = true;
                 this._testOutputHelper.WriteLine(entry);
@@ -46,14 +46,14 @@ namespace Songhay.Tests
             Assert.Equal(expectedOrder, builder.ToString());
         }
 
-        [Theory, ProjectFileData(typeof(FrameworkFileUtilityTests), "../../../zip/ReadZipArchiveEntriesByLine.zip")]
+        [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/ReadZipArchiveEntriesByLine.zip")]
         public void ReadZipArchiveEntriesByLine_Test(FileInfo archiveInfo)
         {
             // arrange
             var isReading = false;
 
             // act
-            FrameworkFileUtility.ReadZipArchiveEntriesByLine(archiveInfo, (lineNum, line) =>
+            ProgramFileUtility.ReadZipArchiveEntriesByLine(archiveInfo, (lineNum, line) =>
             {
                 this._testOutputHelper.WriteLine($"{lineNum}: {line}");
                 isReading = true;
@@ -63,26 +63,26 @@ namespace Songhay.Tests
             Assert.True(isReading);
         }
 
-        [Theory, ProjectFileData(typeof(FrameworkFileUtilityTests), "../../../zip/UseZipArchive.zip")]
+        [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/UseZipArchive.zip")]
         public void UseZipArchive_Test(FileInfo archiveInfo)
         {
             // arrange
             var isUsing = false;
 
             // act
-            FrameworkFileUtility.UseZipArchive(archiveInfo, archive => { isUsing = (archive != null); });
+            ProgramFileUtility.UseZipArchive(archiveInfo, archive => { isUsing = (archive != null); });
 
             // assert
             Assert.True(isUsing);
         }
 
         [DebuggerAttachedTheory,
-            ProjectFileData(typeof(FrameworkFileUtilityTests),
+            ProjectFileData(typeof(ProgramFileUtilityTests),
             "../../../json/hello.json",
             "../../../zip/WriteZipArchiveEntry.zip")]
         public void WriteZipArchiveEntry_Test(FileInfo fileInfo, FileInfo archiveInfo)
         {
-            FrameworkFileUtility.WriteZipArchiveEntry(archiveInfo, fileInfo);
+            ProgramFileUtility.WriteZipArchiveEntry(archiveInfo, fileInfo);
         }
     }
 }

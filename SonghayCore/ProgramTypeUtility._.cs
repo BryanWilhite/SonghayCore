@@ -10,7 +10,7 @@ namespace Songhay
     /// <summary>
     /// Static members for type handling.
     /// </summary>
-    public static partial class FrameworkTypeUtility
+    public static partial class ProgramTypeUtility
     {
         /// <summary>
         /// Converts Unix time stamps

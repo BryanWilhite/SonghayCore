@@ -7,7 +7,7 @@ namespace Songhay
     /// <summary>
     /// Static members for framework-level procedures.
     /// </summary>
-    public static partial class FrameworkUtility
+    public static partial class ProgramUtility
     {
         /// <summary>
         /// Splits the arguments.

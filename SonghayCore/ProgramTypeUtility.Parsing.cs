@@ -6,13 +6,13 @@ namespace Songhay
     /// <summary>
     /// Static members for type handling.
     /// </summary>
-    public static partial class FrameworkTypeUtility
+    public static partial class ProgramTypeUtility
     {
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"></see> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"></see> box.
         /// </param>
         /// <returns>
@@ -20,17 +20,17 @@ namespace Songhay
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static bool? ParseBoolean(object frameworkValue)
+        public static bool? ParseBoolean(object value)
         {
             bool supportBitStrings = false;
-            return ParseBoolean(frameworkValue, supportBitStrings);
+            return ParseBoolean(value, supportBitStrings);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="supportBitStrings">
@@ -42,10 +42,10 @@ namespace Songhay
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static bool? ParseBoolean(object frameworkValue, bool supportBitStrings)
+        public static bool? ParseBoolean(object value, bool supportBitStrings)
         {
             bool bln;
-            string s = (frameworkValue != null) ? frameworkValue.ToString() : string.Empty;
+            string s = (value != null) ? value.ToString() : string.Empty;
 
             if (supportBitStrings)
             {
@@ -58,10 +58,10 @@ namespace Songhay
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="supportBitStrings">
@@ -69,26 +69,26 @@ namespace Songhay
         /// as Boolean strings.
         /// </param>
         /// <param name="defaultValue">
-        /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
+        /// The default value to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
         /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static bool? ParseBoolean(object frameworkValue, bool supportBitStrings, bool defaultValue)
+        public static bool? ParseBoolean(object value, bool supportBitStrings, bool defaultValue)
         {
-            bool? bln = FrameworkTypeUtility.ParseBoolean(frameworkValue, supportBitStrings);
+            bool? bln = ProgramTypeUtility.ParseBoolean(value, supportBitStrings);
 
             if (bln.HasValue) return bln;
             else return new bool?(defaultValue);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
@@ -96,41 +96,41 @@ namespace Songhay
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static byte? ParseByte(object frameworkValue)
+        public static byte? ParseByte(object value)
         {
             byte b;
-            string s = (frameworkValue != null) ? frameworkValue.ToString() : string.Empty;
+            string s = (value != null) ? value.ToString() : string.Empty;
             if (byte.TryParse(s, out b)) return b;
             else return default(byte?);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
-        /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
+        /// The default value to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
         /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static byte? ParseByte(object frameworkValue, byte defaultValue)
+        public static byte? ParseByte(object value, byte defaultValue)
         {
-            byte? b = FrameworkTypeUtility.ParseByte(frameworkValue);
+            byte? b = ProgramTypeUtility.ParseByte(value);
             if (b.HasValue) return b;
             else return new byte?(defaultValue);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
@@ -138,41 +138,41 @@ namespace Songhay
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static DateTime? ParseDateTime(object frameworkValue)
+        public static DateTime? ParseDateTime(object value)
         {
             DateTime d;
-            string s = (frameworkValue != null) ? frameworkValue.ToString() : string.Empty;
+            string s = (value != null) ? value.ToString() : string.Empty;
             if (DateTime.TryParse(s, out d)) return d;
             else return default(DateTime?);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
-        /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
+        /// The default value to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
         /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static DateTime? ParseDateTime(object frameworkValue, DateTime defaultValue)
+        public static DateTime? ParseDateTime(object value, DateTime defaultValue)
         {
-            DateTime? d = FrameworkTypeUtility.ParseDateTime(frameworkValue);
+            DateTime? d = ProgramTypeUtility.ParseDateTime(value);
             if (d.HasValue) return d;
             else return new DateTime?(defaultValue);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="formatExpression">
@@ -183,44 +183,44 @@ namespace Songhay
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static string ParseDateTimeWithFormat(object frameworkValue, string formatExpression)
+        public static string ParseDateTimeWithFormat(object value, string formatExpression)
         {
             DateTime d;
-            string s = (frameworkValue != null) ? frameworkValue.ToString() : string.Empty;
+            string s = (value != null) ? value.ToString() : string.Empty;
             if (DateTime.TryParse(s, out d)) return d.ToString(formatExpression, CultureInfo.CurrentCulture);
             else return null;
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="formatExpression">
         /// The string format expression.
         /// </param>
         /// <param name="defaultValue">
-        /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
+        /// The default value to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
         /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static string ParseDateTimeWithFormat(object frameworkValue, string formatExpression, string defaultValue)
+        public static string ParseDateTimeWithFormat(object value, string formatExpression, string defaultValue)
         {
-            string d = FrameworkTypeUtility.ParseDateTimeWithFormat(frameworkValue, formatExpression);
+            string d = ProgramTypeUtility.ParseDateTimeWithFormat(value, formatExpression);
             if (string.IsNullOrWhiteSpace(d)) return defaultValue;
             else return d;
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
@@ -228,41 +228,41 @@ namespace Songhay
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static decimal? ParseDecimal(object frameworkValue)
+        public static decimal? ParseDecimal(object value)
         {
             decimal d;
-            string s = (frameworkValue != null) ? frameworkValue.ToString() : string.Empty;
+            string s = (value != null) ? value.ToString() : string.Empty;
             if (decimal.TryParse(s, out d)) return d;
             else return default(decimal?);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
-        /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
+        /// The default value to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
         /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static decimal? ParseDecimal(object frameworkValue, decimal defaultValue)
+        public static decimal? ParseDecimal(object value, decimal defaultValue)
         {
-            decimal? d = ParseDecimal(frameworkValue);
+            decimal? d = ParseDecimal(value);
             if (d.HasValue) return d;
             else return new decimal?(defaultValue);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
@@ -270,58 +270,58 @@ namespace Songhay
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static double? ParseDouble(object frameworkValue)
+        public static double? ParseDouble(object value)
         {
             double d;
-            string s = (frameworkValue != null) ? frameworkValue.ToString() : string.Empty;
+            string s = (value != null) ? value.ToString() : string.Empty;
             if (double.TryParse(s, out d)) return d;
             else return default(double?);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
-        /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
+        /// The default value to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
         /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static double? ParseDouble(object frameworkValue, double defaultValue)
+        public static double? ParseDouble(object value, double defaultValue)
         {
-            double? d = FrameworkTypeUtility.ParseDouble(frameworkValue);
+            double? d = ProgramTypeUtility.ParseDouble(value);
             if (d.HasValue) return d;
             else return new double?(defaultValue);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Enum"/> return type.
         /// </summary>
         /// <typeparam name="TEnum">The type of the enum.</typeparam>
-        /// <param name="frameworkValue">The framework value.</param>
+        /// <param name="value">The value.</param>
         /// <param name="defaultValue">The default value.</param>
         /// <returns></returns>
         /// <remarks>
         /// For background, see http://stackoverflow.com/a/15017429/22944
         /// </remarks>
-        public static TEnum ParseEnum<TEnum>(string frameworkValue, TEnum defaultValue) where TEnum : struct
+        public static TEnum ParseEnum<TEnum>(string value, TEnum defaultValue) where TEnum : struct
         {
-            var isDefined = string.IsNullOrWhiteSpace(frameworkValue) ? false : Enum.IsDefined(typeof(TEnum), frameworkValue);
-            return isDefined ? (TEnum)Enum.Parse(typeof(TEnum), frameworkValue) : defaultValue;
+            var isDefined = string.IsNullOrWhiteSpace(value) ? false : Enum.IsDefined(typeof(TEnum), value);
+            return isDefined ? (TEnum)Enum.Parse(typeof(TEnum), value) : defaultValue;
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
@@ -329,41 +329,41 @@ namespace Songhay
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static Int16? ParseInt16(object frameworkValue)
+        public static Int16? ParseInt16(object value)
         {
             Int16 i;
-            string s = (frameworkValue != null) ? frameworkValue.ToString() : string.Empty;
+            string s = (value != null) ? value.ToString() : string.Empty;
             if (Int16.TryParse(s, out i)) return i;
             else return default(Int16?);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
-        /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
+        /// The default value to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
         /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static Int16? ParseInt16(object frameworkValue, Int16 defaultValue)
+        public static Int16? ParseInt16(object value, Int16 defaultValue)
         {
-            Int16? i = FrameworkTypeUtility.ParseInt16(frameworkValue);
+            Int16? i = ProgramTypeUtility.ParseInt16(value);
             if (i.HasValue) return i;
             else return new Int16?(defaultValue);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
@@ -371,41 +371,41 @@ namespace Songhay
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static Int32? ParseInt32(object frameworkValue)
+        public static Int32? ParseInt32(object value)
         {
             Int32 i;
-            string s = (frameworkValue != null) ? frameworkValue.ToString() : string.Empty;
+            string s = (value != null) ? value.ToString() : string.Empty;
             if (Int32.TryParse(s, out i)) return i;
             else return default(Int32?);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
-        /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
+        /// The default value to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
         /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static Int32? ParseInt32(object frameworkValue, Int32 defaultValue)
+        public static Int32? ParseInt32(object value, Int32 defaultValue)
         {
-            Int32? i = FrameworkTypeUtility.ParseInt32(frameworkValue);
+            Int32? i = ProgramTypeUtility.ParseInt32(value);
             if (i.HasValue) return i;
             else return new Int32?(defaultValue);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <returns>
@@ -413,32 +413,32 @@ namespace Songhay
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static Int64? ParseInt64(object frameworkValue)
+        public static Int64? ParseInt64(object value)
         {
             Int64 i;
-            string s = (frameworkValue != null) ? frameworkValue.ToString() : string.Empty;
+            string s = (value != null) ? value.ToString() : string.Empty;
             if (Int64.TryParse(s, out i)) return i;
             else return default(Int64?);
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to the <see cref="Nullable"/> return type.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
         /// <param name="defaultValue">
-        /// The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
+        /// The default value to return when <c>Nullable.HasValue == false</c>.
         /// </param>
         /// <returns>
         /// Always returns a <see cref="Nullable"/>
         /// as parse failure means <c>HasValue</c>
         /// is false.
         /// </returns>
-        public static Int64? ParseInt64(object frameworkValue, Int64 defaultValue)
+        public static Int64? ParseInt64(object value, Int64 defaultValue)
         {
-            Int64? i = FrameworkTypeUtility.ParseInt64(frameworkValue);
+            Int64? i = ProgramTypeUtility.ParseInt64(value);
             if (i.HasValue) return i;
             else return new Int64?(defaultValue);
         }
@@ -446,17 +446,17 @@ namespace Songhay
         /// <summary>
         /// Parses the RFC3339 date and time.
         /// </summary>
-        /// <param name="frameworkValue">The framework value.</param>
+        /// <param name="value">The value.</param>
         /// <remarks>
         ///     This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
         /// </remarks>
-        public static DateTime ParseRfc3339DateTime(string frameworkValue)
+        public static DateTime ParseRfc3339DateTime(string value)
         {
             DateTime minValue = DateTime.MinValue;
-            if (string.IsNullOrWhiteSpace(frameworkValue)) throw new ArgumentNullException("frameworkValue", "The specified Framework Value is null.");
-            if (!TryParseRfc3339DateTime(frameworkValue, out minValue))
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("value", "The specified value is null.");
+            if (!TryParseRfc3339DateTime(value, out minValue))
             {
-                throw new FormatException(string.Format(CultureInfo.CurrentCulture, "'{0}' is not a valid RFC-3339 formatted date-time Framework Value.", new object[] { frameworkValue }));
+                throw new FormatException(string.Format(CultureInfo.CurrentCulture, "'{0}' is not a valid RFC-3339 formatted date-time value.", new object[] { value }));
             }
             return minValue;
         }
@@ -464,145 +464,145 @@ namespace Songhay
         /// <summary>
         /// Parses the RFC822 date and time.
         /// </summary>
-        /// <param name="frameworkValue">The framework value.</param>
+        /// <param name="value">The value.</param>
         /// <remarks>
         ///     This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
         /// </remarks>
-        public static DateTime ParseRfc822DateTime(string frameworkValue)
+        public static DateTime ParseRfc822DateTime(string value)
         {
             DateTime minValue = DateTime.MinValue;
-            if (string.IsNullOrWhiteSpace(frameworkValue)) throw new ArgumentNullException("frameworkValue", "The specified Framework Value is null.");
-            if (!TryParseRfc822DateTime(frameworkValue, out minValue))
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("value", "The specified value is null.");
+            if (!TryParseRfc822DateTime(value, out minValue))
             {
-                throw new FormatException(string.Format(CultureInfo.CurrentCulture, "'{0}' is not a valid RFC-822 formatted date-time Framework Value.", new object[] { frameworkValue }));
+                throw new FormatException(string.Format(CultureInfo.CurrentCulture, "'{0}' is not a valid RFC-822 formatted date-time value.", new object[] { value }));
             }
             return minValue;
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to a <see cref="String"/>.
         /// </summary>
-        /// <param name="frameworkValue">
+        /// <param name="value">
         /// The specified <see cref="Object"/> box.
         /// </param>
-        public static string ParseString(object frameworkValue)
+        public static string ParseString(object value)
         {
-            return (frameworkValue != null) ? frameworkValue.ToString() : null;
+            return (value != null) ? value.ToString() : null;
         }
 
         /// <summary>
-        /// Tries to convert the specified frameworkValue
+        /// Tries to convert the specified value
         /// to a <see cref="String"/>.
         /// </summary>
-        /// <param name="frameworkValue">The frameworkValue.</param>
-        /// <param name="defaultValue">The default frameworkValue.</param>
-        public static string ParseString(object frameworkValue, string defaultValue)
+        /// <param name="value">The value.</param>
+        /// <param name="defaultValue">The default value.</param>
+        public static string ParseString(object value, string defaultValue)
         {
-            return (frameworkValue != null) ? frameworkValue.ToString() : defaultValue;
+            return (value != null) ? value.ToString() : defaultValue;
         }
 
         /// <summary>
         /// Tries the parse RFC3339 date and time.
         /// </summary>
-        /// <param name="frameworkValue">The framework value.</param>
+        /// <param name="value">The value.</param>
         /// <param name="result">The result.</param>
         /// <remarks>
         ///     This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
         /// </remarks>
-        public static bool TryParseRfc3339DateTime(string frameworkValue, out DateTime result)
+        public static bool TryParseRfc3339DateTime(string value, out DateTime result)
         {
             DateTimeFormatInfo dateTimeFormat = CultureInfo.InvariantCulture.DateTimeFormat;
             string[] formats = new string[] { dateTimeFormat.SortableDateTimePattern, dateTimeFormat.UniversalSortableDateTimePattern, "yyyy'-'MM'-'dd'T'HH:mm:ss'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.f'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.fff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.fffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:sszzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.fffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.fffffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffffzzz" };
-            if (string.IsNullOrWhiteSpace(frameworkValue))
+            if (string.IsNullOrWhiteSpace(value))
             {
                 result = DateTime.MinValue;
                 return false;
             }
-            return DateTime.TryParseExact(frameworkValue, formats, dateTimeFormat, DateTimeStyles.AssumeUniversal, out result);
+            return DateTime.TryParseExact(value, formats, dateTimeFormat, DateTimeStyles.AssumeUniversal, out result);
         }
 
         /// <summary>
         /// Tries the parse RFC822 date and time.
         /// </summary>
-        /// <param name="frameworkValue">The framework value.</param>
+        /// <param name="value">The value.</param>
         /// <param name="result">The result.</param>
         /// <remarks>
         ///     This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
         /// </remarks>
-        public static bool TryParseRfc822DateTime(string frameworkValue, out DateTime result)
+        public static bool TryParseRfc822DateTime(string value, out DateTime result)
         {
             DateTimeFormatInfo dateTimeFormat = CultureInfo.InvariantCulture.DateTimeFormat;
             string[] formats = new string[] { dateTimeFormat.RFC1123Pattern, "ddd',' d MMM yyyy HH:mm:ss zzz", "ddd',' dd MMM yyyy HH:mm:ss zzz" };
-            if (string.IsNullOrWhiteSpace(frameworkValue))
+            if (string.IsNullOrWhiteSpace(value))
             {
                 result = DateTime.MinValue;
                 return false;
             }
-            return DateTime.TryParseExact(ReplaceRfc822TimeZoneWithOffset(frameworkValue), formats, dateTimeFormat, DateTimeStyles.None, out result);
+            return DateTime.TryParseExact(ReplaceRfc822TimeZoneWithOffset(value), formats, dateTimeFormat, DateTimeStyles.None, out result);
         }
 
-        static string ReplaceRfc822TimeZoneWithOffset(string frameworkValue)
+        static string ReplaceRfc822TimeZoneWithOffset(string value)
         {
-            if (string.IsNullOrWhiteSpace(frameworkValue)) throw new ArgumentNullException("frameworkValue", "The specified Framework Value is null.");
-            frameworkValue = frameworkValue.Trim();
-            if (frameworkValue.EndsWith("UT", StringComparison.OrdinalIgnoreCase))
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("value", "The specified value is null.");
+            value = value.Trim();
+            if (value.EndsWith("UT", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}GMT", new object[] { frameworkValue.TrimEnd("UT".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}GMT", new object[] { value.TrimEnd("UT".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("EST", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("EST", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}-05:00", new object[] { frameworkValue.TrimEnd("EST".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}-05:00", new object[] { value.TrimEnd("EST".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("EDT", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("EDT", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}-04:00", new object[] { frameworkValue.TrimEnd("EDT".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}-04:00", new object[] { value.TrimEnd("EDT".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("CST", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("CST", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}-06:00", new object[] { frameworkValue.TrimEnd("CST".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}-06:00", new object[] { value.TrimEnd("CST".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("CDT", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("CDT", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}-05:00", new object[] { frameworkValue.TrimEnd("CDT".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}-05:00", new object[] { value.TrimEnd("CDT".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("MST", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("MST", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}-07:00", new object[] { frameworkValue.TrimEnd("MST".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}-07:00", new object[] { value.TrimEnd("MST".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("MDT", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("MDT", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}-06:00", new object[] { frameworkValue.TrimEnd("MDT".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}-06:00", new object[] { value.TrimEnd("MDT".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("PST", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("PST", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}-08:00", new object[] { frameworkValue.TrimEnd("PST".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}-08:00", new object[] { value.TrimEnd("PST".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("PDT", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("PDT", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}-07:00", new object[] { frameworkValue.TrimEnd("PDT".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}-07:00", new object[] { value.TrimEnd("PDT".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("Z", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("Z", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}GMT", new object[] { frameworkValue.TrimEnd("Z".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}GMT", new object[] { value.TrimEnd("Z".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("A", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("A", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}-01:00", new object[] { frameworkValue.TrimEnd("A".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}-01:00", new object[] { value.TrimEnd("A".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("M", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("M", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}-12:00", new object[] { frameworkValue.TrimEnd("M".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}-12:00", new object[] { value.TrimEnd("M".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("N", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("N", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}+01:00", new object[] { frameworkValue.TrimEnd("N".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}+01:00", new object[] { value.TrimEnd("N".ToCharArray()) });
             }
-            if (frameworkValue.EndsWith("Y", StringComparison.OrdinalIgnoreCase))
+            if (value.EndsWith("Y", StringComparison.OrdinalIgnoreCase))
             {
-                return string.Format(CultureInfo.CurrentCulture, "{0}+12:00", new object[] { frameworkValue.TrimEnd("Y".ToCharArray()) });
+                return string.Format(CultureInfo.CurrentCulture, "{0}+12:00", new object[] { value.TrimEnd("Y".ToCharArray()) });
             }
-            return frameworkValue;
+            return value;
         }
 
     }

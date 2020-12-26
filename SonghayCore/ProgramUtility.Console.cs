@@ -1,9 +1,9 @@
 namespace Songhay
 {
     /// <summary>
-    /// Static members for framework-level procedures.
+    /// Defines shared routines for Studio programs
     /// </summary>
-    public static partial class FrameworkUtility
+    public static partial class ProgramUtility
     {
         /// <summary>
         /// Gets the console characters.

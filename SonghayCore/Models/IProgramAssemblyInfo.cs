@@ -1,9 +1,9 @@
 ﻿namespace Songhay.Models
 {
     /// <summary>
-    /// Contract for <see cref="Songhay.Models.FrameworkAssemblyInfo"/>
+    /// Contract for <see cref="Songhay.Models.ProgramAssemblyInfo"/>
     /// </summary>
-    public interface IFrameworkAssemblyInfo
+    public interface IProgramAssemblyInfo
     {
         /// <summary>
         /// Gets the assembly company.

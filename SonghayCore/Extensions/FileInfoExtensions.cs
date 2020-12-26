@@ -21,7 +21,7 @@ namespace Songhay.Extensions
         /// </remarks>
         public static void ReadZipArchiveEntries(this FileInfo archiveInfo, Action<string> fileAction)
         {
-            FrameworkFileUtility.ReadZipArchiveEntries(archiveInfo, fileAction);
+            ProgramFileUtility.ReadZipArchiveEntries(archiveInfo, fileAction);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Songhay.Extensions
         /// </remarks>
         public static void ReadZipArchiveEntries(this FileInfo archiveInfo, Action<string> fileAction, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>> entriesProjector)
         {
-            FrameworkFileUtility.ReadZipArchiveEntries(archiveInfo, fileAction, entriesProjector);
+            ProgramFileUtility.ReadZipArchiveEntries(archiveInfo, fileAction, entriesProjector);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Songhay.Extensions
         /// </remarks>
         public static void ReadZipArchiveEntriesByLine(this FileInfo archiveInfo, Action<int, string> lineAction)
         {
-            FrameworkFileUtility.ReadZipArchiveEntriesByLine(archiveInfo, lineAction);
+            ProgramFileUtility.ReadZipArchiveEntriesByLine(archiveInfo, lineAction);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Songhay.Extensions
         /// </remarks>
         public static void ReadZipArchiveEntriesByLine(this FileInfo archiveInfo, Action<int, string> lineAction, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>> entriesProjector)
         {
-            FrameworkFileUtility.ReadZipArchiveEntriesByLine(archiveInfo, lineAction, entriesProjector);
+            ProgramFileUtility.ReadZipArchiveEntriesByLine(archiveInfo, lineAction, entriesProjector);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Songhay.Extensions
         /// <param name="archiveAction"></param>
         public static void UseZipArchive(this FileInfo archiveInfo, Action<ZipArchive> archiveAction)
         {
-            FrameworkFileUtility.UseZipArchive(archiveInfo, archiveAction);
+            ProgramFileUtility.UseZipArchive(archiveInfo, archiveAction);
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Songhay.Extensions
         /// <param name="entriesAction"></param>
         public static void UseZipArchiveEntries(this FileInfo archiveInfo, Action<ReadOnlyCollection<ZipArchiveEntry>> entriesAction)
         {
-            FrameworkFileUtility.UseZipArchiveEntries(archiveInfo, entriesAction);
+            ProgramFileUtility.UseZipArchiveEntries(archiveInfo, entriesAction);
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Songhay.Extensions
         /// <param name="entriesProjector"></param>
         public static void UseZipArchiveEntries(this FileInfo archiveInfo, Action<ReadOnlyCollection<ZipArchiveEntry>> entriesAction, Func<ReadOnlyCollection<ZipArchiveEntry>, ReadOnlyCollection<ZipArchiveEntry>> entriesProjector)
         {
-            FrameworkFileUtility.UseZipArchiveEntries(archiveInfo, entriesAction, entriesProjector);
+            ProgramFileUtility.UseZipArchiveEntries(archiveInfo, entriesAction, entriesProjector);
         }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace Songhay.Extensions
         /// <param name="fileInfo">The file information.</param>
         public static void WriteZipArchiveEntry(this FileInfo archiveInfo, FileInfo fileInfo)
         {
-            FrameworkFileUtility.WriteZipArchiveEntry(archiveInfo, fileInfo);
+            ProgramFileUtility.WriteZipArchiveEntry(archiveInfo, fileInfo);
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Songhay.Extensions
         /// <param name="compressionLevel">The <see cref="CompressionLevel"/></param>
         public static void WriteZipArchiveEntry(this FileInfo archiveInfo, FileInfo fileInfo, CompressionLevel compressionLevel)
         {
-            FrameworkFileUtility.WriteZipArchiveEntry(archiveInfo, fileInfo, compressionLevel);
+            ProgramFileUtility.WriteZipArchiveEntry(archiveInfo, fileInfo, compressionLevel);
         }
     }
 }

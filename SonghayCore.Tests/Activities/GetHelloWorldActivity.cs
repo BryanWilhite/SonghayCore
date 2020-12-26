@@ -16,7 +16,7 @@ namespace Songhay.Tests.Activities
             if(!args.HelpSet.Any())this.SetupHelp(args);
 
             return string.Concat(
-                FrameworkAssemblyUtility.GetAssemblyInfo(this.GetType().Assembly),
+                ProgramAssemblyUtility.GetAssemblyInfo(this.GetType().Assembly),
                 args.ToHelpDisplayText()
             );
         }

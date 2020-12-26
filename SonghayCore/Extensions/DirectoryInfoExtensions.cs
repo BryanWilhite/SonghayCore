@@ -91,11 +91,11 @@ namespace Songhay.Extensions
         /// <exception cref="NullReferenceException">The expected root path is not here.
         /// or
         /// The expected path is not here.</exception>
-        /// <remarks>For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14 and <see cref="FrameworkFileUtility.GetCombinedPath(string, string)" />.</remarks>
+        /// <remarks>For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14 and <see cref="ProgramFileUtility.GetCombinedPath(string, string)" />.</remarks>
         public static string ToCombinedPath(this DirectoryInfo directoryInfo, string path)
         {
             if (directoryInfo == null) throw new NullReferenceException($"The expected {nameof(DirectoryInfo)} is not here.");
-            return FrameworkFileUtility.GetCombinedPath(directoryInfo.FullName, path);
+            return ProgramFileUtility.GetCombinedPath(directoryInfo.FullName, path);
         }
 
         /// <summary>

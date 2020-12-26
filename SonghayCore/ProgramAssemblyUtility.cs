@@ -4,15 +4,12 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 
-// <copyright file="FrameworkAssembly.cs" company="Songhay System">
-//     Copyright 2008, Bryan D. Wilhite, Songhay System. All rights reserved.
-// </copyright>
 namespace Songhay
 {
     /// <summary>
     /// Static members related to <see cref="System.Reflection"/>.
     /// </summary>
-    public static partial class FrameworkAssemblyUtility
+    public static partial class ProgramAssemblyUtility
     {
         /// <summary>
         /// Returns a <see cref="string"/>
@@ -41,7 +38,7 @@ namespace Songhay
         public static string GetAssemblyInfo(Assembly targetAssembly, bool useConsoleChars)
         {
             var sb = new StringBuilder();
-            FrameworkAssemblyInfo info = new FrameworkAssemblyInfo(targetAssembly);
+            ProgramAssemblyInfo info = new ProgramAssemblyInfo(targetAssembly);
 
             sb.AppendFormat("{0} {1}{2}", info.AssemblyTitle, info.AssemblyVersion, Environment.NewLine);
             sb.Append(info.AssemblyDescription);
@@ -49,7 +46,7 @@ namespace Songhay
             sb.Append(info.AssemblyCopyright);
             sb.Append(Environment.NewLine);
 
-            return useConsoleChars ? FrameworkUtility.GetConsoleCharacters(sb.ToString()) : sb.ToString();
+            return useConsoleChars ? ProgramUtility.GetConsoleCharacters(sb.ToString()) : sb.ToString();
         }
 
         /// <summary>
@@ -65,7 +62,7 @@ namespace Songhay
             var hasCodeBaseOnWindows =
                 !string.IsNullOrWhiteSpace(assembly.CodeBase)
                 &&
-                !FrameworkFileUtility.IsForwardSlashSystem()
+                !ProgramFileUtility.IsForwardSlashSystem()
                 ;
 
             var location = hasCodeBaseOnWindows ?
@@ -85,16 +82,16 @@ namespace Songhay
         {
             if (string.IsNullOrWhiteSpace(fileSegment)) throw new ArgumentNullException("fileSegment", "The expected file segment is not here.");
 
-            fileSegment = FrameworkFileUtility.TrimLeadingDirectorySeparatorChars(fileSegment);
+            fileSegment = ProgramFileUtility.TrimLeadingDirectorySeparatorChars(fileSegment);
             if (Path.IsPathRooted(fileSegment)) throw new FormatException("The expected relative path is not here.");
 
-            fileSegment = FrameworkFileUtility.NormalizePath(fileSegment);
+            fileSegment = ProgramFileUtility.NormalizePath(fileSegment);
 
             var root = GetPathFromAssembly(assembly);
-            var levels = FrameworkFileUtility.CountParentDirectoryChars(fileSegment);
-            if (levels > 0) root = FrameworkFileUtility.GetParentDirectory(root, levels);
+            var levels = ProgramFileUtility.CountParentDirectoryChars(fileSegment);
+            if (levels > 0) root = ProgramFileUtility.GetParentDirectory(root, levels);
 
-            var path = FrameworkFileUtility.GetCombinedPath(root, fileSegment);
+            var path = ProgramFileUtility.GetCombinedPath(root, fileSegment);
             return path;
         }
     }

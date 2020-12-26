@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 
-// <copyright file="FrameworkUtility.cs" company="Songhay System">
+// <copyright file="ProgramUtility.cs" company="Songhay System">
 //     Copyright 2008, Bryan D. Wilhite, Songhay System. All rights reserved.
 // </copyright>
 namespace Songhay
@@ -11,7 +11,7 @@ namespace Songhay
     /// <summary>
     /// Static members for framework-level procedures.
     /// </summary>
-    public static partial class FrameworkUtility
+    public static partial class ProgramUtility
     {
         /// <summary>
         /// Starts the process.

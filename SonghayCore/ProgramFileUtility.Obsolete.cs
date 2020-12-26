@@ -7,7 +7,7 @@ namespace Songhay
     /// A few static helper members
     /// for <see cref="System.IO"/>.
     /// </summary>
-    public static partial class FrameworkFileUtility
+    public static partial class ProgramFileUtility
     {
         /// <summary>
         /// Returns the file name

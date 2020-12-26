@@ -4,9 +4,9 @@ using Xunit.Abstractions;
 
 namespace Songhay.Tests
 {
-    public partial class FrameworkFileUtilityTests
+    public partial class ProgramFileUtilityTests
     {
-        public FrameworkFileUtilityTests(ITestOutputHelper helper)
+        public ProgramFileUtilityTests(ITestOutputHelper helper)
         {
             this._testOutputHelper = helper;
         }
@@ -19,7 +19,7 @@ namespace Songhay.Tests
         [InlineData("path2", @"\two\three\four", "path2|two|three|four")]
         public void GetCombinedPath_Test(string root, string path, string expectedResult)
         {
-            var actual = FrameworkFileUtility.GetCombinedPath(root, path);
+            var actual = ProgramFileUtility.GetCombinedPath(root, path);
             Assert.Equal(expectedResult.Replace('|', Path.DirectorySeparatorChar), actual);
         }
 
@@ -30,14 +30,14 @@ namespace Songhay.Tests
         [InlineData(@"..\..\one\", @"one|")]
         public void GetRelativePath_Test(string input, string expectedResult)
         {
-            var actual = FrameworkFileUtility.GetRelativePath(input);
+            var actual = ProgramFileUtility.GetRelativePath(input);
             Assert.Equal(expectedResult.Replace('|', Path.DirectorySeparatorChar), actual);
         }
 
         [Theory, InlineData(@"/\foo\bar\my-file.json", @"foo\bar\my-file.json")]
         public void TrimLeadingDirectorySeparatorChars_Test(string path, string expectedResult)
         {
-            var actual = FrameworkFileUtility.TrimLeadingDirectorySeparatorChars(path);
+            var actual = ProgramFileUtility.TrimLeadingDirectorySeparatorChars(path);
             Assert.Equal(expectedResult, actual);
         }
 

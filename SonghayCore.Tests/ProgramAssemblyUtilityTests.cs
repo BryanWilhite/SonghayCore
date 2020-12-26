@@ -4,9 +4,9 @@ using Xunit.Abstractions;
 
 namespace Songhay.Tests
 {
-    public class FrameworkAssemblyUtilityTests
+    public class ProgramAssemblyUtilityTests
     {
-        public FrameworkAssemblyUtilityTests(ITestOutputHelper helper)
+        public ProgramAssemblyUtilityTests(ITestOutputHelper helper)
         {
             this._testOutputHelper = helper;
         }
@@ -18,7 +18,7 @@ namespace Songhay.Tests
         [InlineData("../../../../SonghayCore/SonghayCore.nuspec")]
         public void GetPathFromAssembly_Test(string fileSegment)
         {
-            var actualPath = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, fileSegment);
+            var actualPath = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, fileSegment);
             this._testOutputHelper.WriteLine(actualPath);
             Assert.True(File.Exists(actualPath));
         }
@@ -29,7 +29,7 @@ namespace Songhay.Tests
             var assembly = this.GetType().Assembly;
 
             var proposedLocation = (!string.IsNullOrWhiteSpace(assembly.CodeBase) &&
-                    !FrameworkFileUtility.IsForwardSlashSystem()) ?
+                    !ProgramFileUtility.IsForwardSlashSystem()) ?
                 assembly.CodeBase.Replace("file:///", string.Empty) :
                 assembly.Location;
 

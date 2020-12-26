@@ -5,7 +5,7 @@ namespace Songhay.Models
     /// <summary>
     /// Defines a Unicode glyphic character
     /// </summary>
-    public class FrameworkGlyph
+    public class ProgramGlyph
     {
         /// <summary>
         /// Gets or sets the unicode point.

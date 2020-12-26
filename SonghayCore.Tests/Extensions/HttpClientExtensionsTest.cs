@@ -14,7 +14,7 @@ namespace Songhay.Tests.Extensions
         public HttpClientExtensionsTest(ITestOutputHelper helper)
         {
             this._testOutputHelper = helper;
-            this._basePath = FrameworkAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+            this._basePath = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
         }
 
         [Trait("Category", "Integration")]
@@ -24,7 +24,7 @@ namespace Songhay.Tests.Extensions
             "https://github.com/BryanWilhite/SonghayCore/blob/master/README.md")]
         public async Task ShouldDownloadToFileAsync(string file, string uri)
         {
-            file = FrameworkFileUtility.GetCombinedPath(this._basePath, file);
+            file = ProgramFileUtility.GetCombinedPath(this._basePath, file);
             Assert.True(File.Exists(file), "The expected target download file is not here.");
 
             await GetHttpClient().DownloadToFileAsync(new Uri(uri, UriKind.Absolute), file);
@@ -37,7 +37,7 @@ namespace Songhay.Tests.Extensions
             "https://github.com/BryanWilhite/SonghayCore/blob/master/README.md")]
         public async Task ShouldDownloadToStringAsync(string file, string uri)
         {
-            file = FrameworkFileUtility.GetCombinedPath(this._basePath, file);
+            file = ProgramFileUtility.GetCombinedPath(this._basePath, file);
             Assert.True(File.Exists(file), "The expected target download file is not here.");
 
             var response = await GetHttpClient().DownloadToStringAsync(new Uri(uri, UriKind.Absolute));

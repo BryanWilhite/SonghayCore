@@ -44,7 +44,7 @@ namespace Songhay.Models
             {
                 _dateCreated = value;
                 this.DateCreatedString = value.HasValue ?
-                    FrameworkTypeUtility.ConvertDateTimeToRfc822DateTime(value.Value) :
+                    ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(value.Value) :
                     null;
             }
         }
@@ -72,7 +72,7 @@ namespace Songhay.Models
             {
                 _dateModified = value;
                 this.DateModifiedString = value.HasValue ?
-                    FrameworkTypeUtility.ConvertDateTimeToRfc822DateTime(value.Value) :
+                    ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(value.Value) :
                     null;
             }
         }

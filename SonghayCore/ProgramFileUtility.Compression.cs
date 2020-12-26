@@ -12,7 +12,7 @@ namespace Songhay
     /// A few static helper members
     /// for <see cref="System.IO"/>.
     /// </summary>
-    public static partial class FrameworkFileUtility
+    public static partial class ProgramFileUtility
     {
         /// <summary>
         /// Read zip archive entries.
@@ -103,7 +103,7 @@ namespace Songhay
         /// <param name="archiveAction">The action to take for the ZIP archive in use.</param>
         public static void UseZipArchive(FileInfo archiveInfo, Action<ZipArchive> archiveAction)
         {
-            FrameworkFileUtility.UseZipArchive(archiveInfo, archiveAction, ZipArchiveMode.Read);
+            ProgramFileUtility.UseZipArchive(archiveInfo, archiveAction, ZipArchiveMode.Read);
         }
 
         /// <summary>

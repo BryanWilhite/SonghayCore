@@ -9,7 +9,7 @@ namespace Songhay
     /// <summary>
     /// Defines shared routines for Studio programs
     /// </summary>
-    public class ProgramUtility
+    public static partial class ProgramUtility
     {
         /// <summary>
         /// Initializes the trace source.

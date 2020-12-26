@@ -7,7 +7,7 @@ namespace Songhay
     /// A few static helper members
     /// for <see cref="System.IO"/>.
     /// </summary>
-    public static partial class FrameworkFileUtility
+    public static partial class ProgramFileUtility
     {
         /// <summary>
         /// Gets the UTF-8 encoded string.
@@ -15,7 +15,7 @@ namespace Songhay
         /// <param name="rawValue">The raw value.</param>
         public static string GetEncodedString(string rawValue)
         {
-            return FrameworkFileUtility.GetEncodedString(rawValue, Encoding.UTF8);
+            return ProgramFileUtility.GetEncodedString(rawValue, Encoding.UTF8);
         }
 
         /// <summary>
