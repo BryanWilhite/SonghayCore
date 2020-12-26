@@ -15,7 +15,6 @@ trigger:
     - ./azure*.yml
     - ./docs/*
     - $SonghayCore.Tests/*
-    - $SonghayCore.Framework.Tests/*
     - $SonghayCore.xUnit.Tests/*
 
 resources:
@@ -23,27 +22,25 @@ resources:
 
 steps:
 
-- task: UseDotNet@2
-  displayName: 'Use .NET Core SDK 2.x'
+- task: UseDotNet@5
+  displayName: 'Use .NET Core SDK 5.x'
   inputs:
     packageType: sdk
-    version: 2.x
+    version: 5.x
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@5
   displayName: 'dotnet restore'
   inputs:
     command: restore
     projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@5
   displayName: 'dotnet build'
   inputs:
-    projects: |
-      **/*.csproj
-      !**/SonghayCore.Framework.Tests.csproj
+    projects: **/*.csproj
     arguments: '--configuration $(BuildConfiguration)'
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@5
   displayName: 'dotnet test'
   inputs:
     command: test
