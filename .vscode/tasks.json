@@ -46,28 +46,6 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build [SonghayCore.MSTest]",
-            "command": "dotnet",
-            "type": "shell",
-            "args": [
-                "build",
-                "${workspaceFolder}/SonghayCore.MSTest/SonghayCore.MSTest.csproj"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "build [SonghayCore.MSTest, Release]",
-            "command": "dotnet",
-            "type": "shell",
-            "args": [
-                "build",
-                "${workspaceFolder}/SonghayCore.MSTest/SonghayCore.MSTest.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
             "label": "build [SonghayCore.Tests]",
             "command": "dotnet",
             "type": "shell",
@@ -140,55 +118,6 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build [SonghayCore.xUnit.Tests]",
-            "command": "dotnet",
-            "type": "shell",
-            "args": [
-                "build",
-                "${workspaceFolder}/SonghayCore.xUnit.Tests/SonghayCore.xUnit.Tests.csproj"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "build [SonghayCore.xUnit.Tests, Release]",
-            "command": "dotnet",
-            "type": "shell",
-            "args": [
-                "build",
-                "${workspaceFolder}/SonghayCore.xUnit.Tests/SonghayCore.xUnit.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "test [SonghayCore.xUnit.Tests]",
-            "command": "dotnet",
-            "type": "shell",
-            "args": [
-                "test",
-                "${workspaceFolder}/SonghayCore.xUnit.Tests/SonghayCore.xUnit.Tests.csproj",
-                "--logger:trx",
-                "--results-directory:${workspaceFolder}/TestResults",
-                "--verbosity:normal"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "test [SonghayCore.xUnit.Tests, filtered by selected text]",
-            "command": "dotnet",
-            "type": "shell",
-            "args": [
-                "test",
-                "${workspaceFolder}/SonghayCore.xUnit.Tests/SonghayCore.xUnit.Tests.csproj",
-                "--filter:${selectedText}",
-                "--logger:trx",
-                "--results-directory:${workspaceFolder}/TestResults",
-                "--verbosity:normal"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
             "command": "nuget",
             "label": "NuGet pack SonghayCore",
             "isBackground": false,
@@ -201,22 +130,6 @@
             ],
             "options": {
                 "cwd": "${workspaceRoot}/SonghayCore"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "command": "nuget",
-            "label": "NuGet pack SonghayCore.MSTest",
-            "isBackground": false,
-            "type": "shell",
-            "args": [
-                "pack",
-                "SonghayCore.MSTest.nuspec",
-                "-Verbosity",
-                "detailed"
-            ],
-            "options": {
-                "cwd": "${workspaceRoot}/SonghayCore.MSTest"
             },
             "problemMatcher": "$msCompile"
         },
@@ -269,53 +182,6 @@
                     "-ItemType",
                     "file",
                     ".nojekyll"
-                ]
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "wyam: copy source code to /src",
-            "type": "shell",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "linux": {
-                "command": "cp",
-                "args": [
-                    "--recursive"
-                ]
-            },
-            "windows": {
-                "command": "Copy-Item",
-                "args": [
-                    "-Path",
-                    ".\\SonghayCore\\,.\\SonghayCore.MSTest\\,.\\SonghayCore.xUnit\\",
-                    "-Recurse",
-                    "-Destination",
-                    ".\\src"
-                ]
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "wyam: delete /src folder",
-            "type": "shell",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "linux": {
-                "command": "rm",
-                "args": [
-                    "-r",
-                    "/src"
-                ]
-            },
-            "windows": {
-                "command": "Remove-Item",
-                "args": [
-                    "-Path",
-                    ".\\src",
-                    "-Recurse"
                 ]
             },
             "problemMatcher": []
