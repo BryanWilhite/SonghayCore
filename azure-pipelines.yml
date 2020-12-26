@@ -22,25 +22,25 @@ resources:
 
 steps:
 
-- task: UseDotNet@5
+- task: UseDotNet@2
   displayName: 'Use .NET Core SDK 5.x'
   inputs:
     packageType: sdk
     version: 5.x
 
-- task: DotNetCoreCLI@5
+- task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
   inputs:
     command: restore
     projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@5
+- task: DotNetCoreCLI@2
   displayName: 'dotnet build'
   inputs:
     projects: **/*.csproj
     arguments: '--configuration $(BuildConfiguration)'
 
-- task: DotNetCoreCLI@5
+- task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   inputs:
     command: test
