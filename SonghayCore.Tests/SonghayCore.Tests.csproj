@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
 
@@ -20,7 +20,7 @@
     <Compile Include="..\SonghayCore.xUnit\Extensions\DataAttributeExtensions.cs" Link="Extensions\DataAttributeExtensions.cs" />
     <Compile Include="..\SonghayCore.xUnit\Orderers\OrderedTestBase.cs" Link="Orderers\OrderedTestBase.cs" />
     <Compile Include="..\SonghayCore.xUnit\Orderers\TestCaseOrderer.cs" Link="Orderers\TestCaseOrderer.cs" />
-    <Compile Include="..\SonghayCore.xUnit\Orderers\TestOrderAttribute.cs" Link="Orderers\TestOrderAttribute.cs" />
+    <Compile Include="..\SonghayCore.xUnit\Orderers\TestOrderAttribute.cs" zLink="Orderers\TestOrderAttribute.cs" />
     <Compile Include="..\SonghayCore.xUnit\DebuggerAttachedFactAttribute.cs" Link="DebuggerAttachedFactAttribute.cs" />
     <Compile Include="..\SonghayCore.xUnit\DebuggerAttachedTheoryAttribute.cs" Link="DebuggerAttachedTheoryAttribute.cs" />
     <Compile Include="..\SonghayCore.xUnit\ProjectFileDataAttribute.cs" Link="ProjectFileDataAttribute.cs" />
@@ -33,19 +33,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="coverlet.collector" Version="1.3.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="2.2.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
-      <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="1.3.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="5.0.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.1" />
     <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
   </ItemGroup>
 

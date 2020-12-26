@@ -16,17 +16,6 @@ namespace Songhay.Extensions
         /// Gets the configured trace source.
         /// </summary>
         /// <param name="instance">The instance.</param>
-        /// <returns></returns>
-        public static TraceSource GetConfiguredTraceSource(this TraceSources instance)
-        {
-            var key = DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey;
-            return instance.GetConfiguredTraceSource(key);
-        }
-
-        /// <summary>
-        /// Gets the configured trace source.
-        /// </summary>
-        /// <param name="instance">The instance.</param>
         /// <param name="key">The key.</param>
         /// <returns></returns>
         /// <exception cref="System.Configuration.ConfigurationErrorsException"></exception>

@@ -1,6 +1,4 @@
-﻿#if NETSTANDARD
-
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace Songhay.Models
 {
@@ -17,5 +15,3 @@ namespace Songhay.Models
         void AddConfiguration(IConfigurationRoot configuration);
     }
 }
-
-#endif

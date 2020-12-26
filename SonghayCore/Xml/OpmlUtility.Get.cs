@@ -201,12 +201,10 @@ namespace Songhay.Xml
                 XmlUrl = root.ToAttributeValueOrNull("xmlUrl")
             };
 
-#if !NETSTANDARD1_2
             if (data.Url != null)
                 data.Url = Environment.ExpandEnvironmentVariables(data.Url);
             if (data.XmlUrl != null)
                 data.XmlUrl = Environment.ExpandEnvironmentVariables(data.XmlUrl);
-#endif
 
             return data;
         }

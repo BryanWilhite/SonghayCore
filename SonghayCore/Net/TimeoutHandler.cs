@@ -1,6 +1,4 @@
-﻿#if NETSTANDARD
-
-using Songhay.Extensions;
+﻿using Songhay.Extensions;
 using System;
 using System.Net.Http;
 using System.Threading;
@@ -70,5 +68,3 @@ namespace Songhay.Net
         }
     }
 }
-
-#endif

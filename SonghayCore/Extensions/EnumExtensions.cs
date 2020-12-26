@@ -11,7 +11,6 @@ namespace Songhay.Extensions
     /// </summary>
     public static class EnumExtensions
     {
-#if !NETSTANDARD1_2 && !NETSTANDARD1_4
         /// <summary>
         /// Gets the enum description.
         /// </summary>
@@ -30,7 +29,6 @@ namespace Songhay.Extensions
 
             return attr.Description;
         }
-#endif
 
         /// <summary>
         /// Gets the enum values.

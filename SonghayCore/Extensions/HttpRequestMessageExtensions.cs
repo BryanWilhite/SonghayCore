@@ -1,6 +1,4 @@
-﻿#if NETSTANDARD
-
-using Songhay.Models;
+﻿using Songhay.Models;
 using System;
 using System.Net.Http;
 using System.Text;
@@ -211,5 +209,3 @@ namespace Songhay.Extensions
             new Lazy<HttpClient>(() => new HttpClient(), LazyThreadSafetyMode.PublicationOnly);
     }
 }
-
-#endif

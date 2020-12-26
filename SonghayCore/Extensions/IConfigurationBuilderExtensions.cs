@@ -1,6 +1,4 @@
-﻿#if NETSTANDARD
-
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Songhay.Models;
 using System;
 using System.IO;
@@ -94,5 +92,3 @@ namespace Songhay.Extensions
         }
     }
 }
-
-#endif

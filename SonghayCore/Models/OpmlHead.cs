@@ -7,10 +7,8 @@ namespace Songhay.Models
     /// <summary>
     /// Defines a managed representation of the OPML head element.
     /// </summary>
-#if !NETSTANDARD1_2
     [Serializable]
     [XmlRoot(ElementName = "head")]
-#endif
     [JsonObject("head", MemberSerialization = MemberSerialization.OptIn)]
     public class OpmlHead
     {
@@ -27,9 +25,7 @@ namespace Songhay.Models
         /// Gets or sets the title.
         /// </summary>
         /// <value>The title.</value>
-#if !NETSTANDARD1_2
         [XmlElement(ElementName = "title")]
-#endif
         [JsonProperty("title")]
         public string Title { get; set; }
 
@@ -37,9 +33,7 @@ namespace Songhay.Models
         /// Gets or sets the date created.
         /// </summary>
         /// <value>The date created.</value>
-#if !NETSTANDARD1_2
         [XmlIgnore]
-#endif
         public DateTime? DateCreated
         {
             get
@@ -59,9 +53,7 @@ namespace Songhay.Models
         /// Gets the date created string.
         /// </summary>
         /// <value>The date created string.</value>
-#if !NETSTANDARD1_2
         [XmlElement(ElementName = "dateCreated")]
-#endif
         [JsonProperty("dateCreated")]
         public string DateCreatedString { get; set; }
 
@@ -69,9 +61,7 @@ namespace Songhay.Models
         /// Gets or sets the date modified.
         /// </summary>
         /// <value>The date modified.</value>
-#if !NETSTANDARD1_2
         [XmlIgnore]
-#endif
         public DateTime? DateModified
         {
             get
@@ -91,9 +81,7 @@ namespace Songhay.Models
         /// Gets the date created string.
         /// </summary>
         /// <value>The date created string.</value>
-#if !NETSTANDARD1_2
         [XmlElement(ElementName = "dateModified")]
-#endif
         [JsonProperty("dateModified")]
         public string DateModifiedString { get; set; }
 
@@ -101,9 +89,7 @@ namespace Songhay.Models
         /// Gets or sets the name of the owner.
         /// </summary>
         /// <value>The name of the owner.</value>
-#if !NETSTANDARD1_2
         [XmlElement(ElementName = "ownerName")]
-#endif
         [JsonProperty("ownerName")]
         public string OwnerName { get; set; }
 
@@ -111,9 +97,7 @@ namespace Songhay.Models
         /// Gets or sets the owner email.
         /// </summary>
         /// <value>The owner email.</value>
-#if !NETSTANDARD1_2
         [XmlElement(ElementName = "ownerEmail")]
-#endif
         [JsonProperty("ownerEmail")]
         public string OwnerEmail { get; set; }
 

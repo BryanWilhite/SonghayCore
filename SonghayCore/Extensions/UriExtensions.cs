@@ -1,14 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-
-#if NETSTANDARD
-
 using System.Collections.Generic;
-using System.Net;
 using System.Net.Http;
-
-#endif
 
 using System.Threading.Tasks;
 
@@ -65,8 +59,6 @@ namespace Songhay.Extensions
             return Path.GetFileName(input?.LocalPath);
         }
 
-#if NETSTANDARD
-
         /// <summary>
         /// Converts the specified <see cref="Uri" />
         /// to its ‘expanded’ version.
@@ -104,8 +96,6 @@ namespace Songhay.Extensions
             var expandedUri = await expandableUri.ToExpandedUriAsync();
             return new KeyValuePair<Uri, Uri>(expandableUri, expandedUri);
         }
-
-#endif
 
         /// <summary>
         /// Converts the <see cref="Uri"/> into a relative URI from query.

@@ -1,6 +1,4 @@
-﻿#if NETSTANDARD
-
-using Songhay.Models;
+﻿using Songhay.Models;
 using System;
 using System.Linq;
 using Tavis.UriTemplates;
@@ -42,5 +40,3 @@ namespace Songhay.Extensions
         }
     }
 }
-
-#endif

@@ -1211,6 +1211,399 @@
             <param name="thisPredicate">The extended <see cref="T:System.Func`1"/> predicate.</param>
             <param name="predicate">The composed, negated <see cref="T:System.Func`1"/> predicate.</param>
         </member>
+        <member name="T:Songhay.Extensions.HttpClientExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Net.Http.HttpClient"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.DeleteAsync(System.Net.Http.HttpClient,System.Uri,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Sends a <see cref="P:System.Net.Http.HttpMethod.Delete"/>
+            <see cref="T:System.Net.Http.HttpRequestMessage"/>.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.DownloadToFileAsync(System.Net.Http.HttpClient,System.Uri,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Downloads resource at URI to the specified path.
+            </summary>
+            <param name="client">The request.</param>
+            <param name="uri">The URI.</param>
+            <param name="path">The path.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.DownloadToFileAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
+            <summary>
+            Downloads resource at URI to the specified path.
+            </summary>
+            <param name="client">The request.</param>
+            <param name="uri">The URI.</param>
+            <param name="path">The path.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.DownloadToStringAsync(System.Net.Http.HttpClient,System.Uri)">
+            <summary>
+            Downloads resource at URI to <see cref="T:System.String" />.
+            </summary>
+            <param name="client">The request.</param>
+            <param name="uri">The URI.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.DownloadToStringAsync(System.Net.Http.HttpClient,System.Uri,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Downloads resource at URI to <see cref="T:System.String" />.
+            </summary>
+            <param name="client">The request.</param>
+            <param name="uri">The URI.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.GetAsync(System.Net.Http.HttpClient,System.Uri,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Sends a <see cref="P:System.Net.Http.HttpMethod.Get"/>
+            <see cref="T:System.Net.Http.HttpRequestMessage"/>.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.PostFormAsync(System.Net.Http.HttpClient,System.Uri,System.Collections.Hashtable)">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified <see cref="F:Songhay.Models.MimeTypes.ApplicationFormUrlEncoded" />
+            request body using <see cref="P:System.Net.Http.HttpMethod.Post" />
+            and <see cref="P:System.Text.Encoding.UTF8" />.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="formData">The form data.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.PostFormAsync(System.Net.Http.HttpClient,System.Uri,System.Collections.Hashtable,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified <see cref="F:Songhay.Models.MimeTypes.ApplicationFormUrlEncoded" />
+            request body using <see cref="P:System.Net.Http.HttpMethod.Post" />
+            and <see cref="P:System.Text.Encoding.UTF8" />.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="formData">The form data.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.PostJsonAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified <see cref="F:Songhay.Models.MimeTypes.ApplicationJson"/>
+            request body using <see cref="P:System.Net.Http.HttpMethod.Post" />
+            and <see cref="P:System.Text.Encoding.UTF8"/>.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="requestBody">The request body.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.PostJsonAsync(System.Net.Http.HttpClient,System.Uri,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified <see cref="F:Songhay.Models.MimeTypes.ApplicationJson" />
+            request body using <see cref="P:System.Net.Http.HttpMethod.Post" />
+            and <see cref="P:System.Text.Encoding.UTF8" />.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.PostXmlAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified <see cref="F:Songhay.Models.MimeTypes.ApplicationXml"/>
+            request body using <see cref="P:System.Net.Http.HttpMethod.Post" />
+            and <see cref="P:System.Text.Encoding.UTF8"/>.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="requestBody">The request body.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.PostXmlAsync(System.Net.Http.HttpClient,System.Uri,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified <see cref="F:Songhay.Models.MimeTypes.ApplicationXml" />
+            request body using <see cref="P:System.Net.Http.HttpMethod.Post" />
+            and <see cref="P:System.Text.Encoding.UTF8" />.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.PutJsonAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified <see cref="F:Songhay.Models.MimeTypes.ApplicationJson"/>
+            request body using <see cref="P:System.Net.Http.HttpMethod.Put" />
+            and <see cref="P:System.Text.Encoding.UTF8"/>.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="requestBody">The request body.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.PutJsonAsync(System.Net.Http.HttpClient,System.Uri,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified <see cref="F:Songhay.Models.MimeTypes.ApplicationJson" />
+            request body using <see cref="P:System.Net.Http.HttpMethod.Put" />
+            and <see cref="P:System.Text.Encoding.UTF8" />.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.PutXmlAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified <see cref="F:Songhay.Models.MimeTypes.ApplicationXml"/>
+            request body using <see cref="P:System.Net.Http.HttpMethod.Put" />
+            and <see cref="P:System.Text.Encoding.UTF8"/>.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="requestBody">The request body.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.PutXmlAsync(System.Net.Http.HttpClient,System.Uri,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified <see cref="F:Songhay.Models.MimeTypes.ApplicationXml" />
+            request body using <see cref="P:System.Net.Http.HttpMethod.Put" />
+            and <see cref="P:System.Text.Encoding.UTF8" />.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.SendAsync(System.Net.Http.HttpClient,System.Uri,System.Net.Http.HttpMethod,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="method">The method.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">uri - The expected URI is not here.
+            or
+            mediaType - The expected request body media type is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpClientExtensions.SendBodyAsync(System.Net.Http.HttpClient,System.Uri,System.Net.Http.HttpMethod,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified request body.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="uri">The URI.</param>
+            <param name="method">The method.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="encoding">The encoding.</param>
+            <param name="mediaType">Type of the media.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="T:Songhay.Extensions.HttpRequestMessageExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Net.Http.HttpRequestMessage"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetServerResponseAsync(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Gets a <see cref="T:System.String"/> from the derived <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetServerResponseAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})">
+            <summary>
+            Gets a <see cref="T:System.String" /> from the derived <see cref="T:System.Net.Http.HttpResponseMessage" />.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="responseMessageAction">The response message action.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetServerResponseAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})">
+            <summary>
+            Gets a <see cref="T:System.String" /> from the derived <see cref="T:System.Net.Http.HttpResponseMessage" />.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="responseMessageAction">The response message action.</param>
+            <param name="optionalClientGetter">The optional client getter.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">request</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetTimeout(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Gets any <see cref="T:System.Threading.Timeout"/> in <see cref="P:System.Net.Http.HttpRequestMessage.Properties"/>.
+            </summary>
+            <param name="request">The request.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">request</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            </summary>
+            <param name="request">The request.</param>
+            <param name="requestMessageAction">The request message action.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            </summary>
+            <param name="request">The request.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <param name="optionalClientGetter">The optional client getter.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">uri - The expected URI is not here.
+            or
+            mediaType - The expected request body media type is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified request body, <see cref="P:System.Text.Encoding.UTF8"/>
+            and <see cref="F:Songhay.Models.MimeTypes.ApplicationJson"/>.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="requestBody">The request body.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified request body.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="encoding">The encoding.</param>
+            <param name="mediaType">Type of the media.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified request body.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="encoding">The encoding.</param>
+            <param name="mediaType">Type of the media.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})">
+            <summary>
+            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
+            with the specified request body.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="encoding">The encoding.</param>
+            <param name="mediaType">Type of the media.</param>
+            <param name="requestMessageAction">The request message action.</param>
+            <param name="optionalClientGetter">The optional client getter.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SetTimeout(System.Net.Http.HttpRequestMessage,System.Nullable{System.TimeSpan})">
+            <summary>
+            Sets the <see cref="T:System.Threading.Timeout" /> in <see cref="P:System.Net.Http.HttpRequestMessage.Properties" />.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="timeout">The timeout.</param>
+            <exception cref="T:System.ArgumentNullException">request</exception>
+        </member>
+        <member name="T:Songhay.Extensions.HttpResponseMessageExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadByteArrayToFile(System.Net.Http.HttpResponseMessage,System.IO.FileSystemInfo)">
+            <summary>
+            Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
+            from <see cref="T:System.Byte"/> array to file.
+            </summary>
+            <param name="response">The response.</param>
+            <param name="fileInfo">The file information.</param>
+            <exception cref="T:System.NullReferenceException">The expected {nameof(FileSystemInfo)} is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadByteArrayToFile(System.Net.Http.HttpResponseMessage,System.String)">
+            <summary>
+            Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
+            from <see cref="T:System.Byte"/> array to file.
+            </summary>
+            <param name="response">The response.</param>
+            <param name="target">The target.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadStringToFile(System.Net.Http.HttpResponseMessage,System.IO.FileSystemInfo)">
+            <summary>
+            Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
+            from <see cref="T:System.Byte"/> array to file.
+            </summary>
+            <param name="response">The response.</param>
+            <param name="fileInfo">The file information.</param>
+            <exception cref="T:System.NullReferenceException">The expected {nameof(FileSystemInfo)} is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadStringToFile(System.Net.Http.HttpResponseMessage,System.String)">
+            <summary>
+            Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
+            from <see cref="T:System.Byte"/> array to file.
+            </summary>
+            <param name="response">The response.</param>
+            <param name="target">The target.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Returns <c>true</c> when <see cref="T:System.Net.Http.HttpResponseMessage"/>
+            is <see cref="F:System.Net.HttpStatusCode.Moved"/>, <see cref="F:System.Net.HttpStatusCode.MovedPermanently"/>
+            or <see cref="F:System.Net.HttpStatusCode.Redirect"/>.
+            </summary>
+            <param name="response">The response.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.ToJContainerAsync(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Converts the specified <see cref="T:System.Net.Http.HttpResponseMessage"/>
+            to <see cref="T:Newtonsoft.Json.Linq.JContainer"/>
+            </summary>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
         <member name="T:Songhay.Extensions.HttpWebRequestExtensions">
             <summary>
             Extensions of <see cref="T:System.Net.HttpWebRequest"/>
@@ -1326,6 +1719,18 @@
             <summary>
             Extensions of <see cref="T:Songhay.Models.IActivity"/>
             </summary>
+            <summary>
+            Extensions of <see cref="T:Songhay.Models.IActivity"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.WithConfiguration(Songhay.Models.IActivity,Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+            Returns <see cref="T:Songhay.Models.IActivity"/> with <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> added when available.
+            </summary>
+            <param name="activity">The activity.</param>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">activity - The expected activity is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.GetActivity(System.Collections.Generic.Dictionary{System.String,System.Lazy{Songhay.Models.IActivity}},System.String)">
             <summary>
@@ -1536,6 +1941,53 @@
             <returns>
               <c>true</c> if the specified service client is opened; otherwise, <c>false</c>.
             </returns>
+        </member>
+        <member name="T:Songhay.Extensions.IConfigurationBuilderExtensions">
+            <summary>
+            Extension of <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>.
+            </summary>
+        </member>
+        <member name="F:Songhay.Extensions.IConfigurationBuilderExtensions.defaultSettingsFileName">
+            <summary>
+            The default settings file name
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationBuilderExtensions.WithSettingsJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)">
+            <summary>
+            Builds <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>
+            with the conventional settings json file.
+            </summary>
+            <param name="builder">The builder.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationBuilderExtensions.WithSettingsJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder,System.String)">
+            <summary>
+            Builds <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder" />
+            with the conventional settings json file.
+            </summary>
+            <param name="builder">The builder.</param>
+            <param name="basePath">The base path.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationBuilderExtensions.WithSettingsJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder,System.String,System.String)">
+             <summary>
+             Builds <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder" />
+             with the conventional settings json file.
+             </summary>
+             <param name="builder">The builder.</param>
+             <param name="basePath">The base path.</param>
+             <param name="settingsFileName">Name of the settings file.</param>
+             <returns></returns>
+             <exception cref="T:System.ArgumentException"></exception>
+             <remarks>
+             When <c>basePath</c> is missing, this member group will not call
+             <see cref="M:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath(Microsoft.Extensions.Configuration.IConfigurationBuilder,System.String)"/>
+             unless the command-line argument <see cref="F:Songhay.Models.ProgramArgs.BasePath"/> is set and is valid.
+            
+             When <see cref="F:Songhay.Models.ProgramArgs.SettingsFile"/> is not specified then <see cref="F:Songhay.Extensions.IConfigurationBuilderExtensions.defaultSettingsFileName"/> will be used.
+             </remarks>
         </member>
         <member name="T:Songhay.Extensions.IContractResolverExtensions">
             <summary>
@@ -2250,6 +2702,22 @@
             <param name="restApiMetadataSetKey">The key for <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/>.</param>
             <returns></returns>
         </member>
+        <member name="T:Songhay.Extensions.RestApiMetadataExtensions">
+            <summary>
+            Extensions of <see cref="T:Songhay.Models.RestApiMetadata"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToUri(Songhay.Models.RestApiMetadata,System.String,System.String[])">
+            <summary>
+            To the URI.
+            </summary>
+            <param name="meta">The meta.</param>
+            <param name="uriTemplateKey">The URI template key.</param>
+            <param name="bindByPositionValues">The bind by position values.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">bindByPositionValues;The expected bind-by-position values are not here.</exception>
+            <exception cref="T:System.FormatException">The expected REST API metadata URI template key is not here.</exception>
+        </member>
         <member name="T:Songhay.Extensions.StringBuilderExtensions">
             <summary>
             Extensions of <see cref="T:System.Text.StringBuilder"/>
@@ -2826,13 +3294,9 @@
             <summary>
             Extensions of <see cref="T:Songhay.Diagnostics.TraceSources"/>
             </summary>
-        </member>
-        <member name="M:Songhay.Extensions.TraceSourcesExtensions.GetConfiguredTraceSource(Songhay.Diagnostics.TraceSources)">
             <summary>
-            Gets the configured trace source.
+            Extensions of <see cref="T:Songhay.Diagnostics.TraceSources"/>
             </summary>
-            <param name="instance">The instance.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.TraceSourcesExtensions.GetConfiguredTraceSource(Songhay.Diagnostics.TraceSources,System.String)">
             <summary>
@@ -2842,6 +3306,57 @@
             <param name="key">The key.</param>
             <returns></returns>
             <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.TraceSourcesExtensions.GetConfiguredTraceSource(Songhay.Diagnostics.TraceSources)">
+             <summary>
+             Gets the configured trace source.
+             </summary>
+             <param name="instance">The instance.</param>
+             <returns></returns>
+             <remarks>
+             For .NET Standard, this member makes sense after lines like these:
+             <code>
+                 var configuration = builder.Build();
+                 TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
+             </code>
+            
+             This member makes the <c>GetConfiguredTraceSource</c> pattern cross platform.
+             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.TraceSourcesExtensions.GetConfiguredTraceSource(Songhay.Diagnostics.TraceSources,Microsoft.Extensions.Configuration.IConfiguration)">
+             <summary>
+             Gets the configured trace source.
+             </summary>
+             <param name="instance">The instance.</param>
+             <param name="configuration">The configuration.</param>
+             <returns></returns>
+             <remarks>
+             For .NET Standard, this member makes sense after lines like these:
+             <code>
+                 var configuration = builder.Build();
+                 TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
+             </code>
+            
+             This member makes the <c>GetConfiguredTraceSource</c> pattern cross platform.
+             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.TraceSourcesExtensions.GetConfiguredTraceSource(Songhay.Diagnostics.TraceSources,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+             <summary>
+             Gets the configured trace source.
+             </summary>
+             <param name="instance">The instance.</param>
+             <param name="configuration">The configuration.</param>
+             <param name="key">The key.</param>
+             <returns></returns>
+             <remarks>
+             For .NET Standard, this member makes sense after lines like these:
+             <code>
+                 var configuration = builder.Build();
+                 TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
+             </code>
+            
+             This member makes the <c>GetConfiguredTraceSource</c> pattern cross platform.
+             </remarks>
         </member>
         <member name="T:Songhay.Extensions.UriBuilderExtensions">
             <summary>
@@ -2893,11 +3408,53 @@
             <returns>
             </returns>
         </member>
+        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)">
+            <summary>
+            Converts the specified <see cref="T:System.Uri" />
+            to its ‘expanded’ version.
+            </summary>
+            <param name="expandableUri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)">
+            <summary>
+            Converts the specified <see cref="T:System.Uri" />
+            to its ‘expanded’ version.
+            </summary>
+            <param name="expandableUri"></param>
+            <returns></returns>
+        </member>
         <member name="M:Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)">
             <summary>
             Converts the <see cref="T:System.Uri"/> into a relative URI from query.
             </summary>
             <param name="input">The input.</param>
+        </member>
+        <member name="T:Songhay.Extensions.UriTemplateExtensions">
+            <summary>
+            Extensions of <see cref="T:Tavis.UriTemplates.UriTemplate"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.UriTemplateExtensions.BindByPosition(Tavis.UriTemplates.UriTemplate,System.String[])">
+            <summary>
+            Binds the <see cref="T:Tavis.UriTemplates.UriTemplate"/>
+            to the specified <c>params</c> by position.
+            </summary>
+            <param name="template">The template.</param>
+            <param name="values">The values.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.UriTemplateExtensions.BindByPosition(Tavis.UriTemplates.UriTemplate,System.Uri,System.String[])">
+            <summary>
+            Binds the <see cref="T:Tavis.UriTemplates.UriTemplate" />
+            to the specified <c>params</c> by position.
+            </summary>
+            <param name="template">The template.</param>
+            <param name="baseUri">The base URI.</param>
+            <param name="values">The values.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">template - The expected URI template is not here.</exception>
+            <exception cref="T:System.FormatException"></exception>
         </member>
         <member name="T:Songhay.Extensions.ValidationContextExtensions">
             <summary>
@@ -4762,6 +5319,18 @@
             Starts with the specified arguments.
             </summary>
             <param name="args">The arguments.</param>
+        </member>
+        <member name="T:Songhay.Models.IActivityConfigurationSupport">
+            <summary>
+            Defines <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> support
+            for an <see cref="T:Songhay.Models.IActivity"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Models.IActivityConfigurationSupport.AddConfiguration(Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+            Adds the configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
         </member>
         <member name="T:Songhay.Models.IActivityWithOutput`2">
             <summary>
@@ -7262,6 +7831,38 @@
             <param name="message">The message.</param>
             <param name="attachments">The attachments.</param>
         </member>
+        <member name="T:Songhay.Net.TimeoutHandler">
+            <summary>
+            Defines timeout and cancellation support
+            for <see cref="T:System.Net.Http.HttpClient"/>.
+            </summary>
+            <seealso cref="T:System.Net.Http.DelegatingHandler" />
+            <remarks>
+            📖 see “Better timeout handling with HttpClient”
+            by @thomaslevesque [ https://github.com/thomaslevesque ]
+            [ https://thomaslevesque.com/2018/02/25/better-timeout-handling-with-httpclient/ ]
+            
+            </remarks>
+        </member>
+        <member name="P:Songhay.Net.TimeoutHandler.DefaultTimeout">
+            <summary>
+            Gets or sets the default timeout.
+            </summary>
+            <value>
+            The default timeout.
+            </value>
+        </member>
+        <member name="M:Songhay.Net.TimeoutHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            Sends an HTTP request to the inner handler to send to the server as an asynchronous operation.
+            </summary>
+            <param name="request">The HTTP request message to send to the server.</param>
+            <param name="cancellationToken">A cancellation token to cancel operation.</param>
+            <returns>
+            The task object representing the asynchronous operation.
+            </returns>
+            <exception cref="T:System.TimeoutException"></exception>
+        </member>
         <member name="T:Songhay.OpcReferencedTypeStrategy">
             <summary>
             Names the strategies to use
@@ -7339,6 +7940,46 @@
                 “Pack URIs in WPF” (http://msdn.microsoft.com/en-us/library/aa970069.aspx)
                 “The "pack" URI Scheme” (http://tools.ietf.org/html/draft-shur-pack-uri-scheme-05)
             </remarks>
+        </member>
+        <member name="T:Songhay.ProgramUtility">
+            <summary>
+            Defines shared routines for Studio programs
+            </summary>
+        </member>
+        <member name="M:Songhay.ProgramUtility.InitializeTraceSource(System.Diagnostics.TraceListener)">
+            <summary>
+            Initializes the trace source.
+            </summary>
+            <param name="listener">The listener.</param>
+        </member>
+        <member name="M:Songhay.ProgramUtility.LoadConfiguration(System.String)">
+            <summary>
+            Loads the configuration.
+            </summary>
+            <param name="basePath">The base path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.ProgramUtility.LoadConfiguration(System.String,System.String[])">
+            <summary>
+            Loads the built configuration.
+            </summary>
+            <param name="basePath">The base path.</param>
+            <param name="requiredJsonConfigurationFiles">specify any additional JSON configuration files before build</param>
+            <returns>Returns the built configuration.</returns>
+        </member>
+        <member name="M:Songhay.ProgramUtility.LoadConfiguration(System.String,System.Func{Microsoft.Extensions.Configuration.IConfigurationBuilder,Microsoft.Extensions.Configuration.IConfigurationBuilder},System.String[])">
+            <summary>
+            Loads the built configuration.
+            </summary>
+            <param name="basePath">The base path.</param>
+            <param name="builderModifier">Allows modification of <see cref="T:Microsoft.Extensions.Configuration.ConfigurationBuilder"/> before build.</param>
+            <param name="requiredJsonConfigurationFiles">specify any additional JSON configuration files before build</param>
+            <returns>Returns the built configuration.</returns>
+        </member>
+        <member name="M:Songhay.ProgramUtility.HandleDebug">
+            <summary>
+            Handles the debug.
+            </summary>
         </member>
         <member name="T:Songhay.Text.CsvExporter`1">
             <summary>
