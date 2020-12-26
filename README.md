@@ -2,7 +2,7 @@
 
 [![Build Status](https://songhay.visualstudio.com/SonghaySystem/_apis/build/status/songhay-core-yaml-build?branchName=master)](https://songhay.visualstudio.com/SonghaySystem/_build/latest?definitionId=16&branchName=master)
 
-The _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/SonghayCore/) for all of my studio Solutions. Anyone who may be reading this 👀 is free to do the same. This package is based on [a project file](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/SonghayCore.csproj) that supports [multi-targeting](http://gigi.nullneuron.net/gigilabs/multi-targeting-net-standard-class-libraries/), declaring support for `net452`, `net462` and `netstandard2.0`.
+The _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/SonghayCore/) for all of my studio Solutions. Anyone who may be reading this 👀 is free to do the same. This package is based on [a project file](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/SonghayCore.csproj) that supports [multi-targeting](http://gigi.nullneuron.net/gigilabs/multi-targeting-net-standard-class-libraries/), declaring support for `net5.0` and `netstandard2.0`.
 
 **NuGet package 📦:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
 
@@ -64,13 +64,7 @@ The “core” of the _Core_ is concern for XML. The Songhay System started out 
 
 **Documentation 📚:** [`Songhay.Xml`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Xml/)
 
-## satellite packages
-
-### `SonghayCore.MSTest`
-
-[Extension methods](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.MSTest/Extensions/TestContextExtensions.cs) of `Microsoft.VisualStudio.TestTools.UnitTesting.TestContext` define reusable routines for MSTEST/VSTEST projects, based on [the open source framework](https://github.com/Microsoft/vstest) from Microsoft.
-
-**NuGet package 📦:** [`SonghayCore.MSTest`](http://www.nuget.org/packages/SonghayCore.MSTest/)
+## satellite packages in this repo
 
 ### `SonghayCore.xUnit`
 
@@ -80,8 +74,10 @@ Defines reusable class definitions for [xUnit](https://xunit.net/). Featured is 
 
 **Documentation 📚:** [`Songhay.Tests`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Tests/)
 
-The diagram below shows all of the packages supported by `SonghayCore` in my Studio:
+The diagram below shows all of the packages depending on `SonghayCore` in my Studio:
 
-![packages supported by `SonghayCore`](./SonghayCore/images/image-2020-07-04-17-46-09.png)
+![Studio packages depending on `SonghayCore`](./SonghayCore/images/image-2020-12-26-11-51-11.png)
+
+⚠🚜🔥 Note that `SonghayCore.MSTest` is no longer supported going forward.
 
 @[BryanWilhite](https://twitter.com/BryanWilhite)
