@@ -77,6 +77,8 @@ namespace Songhay.Extensions
         /// Downloads to string.
         /// </summary>
         /// <param name="request">The request.</param>
+        /// <param name="proxyLocation">The proxy location</param>
+        /// <param name="bypassProxy">when <c>true</c>, bypass proxy</param>
         public static string DownloadToString(this HttpWebRequest request, Uri proxyLocation, bool bypassProxy)
         {
             if (request == null) return null;
@@ -202,6 +204,14 @@ namespace Songhay.Extensions
             return (HttpWebResponse)request.GetResponse();
         }
 
+        /// <summary>
+        /// Returns the <see cref="HttpWebRequest" />
+        /// with a <see cref="WebProxy" />.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <param name="proxyLocation">The proxy location.</param>
+        /// <param name="bypassProxy">if set to <c>true</c> [bypass proxy].</param>
+        /// <returns></returns>
         public static HttpWebRequest WithProxy(this HttpWebRequest request, Uri proxyLocation, bool bypassProxy)
         {
             if (request == null) return null;

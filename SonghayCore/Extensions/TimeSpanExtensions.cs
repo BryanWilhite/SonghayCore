@@ -25,8 +25,6 @@ namespace Songhay.Extensions
         /// <param name="startDate">The start date.</param>
         public static IList<DateTime> ListDays(this TimeSpan span, DateTime startDate)
         {
-            if(span == null) return null;
-
             var days = new List<DateTime>(span.Days);
             for(int i = 0; i < span.Days; i++)
             {

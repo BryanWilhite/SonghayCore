@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-#if NET5_0
+#if NET5_0_WINDOWS
 using System.Security.Permissions;
 #endif
 using System.Text.RegularExpressions;
@@ -20,7 +20,7 @@ namespace Songhay
         /// Starts the process.
         /// </summary>
         /// <param name="command">The command.</param>
-#if NET5_0
+#if NET5_0_WINDOWS
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
 #endif
         public static void StartProcess(string command)
@@ -75,7 +75,7 @@ namespace Songhay
         /// <param name="argumentOfExe">The argument of executable.</param>
         /// <param name="pathToExe">The path to executable.</param>
         /// <param name="useExe">if set to <c>true</c> use path to executable.</param>
-#if NET5_0
+#if NET5_0_WINDOWS
         [EnvironmentPermissionAttribute(SecurityAction.LinkDemand, Unrestricted = true)]
 #endif
         public static void StartProcess(string argumentOfExe, string pathToExe, bool useExe)

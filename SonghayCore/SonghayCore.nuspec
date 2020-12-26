@@ -17,21 +17,35 @@
     <tags>Core Songhay Configuration Cryptography LINQ</tags>
     <repository type="git" url="https://github.com/BryanWilhite/SonghayCore"></repository>
     <dependencies>
-      <group targetFramework=".NETStandard2.0">
-        <dependency id="Microsoft.Extensions.Configuration" version="2.2.0" />
-        <dependency id="Microsoft.Extensions.Configuration.Binder" version="2.2.4" />
-        <dependency id="Microsoft.Extensions.Configuration.EnvironmentVariables" version="2.2.4" />
-        <dependency id="Microsoft.Extensions.Configuration.FileExtensions" version="2.2.0" />
-        <dependency id="Microsoft.Extensions.Configuration.Json" version="2.2.0" />
-        <dependency id="Microsoft.Extensions.Logging.TraceSource" version="2.2.0" />
+      <group targetFramework=".NETCoreApp5.0">
+        <dependency id="Microsoft.Extensions.Configuration" version="5.0.0" />
+        <dependency id="Microsoft.Extensions.Configuration.Binder" version="5.0.0" />
+        <dependency id="Microsoft.Extensions.Configuration.EnvironmentVariables" version="5.0.0" />
+        <dependency id="Microsoft.Extensions.Configuration.FileExtensions" version="5.0.0" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="5.0.0" />
+        <dependency id="Microsoft.Extensions.Logging.TraceSource" version="5.0.0" />
         <dependency id="Newtonsoft.Json" version="12.0.3" />
-        <dependency id="System.ComponentModel.Annotations" version="4.7.0" />
+        <dependency id="System.ComponentModel.Annotations" version="5.0.0" />
+        <dependency id="System.ObjectModel" version="4.3.0" />
+        <dependency id="Tavis.UriTemplates" version="1.1.1" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.Extensions.Configuration" version="5.0.0" />
+        <dependency id="Microsoft.Extensions.Configuration.Binder" version="5.0.0" />
+        <dependency id="Microsoft.Extensions.Configuration.EnvironmentVariables" version="5.0.0" />
+        <dependency id="Microsoft.Extensions.Configuration.FileExtensions" version="5.0.0" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="5.0.0" />
+        <dependency id="Microsoft.Extensions.Logging.TraceSource" version="5.0.0" />
+        <dependency id="Newtonsoft.Json" version="12.0.3" />
+        <dependency id="System.ComponentModel.Annotations" version="5.0.0" />
         <dependency id="System.ObjectModel" version="4.3.0" />
         <dependency id="Tavis.UriTemplates" version="1.1.1" />
       </group>
     </dependencies>
   </metadata>
   <files>
+    <file src="bin\Release\netcoreapp5.0\Songhay*.dll" target="lib\netcoreapp5.0" />
+    <file src="bin\Release\netcoreapp5.0\Songhay*.json" target="lib\netcoreapp5.0" />
     <file src="bin\Release\netstandard2.0\Songhay*.dll" target="lib\netstandard2.0" />
     <file src="bin\Release\netstandard2.0\Songhay*.json" target="lib\netstandard2.0" />
     <file src="**\*.cs" exclude="**\obj\**" target="src" />

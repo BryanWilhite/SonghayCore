@@ -1244,6 +1244,8 @@
             Downloads to string.
             </summary>
             <param name="request">The request.</param>
+            <param name="proxyLocation">The proxy location</param>
+            <param name="bypassProxy">when <c>true</c>, bypass proxy</param>
         </member>
         <member name="M:Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Uri,System.Collections.Hashtable)">
             <summary>
@@ -1292,6 +1294,16 @@
             Converts the <see cref="T:System.Net.HttpWebRequest"/> into a HTTP web response.
             </summary>
             <param name="request">The request.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpWebRequestExtensions.WithProxy(System.Net.HttpWebRequest,System.Uri,System.Boolean)">
+            <summary>
+            Returns the <see cref="T:System.Net.HttpWebRequest" />
+            with a <see cref="T:System.Net.WebProxy" />.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="proxyLocation">The proxy location.</param>
+            <param name="bypassProxy">if set to <c>true</c> [bypass proxy].</param>
+            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest,System.String,System.String)">
             <summary>
@@ -4688,7 +4700,7 @@
         </member>
         <member name="T:Songhay.Models.HttpMethods">
             <summary>
-            Centralizes <see cref="!:HttpMethod"/> members as strings.
+            Centralizes <see cref="T:System.Net.Http.HttpMethod"/> members as strings.
             </summary>
             <remarks>
             Reference: “HTTP request methods” [https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods]

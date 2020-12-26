@@ -1,6 +1,4 @@
-﻿#if NETSTANDARD
-using System.Net.Http;
-#endif
+﻿using System.Net.Http;
 
 namespace Songhay.Models
 {
