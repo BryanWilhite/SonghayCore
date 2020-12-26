@@ -3,9 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 
-// <copyright file="ProgramUtility.cs" company="Songhay System">
-//     Copyright 2008, Bryan D. Wilhite, Songhay System. All rights reserved.
-// </copyright>
 namespace Songhay
 {
     /// <summary>

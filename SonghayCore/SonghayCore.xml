@@ -948,7 +948,7 @@
             <exception cref="T:System.NullReferenceException">The expected root path is not here.
             or
             The expected path is not here.</exception>
-            <remarks>For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14 and <see cref="M:Songhay.FrameworkFileUtility.GetCombinedPath(System.String,System.String)" />.</remarks>
+            <remarks>For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14 and <see cref="M:Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)" />.</remarks>
         </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.VerifyDirectory(System.IO.DirectoryInfo,System.String)">
             <summary>
@@ -3656,965 +3656,6 @@
             <param name="stripNamespaces">if set to <c>true</c> then strip namespaces (<c>true</c> by default).</param>
             <param name="options">The options (<see cref="F:System.Xml.Linq.ReaderOptions.None"/> by default).</param>
         </member>
-        <member name="T:Songhay.FrameworkAssemblyUtility">
-            <summary>
-            Static members related to <see cref="N:System.Reflection"/>.
-            </summary>
-        </member>
-        <member name="M:Songhay.FrameworkAssemblyUtility.GetAssemblyInfo(System.Reflection.Assembly)">
-            <summary>
-            Returns a <see cref="T:System.String"/>
-            about the executing assembly.
-            </summary>
-            <param name="targetAssembly">
-            The executing <see cref="T:System.Reflection.Assembly"/>.
-            </param>
-            <returns>Returns <see cref="T:System.String"/></returns>
-        </member>
-        <member name="M:Songhay.FrameworkAssemblyUtility.GetAssemblyInfo(System.Reflection.Assembly,System.Boolean)">
-            <summary>
-            Returns a <see cref="T:System.String"/>
-            about the executing assembly.
-            </summary>
-            <param name="targetAssembly">
-            The executing <see cref="T:System.Reflection.Assembly"/>.
-            </param>
-            <param name="useConsoleChars">
-            When <c>true</c> selected “special” characters are formatted for the Windows Console.
-            </param>
-            <returns>Returns <see cref="T:System.String"/></returns>
-        </member>
-        <member name="M:Songhay.FrameworkAssemblyUtility.GetPathFromAssembly(System.Reflection.Assembly)">
-            <summary>
-            Gets the directory name from assembly.
-            </summary>
-            <param name="assembly">The assembly.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">assembly;The expected assembly is not here.</exception>
-        </member>
-        <member name="M:Songhay.FrameworkAssemblyUtility.GetPathFromAssembly(System.Reflection.Assembly,System.String)">
-            <summary>
-            Gets the path from assembly.
-            </summary>
-            <param name="assembly">The assembly.</param>
-            <param name="fileSegment">The file segment.</param>
-        </member>
-        <member name="T:Songhay.FrameworkFileUtility">
-            <summary>
-            A few static helper members
-            for <see cref="N:System.IO"/>.
-            </summary>
-            <summary>
-            A few static helper members
-            for <see cref="N:System.IO"/>.
-            </summary>
-            <summary>
-            A few static helper members
-            for <see cref="N:System.IO"/>.
-            </summary>
-            <summary>
-            A few static helper members
-            for <see cref="N:System.IO"/>.
-            </summary>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})">
-            <summary>
-            Read zip archive entries.
-            </summary>
-            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="fileAction">The action to take per text file.</param>
-            <remarks>
-            Use <c>entriesProjector</c> for any filtering or sorting.
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
-            <summary>
-            Read zip archive entries.
-            </summary>
-            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="fileAction">The action to take per text file.</param>
-            <param name="entriesProjector">The entries projector for LINQ filtering/sorting.</param>
-            <remarks>
-            Use <c>entriesProjector</c> for any filtering or sorting.
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String})">
-            <summary>
-            Read zip archive entries as strings, line by line.
-            </summary>
-            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="lineAction">The action to take per text file line.</param>
-            <remarks>
-            This member is designed for compressed text documents that are too large to load into memory.
-            The <c>fileAction</c> includes the line number and the current line.
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
-            <summary>
-            Read zip archive entries as strings, line by line.
-            </summary>
-            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="lineAction">The action to take per text file line.</param>
-            <param name="entriesProjector">The entries projector for LINQ filtering/sorting.</param>
-            <remarks>
-            This member is designed for compressed text documents that are too large to load into memory.
-            The <c>fileAction</c> includes the line number and the current line.
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})">
-            <summary>
-            Centralizes the use of <see cref="T:System.IO.Compression.ZipArchive"/>
-            in <see cref="F:System.IO.Compression.ZipArchiveMode.Read"/>.
-            </summary>
-            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="archiveAction">The action to take for the ZIP archive in use.</param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive},System.IO.Compression.ZipArchiveMode)">
-            <summary>
-            Centralizes the use of <see cref="T:System.IO.Compression.ZipArchive"/>
-            </summary>
-            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="archiveAction">The action to take for the ZIP archive in use.</param>
-            <param name="zipArchiveMode">The <see cref="T:System.IO.Compression.ZipArchiveMode"/></param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
-            <summary>
-            Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
-            </summary>
-            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="entriesAction">The action to take for ZIP archive entries.</param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
-            <summary>
-            Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
-            </summary>
-            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="entriesAction">The action to take for ZIP archive entries.</param>
-            <param name="entriesProjector">The entries projector for LINQ filtering/sorting.</param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo)">
-            <summary>
-            Write zip archive entry with <see cref="F:System.IO.Compression.CompressionLevel.Optimal"/>.
-            </summary>
-            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="fileInfo">The file information for writing the entry.</param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo,System.IO.Compression.CompressionLevel)">
-            <summary>
-            Write zip archive entry.
-            </summary>
-            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
-            <param name="fileInfo">The file information for writing the entry.</param>
-            <param name="compressionLevel">The <see cref="T:System.IO.Compression.CompressionLevel"/></param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.CountParentDirectoryChars(System.String)">
-            <summary>
-            Counts the parent directory chars.
-            </summary>
-            <param name="path">The path.</param>
-            <returns></returns>
-            <remarks>
-            This method is useful when running <see cref="M:Songhay.FrameworkFileUtility.GetParentDirectory(System.String,System.Int32)"/>.
-            
-            WARNING: call <see cref="M:Songhay.FrameworkFileUtility.NormalizePath(System.String)"/> to prevent incorrectly returning <c>0</c>
-            in cross-platform scenarios.
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.FindParentDirectory(System.String,System.String,System.Int32)">
-            <summary>
-            Finds the parent directory.
-            </summary>
-            <param name="path">The path.</param>
-            <param name="parentName">Name of the parent.</param>
-            <param name="levels">The levels.</param>
-            <returns></returns>
-            <exception cref="T:System.IO.DirectoryNotFoundException">The expected directory is not here.</exception>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.FindParentDirectoryInfo(System.String,System.String,System.Int32)">
-            <summary>
-            Finds the parent <see cref="T:System.IO.DirectoryInfo"/>.
-            </summary>
-            <param name="path">The path.</param>
-            <param name="parentName">Name of the parent.</param>
-            <param name="levels">The levels.</param>
-            <returns></returns>
-            <exception cref="T:System.IO.DirectoryNotFoundException">The expected directory is not here.</exception>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.GetCombinedPath(System.String,System.String)">
-            <summary>Combines path and root based
-            on the ambient value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
-            of the current OS.</summary>
-            <param name="root">The root.</param>
-            <param name="path">The path.</param>
-            <returns></returns>
-            <exception cref="T:System.NullReferenceException">The expected root path is not here.
-            or
-            The expected path is not here.</exception>
-            <remarks>
-            For detail, see:
-            📚 https://github.com/BryanWilhite/SonghayCore/issues/14
-            📚 https://github.com/BryanWilhite/SonghayCore/issues/32
-            📚 https://github.com/BryanWilhite/SonghayCore/issues/97
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.GetParentDirectory(System.String,System.Int32)">
-            <summary>
-            Gets the parent directory.
-            </summary>
-            <param name="path">The path.</param>
-            <param name="levels">The levels.</param>
-            <returns></returns>
-            <remarks>
-            A recursive wrapper for <see cref="M:System.IO.Directory.GetParent(System.String)"/>.
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.GetParentDirectoryInfo(System.String,System.Int32)">
-            <summary>
-            Gets the parent <see cref="T:System.IO.DirectoryInfo"/>.
-            </summary>
-            <param name="path">The path.</param>
-            <param name="levels">The levels.</param>
-            <returns></returns>
-            <remarks>
-            A recursive wrapper for <see cref="M:System.IO.Directory.GetParent(System.String)"/>.
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.GetRelativePath(System.String)">
-            <summary>
-            Gets the relative path from the specified file segment
-            without leading dots (<c>.</c>) or <see cref="F:System.IO.Path.DirectorySeparatorChar" /> chars.
-            </summary>
-            <param name="fileSegment">The file segment.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">fileSegment</exception>
-            <remarks>
-            This method is the equivalent of calling:
-             * <see cref="M:Songhay.FrameworkFileUtility.TrimLeadingDirectorySeparatorChars(System.String)"/>
-             * <see cref="M:Songhay.FrameworkFileUtility.NormalizePath(System.String)"/>
-             * <see cref="M:Songhay.FrameworkFileUtility.RemoveBackslashPrefixes(System.String)"/>
-             * <see cref="M:Songhay.FrameworkFileUtility.RemoveForwardslashPrefixes(System.String)"/>
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.IsForwardSlashSystem">
-            <summary>
-            Returns <c>true</c> when the current OS
-            uses forward-slash (<c>/</c>) paths or not.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.NormalizePath(System.String)">
-            <summary>
-            Normalizes the specified path with respect
-            to the ambient value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
-            </summary>
-            <param name="path"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.RemoveBackslashPrefixes(System.String)">
-            <summary>
-            Removes conventional Directory prefixes
-            for relative paths, e.g. <c>..\</c> or <c>.\</c>
-            </summary>
-            <param name="path"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.RemoveConventionalPrefixes(System.String)">
-            <summary>
-            Removes conventional Directory prefixes
-            for relative paths based on the ambient value\
-            of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
-            </summary>
-            <param name="path"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.RemoveForwardslashPrefixes(System.String)">
-            <summary>
-            Removes conventional Directory prefixes
-            for relative paths, e.g. <c>../</c> or <c>./</c>.
-            </summary>
-            <param name="path"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.TrimLeadingDirectorySeparatorChars(System.String)">
-            <summary>
-            Trims the leading directory separator chars.
-            </summary>
-            <param name="path">The path.</param>
-            <returns></returns>
-            <remarks>
-            Trims leading <see cref="F:System.IO.Path.AltDirectorySeparatorChar"/> and/or <see cref="F:System.IO.Path.DirectorySeparatorChar"/>,
-            formatting relative paths for <see cref="M:System.IO.Path.Combine(System.String,System.String)"/>.
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.GetEncodedString(System.String)">
-            <summary>
-            Gets the UTF-8 encoded string.
-            </summary>
-            <param name="rawValue">The raw value.</param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.GetEncodedString(System.String,System.Text.Encoding)">
-            <summary>
-            Gets the encoded string.
-            </summary>
-            <param name="rawValue">The raw value (<see cref="P:System.Text.Encoding.ASCII"/> by default).</param>
-            <param name="encoding">The encoding.</param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.GetFileName(System.String)">
-            <summary>
-            Returns the file name
-            based on the specified path
-            and <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
-            </summary>
-            <param name="pathWithFile">
-            The specified path.
-            </param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.GetFileName(System.String,System.Nullable{System.Char})">
-            <summary>
-            Returns the file name
-            based on the specified path.
-            </summary>
-            <param name="pathWithFile">
-            The specified path.
-            </param>
-            <param name="pathDelimiter">
-            Path delimiter (e.g. \ or /).
-            </param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.GetPathRoot(System.String)">
-            <summary>
-            Returns the directory root
-            based on the specified path.
-            </summary>
-            <param name="pathWithFile">
-            The specified path.
-            </param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.GetPathRoot(System.String,System.Nullable{System.Char})">
-            <summary>
-            Returns the directory root
-            based on the specified path.
-            </summary>
-            <param name="pathWithFile">
-            The specified path.
-            </param>
-            <param name="pathDelimiter">
-            Path delimiter (e.g. \ or /).
-            </param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.JoinPathAndRoot(System.String,System.String)">
-            <summary>
-            Joins the path and root.
-            </summary>
-            <param name="path">The path.</param>
-            <param name="root">The root.</param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.JoinPathAndRoot(System.String,System.String,System.Nullable{System.Char})">
-            <summary>
-            Joins the path and root.
-            </summary>
-            <param name="path">The path.</param>
-            <param name="root">The root.</param>
-            <param name="pathDelimiter">
-            Path delimiter (e.g. \ or /).
-            </param>
-        </member>
-        <member name="M:Songhay.FrameworkFileUtility.Write(System.String,System.String)">
-            <summary>
-            Writes the specified content to a file.
-            </summary>
-            <param name="content">The content to write or overwrite.</param>
-            <param name="pathWithFile">The path to the file.</param>
-        </member>
-        <member name="T:Songhay.FrameworkTypeUtility">
-            <summary>
-            Static members for type handling.
-            </summary>
-            <summary>
-            Static members for type handling.
-            </summary>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ConvertDateTimeFromUnixTime(System.Double)">
-            <summary>
-            Converts Unix time stamps
-            to <see cref="T:System.DateTime"/>.
-            </summary>
-            <param name="time">A <see cref="T:System.Double"/>.</param>
-            <returns>A <see cref="T:System.DateTime"/>.</returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ConvertDateTimeToRfc3339DateTime(System.DateTime)">
-            <summary>
-            Converts the specified <see cref="T:System.DateTime"/> to RFC3339.
-            </summary>
-            <param name="utcDateTime">The UTC date and time.</param>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ConvertDateTimeToRfc822DateTime(System.DateTime)">
-            <summary>
-            Converts the specified <see cref="T:System.DateTime"/> to RFC822.
-            </summary>
-            <param name="dateTime">The date and time.</param>
-            <remarks>
-            “Shortcomings of OPML… The RFC 822 date format is considered obsolete,
-            and amongst other things permits the representation of years as two digits.
-            (RFC 822 has been superseded by RFC 2822.)
-            In general, date and time formats should be represented according to RFC 3339.”
-            http://www.answers.com/topic/opml
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ConvertDateTimeToUnixTime">
-            <summary>
-            Converts the current time
-            to a Unix time stamp.
-            </summary>
-            <returns>A <see cref="T:System.Double"/>.</returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ConvertDateTimeToUnixTime(System.DateTime)">
-            <summary>
-            Converts a <see cref="T:System.DateTime"/>
-            to a Unix time stamp.
-            </summary>
-            <param name="dateValue">The <see cref="T:System.DateTime"/>.</param>
-            <returns>A <see cref="T:System.Double"/>.</returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ConvertDateTimeToUtc(System.DateTime)">
-            <summary>
-            Converts a <see cref="T:System.DateTime"/>
-            to UTC (ISO 8601).
-            </summary>
-            <param name="dateValue">The <see cref="T:System.DateTime"/>.</param>
-            <remarks>
-            For detail, see https://stackoverflow.com/a/1728437/22944
-            </remarks>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ConvertInchesToPoints(System.Single)">
-            <summary>
-            Converts inches as a <see cref="T:System.Single"/>
-            to points.
-            </summary>
-            <param name="inches">The inches.</param>
-            <remarks>
-            1 point = 0.013837 inch
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ConvertPointsToInches(System.Single)">
-            <summary>
-            Converts points as a <see cref="T:System.Single"/>
-            to inches.
-            </summary>
-            <param name="points">The points.</param>
-            <remarks>
-            1 point = 0.013837 inch
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.GenerateRandomPassword(System.Int32)">
-            <summary>
-            Generates the random password.
-            </summary>
-            <param name="passwordLength">Length of the password.</param>
-            <remarks>
-            See “Generate random password in C#” by Mads Kristensen
-            [http://madskristensen.net/post/Generate-random-password-in-C]
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.GetDeepClone``1(``0)">
-            <summary>
-            Gets the deep clone.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="obj">The obj.</param>
-            <remarks>
-            See “How do you do a deep copy an object in .Net (C# specifically)?”
-            [http://stackoverflow.com/questions/129389/how-do-you-do-a-deep-copy-an-object-in-net-c-specifically]
-            See “Shallow Copy vs. Deep Copy in .NET”
-            [http://www.codeproject.com/Articles/28952/Shallow-Copy-vs-Deep-Copy-in-NET]
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.IsNullOrEmptyString(System.Object)">
-            <summary>
-            Returns <c>true</c> when the specified value
-            is <c>null</c> or <see cref="F:System.String.Empty"/>.
-            </summary>
-            <param name="boxedString">The framework value.</param>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.IsNullOrEmptyOrNotArray(System.Object)">
-            <summary>
-            Returns <c>true</c> when the specified value
-            is an empty array, not an array or null.
-            </summary>
-            <param name="boxedArray">The specified value.</param>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.SetProperties``2(``0,``1)">
-            <summary>
-            Sets the properties of the output <see cref="T:System.Type" />.
-            </summary>
-            <typeparam name="TIn">The type of the in.</typeparam>
-            <typeparam name="TOut">The type of the out.</typeparam>
-            <param name="input">The input.</param>
-            <param name="output">The output.</param>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.SetProperties``2(``0,``1,System.Collections.Generic.ICollection{System.String})">
-            <summary>
-            Sets the properties of the output <see cref="T:System.Type" />.
-            </summary>
-            <typeparam name="TIn">The type of the in.</typeparam>
-            <typeparam name="TOut">The type of the out.</typeparam>
-            <param name="input">the input.</param>
-            <param name="output">the output.</param>
-            <param name="includedProperties">The included properties.</param>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.SetPropertiesExcluding``2(``0,``1,System.Collections.Generic.ICollection{System.String})">
-            <summary>
-            Sets the properties, excluding the specified property names.
-            </summary>
-            <typeparam name="TIn">The type of the in.</typeparam>
-            <typeparam name="TOut">The type of the out.</typeparam>
-            <param name="input">The input.</param>
-            <param name="output">The output.</param>
-            <param name="excludedProperties">The excluded properties.</param>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.SqlDatabaseNull">
-            <summary>
-            Returns the conventional database null
-            (<see cref="T:System.DBNull"/>)
-            for Microsoft SQL Server systems.
-            </summary>
-            <returns><see cref="T:System.DBNull"/></returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseBoolean(System.Object)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"></see> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"></see> box.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"></see>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseBoolean(System.Object,System.Boolean)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <param name="supportBitStrings">
-            When <c>true</c>, support "1" and "0"
-            as Boolean strings.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseBoolean(System.Object,System.Boolean,System.Boolean)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <param name="supportBitStrings">
-            When <c>true</c>, support "1" and "0"
-            as Boolean strings.
-            </param>
-            <param name="defaultValue">
-            The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseByte(System.Object)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseByte(System.Object,System.Byte)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <param name="defaultValue">
-            The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseDateTime(System.Object)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseDateTime(System.Object,System.DateTime)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <param name="defaultValue">
-            The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseDateTimeWithFormat(System.Object,System.String)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <param name="formatExpression">
-            The string format expression.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseDateTimeWithFormat(System.Object,System.String,System.String)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <param name="formatExpression">
-            The string format expression.
-            </param>
-            <param name="defaultValue">
-            The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseDecimal(System.Object)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseDecimal(System.Object,System.Decimal)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <param name="defaultValue">
-            The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseDouble(System.Object)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseDouble(System.Object,System.Double)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <param name="defaultValue">
-            The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseEnum``1(System.String,``0)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Enum"/> return type.
-            </summary>
-            <typeparam name="TEnum">The type of the enum.</typeparam>
-            <param name="frameworkValue">The framework value.</param>
-            <param name="defaultValue">The default value.</param>
-            <returns></returns>
-            <remarks>
-            For background, see http://stackoverflow.com/a/15017429/22944
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseInt16(System.Object)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseInt16(System.Object,System.Int16)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <param name="defaultValue">
-            The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseInt32(System.Object)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseInt32(System.Object,System.Int32)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <param name="defaultValue">
-            The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseInt64(System.Object)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseInt64(System.Object,System.Int64)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to the <see cref="T:System.Nullable"/> return type.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-            <param name="defaultValue">
-            The default frameworkValue to return when <c>Nullable.HasValue == false</c>.
-            </param>
-            <returns>
-            Always returns a <see cref="T:System.Nullable"/>
-            as parse failure means <c>HasValue</c>
-            is false.
-            </returns>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseRfc3339DateTime(System.String)">
-            <summary>
-            Parses the RFC3339 date and time.
-            </summary>
-            <param name="frameworkValue">The framework value.</param>
-            <remarks>
-                This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseRfc822DateTime(System.String)">
-            <summary>
-            Parses the RFC822 date and time.
-            </summary>
-            <param name="frameworkValue">The framework value.</param>
-            <remarks>
-                This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseString(System.Object)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to a <see cref="T:System.String"/>.
-            </summary>
-            <param name="frameworkValue">
-            The specified <see cref="T:System.Object"/> box.
-            </param>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.ParseString(System.Object,System.String)">
-            <summary>
-            Tries to convert the specified frameworkValue
-            to a <see cref="T:System.String"/>.
-            </summary>
-            <param name="frameworkValue">The frameworkValue.</param>
-            <param name="defaultValue">The default frameworkValue.</param>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)">
-            <summary>
-            Tries the parse RFC3339 date and time.
-            </summary>
-            <param name="frameworkValue">The framework value.</param>
-            <param name="result">The result.</param>
-            <remarks>
-                This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkTypeUtility.TryParseRfc822DateTime(System.String,System.DateTime@)">
-            <summary>
-            Tries the parse RFC822 date and time.
-            </summary>
-            <param name="frameworkValue">The framework value.</param>
-            <param name="result">The result.</param>
-            <remarks>
-                This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
-            </remarks>
-        </member>
-        <member name="T:Songhay.FrameworkUtility">
-            <summary>
-            Static members for framework-level procedures.
-            </summary>
-            <summary>
-            Static members for framework-level procedures.
-            </summary>
-            <summary>
-            Static members for framework-level procedures.
-            </summary>
-            <summary>
-            Static members for framework-level procedures.
-            </summary>
-        </member>
-        <member name="M:Songhay.FrameworkUtility.GetConsoleCharacters(System.String)">
-            <summary>
-            Gets the console characters.
-            </summary>
-            <param name="input">The input.</param>
-            <returns>Returns formatted input.</returns>
-        </member>
-        <member name="M:Songhay.FrameworkUtility.SplitArgs(System.String)">
-            <summary>
-            Splits the arguments.
-            </summary>
-            <param name="rawArguments">The raw/unsplit argument line.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentException">Unable to split argument.</exception>
-            <exception cref="T:System.ComponentModel.Win32Exception"></exception>
-            <remarks>
-            From “RegEx function to parse a command line without using a library”
-            [http://stackoverflow.com/a/17052018/22944]
-            </remarks>
-        </member>
-        <member name="M:Songhay.FrameworkUtility.StartProcess(System.String)">
-            <summary>
-            Starts the process.
-            </summary>
-            <param name="command">The command.</param>
-        </member>
-        <member name="M:Songhay.FrameworkUtility.StartProcess(System.String,System.String,System.Boolean)">
-            <summary>
-            Starts the process.
-            </summary>
-            <param name="argumentOfExe">The argument of executable.</param>
-            <param name="pathToExe">The path to executable.</param>
-            <param name="useExe">if set to <c>true</c> use path to executable.</param>
-        </member>
-        <member name="M:Songhay.FrameworkUtility.GetCurrentMethodName">
-            <summary>
-            Gets the name of the current method.
-            </summary>
-        </member>
-        <member name="M:Songhay.FrameworkUtility.GetMethodName(System.Int32)">
-            <summary>
-            Gets the name of the current method.
-            </summary>
-            <param name="stackFrameIndex">Index of the stack frame.</param>
-        </member>
         <member name="T:Songhay.FuncSeed">
             <summary>
             Functor seeds
@@ -5120,130 +4161,6 @@
             The key.
             </value>
         </member>
-        <member name="T:Songhay.Models.FrameworkAssemblyInfo">
-            <summary>
-            Defines Assembly information.
-            </summary>
-            <remarks>
-            This definition was developed
-            for About… dialogs in Windows Forms.
-            </remarks>
-        </member>
-        <member name="M:Songhay.Models.FrameworkAssemblyInfo.#ctor(System.Reflection.Assembly)">
-            <summary>
-            Constructor of this class.
-            </summary>
-            <param name="targetAssembly">The target <see cref="T:System.Reflection.Assembly"/></param>
-        </member>
-        <member name="P:Songhay.Models.FrameworkAssemblyInfo.AssemblyTitle">
-            <summary>
-            Gets title of assembly.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.FrameworkAssemblyInfo.AssemblyVersion">
-            <summary>
-            Gets Assembly version information.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.FrameworkAssemblyInfo.AssemblyVersionDetail">
-            <summary>
-            Gets detailed Assembly version information.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.FrameworkAssemblyInfo.AssemblyDescription">
-            <summary>
-            Gets Assembly description information.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.FrameworkAssemblyInfo.AssemblyProduct">
-            <summary>
-            Gets Assembly product information.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.FrameworkAssemblyInfo.AssemblyCopyright">
-            <summary>
-            Gets Assembly copyright information.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.FrameworkAssemblyInfo.AssemblyCompany">
-            <summary>
-            Gets Assembly company information.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.FrameworkAssemblyInfo.ToString">
-            <summary>
-            Returns format: <c>[AssemblyCompany], [AssemblyTitle] Version: [AssemblyVersion], [AssemblyVersionDetail]</c>.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.FrameworkGlyph">
-            <summary>
-            Defines a Unicode glyphic character
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.FrameworkGlyph.UnicodePoint">
-            <summary>
-            Gets or sets the unicode point.
-            </summary>
-            <value>
-            The unicode point.
-            </value>
-        </member>
-        <member name="P:Songhay.Models.FrameworkGlyph.UnicodeInteger">
-            <summary>
-            Gets or sets the unicode integer.
-            </summary>
-            <value>
-            The unicode integer.
-            </value>
-        </member>
-        <member name="P:Songhay.Models.FrameworkGlyph.UnicodeGroup">
-            <summary>
-            Gets or sets the unicode group.
-            </summary>
-            <value>
-            The unicode group.
-            </value>
-        </member>
-        <member name="P:Songhay.Models.FrameworkGlyph.Character">
-            <summary>
-            Gets or sets the character, usually the Unicode Point.
-            </summary>
-            <value>
-            The character.
-            </value>
-        </member>
-        <member name="P:Songhay.Models.FrameworkGlyph.Windows1252UrlEncoding">
-            <summary>
-            Gets or sets the windows1252 URL encoding.
-            </summary>
-            <value>
-            The windows1252 URL encoding.
-            </value>
-        </member>
-        <member name="P:Songhay.Models.FrameworkGlyph.Utf8UrlEncoding">
-            <summary>
-            Gets or sets the UTF8 URL encoding.
-            </summary>
-            <value>
-            The UTF8 URL encoding.
-            </value>
-        </member>
-        <member name="P:Songhay.Models.FrameworkGlyph.HtmlEntityName">
-            <summary>
-            Gets or sets the name of the HTML entity.
-            </summary>
-            <value>
-            The name of the HTML entity.
-            </value>
-        </member>
-        <member name="P:Songhay.Models.FrameworkGlyph.XmlEntityNumber">
-            <summary>
-            Gets or sets the XML entity number.
-            </summary>
-            <value>
-            The XML entity number.
-            </value>
-        </member>
         <member name="T:Songhay.Models.HierarchicalNameValuePair">
             <summary>
             Defines hierarchical name-value pairs.
@@ -5451,53 +4368,6 @@
             </summary>
             <value>The control tag.</value>
         </member>
-        <member name="T:Songhay.Models.IFrameworkAssemblyInfo">
-            <summary>
-            Contract for <see cref="T:Songhay.Models.FrameworkAssemblyInfo"/>
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.IFrameworkAssemblyInfo.AssemblyCompany">
-            <summary>
-            Gets the assembly company.
-            </summary>
-            <value>The assembly company.</value>
-        </member>
-        <member name="P:Songhay.Models.IFrameworkAssemblyInfo.AssemblyCopyright">
-            <summary>
-            Gets the assembly copyright.
-            </summary>
-            <value>The assembly copyright.</value>
-        </member>
-        <member name="P:Songhay.Models.IFrameworkAssemblyInfo.AssemblyDescription">
-            <summary>
-            Gets the assembly description.
-            </summary>
-            <value>The assembly description.</value>
-        </member>
-        <member name="P:Songhay.Models.IFrameworkAssemblyInfo.AssemblyProduct">
-            <summary>
-            Gets the assembly product.
-            </summary>
-            <value>The assembly product.</value>
-        </member>
-        <member name="P:Songhay.Models.IFrameworkAssemblyInfo.AssemblyTitle">
-            <summary>
-            Gets the assembly title.
-            </summary>
-            <value>The assembly title.</value>
-        </member>
-        <member name="P:Songhay.Models.IFrameworkAssemblyInfo.AssemblyVersion">
-            <summary>
-            Gets the assembly version.
-            </summary>
-            <value>The assembly version.</value>
-        </member>
-        <member name="P:Songhay.Models.IFrameworkAssemblyInfo.AssemblyVersionDetail">
-            <summary>
-            Gets the assembly version detail.
-            </summary>
-            <value>The assembly version detail.</value>
-        </member>
         <member name="T:Songhay.Models.IGroupable">
             <summary>
             Defines a group-able visual
@@ -5551,6 +4421,53 @@
             <returns>
             Properties for the given <see cref="T:Newtonsoft.Json.Serialization.JsonContract" />.
             </returns>
+        </member>
+        <member name="T:Songhay.Models.IProgramAssemblyInfo">
+            <summary>
+            Contract for <see cref="T:Songhay.Models.ProgramAssemblyInfo"/>
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyCompany">
+            <summary>
+            Gets the assembly company.
+            </summary>
+            <value>The assembly company.</value>
+        </member>
+        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyCopyright">
+            <summary>
+            Gets the assembly copyright.
+            </summary>
+            <value>The assembly copyright.</value>
+        </member>
+        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyDescription">
+            <summary>
+            Gets the assembly description.
+            </summary>
+            <value>The assembly description.</value>
+        </member>
+        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyProduct">
+            <summary>
+            Gets the assembly product.
+            </summary>
+            <value>The assembly product.</value>
+        </member>
+        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyTitle">
+            <summary>
+            Gets the assembly title.
+            </summary>
+            <value>The assembly title.</value>
+        </member>
+        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyVersion">
+            <summary>
+            Gets the assembly version.
+            </summary>
+            <value>The assembly version.</value>
+        </member>
+        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyVersionDetail">
+            <summary>
+            Gets the assembly version detail.
+            </summary>
+            <value>The assembly version detail.</value>
         </member>
         <member name="T:Songhay.Models.IRepository">
             <summary>
@@ -6307,6 +5224,130 @@
             </summary>
             <value>
             The help set.
+            </value>
+        </member>
+        <member name="T:Songhay.Models.ProgramAssemblyInfo">
+            <summary>
+            Defines Assembly information.
+            </summary>
+            <remarks>
+            This definition was developed
+            for About… dialogs in Windows Forms.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Models.ProgramAssemblyInfo.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Constructor of this class.
+            </summary>
+            <param name="targetAssembly">The target <see cref="T:System.Reflection.Assembly"/></param>
+        </member>
+        <member name="P:Songhay.Models.ProgramAssemblyInfo.AssemblyTitle">
+            <summary>
+            Gets title of assembly.
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.ProgramAssemblyInfo.AssemblyVersion">
+            <summary>
+            Gets Assembly version information.
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.ProgramAssemblyInfo.AssemblyVersionDetail">
+            <summary>
+            Gets detailed Assembly version information.
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.ProgramAssemblyInfo.AssemblyDescription">
+            <summary>
+            Gets Assembly description information.
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.ProgramAssemblyInfo.AssemblyProduct">
+            <summary>
+            Gets Assembly product information.
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.ProgramAssemblyInfo.AssemblyCopyright">
+            <summary>
+            Gets Assembly copyright information.
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.ProgramAssemblyInfo.AssemblyCompany">
+            <summary>
+            Gets Assembly company information.
+            </summary>
+        </member>
+        <member name="M:Songhay.Models.ProgramAssemblyInfo.ToString">
+            <summary>
+            Returns format: <c>[AssemblyCompany], [AssemblyTitle] Version: [AssemblyVersion], [AssemblyVersionDetail]</c>.
+            </summary>
+        </member>
+        <member name="T:Songhay.Models.ProgramGlyph">
+            <summary>
+            Defines a Unicode glyphic character
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.ProgramGlyph.UnicodePoint">
+            <summary>
+            Gets or sets the unicode point.
+            </summary>
+            <value>
+            The unicode point.
+            </value>
+        </member>
+        <member name="P:Songhay.Models.ProgramGlyph.UnicodeInteger">
+            <summary>
+            Gets or sets the unicode integer.
+            </summary>
+            <value>
+            The unicode integer.
+            </value>
+        </member>
+        <member name="P:Songhay.Models.ProgramGlyph.UnicodeGroup">
+            <summary>
+            Gets or sets the unicode group.
+            </summary>
+            <value>
+            The unicode group.
+            </value>
+        </member>
+        <member name="P:Songhay.Models.ProgramGlyph.Character">
+            <summary>
+            Gets or sets the character, usually the Unicode Point.
+            </summary>
+            <value>
+            The character.
+            </value>
+        </member>
+        <member name="P:Songhay.Models.ProgramGlyph.Windows1252UrlEncoding">
+            <summary>
+            Gets or sets the windows1252 URL encoding.
+            </summary>
+            <value>
+            The windows1252 URL encoding.
+            </value>
+        </member>
+        <member name="P:Songhay.Models.ProgramGlyph.Utf8UrlEncoding">
+            <summary>
+            Gets or sets the UTF8 URL encoding.
+            </summary>
+            <value>
+            The UTF8 URL encoding.
+            </value>
+        </member>
+        <member name="P:Songhay.Models.ProgramGlyph.HtmlEntityName">
+            <summary>
+            Gets or sets the name of the HTML entity.
+            </summary>
+            <value>
+            The name of the HTML entity.
+            </value>
+        </member>
+        <member name="P:Songhay.Models.ProgramGlyph.XmlEntityNumber">
+            <summary>
+            Gets or sets the XML entity number.
+            </summary>
+            <value>
+            The XML entity number.
             </value>
         </member>
         <member name="T:Songhay.Models.ProgramMetadata">
@@ -7941,10 +6982,967 @@
                 “The "pack" URI Scheme” (http://tools.ietf.org/html/draft-shur-pack-uri-scheme-05)
             </remarks>
         </member>
+        <member name="T:Songhay.ProgramAssemblyUtility">
+            <summary>
+            Static members related to <see cref="N:System.Reflection"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.ProgramAssemblyUtility.GetAssemblyInfo(System.Reflection.Assembly)">
+            <summary>
+            Returns a <see cref="T:System.String"/>
+            about the executing assembly.
+            </summary>
+            <param name="targetAssembly">
+            The executing <see cref="T:System.Reflection.Assembly"/>.
+            </param>
+            <returns>Returns <see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:Songhay.ProgramAssemblyUtility.GetAssemblyInfo(System.Reflection.Assembly,System.Boolean)">
+            <summary>
+            Returns a <see cref="T:System.String"/>
+            about the executing assembly.
+            </summary>
+            <param name="targetAssembly">
+            The executing <see cref="T:System.Reflection.Assembly"/>.
+            </param>
+            <param name="useConsoleChars">
+            When <c>true</c> selected “special” characters are formatted for the Windows Console.
+            </param>
+            <returns>Returns <see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:Songhay.ProgramAssemblyUtility.GetPathFromAssembly(System.Reflection.Assembly)">
+            <summary>
+            Gets the directory name from assembly.
+            </summary>
+            <param name="assembly">The assembly.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">assembly;The expected assembly is not here.</exception>
+        </member>
+        <member name="M:Songhay.ProgramAssemblyUtility.GetPathFromAssembly(System.Reflection.Assembly,System.String)">
+            <summary>
+            Gets the path from assembly.
+            </summary>
+            <param name="assembly">The assembly.</param>
+            <param name="fileSegment">The file segment.</param>
+        </member>
+        <member name="T:Songhay.ProgramFileUtility">
+            <summary>
+            A few static helper members
+            for <see cref="N:System.IO"/>.
+            </summary>
+            <summary>
+            A few static helper members
+            for <see cref="N:System.IO"/>.
+            </summary>
+            <summary>
+            A few static helper members
+            for <see cref="N:System.IO"/>.
+            </summary>
+            <summary>
+            A few static helper members
+            for <see cref="N:System.IO"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})">
+            <summary>
+            Read zip archive entries.
+            </summary>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileAction">The action to take per text file.</param>
+            <remarks>
+            Use <c>entriesProjector</c> for any filtering or sorting.
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Read zip archive entries.
+            </summary>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileAction">The action to take per text file.</param>
+            <param name="entriesProjector">The entries projector for LINQ filtering/sorting.</param>
+            <remarks>
+            Use <c>entriesProjector</c> for any filtering or sorting.
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String})">
+            <summary>
+            Read zip archive entries as strings, line by line.
+            </summary>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="lineAction">The action to take per text file line.</param>
+            <remarks>
+            This member is designed for compressed text documents that are too large to load into memory.
+            The <c>fileAction</c> includes the line number and the current line.
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Read zip archive entries as strings, line by line.
+            </summary>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="lineAction">The action to take per text file line.</param>
+            <param name="entriesProjector">The entries projector for LINQ filtering/sorting.</param>
+            <remarks>
+            This member is designed for compressed text documents that are too large to load into memory.
+            The <c>fileAction</c> includes the line number and the current line.
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})">
+            <summary>
+            Centralizes the use of <see cref="T:System.IO.Compression.ZipArchive"/>
+            in <see cref="F:System.IO.Compression.ZipArchiveMode.Read"/>.
+            </summary>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="archiveAction">The action to take for the ZIP archive in use.</param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive},System.IO.Compression.ZipArchiveMode)">
+            <summary>
+            Centralizes the use of <see cref="T:System.IO.Compression.ZipArchive"/>
+            </summary>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="archiveAction">The action to take for the ZIP archive in use.</param>
+            <param name="zipArchiveMode">The <see cref="T:System.IO.Compression.ZipArchiveMode"/></param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
+            </summary>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="entriesAction">The action to take for ZIP archive entries.</param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
+            <summary>
+            Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
+            </summary>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="entriesAction">The action to take for ZIP archive entries.</param>
+            <param name="entriesProjector">The entries projector for LINQ filtering/sorting.</param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo)">
+            <summary>
+            Write zip archive entry with <see cref="F:System.IO.Compression.CompressionLevel.Optimal"/>.
+            </summary>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileInfo">The file information for writing the entry.</param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo,System.IO.Compression.CompressionLevel)">
+            <summary>
+            Write zip archive entry.
+            </summary>
+            <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
+            <param name="fileInfo">The file information for writing the entry.</param>
+            <param name="compressionLevel">The <see cref="T:System.IO.Compression.CompressionLevel"/></param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.GetEncodedString(System.String)">
+            <summary>
+            Gets the UTF-8 encoded string.
+            </summary>
+            <param name="rawValue">The raw value.</param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.GetEncodedString(System.String,System.Text.Encoding)">
+            <summary>
+            Gets the encoded string.
+            </summary>
+            <param name="rawValue">The raw value (<see cref="P:System.Text.Encoding.ASCII"/> by default).</param>
+            <param name="encoding">The encoding.</param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.GetFileName(System.String)">
+            <summary>
+            Returns the file name
+            based on the specified path
+            and <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
+            </summary>
+            <param name="pathWithFile">
+            The specified path.
+            </param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.GetFileName(System.String,System.Nullable{System.Char})">
+            <summary>
+            Returns the file name
+            based on the specified path.
+            </summary>
+            <param name="pathWithFile">
+            The specified path.
+            </param>
+            <param name="pathDelimiter">
+            Path delimiter (e.g. \ or /).
+            </param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.GetPathRoot(System.String)">
+            <summary>
+            Returns the directory root
+            based on the specified path.
+            </summary>
+            <param name="pathWithFile">
+            The specified path.
+            </param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.GetPathRoot(System.String,System.Nullable{System.Char})">
+            <summary>
+            Returns the directory root
+            based on the specified path.
+            </summary>
+            <param name="pathWithFile">
+            The specified path.
+            </param>
+            <param name="pathDelimiter">
+            Path delimiter (e.g. \ or /).
+            </param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.JoinPathAndRoot(System.String,System.String)">
+            <summary>
+            Joins the path and root.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="root">The root.</param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.JoinPathAndRoot(System.String,System.String,System.Nullable{System.Char})">
+            <summary>
+            Joins the path and root.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="root">The root.</param>
+            <param name="pathDelimiter">
+            Path delimiter (e.g. \ or /).
+            </param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.Write(System.String,System.String)">
+            <summary>
+            Writes the specified content to a file.
+            </summary>
+            <param name="content">The content to write or overwrite.</param>
+            <param name="pathWithFile">The path to the file.</param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.CountParentDirectoryChars(System.String)">
+            <summary>
+            Counts the parent directory chars.
+            </summary>
+            <param name="path">The path.</param>
+            <returns></returns>
+            <remarks>
+            This method is useful when running <see cref="M:Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)"/>.
+            
+            WARNING: call <see cref="M:Songhay.ProgramFileUtility.NormalizePath(System.String)"/> to prevent incorrectly returning <c>0</c>
+            in cross-platform scenarios.
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.FindParentDirectory(System.String,System.String,System.Int32)">
+            <summary>
+            Finds the parent directory.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="parentName">Name of the parent.</param>
+            <param name="levels">The levels.</param>
+            <returns></returns>
+            <exception cref="T:System.IO.DirectoryNotFoundException">The expected directory is not here.</exception>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.FindParentDirectoryInfo(System.String,System.String,System.Int32)">
+            <summary>
+            Finds the parent <see cref="T:System.IO.DirectoryInfo"/>.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="parentName">Name of the parent.</param>
+            <param name="levels">The levels.</param>
+            <returns></returns>
+            <exception cref="T:System.IO.DirectoryNotFoundException">The expected directory is not here.</exception>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)">
+            <summary>Combines path and root based
+            on the ambient value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
+            of the current OS.</summary>
+            <param name="root">The root.</param>
+            <param name="path">The path.</param>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException">The expected root path is not here.
+            or
+            The expected path is not here.</exception>
+            <remarks>
+            For detail, see:
+            📚 https://github.com/BryanWilhite/SonghayCore/issues/14
+            📚 https://github.com/BryanWilhite/SonghayCore/issues/32
+            📚 https://github.com/BryanWilhite/SonghayCore/issues/97
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)">
+            <summary>
+            Gets the parent directory.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="levels">The levels.</param>
+            <returns></returns>
+            <remarks>
+            A recursive wrapper for <see cref="M:System.IO.Directory.GetParent(System.String)"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.GetParentDirectoryInfo(System.String,System.Int32)">
+            <summary>
+            Gets the parent <see cref="T:System.IO.DirectoryInfo"/>.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="levels">The levels.</param>
+            <returns></returns>
+            <remarks>
+            A recursive wrapper for <see cref="M:System.IO.Directory.GetParent(System.String)"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.GetRelativePath(System.String)">
+            <summary>
+            Gets the relative path from the specified file segment
+            without leading dots (<c>.</c>) or <see cref="F:System.IO.Path.DirectorySeparatorChar" /> chars.
+            </summary>
+            <param name="fileSegment">The file segment.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">fileSegment</exception>
+            <remarks>
+            This method is the equivalent of calling:
+             * <see cref="M:Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)"/>
+             * <see cref="M:Songhay.ProgramFileUtility.NormalizePath(System.String)"/>
+             * <see cref="M:Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)"/>
+             * <see cref="M:Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)"/>
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.IsForwardSlashSystem">
+            <summary>
+            Returns <c>true</c> when the current OS
+            uses forward-slash (<c>/</c>) paths or not.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.NormalizePath(System.String)">
+            <summary>
+            Normalizes the specified path with respect
+            to the ambient value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)">
+            <summary>
+            Removes conventional Directory prefixes
+            for relative paths, e.g. <c>..\</c> or <c>.\</c>
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.RemoveConventionalPrefixes(System.String)">
+            <summary>
+            Removes conventional Directory prefixes
+            for relative paths based on the ambient value\
+            of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)">
+            <summary>
+            Removes conventional Directory prefixes
+            for relative paths, e.g. <c>../</c> or <c>./</c>.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)">
+            <summary>
+            Trims the leading directory separator chars.
+            </summary>
+            <param name="path">The path.</param>
+            <returns></returns>
+            <remarks>
+            Trims leading <see cref="F:System.IO.Path.AltDirectorySeparatorChar"/> and/or <see cref="F:System.IO.Path.DirectorySeparatorChar"/>,
+            formatting relative paths for <see cref="M:System.IO.Path.Combine(System.String,System.String)"/>.
+            </remarks>
+        </member>
+        <member name="T:Songhay.ProgramTypeUtility">
+            <summary>
+            Static members for type handling.
+            </summary>
+            <summary>
+            Static members for type handling.
+            </summary>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseBoolean(System.Object)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"></see> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"></see> box.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"></see>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseBoolean(System.Object,System.Boolean)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <param name="supportBitStrings">
+            When <c>true</c>, support "1" and "0"
+            as Boolean strings.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseBoolean(System.Object,System.Boolean,System.Boolean)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <param name="supportBitStrings">
+            When <c>true</c>, support "1" and "0"
+            as Boolean strings.
+            </param>
+            <param name="defaultValue">
+            The default value to return when <c>Nullable.HasValue == false</c>.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseByte(System.Object)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseByte(System.Object,System.Byte)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <param name="defaultValue">
+            The default value to return when <c>Nullable.HasValue == false</c>.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseDateTime(System.Object)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseDateTime(System.Object,System.DateTime)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <param name="defaultValue">
+            The default value to return when <c>Nullable.HasValue == false</c>.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(System.Object,System.String)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <param name="formatExpression">
+            The string format expression.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(System.Object,System.String,System.String)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <param name="formatExpression">
+            The string format expression.
+            </param>
+            <param name="defaultValue">
+            The default value to return when <c>Nullable.HasValue == false</c>.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseDecimal(System.Object)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseDecimal(System.Object,System.Decimal)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <param name="defaultValue">
+            The default value to return when <c>Nullable.HasValue == false</c>.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseDouble(System.Object)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseDouble(System.Object,System.Double)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <param name="defaultValue">
+            The default value to return when <c>Nullable.HasValue == false</c>.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseEnum``1(System.String,``0)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Enum"/> return type.
+            </summary>
+            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <param name="value">The value.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns></returns>
+            <remarks>
+            For background, see http://stackoverflow.com/a/15017429/22944
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseInt16(System.Object)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseInt16(System.Object,System.Int16)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <param name="defaultValue">
+            The default value to return when <c>Nullable.HasValue == false</c>.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseInt32(System.Object)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseInt32(System.Object,System.Int32)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <param name="defaultValue">
+            The default value to return when <c>Nullable.HasValue == false</c>.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseInt64(System.Object)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseInt64(System.Object,System.Int64)">
+            <summary>
+            Tries to convert the specified value
+            to the <see cref="T:System.Nullable"/> return type.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+            <param name="defaultValue">
+            The default value to return when <c>Nullable.HasValue == false</c>.
+            </param>
+            <returns>
+            Always returns a <see cref="T:System.Nullable"/>
+            as parse failure means <c>HasValue</c>
+            is false.
+            </returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseRfc3339DateTime(System.String)">
+            <summary>
+            Parses the RFC3339 date and time.
+            </summary>
+            <param name="value">The value.</param>
+            <remarks>
+                This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseRfc822DateTime(System.String)">
+            <summary>
+            Parses the RFC822 date and time.
+            </summary>
+            <param name="value">The value.</param>
+            <remarks>
+                This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseString(System.Object)">
+            <summary>
+            Tries to convert the specified value
+            to a <see cref="T:System.String"/>.
+            </summary>
+            <param name="value">
+            The specified <see cref="T:System.Object"/> box.
+            </param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseString(System.Object,System.String)">
+            <summary>
+            Tries to convert the specified value
+            to a <see cref="T:System.String"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="defaultValue">The default value.</param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)">
+            <summary>
+            Tries the parse RFC3339 date and time.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="result">The result.</param>
+            <remarks>
+                This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.TryParseRfc822DateTime(System.String,System.DateTime@)">
+            <summary>
+            Tries the parse RFC822 date and time.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="result">The result.</param>
+            <remarks>
+                This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ConvertDateTimeFromUnixTime(System.Double)">
+            <summary>
+            Converts Unix time stamps
+            to <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="time">A <see cref="T:System.Double"/>.</param>
+            <returns>A <see cref="T:System.DateTime"/>.</returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime(System.DateTime)">
+            <summary>
+            Converts the specified <see cref="T:System.DateTime"/> to RFC3339.
+            </summary>
+            <param name="utcDateTime">The UTC date and time.</param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(System.DateTime)">
+            <summary>
+            Converts the specified <see cref="T:System.DateTime"/> to RFC822.
+            </summary>
+            <param name="dateTime">The date and time.</param>
+            <remarks>
+            “Shortcomings of OPML… The RFC 822 date format is considered obsolete,
+            and amongst other things permits the representation of years as two digits.
+            (RFC 822 has been superseded by RFC 2822.)
+            In general, date and time formats should be represented according to RFC 3339.”
+            http://www.answers.com/topic/opml
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime">
+            <summary>
+            Converts the current time
+            to a Unix time stamp.
+            </summary>
+            <returns>A <see cref="T:System.Double"/>.</returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime(System.DateTime)">
+            <summary>
+            Converts a <see cref="T:System.DateTime"/>
+            to a Unix time stamp.
+            </summary>
+            <param name="dateValue">The <see cref="T:System.DateTime"/>.</param>
+            <returns>A <see cref="T:System.Double"/>.</returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ConvertDateTimeToUtc(System.DateTime)">
+            <summary>
+            Converts a <see cref="T:System.DateTime"/>
+            to UTC (ISO 8601).
+            </summary>
+            <param name="dateValue">The <see cref="T:System.DateTime"/>.</param>
+            <remarks>
+            For detail, see https://stackoverflow.com/a/1728437/22944
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ConvertInchesToPoints(System.Single)">
+            <summary>
+            Converts inches as a <see cref="T:System.Single"/>
+            to points.
+            </summary>
+            <param name="inches">The inches.</param>
+            <remarks>
+            1 point = 0.013837 inch
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ConvertPointsToInches(System.Single)">
+            <summary>
+            Converts points as a <see cref="T:System.Single"/>
+            to inches.
+            </summary>
+            <param name="points">The points.</param>
+            <remarks>
+            1 point = 0.013837 inch
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.GenerateRandomPassword(System.Int32)">
+            <summary>
+            Generates the random password.
+            </summary>
+            <param name="passwordLength">Length of the password.</param>
+            <remarks>
+            See “Generate random password in C#” by Mads Kristensen
+            [http://madskristensen.net/post/Generate-random-password-in-C]
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.GetDeepClone``1(``0)">
+            <summary>
+            Gets the deep clone.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The obj.</param>
+            <remarks>
+            See “How do you do a deep copy an object in .Net (C# specifically)?”
+            [http://stackoverflow.com/questions/129389/how-do-you-do-a-deep-copy-an-object-in-net-c-specifically]
+            See “Shallow Copy vs. Deep Copy in .NET”
+            [http://www.codeproject.com/Articles/28952/Shallow-Copy-vs-Deep-Copy-in-NET]
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.IsNullOrEmptyString(System.Object)">
+            <summary>
+            Returns <c>true</c> when the specified value
+            is <c>null</c> or <see cref="F:System.String.Empty"/>.
+            </summary>
+            <param name="boxedString">The framework value.</param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.IsNullOrEmptyOrNotArray(System.Object)">
+            <summary>
+            Returns <c>true</c> when the specified value
+            is an empty array, not an array or null.
+            </summary>
+            <param name="boxedArray">The specified value.</param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.SetProperties``2(``0,``1)">
+            <summary>
+            Sets the properties of the output <see cref="T:System.Type" />.
+            </summary>
+            <typeparam name="TIn">The type of the in.</typeparam>
+            <typeparam name="TOut">The type of the out.</typeparam>
+            <param name="input">The input.</param>
+            <param name="output">The output.</param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.SetProperties``2(``0,``1,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            Sets the properties of the output <see cref="T:System.Type" />.
+            </summary>
+            <typeparam name="TIn">The type of the in.</typeparam>
+            <typeparam name="TOut">The type of the out.</typeparam>
+            <param name="input">the input.</param>
+            <param name="output">the output.</param>
+            <param name="includedProperties">The included properties.</param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.SetPropertiesExcluding``2(``0,``1,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            Sets the properties, excluding the specified property names.
+            </summary>
+            <typeparam name="TIn">The type of the in.</typeparam>
+            <typeparam name="TOut">The type of the out.</typeparam>
+            <param name="input">The input.</param>
+            <param name="output">The output.</param>
+            <param name="excludedProperties">The excluded properties.</param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.SqlDatabaseNull">
+            <summary>
+            Returns the conventional database null
+            (<see cref="T:System.DBNull"/>)
+            for Microsoft SQL Server systems.
+            </summary>
+            <returns><see cref="T:System.DBNull"/></returns>
+        </member>
         <member name="T:Songhay.ProgramUtility">
             <summary>
             Defines shared routines for Studio programs
             </summary>
+            <summary>
+            Static members for framework-level procedures.
+            </summary>
+            <summary>
+            Static members for framework-level procedures.
+            </summary>
+            <summary>
+            Static members for framework-level procedures.
+            </summary>
+            <summary>
+            Defines shared routines for Studio programs
+            </summary>
+        </member>
+        <member name="M:Songhay.ProgramUtility.GetConsoleCharacters(System.String)">
+            <summary>
+            Gets the console characters.
+            </summary>
+            <param name="input">The input.</param>
+            <returns>Returns formatted input.</returns>
+        </member>
+        <member name="M:Songhay.ProgramUtility.SplitArgs(System.String)">
+            <summary>
+            Splits the arguments.
+            </summary>
+            <param name="rawArguments">The raw/unsplit argument line.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">Unable to split argument.</exception>
+            <exception cref="T:System.ComponentModel.Win32Exception"></exception>
+            <remarks>
+            From “RegEx function to parse a command line without using a library”
+            [http://stackoverflow.com/a/17052018/22944]
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramUtility.StartProcess(System.String)">
+            <summary>
+            Starts the process.
+            </summary>
+            <param name="command">The command.</param>
+        </member>
+        <member name="M:Songhay.ProgramUtility.StartProcess(System.String,System.String,System.Boolean)">
+            <summary>
+            Starts the process.
+            </summary>
+            <param name="argumentOfExe">The argument of executable.</param>
+            <param name="pathToExe">The path to executable.</param>
+            <param name="useExe">if set to <c>true</c> use path to executable.</param>
+        </member>
+        <member name="M:Songhay.ProgramUtility.GetCurrentMethodName">
+            <summary>
+            Gets the name of the current method.
+            </summary>
+        </member>
+        <member name="M:Songhay.ProgramUtility.GetMethodName(System.Int32)">
+            <summary>
+            Gets the name of the current method.
+            </summary>
+            <param name="stackFrameIndex">Index of the stack frame.</param>
         </member>
         <member name="M:Songhay.ProgramUtility.InitializeTraceSource(System.Diagnostics.TraceListener)">
             <summary>
