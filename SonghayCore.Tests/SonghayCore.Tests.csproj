@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -17,6 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="content\FrameworkFileTest-ShouldSortTextFileData.txt" />
+    <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt" />
+    <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="..\SonghayCore.xUnit\Extensions\DataAttributeExtensions.cs" Link="Extensions\DataAttributeExtensions.cs" />
     <Compile Include="..\SonghayCore.xUnit\Orderers\OrderedTestBase.cs" Link="Orderers\OrderedTestBase.cs" />
     <Compile Include="..\SonghayCore.xUnit\Orderers\TestCaseOrderer.cs" Link="Orderers\TestCaseOrderer.cs" />
@@ -27,13 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="content\FrameworkFileTest-ShouldSortTextFileData.txt" />
-    <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt" />
-    <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
