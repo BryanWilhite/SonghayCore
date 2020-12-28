@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Songhay.Extensions
+namespace Songhay.Models
 {
     /// <summary>
     /// Defines a selectable visual

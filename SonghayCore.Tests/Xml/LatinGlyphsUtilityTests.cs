@@ -10,9 +10,9 @@ using Xunit.Abstractions;
 
 namespace Songhay.Tests.Xml
 {
-    public class LatinGlyphsTests
+    public class LatinGlyphsUtilityTests
     {
-        public LatinGlyphsTests(ITestOutputHelper helper)
+        public LatinGlyphsUtilityTests(ITestOutputHelper helper)
         {
             this._testOutputHelper = helper;
         }
@@ -23,7 +23,7 @@ namespace Songhay.Tests.Xml
         {
             this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
 
-            var actual = LatinGlyphs.Condense(input);
+            var actual = LatinGlyphsUtility.Condense(input);
 
             this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
 
@@ -36,7 +36,7 @@ namespace Songhay.Tests.Xml
         {
             this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
 
-            var actual = LatinGlyphs.Expand(input);
+            var actual = LatinGlyphsUtility.Expand(input);
 
             this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
 
@@ -49,7 +49,7 @@ namespace Songhay.Tests.Xml
         {
             this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
 
-            var actual = LatinGlyphs.RemoveUrlEncodings(input);
+            var actual = LatinGlyphsUtility.RemoveUrlEncodings(input);
 
             this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
 
@@ -59,7 +59,7 @@ namespace Songhay.Tests.Xml
         [Fact]
         public void ShouldVerifyPoints()
         {
-            var glyphs = LatinGlyphs.GetGlyphs();
+            var glyphs = LatinGlyphsUtility.GetGlyphs();
             foreach (var glyph in glyphs)
             {
                 Assert.Equal(glyph.XmlEntityNumber, $"&#{glyph.UnicodeInteger};");

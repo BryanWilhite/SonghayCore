@@ -8,7 +8,7 @@ namespace Songhay.Xml
     /// <summary>
     /// Condenses and expands Latin glyphs.
     /// </summary>
-    public static class LatinGlyphs
+    public static class LatinGlyphsUtility
     {
         /// <summary>
         /// Condenses selected decimal entities

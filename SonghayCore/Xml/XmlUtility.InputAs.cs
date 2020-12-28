@@ -23,7 +23,7 @@ namespace Songhay.Xml
             {
                 string s = input as string;
                 s = HtmlUtility.ConvertToXml(s);
-                s = LatinGlyphs.Condense(s);
+                s = LatinGlyphsUtility.Condense(s);
 
                 return XmlUtility.GetNavigableDocument(s);
             }
