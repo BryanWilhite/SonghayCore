@@ -8,7 +8,7 @@ namespace Songhay.Extensions
     /// <summary>
     /// Extensions of <see cref="TraceSources"/>
     /// </summary>
-    public static partial class TraceSourcesExtensions
+    public static class TraceSourcesExtensions
     {
 
         /// <summary>

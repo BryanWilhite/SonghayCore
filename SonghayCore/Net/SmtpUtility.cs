@@ -1,8 +1,5 @@
-﻿#if NET5_0
-
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Net.Mail;
 using System.Text;
@@ -16,8 +13,8 @@ namespace Songhay.Net
     {
         static SmtpUtility()
         {
-            smtpHost = ConfigurationManager.AppSettings.Get("SmtpHost");
-            smtpUserToken = ConfigurationManager.AppSettings.Get("SmtpUserToken");
+            smtpHost = null; //TODO: ConfigurationManager.AppSettings.Get("SmtpHost");
+            smtpUserToken = null; //TODO: ConfigurationManager.AppSettings.Get("SmtpUserToken");
         }
 
         /// <summary>
@@ -110,5 +107,3 @@ namespace Songhay.Net
     }
 
 }
-
-#endif
