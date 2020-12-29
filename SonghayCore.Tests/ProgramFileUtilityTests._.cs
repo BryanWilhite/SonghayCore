@@ -11,14 +11,16 @@ namespace Songhay.Tests
             this._testOutputHelper = helper;
         }
 
-        [DebuggerAttachedTheory]
-        [InlineData("root1", @"z:\one", "z:|one")]
-        [InlineData(@"z:\root1", @"one", "z:|root1|one")]
-        [InlineData("root2", @"/home/one", "root2|home|one")]
-        [InlineData("path1", @"/two/three/four/", "path1|two|three|four|")]
-        [InlineData("path2", @"\two\three\four", "path2|two|three|four")]
-        public void GetCombinedPath_Test(string root, string path, string expectedResult)
+        [SkippableTheory]
+        [InlineData("root1", @"z:\one", "z:|one", true)]
+        [InlineData(@"z:\root1", @"one", "z:|root1|one", true)]
+        [InlineData("root2", @"/home/one", "root2|home|one", false)]
+        [InlineData("path1", @"/two/three/four/", "path1|two|three|four|", false)]
+        [InlineData("path2", @"\two\three\four", "path2|two|three|four", false)]
+        public void GetCombinedPath_Test(string root, string path, string expectedResult, bool requiresWindows)
         {
+            Skip.If(requiresWindows && ProgramFileUtility.IsForwardSlashSystem(), "OS is not Windows");
+
             var actual = ProgramFileUtility.GetCombinedPath(root, path);
             Assert.Equal(expectedResult.Replace('|', Path.DirectorySeparatorChar), actual);
         }
