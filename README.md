@@ -20,6 +20,7 @@ The dominant theme in version 5.0 is about dropping direct support for .NET Fram
 
 Other notable breaking changes:
 
+- `ConfigurationManagerExtensions` (`app.config` XML file routines) have been removed 🚜🔥 even though they are supported in .NET 5.0 [[#54](https://github.com/BryanWilhite/SonghayCore/issues/54)]
 - The `Framework*` prefix was replaced with `Program*` [[#68](https://github.com/BryanWilhite/SonghayCore/issues/68)]
 - `LatinGlyphs` was renamed to `LatinGlyphsUtility` [[#94](https://github.com/BryanWilhite/SonghayCore/issues/94)]
 - `SonghayCore.MSTest` is no longer included going forward. It has been removed. 🚜🔥
@@ -41,8 +42,6 @@ The Songhay System uses imperative C# code with a view to make it more functiona
 The preference for [extension methods](https://github.com/BryanWilhite/SonghayCore/tree/master/SonghayCore/Extensions) encourages stateless, reusable routines (many of them are “pure” functions).
 
 Notable extensions:
-
-- [`ConfigurationManagerExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/ConfigurationManagerExtensions.cs) — defines shared routines for .NET Framework application configuration management.
 
 - [`IConfigurationBuilderExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/IConfigurationBuilderExtensions.cs) — defines shared routines for application configuration building under .NET Standard.
 
