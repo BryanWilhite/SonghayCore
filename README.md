@@ -23,6 +23,7 @@ Other notable breaking changes:
 - `ConfigurationManagerExtensions` (`app.config` XML file routines) have been removed 🚜🔥 even though they are supported in .NET 5.0 [[#54](https://github.com/BryanWilhite/SonghayCore/issues/54)]
 - The `Framework*` prefix was replaced with `Program*` [[#68](https://github.com/BryanWilhite/SonghayCore/issues/68)]
 - `LatinGlyphs` was renamed to `LatinGlyphsUtility` [[#94](https://github.com/BryanWilhite/SonghayCore/issues/94)]
+- `SmtpUtility` has been changed to support `MailMessage` and `Attachment` generation only 🔨🔥 [[#102](https://github.com/BryanWilhite/SonghayCore/issues/102)]
 - `SonghayCore.MSTest` is no longer included going forward. It has been removed. 🚜🔥
 
 ## _core_ reusable, opinionated concerns

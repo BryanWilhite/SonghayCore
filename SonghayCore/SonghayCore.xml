@@ -6581,34 +6581,52 @@
             <returns></returns>
             <exception cref="T:System.NullReferenceException">The expected paths are not here</exception>
         </member>
-        <member name="M:Songhay.Net.SmtpUtility.SendMail(System.String,System.String,System.String,System.String)">
+        <member name="M:Songhay.Net.SmtpUtility.GetMailMessage(System.String,System.String,System.String,System.String)">
             <summary>
-            Sends the mail.
+            Returns <see cref="T:System.Net.Mail.MailMessage" />
+            for an instance of <see cref="T:System.Net.Mail.SmtpClient" />
             </summary>
-            <param name="from">From.</param>
-            <param name="to">To.</param>
-            <param name="subject">The subject.</param>
-            <param name="message">The message.</param>
+            <param name="from">the from email address</param>
+            <param name="to">the to email address</param>
+            <param name="subject">the email message subject</param>
+            <param name="message">the email message</param>
+            <returns></returns>
         </member>
-        <member name="M:Songhay.Net.SmtpUtility.SendMail(System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:Songhay.Net.SmtpUtility.GetMailMessage(System.String,System.String,System.String,System.String,System.Collections.Generic.ICollection{System.Net.Mail.Attachment})">
             <summary>
-            Sends the mail.
+            Returns <see cref="T:System.Net.Mail.MailMessage" />
+            for an instance of <see cref="T:System.Net.Mail.SmtpClient" />
             </summary>
-            <param name="from">From.</param>
-            <param name="to">To.</param>
-            <param name="subject">The subject.</param>
-            <param name="message">The message.</param>
-            <param name="attachment">The attachment.</param>
+            <param name="from">the from email address</param>
+            <param name="to">the to email address</param>
+            <param name="subject">the email message subject</param>
+            <param name="message">the email message</param>
+            <param name="attachments">a collection of <see cref="T:System.Net.Mail.Attachment" /></param>
+            <returns></returns>
         </member>
-        <member name="M:Songhay.Net.SmtpUtility.SendMail(System.String,System.String,System.String,System.String,System.Collections.Generic.ICollection{System.Net.Mail.Attachment})">
+        <member name="M:Songhay.Net.SmtpUtility.GetMailMessage(System.String,System.String,System.String,System.Collections.Generic.ICollection{System.String})">
             <summary>
-            Sends the mail.
+            Returns <see cref="T:System.Net.Mail.MailMessage" />
+            for an instance of <see cref="T:System.Net.Mail.SmtpClient" />
             </summary>
-            <param name="from">From.</param>
-            <param name="to">To.</param>
-            <param name="subject">The subject.</param>
-            <param name="message">The message.</param>
-            <param name="attachments">The attachments.</param>
+            <param name="from">the from email address</param>
+            <param name="to">the to email address</param>
+            <param name="subject">the email message subject</param>
+            <param name="message">the email message</param>
+            <param name="recipients">a collection of recipients</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Net.SmtpUtility.GetMailMessage(System.String,System.String,System.String,System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{System.Net.Mail.Attachment})">
+            <summary>
+            Returns <see cref="T:System.Net.Mail.MailMessage" />
+            for an instance of <see cref="T:System.Net.Mail.SmtpClient" />
+            </summary>
+            <param name="from">the from email address</param>
+            <param name="subject">the email message subject</param>
+            <param name="message">the email message</param>
+            <param name="recipients">a collection of recipients</param>
+            <param name="attachments">a collection of <see cref="T:System.Net.Mail.Attachment" /></param>
+            <returns></returns>
         </member>
         <member name="T:Songhay.Net.TimeoutHandler">
             <summary>
