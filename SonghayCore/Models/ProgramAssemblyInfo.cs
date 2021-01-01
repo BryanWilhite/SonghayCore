@@ -38,8 +38,9 @@ namespace Songhay.Models
                         return titleAttribute.Title;
                     }
                 }
-
+#pragma warning disable SYSLIB0012
                 return System.IO.Path.GetFileNameWithoutExtension(this._dll.CodeBase);
+#pragma warning restore SYSLIB0012
             }
         }
 

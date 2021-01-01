@@ -59,6 +59,7 @@ namespace Songhay
         {
             if (assembly == null) throw new ArgumentNullException(nameof(assembly), "The expected assembly is not here.");
 
+#pragma warning disable SYSLIB0012
             var hasCodeBaseOnWindows =
                 !string.IsNullOrWhiteSpace(assembly.CodeBase)
                 &&
@@ -68,6 +69,7 @@ namespace Songhay
             var location = hasCodeBaseOnWindows ?
                 assembly.CodeBase.Replace("file:///", string.Empty) :
                 assembly.Location;
+#pragma warning restore SYSLIB0012
 
             var root = Path.GetDirectoryName(location);
             return root;
