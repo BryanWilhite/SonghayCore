@@ -1,6 +1,4 @@
-﻿#if NET5_0
-
-using System.ServiceModel.Syndication;
+﻿using System.ServiceModel.Syndication;
 
 namespace Songhay.Models
 {
@@ -20,5 +18,3 @@ namespace Songhay.Models
         SyndicationItem GetSyndicationItem();
     }
 }
-
-#endif

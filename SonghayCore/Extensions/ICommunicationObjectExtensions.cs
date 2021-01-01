@@ -1,6 +1,4 @@
-﻿#if NET5_0
-
-using System;
+﻿using System;
 using System.ServiceModel;
 
 namespace Songhay.Extensions
@@ -70,5 +68,3 @@ namespace Songhay.Extensions
         }
     }
 }
-
-#endif

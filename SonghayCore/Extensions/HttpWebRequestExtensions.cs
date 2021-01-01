@@ -1,5 +1,3 @@
-#if NET5_0
-
 using System;
 using System.Collections;
 using System.Globalization;
@@ -271,5 +269,3 @@ namespace Songhay.Extensions
         }
     }
 }
-
-#endif

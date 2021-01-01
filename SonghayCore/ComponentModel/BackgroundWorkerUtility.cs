@@ -1,6 +1,4 @@
-﻿#if NET5_0
-
-using System;
+﻿using System;
 using System.ComponentModel;
 
 namespace Songhay.ComponentModel
@@ -62,5 +60,3 @@ namespace Songhay.ComponentModel
         }
     }
 }
-
-#endif
