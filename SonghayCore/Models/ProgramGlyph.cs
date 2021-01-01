@@ -32,6 +32,14 @@ namespace Songhay.Models
         public string UnicodeGroup { get; set; }
 
         /// <summary>
+        /// Gets or sets the name of the unicode.
+        /// </summary>
+        /// <value>
+        /// The name of the unicode.
+        /// </value>
+        public string UnicodeName { get; set; }
+
+        /// <summary>
         /// Gets or sets the character, usually the Unicode Point.
         /// </summary>
         /// <value>

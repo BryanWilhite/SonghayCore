@@ -1,4 +1,5 @@
 ﻿using ExcelDataReader;
+using HtmlAgilityPack;
 using Songhay.Extensions;
 using Songhay.Models;
 using Songhay.Xml;
@@ -56,6 +57,31 @@ namespace Songhay.Tests.Xml
             Assert.Equal(expectedOutput, actual);
         }
 
+        [DebuggerAttachedTheory]
+        [InlineData("https://www.codetable.net/decimal/190")]
+        public void ShouldDownloadDecimalPage(string location)
+        {
+            var web = new HtmlWeb();
+
+            var htmlDoc = web.Load(location);
+            Assert.NotNull(htmlDoc);
+
+            var table = htmlDoc.DocumentNode.SelectSingleNode("//table[@class='symbolInfo']");
+            Assert.NotNull(table);
+
+            var tr = table.SelectSingleNode("tr[1]");
+            Assert.NotNull(tr);
+
+            var th = tr.SelectSingleNode("th");
+            Assert.Contains("Symbol Name:", th?.InnerText);
+
+            var td = tr.SelectSingleNode("td");
+            Assert.NotNull(td);
+
+            var unicodeName = td.InnerText.Trim();
+            Assert.False(string.IsNullOrWhiteSpace(unicodeName));
+        }
+
         [Fact]
         public void ShouldVerifyPoints()
         {
@@ -68,7 +94,7 @@ namespace Songhay.Tests.Xml
 
         [DebuggerAttachedTheory]
         [InlineData("./xlsx/latin-glyphs.xlsx", "./txt/latin-glyphs.txt")]
-        public void ShouldWriteFrameworkGlyphData(string input, string output)
+        public void ShouldWriteProgramGlyphData(string input, string output)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
@@ -94,7 +120,7 @@ namespace Songhay.Tests.Xml
                     case "5c":
                         return "\\\\";
                     default:
-                        return reader.GetValue(2) as string;
+                        return reader.GetValue(3) as string;
                 }
             }
 
@@ -114,17 +140,19 @@ namespace Songhay.Tests.Xml
                 {
                     UnicodePoint = GetUnicodePoint(reader),
                     UnicodeGroup = reader.GetString(1),
+                    UnicodeName = reader.GetString(2),
                     Character = GetCharacter(reader),
-                    Windows1252UrlEncoding = reader.GetValue(3) as string,
-                    Utf8UrlEncoding = reader.GetValue(4) as string,
-                    HtmlEntityName = reader.GetValue(5) as string,
-                    XmlEntityNumber = reader.GetValue(6) as string,
+                    Windows1252UrlEncoding = reader.GetValue(4) as string,
+                    Utf8UrlEncoding = reader.GetValue(5) as string,
+                    HtmlEntityName = reader.GetValue(6) as string,
+                    XmlEntityNumber = reader.GetValue(7) as string,
                 };
 
                 var properties = new[]
                 {
                     $"{nameof(glyph.UnicodePoint)} = \"{glyph.UnicodePoint}\",",
                     $"{nameof(glyph.UnicodeGroup)} = \"{glyph.UnicodeGroup}\",",
+                    $"{nameof(glyph.UnicodeName)} = \"{glyph.UnicodeName}\",",
                     $"{nameof(glyph.Character)} = \"{glyph.Character}\",",
                     $"{nameof(glyph.Windows1252UrlEncoding)} = \"{glyph.Windows1252UrlEncoding}\",",
                     $"{nameof(glyph.Utf8UrlEncoding)} = \"{glyph.Utf8UrlEncoding}\",",
@@ -133,6 +161,71 @@ namespace Songhay.Tests.Xml
                 };
 
                 return $"new {nameof(ProgramGlyph)} {{ {properties.Aggregate((a, i) => $"{a} {i}")} }},";
+            }
+
+            using (var stream = File.Open(input, FileMode.Open, FileAccess.Read))
+            {
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
+                {
+                    reader.Read(); // skip header
+                    while (reader.Read()) sb.AppendLine(ReadLine(reader));
+                }
+            }
+
+            File.WriteAllText(output, sb.ToString().Replace("\t", string.Empty));
+        }
+
+        [DebuggerAttachedTheory]
+        [InlineData("./xlsx/latin-glyphs.xlsx", "./txt/latin-glyph-names.txt")]
+        public void ShouldWriteUnicodeNames(string input, string output)
+        {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            var sb = new StringBuilder();
+            var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+            var projectInfo = new DirectoryInfo(projectRoot);
+            Assert.True(projectInfo.Exists);
+
+            input = projectInfo.ToCombinedPath(input);
+            Assert.True(File.Exists(input));
+
+            output = projectInfo.ToCombinedPath(output);
+            Assert.True(File.Exists(output));
+
+            string ReadLine(IExcelDataReader reader)
+            {
+                var xmlEntityNumber = reader.GetValue(7) as string;
+                Assert.False(string.IsNullOrWhiteSpace(xmlEntityNumber));
+
+                xmlEntityNumber = xmlEntityNumber
+                    .Replace("&#", string.Empty)
+                    .Replace(";", string.Empty);
+
+                this._testOutputHelper.WriteLine($"{nameof(xmlEntityNumber)}: {xmlEntityNumber}");
+
+                var location = $"https://www.codetable.net/decimal/{xmlEntityNumber}";
+
+                var web = new HtmlWeb();
+
+                var htmlDoc = web.Load(location);
+                Assert.NotNull(htmlDoc);
+
+                var table = htmlDoc.DocumentNode.SelectSingleNode("//table[@class='symbolInfo']");
+                Assert.NotNull(table);
+
+                var tr = table.SelectSingleNode("tr[1]");
+                Assert.NotNull(tr);
+
+                var th = tr.SelectSingleNode("th");
+                Assert.Contains("Symbol Name:", th?.InnerText);
+
+                var td = tr.SelectSingleNode("td");
+                Assert.NotNull(td);
+
+                var unicodeName = td.InnerText.Trim();
+                Assert.False(string.IsNullOrWhiteSpace(unicodeName));
+
+                return unicodeName;
             }
 
             using (var stream = File.Open(input, FileMode.Open, FileAccess.Read))
