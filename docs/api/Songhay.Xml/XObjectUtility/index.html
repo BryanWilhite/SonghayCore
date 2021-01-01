@@ -140,7 +140,7 @@
 		<li role="separator" class="divider"></li>
 			<li class="header">Class Types</li>
 				<li><a href="/SonghayCore/api/Songhay.Xml/HtmlUtility">HtmlUtility</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Xml/LatinGlyphs">LatinGlyphs</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Xml/LatinGlyphsUtility">LatinGlyphsUtility</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Xml/OpmlUtility">OpmlUtility</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Xml/XhtmlDocumentUtility">XhtmlDocumentUtility</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Xml/XmlUtility">XmlUtility</a></li>
@@ -304,7 +304,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/23A8DC02">Get<wbr>Local<wbr>Name<wbr>X<wbr>Path<wbr>Query<wbr>(string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/4E5E6372">Get<wbr>Local<wbr>Name<wbr>X<wbr>Path<wbr>Query<wbr>(string, <wbr>string, <wbr>string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -324,21 +324,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/4E5E6372">Get<wbr>Local<wbr>Name<wbr>X<wbr>Path<wbr>Query<wbr>(string, <wbr>string, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/23A8DC02">Get<wbr>Local<wbr>Name<wbr>X<wbr>Path<wbr>Query<wbr>(string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
     Gets the <code class="cs">XNode</code> into a <code class="cs">local-name()</code>, XPath-predicate query.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/9E9069E0">GetValue<wbr>(XNode, <wbr>string)<wbr></a></td>
-								<td>string</td>
-								<td>
-									<div>
-    Gets the element or attribute value of the specified element.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -354,7 +344,17 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/1F99E90F">GetXAttributeValue<wbr>(XNode, <wbr>string, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/9E9069E0">GetValue<wbr>(XNode, <wbr>string)<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Gets the element or attribute value of the specified element.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/F362A8D9">GetXAttributeValue<wbr>(XNode, <wbr>string, <wbr>bool, <wbr>string, <wbr>I<wbr>Xml<wbr>Namespace<wbr>Resolver)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -376,7 +376,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/F362A8D9">GetXAttributeValue<wbr>(XNode, <wbr>string, <wbr>bool, <wbr>string, <wbr>I<wbr>Xml<wbr>Namespace<wbr>Resolver)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/1F99E90F">GetXAttributeValue<wbr>(XNode, <wbr>string, <wbr>bool)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -387,7 +387,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/F66ABF7C">Get<wbr>X<wbr>Attribute<wbr>Value<wbr>And<wbr>Parse<wbr>&lt;T&gt;<wbr><wbr>(XNode, <wbr>string, <wbr>bool, <wbr>T)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/D12BAA4A">Get<wbr>X<wbr>Attribute<wbr>Value<wbr>And<wbr>Parse<wbr>&lt;T&gt;<wbr><wbr>(XNode, <wbr>string, <wbr>bool, <wbr>T, <wbr>I<wbr>Xml<wbr>Namespace<wbr>Resolver)<wbr></a></td>
 								<td>object</td>
 								<td>
 									<div>
@@ -398,7 +398,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/D12BAA4A">Get<wbr>X<wbr>Attribute<wbr>Value<wbr>And<wbr>Parse<wbr>&lt;T&gt;<wbr><wbr>(XNode, <wbr>string, <wbr>bool, <wbr>T, <wbr>I<wbr>Xml<wbr>Namespace<wbr>Resolver)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/F66ABF7C">Get<wbr>X<wbr>Attribute<wbr>Value<wbr>And<wbr>Parse<wbr>&lt;T&gt;<wbr><wbr>(XNode, <wbr>string, <wbr>bool, <wbr>T)<wbr></a></td>
 								<td>object</td>
 								<td>
 									<div>
@@ -459,7 +459,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/E084F41A">GetXNode<wbr>(XNode, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/ECFF8F85">GetXNode<wbr>(XNode, <wbr>string, <wbr>bool, <wbr>I<wbr>Xml<wbr>Namespace<wbr>Resolver)<wbr></a></td>
 								<td>XNode</td>
 								<td>
 									<div>
@@ -479,7 +479,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/ECFF8F85">GetXNode<wbr>(XNode, <wbr>string, <wbr>bool, <wbr>I<wbr>Xml<wbr>Namespace<wbr>Resolver)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/E084F41A">GetXNode<wbr>(XNode, <wbr>string)<wbr></a></td>
 								<td>XNode</td>
 								<td>
 									<div>
@@ -489,7 +489,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/2D8E327F">GetXNodes<wbr>(XNode, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/09950B93">GetXNodes<wbr>(XNode, <wbr>string, <wbr>bool, <wbr>I<wbr>Xml<wbr>Namespace<wbr>Resolver)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;XNode&gt;<wbr></td>
 								<td>
 									<div>
@@ -509,31 +509,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/09950B93">GetXNodes<wbr>(XNode, <wbr>string, <wbr>bool, <wbr>I<wbr>Xml<wbr>Namespace<wbr>Resolver)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/2D8E327F">GetXNodes<wbr>(XNode, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;XNode&gt;<wbr></td>
 								<td>
 									<div>
     Gets <code class="cs"><a href="/SonghayCore">IEnumerable&lt;T&gt;</a></code> from the specified XPath query.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/83B7D54F">GetXObject<wbr>(XNode, <wbr>string)<wbr></a></td>
-								<td>XObject</td>
-								<td>
-									<div>
-    Gets the <code class="cs">XObject</code> from the specified XPath query..
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/69EE21B2">GetXObject<wbr>(XNode, <wbr>string, <wbr>bool)<wbr></a></td>
-								<td>XObject</td>
-								<td>
-									<div>
-    Gets the <code class="cs">XObject</code> from the specified XPath query..
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -549,7 +529,27 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/FC9FDCAB">GetXObjects<wbr>(XNode, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/69EE21B2">GetXObject<wbr>(XNode, <wbr>string, <wbr>bool)<wbr></a></td>
+								<td>XObject</td>
+								<td>
+									<div>
+    Gets the <code class="cs">XObject</code> from the specified XPath query..
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/83B7D54F">GetXObject<wbr>(XNode, <wbr>string)<wbr></a></td>
+								<td>XObject</td>
+								<td>
+									<div>
+    Gets the <code class="cs">XObject</code> from the specified XPath query..
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/05696F49">GetXObjects<wbr>(XNode, <wbr>string, <wbr>bool, <wbr>I<wbr>Xml<wbr>Namespace<wbr>Resolver)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;XObject&gt;<wbr></td>
 								<td>
 									<div>
@@ -569,7 +569,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/05696F49">GetXObjects<wbr>(XNode, <wbr>string, <wbr>bool, <wbr>I<wbr>Xml<wbr>Namespace<wbr>Resolver)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/FC9FDCAB">GetXObjects<wbr>(XNode, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;XObject&gt;<wbr></td>
 								<td>
 									<div>
@@ -579,7 +579,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/F1B260AF">Join<wbr>Flattened<wbr>X<wbr>Text<wbr>Nodes<wbr>(XElement)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/B5C52CFD">Join<wbr>Flattened<wbr>X<wbr>Text<wbr>Nodes<wbr>(XElement, <wbr>bool, <wbr>string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -599,7 +599,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/B5C52CFD">Join<wbr>Flattened<wbr>X<wbr>Text<wbr>Nodes<wbr>(XElement, <wbr>bool, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Xml/XObjectUtility/F1B260AF">Join<wbr>Flattened<wbr>X<wbr>Text<wbr>Nodes<wbr>(XElement)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -696,7 +696,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>
@@ -706,7 +706,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>

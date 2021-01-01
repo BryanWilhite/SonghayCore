@@ -71,7 +71,6 @@
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#ClassTypes">Class Types</a></p>
-<p><a href="#InterfaceTypes">Interface Types</a></p>
 <hr class="infobar-hidden">
 </div>
 
@@ -136,10 +135,13 @@
 				<li class="treeview active">
 				<a href="/SonghayCore/api/Songhay">Songhay</a> <a href="#" class="expand"></a>
 				<ul class="treeview-menu">
-						<li><a href="/SonghayCore/api/Songhay.Diagnostics">Songhay<wbr>.Diagnostics</a></li>
+						<li><a href="/SonghayCore/api/Songhay.Collections">Songhay<wbr>.Collections</a></li>
+			<li><a href="/SonghayCore/api/Songhay.ComponentModel">Songhay<wbr>.ComponentModel</a></li>
+			<li><a href="/SonghayCore/api/Songhay.Diagnostics">Songhay<wbr>.Diagnostics</a></li>
 			<li class=" selected"><a href="/SonghayCore/api/Songhay.Extensions">Songhay<wbr>.Extensions</a></li>
 			<li><a href="/SonghayCore/api/Songhay.Globalization">Songhay<wbr>.Globalization</a></li>
 			<li><a href="/SonghayCore/api/Songhay.Models">Songhay<wbr>.Models</a></li>
+			<li><a href="/SonghayCore/api/Songhay.Net">Songhay<wbr>.Net</a></li>
 
 				<li class="treeview">
 				<a href="/SonghayCore/api/Songhay.Security">Songhay<wbr>.Security</a> <a href="#" class="expand"></a>
@@ -226,7 +228,7 @@
 							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/EnumExtensions">EnumExtensions</a></td>
 									<td>
-    Extensions of <code class="cs"><a href="/SonghayCore">Enum</a></code>.
+    Extensions of <code class="cs">System.Enum</code>.
     </td>
 							</tr>
 							<tr>
@@ -254,9 +256,45 @@
     </td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions">HttpClientExtensions</a></td>
+									<td>
+    Extensions of <code class="cs">HttpClient</code>
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpRequestMessageExtensions">Http<wbr>Request<wbr>Message<wbr>Extensions</a></td>
+									<td>
+    Extensions of <code class="cs">HttpRequestMessage</code>
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpResponseMessageExtensions">Http<wbr>Response<wbr>Message<wbr>Extensions</a></td>
+									<td>
+    Extensions of <code class="cs">HttpResponseMessage</code>.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions">Http<wbr>Web<wbr>Request<wbr>Extensions</a></td>
+									<td>
+    Extensions of <code class="cs">HttpWebRequest</code>
+    </td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></td>
 									<td>
     Extensions of <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ICommunicationObjectExtensions">I<wbr>Communication<wbr>Object<wbr>Extensions</a></td>
+									<td>
+    Extensions of <code class="cs">ICommunicationObject</code>.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IConfigurationBuilderExtensions">I<wbr>Configuration<wbr>Builder<wbr>Extensions</a></td>
+									<td>
+    Extension of <code class="cs">IConfigurationBuilder</code>.
     </td>
 							</tr>
 							<tr>
@@ -271,13 +309,13 @@
     Extensions of <code class="cs">System.Collections.IDictionary</code>
     
 
-    Extensions of <code class="cs"><a href="/SonghayCore">IDictionary&lt;TKey, TValue&gt;</a></code>
+    Extensions of <code class="cs">System.Collections.Generic.IDictionary`2</code>
     </td>
 							</tr>
 							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></td>
 									<td>
-    Extensions of <code class="cs">System.Collections.Generic.IEnumerable`1</code>.
+    Extensions of <code class="cs"><a href="/SonghayCore">IEnumerable&lt;T&gt;</a></code>.
     </td>
 							</tr>
 							<tr>
@@ -341,6 +379,12 @@
     </td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/RestApiMetadataExtensions">Rest<wbr>Api<wbr>Metadata<wbr>Extensions</a></td>
+									<td>
+    Extensions of <code class="cs"><a href="/SonghayCore/api/Songhay.Models/RestApiMetadata">RestApiMetadata</a></code>.
+    </td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/StringBuilderExtensions">String<wbr>Builder<wbr>Extensions</a></td>
 									<td>
     Extensions of <code class="cs">System.Text.StringBuilder</code>
@@ -355,7 +399,7 @@
 							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/TaskExtensions">TaskExtensions</a></td>
 									<td>
-    Extensions of <code class="cs"><a href="/SonghayCore">Task</a></code>
+    Extensions of <code class="cs">System.Threading.Tasks.Task</code>
     </td>
 							</tr>
 							<tr>
@@ -371,6 +415,12 @@
     </td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourcesExtensions">Trace<wbr>Sources<wbr>Extensions</a></td>
+									<td>
+    Extensions of <code class="cs"><a href="/SonghayCore/api/Songhay.Diagnostics/TraceSources">TraceSources</a></code>
+    </td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions">UriBuilderExtensions</a></td>
 									<td>
     Extensions of <code class="cs">UriBuilder</code>.
@@ -380,6 +430,12 @@
 								<td><a href="/SonghayCore/api/Songhay.Extensions/UriExtensions">UriExtensions</a></td>
 									<td>
     Extensions of <code class="cs">System.Uri</code>
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/UriTemplateExtensions">Uri<wbr>Template<wbr>Extensions</a></td>
+									<td>
+    Extensions of <code class="cs">UriTemplate</code>
     </td>
 							</tr>
 							<tr>
@@ -404,27 +460,6 @@
 								<td><a href="/SonghayCore/api/Songhay.Extensions/XNodeExtensions">XNodeExtensions</a></td>
 									<td>
     Extensions of <code class="cs">XNode</code>.
-    </td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
-
-			<h1 id="InterfaceTypes">Interface Types</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover two-cols">
-						<thead>
-							<tr>
-								<th>Interface</th>
-									<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ISelectable">ISelectable</a></td>
-									<td>
-    Defines a selectable visual
     </td>
 							</tr>
 					</tbody></table>

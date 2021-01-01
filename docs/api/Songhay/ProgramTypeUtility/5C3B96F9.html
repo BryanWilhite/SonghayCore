@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html><html><head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description">
+        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
+        <title>SonghayCore Documentation - API - ProgramTypeUtility.ParseBoolean(object) Method</title>
+        <link href="/SonghayCore/assets/css/highlight.css" rel="stylesheet">
+        <link href="/SonghayCore/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
+        <link href="/SonghayCore/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
+        <link href="/SonghayCore/assets/css/theme/theme.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
+        <link href="/SonghayCore/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/SonghayCore/assets/css/override.css" rel="stylesheet">
+        <script src="/SonghayCore/assets/js/jquery-2.2.3.min.js"></script>
+        <script src="/SonghayCore/assets/js/bootstrap.min.js"></script>        
+        <script src="/SonghayCore/assets/js/app.min.js"></script>         
+        <script src="/SonghayCore/assets/js/highlight.pack.js"></script>   
+        <script src="/SonghayCore/assets/js/jquery.slimscroll.min.js"></script>
+        <script src="/SonghayCore/assets/js/jquery.sticky-kit.min.js"></script>
+        <script src="/SonghayCore/assets/js/mermaid.min.js"></script>
+        <script src="/SonghayCore/assets/js/svg-pan-zoom.min.js"></script>
+        <!--[if lt IE 9]>
+        <script src="/SonghayCore/assets/js/html5shiv.min.js"></script>
+        <script src="/SonghayCore/assets/js/respond.min.js"></script>
+        <![endif]-->  
+
+        
+    </head>
+    <body class="hold-transition wyam layout-boxed  ">    
+        <div class="top-banner"></div>
+        <div class="wrapper with-container">
+            <!-- Header -->
+            <header class="main-header">   
+                     
+                <a href="/SonghayCore/" class="logo">
+                            <span>SonghayCore Documentation</span>
+                </a>   
+                         
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                        <a href="#" class="sidebar-toggle visible-xs-block" data-toggle="offcanvas" role="button">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                                        
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </button>
+                    </div>
+            
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                        <ul class="nav navbar-nav">                            
+                                    <li class="active"><a href="/SonghayCore/api">API</a></li>
+ 
+                        </ul>       
+                    </div>
+                    <!-- /.navbar-collapse -->
+                
+                    <!-- Navbar Right Menu -->
+                </nav>
+            </header>
+            
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar ">
+                <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
+                    	
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
+<p><a href="#Syntax">Syntax</a></p>
+<p><a href="#Parameters">Parameters</a></p>
+<p><a href="#ReturnValue">Return Value</a></p>
+<hr class="infobar-hidden">
+</div>
+
+                </section>
+                <section class="sidebar">    
+                                     
+                    	
+	    <script src="/SonghayCore/assets/js/lunr.min.js"></script>
+    <script src="/SonghayCore/assets/js/searchIndex.js"></script>
+    <div class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
+            <span class="input-group-btn">
+                <button class="btn btn-flat"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </div>
+    <div id="search-results">
+    </div>
+    <script>
+        function runSearch(query){
+            $("#search-results").empty();			
+            if( query.length < 2 ){
+                return;
+            }			
+            var results = searchModule.search("*" + query + "*");
+            var listHtml = "<ul class='sidebar-menu'>";	
+            listHtml += "<li class='header'>Type Results</li>";	
+            if(results.length == 0 ){
+                listHtml += "<li>No results found</li>";
+            } else {					
+                for(var i = 0; i < results.length; ++i){
+                    var res = results[i];
+                    listHtml += "<li><a href='" + res.url + "'>" + htmlEscape(res.title) + "</a></li>";
+                }				
+            }
+            listHtml += "</ul>";				
+            $("#search-results").append(listHtml);
+        }
+
+        $(document).ready(function(){
+            $("#search").on('input propertychange paste', function() {
+                runSearch($("#search").val());
+            });
+        });
+
+        function htmlEscape(html) {
+            return document.createElement('div')
+                .appendChild(document.createTextNode(html))
+                .parentNode
+                .innerHTML;
+        }
+    </script>
+	
+    <hr>
+
+                    <ul class="sidebar-menu">
+                        
+			<li class="header">Namespace</li>
+		<li><a href="/SonghayCore/api/Songhay">Songhay</a></li>
+		<li class="header">Type</li>
+		<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility">ProgramTypeUtility</a></li>
+		<li role="separator" class="divider"></li>
+			<li class="header">Method Members</li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/2B8B1DBF">Convert<wbr>Date<wbr>Time<wbr>From<wbr>Unix<wbr>Time<wbr>(double)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/7B560C5E">Convert<wbr>Date<wbr>Time<wbr>To<wbr>Rfc3339<wbr>Date<wbr>Time<wbr>(DateTime)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/2E46EAC0">Convert<wbr>Date<wbr>Time<wbr>To<wbr>Rfc822<wbr>Date<wbr>Time<wbr>(DateTime)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/4C453418">Convert<wbr>Date<wbr>Time<wbr>To<wbr>Unix<wbr>Time<wbr>()<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/659867C7">Convert<wbr>Date<wbr>Time<wbr>To<wbr>Unix<wbr>Time<wbr>(DateTime)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/ADC6CBE0">ConvertDateTimeToUtc<wbr>(DateTime)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/2D254209">Convert<wbr>Inches<wbr>To<wbr>Points<wbr>(float)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/E79509E9">Convert<wbr>Points<wbr>To<wbr>Inches<wbr>(float)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/6CAC21A0">Generate<wbr>Random<wbr>Password<wbr>(int)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/5AD84F16">GetDeepClone<wbr>&lt;T&gt;<wbr><wbr>(T)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/9FC0DCA9">Is<wbr>Null<wbr>Or<wbr>Empty<wbr>Or<wbr>Not<wbr>Array<wbr>(object)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/3ED18206">IsNullOrEmptyString<wbr>(object)<wbr></a></li>
+				<li class="selected"><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/5C3B96F9">ParseBoolean<wbr>(object)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/D346A514">ParseBoolean<wbr>(object, <wbr>bool)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/0C35B63F">ParseBoolean<wbr>(object, <wbr>bool, <wbr>bool)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/D37FAB6A">ParseByte<wbr>(object)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/004244B4">ParseByte<wbr>(object, <wbr>byte)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/6F1B3045">ParseDateTime<wbr>(object)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/C4C62E77">ParseDateTime<wbr>(object, <wbr>DateTime)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/8E363906">Parse<wbr>Date<wbr>Time<wbr>With<wbr>Format<wbr>(object, <wbr>string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/0B8EB20C">Parse<wbr>Date<wbr>Time<wbr>With<wbr>Format<wbr>(object, <wbr>string, <wbr>string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/E9521C37">ParseDecimal<wbr>(object)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/CBC2968E">ParseDecimal<wbr>(object, <wbr>decimal)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/6D19A72D">ParseDouble<wbr>(object)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/AFB1DB54">ParseDouble<wbr>(object, <wbr>double)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/D3DDD488">ParseEnum<wbr>&lt;TEnum&gt;<wbr><wbr>(string, <wbr>TEnum)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/CA7607E6">ParseInt16<wbr>(object)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/A3578927">ParseInt16<wbr>(object, <wbr>short)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/8AAA0AE6">ParseInt32<wbr>(object)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/08E2CE6F">ParseInt32<wbr>(object, <wbr>int)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/E22F3541">ParseInt64<wbr>(object)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/D438DD63">ParseInt64<wbr>(object, <wbr>long)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/6BA67891">ParseRfc3339DateTime<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/2DA03438">ParseRfc822DateTime<wbr>(string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/05F06539">ParseString<wbr>(object)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/329918FF">ParseString<wbr>(object, <wbr>string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/C0927F20">SetProperties<wbr>&lt;TIn, <wbr>TOut&gt;<wbr><wbr>(TIn, <wbr>TOut)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/A7FF23FB">SetProperties<wbr>&lt;TIn, <wbr>TOut&gt;<wbr><wbr>(TIn, <wbr>TOut, <wbr>ICollection<wbr>&lt;string&gt;<wbr>)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/C4A203BC">Set<wbr>Properties<wbr>Excluding<wbr>&lt;TIn, <wbr>TOut&gt;<wbr><wbr>(TIn, <wbr>TOut, <wbr>ICollection<wbr>&lt;string&gt;<wbr>)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/B7738B1B">SqlDatabaseNull<wbr>()<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/4E32C8AC">Try<wbr>Parse<wbr>Rfc3339<wbr>Date<wbr>Time<wbr>(string, <wbr>DateTime)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramTypeUtility/4EC01B98">Try<wbr>Parse<wbr>Rfc822<wbr>Date<wbr>Time<wbr>(string, <wbr>DateTime)<wbr></a></li>
+
+
+                    </ul>
+                            
+                </section>                
+            </aside>
+            
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                
+
+
+
+<section class="content-header">
+			<h3><a href="/SonghayCore/api/Songhay/ProgramTypeUtility">ProgramTypeUtility</a>.</h3>
+	<h1>ParseBoolean<wbr>(object)<wbr> <small>Method</small></h1>
+</section>
+<section class="content">
+	
+	
+		<h1 id="Summary">Summary</h1>
+	<div class="lead">
+    Tries to convert the specified value
+    to the <code class="cs">System.Nullable</code> return type.
+    </div>
+
+		<div class="panel panel-default">
+  			<div class="panel-body">	
+				<dl class="dl-horizontal">	
+						
+						<dt>Namespace</dt>
+						<dd><a href="/SonghayCore/api/Songhay">Songhay</a></dd>
+					
+						<dt>Containing Type</dt>
+						<dd><a href="/SonghayCore/api/Songhay/ProgramTypeUtility">ProgramTypeUtility</a></dd>		
+					
+				</dl>
+  			</div>
+		</div>
+
+	<h1 id="Syntax">Syntax</h1>
+	<pre><code>public static bool? ParseBoolean(object value)</code></pre>
+
+
+
+
+
+	<h1 id="Parameters">Parameters</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover three-cols">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+					<tbody><tr>
+						<td>value</td>
+						<td>object</td>
+						<td>
+    The specified <code class="cs"><a href="/SonghayCore">object</a></code> box.
+    </td>
+					</tr>
+			</tbody></table>
+		</div>
+	</div>	
+
+	<h1 id="ReturnValue">Return Value</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover two-cols">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody><tr>
+					<td>bool?</td>
+					<td>
+    Always returns a <code class="cs">System.Nullable</code>
+    as parse failure means <code class="cs">HasValue</code>
+    is false.
+    </td>
+				</tr>
+			</tbody></table>
+		</div>
+	</div>	
+
+
+	
+</section>
+                
+            </div>           
+            
+            <!-- Footer -->
+            <footer class="main-footer">
+            </footer>
+            
+        </div>
+        <div class="wrapper bottom-wrapper">
+            <footer class="bottom-footer">
+                Generated by <a href="https://wyam.io">Wyam</a>
+            </footer>
+        </div>
+        <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <script>           
+            // Close the sidebar if we select an anchor link
+            $(".main-sidebar a[href^='#']:not('.expand')").click(function(){
+                $(document.body).removeClass('sidebar-open');
+            });
+            
+            $(document).ready(function() {
+                mermaid.initialize(
+                {
+                    flowchart:
+                    {
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
+                
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });  
+            });
+
+            hljs.initHighlightingOnLoad();
+
+            // Back to top
+            $(window).scroll(function() {
+                if ($(this).scrollTop() >= 200) {        // If page is scrolled more than 50px
+                    $('#return-to-top').fadeIn(1000);    // Fade in the arrow
+                } else {
+                    $('#return-to-top').fadeOut(1000);   // Else fade out the arrow
+                }
+            });
+            $('#return-to-top').click(function() {      // When arrow is clicked
+                $('body,html').animate({
+                    scrollTop : 0                       // Scroll to top of body
+                }, 500);
+            });
+        </script>
+    
+</body></html>
