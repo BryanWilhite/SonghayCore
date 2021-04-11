@@ -68,17 +68,17 @@ namespace Songhay.Models
         /// <summary>
         /// End/expiration <see cref="DateTime"/> of the item.
         /// </summary>
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         /// <summary>
         /// Origin <see cref="DateTime"/> of the item.
         /// </summary>
-        public DateTime InceptDate { get; set; }
+        public DateTime? InceptDate { get; set; }
 
         /// <summary>
         /// Modification/editorial <see cref="DateTime"/> of the item.
         /// </summary>
-        public DateTime ModificationDate { get; set; }
+        public DateTime? ModificationDate { get; set; }
 
         #endregion
 

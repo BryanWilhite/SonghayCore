@@ -10,16 +10,16 @@ namespace Songhay.Models
         /// <summary>
         /// End/expiration <see cref="DateTime"/> of the item.
         /// </summary>
-        DateTime EndDate { get; set; }
+        DateTime? EndDate { get; set; }
 
         /// <summary>
         /// Origin <see cref="DateTime"/> of the item.
         /// </summary>
-        DateTime InceptDate { get; set; }
+        DateTime? InceptDate { get; set; }
 
         /// <summary>
         /// Modification/editorial <see cref="DateTime"/> of the item.
         /// </summary>
-        DateTime ModificationDate { get; set; }
+        DateTime? ModificationDate { get; set; }
     }
 }
