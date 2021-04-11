@@ -549,6 +549,215 @@
             <param name="chars"></param>
             <returns></returns>
         </member>
+        <member name="T:Songhay.Extensions.ConfigurationManagerExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Configuration.ConfigurationManager"/>
+            </summary>
+            <remarks>
+            Several members in this class depend on <see cref="T:Songhay.Models.DeploymentEnvironment"/> constants.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionNameFromEnvironment(System.Configuration.ConnectionStringSettingsCollection,System.String,System.String)">
+            <summary>
+            Gets the connection name from environment.
+            </summary>
+            <param name="collection">The collection.</param>
+            <param name="unqualifiedKey">The unqualified key.</param>
+            <param name="environmentName">Name of the environment.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionNameFromEnvironment(System.Configuration.ConnectionStringSettingsCollection,System.String,System.String,System.String)">
+            <summary>
+            Gets the connection name from environment.
+            </summary>
+            <param name="collection">The collection.</param>
+            <param name="unqualifiedKey">The unqualified key.</param>
+            <param name="environmentName">Name of the environment.</param>
+            <param name="delimiter">The delimiter.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionNameFromEnvironment(System.Configuration.ConnectionStringSettingsCollection,System.String,System.String,System.Boolean)">
+            <summary>
+            Gets the connection name from environment.
+            </summary>
+            <param name="collection">The collection.</param>
+            <param name="unqualifiedKey">The unqualified key.</param>
+            <param name="environmentName">Name of the environment.</param>
+            <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionNameFromEnvironment(System.Configuration.ConnectionStringSettingsCollection,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Gets the connection name from environment.
+            </summary>
+            <param name="collection">The collection.</param>
+            <param name="unqualifiedKey">The unqualified key.</param>
+            <param name="environmentName">Name of the environment.</param>
+            <param name="delimiter">The delimiter.</param>
+            <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionStringSettings(System.Configuration.ConnectionStringSettingsCollection,System.String)">
+            <summary>
+            Gets the connection string settings.
+            </summary>
+            <param name="collection">The collection.</param>
+            <param name="connectionName">Name of the connection.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionStringSettings(System.Configuration.ConnectionStringSettingsCollection,System.String,System.Boolean)">
+            <summary>
+            Gets the connection string settings.
+            </summary>
+            <param name="collection">The collection.</param>
+            <param name="connectionName">Name of the connection.</param>
+            <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
+            <returns></returns>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetEnvironmentName(System.Configuration.KeyValueConfigurationCollection)">
+            <summary>
+            Gets the name of the conventional deployment environment.
+            </summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String)">
+            <summary>
+            Gets the name of the conventional deployment environment.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="environmentKey">The environment key.</param>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String)">
+            <summary>
+            Gets the name of the conventional deployment environment.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="environmentKey">The environment key.</param>
+            <param name="defaultEnvironmentName">Default name of the environment.</param>
+            <returns></returns>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String,System.Boolean)">
+            <summary>
+            Gets the name of the conventional deployment environment.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="environmentKey">The environment key.</param>
+            <param name="defaultEnvironmentName">Default name of the environment.</param>
+            <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
+            <returns></returns>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetKeyWithEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String)">
+            <summary>
+            Gets the name of the key with environment.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="unqualifiedKey">The unqualified key.</param>
+            <param name="environmentName">Name of the environment.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetKeyWithEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String,System.String)">
+            <summary>
+            Gets the key with environment name.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="unqualifiedKey">The unqualified key.</param>
+            <param name="environmentName">Name of the environment.</param>
+            <param name="delimiter">The delimiter.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetKeyWithEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String,System.Boolean)">
+            <summary>
+            Gets the name of the key with environment.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="unqualifiedKey">The unqualified key.</param>
+            <param name="environmentName">Name of the environment.</param>
+            <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetKeyWithEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Gets the key with environment name.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="unqualifiedKey">The unqualified key.</param>
+            <param name="environmentName">Name of the environment.</param>
+            <param name="delimiter">The delimiter.</param>
+            <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetSetting(System.Configuration.KeyValueConfigurationCollection,System.String)">
+            <summary>
+            Gets the setting from the current <see cref="T:System.Configuration.KeyValueConfigurationCollection"/>.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetSetting(System.Configuration.KeyValueConfigurationCollection,System.String,System.Boolean)">
+            <summary>
+            Gets the setting from the current <see cref="T:System.Configuration.KeyValueConfigurationCollection"/>.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="key">The key.</param>
+            <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
+            <returns></returns>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetSetting(System.Configuration.KeyValueConfigurationCollection,System.String,System.Boolean,System.Func{System.String,System.String})">
+            <summary>
+            Gets the setting from the current <see cref="T:System.Configuration.KeyValueConfigurationCollection"/>.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="key">The key.</param>
+            <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
+            <param name="settingModifier">The setting modifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.ToAppSettings(System.Xml.Linq.XDocument)">
+            <summary>
+            Converts the external configuration file to the application settings <see cref="T:System.Configuration.KeyValueConfigurationCollection"/>.
+            </summary>
+            <param name="externalConfigurationDoc">The external configuration document.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.ToConnectionStringSettingsCollection(System.Xml.Linq.XDocument)">
+            <summary>
+            Converts the external configuration file to the application settings <see cref="T:System.Configuration.ConnectionStringSettingsCollection"/>.
+            </summary>
+            <param name="externalConfigurationDoc">The external configuration document.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.WithAppSettings(System.Configuration.KeyValueConfigurationCollection,System.Xml.Linq.XDocument)">
+            <summary>
+            Returns <see cref="T:System.Configuration.KeyValueConfigurationCollection" />
+            with the application settings
+            of the specified external configuration <see cref="T:System.Xml.Linq.XDocument" />.
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="externalConfigurationDoc">The external configuration document.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.WithConnectionStringSettingsCollection(System.Configuration.ConnectionStringSettingsCollection,System.Xml.Linq.XDocument)">
+            <summary>
+            Returns <see cref="T:System.Configuration.ConnectionStringSettingsCollection" />
+            with the application settings
+            of the specified external configuration <see cref="T:System.Xml.Linq.XDocument" />.
+            </summary>
+            <param name="collection">The collection.</param>
+            <param name="externalConfigurationDoc">The external configuration document.</param>
+            <returns></returns>
+        </member>
         <member name="T:Songhay.Extensions.DataSetExtensions">
             <summary>
             Extensions of <see cref="T:System.Data.DataSet"/>
