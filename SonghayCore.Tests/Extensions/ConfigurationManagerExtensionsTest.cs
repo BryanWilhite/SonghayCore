@@ -57,37 +57,33 @@ namespace Songhay.Tests.Extensions
 
             Assert.Equal(expectedConnectionString, actual);
         }
-/*
+
         [Theory]
-        [TestProperty("expectedSetting", "the external setting for DEV")]
-        [TestProperty("externalConfigurationFile", @"Extensions\ConfigurationManagerExtensionsTest.xml")]
-        [TestProperty("unqualifiedKey", "ex-setting")]
-        public void ShouldGetExternalSetting()
+        [ProjectFileData(
+            typeof(ConfigurationManagerExtensionsTest),
+            new object[] {
+                "the external setting for DEV",
+                "ex-setting"
+            },
+            "../../../Extensions/ConfigurationManagerExtensionsTest.xml")]
+        public void ShouldGetExternalSetting(string expectedSetting, string unqualifiedKey, FileInfo externalConfigurationFileInfo)
         {
-            var projectsFolder = this.TestContext.ShouldGetAssemblyDirectoryParent(this.GetType(), expectedLevels: 2);
+            var configuration = ConfigurationManager
+                .OpenExeConfiguration(this.GetType().Assembly.Location);
+            Assert.NotNull(configuration);
+            Assert.True(configuration.HasFile);
 
-            #region test properties:
-
-            var expectedSetting = this.TestContext.Properties["expectedSetting"].ToString();
-            this._testOutputHelper.WriteLine("expected: {0}", expectedSetting);
-
-            var externalConfigurationFile = this.TestContext.Properties["externalConfigurationFile"].ToString();
-            externalConfigurationFile = Path.Combine(projectsFolder, externalConfigurationFile);
-            this.TestContext.ShouldFindFile(externalConfigurationFile);
-
-            var unqualifiedKey = this.TestContext.Properties["unqualifiedKey"].ToString();
-
-            #endregion
-
-            var environmentName = ConfigurationManager
-                .AppSettings
+            var environmentName = configuration
+                .AppSettings.Settings
                 .GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
 
-            var externalConfigurationDoc = XDocument.Load(externalConfigurationFile);
-            var collection = ConfigurationManager
-                .AppSettings
+            var externalConfigurationDoc =
+                XDocument.Load(externalConfigurationFileInfo.FullName);
+            var collection = configuration
+                .AppSettings.Settings
                 .WithAppSettings(externalConfigurationDoc);
             this._testOutputHelper.WriteLine("appSettings keys:");
+            Assert.NotEmpty(collection);
             Assert.True(collection.AllKeys.Any(), "The expected appSettings keys are not here.");
             collection.AllKeys.ForEachInEnumerable(i => this._testOutputHelper.WriteLine("key: {0}, value: {1}", i, collection[i]));
 
@@ -97,55 +93,53 @@ namespace Songhay.Tests.Extensions
             var actual = collection.GetSetting(key);
             this._testOutputHelper.WriteLine("actual: {0}", actual);
 
-            Assert.Equal(expectedSetting, actual, "The expectedSetting is not here.");
+            Assert.Equal(expectedSetting, actual);
         }
 
         [Theory]
-        [TestProperty("expectedConnectionString", @"Data Source=|DataDirectory|\Northwind.dev.sqlite")]
-        [TestProperty("unqualifiedName", "Northwind")]
-        public void ShouldGetConnectionStringSettings()
+        [InlineData(@"Data Source=|DataDirectory|\Northwind.dev.sqlite", "Northwind")]
+        public void ShouldGetConnectionStringSettings(string expectedConnectionString, string unqualifiedName)
         {
+            var configuration = ConfigurationManager
+                .OpenExeConfiguration(this.GetType().Assembly.Location);
+            Assert.NotNull(configuration);
+            Assert.True(configuration.HasFile);
 
-            #region test properties:
-
-            var expectedConnectionString = this.TestContext.Properties["expectedConnectionString"].ToString();
-            this._testOutputHelper.WriteLine("expected: {0}", expectedConnectionString);
-
-            var unqualifiedName = this.TestContext.Properties["unqualifiedName"].ToString();
-
-            #endregion
-
-            var environmentName = ConfigurationManager
-                .AppSettings
+            var environmentName = configuration
+                .AppSettings.Settings
                 .GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
-            var name = ConfigurationManager
-                .ConnectionStrings
+            var name = configuration
+                .ConnectionStrings.ConnectionStrings
                 .GetConnectionNameFromEnvironment(unqualifiedName, environmentName);
             this._testOutputHelper.WriteLine("name: {0}", name);
 
-            var settings = ConfigurationManager
-                .ConnectionStrings
+            var settings = configuration
+                .ConnectionStrings.ConnectionStrings
                 .GetConnectionStringSettings(name);
-            Assert.NotNull(settings, "The expected settings are not here.");
+            Assert.NotNull(settings);
             var actual = settings.ConnectionString;
             this._testOutputHelper.WriteLine("actual: {0}", actual);
 
-            Assert.Equal(expectedConnectionString, actual, "The expectedConnectionString is not here.");
+            Assert.Equal(expectedConnectionString, actual);
         }
 
         [Theory]
-        [TestProperty("expectedEnvironmentName", DeploymentEnvironment.DevelopmentEnvironmentName)]
-        public void ShouldGetEnvironmentName()
+        [InlineData(DeploymentEnvironment.DevelopmentEnvironmentName)]
+        public void ShouldGetEnvironmentName(string expectedEnvironmentName)
         {
-            var expectedEnvironmentName = this.TestContext.Properties["expectedEnvironmentName"].ToString();
             this._testOutputHelper.WriteLine("expected: {0}", expectedEnvironmentName);
 
-            var actual = ConfigurationManager.AppSettings.GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
+            var configuration = ConfigurationManager
+                .OpenExeConfiguration(this.GetType().Assembly.Location);
+            Assert.NotNull(configuration);
+            Assert.True(configuration.HasFile);
+
+            var actual = configuration.AppSettings.Settings.GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
             this._testOutputHelper.WriteLine("actual: {0}", actual);
 
-            Assert.Equal(expectedEnvironmentName, actual, "The expectedEnvironmentName is not here.");
+            Assert.Equal(expectedEnvironmentName, actual);
         }
-
+/*
         [Theory]
         [TestProperty("expectedKey", "dev.setting")]
         [TestProperty("unqualifiedKey", "setting")]
