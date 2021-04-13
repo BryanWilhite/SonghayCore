@@ -35,7 +35,7 @@ namespace Songhay.Extensions
         /// <param name="environmentName">Name of the environment.</param>
         /// <param name="delimiter">The delimiter.</param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+        /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName, string delimiter)
         {
@@ -64,12 +64,12 @@ namespace Songhay.Extensions
         /// <param name="delimiter">The delimiter.</param>
         /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+        /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName, string delimiter, bool throwConfigurationErrorsException)
         {
             if (collection == null) return null;
-            if (string.IsNullOrWhiteSpace(unqualifiedKey)) throw new ArgumentNullException("unqualifiedKey", "The expected App Settings key is not here.");
+            if (string.IsNullOrWhiteSpace(unqualifiedKey)) throw new ArgumentNullException(nameof(unqualifiedKey));
 
             var name1 = string.Concat(environmentName, delimiter, unqualifiedKey);
             var name2 = string.Concat(unqualifiedKey, delimiter, environmentName);
@@ -77,7 +77,7 @@ namespace Songhay.Extensions
             var containsKey1 = collection.OfType<ConnectionStringSettings>().Any(i => i.Name == name1);
             if (!containsKey1 && !collection.OfType<ConnectionStringSettings>().Any(i => i.Name == name2))
             {
-                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException(string.Format("The expected Name, “{0}” or “{1}”, is not here.", name1, name2));
+                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException($"The expected Name, “{name1}” or “{name2}”, is not here.");
                 return null;
             }
 
@@ -111,7 +111,7 @@ namespace Songhay.Extensions
             var setting = collection[connectionName];
             if ((setting == null) && throwConfigurationErrorsException)
             {
-                var message = string.Format("The expected connection settings, {0}, are not here.", connectionName);
+                var message = $"The expected connection settings, {connectionName}, are not here.";
                 throw new ConfigurationErrorsException(message);
             }
 
@@ -170,7 +170,7 @@ namespace Songhay.Extensions
 
             if (!hasKey && string.IsNullOrWhiteSpace(defaultEnvironmentName))
             {
-                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException(string.Format("The expected Environment Key, `{0}`, is not here.", environmentKey));
+                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException($"The expected Environment Key, `{environmentKey}`, is not here.");
                 return null;
             }
 
@@ -197,7 +197,7 @@ namespace Songhay.Extensions
         /// <param name="environmentName">Name of the environment.</param>
         /// <param name="delimiter">The delimiter.</param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+        /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static string GetKeyWithEnvironmentName(this KeyValueConfigurationCollection settings, string unqualifiedKey, string environmentName, string delimiter)
         {
@@ -226,12 +226,12 @@ namespace Songhay.Extensions
         /// <param name="delimiter">The delimiter.</param>
         /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+        /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static string GetKeyWithEnvironmentName(this KeyValueConfigurationCollection settings, string unqualifiedKey, string environmentName, string delimiter, bool throwConfigurationErrorsException)
         {
             if (settings == null) return null;
-            if (string.IsNullOrWhiteSpace(unqualifiedKey)) throw new ArgumentNullException("unqualifiedKey", "The expected App Settings key is not here.");
+            if (string.IsNullOrWhiteSpace(unqualifiedKey)) throw new ArgumentNullException(nameof(unqualifiedKey));
 
             var key1 = string.Concat(environmentName, delimiter, unqualifiedKey);
             var key2 = string.Concat(unqualifiedKey, delimiter, environmentName);
@@ -239,7 +239,7 @@ namespace Songhay.Extensions
             var containsKey1 = settings.AllKeys.Contains(key1);
             if (!containsKey1 && !settings.AllKeys.Contains(key2))
             {
-                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException(string.Format("The expected Key, “{0}” or “{1}”, is not here.", key1, key2));
+                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException($"The expected Key, “{key1}” or “{key2}”, is not here.");
                 return null;
             }
 
@@ -272,7 +272,7 @@ namespace Songhay.Extensions
             var setting = settings[key];
             if ((setting == null) && throwConfigurationErrorsException)
             {
-                var message = string.Format("The expected setting, {0}, is not here.", key);
+                var message = $"The expected setting, {key}, is not here.";
                 throw new ConfigurationErrorsException(message);
             }
 

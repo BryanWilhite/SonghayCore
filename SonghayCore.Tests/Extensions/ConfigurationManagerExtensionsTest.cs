@@ -139,44 +139,43 @@ namespace Songhay.Tests.Extensions
 
             Assert.Equal(expectedEnvironmentName, actual);
         }
-/*
-        [Theory]
-        [TestProperty("expectedKey", "dev.setting")]
-        [TestProperty("unqualifiedKey", "setting")]
-        public void ShouldGetKeyWithEnvironmentName()
-        {
-            var expectedKey = this.TestContext.Properties["expectedKey"].ToString();
-            this._testOutputHelper.WriteLine("expected: {0}", expectedKey);
-            var unqualifiedKey = this.TestContext.Properties["unqualifiedKey"].ToString();
 
-            var environmentName = ConfigurationManager.AppSettings.GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
-            var actual = ConfigurationManager.AppSettings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
+        [Theory]
+        [InlineData("dev.setting", "setting")]
+        public void ShouldGetKeyWithEnvironmentName(string expectedKey, string unqualifiedKey)
+        {
+            var configuration = ConfigurationManager
+                .OpenExeConfiguration(this.GetType().Assembly.Location);
+            Assert.NotNull(configuration);
+            Assert.True(configuration.HasFile);
+
+            var environmentName = configuration.AppSettings.Settings.GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
+            var actual = configuration.AppSettings.Settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
             this._testOutputHelper.WriteLine("actual: {0}", actual);
 
-            Assert.Equal(expectedKey, actual, "The expectedKey is not here.");
+            Assert.Equal(expectedKey, actual);
         }
 
         [Theory]
-        [TestProperty("expectedSetting", "the setting for DEV")]
-        [TestProperty("unqualifiedKey", "setting")]
-        public void ShouldGetSetting()
+        [InlineData("the setting for DEV", "setting")]
+        public void ShouldGetSetting(string expectedSetting, string unqualifiedKey)
         {
-            var expectedSetting = this.TestContext.Properties["expectedSetting"].ToString();
-            this._testOutputHelper.WriteLine("expected: {0}", expectedSetting);
-            var unqualifiedKey = this.TestContext.Properties["unqualifiedKey"].ToString();
+            var configuration = ConfigurationManager
+                .OpenExeConfiguration(this.GetType().Assembly.Location);
+            Assert.NotNull(configuration);
+            Assert.True(configuration.HasFile);
 
-            var environmentName = ConfigurationManager
-                .AppSettings
+            var environmentName = configuration.AppSettings.Settings
                 .GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
-            var key = ConfigurationManager.AppSettings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
+            var key = configuration.AppSettings.Settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
             this._testOutputHelper.WriteLine("key: {0}", key);
 
-            var actual = ConfigurationManager.AppSettings.GetSetting(key);
+            var actual = configuration.AppSettings.Settings.GetSetting(key);
             this._testOutputHelper.WriteLine("actual: {0}", actual);
 
-            Assert.Equal(expectedSetting, actual, "The expectedSetting is not here.");
+            Assert.Equal(expectedSetting, actual);
         }
-*/
+
         readonly ITestOutputHelper _testOutputHelper;
     }
 }
