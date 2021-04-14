@@ -9344,5 +9344,49 @@
             <param name="joinDelimiter">The join delimiter.</param>
             <returns></returns>
         </member>
+        <member name="T:SonghayCore.Extensions.JsonSerializerSettingsExtensions">
+            <summary>
+            Extensions of <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>
+            </summary>
+        </member>
+        <member name="M:SonghayCore.Extensions.JsonSerializerSettingsExtensions.WithConventionalSettings(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Returns <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>
+            with conventional settings.
+            </summary>
+            <param name="settings">the <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/></param>
+            <returns>
+            Returns <see cref="F:Newtonsoft.Json.Formatting.Indented"/>,
+            <see cref="F:Newtonsoft.Json.MissingMemberHandling.Ignore"/>
+            and <see cref="F:Newtonsoft.Json.NullValueHandling.Ignore"/>.
+            </returns>
+        </member>
+        <member name="M:SonghayCore.Extensions.JsonSerializerSettingsExtensions.WithFormatting(Newtonsoft.Json.JsonSerializerSettings,Newtonsoft.Json.Formatting)">
+            <summary>
+            Returns <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>
+            with <see cref="P:Newtonsoft.Json.JsonSerializerSettings.Formatting"/> set.
+            </summary>
+            <param name="settings">the <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/></param>
+            <param name="setting">the <see cref="T:Newtonsoft.Json.Formatting"/> setting</param>
+            <returns></returns>
+        </member>
+        <member name="M:SonghayCore.Extensions.JsonSerializerSettingsExtensions.WithMissingMemberHandling(Newtonsoft.Json.JsonSerializerSettings,Newtonsoft.Json.MissingMemberHandling)">
+            <summary>
+            Returns <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>
+            with <see cref="P:Newtonsoft.Json.JsonSerializerSettings.MissingMemberHandling"/> set.
+            </summary>
+            <param name="settings">the <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/></param>
+            <param name="setting">the <see cref="T:Newtonsoft.Json.MissingMemberHandling"/> setting</param>
+            <returns></returns>
+        </member>
+        <member name="M:SonghayCore.Extensions.JsonSerializerSettingsExtensions.WithNullValueHandling(Newtonsoft.Json.JsonSerializerSettings,Newtonsoft.Json.NullValueHandling)">
+            <summary>
+            Returns <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>
+            with <see cref="P:Newtonsoft.Json.JsonSerializerSettings.NullValueHandling"/> set.
+            </summary>
+            <param name="settings">the <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/></param>
+            <param name="setting">the <see cref="T:Newtonsoft.Json.NullValueHandling"/> setting</param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
