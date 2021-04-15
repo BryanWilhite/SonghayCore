@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace SonghayCore.Extensions
+namespace Songhay.Extensions
 {
     /// <summary>
     /// Extensions of <see cref="JsonSerializerSettings"/>
