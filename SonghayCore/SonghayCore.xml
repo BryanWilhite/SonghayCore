@@ -3476,6 +3476,39 @@
             <exception cref="T:System.ArgumentNullException">template - The expected URI template is not here.</exception>
             <exception cref="T:System.FormatException"></exception>
         </member>
+        <member name="T:Songhay.Extensions.Utf8JsonWriterExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Text.Json.Utf8JsonWriter"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.Utf8JsonWriterExtensions.WriteObject(System.Text.Json.Utf8JsonWriter,System.Action)">
+            <summary>
+            Wrap <see cref="T:System.Text.Json.Utf8JsonWriter"/> statements
+            inside <see cref="M:System.Text.Json.Utf8JsonWriter.WriteStartObject"/>
+            and <see cref="M:System.Text.Json.Utf8JsonWriter.WriteEndObject"/>.
+            </summary>
+            <param name="writer">the <see cref="T:System.Text.Json.Utf8JsonWriter"/></param>
+            <param name="writerAction"></param>
+            <returns></returns>
+            <remarks>
+            This method is for building a JSON object.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.Utf8JsonWriterExtensions.WriteObject(System.Text.Json.Utf8JsonWriter,System.String,System.Action)">
+            <summary>
+            Wrap <see cref="T:System.Text.Json.Utf8JsonWriter"/> statements
+            inside <see cref="M:System.Text.Json.Utf8JsonWriter.WritePropertyName(System.ReadOnlySpan{System.Byte})"/>
+            <see cref="M:System.Text.Json.Utf8JsonWriter.WriteStartObject"/>
+            and <see cref="M:System.Text.Json.Utf8JsonWriter.WriteEndObject"/>.
+            </summary>
+            <param name="writer">the <see cref="T:System.Text.Json.Utf8JsonWriter"/></param>
+            <param name="propertyName"></param>
+            <param name="writerAction"></param>
+            <returns></returns>
+            <remarks>
+            This method is for building a JSON object for a JSON property.
+            </remarks>
+        </member>
         <member name="T:Songhay.Extensions.ValidationContextExtensions">
             <summary>
             Extensions of <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/>
@@ -7762,7 +7795,7 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(System.DateTime)">
             <summary>
-            Converts the specified <see cref="T:System.DateTime"/> to RFC822.
+            /// Converts the specified <see cref="T:System.DateTime"/> to RFC822.
             </summary>
             <param name="dateTime">The date and time.</param>
             <remarks>
