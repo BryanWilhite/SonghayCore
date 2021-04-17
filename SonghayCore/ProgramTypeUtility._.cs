@@ -30,15 +30,18 @@ namespace Songhay
         public static string ConvertDateTimeToRfc3339DateTime(DateTime utcDateTime)
         {
             DateTimeFormatInfo dateTimeFormat = CultureInfo.InvariantCulture.DateTimeFormat;
-            if(utcDateTime.Kind == DateTimeKind.Local)
-            {
-                return utcDateTime.ToString("yyyy'-'MM'-'dd'T'HH:mm:ss.ffzzz", dateTimeFormat);
-            }
-            return utcDateTime.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss.ff'Z'", dateTimeFormat);
+
+            var format = (utcDateTime.Kind == DateTimeKind.Local) ?
+                "yyyy'-'MM'-'dd'T'HH:mm:ss.ffzzz"
+                :
+                "yyyy'-'MM'-'dd'T'HH':'mm':'ss.ff'Z'"
+                ;
+
+            return utcDateTime.ToString(format, dateTimeFormat);
         }
 
         /// <summary>
-        /// Converts the specified <see cref="DateTime "/> to RFC822.
+        /// /// Converts the specified <see cref="DateTime "/> to RFC822.
         /// </summary>
         /// <param name="dateTime">The date and time.</param>
         /// <remarks>
@@ -155,7 +158,7 @@ namespace Songhay
         [Obsolete("consider using https://github.com/force-net/DeepCloner instead")]
         public static T GetDeepClone<T>(T obj)
         {
-            using(var ms = new MemoryStream())
+            using (var ms = new MemoryStream())
             {
                 var formatter = new BinaryFormatter();
                 formatter.Serialize(ms, obj);
@@ -172,7 +175,7 @@ namespace Songhay
         /// <param name="boxedString">The framework value.</param>
         public static bool IsNullOrEmptyString(object boxedString)
         {
-            if(boxedString == null) return true;
+            if (boxedString == null) return true;
             else return string.IsNullOrWhiteSpace(boxedString.ToString());
         }
 
