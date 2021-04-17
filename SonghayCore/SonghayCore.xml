@@ -7307,6 +7307,31 @@
             📚 https://github.com/BryanWilhite/SonghayCore/issues/97
             </remarks>
         </member>
+        <member name="M:Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String,System.Boolean)">
+            <summary>Combines path and root based
+            on the ambient value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
+            of the current OS.</summary>
+            <param name="root">The root.</param>
+            <param name="path">The path.</param>
+            <param name="fileIsExpected">
+            when <c>true</c> will throw <see cref="T:System.IO.FileNotFoundException"/>
+            when combined path is not of a file; otherwise
+            will throw <see cref="T:System.IO.DirectoryNotFoundException"/>
+            when combined path is not a directory
+            </param>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException">The expected root path is not here.
+            or
+            The expected path is not here.</exception>
+            <exception cref="T:System.IO.FileNotFoundException">see documentation for <c>fileIsExpected</c> parameter</exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException">see documentation for <c>fileIsExpected</c> parameter</exception>
+            <remarks>
+            For detail, see:
+            📚 https://github.com/BryanWilhite/SonghayCore/issues/14
+            📚 https://github.com/BryanWilhite/SonghayCore/issues/32
+            📚 https://github.com/BryanWilhite/SonghayCore/issues/97
+            </remarks>
+        </member>
         <member name="M:Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)">
             <summary>
             Gets the parent directory.

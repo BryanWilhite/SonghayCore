@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -23,6 +24,47 @@ namespace Songhay.Tests
 
             var actual = ProgramFileUtility.GetCombinedPath(root, path);
             Assert.Equal(expectedResult.Replace('|', Path.DirectorySeparatorChar), actual);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void GetCombinedPath_fileIsExpected_Test(bool fileIsExpected)
+        {
+            var assembly = this.GetType().Assembly;
+            var projectFolder = ProgramAssemblyUtility.GetPathFromAssembly(assembly, "../../../");
+            var projectFolderInfo = new DirectoryInfo(projectFolder);
+
+            if (fileIsExpected)
+            {
+                Assert.Throws<FileNotFoundException>(() =>
+                    ProgramFileUtility
+                        .GetCombinedPath(
+                            projectFolder,
+                            projectFolderInfo.GetDirectories().First().Name,
+                            fileIsExpected));
+
+                ProgramFileUtility
+                    .GetCombinedPath(
+                        projectFolder,
+                        projectFolderInfo.GetFiles().First().Name,
+                        fileIsExpected);
+            }
+            else
+            {
+                Assert.Throws<DirectoryNotFoundException>(() =>
+                    ProgramFileUtility
+                        .GetCombinedPath(
+                            projectFolder,
+                            projectFolderInfo.GetFiles().First().Name,
+                            fileIsExpected));
+
+                ProgramFileUtility
+                    .GetCombinedPath(
+                        projectFolder,
+                        projectFolderInfo.GetDirectories().First().Name,
+                        fileIsExpected);
+            }
         }
 
         [Theory]

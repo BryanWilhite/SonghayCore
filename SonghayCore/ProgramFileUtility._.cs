@@ -117,6 +117,47 @@ namespace Songhay
                 Path.Combine(NormalizePath(root), path);
         }
 
+        /// <summary>Combines path and root based
+        /// on the ambient value of <see cref="Path.DirectorySeparatorChar"/>
+        /// of the current OS.</summary>
+        /// <param name="root">The root.</param>
+        /// <param name="path">The path.</param>
+        /// <param name="fileIsExpected">
+        /// when <c>true</c> will throw <see cref="FileNotFoundException"/>
+        /// when combined path is not of a file; otherwise
+        /// will throw <see cref="DirectoryNotFoundException"/>
+        /// when combined path is not a directory
+        /// </param>
+        /// <returns></returns>
+        /// <exception cref="NullReferenceException">The expected root path is not here.
+        /// or
+        /// The expected path is not here.</exception>
+        /// <exception cref="FileNotFoundException">see documentation for <c>fileIsExpected</c> parameter</exception>
+        /// <exception cref="DirectoryNotFoundException">see documentation for <c>fileIsExpected</c> parameter</exception>
+        /// <remarks>
+        /// For detail, see:
+        /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/14
+        /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/32
+        /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/97
+        /// </remarks>
+        public static string GetCombinedPath(string root, string path, bool fileIsExpected)
+        {
+            var combinedPath = ProgramFileUtility.GetCombinedPath(root, path);
+
+            if(fileIsExpected)
+            {
+                if (!File.Exists(combinedPath))
+                    throw new FileNotFoundException($"The expected file, `{combinedPath ?? "[null]"}`, is not here.");
+            }
+            else
+            {
+                if (!Directory.Exists(combinedPath))
+                    throw new DirectoryNotFoundException($"The expected directory, `{combinedPath ?? "[null]"}`, is not here.");
+            }
+
+            return combinedPath;
+        }
+
         /// <summary>
         /// Gets the parent directory.
         /// </summary>
