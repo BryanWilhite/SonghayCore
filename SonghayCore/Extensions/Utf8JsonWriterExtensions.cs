@@ -10,7 +10,7 @@ namespace Songhay.Extensions
     {
         /// <summary>
         /// Wrap <see cref="Utf8JsonWriter"/> statements
-        /// inside <see cref="Utf8JsonWriter.WriteStartObject"/>
+        /// inside <see cref="Utf8JsonWriter.WriteStartObject()"/>
         /// and <see cref="Utf8JsonWriter.WriteEndObject"/>.
         /// </summary>
         /// <param name="writer">the <see cref="Utf8JsonWriter"/></param>
@@ -32,8 +32,8 @@ namespace Songhay.Extensions
 
         /// <summary>
         /// Wrap <see cref="Utf8JsonWriter"/> statements
-        /// inside <see cref="Utf8JsonWriter.WritePropertyName"/>
-        /// <see cref="Utf8JsonWriter.WriteStartObject"/>
+        /// inside <see cref="Utf8JsonWriter.WritePropertyName(string)"/>
+        /// <see cref="Utf8JsonWriter.WriteStartObject()"/>
         /// and <see cref="Utf8JsonWriter.WriteEndObject"/>.
         /// </summary>
         /// <param name="writer">the <see cref="Utf8JsonWriter"/></param>

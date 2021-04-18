@@ -3481,7 +3481,7 @@
         <member name="M:Songhay.Extensions.Utf8JsonWriterExtensions.WriteObject(System.Text.Json.Utf8JsonWriter,System.String,System.Action)">
             <summary>
             Wrap <see cref="T:System.Text.Json.Utf8JsonWriter"/> statements
-            inside <see cref="M:System.Text.Json.Utf8JsonWriter.WritePropertyName(System.ReadOnlySpan{System.Byte})"/>
+            inside <see cref="M:System.Text.Json.Utf8JsonWriter.WritePropertyName(System.String)"/>
             <see cref="M:System.Text.Json.Utf8JsonWriter.WriteStartObject"/>
             and <see cref="M:System.Text.Json.Utf8JsonWriter.WriteEndObject"/>.
             </summary>
@@ -6882,7 +6882,6 @@
             for an instance of <see cref="T:System.Net.Mail.SmtpClient" />
             </summary>
             <param name="from">the from email address</param>
-            <param name="to">the to email address</param>
             <param name="subject">the email message subject</param>
             <param name="message">the email message</param>
             <param name="recipients">a collection of recipients</param>

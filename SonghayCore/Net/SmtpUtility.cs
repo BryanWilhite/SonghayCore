@@ -81,7 +81,6 @@ namespace Songhay.Net
         /// for an instance of <see cref="SmtpClient" />
         /// </summary>
         /// <param name="from">the from email address</param>
-        /// <param name="to">the to email address</param>
         /// <param name="subject">the email message subject</param>
         /// <param name="message">the email message</param>
         /// <param name="recipients">a collection of recipients</param>
