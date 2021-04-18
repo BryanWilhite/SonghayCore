@@ -1447,14 +1447,6 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">request</exception>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetTimeout(System.Net.Http.HttpRequestMessage)">
-            <summary>
-            Gets any <see cref="T:System.Threading.Timeout"/> in <see cref="P:System.Net.Http.HttpRequestMessage.Properties"/>.
-            </summary>
-            <param name="request">The request.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">request</exception>
-        </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
@@ -1524,14 +1516,6 @@
             <param name="optionalClientGetter">The optional client getter.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
-        </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SetTimeout(System.Net.Http.HttpRequestMessage,System.Nullable{System.TimeSpan})">
-            <summary>
-            Sets the <see cref="T:System.Threading.Timeout" /> in <see cref="P:System.Net.Http.HttpRequestMessage.Properties" />.
-            </summary>
-            <param name="request">The request.</param>
-            <param name="timeout">The timeout.</param>
-            <exception cref="T:System.ArgumentNullException">request</exception>
         </member>
         <member name="T:Songhay.Extensions.HttpResponseMessageExtensions">
             <summary>
@@ -6935,6 +6919,14 @@
             </summary>
             <value>
             The default timeout.
+            </value>
+        </member>
+        <member name="P:Songhay.Net.TimeoutHandler.RequestTimeout">
+            <summary>
+            Gets or sets the request timeout.
+            </summary>
+            <value>
+            The request timeout.
             </value>
         </member>
         <member name="M:Songhay.Net.TimeoutHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">

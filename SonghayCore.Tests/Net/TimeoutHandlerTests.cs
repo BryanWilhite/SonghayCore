@@ -1,5 +1,4 @@
-﻿using Songhay.Extensions;
-using Songhay.Net;
+﻿using Songhay.Net;
 using System;
 using System.Net.Http;
 using System.Threading;
@@ -22,7 +21,7 @@ namespace Songhay.Tests.Net
         {
             var handler = new TimeoutHandler
             {
-                DefaultTimeout = TimeSpan.FromSeconds(10),
+                RequestTimeout = TimeSpan.FromSeconds(10),
                 InnerHandler = new HttpClientHandler()
             };
 
@@ -55,7 +54,7 @@ namespace Songhay.Tests.Net
         {
             var handler = new TimeoutHandler
             {
-                DefaultTimeout = TimeSpan.FromSeconds(10),
+                RequestTimeout = TimeSpan.FromSeconds(timeInSeconds),
                 InnerHandler = new HttpClientHandler()
             };
 
@@ -68,8 +67,6 @@ namespace Songhay.Tests.Net
 
                     this._testOutputHelper.WriteLine($"calling `{location}`...");
                     var request = new HttpRequestMessage(HttpMethod.Get, location);
-
-                    request.SetTimeout(TimeSpan.FromSeconds(timeInSeconds));
 
                     using (var response = await client.SendAsync(request, cts.Token))
                     {

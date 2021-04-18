@@ -48,30 +48,16 @@ namespace Songhay.Extensions
 
             var client = (optionalClientGetter == null) ? GetHttpClient() : optionalClientGetter.Invoke();
 
-            var response = await client.SendAsync(request);
+            string content = null;
 
-            responseMessageAction?.Invoke(response);
-
-            var content = await response.Content.ReadAsStringAsync();
-            return content;
-
-        }
-
-        /// <summary>
-        /// Gets any <see cref="Timeout"/> in <see cref="HttpRequestMessage.Properties"/>.
-        /// </summary>
-        /// <param name="request">The request.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException">request</exception>
-        public static TimeSpan? GetTimeout(this HttpRequestMessage request)
-        {
-            if (request == null) throw new ArgumentNullException(nameof(request));
-            if (request.Properties.TryGetValue(TIMEOUT_PROPERTY_KEY, out var value) && value is TimeSpan timeout)
+            using (var response = await client.SendAsync(request))
             {
-                return timeout;
+                responseMessageAction?.Invoke(response);
+                content = await response.Content.ReadAsStringAsync();
             }
 
-            return null;
+            return content;
+
         }
 
         /// <summary>
@@ -186,22 +172,9 @@ namespace Songhay.Extensions
             var client = (optionalClientGetter == null) ? GetHttpClient() : optionalClientGetter.Invoke();
 
             var response = await client.SendAsync(request);
+
             return response;
         }
-
-        /// <summary>
-        /// Sets the <see cref="Timeout" /> in <see cref="HttpRequestMessage.Properties" />.
-        /// </summary>
-        /// <param name="request">The request.</param>
-        /// <param name="timeout">The timeout.</param>
-        /// <exception cref="ArgumentNullException">request</exception>
-        public static void SetTimeout(this HttpRequestMessage request, TimeSpan? timeout)
-        {
-            if (request == null) throw new ArgumentNullException(nameof(request));
-            request.Properties[TIMEOUT_PROPERTY_KEY] = timeout;
-        }
-
-        private const string TIMEOUT_PROPERTY_KEY = "RequestTimeout";
 
         private static HttpClient GetHttpClient() => HttpClientLazy.Value;
 

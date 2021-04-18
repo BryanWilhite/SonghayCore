@@ -1,5 +1,4 @@
-﻿using Songhay.Extensions;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,7 +24,15 @@ namespace Songhay.Net
         /// <value>
         /// The default timeout.
         /// </value>
-        public TimeSpan DefaultTimeout { get; set; } = TimeSpan.FromSeconds(100);
+        public static TimeSpan DefaultTimeout {get; private set; } = TimeSpan.FromSeconds(100);
+
+        /// <summary>
+        /// Gets or sets the request timeout.
+        /// </summary>
+        /// <value>
+        /// The request timeout.
+        /// </value>
+        public TimeSpan RequestTimeout { get; set; } = TimeoutHandler.DefaultTimeout;
 
         /// <summary>
         /// Sends an HTTP request to the inner handler to send to the server as an asynchronous operation.
@@ -38,7 +45,7 @@ namespace Songhay.Net
         /// <exception cref="TimeoutException"></exception>
         protected async override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            using (var cts = GetCancellationTokenSource(request, cancellationToken))
+            using (var cts = GetCancellationTokenSource(cancellationToken))
             {
                 try
                 {
@@ -51,10 +58,9 @@ namespace Songhay.Net
             }
         }
 
-        private CancellationTokenSource GetCancellationTokenSource(HttpRequestMessage request, CancellationToken cancellationToken)
+        private CancellationTokenSource GetCancellationTokenSource(CancellationToken cancellationToken)
         {
-            var timeout = request.GetTimeout() ?? DefaultTimeout;
-            if (timeout == Timeout.InfiniteTimeSpan)
+            if (this.RequestTimeout == Timeout.InfiniteTimeSpan)
             {
                 // No need to create a CTS if there's no timeout
                 return null;
@@ -62,7 +68,8 @@ namespace Songhay.Net
             else
             {
                 var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-                cts.CancelAfter(timeout);
+                cts.CancelAfter(this.RequestTimeout);
+
                 return cts;
             }
         }

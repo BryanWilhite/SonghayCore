@@ -1,7 +1,10 @@
 ﻿using Newtonsoft.Json.Linq;
 using Songhay.Extensions;
+using Songhay.Net;
+using System;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Tavis.UriTemplates;
 using Xunit;
@@ -14,6 +17,39 @@ namespace Songhay.Tests.Extensions
         public HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
         {
             this._testOutputHelper = helper;
+        }
+
+        [Theory]
+        [InlineData("http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
+        public async Task ShouldCancel(string location, int timeInSeconds)
+        {
+            var handler = new TimeoutHandler
+            {
+                RequestTimeout = TimeSpan.FromSeconds(10),
+                InnerHandler = new HttpClientHandler()
+            };
+
+            using (var cts = new CancellationTokenSource())
+            using (var client = new HttpClient(handler))
+            {
+                try
+                {
+                    client.Timeout = Timeout.InfiniteTimeSpan;
+
+                    this._testOutputHelper.WriteLine($"calling `{location}`...");
+                    var request = new HttpRequestMessage(HttpMethod.Get, location);
+
+                    cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
+
+                    await request.GetServerResponseAsync(
+                        responseMessageAction: null,
+                        optionalClientGetter: () => client);
+                }
+                catch (Exception ex)
+                {
+                    Assert.IsType<TaskCanceledException>(ex);
+                }
+            }
         }
 
         [Trait("Category", "Integration")]
@@ -99,6 +135,37 @@ namespace Songhay.Tests.Extensions
             var response = await message.SendAsync();
 
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+        }
+
+        [Theory]
+        [InlineData("http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
+        public async Task ShouldTimeout(string location, int timeInSeconds)
+        {
+            var handler = new TimeoutHandler
+            {
+                RequestTimeout = TimeSpan.FromSeconds(timeInSeconds),
+                InnerHandler = new HttpClientHandler()
+            };
+
+            using (var cts = new CancellationTokenSource())
+            using (var client = new HttpClient(handler))
+            {
+                try
+                {
+                    client.Timeout = Timeout.InfiniteTimeSpan;
+
+                    this._testOutputHelper.WriteLine($"calling `{location}`...");
+                    var request = new HttpRequestMessage(HttpMethod.Get, location);
+
+                    await request.GetServerResponseAsync(
+                        responseMessageAction: null,
+                        optionalClientGetter: () => client);
+                }
+                catch (Exception ex)
+                {
+                    Assert.IsType<TimeoutException>(ex);
+                }
+            }
         }
 
         const string LIVE_API_BASE_URI = "http://jsonplaceholder.typicode.com";
