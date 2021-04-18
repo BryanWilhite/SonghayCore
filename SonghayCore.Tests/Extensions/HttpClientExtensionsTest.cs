@@ -17,12 +17,11 @@ namespace Songhay.Tests.Extensions
             this._basePath = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
         }
 
-        [Trait("Category", "Integration")]
         [Theory]
         [InlineData(
             @"Extensions\HttpClientExtensionsTest.ShouldDownloadToFileAsync.txt",
             "https://github.com/BryanWilhite/SonghayCore/blob/master/README.md")]
-        public async Task ShouldDownloadToFileAsync(string file, string uri)
+        public async Task DownloadToFileAsync_Test(string file, string uri)
         {
             file = ProgramFileUtility.GetCombinedPath(this._basePath, file);
             Assert.True(File.Exists(file), "The expected target download file is not here.");
@@ -30,17 +29,30 @@ namespace Songhay.Tests.Extensions
             await GetHttpClient().DownloadToFileAsync(new Uri(uri, UriKind.Absolute), file);
         }
 
-        [Trait("Category", "Integration")]
         [Theory]
         [InlineData(
             @"Extensions\HttpClientExtensionsTest.ShouldDownloadToFileAsync.txt",
             "https://github.com/BryanWilhite/SonghayCore/blob/master/README.md")]
-        public async Task ShouldDownloadToStringAsync(string file, string uri)
+        public async Task DownloadToStringAsync_Test(string file, string uri)
         {
             file = ProgramFileUtility.GetCombinedPath(this._basePath, file);
             Assert.True(File.Exists(file), "The expected target download file is not here.");
 
-            var response = await GetHttpClient().DownloadToStringAsync(new Uri(uri, UriKind.Absolute));
+            var content = await GetHttpClient().DownloadToStringAsync(new Uri(uri, UriKind.Absolute));
+            Assert.False(string.IsNullOrWhiteSpace(content), "The expected response is not here.");
+            this._testOutputHelper.WriteLine(content);
+        }
+
+        [Theory]
+        [InlineData(
+            @"Extensions\HttpClientExtensionsTest.ShouldDownloadToFileAsync.txt",
+            "https://github.com/BryanWilhite/SonghayCore/blob/master/README.md")]
+        public async Task DownloadToStringAsync_HttpRequestMessage_Test(string file, string uri)
+        {
+            file = ProgramFileUtility.GetCombinedPath(this._basePath, file);
+            Assert.True(File.Exists(file), "The expected target download file is not here.");
+
+            var response = await GetHttpClient().DownloadToStringAsync(new Uri(uri, UriKind.Absolute), requestMessageAction: null);
             Assert.False(string.IsNullOrWhiteSpace(response), "The expected response is not here.");
             this._testOutputHelper.WriteLine(response);
         }

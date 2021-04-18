@@ -65,7 +65,9 @@ namespace Songhay.Extensions
                 try
                 {
                     var activityWithOutput = activity.ToActivityWithTask<TInput, TOutput>();
-                    activityOutput.Output = await activityWithOutput.StartAsync(input);
+                    activityOutput.Output = await activityWithOutput
+                        .StartAsync(input)
+                        .ConfigureAwait(continueOnCapturedContext: false);
                 }
                 finally
                 {
@@ -100,7 +102,9 @@ namespace Songhay.Extensions
                 try
                 {
                     var activityWithTask = activity.ToActivityWithTask<TInput>();
-                    await activityWithTask.StartAsync(input);
+                    await activityWithTask
+                        .StartAsync(input)
+                        .ConfigureAwait(continueOnCapturedContext: false);
                 }
                 finally
                 {
@@ -133,7 +137,9 @@ namespace Songhay.Extensions
                 try
                 {
                     var activityWithTask = activity.ToActivityWithTask();
-                    await activityWithTask.StartAsync();
+                    await activityWithTask
+                        .StartAsync()
+                        .ConfigureAwait(continueOnCapturedContext: false);
                 }
                 finally
                 {

@@ -49,7 +49,9 @@ namespace Songhay.Net
             {
                 try
                 {
-                    return await base.SendAsync(request, cts?.Token ?? cancellationToken);
+                    return await base
+                        .SendAsync(request, cts?.Token ?? cancellationToken)
+                        .ConfigureAwait(continueOnCapturedContext: false);
                 }
                 catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested)
                 {

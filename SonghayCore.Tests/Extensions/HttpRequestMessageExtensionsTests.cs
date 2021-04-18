@@ -41,7 +41,7 @@ namespace Songhay.Tests.Extensions
 
                     cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
 
-                    await request.GetServerResponseAsync(
+                    await request.GetContentAsync(
                         responseMessageAction: null,
                         optionalClientGetter: () => client);
                 }
@@ -73,7 +73,7 @@ namespace Songhay.Tests.Extensions
             var template = new UriTemplate($"{LIVE_API_BASE_URI}/{input}");
             var uri = template.BindByPosition($"{id}");
             var content = await new HttpRequestMessage(HttpMethod.Get, uri)
-                .GetServerResponseAsync(response => Assert.Equal(HttpStatusCode.OK, response.StatusCode));
+                .GetContentAsync(response => Assert.Equal(HttpStatusCode.OK, response.StatusCode));
             this._testOutputHelper.WriteLine(content);
         }
 
@@ -157,7 +157,7 @@ namespace Songhay.Tests.Extensions
                     this._testOutputHelper.WriteLine($"calling `{location}`...");
                     var request = new HttpRequestMessage(HttpMethod.Get, location);
 
-                    await request.GetServerResponseAsync(
+                    await request.GetContentAsync(
                         responseMessageAction: null,
                         optionalClientGetter: () => client);
                 }

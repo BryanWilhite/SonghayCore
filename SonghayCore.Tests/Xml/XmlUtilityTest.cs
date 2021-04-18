@@ -35,7 +35,7 @@ namespace Songhay.Tests
             }
             finally
             {
-                if (ms != null) ms.Dispose();
+                ms?.Dispose();
             }
         }
     }

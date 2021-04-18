@@ -37,9 +37,9 @@ namespace Songhay.Tests.Net
 
                     cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
 
-                    using (var response = await client.SendAsync(request, cts.Token))
-                    {
-                    }
+                    using var response = await client
+                        .SendAsync(request, cts.Token)
+                        .ConfigureAwait(continueOnCapturedContext: false);
                 }
                 catch (Exception ex)
                 {
@@ -68,9 +68,9 @@ namespace Songhay.Tests.Net
                     this._testOutputHelper.WriteLine($"calling `{location}`...");
                     var request = new HttpRequestMessage(HttpMethod.Get, location);
 
-                    using (var response = await client.SendAsync(request, cts.Token))
-                    {
-                    }
+                    using var response = await client
+                        .SendAsync(request, cts.Token)
+                        .ConfigureAwait(continueOnCapturedContext: false);
                 }
                 catch (Exception ex)
                 {

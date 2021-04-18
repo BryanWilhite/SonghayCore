@@ -19,11 +19,11 @@ namespace Songhay.Extensions
         /// <param name="response">The response.</param>
         /// <param name="fileInfo">The file information.</param>
         /// <exception cref="NullReferenceException">The expected {nameof(FileSystemInfo)} is not here.</exception>
-        public static async Task DownloadByteArrayToFile(this HttpResponseMessage response, FileSystemInfo fileInfo)
+        public static async Task DownloadByteArrayToFileAsync(this HttpResponseMessage response, FileSystemInfo fileInfo)
         {
             if (fileInfo == null) throw new NullReferenceException($"The expected {nameof(FileSystemInfo)} is not here.");
 
-            await response.DownloadByteArrayToFile(fileInfo.FullName);
+            await response.DownloadByteArrayToFileAsync(fileInfo.FullName);
         }
 
         /// <summary>
@@ -32,10 +32,14 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="response">The response.</param>
         /// <param name="target">The target.</param>
-        public static async Task DownloadByteArrayToFile(this HttpResponseMessage response, string target)
+        public static async Task DownloadByteArrayToFileAsync(this HttpResponseMessage response, string target)
         {
             if (response == null) return;
-            var data = await response.Content.ReadAsByteArrayAsync();
+
+            var data = await response.Content
+                .ReadAsByteArrayAsync()
+                .ConfigureAwait(continueOnCapturedContext: false);
+
             File.WriteAllBytes(target, data);
         }
 
@@ -46,11 +50,11 @@ namespace Songhay.Extensions
         /// <param name="response">The response.</param>
         /// <param name="fileInfo">The file information.</param>
         /// <exception cref="NullReferenceException">The expected {nameof(FileSystemInfo)} is not here.</exception>
-        public static async Task DownloadStringToFile(this HttpResponseMessage response, FileSystemInfo fileInfo)
+        public static async Task DownloadStringToFileAsync(this HttpResponseMessage response, FileSystemInfo fileInfo)
         {
-            if (fileInfo == null) throw new NullReferenceException($"The expected {nameof(FileSystemInfo)} is not here.");
+            if (fileInfo == null) throw new ArgumentNullException(nameof(fileInfo));
 
-            await response.DownloadStringToFile(fileInfo.FullName);
+            await response.DownloadStringToFileAsync(fileInfo.FullName);
         }
 
         /// <summary>
@@ -59,10 +63,14 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="response">The response.</param>
         /// <param name="target">The target.</param>
-        public static async Task DownloadStringToFile(this HttpResponseMessage response, string target)
+        public static async Task DownloadStringToFileAsync(this HttpResponseMessage response, string target)
         {
             if (response == null) return;
-            var data = await response.Content.ReadAsStringAsync();
+
+            var data = await response.Content
+                .ReadAsStringAsync()
+                .ConfigureAwait(continueOnCapturedContext: false);
+
             File.WriteAllText(target, data);
         }
 
@@ -85,9 +93,14 @@ namespace Songhay.Extensions
         /// <returns></returns>
         public static async Task<JContainer> ToJContainerAsync(this HttpResponseMessage response)
         {
-            if (response == null) return await Task.FromResult(default(JContainer));
+            if (response == null) return await Task
+                .FromResult(default(JContainer))
+                .ConfigureAwait(continueOnCapturedContext: false);
 
-            var content = await response.Content.ReadAsStringAsync();
+            var content = await response.Content
+                .ReadAsStringAsync()
+                .ConfigureAwait(continueOnCapturedContext: false);
+
             if (string.IsNullOrWhiteSpace(content)) return null;
 
             return JToken.Parse(content) as JContainer;

@@ -46,21 +46,18 @@ namespace Songhay.Extensions
             var request = new HttpRequestMessage(HttpMethod.Get, uri);
             requestMessageAction?.Invoke(request);
 
-            var response = await client.SendAsync(request);
-            var stream = await response.Content.ReadAsStreamAsync();
-            try
+            using (var response = await client
+                .SendAsync(request)
+                .ConfigureAwait(continueOnCapturedContext: false))
+            using (var stream = await response.Content
+                .ReadAsStreamAsync()
+                .ConfigureAwait(continueOnCapturedContext: false))
+            using (var fs = File.Create(path))
             {
-                using (var fs = File.Create(path))
+                while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
                 {
-                    while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
-                    {
-                        fs.Write(buffer, 0, bytesRead);
-                    }
+                    fs.Write(buffer, 0, bytesRead);
                 }
-            }
-            finally
-            {
-                stream.Close();
             }
         }
 
@@ -85,9 +82,11 @@ namespace Songhay.Extensions
         {
             if (client == null) return null;
 
-            var response = await client.GetStringAsync(uri);
+            var content = await client
+                .GetStringAsync(uri)
+                .ConfigureAwait(continueOnCapturedContext: false);
 
-            return response;
+            return content;
         }
 
         /// <summary>
@@ -104,8 +103,15 @@ namespace Songhay.Extensions
             var request = new HttpRequestMessage(HttpMethod.Get, uri);
             requestMessageAction?.Invoke(request);
 
-            var response = await client.SendAsync(request);
-            var content = await response.Content.ReadAsStringAsync();
+            string content = null;
+
+            using (var response = await client
+                .SendAsync(request)
+                .ConfigureAwait(continueOnCapturedContext: false))
+
+                content = await response.Content
+                    .ReadAsStringAsync()
+                    .ConfigureAwait(continueOnCapturedContext: false);
 
             return content;
         }
@@ -326,7 +332,10 @@ namespace Songhay.Extensions
             var request = new HttpRequestMessage(method, uri);
             requestMessageAction?.Invoke(request);
 
-            var response = await client.SendAsync(request);
+            var response = await client
+                .SendAsync(request)
+                .ConfigureAwait(continueOnCapturedContext: false);
+
             return response;
         }
 
@@ -361,7 +370,9 @@ namespace Songhay.Extensions
 
             requestMessageAction?.Invoke(request);
 
-            var response = await client.SendAsync(request);
+            var response = await client
+                .SendAsync(request)
+                .ConfigureAwait(continueOnCapturedContext: false);
 
             return response;
         }

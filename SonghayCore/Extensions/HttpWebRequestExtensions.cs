@@ -52,7 +52,6 @@ namespace Songhay.Extensions
                         fs.Write(buffer, 0, bytesRead);
                     }
                 }
-
             }
             finally
             {
@@ -81,7 +80,7 @@ namespace Songhay.Extensions
         {
             if (request == null) return null;
 
-            string responseText = null;
+            string content = null;
             var response = request
                 .WithProxy(proxyLocation, bypassProxy)
                 .ToHttpWebResponse();
@@ -89,7 +88,7 @@ namespace Songhay.Extensions
             {
                 using (var sr = new StreamReader(response.GetResponseStream()))
                 {
-                    responseText = sr.ReadToEnd();
+                    content = sr.ReadToEnd();
                 }
             }
             finally
@@ -97,7 +96,7 @@ namespace Songhay.Extensions
                 response.Close();
             }
 
-            return responseText;
+            return content;
         }
 
         /// <summary>
@@ -131,6 +130,7 @@ namespace Songhay.Extensions
                 .ContentType = "application/x-www-form-urlencoded";
 
             var response = request.DownloadToString();
+
             return response;
         }
 
@@ -163,6 +163,7 @@ namespace Songhay.Extensions
                 .ContentType = "text/xml";
 
             var response = request.DownloadToString();
+
             return response;
         }
 

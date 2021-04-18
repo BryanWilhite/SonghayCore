@@ -28,12 +28,12 @@ namespace Songhay.Tests.Extensions
 
             var uri = new Uri(location);
             var request = new HttpRequestMessage(HttpMethod.Get, uri);
-            var response = await request.SendAsync();
+            using var response = await request.SendAsync();
 
             var targetInfo = new FileInfo(rootInfo.ToCombinedPath(uri.ToFileName()));
             this._testOutputHelper.WriteLine($"Downloading to {targetInfo.FullName}...");
 
-            await response.DownloadByteArrayToFile(targetInfo);
+            await response.DownloadByteArrayToFileAsync(targetInfo);
         }
 
         [Theory]
@@ -46,12 +46,12 @@ namespace Songhay.Tests.Extensions
 
             var uri = new Uri(location);
             var request = new HttpRequestMessage(HttpMethod.Get, uri);
-            var response = await request.SendAsync();
+            using var response = await request.SendAsync();
 
             var targetInfo = new FileInfo(rootInfo.ToCombinedPath(uri.ToFileName()));
             this._testOutputHelper.WriteLine($"Downloading to {targetInfo.FullName}...");
 
-            await response.DownloadStringToFile(targetInfo);
+            await response.DownloadStringToFileAsync(targetInfo);
         }
 
         [Trait("Category", "Integration")]
@@ -64,11 +64,12 @@ namespace Songhay.Tests.Extensions
             var jO = JObject.Parse("{\"output\": null}");
 
             var content = await new HttpRequestMessage(HttpMethod.Get, uri)
-                .GetServerResponseAsync(async response =>
+                .GetContentAsync(async response =>
                 {
                     Assert.Equal(HttpStatusCode.OK, response.StatusCode);
                     jO["output"] = await response.ToJContainerAsync();
                 });
+
             this._testOutputHelper.WriteLine(jO.ToString());
         }
 
@@ -83,7 +84,7 @@ namespace Songhay.Tests.Extensions
             var jO = JObject.Parse("{\"output\": null}");
 
             var content = await new HttpRequestMessage(HttpMethod.Get, uri)
-                .GetServerResponseAsync(async response =>
+                .GetContentAsync(async response =>
                 {
                     Assert.Equal(HttpStatusCode.OK, response.StatusCode);
                     jO["output"] = await response.ToJContainerAsync();

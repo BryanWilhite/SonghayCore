@@ -1428,13 +1428,13 @@
             Extensions of <see cref="T:System.Net.Http.HttpRequestMessage"/>
             </summary>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetServerResponseAsync(System.Net.Http.HttpRequestMessage)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)">
             <summary>
             Gets a <see cref="T:System.String"/> from the derived <see cref="T:System.Net.Http.HttpResponseMessage"/>.
             </summary>
             <param name="request">The request.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetServerResponseAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})">
             <summary>
             Gets a <see cref="T:System.String" /> from the derived <see cref="T:System.Net.Http.HttpResponseMessage" />.
             </summary>
@@ -1442,7 +1442,7 @@
             <param name="responseMessageAction">The response message action.</param>
             <returns></returns>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetServerResponseAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})">
             <summary>
             Gets a <see cref="T:System.String" /> from the derived <see cref="T:System.Net.Http.HttpResponseMessage" />.
             </summary>
@@ -1533,7 +1533,7 @@
             Extensions of <see cref="T:System.Net.Http.HttpResponseMessage"/>.
             </summary>
         </member>
-        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadByteArrayToFile(System.Net.Http.HttpResponseMessage,System.IO.FileSystemInfo)">
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadByteArrayToFileAsync(System.Net.Http.HttpResponseMessage,System.IO.FileSystemInfo)">
             <summary>
             Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
             from <see cref="T:System.Byte"/> array to file.
@@ -1542,7 +1542,7 @@
             <param name="fileInfo">The file information.</param>
             <exception cref="T:System.NullReferenceException">The expected {nameof(FileSystemInfo)} is not here.</exception>
         </member>
-        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadByteArrayToFile(System.Net.Http.HttpResponseMessage,System.String)">
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadByteArrayToFileAsync(System.Net.Http.HttpResponseMessage,System.String)">
             <summary>
             Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
             from <see cref="T:System.Byte"/> array to file.
@@ -1550,7 +1550,7 @@
             <param name="response">The response.</param>
             <param name="target">The target.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadStringToFile(System.Net.Http.HttpResponseMessage,System.IO.FileSystemInfo)">
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadStringToFileAsync(System.Net.Http.HttpResponseMessage,System.IO.FileSystemInfo)">
             <summary>
             Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
             from <see cref="T:System.Byte"/> array to file.
@@ -1559,7 +1559,7 @@
             <param name="fileInfo">The file information.</param>
             <exception cref="T:System.NullReferenceException">The expected {nameof(FileSystemInfo)} is not here.</exception>
         </member>
-        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadStringToFile(System.Net.Http.HttpResponseMessage,System.String)">
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadStringToFileAsync(System.Net.Http.HttpResponseMessage,System.String)">
             <summary>
             Downloads <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
             from <see cref="T:System.Byte"/> array to file.

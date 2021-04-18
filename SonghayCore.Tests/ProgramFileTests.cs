@@ -86,7 +86,7 @@ namespace Songhay.Tests
             }
             finally
             {
-                if (stream != null) stream.Dispose();
+                stream?.Dispose();
             }
         }
 
@@ -115,7 +115,7 @@ This is the end of the file.
             }
             finally
             {
-                if (stream != null) stream.Dispose();
+                stream?.Dispose();
             }
         }
 
@@ -144,7 +144,7 @@ This is the end of the file.
             }
             finally
             {
-                if (stream != null) stream.Dispose();
+                stream?.Dispose();
             }
         }
 

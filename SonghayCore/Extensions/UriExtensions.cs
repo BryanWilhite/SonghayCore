@@ -70,19 +70,26 @@ namespace Songhay.Extensions
             if (expandableUri == null) throw new ArgumentNullException(nameof(expandableUri));
 
             var message = new HttpRequestMessage(HttpMethod.Get, expandableUri);
-            var response = await message.SendAsync();
+            Uri uri = null;
 
-            if (response.Headers.Location == null)
+            using (var response = await message.SendAsync())
             {
-                return message.RequestUri;
+                if (response.Headers.Location == null)
+                {
+                    return message.RequestUri;
+                }
+
+                if (response.IsMovedOrRedirected())
+                {
+                    return response.Headers.Location;
+                }
+
+                uri = await response.Headers.Location
+                    .ToExpandedUriAsync()
+                    .ConfigureAwait(continueOnCapturedContext: false);
             }
 
-            if (response.IsMovedOrRedirected())
-            {
-                return response.Headers.Location;
-            }
-
-            return await response.Headers.Location.ToExpandedUriAsync();
+            return uri;
         }
 
         /// <summary>
@@ -93,7 +100,9 @@ namespace Songhay.Extensions
         /// <returns></returns>
         public static async Task<KeyValuePair<Uri, Uri>> ToExpandedUriPairAsync(this Uri expandableUri)
         {
-            var expandedUri = await expandableUri.ToExpandedUriAsync();
+            var expandedUri = await expandableUri
+                .ToExpandedUriAsync()
+                .ConfigureAwait(continueOnCapturedContext: false);
             return new KeyValuePair<Uri, Uri>(expandableUri, expandedUri);
         }
 

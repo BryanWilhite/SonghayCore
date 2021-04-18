@@ -16,9 +16,9 @@ namespace Songhay.Extensions
         /// Gets a <see cref="string"/> from the derived <see cref="HttpResponseMessage"/>.
         /// </summary>
         /// <param name="request">The request.</param>
-        public static async Task<string> GetServerResponseAsync(this HttpRequestMessage request)
+        public static async Task<string> GetContentAsync(this HttpRequestMessage request)
         {
-            return await request.GetServerResponseAsync(responseMessageAction: null, optionalClientGetter: null);
+            return await request.GetContentAsync(responseMessageAction: null, optionalClientGetter: null);
         }
 
         /// <summary>
@@ -27,9 +27,9 @@ namespace Songhay.Extensions
         /// <param name="request">The request.</param>
         /// <param name="responseMessageAction">The response message action.</param>
         /// <returns></returns>
-        public static async Task<string> GetServerResponseAsync(this HttpRequestMessage request, Action<HttpResponseMessage> responseMessageAction)
+        public static async Task<string> GetContentAsync(this HttpRequestMessage request, Action<HttpResponseMessage> responseMessageAction)
         {
-            return await request.GetServerResponseAsync(responseMessageAction, optionalClientGetter: null);
+            return await request.GetContentAsync(responseMessageAction, optionalClientGetter: null);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Songhay.Extensions
         /// <param name="optionalClientGetter">The optional client getter.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">request</exception>
-        public static async Task<string> GetServerResponseAsync(this HttpRequestMessage request,
+        public static async Task<string> GetContentAsync(this HttpRequestMessage request,
             Action<HttpResponseMessage> responseMessageAction,
             Func<HttpClient> optionalClientGetter)
         {
@@ -50,10 +50,14 @@ namespace Songhay.Extensions
 
             string content = null;
 
-            using (var response = await client.SendAsync(request))
+            using (var response = await client
+                .SendAsync(request)
+                .ConfigureAwait(continueOnCapturedContext: false))
             {
                 responseMessageAction?.Invoke(response);
-                content = await response.Content.ReadAsStringAsync();
+                content = await response.Content
+                    .ReadAsStringAsync()
+                    .ConfigureAwait(continueOnCapturedContext: false);
             }
 
             return content;
@@ -101,7 +105,9 @@ namespace Songhay.Extensions
 
             var client = (optionalClientGetter == null) ? GetHttpClient() : optionalClientGetter.Invoke();
 
-            var response = await client.SendAsync(request);
+            var response = await client
+                .SendAsync(request)
+                .ConfigureAwait(continueOnCapturedContext: false);
 
             return response;
         }
@@ -177,7 +183,9 @@ namespace Songhay.Extensions
 
             var client = (optionalClientGetter == null) ? GetHttpClient() : optionalClientGetter.Invoke();
 
-            var response = await client.SendAsync(request);
+            var response = await client
+                .SendAsync(request)
+                .ConfigureAwait(continueOnCapturedContext: false);
 
             return response;
         }
