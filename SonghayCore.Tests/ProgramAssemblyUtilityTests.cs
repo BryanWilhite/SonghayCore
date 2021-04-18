@@ -28,6 +28,9 @@ namespace Songhay.Tests
         {
             var assembly = this.GetType().Assembly;
 
+// ⚠ https://docs.microsoft.com/en-us/dotnet/core/compatibility/syslib-warnings/syslib0012
+#pragma warning disable SYSLIB0012
+
             var proposedLocation = (!string.IsNullOrWhiteSpace(assembly.CodeBase) &&
                     !ProgramFileUtility.IsForwardSlashSystem()) ?
                 assembly.CodeBase.Replace("file:///", string.Empty) :
@@ -36,6 +39,9 @@ namespace Songhay.Tests
             this._testOutputHelper.WriteLine($"{nameof(assembly.Location)}: {assembly.Location}");
             this._testOutputHelper.WriteLine($"{nameof(assembly.CodeBase)}: {assembly.CodeBase}");
             this._testOutputHelper.WriteLine($"{nameof(proposedLocation)}: {proposedLocation}");
+
+#pragma warning restore SYSLIB0012
+
         }
 
         readonly ITestOutputHelper _testOutputHelper;
