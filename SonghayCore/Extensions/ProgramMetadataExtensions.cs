@@ -15,11 +15,11 @@ namespace Songhay.Extensions
         /// <param name="meta">The <see cref="ProgramMetadata"/>.</param>
         /// <param name="connectionStringName">Name of the connection string.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">meta - The expected Songhay System metadata is not here.</exception>
+        /// <exception cref="ArgumentNullException">meta</exception>
         /// <exception cref="NotSupportedException">connectionStringName</exception>
         public static string GetConnectionStringWithDecryptedValue(this ProgramMetadata meta, string connectionStringName)
         {
-            if (meta == null) throw new ArgumentNullException(nameof(meta), "The expected Songhay System metadata is not here.");
+            if (meta == null) throw new ArgumentNullException(nameof(meta));
 
             if (!meta.DbmsSet.TryGetValue(connectionStringName, out var dbmsMeta))
                 throw new NotSupportedException($"{nameof(connectionStringName)}: {connectionStringName} is not here.");
@@ -40,7 +40,7 @@ namespace Songhay.Extensions
         /// <returns></returns>
         public static Dictionary<string, string> ToConventionalHeaders(this ProgramMetadata meta, string restApiMetadataSetKey)
         {
-            if (meta == null) throw new ArgumentNullException(nameof(meta), "The expected conventional metadata is not here.");
+            if (meta == null) throw new ArgumentNullException(nameof(meta));
 
             var genWebApiMeta = meta.RestApiMetadataSet.TryGetValueWithKey(restApiMetadataSetKey);
             var headers = new Dictionary<string, string>

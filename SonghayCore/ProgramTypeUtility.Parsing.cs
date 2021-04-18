@@ -453,7 +453,7 @@ namespace Songhay
         public static DateTime ParseRfc3339DateTime(string value)
         {
             DateTime minValue = DateTime.MinValue;
-            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("value", "The specified value is null.");
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException(nameof(value));
             if (!TryParseRfc3339DateTime(value, out minValue))
             {
                 throw new FormatException(string.Format(CultureInfo.CurrentCulture, "'{0}' is not a valid RFC-3339 formatted date-time value.", new object[] { value }));
@@ -471,7 +471,7 @@ namespace Songhay
         public static DateTime ParseRfc822DateTime(string value)
         {
             DateTime minValue = DateTime.MinValue;
-            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("value", "The specified value is null.");
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException(nameof(value));
             if (!TryParseRfc822DateTime(value, out minValue))
             {
                 throw new FormatException(string.Format(CultureInfo.CurrentCulture, "'{0}' is not a valid RFC-822 formatted date-time value.", new object[] { value }));
@@ -544,7 +544,7 @@ namespace Songhay
 
         static string ReplaceRfc822TimeZoneWithOffset(string value)
         {
-            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("value", "The specified value is null.");
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException(nameof(value));
             value = value.Trim();
             if (value.EndsWith("UT", StringComparison.OrdinalIgnoreCase))
             {

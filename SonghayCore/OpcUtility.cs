@@ -49,7 +49,7 @@ namespace Songhay
             Justification = "OPC Pack URIs are not fully supported by System.Uri.")]
         public static string GetPackUriFromType(Type type, OpcReferencedTypeStrategy strategy, string extension)
         {
-            if(type == null) throw new ArgumentNullException("type", "The Type is null.");
+            if(type == null) throw new ArgumentNullException(nameof(type));
 
             string referencedAssembly = GetReferencedAssembly(type, strategy);
 

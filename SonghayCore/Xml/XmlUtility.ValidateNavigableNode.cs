@@ -21,13 +21,13 @@ namespace Songhay.Xml
         /// </param>
         public static XmlSchema GetXmlSchema(IXPathNavigable navigableSet, ValidationEventHandler eventHandler)
         {
-            if(navigableSet == null) throw new ArgumentNullException("navigableSet", "The navigable set is null.");
-            if(eventHandler == null) throw new ArgumentNullException("eventHandler", "The validation event handler is null.");
+            if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
+            if (eventHandler == null) throw new ArgumentNullException(nameof(eventHandler));
 
             XPathNavigator navigator = navigableSet.CreateNavigator();
 
             XmlSchema schema = null;
-            using(StringReader s = new StringReader(navigator.OuterXml))
+            using (StringReader s = new StringReader(navigator.OuterXml))
             {
                 schema = XmlSchema.Read(s, eventHandler);
 
@@ -48,11 +48,12 @@ namespace Songhay.Xml
         /// </param>
         public static XmlSchema LoadXmlSchema(string pathToSchema, ValidationEventHandler eventHandler)
         {
-            if(!File.Exists(pathToSchema)) throw new ArgumentException("The path to the schema is not valid.", "pathToSchema");
-            if(eventHandler == null) throw new ArgumentNullException("eventHandler", "The validation event handler is null.");
+            if(string.IsNullOrWhiteSpace(pathToSchema)) throw new ArgumentException(nameof(pathToSchema));
+            if (!File.Exists(pathToSchema)) throw new ArgumentException(nameof(pathToSchema));
+            if (eventHandler == null) throw new ArgumentNullException(nameof(eventHandler));
 
             XmlSchema schema = null;
-            using(XmlTextReader x = new XmlTextReader(pathToSchema))
+            using (XmlTextReader x = new XmlTextReader(pathToSchema))
             {
                 schema = XmlSchema.Read(x, eventHandler);
             }
@@ -75,9 +76,9 @@ namespace Songhay.Xml
         /// </param>
         public static void ValidateNavigableNode(IXPathNavigable navigableSet, XmlSchema schema, ValidationEventHandler eventHandler)
         {
-            if(navigableSet == null) throw new ArgumentNullException("navigableSet", "The navigable set is null.");
-            if(schema == null) throw new ArgumentNullException("schema", "The schema is null.");
-            if(eventHandler == null) throw new ArgumentNullException("eventHandler", "The validation event handler is null.");
+            if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
+            if (schema == null) throw new ArgumentNullException(nameof(schema));
+            if (eventHandler == null) throw new ArgumentNullException(nameof(eventHandler));
 
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.Schemas.Add(schema);
@@ -85,7 +86,7 @@ namespace Songhay.Xml
             settings.ValidationEventHandler += new ValidationEventHandler(eventHandler);
 
             XPathNavigator navigator = navigableSet.CreateNavigator();
-            using(StringReader s = new StringReader(navigator.OuterXml))
+            using (StringReader s = new StringReader(navigator.OuterXml))
             {
                 XmlReader.Create(s, settings);
             }

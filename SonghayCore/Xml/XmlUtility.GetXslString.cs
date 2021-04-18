@@ -61,8 +61,8 @@ namespace Songhay.Xml
         /// <param name="settings">The settings.</param>
         public static string GetXslString(IXPathNavigable xslSet, XsltArgumentList xslArgs, IXPathNavigable navigableSet, XmlWriterSettings settings)
         {
-            if(xslSet == null) throw new ArgumentNullException("xslSet", "XSL set is null");
-            if(navigableSet == null) throw new ArgumentNullException("navigableSet", "XML set is null");
+            if(xslSet == null) throw new ArgumentNullException(nameof(xslArgs));
+            if(navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
 
             XslCompiledTransform xslt = new XslCompiledTransform(false);
             xslt.Load(xslSet);

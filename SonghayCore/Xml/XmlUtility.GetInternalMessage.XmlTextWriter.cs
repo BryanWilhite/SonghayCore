@@ -59,7 +59,7 @@ namespace Songhay.Xml
         /// <param name="isFragment">When <c>false</c> a new document is started.</param>
         public static void GetInternalMessage(string messageHeader, string messageCode, string[] messageLines, XmlWriter xmlDataWriter, bool isFragment)
         {
-            if(xmlDataWriter == null) throw new ArgumentNullException("xmlDataWriter", "Argument xmlDataWriter is null.");
+            if(xmlDataWriter == null) throw new ArgumentNullException(nameof(xmlDataWriter));
 
             if (!isFragment) xmlDataWriter.WriteStartDocument();
             xmlDataWriter.WriteStartElement("InternalMessage");

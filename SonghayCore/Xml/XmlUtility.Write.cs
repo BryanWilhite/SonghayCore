@@ -35,7 +35,7 @@ namespace Songhay.Xml
             settings.IndentChars = "    ";
             settings.NewLineOnAttributes = false;
             settings.OmitXmlDeclaration = false;
-            using(XmlWriter writer = XmlWriter.Create(path, settings))
+            using (XmlWriter writer = XmlWriter.Create(path, settings))
             {
                 serializer.Serialize(writer, instance);
             }
@@ -48,9 +48,9 @@ namespace Songhay.Xml
         /// <param name="writerDestination"><see cref="System.Xml.XmlWriter"/></param>
         public static void WriteReader(XmlReader readerSource, XmlWriter writerDestination)
         {
-            if(writerDestination == null) throw new ArgumentNullException("writerDestination", "Argument writerDestination is null.");
+            if (writerDestination == null) throw new ArgumentNullException(nameof(writerDestination));
 
-            while((readerSource != null) && !readerSource.EOF)
+            while ((readerSource != null) && !readerSource.EOF)
             { writerDestination.WriteNode(readerSource, false); }
         }
 
@@ -68,13 +68,13 @@ namespace Songhay.Xml
         public static void WriteXslTransform(IXPathNavigable xmlInput,
             IXPathNavigable navigableSet, string outputPath)
         {
-            if(xmlInput == null) throw new ArgumentNullException("xmlInput", "XML set is null");
+            if (xmlInput == null) throw new ArgumentNullException(nameof(xmlInput));
 
-            using(FileStream fs = new FileStream(outputPath, FileMode.Create))
+            using (FileStream fs = new FileStream(outputPath, FileMode.Create))
             {
                 XslCompiledTransform xslt = new XslCompiledTransform(false);
                 xslt.Load(navigableSet);
-                using(StringReader sr = new StringReader(xmlInput.CreateNavigator().OuterXml))
+                using (StringReader sr = new StringReader(xmlInput.CreateNavigator().OuterXml))
                 {
                     XmlReader reader = XmlReader.Create(sr);
                     XmlWriter writer = XmlWriter.Create(fs);
@@ -96,7 +96,11 @@ namespace Songhay.Xml
         public static void WriteXslTransform(XmlReader xmlInput,
             IXPathNavigable navigableSet, string outputPath)
         {
-            using(FileStream fs = new FileStream(outputPath, FileMode.Create))
+            if (xmlInput == null) throw new ArgumentNullException(nameof(xmlInput));
+            if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
+            if (string.IsNullOrWhiteSpace(outputPath)) throw new ArgumentNullException(nameof(outputPath));
+
+            using (FileStream fs = new FileStream(outputPath, FileMode.Create))
             {
                 XslCompiledTransform xslt = new XslCompiledTransform(false);
                 xslt.Load(navigableSet);

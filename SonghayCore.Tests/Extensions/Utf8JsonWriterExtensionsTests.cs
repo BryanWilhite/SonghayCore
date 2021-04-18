@@ -5,7 +5,7 @@ using System.Text.Json;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace SonghayCore.Tests.Extensions
+namespace Songhay.Tests.Extensions
 {
     public class Utf8JsonWriterExtensionsTests
     {

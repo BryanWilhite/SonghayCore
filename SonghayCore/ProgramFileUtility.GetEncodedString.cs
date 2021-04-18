@@ -25,9 +25,7 @@ namespace Songhay
         /// <param name="encoding">The encoding.</param>
         public static string GetEncodedString(string rawValue, Encoding encoding)
         {
-            if (encoding == null)
-                throw new ArgumentNullException("encoding",
-                    "The expected encoding is not here.");
+            if (encoding == null) throw new ArgumentNullException(nameof(encoding));
 
             byte[] b = Encoding.Convert(Encoding.ASCII, encoding, encoding.GetBytes(rawValue));
 

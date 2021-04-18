@@ -64,7 +64,7 @@ namespace Songhay.Extensions
         /// <param name="delimiter">The delimiter.</param>
         /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+        /// <exception cref="ArgumentNullException">unqualifiedKey</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName, string delimiter, bool throwConfigurationErrorsException)
         {
@@ -226,7 +226,7 @@ namespace Songhay.Extensions
         /// <param name="delimiter">The delimiter.</param>
         /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+        /// <exception cref="ArgumentNullException">unqualifiedKey</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
         public static string GetKeyWithEnvironmentName(this KeyValueConfigurationCollection settings, string unqualifiedKey, string environmentName, string delimiter, bool throwConfigurationErrorsException)
         {

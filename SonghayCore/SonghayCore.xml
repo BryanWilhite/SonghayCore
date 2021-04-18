@@ -598,7 +598,7 @@
             <param name="delimiter">The delimiter.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+            <exception cref="T:System.ArgumentNullException">unqualifiedKey</exception>
             <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionStringSettings(System.Configuration.ConnectionStringSettingsCollection,System.String)">
@@ -694,7 +694,7 @@
             <param name="delimiter">The delimiter.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
+            <exception cref="T:System.ArgumentNullException">unqualifiedKey</exception>
             <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetSetting(System.Configuration.KeyValueConfigurationCollection,System.String)">
@@ -1000,9 +1000,9 @@
             <param name="encryptedString">The encrypted string.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">
-            encryptionMeta;The expected metadata is not here.
+            encryptionMeta
             or
-            encryptedString;The expected encrypted string is not here.
+            encryptedString
             </exception>
         </member>
         <member name="M:Songhay.Extensions.EncryptionMetadataExtensions.GetConnectionStringWithDecryptedValue(Songhay.Models.EncryptionMetadata,System.String,System.String)">
@@ -1014,9 +1014,9 @@
             <param name="connectionStringKey">The connection string key.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">
-            encryptionMeta;The expected metadata is not here.
+            encryptionMeta
             or
-            connectionString;The expected configuration settings are not here.
+            connectionString
             </exception>
             <exception cref="T:System.NullReferenceException"></exception>
         </member>
@@ -1399,9 +1399,10 @@
             <param name="method">The method.</param>
             <param name="requestMessageAction">The request message action.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">uri - The expected URI is not here.
+            <exception cref="T:System.ArgumentNullException">uri
             or
-            mediaType - The expected request body media type is not here.</exception>
+            mediaType
+            </exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.SendBodyAsync(System.Net.Http.HttpClient,System.Uri,System.Net.Http.HttpMethod,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
@@ -1416,7 +1417,11 @@
             <param name="mediaType">Type of the media.</param>
             <param name="requestMessageAction">The request message action.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+            <exception cref="T:System.ArgumentNullException">
+            requestBody
+            or
+            mediaType
+            </exception>
         </member>
         <member name="T:Songhay.Extensions.HttpRequestMessageExtensions">
             <summary>
@@ -1468,9 +1473,11 @@
             <param name="requestMessageAction">The request message action.</param>
             <param name="optionalClientGetter">The optional client getter.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">uri - The expected URI is not here.
+            <exception cref="T:System.ArgumentNullException">
+            uri
             or
-            mediaType - The expected request body media type is not here.</exception>
+            mediaType
+            </exception>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)">
             <summary>
@@ -1515,7 +1522,11 @@
             <param name="requestMessageAction">The request message action.</param>
             <param name="optionalClientGetter">The optional client getter.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
+            <exception cref="T:System.ArgumentNullException">
+            requestBody
+            or
+            mediaType
+            </exception>
         </member>
         <member name="T:Songhay.Extensions.HttpResponseMessageExtensions">
             <summary>
@@ -1675,9 +1686,9 @@
             <param name="requestMethod">The request method.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">
-            requestBody;The expected request body is not here.
+            requestBody
             or
-            method;The expected request method is not here.
+            method
             </exception>
         </member>
         <member name="T:Songhay.Extensions.IActivityExtensions">
@@ -1698,7 +1709,7 @@
             <param name="activity">The activity.</param>
             <param name="configuration">The configuration.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">activity - The expected activity is not here.</exception>
+            <exception cref="T:System.ArgumentNullException">activity</exception>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.GetActivity(System.Collections.Generic.Dictionary{System.String,System.Lazy{Songhay.Models.IActivity}},System.String)">
             <summary>
@@ -1708,8 +1719,7 @@
             <param name="activityName">Name of the activity.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">
-            The expected Activity name is not here.
-            or
+            activityName
             </exception>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartActivity(Songhay.Models.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource)">
@@ -2030,7 +2040,7 @@
             <param name="key">The key.</param>
             <param name="throwException">if set to <c>true</c> [throw exception].</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">The expected dictionary is not here.</exception>
+            <exception cref="T:System.ArgumentNullException">dictionary</exception>
             <exception cref="T:System.NullReferenceException"></exception>
         </member>
         <member name="T:Songhay.Extensions.IEnumerableOfTExtensions">
@@ -2706,7 +2716,7 @@
             <param name="meta">The <see cref="T:Songhay.Models.ProgramMetadata"/>.</param>
             <param name="connectionStringName">Name of the connection string.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">meta - The expected Songhay System metadata is not here.</exception>
+            <exception cref="T:System.ArgumentNullException">meta</exception>
             <exception cref="T:System.NotSupportedException">connectionStringName</exception>
         </member>
         <member name="M:Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(Songhay.Models.ProgramMetadata,System.String)">
@@ -2731,7 +2741,7 @@
             <param name="uriTemplateKey">The URI template key.</param>
             <param name="bindByPositionValues">The bind by position values.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">bindByPositionValues;The expected bind-by-position values are not here.</exception>
+            <exception cref="T:System.ArgumentNullException">bindByPositionValues</exception>
             <exception cref="T:System.FormatException">The expected REST API metadata URI template key is not here.</exception>
         </member>
         <member name="T:Songhay.Extensions.StringBuilderExtensions">
@@ -3457,7 +3467,7 @@
             <param name="baseUri">The base URI.</param>
             <param name="values">The values.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">template - The expected URI template is not here.</exception>
+            <exception cref="T:System.ArgumentNullException">template</exception>
             <exception cref="T:System.FormatException"></exception>
         </member>
         <member name="T:Songhay.Extensions.Utf8JsonWriterExtensions">
@@ -3512,7 +3522,7 @@
             <param name="propertyValue">The property value.</param>
             <param name="propertyName">Name of the property.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">The expected Property Name to validate is not here.</exception>
+            <exception cref="T:System.ArgumentNullException">propertyName</exception>
         </member>
         <member name="M:Songhay.Extensions.ValidationContextExtensions.ToDisplayText(System.ComponentModel.DataAnnotations.ValidationResult)">
             <summary>
@@ -4175,7 +4185,7 @@
             Restores the specified action.
             </summary>
             <param name="action">The action.</param>
-            <exception cref="T:System.ArgumentNullException">The expected restoration action is not here.</exception>
+            <exception cref="T:System.ArgumentNullException">action</exception>
         </member>
         <member name="T:Songhay.Models.EncryptionMetadata">
             <summary>
@@ -7051,7 +7061,7 @@
             </summary>
             <param name="assembly">The assembly.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">assembly;The expected assembly is not here.</exception>
+            <exception cref="T:System.ArgumentNullException">assembly</exception>
         </member>
         <member name="M:Songhay.ProgramAssemblyUtility.GetPathFromAssembly(System.Reflection.Assembly,System.String)">
             <summary>

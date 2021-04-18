@@ -15,10 +15,10 @@ namespace Songhay.Extensions
         /// <param name="activity">The activity.</param>
         /// <param name="configuration">The configuration.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">activity - The expected activity is not here.</exception>
+        /// <exception cref="ArgumentNullException">activity</exception>
         public static IActivity WithConfiguration(this IActivity activity, IConfigurationRoot configuration)
         {
-            if (activity == null) throw new ArgumentNullException(nameof(activity), "The expected activity is not here.");
+            if (activity == null) throw new ArgumentNullException(nameof(activity));
             if (configuration == null) return activity;
 
             var activityWithConfiguration = activity as IActivityConfigurationSupport;

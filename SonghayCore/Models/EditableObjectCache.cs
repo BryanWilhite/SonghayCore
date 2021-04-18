@@ -19,10 +19,10 @@ namespace Songhay.Models
         /// Restores the specified action.
         /// </summary>
         /// <param name="action">The action.</param>
-        /// <exception cref="System.ArgumentNullException">The expected restoration action is not here.</exception>
+        /// <exception cref="ArgumentNullException">action</exception>
         public void Restore(Action action)
         {
-            if (action == null) throw new ArgumentNullException("The expected restoration action is not here.");
+            if (action == null) throw new ArgumentNullException(nameof(action));
 
             this.IsRestoringFromCache = true;
             action.Invoke();

@@ -54,10 +54,10 @@ namespace Songhay
         /// </summary>
         /// <param name="assembly">The assembly.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">assembly;The expected assembly is not here.</exception>
+        /// <exception cref="ArgumentNullException">assembly</exception>
         public static string GetPathFromAssembly(Assembly assembly)
         {
-            if (assembly == null) throw new ArgumentNullException(nameof(assembly), "The expected assembly is not here.");
+            if (assembly == null) throw new ArgumentNullException(nameof(assembly));
 
 #pragma warning disable SYSLIB0012
             var hasCodeBaseOnWindows =
@@ -82,7 +82,7 @@ namespace Songhay
         /// <param name="fileSegment">The file segment.</param>
         public static string GetPathFromAssembly(Assembly assembly, string fileSegment)
         {
-            if (string.IsNullOrWhiteSpace(fileSegment)) throw new ArgumentNullException("fileSegment", "The expected file segment is not here.");
+            if (string.IsNullOrWhiteSpace(fileSegment)) throw new ArgumentNullException(nameof(fileSegment));
 
             fileSegment = ProgramFileUtility.TrimLeadingDirectorySeparatorChars(fileSegment);
             if (Path.IsPathRooted(fileSegment)) throw new FormatException("The expected relative path is not here.");

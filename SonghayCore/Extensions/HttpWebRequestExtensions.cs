@@ -230,15 +230,15 @@ namespace Songhay.Extensions
         /// <param name="requestMethod">The request method.</param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentNullException">
-        /// requestBody;The expected request body is not here.
+        /// requestBody
         /// or
-        /// method;The expected request method is not here.
+        /// method
         /// </exception>
         public static HttpWebRequest WithRequestBody(this HttpWebRequest request, string requestBody, string requestMethod)
         {
             if (request == null) return null;
-            if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException("requestBody", "The expected request body is not here.");
-            if (string.IsNullOrWhiteSpace(requestMethod)) throw new ArgumentNullException("method", "The expected request method is not here.");
+            if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody));
+            if (string.IsNullOrWhiteSpace(requestMethod)) throw new ArgumentNullException(nameof(requestMethod));
 
             request.Method = requestMethod;
 

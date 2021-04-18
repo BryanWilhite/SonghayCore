@@ -19,7 +19,7 @@ namespace Songhay.Xml
         /// <param name="innerXml">The inner XML.</param>
         public static XElement GetXElement(string rootElement, object innerXml)
         {
-            if(string.IsNullOrWhiteSpace(rootElement)) throw new ArgumentNullException("rootElement", "The expected root element name is not here.");
+            if(string.IsNullOrWhiteSpace(rootElement)) throw new ArgumentNullException(nameof(rootElement));
             return XElement.Parse(string.Format("<{0}>{1}</{0}>", rootElement, innerXml));
         }
 
@@ -31,7 +31,8 @@ namespace Songhay.Xml
         /// <returns></returns>
         public static XElement GetXElement(XNode root, string pathToElement)
         {
-            if(root == null) throw new ArgumentNullException("root", "The root element to query is null.");
+            if(root == null) throw new ArgumentNullException(nameof(root));
+            if(string.IsNullOrWhiteSpace(pathToElement)) throw new ArgumentNullException(nameof(pathToElement));
 
             return root.XPathSelectElement(pathToElement);
         }

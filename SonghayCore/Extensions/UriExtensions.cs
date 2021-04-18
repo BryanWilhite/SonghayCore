@@ -67,7 +67,7 @@ namespace Songhay.Extensions
         /// <returns></returns>
         public static async Task<Uri> ToExpandedUriAsync(this Uri expandableUri)
         {
-            if (expandableUri == null) throw new ArgumentNullException($"The expected {nameof(expandableUri)} is not here.");
+            if (expandableUri == null) throw new ArgumentNullException(nameof(expandableUri));
 
             var message = new HttpRequestMessage(HttpMethod.Get, expandableUri);
             var response = await message.SendAsync();

@@ -86,9 +86,11 @@ namespace Songhay.Extensions
         /// <param name="requestMessageAction">The request message action.</param>
         /// <param name="optionalClientGetter">The optional client getter.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">uri - The expected URI is not here.
+        /// <exception cref="ArgumentNullException">
+        /// uri
         /// or
-        /// mediaType - The expected request body media type is not here.</exception>
+        /// mediaType
+        /// </exception>
         public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage request,
             Action<HttpRequestMessage> requestMessageAction,
             Func<HttpClient> optionalClientGetter)
@@ -155,15 +157,19 @@ namespace Songhay.Extensions
         /// <param name="requestMessageAction">The request message action.</param>
         /// <param name="optionalClientGetter">The optional client getter.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        /// <exception cref="ArgumentNullException">
+        /// requestBody
+        /// or
+        /// mediaType
+        /// </exception>
         public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage request,
             string requestBody, Encoding encoding, string mediaType,
             Action<HttpRequestMessage> requestMessageAction,
             Func<HttpClient> optionalClientGetter)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
-            if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody), "The expected request body is not here.");
-            if (string.IsNullOrWhiteSpace(mediaType)) throw new ArgumentNullException(nameof(mediaType), "The expected request body media type is not here.");
+            if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody));
+            if (string.IsNullOrWhiteSpace(mediaType)) throw new ArgumentNullException(nameof(mediaType));
 
             request.Content = new StringContent(requestBody, encoding, mediaType);
 

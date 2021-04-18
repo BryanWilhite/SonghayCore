@@ -18,14 +18,14 @@ namespace Songhay.Extensions
         /// <param name="encryptedString">The encrypted string.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">
-        /// encryptionMeta;The expected metadata is not here.
+        /// encryptionMeta
         /// or
-        /// encryptedString;The expected encrypted string is not here.
+        /// encryptedString
         /// </exception>
         public static string Decrypt(this EncryptionMetadata encryptionMeta, string encryptedString)
         {
-            if (encryptionMeta == null) throw new ArgumentNullException("encryptionMeta", "The expected metadata is not here.");
-            if (string.IsNullOrWhiteSpace(encryptedString)) throw new ArgumentNullException("encryptedString", "The expected encrypted string is not here.");
+            if (encryptionMeta == null) throw new ArgumentNullException(nameof(encryptionMeta));
+            if (string.IsNullOrWhiteSpace(encryptedString)) throw new ArgumentNullException(nameof(encryptedString));
 
             var crypt = new SymmetricCrypt();
             return crypt.Decrypt(encryptedString, encryptionMeta.Key, encryptionMeta.InitialVector);
@@ -38,16 +38,16 @@ namespace Songhay.Extensions
         /// <param name="connectionString">The connection string.</param>
         /// <param name="connectionStringKey">The connection string key.</param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentNullException">
-        /// encryptionMeta;The expected metadata is not here.
+        /// <exception cref="ArgumentNullException">
+        /// encryptionMeta
         /// or
-        /// connectionString;The expected configuration settings are not here.
+        /// connectionString
         /// </exception>
         /// <exception cref="NullReferenceException"></exception>
         public static string GetConnectionStringWithDecryptedValue(this EncryptionMetadata encryptionMeta, string connectionString, string connectionStringKey)
         {
-            if (encryptionMeta == null) throw new ArgumentNullException("encryptionMeta", "The expected metadata is not here.");
-            if (string.IsNullOrWhiteSpace(connectionString)) throw new ArgumentNullException("connectionString", "The expected configuration settings are not here.");
+            if (encryptionMeta == null) throw new ArgumentNullException(nameof(encryptionMeta));
+            if (string.IsNullOrWhiteSpace(connectionString)) throw new ArgumentNullException(nameof(connectionString));
 
             var builder = new DbConnectionStringBuilder
             {
@@ -55,7 +55,7 @@ namespace Songhay.Extensions
             };
 
             var key = builder.Keys.OfType<string>().FirstOrDefault(i => i.ToLowerInvariant() == connectionStringKey);
-            if (key == null) throw new NullReferenceException(string.Format("The expected key “{0}” in connection string is not here.", connectionStringKey));
+            if (key == null) throw new NullReferenceException($"The expected key “{connectionStringKey}” in connection string is not here.");
 
             var decryptedValue = encryptionMeta.Decrypt(builder[connectionStringKey].ToString());
             builder[connectionStringKey] = decryptedValue;

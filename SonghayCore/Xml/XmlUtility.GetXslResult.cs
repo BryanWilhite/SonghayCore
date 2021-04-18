@@ -45,8 +45,8 @@ namespace Songhay.Xml
             Justification = "Specific functionality provided by the concrete type may be required.")]
         public static XPathDocument GetXslResult(IXPathNavigable xslSet, XsltArgumentList xslArgs, IXPathNavigable navigableSet)
         {
-            if(xslSet == null) throw new ArgumentNullException("xslSet", "XSL set is null");
-            if(navigableSet == null) throw new ArgumentNullException("navigableSet", "XML set is null");
+            if(xslSet == null) throw new ArgumentNullException(nameof(xslArgs));
+            if(navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
 
             XPathDocument ret = null;
 

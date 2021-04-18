@@ -31,8 +31,8 @@ namespace Songhay.ComponentModel
             Action<object, RunWorkerCompletedEventArgs> workCompleteAction,
             Action<object, ProgressChangedEventArgs> workProgressAction)
         {
-            if(workAction == null) throw new ArgumentNullException("workAction", "The work Action is null.");
-            if(workCompleteAction == null) throw new ArgumentNullException("workCompleteAction", "The work complete Action is null.");
+            if(workAction == null) throw new ArgumentNullException(nameof(workAction));
+            if(workCompleteAction == null) throw new ArgumentNullException(nameof(workCompleteAction));
 
             var worker = new BackgroundWorker();
 

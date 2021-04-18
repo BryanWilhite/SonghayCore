@@ -314,13 +314,14 @@ namespace Songhay.Extensions
         /// <param name="method">The method.</param>
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">uri - The expected URI is not here.
+        /// <exception cref="ArgumentNullException">uri
         /// or
-        /// mediaType - The expected request body media type is not here.</exception>
+        /// mediaType
+        /// </exception>
         public static async Task<HttpResponseMessage> SendAsync(this HttpClient client, Uri uri, HttpMethod method, Action<HttpRequestMessage> requestMessageAction)
         {
             if (client == null) return null;
-            if (uri == null) throw new ArgumentNullException(nameof(uri), "The expected URI is not here.");
+            if (uri == null) throw new ArgumentNullException(nameof(uri));
 
             var request = new HttpRequestMessage(method, uri);
             requestMessageAction?.Invoke(request);
@@ -341,13 +342,17 @@ namespace Songhay.Extensions
         /// <param name="mediaType">Type of the media.</param>
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
+        /// <exception cref="ArgumentNullException">
+        /// requestBody
+        /// or
+        /// mediaType
+        /// </exception>
         public static async Task<HttpResponseMessage> SendBodyAsync(this HttpClient client, Uri uri, HttpMethod method, string requestBody, Encoding encoding, string mediaType, Action<HttpRequestMessage> requestMessageAction)
         {
             if (client == null) return null;
             if (uri == null) throw new ArgumentNullException(nameof(uri), "The expected URI is not here.");
-            if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody), "The expected request body is not here.");
-            if (string.IsNullOrWhiteSpace(mediaType)) throw new ArgumentNullException(nameof(mediaType), "The expected request body media type is not here.");
+            if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody));
+            if (string.IsNullOrWhiteSpace(mediaType)) throw new ArgumentNullException(nameof(mediaType));
 
             var request = new HttpRequestMessage(method, uri)
             {

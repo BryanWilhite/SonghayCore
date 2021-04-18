@@ -26,11 +26,11 @@ namespace Songhay.Extensions
         /// <param name="baseUri">The base URI.</param>
         /// <param name="values">The values.</param>
         /// <returns></returns>
-        /// <exception cref="ArgumentNullException">template - The expected URI template is not here.</exception>
+        /// <exception cref="ArgumentNullException">template</exception>
         /// <exception cref="FormatException"></exception>
         public static Uri BindByPosition(this UriTemplate template, Uri baseUri, params string[] values)
         {
-            if (template == null) throw new ArgumentNullException("template", "The expected URI template is not here.");
+            if (template == null) throw new ArgumentNullException(nameof(template));
 
             var keys = template.GetParameterNames();
             for (int i = 0; i < keys.Count(); i++)

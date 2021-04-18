@@ -51,10 +51,10 @@ namespace Songhay.Xml
             XslCompiledTransform xslt = new XslCompiledTransform(false);
 
             string ret = null;
-            using(MemoryStream ms = new MemoryStream())
+            using (MemoryStream ms = new MemoryStream())
             {
                 xslt.Load(xslPath);
-                using(StringReader sr = new StringReader(xmlFragment))
+                using (StringReader sr = new StringReader(xmlFragment))
                 {
                     XmlReader reader = XmlReader.Create(sr);
                     XmlWriter writer = XmlWriter.Create(ms);
@@ -86,7 +86,9 @@ namespace Songhay.Xml
         /// </remarks>
         public static string LoadXslTransform(string xslPath, string commandName, IXPathNavigable navigableSet)
         {
-            if(navigableSet == null) throw new ArgumentNullException("navigableSet", "XML set is null");
+            if (string.IsNullOrWhiteSpace(xslPath)) throw new ArgumentNullException(nameof(xslPath));
+            if (string.IsNullOrWhiteSpace(commandName)) throw new ArgumentNullException(nameof(commandName));
+            if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
 
             XsltArgumentList xslArgs = new XsltArgumentList();
             //CONVENTION: XSL templates use a parameter called “cmd”:
@@ -95,10 +97,10 @@ namespace Songhay.Xml
             XslCompiledTransform xslt = new XslCompiledTransform(false);
 
             string ret = null;
-            using(MemoryStream ms = new MemoryStream())
+            using (MemoryStream ms = new MemoryStream())
             {
                 xslt.Load(xslPath);
-                using(StringReader sr = new StringReader(navigableSet.CreateNavigator().OuterXml))
+                using (StringReader sr = new StringReader(navigableSet.CreateNavigator().OuterXml))
                 {
                     XmlReader reader = XmlReader.Create(sr);
                     XmlWriter writer = XmlWriter.Create(ms);
@@ -126,13 +128,17 @@ namespace Songhay.Xml
         /// </param>
         public static string LoadXslTransform(string xslPath, XsltArgumentList xslArgs, string xmlPath)
         {
+            if (string.IsNullOrWhiteSpace(xslPath)) throw new ArgumentNullException(nameof(xslPath));
+            if (xslArgs == null) throw new ArgumentNullException(nameof(xslArgs));
+            if (string.IsNullOrWhiteSpace(xmlPath)) throw new ArgumentNullException(nameof(xmlPath));
+
             XslCompiledTransform xslt = new XslCompiledTransform(false);
 
             string ret = null;
-            using(MemoryStream ms = new MemoryStream())
+            using (MemoryStream ms = new MemoryStream())
             {
                 xslt.Load(xslPath);
-                using(XmlReader reader = XmlReader.Create(xmlPath))
+                using (XmlReader reader = XmlReader.Create(xmlPath))
                 {
                     XmlWriter writer = XmlWriter.Create(ms);
                     xslt.Transform(reader, xslArgs, writer, null);
