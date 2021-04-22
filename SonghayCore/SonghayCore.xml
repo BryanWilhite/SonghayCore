@@ -1465,13 +1465,14 @@
             <param name="request">The request.</param>
             <param name="requestMessageAction">The request message action.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             </summary>
             <param name="request">The request.</param>
             <param name="requestMessageAction">The request message action.</param>
             <param name="optionalClientGetter">The optional client getter.</param>
+            <param name="completionOption"> the <see cref="T:System.Net.Http.HttpCompletionOption"/>.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">
             uri
@@ -1575,12 +1576,54 @@
             </summary>
             <param name="response">The response.</param>
         </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.StreamToInstanceAsync``1(System.Net.Http.HttpResponseMessage,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Serializes the <see cref="T:System.Net.Http.HttpResponseMessage"/>
+            to the specified <c>TInstance</c>
+            </summary>
+            <param name="response">The response.</param>
+            <param name="settings">The <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/></param>
+            <typeparam name="TInstance">The type of the instance.</typeparam>
+            <returns></returns>
+            <remarks>
+            This method uses the Newtsonsoft API to deserialize.
+            
+            Consider using <see cref="F:System.Net.Http.HttpCompletionOption.ResponseHeadersRead"/>
+            with <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpCompletionOption)"/>
+            for increased performance.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.StreamToInstanceAsync``1(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Serializes the <see cref="T:System.Net.Http.HttpResponseMessage"/>
+            to the specified <c>TInstance</c>
+            </summary>
+            <param name="response">The response.</param>
+            <typeparam name="TInstance">The type of the instance.</typeparam>
+            <returns></returns>
+            <remarks>
+            This method uses the Microsoft API to deserialize.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.StreamToInstanceAsync``1(System.Net.Http.HttpResponseMessage,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Serializes the <see cref="T:System.Net.Http.HttpResponseMessage"/>
+            to the specified <c>TInstance</c>
+            </summary>
+            <param name="response">The response.</param>
+            <param name="options">The <see cref="T:System.Text.Json.JsonSerializerOptions"/></param>
+            <typeparam name="TInstance">The type of the instance.</typeparam>
+            <returns></returns>
+            <remarks>
+            This method uses the Microsoft API to deserialize.
+            </remarks>
+        </member>
         <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.ToJContainerAsync(System.Net.Http.HttpResponseMessage)">
             <summary>
             Converts the specified <see cref="T:System.Net.Http.HttpResponseMessage"/>
             to <see cref="T:Newtonsoft.Json.Linq.JContainer"/>
             </summary>
-            <param name="response"></param>
+            <param name="response">The response.</param>
             <returns></returns>
         </member>
         <member name="T:Songhay.Extensions.HttpWebRequestExtensions">

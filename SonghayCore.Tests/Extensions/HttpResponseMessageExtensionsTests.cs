@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using Songhay.Extensions;
+using Songhay.Models;
 using System;
 using System.IO;
 using System.Net;
@@ -54,9 +55,52 @@ namespace Songhay.Tests.Extensions
             await response.DownloadStringToFileAsync(targetInfo);
         }
 
-        [Trait("Category", "Integration")]
         [Theory]
-        [InlineData(@"photos/{photoId}", 1)]
+        [InlineData("https://songhaystorage.blob.core.windows.net/studio-public/json-generator.json")]
+        public async Task StreamToInstance_Test(string location)
+        {
+            // https://next.json-generator.com/NyyaU2K8q
+
+            var uri = new Uri(location);
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+
+            using var response = await request
+                .SendAsync(
+                    requestMessageAction: null,
+                    optionalClientGetter: null,
+                    HttpCompletionOption.ResponseHeadersRead);
+
+            var instance = await response
+                .StreamToInstanceAsync<DisplayItemModel[]>(options: null);
+
+            Assert.NotNull(instance);
+            Assert.NotEmpty(instance);
+        }
+
+        [Theory]
+        [InlineData("https://songhaystorage.blob.core.windows.net/studio-public/json-generator.json")]
+        public async Task StreamToInstance_Newtonsoft_Test(string location)
+        {
+            // https://next.json-generator.com/NyyaU2K8q
+
+            var uri = new Uri(location);
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+
+            using var response = await request
+                .SendAsync(
+                    requestMessageAction: null,
+                    optionalClientGetter: null,
+                    HttpCompletionOption.ResponseHeadersRead);
+
+            var instance = await response
+                .StreamToInstanceAsync<DisplayItemModel[]>(settings: null);
+
+            Assert.NotNull(instance);
+            Assert.NotEmpty(instance);
+        }
+
+        [Theory]
+        [InlineData("photos/{photoId}", 1)]
         public async Task ToJContainerAsync_Test(string input, int id)
         {
             var template = new UriTemplate($"{LIVE_API_BASE_URI}/{input}");
@@ -73,9 +117,8 @@ namespace Songhay.Tests.Extensions
             this._testOutputHelper.WriteLine(jO.ToString());
         }
 
-        [Trait("Category", "Integration")]
         [Theory]
-        [InlineData(@"photos")]
+        [InlineData("photos")]
         public async Task ToJContainerAsync_JArray_Test(string input)
         {
             var builder = new UriBuilder(LIVE_API_BASE_URI);

@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using MSJson = System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Songhay.Extensions
@@ -86,10 +88,94 @@ namespace Songhay.Extensions
             response?.StatusCode == HttpStatusCode.Redirect;
 
         /// <summary>
+        /// Serializes the <see cref="HttpResponseMessage"/>
+        /// to the specified <c>TInstance</c>
+        /// </summary>
+        /// <param name="response">The response.</param>
+        /// <param name="settings">The <see cref="JsonSerializerSettings"/></param>
+        /// <typeparam name="TInstance">The type of the instance.</typeparam>
+        /// <returns></returns>
+        /// <remarks>
+        /// This method uses the Newtsonsoft API to deserialize.
+        /// 
+        /// Consider using <see cref="HttpCompletionOption.ResponseHeadersRead"/>
+        /// with <see cref="HttpClient.SendAsync(HttpRequestMessage, HttpCompletionOption)"/>
+        /// for increased performance.
+        /// </remarks>
+        public static async Task<TInstance> StreamToInstanceAsync<TInstance>(this HttpResponseMessage response, JsonSerializerSettings settings)
+        {
+            if (response == null) return await Task
+                .FromResult(default(TInstance))
+                .ConfigureAwait(continueOnCapturedContext: false);
+
+            var stream = await response.Content.ReadAsStreamAsync();
+
+            if (stream == null || stream.CanRead == false) return await Task
+                .FromResult(default(TInstance))
+                .ConfigureAwait(continueOnCapturedContext: false);
+
+            using (var streamReader = new StreamReader(stream))
+            using (var textReader = new JsonTextReader(streamReader))
+            {
+                var serializer = JsonSerializer.Create(settings);
+                var instance = serializer.Deserialize<TInstance>(textReader);
+
+                return instance;
+            }
+        }
+
+        /// <summary>
+        /// Serializes the <see cref="HttpResponseMessage"/>
+        /// to the specified <c>TInstance</c>
+        /// </summary>
+        /// <param name="response">The response.</param>
+        /// <typeparam name="TInstance">The type of the instance.</typeparam>
+        /// <returns></returns>
+        /// <remarks>
+        /// This method uses the Microsoft API to deserialize.
+        /// </remarks>
+        public static async Task<TInstance> StreamToInstanceAsync<TInstance>(this HttpResponseMessage response)
+        {
+            return await response.StreamToInstanceAsync<TInstance>(options: null);
+        }
+
+        /// <summary>
+        /// Serializes the <see cref="HttpResponseMessage"/>
+        /// to the specified <c>TInstance</c>
+        /// </summary>
+        /// <param name="response">The response.</param>
+        /// <param name="options">The <see cref="MSJson.JsonSerializerOptions"/></param>
+        /// <typeparam name="TInstance">The type of the instance.</typeparam>
+        /// <returns></returns>
+        /// <remarks>
+        /// This method uses the Microsoft API to deserialize.
+        /// </remarks>
+        public static async Task<TInstance> StreamToInstanceAsync<TInstance>(this HttpResponseMessage response, MSJson.JsonSerializerOptions options)
+        {
+            if (response == null) return await Task
+                .FromResult(default(TInstance))
+                .ConfigureAwait(continueOnCapturedContext: false);
+
+            var stream = await response.Content.ReadAsStreamAsync();
+
+            if (stream == null || stream.CanRead == false) return await Task
+                .FromResult(default(TInstance))
+                .ConfigureAwait(continueOnCapturedContext: false);
+
+            using (var streamReader = new StreamReader(stream))
+            {
+                var instance = await MSJson.JsonSerializer
+                    .DeserializeAsync<TInstance>(stream, options);
+
+                return instance;
+            }
+        }
+
+        /// <summary>
         /// Converts the specified <see cref="HttpResponseMessage"/>
         /// to <see cref="JContainer"/>
         /// </summary>
-        /// <param name="response"></param>
+        /// <param name="response">The response.</param>
         /// <returns></returns>
         public static async Task<JContainer> ToJContainerAsync(this HttpResponseMessage response)
         {

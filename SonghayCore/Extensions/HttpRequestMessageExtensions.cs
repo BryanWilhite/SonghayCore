@@ -70,7 +70,9 @@ namespace Songhay.Extensions
         /// <param name="request"></param>
         public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage request)
         {
-            return await request.SendAsync(requestMessageAction: null, optionalClientGetter: null);
+            return await request.SendAsync(requestMessageAction: null,
+                optionalClientGetter: null,
+                HttpCompletionOption.ResponseContentRead);
         }
 
         /// <summary>
@@ -80,7 +82,9 @@ namespace Songhay.Extensions
         /// <param name="requestMessageAction">The request message action.</param>
         public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage request, Action<HttpRequestMessage> requestMessageAction)
         {
-            return await request.SendAsync(requestMessageAction, optionalClientGetter: null);
+            return await request.SendAsync(requestMessageAction,
+                optionalClientGetter: null,
+                HttpCompletionOption.ResponseContentRead);
         }
 
         /// <summary>
@@ -89,6 +93,7 @@ namespace Songhay.Extensions
         /// <param name="request">The request.</param>
         /// <param name="requestMessageAction">The request message action.</param>
         /// <param name="optionalClientGetter">The optional client getter.</param>
+        /// <param name="completionOption"> the <see cref="HttpCompletionOption"/>.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">
         /// uri
@@ -97,7 +102,8 @@ namespace Songhay.Extensions
         /// </exception>
         public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage request,
             Action<HttpRequestMessage> requestMessageAction,
-            Func<HttpClient> optionalClientGetter)
+            Func<HttpClient> optionalClientGetter,
+            HttpCompletionOption completionOption)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -106,7 +112,7 @@ namespace Songhay.Extensions
             var client = (optionalClientGetter == null) ? GetHttpClient() : optionalClientGetter.Invoke();
 
             var response = await client
-                .SendAsync(request)
+                .SendAsync(request, completionOption)
                 .ConfigureAwait(continueOnCapturedContext: false);
 
             return response;
