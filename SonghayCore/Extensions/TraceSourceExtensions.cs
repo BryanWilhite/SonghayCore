@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Text;
 
 namespace Songhay.Extensions
 {
@@ -21,6 +22,7 @@ namespace Songhay.Extensions
         public static TraceSource EnsureTraceSource(this TraceSource traceSource)
         {
             if (traceSource == null) throw new NullReferenceException("The expected Trace Source is not here.");
+
             return traceSource;
         }
 
@@ -33,6 +35,7 @@ namespace Songhay.Extensions
         public static void TraceError(this TraceSource traceSource, string format, params object[] args)
         {
             if (traceSource == null) return;
+
             traceSource.TraceEvent(TraceEventType.Error, ++eventId, format, args);
         }
 
@@ -44,6 +47,7 @@ namespace Songhay.Extensions
         public static void TraceError(this TraceSource traceSource, string message)
         {
             if (traceSource == null) return;
+
             traceSource.TraceEvent(TraceEventType.Error, ++eventId, message);
         }
 
@@ -54,16 +58,31 @@ namespace Songhay.Extensions
         /// <param name="ex">The exception.</param>
         public static void TraceError(this TraceSource traceSource, Exception ex)
         {
+            traceSource.TraceError(ex, includeStackTrace: false);
+        }
+
+        /// <summary>
+        /// Traces the error.
+        /// </summary>
+        /// <param name="traceSource">The trace source.</param>
+        /// <param name="ex">The exception.</param>
+        /// <param name="includeStackTrace">When <c>true</c>, include <see cref="Exception.StackTrace"/> info</param>
+        public static void TraceError(this TraceSource traceSource, Exception ex, bool includeStackTrace)
+        {
             if (traceSource == null) return;
             if (ex == null) return;
 
-            var message = $@"
-{ex.GetType().Name}
-{nameof(ex.Message)}: {ex.Message}
-{nameof(ex.StackTrace)}:
-{ex.StackTrace}
-".Trim();
-            traceSource.TraceError(message);
+            var sb = new StringBuilder(ex.GetType().Name);
+
+            sb.AppendLine($"{nameof(ex.Message)}: {ex.Message}");
+
+            if (includeStackTrace)
+            {
+                sb.AppendLine($"{nameof(ex.StackTrace)}:");
+                sb.AppendLine($"{ex.StackTrace}");
+            }
+
+            traceSource.TraceError(sb.ToString());
         }
 
         /// <summary>
@@ -74,6 +93,7 @@ namespace Songhay.Extensions
         public static void TraceWarning(this TraceSource traceSource, string message)
         {
             if (traceSource == null) return;
+
             traceSource.TraceEvent(TraceEventType.Warning, ++eventId, message);
         }
 
@@ -86,6 +106,7 @@ namespace Songhay.Extensions
         public static void TraceWarning(this TraceSource traceSource, string format, params object[] args)
         {
             if (traceSource == null) return;
+
             traceSource.TraceEvent(TraceEventType.Warning, ++eventId, format, args);
         }
 
@@ -97,6 +118,7 @@ namespace Songhay.Extensions
         public static void TraceVerbose(this TraceSource traceSource, string message)
         {
             if (traceSource == null) return;
+
             traceSource.TraceEvent(TraceEventType.Verbose, ++eventId, message);
         }
 
@@ -109,6 +131,7 @@ namespace Songhay.Extensions
         public static void TraceVerbose(this TraceSource traceSource, string format, params object[] args)
         {
             if (traceSource == null) return;
+
             traceSource.TraceEvent(TraceEventType.Verbose, ++eventId, format, args);
         }
 
@@ -121,6 +144,7 @@ namespace Songhay.Extensions
         public static TraceSource WithSourceLevels(this TraceSource traceSource)
         {
             if (traceSource == null) return null;
+
             return traceSource.WithSourceLevels(SourceLevels.All);
         }
 
@@ -134,7 +158,9 @@ namespace Songhay.Extensions
         public static TraceSource WithSourceLevels(this TraceSource traceSource, SourceLevels levels)
         {
             if (traceSource == null) return null;
+
             traceSource.Switch.Level = levels;
+
             return traceSource;
         }
 
@@ -150,6 +176,7 @@ namespace Songhay.Extensions
         public static void WriteLine(this TraceSource traceSource, string message)
         {
             if (traceSource == null) return;
+
             traceSource.TraceEvent(TraceEventType.Information, ++eventId, message);
         }
 
@@ -166,6 +193,7 @@ namespace Songhay.Extensions
         public static void WriteLine(this TraceSource traceSource, string format, params object[] args)
         {
             if (traceSource == null) return;
+
             traceSource.TraceEvent(TraceEventType.Information, ++eventId, format, args);
         }
 
