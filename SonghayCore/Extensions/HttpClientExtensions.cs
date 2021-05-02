@@ -43,20 +43,22 @@ namespace Songhay.Extensions
             var bytesRead = 0;
             var fileName = Path.GetFileName(path);
 
-            var request = new HttpRequestMessage(HttpMethod.Get, uri);
-            requestMessageAction?.Invoke(request);
-
-            using (var response = await client
-                .SendAsync(request)
-                .ConfigureAwait(continueOnCapturedContext: false))
-            using (var stream = await response.Content
-                .ReadAsStreamAsync()
-                .ConfigureAwait(continueOnCapturedContext: false))
-            using (var fs = File.Create(path))
+            using (var request = new HttpRequestMessage(HttpMethod.Get, uri))
             {
-                while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
+                requestMessageAction?.Invoke(request);
+
+                using (var response = await client
+                    .SendAsync(request)
+                    .ConfigureAwait(continueOnCapturedContext: false))
+                using (var stream = await response.Content
+                    .ReadAsStreamAsync()
+                    .ConfigureAwait(continueOnCapturedContext: false))
+                using (var fs = File.Create(path))
                 {
-                    fs.Write(buffer, 0, bytesRead);
+                    while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        fs.Write(buffer, 0, bytesRead);
+                    }
                 }
             }
         }
@@ -100,20 +102,22 @@ namespace Songhay.Extensions
         {
             if (client == null) return null;
 
-            var request = new HttpRequestMessage(HttpMethod.Get, uri);
-            requestMessageAction?.Invoke(request);
+            using (var request = new HttpRequestMessage(HttpMethod.Get, uri))
+            {
+                requestMessageAction?.Invoke(request);
 
-            string content = null;
+                string content = null;
 
-            using (var response = await client
-                .SendAsync(request)
-                .ConfigureAwait(continueOnCapturedContext: false))
+                using (var response = await client
+                    .SendAsync(request)
+                    .ConfigureAwait(continueOnCapturedContext: false))
 
-                content = await response.Content
-                    .ReadAsStringAsync()
-                    .ConfigureAwait(continueOnCapturedContext: false);
+                    content = await response.Content
+                        .ReadAsStringAsync()
+                        .ConfigureAwait(continueOnCapturedContext: false);
 
-            return content;
+                return content;
+            }
         }
 
         /// <summary>
@@ -329,14 +333,16 @@ namespace Songhay.Extensions
             if (client == null) return null;
             if (uri == null) throw new ArgumentNullException(nameof(uri));
 
-            var request = new HttpRequestMessage(method, uri);
-            requestMessageAction?.Invoke(request);
+            using (var request = new HttpRequestMessage(method, uri))
+            {
+                requestMessageAction?.Invoke(request);
 
-            var response = await client
-                .SendAsync(request)
-                .ConfigureAwait(continueOnCapturedContext: false);
+                var response = await client
+                    .SendAsync(request)
+                    .ConfigureAwait(continueOnCapturedContext: false);
 
-            return response;
+                return response;
+            }
         }
 
         /// <summary>
@@ -363,18 +369,19 @@ namespace Songhay.Extensions
             if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody));
             if (string.IsNullOrWhiteSpace(mediaType)) throw new ArgumentNullException(nameof(mediaType));
 
-            var request = new HttpRequestMessage(method, uri)
+            using (var request = new HttpRequestMessage(method, uri)
             {
                 Content = new StringContent(requestBody, encoding, mediaType)
-            };
+            })
+            {
+                requestMessageAction?.Invoke(request);
 
-            requestMessageAction?.Invoke(request);
+                var response = await client
+                    .SendAsync(request)
+                    .ConfigureAwait(continueOnCapturedContext: false);
 
-            var response = await client
-                .SendAsync(request)
-                .ConfigureAwait(continueOnCapturedContext: false);
-
-            return response;
+                return response;
+            }
         }
     }
 }

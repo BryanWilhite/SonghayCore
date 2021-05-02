@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json.Linq;
+using Songhay.Extensions;
 using Xunit;
 
-namespace Songhay.Extensions.Tests
+namespace Songhay.Tests.Extensions
 {
     class AllTheProperties : INotAllTheProperties
     {
