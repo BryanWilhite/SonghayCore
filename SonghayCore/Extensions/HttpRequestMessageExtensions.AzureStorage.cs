@@ -101,6 +101,8 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="request">the <see cref="HttpRequestMessage"/></param>
         /// <param name="storageAccountName">The name of the storage account to use.</param>
+        /// <param name="eTag">entity tag for Web cache validation</param>
+        /// <param name="md5">The MD5 (message-digest algorithm) hash</param>
         /// <returns></returns>
         /// <remarks>
         /// See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
@@ -142,6 +144,15 @@ namespace Songhay.Extensions
             return signatureBytes;
         }
 
+        /// <summary>
+        /// Returns <see cref="HttpRequestMessage"/>
+        /// with conventional headers for <see cref="ByteArrayContent"/>
+        /// for Azure Storage.
+        /// </summary>
+        /// <param name="request">the <see cref="HttpRequestMessage"/></param>
+        /// <param name="blobName">the Azure Storage Blob name</param>
+        /// <param name="content">the Azure Storage Blob content</param>
+        /// <returns></returns>
         public static HttpRequestMessage WithAzureStorageBlockBlobContent(this HttpRequestMessage request, string blobName, string content)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
@@ -158,6 +169,16 @@ namespace Songhay.Extensions
             return request;
         }
 
+        /// <summary>
+        /// Returns <see cref="HttpRequestMessage"/>
+        /// with conventional headers for Azure Storage.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestMoment"></param>
+        /// <param name="serviceVersion"></param>
+        /// <param name="storageAccountName"></param>
+        /// <param name="storageAccountKey"></param>
+        /// <returns></returns>
         public static HttpRequestMessage WithAzureStorageHeaders(this HttpRequestMessage request, DateTime requestMoment, string serviceVersion, string storageAccountName, string storageAccountKey)
         {
             return request.WithAzureStorageHeaders(

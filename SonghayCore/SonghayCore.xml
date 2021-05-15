@@ -1476,6 +1476,8 @@
              </summary>
              <param name="request">the <see cref="T:System.Net.Http.HttpRequestMessage"/></param>
              <param name="storageAccountName">The name of the storage account to use.</param>
+             <param name="eTag">entity tag for Web cache validation</param>
+             <param name="md5">The MD5 (message-digest algorithm) hash</param>
              <returns></returns>
              <remarks>
              See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
@@ -1484,6 +1486,29 @@
             
              See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
              </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent(System.Net.Http.HttpRequestMessage,System.String,System.String)">
+            <summary>
+            Returns <see cref="T:System.Net.Http.HttpRequestMessage"/>
+            with conventional headers for <see cref="T:System.Net.Http.ByteArrayContent"/>
+            for Azure Storage.
+            </summary>
+            <param name="request">the <see cref="T:System.Net.Http.HttpRequestMessage"/></param>
+            <param name="blobName">the Azure Storage Blob name</param>
+            <param name="content">the Azure Storage Blob content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String)">
+            <summary>
+            Returns <see cref="T:System.Net.Http.HttpRequestMessage"/>
+            with conventional headers for Azure Storage.
+            </summary>
+            <param name="request"></param>
+            <param name="requestMoment"></param>
+            <param name="serviceVersion"></param>
+            <param name="storageAccountName"></param>
+            <param name="storageAccountKey"></param>
+            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String,System.String,System.String)">
              <summary>

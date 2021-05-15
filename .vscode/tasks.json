@@ -136,6 +136,24 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "dotnet pack [SonghayCore.xUnit, Debug]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "pack",
+                "${workspaceFolder}/SonghayCore.xUnit/SonghayCore.xUnit.csproj",
+                "--configuration",
+                "Debug",
+                "-p:NuspecFile=${workspaceFolder}/SonghayCore.xUnit/SonghayCore.xUnit.nuspec",
+                "-p:NuspecBasePath=${workspaceFolder}/SonghayCore.xUnit",
+                "--output",
+                "${workspaceFolder}/SonghayCore.xUnit",
+                "--verbosity",
+                "normal"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "command": "nuget",
             "label": "NuGet pack SonghayCore",
             "isBackground": false,
