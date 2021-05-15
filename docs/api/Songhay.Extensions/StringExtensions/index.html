@@ -139,6 +139,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ArrayExtensions">ArrayExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/AssemblyExtensions">AssemblyExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/CharExtensions">CharExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ConfigurationManagerExtensions">Configuration<wbr>Manager<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DataSetExtensions">DataSetExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DateTimeExtensions">DateTimeExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></li>
@@ -160,7 +161,9 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IIdentityExtensions">IIdentityExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ITemporalExtensions">ITemporalExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions">JObjectExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/JsonSerializerSettingsExtensions">Json<wbr>Serializer<wbr>Settings<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JTokenExtensions">JTokenExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/MenuDisplayItemModelExtensions">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/NullableExtensions">NullableExtensions</a></li>
@@ -179,6 +182,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions">UriBuilderExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriExtensions">UriExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriTemplateExtensions">Uri<wbr>Template<wbr>Extensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/Utf8JsonWriterExtensions">Utf8<wbr>Json<wbr>Writer<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XElementExtensions">XElementExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XNamespaceExtensions">XNamespaceExtensions</a></li>
@@ -204,7 +208,7 @@
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Extensions of <code class="cs"><a href="/SonghayCore">string</a></code>.
+    Extensions of <code class="cs">System.String</code>.
     </div>
 
 		<div class="panel panel-default">
@@ -275,22 +279,22 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/A0428765">EqualsInvariant<wbr>(string, <wbr>string, <wbr>bool)<wbr></a></td>
-								<td>bool</td>
-								<td>
-									<div>
-    Returns <code class="cs">true</code> when the strings are equal without regard to cultural locales.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/4EF4E418">EqualsInvariant<wbr>(string, <wbr>string)<wbr></a></td>
 								<td>bool</td>
 								<td>
 									<div>
     Returns <code class="cs">true</code> when the strings are equal without regard to cultural locales
     or casing.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/A0428765">EqualsInvariant<wbr>(string, <wbr>string, <wbr>bool)<wbr></a></td>
+								<td>bool</td>
+								<td>
+									<div>
+    Returns <code class="cs">true</code> when the strings are equal without regard to cultural locales.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -327,21 +331,21 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/350C740B">In<wbr>(string, <wbr>string, <wbr>char)<wbr></a></td>
-								<td>bool</td>
-								<td>
-									<div>
-    Determines whether the specified input is in the delimited values.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/0C884357">In<wbr>(string, <wbr>string)<wbr></a></td>
 								<td>bool</td>
 								<td>
 									<div>
     Determines whether the specified input is in the comma-delimited values.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/350C740B">In<wbr>(string, <wbr>string, <wbr>char)<wbr></a></td>
+								<td>bool</td>
+								<td>
+									<div>
+    Determines whether the specified input is in the delimited values.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -377,16 +381,6 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/FCE95237">IsByte<wbr>(string, <wbr>Predicate<wbr>&lt;byte&gt;<wbr>)<wbr></a></td>
-								<td>bool</td>
-								<td>
-									<div>
-    Determines whether the specified input is byte.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/CB38D88A">IsByte<wbr>(string)<wbr></a></td>
 								<td>bool</td>
 								<td>
@@ -397,11 +391,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/56659BDF">IsDecimal<wbr>(string, <wbr>Predicate<wbr>&lt;decimal&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/FCE95237">IsByte<wbr>(string, <wbr>Predicate<wbr>&lt;byte&gt;<wbr>)<wbr></a></td>
 								<td>bool</td>
 								<td>
 									<div>
-    Determines whether the specified input is decimal.
+    Determines whether the specified input is byte.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -417,11 +411,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/C704E8F6">IsInteger<wbr>(string, <wbr>Predicate<wbr>&lt;int&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/56659BDF">IsDecimal<wbr>(string, <wbr>Predicate<wbr>&lt;decimal&gt;<wbr>)<wbr></a></td>
 								<td>bool</td>
 								<td>
 									<div>
-    Determines whether the specified input is integer.
+    Determines whether the specified input is decimal.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -437,7 +431,17 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/1BAD88EB">IsLong<wbr>(string, <wbr>Predicate<wbr>&lt;long&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/C704E8F6">IsInteger<wbr>(string, <wbr>Predicate<wbr>&lt;int&gt;<wbr>)<wbr></a></td>
+								<td>bool</td>
+								<td>
+									<div>
+    Determines whether the specified input is integer.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/87ADA79C">IsLong<wbr>(string)<wbr></a></td>
 								<td>bool</td>
 								<td>
 									<div>
@@ -447,7 +451,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/87ADA79C">IsLong<wbr>(string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/1BAD88EB">IsLong<wbr>(string, <wbr>Predicate<wbr>&lt;long&gt;<wbr>)<wbr></a></td>
 								<td>bool</td>
 								<td>
 									<div>
@@ -508,21 +512,21 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/5ED8AFBD">To<wbr>Ascii<wbr>Letters<wbr>With<wbr>Spacer<wbr>(string, <wbr>char)<wbr></a></td>
-								<td>string</td>
-								<td>
-									<div>
-    Converts the <code class="cs"><a href="/SonghayCore">string</a></code> into ASCII letters with spacer.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/A2783137">To<wbr>Ascii<wbr>Letters<wbr>With<wbr>Spacer<wbr>(string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
     Converts the <code class="cs"><a href="/SonghayCore">string</a></code> into a ASCII letters with spacer <code class="cs">\0</code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/5ED8AFBD">To<wbr>Ascii<wbr>Letters<wbr>With<wbr>Spacer<wbr>(string, <wbr>char)<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Converts the <code class="cs"><a href="/SonghayCore">string</a></code> into ASCII letters with spacer.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -559,7 +563,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/8FC053FB">ToIntString<wbr>(string, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/FA2EEDDE">ToIntString<wbr>(string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -569,7 +573,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/FA2EEDDE">ToIntString<wbr>(string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/8FC053FB">ToIntString<wbr>(string, <wbr>string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -590,7 +594,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/39B48012">ToNumericString<wbr>(string, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/E0B0C4FA">ToNumericString<wbr>(string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -600,7 +604,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/E0B0C4FA">ToNumericString<wbr>(string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/39B48012">ToNumericString<wbr>(string, <wbr>string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -644,11 +648,12 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/7E56D01D">Truncate<wbr>(string, <wbr>int, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/30EA6F16">Truncate<wbr>(string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
-    Truncates the specified input.
+    Truncates the specified input to 16 characters.
+    <param name="input">The input.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -666,12 +671,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/30EA6F16">Truncate<wbr>(string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions/7E56D01D">Truncate<wbr>(string, <wbr>int, <wbr>string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
-    Truncates the specified input to 16 characters.
-    <param name="input">The input.
+    Truncates the specified input.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -784,7 +788,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>
@@ -794,7 +798,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>

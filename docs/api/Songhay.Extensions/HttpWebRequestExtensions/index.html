@@ -139,6 +139,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ArrayExtensions">ArrayExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/AssemblyExtensions">AssemblyExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/CharExtensions">CharExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ConfigurationManagerExtensions">Configuration<wbr>Manager<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DataSetExtensions">DataSetExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DateTimeExtensions">DateTimeExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></li>
@@ -160,7 +161,9 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IIdentityExtensions">IIdentityExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ITemporalExtensions">ITemporalExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions">JObjectExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/JsonSerializerSettingsExtensions">Json<wbr>Serializer<wbr>Settings<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JTokenExtensions">JTokenExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/MenuDisplayItemModelExtensions">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/NullableExtensions">NullableExtensions</a></li>
@@ -179,6 +182,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions">UriBuilderExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriExtensions">UriExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriTemplateExtensions">Uri<wbr>Template<wbr>Extensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/Utf8JsonWriterExtensions">Utf8<wbr>Json<wbr>Writer<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XElementExtensions">XElementExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XNamespaceExtensions">XNamespaceExtensions</a></li>
@@ -265,16 +269,6 @@ class Type type-node
 							</tr>
 						</thead>
 							<tbody><tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions/0134F731">DownloadToFile<wbr>(HttpWebRequest, <wbr>string, <wbr>Uri, <wbr>bool)<wbr></a></td>
-								<td>void</td>
-								<td>
-									<div>
-    Downloads to file.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions/F4387121">DownloadToFile<wbr>(HttpWebRequest, <wbr>string)<wbr></a></td>
 								<td>void</td>
 								<td>
@@ -285,11 +279,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions/B164A399">DownloadToString<wbr>(HttpWebRequest, <wbr>Uri, <wbr>bool)<wbr></a></td>
-								<td>string</td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions/0134F731">DownloadToFile<wbr>(HttpWebRequest, <wbr>string, <wbr>Uri, <wbr>bool)<wbr></a></td>
+								<td>void</td>
 								<td>
 									<div>
-    Downloads to string.
+    Downloads to file.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -305,11 +299,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions/6FD8037D">PostForm<wbr>(HttpWebRequest, <wbr>Uri, <wbr>Hashtable, <wbr>Uri, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions/B164A399">DownloadToString<wbr>(HttpWebRequest, <wbr>Uri, <wbr>bool)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
-    Posts the form.
+    Downloads to string.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -325,7 +319,17 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions/EC9A63AC">PostXml<wbr>(HttpWebRequest, <wbr>string, <wbr>Uri, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions/6FD8037D">PostForm<wbr>(HttpWebRequest, <wbr>Uri, <wbr>Hashtable, <wbr>Uri, <wbr>bool)<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Posts the form.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions/0C695B8A">PostXml<wbr>(HttpWebRequest, <wbr>string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -335,7 +339,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions/0C695B8A">PostXml<wbr>(HttpWebRequest, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions/EC9A63AC">PostXml<wbr>(HttpWebRequest, <wbr>string, <wbr>Uri, <wbr>bool)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -473,7 +477,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>
@@ -483,7 +487,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>

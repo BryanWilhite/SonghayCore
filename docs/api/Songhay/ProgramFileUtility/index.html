@@ -271,12 +271,12 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/12BB861E">GetEncodedString<wbr>(string, <wbr>Encoding)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/362EAF30">GetCombinedPath<wbr>(string, <wbr>string, <wbr>bool)<wbr></a></td>
 								<td>string</td>
 								<td>
-									<div>
-    Gets the encoded string.
-    </div>
+									<div>Combines path and root based
+    on the ambient value of <code class="cs">System.IO.Path.DirectorySeparatorChar</code>
+    of the current OS.</div>
 											<div><small><em>static</em></small></div>
 								</td>
 							</tr>
@@ -285,18 +285,18 @@ class Type type-node
 								<td>string</td>
 								<td>
 									<div>
-    Gets the UTF-8 encoded string.
+    Gets the UTF-8 encoded string from.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/033C73A7">GetFileName<wbr>(string, <wbr>char?)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/12BB861E">GetEncodedString<wbr>(string, <wbr>Encoding)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
-    Returns the file name
-    based on the specified path.
+    Gets the encoded <code class="cs"><a href="/SonghayCore">string</a></code>
+    from its default <code class="cs">System.Text.Encoding.Unicode</code> encoding.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -309,6 +309,17 @@ class Type type-node
     Returns the file name
     based on the specified path
     and <code class="cs">System.IO.Path.DirectorySeparatorChar</code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/033C73A7">GetFileName<wbr>(string, <wbr>char?)<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Returns the file name
+    based on the specified path.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -334,7 +345,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/F7361FF6">GetPathRoot<wbr>(string, <wbr>char?)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/13AF643D">GetPathRoot<wbr>(string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -345,7 +356,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/13AF643D">GetPathRoot<wbr>(string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/F7361FF6">GetPathRoot<wbr>(string, <wbr>char?)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -378,7 +389,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/F5F06D80">JoinPathAndRoot<wbr>(string, <wbr>string, <wbr>char?)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/3126C9A6">JoinPathAndRoot<wbr>(string, <wbr>string)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -388,7 +399,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/3126C9A6">JoinPathAndRoot<wbr>(string, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/F5F06D80">JoinPathAndRoot<wbr>(string, <wbr>string, <wbr>char?)<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
@@ -409,16 +420,6 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/6E61300D">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>(FileInfo, <wbr>Action<wbr>&lt;string&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
-								<td>void</td>
-								<td>
-									<div>
-    Read zip archive entries.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/C8D93857">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>(FileInfo, <wbr>Action<wbr>&lt;string&gt;<wbr>)<wbr></a></td>
 								<td>void</td>
 								<td>
@@ -429,7 +430,17 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/4AEB8EBE">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>By<wbr>Line<wbr>(FileInfo, <wbr>Action<wbr>&lt;int, <wbr>string&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/6E61300D">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>(FileInfo, <wbr>Action<wbr>&lt;string&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
+								<td>void</td>
+								<td>
+									<div>
+    Read zip archive entries.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/BB9ACC02">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>By<wbr>Line<wbr>(FileInfo, <wbr>Action<wbr>&lt;int, <wbr>string&gt;<wbr>)<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
@@ -439,7 +450,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/BB9ACC02">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>By<wbr>Line<wbr>(FileInfo, <wbr>Action<wbr>&lt;int, <wbr>string&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/4AEB8EBE">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>By<wbr>Line<wbr>(FileInfo, <wbr>Action<wbr>&lt;int, <wbr>string&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
@@ -493,16 +504,6 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/868E82FF">UseZipArchive<wbr>(FileInfo, <wbr>Action<wbr>&lt;ZipArchive&gt;<wbr>, <wbr>ZipArchiveMode)<wbr></a></td>
-								<td>void</td>
-								<td>
-									<div>
-    Centralizes the use of <code class="cs">ZipArchive</code>
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/FD7A60C6">UseZipArchive<wbr>(FileInfo, <wbr>Action<wbr>&lt;ZipArchive&gt;<wbr>)<wbr></a></td>
 								<td>void</td>
 								<td>
@@ -514,7 +515,17 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/0ABC82AC">UseZipArchiveEntries<wbr>(FileInfo, <wbr>Action<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/868E82FF">UseZipArchive<wbr>(FileInfo, <wbr>Action<wbr>&lt;ZipArchive&gt;<wbr>, <wbr>ZipArchiveMode)<wbr></a></td>
+								<td>void</td>
+								<td>
+									<div>
+    Centralizes the use of <code class="cs">ZipArchive</code>
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/62AC3BC2">UseZipArchiveEntries<wbr>(FileInfo, <wbr>Action<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
@@ -524,7 +535,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/62AC3BC2">UseZipArchiveEntries<wbr>(FileInfo, <wbr>Action<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/0ABC82AC">UseZipArchiveEntries<wbr>(FileInfo, <wbr>Action<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
@@ -544,21 +555,21 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/590ECDE1">WriteZipArchiveEntry<wbr>(FileInfo, <wbr>FileInfo, <wbr>CompressionLevel)<wbr></a></td>
-								<td>void</td>
-								<td>
-									<div>
-    Write zip archive entry.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/89F143AA">WriteZipArchiveEntry<wbr>(FileInfo, <wbr>FileInfo)<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
     Write zip archive entry with <code class="cs">CompressionLevel.Optimal</code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay/ProgramFileUtility/590ECDE1">WriteZipArchiveEntry<wbr>(FileInfo, <wbr>FileInfo, <wbr>CompressionLevel)<wbr></a></td>
+								<td>void</td>
+								<td>
+									<div>
+    Write zip archive entry.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -651,7 +662,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>
@@ -661,7 +672,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>

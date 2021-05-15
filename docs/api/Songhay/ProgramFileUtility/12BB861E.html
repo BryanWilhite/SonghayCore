@@ -72,6 +72,7 @@
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
 <p><a href="#Syntax">Syntax</a></p>
+<p><a href="#Remarks">Remarks</a></p>
 <p><a href="#Parameters">Parameters</a></p>
 <p><a href="#ReturnValue">Return Value</a></p>
 <hr class="infobar-hidden">
@@ -142,6 +143,7 @@
 				<li><a href="/SonghayCore/api/Songhay/ProgramFileUtility/81B92311">FindParentDirectory<wbr>(string, <wbr>string, <wbr>int)<wbr></a></li>
 				<li><a href="/SonghayCore/api/Songhay/ProgramFileUtility/98616570">Find<wbr>Parent<wbr>Directory<wbr>Info<wbr>(string, <wbr>string, <wbr>int)<wbr></a></li>
 				<li><a href="/SonghayCore/api/Songhay/ProgramFileUtility/6EE23BD1">GetCombinedPath<wbr>(string, <wbr>string)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay/ProgramFileUtility/362EAF30">GetCombinedPath<wbr>(string, <wbr>string, <wbr>bool)<wbr></a></li>
 				<li><a href="/SonghayCore/api/Songhay/ProgramFileUtility/0602B558">GetEncodedString<wbr>(string)<wbr></a></li>
 				<li class="selected"><a href="/SonghayCore/api/Songhay/ProgramFileUtility/12BB861E">GetEncodedString<wbr>(string, <wbr>Encoding)<wbr></a></li>
 				<li><a href="/SonghayCore/api/Songhay/ProgramFileUtility/3E660DC6">GetFileName<wbr>(string)<wbr></a></li>
@@ -192,7 +194,8 @@
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Gets the encoded string.
+    Gets the encoded <code class="cs"><a href="/SonghayCore">string</a></code>
+    from its default <code class="cs">System.Text.Encoding.Unicode</code> encoding.
     </div>
 
 		<div class="panel panel-default">
@@ -210,9 +213,15 @@
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public static string GetEncodedString(string rawValue, Encoding encoding)</code></pre>
+	<pre><code>public static string GetEncodedString(string utf16Value, Encoding outputEncoding)</code></pre>
 
 
+	<h1 id="Remarks">Remarks</h1>
+	<div>
+    <code class="cs">System.Text.Encoding.Unicode</code> encoding is the UTF-16
+    encoding of strings in .NET.
+    See: https://docs.microsoft.com/en-us/dotnet/api/system.text.unicodeencoding
+    </div>
 
 
 
@@ -228,14 +237,14 @@
 					</tr>
 				</thead>
 					<tbody><tr>
-						<td>rawValue</td>
+						<td>utf16Value</td>
 						<td>string</td>
-						<td>The raw value (<code class="cs">System.Text.Encoding.ASCII</code> by default).</td>
+						<td>The raw value.</td>
 					</tr>
 					<tr>
-						<td>encoding</td>
+						<td>outputEncoding</td>
 						<td>Encoding</td>
-						<td>The encoding.</td>
+						<td>The output encoding.</td>
 					</tr>
 			</tbody></table>
 		</div>

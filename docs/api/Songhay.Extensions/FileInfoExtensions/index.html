@@ -139,6 +139,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ArrayExtensions">ArrayExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/AssemblyExtensions">AssemblyExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/CharExtensions">CharExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ConfigurationManagerExtensions">Configuration<wbr>Manager<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DataSetExtensions">DataSetExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DateTimeExtensions">DateTimeExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></li>
@@ -160,7 +161,9 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IIdentityExtensions">IIdentityExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ITemporalExtensions">ITemporalExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions">JObjectExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/JsonSerializerSettingsExtensions">Json<wbr>Serializer<wbr>Settings<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JTokenExtensions">JTokenExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/MenuDisplayItemModelExtensions">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/NullableExtensions">NullableExtensions</a></li>
@@ -179,6 +182,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions">UriBuilderExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriExtensions">UriExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriTemplateExtensions">Uri<wbr>Template<wbr>Extensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/Utf8JsonWriterExtensions">Utf8<wbr>Json<wbr>Writer<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XElementExtensions">XElementExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XNamespaceExtensions">XNamespaceExtensions</a></li>
@@ -265,16 +269,6 @@ class Type type-node
 							</tr>
 						</thead>
 							<tbody><tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/3CA28795">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>(FileInfo, <wbr>Action<wbr>&lt;string&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
-								<td>void</td>
-								<td>
-									<div>
-    Read zip archive entries.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/6B2AC468">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>(FileInfo, <wbr>Action<wbr>&lt;string&gt;<wbr>)<wbr></a></td>
 								<td>void</td>
 								<td>
@@ -285,7 +279,17 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/1B213500">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>By<wbr>Line<wbr>(FileInfo, <wbr>Action<wbr>&lt;int, <wbr>string&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/3CA28795">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>(FileInfo, <wbr>Action<wbr>&lt;string&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
+								<td>void</td>
+								<td>
+									<div>
+    Read zip archive entries.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/EE5258A4">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>By<wbr>Line<wbr>(FileInfo, <wbr>Action<wbr>&lt;int, <wbr>string&gt;<wbr>)<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
@@ -295,7 +299,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/EE5258A4">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>By<wbr>Line<wbr>(FileInfo, <wbr>Action<wbr>&lt;int, <wbr>string&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/1B213500">Read<wbr>Zip<wbr>Archive<wbr>Entries<wbr>By<wbr>Line<wbr>(FileInfo, <wbr>Action<wbr>&lt;int, <wbr>string&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>IEnumerable<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
@@ -315,6 +319,16 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/6B0774C9">UseZipArchiveEntries<wbr>(FileInfo, <wbr>Action<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
+								<td>void</td>
+								<td>
+									<div>
+    Centralizes the use of <code class="cs"><a href="/SonghayCore">ReadOnlyCollection&lt;T&gt;</a></code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/36FE9D0A">UseZipArchiveEntries<wbr>(FileInfo, <wbr>Action<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>, <wbr>Func<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>, <wbr>ReadOnlyCollection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
 								<td>void</td>
 								<td>
@@ -325,11 +339,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/6B0774C9">UseZipArchiveEntries<wbr>(FileInfo, <wbr>Action<wbr>&lt;<wbr>Read<wbr>Only<wbr>Collection<wbr>&lt;<wbr>Zip<wbr>Archive<wbr>Entry&gt;<wbr>&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/E47D781C">WriteZipArchiveEntry<wbr>(FileInfo, <wbr>FileInfo)<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
-    Centralizes the use of <code class="cs">System.Collections.ObjectModel.ReadOnlyCollection`1</code>.
+    Write zip archive entry with <code class="cs">CompressionLevel.Optimal</code>.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -340,16 +354,6 @@ class Type type-node
 								<td>
 									<div>
     Write zip archive entry.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions/E47D781C">WriteZipArchiveEntry<wbr>(FileInfo, <wbr>FileInfo)<wbr></a></td>
-								<td>void</td>
-								<td>
-									<div>
-    Write zip archive entry with <code class="cs">CompressionLevel.Optimal</code>.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -442,7 +446,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>
@@ -452,7 +456,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>

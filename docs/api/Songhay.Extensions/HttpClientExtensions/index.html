@@ -139,6 +139,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ArrayExtensions">ArrayExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/AssemblyExtensions">AssemblyExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/CharExtensions">CharExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ConfigurationManagerExtensions">Configuration<wbr>Manager<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DataSetExtensions">DataSetExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DateTimeExtensions">DateTimeExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></li>
@@ -160,7 +161,9 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IIdentityExtensions">IIdentityExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ITemporalExtensions">ITemporalExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions">JObjectExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/JsonSerializerSettingsExtensions">Json<wbr>Serializer<wbr>Settings<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JTokenExtensions">JTokenExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/MenuDisplayItemModelExtensions">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/NullableExtensions">NullableExtensions</a></li>
@@ -179,6 +182,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions">UriBuilderExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriExtensions">UriExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriTemplateExtensions">Uri<wbr>Template<wbr>Extensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/Utf8JsonWriterExtensions">Utf8<wbr>Json<wbr>Writer<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XElementExtensions">XElementExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XNamespaceExtensions">XNamespaceExtensions</a></li>
@@ -276,16 +280,6 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/E1FB486C">DownloadToFileAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
-								<td>Task</td>
-								<td>
-									<div>
-    Downloads resource at URI to the specified path.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/C6801B91">DownloadToFileAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string)<wbr></a></td>
 								<td>Task</td>
 								<td>
@@ -296,7 +290,17 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/C16A02A9">Download<wbr>To<wbr>String<wbr>Async<wbr>(HttpClient, <wbr>Uri, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/E1FB486C">DownloadToFileAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
+								<td>Task</td>
+								<td>
+									<div>
+    Downloads resource at URI to the specified path.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/6D712391">Download<wbr>To<wbr>String<wbr>Async<wbr>(HttpClient, <wbr>Uri)<wbr></a></td>
 								<td>Task<wbr>&lt;string&gt;<wbr></td>
 								<td>
 									<div>
@@ -306,7 +310,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/6D712391">Download<wbr>To<wbr>String<wbr>Async<wbr>(HttpClient, <wbr>Uri)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/C16A02A9">Download<wbr>To<wbr>String<wbr>Async<wbr>(HttpClient, <wbr>Uri, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
 								<td>Task<wbr>&lt;string&gt;<wbr></td>
 								<td>
 									<div>
@@ -327,19 +331,6 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/072ECA4D">PostFormAsync<wbr>(HttpClient, <wbr>Uri, <wbr>Hashtable, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
-								<td>Task<wbr>&lt;HttpResponseMessage&gt;<wbr></td>
-								<td>
-									<div>
-    Calls <code class="cs">HttpClient.SendAsync(HttpRequestMessage)</code>
-    with the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/MimeTypes/CDD9823F">ApplicationFormUrlEncoded</a></code>
-    request body using <code class="cs">HttpMethod.Post</code>
-    and <code class="cs">System.Text.Encoding.UTF8</code>.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/89D541C1">PostFormAsync<wbr>(HttpClient, <wbr>Uri, <wbr>Hashtable)<wbr></a></td>
 								<td>Task<wbr>&lt;HttpResponseMessage&gt;<wbr></td>
 								<td>
@@ -353,12 +344,12 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/598B59F2">PostJsonAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/072ECA4D">PostFormAsync<wbr>(HttpClient, <wbr>Uri, <wbr>Hashtable, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
 								<td>Task<wbr>&lt;HttpResponseMessage&gt;<wbr></td>
 								<td>
 									<div>
     Calls <code class="cs">HttpClient.SendAsync(HttpRequestMessage)</code>
-    with the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/MimeTypes/624C2929">ApplicationJson</a></code>
+    with the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/MimeTypes/CDD9823F">ApplicationFormUrlEncoded</a></code>
     request body using <code class="cs">HttpMethod.Post</code>
     and <code class="cs">System.Text.Encoding.UTF8</code>.
     </div>
@@ -379,12 +370,12 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/400E1574">PostXmlAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/598B59F2">PostJsonAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
 								<td>Task<wbr>&lt;HttpResponseMessage&gt;<wbr></td>
 								<td>
 									<div>
     Calls <code class="cs">HttpClient.SendAsync(HttpRequestMessage)</code>
-    with the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/MimeTypes/4A9305AD">ApplicationXml</a></code>
+    with the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/MimeTypes/624C2929">ApplicationJson</a></code>
     request body using <code class="cs">HttpMethod.Post</code>
     and <code class="cs">System.Text.Encoding.UTF8</code>.
     </div>
@@ -405,13 +396,13 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/64E8B351">PutJsonAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/400E1574">PostXmlAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
 								<td>Task<wbr>&lt;HttpResponseMessage&gt;<wbr></td>
 								<td>
 									<div>
     Calls <code class="cs">HttpClient.SendAsync(HttpRequestMessage)</code>
-    with the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/MimeTypes/624C2929">ApplicationJson</a></code>
-    request body using <code class="cs">HttpMethod.Put</code>
+    with the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/MimeTypes/4A9305AD">ApplicationXml</a></code>
+    request body using <code class="cs">HttpMethod.Post</code>
     and <code class="cs">System.Text.Encoding.UTF8</code>.
     </div>
 											<div><small><em>static</em></small></div>
@@ -431,7 +422,20 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/22477622">PutXmlAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/64E8B351">PutJsonAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
+								<td>Task<wbr>&lt;HttpResponseMessage&gt;<wbr></td>
+								<td>
+									<div>
+    Calls <code class="cs">HttpClient.SendAsync(HttpRequestMessage)</code>
+    with the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/MimeTypes/624C2929">ApplicationJson</a></code>
+    request body using <code class="cs">HttpMethod.Put</code>
+    and <code class="cs">System.Text.Encoding.UTF8</code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/47FC5F1F">PutXmlAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string)<wbr></a></td>
 								<td>Task<wbr>&lt;HttpResponseMessage&gt;<wbr></td>
 								<td>
 									<div>
@@ -444,7 +448,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/47FC5F1F">PutXmlAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions/22477622">PutXmlAsync<wbr>(HttpClient, <wbr>Uri, <wbr>string, <wbr>Action<wbr>&lt;<wbr>Http<wbr>Request<wbr>Message&gt;<wbr>)<wbr></a></td>
 								<td>Task<wbr>&lt;HttpResponseMessage&gt;<wbr></td>
 								<td>
 									<div>
@@ -565,7 +569,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>
@@ -575,7 +579,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>

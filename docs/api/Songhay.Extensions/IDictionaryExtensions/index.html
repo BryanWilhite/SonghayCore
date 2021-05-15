@@ -139,6 +139,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ArrayExtensions">ArrayExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/AssemblyExtensions">AssemblyExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/CharExtensions">CharExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ConfigurationManagerExtensions">Configuration<wbr>Manager<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DataSetExtensions">DataSetExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DateTimeExtensions">DateTimeExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></li>
@@ -160,7 +161,9 @@
 				<li class="selected"><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IIdentityExtensions">IIdentityExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ITemporalExtensions">ITemporalExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions">JObjectExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/JsonSerializerSettingsExtensions">Json<wbr>Serializer<wbr>Settings<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JTokenExtensions">JTokenExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/MenuDisplayItemModelExtensions">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/NullableExtensions">NullableExtensions</a></li>
@@ -179,6 +182,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions">UriBuilderExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriExtensions">UriExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriTemplateExtensions">Uri<wbr>Template<wbr>Extensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/Utf8JsonWriterExtensions">Utf8<wbr>Json<wbr>Writer<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XElementExtensions">XElementExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XNamespaceExtensions">XNamespaceExtensions</a></li>
@@ -204,10 +208,10 @@
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Extensions of <code class="cs">System.Collections.IDictionary</code>
+    Extensions of <code class="cs"><a href="/SonghayCore">IDictionary</a></code>
     
 
-    Extensions of <code class="cs">System.Collections.Generic.IDictionary`2</code>
+    Extensions of <code class="cs"><a href="/SonghayCore">IDictionary&lt;TKey, TValue&gt;</a></code>
     </div>
 
 		<div class="panel panel-default">
@@ -283,7 +287,7 @@ class Type type-node
 								<td>string</td>
 								<td>
 									<div>
-    Converts the <code class="cs">System.Collections.IDictionary</code> into a string or null.
+    Converts the <code class="cs"><a href="/SonghayCore">IDictionary</a></code> into a string or null.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -293,13 +297,13 @@ class Type type-node
 								<td>TValue</td>
 								<td>
 									<div>
-    Converts the <code class="cs"><a href="/SonghayCore">IDictionary</a></code> into a value or default.
+    Converts the <code class="cs">System.Collections.IDictionary</code> into a value or default.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions/73139DBF">TryGetValueWithKey<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>, <wbr>TKey, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions/DF3CD2FB">TryGetValueWithKey<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>, <wbr>TKey)<wbr></a></td>
 								<td>TValue</td>
 								<td>
 									<div>
@@ -309,7 +313,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions/DF3CD2FB">TryGetValueWithKey<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>, <wbr>TKey)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions/73139DBF">TryGetValueWithKey<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>, <wbr>TKey, <wbr>bool)<wbr></a></td>
 								<td>TValue</td>
 								<td>
 									<div>
@@ -406,7 +410,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>
@@ -416,7 +420,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>

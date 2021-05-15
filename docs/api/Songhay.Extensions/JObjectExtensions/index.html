@@ -139,6 +139,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ArrayExtensions">ArrayExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/AssemblyExtensions">AssemblyExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/CharExtensions">CharExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ConfigurationManagerExtensions">Configuration<wbr>Manager<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DataSetExtensions">DataSetExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DateTimeExtensions">DateTimeExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></li>
@@ -160,7 +161,9 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IIdentityExtensions">IIdentityExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ITemporalExtensions">ITemporalExtensions</a></li>
 				<li class="selected"><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions">JObjectExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/JsonSerializerSettingsExtensions">Json<wbr>Serializer<wbr>Settings<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JTokenExtensions">JTokenExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/MenuDisplayItemModelExtensions">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/NullableExtensions">NullableExtensions</a></li>
@@ -179,6 +182,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions">UriBuilderExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriExtensions">UriExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriTemplateExtensions">Uri<wbr>Template<wbr>Extensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/Utf8JsonWriterExtensions">Utf8<wbr>Json<wbr>Writer<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XElementExtensions">XElementExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XNamespaceExtensions">XNamespaceExtensions</a></li>
@@ -285,16 +289,6 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/57F9E360">FromJObject<wbr>&lt;TInterface, <wbr>TDomainData&gt;<wbr><wbr>(JObject, <wbr>Json<wbr>Serializer<wbr>Settings)<wbr></a></td>
-								<td>TDomainData</td>
-								<td>
-									<div>
-    Converts to <code class="cs">TDomainData</code> from <code class="cs">JObject</code>.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/3B81772C">FromJObject<wbr>&lt;TInterface, <wbr>TDomainData&gt;<wbr><wbr>(JObject)<wbr></a></td>
 								<td>TDomainData</td>
 								<td>
@@ -305,18 +299,28 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/B85F15CE">GetDictionary<wbr>(JObject, <wbr>bool)<wbr></a></td>
-								<td>Dictionary<wbr>&lt;string, <wbr>string[]&gt;<wbr></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/57F9E360">FromJObject<wbr>&lt;TInterface, <wbr>TDomainData&gt;<wbr><wbr>(JObject, <wbr>Json<wbr>Serializer<wbr>Settings)<wbr></a></td>
+								<td>TDomainData</td>
 								<td>
 									<div>
-    Gets the <code class="cs"><a href="/SonghayCore">Dictionary&lt;TKey, TValue&gt;</a></code>.
+    Converts to <code class="cs">TDomainData</code> from <code class="cs">JObject</code>.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/853898B6">GetDictionary<wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
-								<td>Dictionary<wbr>&lt;string, <wbr>string&gt;<wbr></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/16C6F104">GetDictionary<wbr>(JObject)<wbr></a></td>
+								<td>Dictionary<wbr>&lt;string, <wbr>string[]&gt;<wbr></td>
+								<td>
+									<div>
+    Gets the <code class="cs">System.Collections.Generic.Dictionary`2</code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/B85F15CE">GetDictionary<wbr>(JObject, <wbr>bool)<wbr></a></td>
+								<td>Dictionary<wbr>&lt;string, <wbr>string[]&gt;<wbr></td>
 								<td>
 									<div>
     Gets the <code class="cs"><a href="/SonghayCore">Dictionary&lt;TKey, TValue&gt;</a></code>.
@@ -335,21 +339,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/16C6F104">GetDictionary<wbr>(JObject)<wbr></a></td>
-								<td>Dictionary<wbr>&lt;string, <wbr>string[]&gt;<wbr></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/853898B6">GetDictionary<wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
+								<td>Dictionary<wbr>&lt;string, <wbr>string&gt;<wbr></td>
 								<td>
 									<div>
     Gets the <code class="cs"><a href="/SonghayCore">Dictionary&lt;TKey, TValue&gt;</a></code>.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/911D5880">GetJArray<wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
-								<td>JArray</td>
-								<td>
-									<div>
-    Gets the <code class="cs">JArray</code>.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -365,7 +359,17 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/9C213631">GetJObject<wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/911D5880">GetJArray<wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
+								<td>JArray</td>
+								<td>
+									<div>
+    Gets the <code class="cs">JArray</code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/38F2E7E3">GetJObject<wbr>(JObject, <wbr>string)<wbr></a></td>
 								<td>JObject</td>
 								<td>
 									<div>
@@ -375,7 +379,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/38F2E7E3">GetJObject<wbr>(JObject, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/9C213631">GetJObject<wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
 								<td>JObject</td>
 								<td>
 									<div>
@@ -395,16 +399,6 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/19EAC9AD">GetJTokenFromJArray<wbr>(JObject, <wbr>string, <wbr>string, <wbr>int, <wbr>bool)<wbr></a></td>
-								<td>JToken</td>
-								<td>
-									<div>
-    Gets the <code class="cs">JToken</code> from <code class="cs">JArray</code>.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/EE1F37C0">GetJTokenFromJArray<wbr>(JObject, <wbr>string, <wbr>string, <wbr>int)<wbr></a></td>
 								<td>JToken</td>
 								<td>
@@ -415,7 +409,17 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/12612958">GetValue<wbr>&lt;TValue&gt;<wbr><wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/19EAC9AD">GetJTokenFromJArray<wbr>(JObject, <wbr>string, <wbr>string, <wbr>int, <wbr>bool)<wbr></a></td>
+								<td>JToken</td>
+								<td>
+									<div>
+    Gets the <code class="cs">JToken</code> from <code class="cs">JArray</code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/95362B40">GetValue<wbr>&lt;TValue&gt;<wbr><wbr>(JObject, <wbr>string)<wbr></a></td>
 								<td>TValue</td>
 								<td>
 									<div>
@@ -426,7 +430,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/95362B40">GetValue<wbr>&lt;TValue&gt;<wbr><wbr>(JObject, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/12612958">GetValue<wbr>&lt;TValue&gt;<wbr><wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
 								<td>TValue</td>
 								<td>
 									<div>
@@ -448,18 +452,6 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/B9B6731A">ParseJObject<wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
-								<td>JObject</td>
-								<td>
-									<div>
-    Parses the <code class="cs">JObject</code>
-    serialized as a string
-    at the specified property name.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/413C54B4">ParseJObject<wbr>(JObject, <wbr>string)<wbr></a></td>
 								<td>JObject</td>
 								<td>
@@ -474,7 +466,19 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/F6D919B0">WithProperty<wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/B9B6731A">ParseJObject<wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
+								<td>JObject</td>
+								<td>
+									<div>
+    Parses the <code class="cs">JObject</code>
+    serialized as a string
+    at the specified property name.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/33F5B0BC">WithProperty<wbr>(JObject, <wbr>string)<wbr></a></td>
 								<td>JObject</td>
 								<td>
 									<div>
@@ -484,7 +488,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/33F5B0BC">WithProperty<wbr>(JObject, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions/F6D919B0">WithProperty<wbr>(JObject, <wbr>string, <wbr>bool)<wbr></a></td>
 								<td>JObject</td>
 								<td>
 									<div>
@@ -581,7 +585,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>
@@ -591,7 +595,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>

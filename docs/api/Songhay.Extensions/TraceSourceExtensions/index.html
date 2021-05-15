@@ -140,6 +140,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ArrayExtensions">ArrayExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/AssemblyExtensions">AssemblyExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/CharExtensions">CharExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ConfigurationManagerExtensions">Configuration<wbr>Manager<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DataSetExtensions">DataSetExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DateTimeExtensions">DateTimeExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></li>
@@ -161,7 +162,9 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IIdentityExtensions">IIdentityExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ITemporalExtensions">ITemporalExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions">JObjectExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/JsonSerializerSettingsExtensions">Json<wbr>Serializer<wbr>Settings<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JTokenExtensions">JTokenExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/MenuDisplayItemModelExtensions">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/NullableExtensions">NullableExtensions</a></li>
@@ -180,6 +183,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions">UriBuilderExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriExtensions">UriExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriTemplateExtensions">Uri<wbr>Template<wbr>Extensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/Utf8JsonWriterExtensions">Utf8<wbr>Json<wbr>Writer<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XElementExtensions">XElementExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XNamespaceExtensions">XNamespaceExtensions</a></li>
@@ -291,7 +295,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/2D3CBA85">TraceError<wbr>(TraceSource, <wbr>string, <wbr>object[])<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/66D0A36E">TraceError<wbr>(TraceSource, <wbr>Exception, <wbr>bool)<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
@@ -311,11 +315,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/16F98B5F">TraceVerbose<wbr>(TraceSource, <wbr>string, <wbr>object[])<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/2D3CBA85">TraceError<wbr>(TraceSource, <wbr>string, <wbr>object[])<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
-    Trace event type <code class="cs">TraceEventType.Verbose</code>
+    Traces the error.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -331,11 +335,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/AE7415E2">TraceWarning<wbr>(TraceSource, <wbr>string, <wbr>object[])<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/16F98B5F">TraceVerbose<wbr>(TraceSource, <wbr>string, <wbr>object[])<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
-    Trace event type <code class="cs">TraceEventType.Warning</code>
+    Trace event type <code class="cs">TraceEventType.Verbose</code>
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -351,12 +355,11 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/D19ED196">WithSourceLevels<wbr>(TraceSource, <wbr>SourceLevels)<wbr></a></td>
-								<td>TraceSource</td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/AE7415E2">TraceWarning<wbr>(TraceSource, <wbr>string, <wbr>object[])<wbr></a></td>
+								<td>void</td>
 								<td>
 									<div>
-    Returns the <code class="cs">TraceSource</code>
-    with the specified <code class="cs">SourceLevels</code>.
+    Trace event type <code class="cs">TraceEventType.Warning</code>
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -373,7 +376,18 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/87107273">WriteLine<wbr>(TraceSource, <wbr>string, <wbr>object[])<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/D19ED196">WithSourceLevels<wbr>(TraceSource, <wbr>SourceLevels)<wbr></a></td>
+								<td>TraceSource</td>
+								<td>
+									<div>
+    Returns the <code class="cs">TraceSource</code>
+    with the specified <code class="cs">SourceLevels</code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/3A6569D2">WriteLine<wbr>(TraceSource, <wbr>string)<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
@@ -383,7 +397,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/3A6569D2">WriteLine<wbr>(TraceSource, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions/87107273">WriteLine<wbr>(TraceSource, <wbr>string, <wbr>object[])<wbr></a></td>
 								<td>void</td>
 								<td>
 									<div>
@@ -480,7 +494,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>
@@ -490,7 +504,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>

@@ -139,6 +139,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ArrayExtensions">ArrayExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/AssemblyExtensions">AssemblyExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/CharExtensions">CharExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ConfigurationManagerExtensions">Configuration<wbr>Manager<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DataSetExtensions">DataSetExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DateTimeExtensions">DateTimeExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></li>
@@ -160,7 +161,9 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IIdentityExtensions">IIdentityExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/ITemporalExtensions">ITemporalExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions">JObjectExtensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/JsonSerializerSettingsExtensions">Json<wbr>Serializer<wbr>Settings<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/JTokenExtensions">JTokenExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/MenuDisplayItemModelExtensions">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/NullableExtensions">NullableExtensions</a></li>
@@ -179,6 +182,7 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions">UriBuilderExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriExtensions">UriExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/UriTemplateExtensions">Uri<wbr>Template<wbr>Extensions</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/Utf8JsonWriterExtensions">Utf8<wbr>Json<wbr>Writer<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XElementExtensions">XElementExtensions</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/XNamespaceExtensions">XNamespaceExtensions</a></li>
@@ -315,17 +319,6 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/43B1EC66">ToActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(IActivity, <wbr>bool)<wbr></a></td>
-								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></td>
-								<td>
-									<div>
-    Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
-    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput&lt;TInput, TOutput&gt;</a></code>.
-    </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/D72D89FF">ToActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(IActivity)<wbr></a></td>
 								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></td>
 								<td>
@@ -337,12 +330,12 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/BAB90A91">ToActivityWithTask<wbr>(IActivity, <wbr>bool)<wbr></a></td>
-								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/43B1EC66">ToActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(IActivity, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></td>
 								<td>
 									<div>
     Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
-    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></code>.
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput&lt;TInput, TOutput&gt;</a></code>.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -359,12 +352,12 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/5BC347F6">ToActivityWithTask<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(IActivity, <wbr>bool)<wbr></a></td>
-								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask</a><wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/BAB90A91">ToActivityWithTask<wbr>(IActivity, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></td>
 								<td>
 									<div>
     Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
-    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask&lt;TInput, TOutput&gt;</a></code>.
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></code>.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -381,12 +374,12 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/28487CCE">ToActivityWithTask<wbr>&lt;TInput&gt;<wbr><wbr>(IActivity, <wbr>bool)<wbr></a></td>
-								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask</a><wbr>&lt;TInput&gt;<wbr></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/5BC347F6">ToActivityWithTask<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(IActivity, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask</a><wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></td>
 								<td>
 									<div>
     Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
-    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask&lt;TInput&gt;</a></code>.
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask&lt;TInput, TOutput&gt;</a></code>.
     </div>
 											<div><small><em>static</em></small></div>
 								</td>
@@ -403,7 +396,18 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/A96A8FA8">To<wbr>Activity<wbr>With<wbr>Task<wbr>Output<wbr>&lt;TOutput&gt;<wbr><wbr>(IActivity, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/28487CCE">ToActivityWithTask<wbr>&lt;TInput&gt;<wbr><wbr>(IActivity, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask</a><wbr>&lt;TInput&gt;<wbr></td>
+								<td>
+									<div>
+    Converts the specified <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask&lt;TInput&gt;</a></code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/468395A5">To<wbr>Activity<wbr>With<wbr>Task<wbr>Output<wbr>&lt;TOutput&gt;<wbr><wbr>(IActivity)<wbr></a></td>
 								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTaskOutput_1">I<wbr>Activity<wbr>With<wbr>Task<wbr>Output</a><wbr>&lt;TOutput&gt;<wbr></td>
 								<td>
 									<div>
@@ -414,7 +418,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/468395A5">To<wbr>Activity<wbr>With<wbr>Task<wbr>Output<wbr>&lt;TOutput&gt;<wbr><wbr>(IActivity)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/A96A8FA8">To<wbr>Activity<wbr>With<wbr>Task<wbr>Output<wbr>&lt;TOutput&gt;<wbr><wbr>(IActivity, <wbr>bool)<wbr></a></td>
 								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithTaskOutput_1">I<wbr>Activity<wbr>With<wbr>Task<wbr>Output</a><wbr>&lt;TOutput&gt;<wbr></td>
 								<td>
 									<div>
@@ -522,7 +526,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>
@@ -532,7 +536,7 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
 								<td>
 									<div>
