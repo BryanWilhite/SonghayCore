@@ -10,7 +10,7 @@ namespace Songhay.Extensions
     /// <summary>
     /// Extensions of <see cref="HttpRequestMessage"/>
     /// </summary>
-    public static class HttpRequestMessageExtensions
+    public static partial class HttpRequestMessageExtensions
     {
         /// <summary>
         /// Gets a <see cref="string"/> from the derived <see cref="HttpResponseMessage"/>.

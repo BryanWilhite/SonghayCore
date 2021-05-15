@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
-using System.Collections.Generic;
 using System.Net.Http;
-
+using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Songhay.Extensions
 {
@@ -31,6 +33,42 @@ namespace Songhay.Extensions
             if (input == null) return false;
             if (input.IsFile) return true;
             return Path.HasExtension(input.OriginalString);
+        }
+
+        /// <summary>
+        /// This part of the signature string represents the storage account 
+        ///   targeted by the request. Will also include any additional query parameters/values.
+        /// For ListContainers, this will return something like this:
+        ///   /storageaccountname/\ncomp:list
+        /// </summary>
+        /// <param name="uri">The URI of the storage service.</param>
+        /// <param name="accountName">The storage account name.</param>
+        /// <returns><see cref="string" /> representing the canonicalized resource.</returns>
+        /// <remarks>
+        /// See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
+        ///
+        /// See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage
+        ///
+        /// See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+        /// </remarks>
+        public static string ToAzureStorageCanonicalizedResourceLocation(this Uri uri, string accountName)
+        {
+            if (uri == null) throw new ArgumentNullException(nameof(uri));
+
+            // The absolute path is "/" because for we're getting a list of containers.
+            StringBuilder sb = new StringBuilder("/").Append(accountName).Append(uri.AbsolutePath);
+
+            // Address.Query is the resource, such as "?comp=list".
+            // This ends up with a NameValueCollection with 1 entry having key=comp, value=list.
+            // It will have more entries if you have more query parameters.
+            NameValueCollection values = HttpUtility.ParseQueryString(uri.Query);
+
+            foreach (var item in values.AllKeys.OrderBy(k => k))
+            {
+                sb.Append('\n').Append(item).Append(':').Append(values[item]);
+            }
+
+            return sb.ToString().ToLower();
         }
 
         /// <summary>
