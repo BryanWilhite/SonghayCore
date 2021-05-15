@@ -1428,6 +1428,88 @@
             Extensions of <see cref="T:System.Net.Http.HttpRequestMessage"/>
             </summary>
         </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String,System.String)">
+             <summary>
+             Derives the <see cref="T:System.Net.Http.Headers.AuthenticationHeaderValue"/>
+             from the <see cref="T:System.Net.Http.HttpRequestMessage"/>.
+             </summary>
+             <param name="request">the <see cref="T:System.Net.Http.HttpRequestMessage"/></param>
+             <param name="storageAccountName">the Azure Storage account name</param>
+             <param name="storageAccountKey">the Azure Storage account shared key</param>
+             <param name="requestMoment">the moment of the request</param>
+             <param name="eTag">entity tag for Web cache validation</param>
+             <param name="md5">The MD5 (message-digest algorithm) hash</param>
+             <returns></returns>
+             <remarks>
+             See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
+            
+             See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage
+            
+             See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+            
+             Provide the md5 and it will check and make sure it matches the requested blob's md5. If it doesn't match, it won't return a value.
+            
+             Provide an eTag, and it will only make changes to a blob if the current eTag matches, to ensure you don't overwrite someone else's changes.
+             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders(System.Net.Http.HttpRequestMessage)">
+             <summary>
+             Returns headers, starting with <c>x-ms-</c>,
+             in a canonical format.
+             </summary>
+             <param name="request">the <see cref="T:System.Net.Http.HttpRequestMessage"/></param>
+             <returns></returns>
+             <remarks>
+             See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
+            
+             See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage
+            
+             See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+            
+             See http://en.wikipedia.org/wiki/Canonicalization
+             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageSignature(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String)">
+             <summary>
+             Derives the raw representation of the message signature
+             from the <see cref="T:System.Net.Http.HttpRequestMessage"/>.`
+             </summary>
+             <param name="request">the <see cref="T:System.Net.Http.HttpRequestMessage"/></param>
+             <param name="storageAccountName">The name of the storage account to use.</param>
+             <returns></returns>
+             <remarks>
+             See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
+            
+             See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage
+            
+             See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String,System.String,System.String)">
+             <summary>
+             Returns <see cref="T:System.Net.Http.HttpRequestMessage"/> with the minimum headers
+             required for Azure Storage.
+             </summary>
+             <param name="request">the <see cref="T:System.Net.Http.HttpRequestMessage"/></param>
+             <param name="requestMoment">the moment of the request</param>
+             <param name="serviceVersion"></param>
+             <param name="storageAccountName">the Azure Storage account name</param>
+             <param name="storageAccountKey">the Azure Storage account shared key</param>
+             <param name="eTag">entity tag for Web cache validation</param>
+             <param name="md5">The MD5 (message-digest algorithm) hash</param>
+             <returns></returns>
+             <remarks>
+             See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
+            
+             See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage
+            
+             See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+            
+             Provide the md5 and it will check and make sure it matches the requested blob's md5. If it doesn't match, it won't return a value.
+             
+             Provide an eTag, and it will only make changes to a blob if the current eTag matches, to ensure you don't overwrite someone else's changes.
+             </remarks>
+        </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)">
             <summary>
             Gets a <see cref="T:System.String"/> from the derived <see cref="T:System.Net.Http.HttpResponseMessage"/>.
@@ -3493,6 +3575,24 @@
             Also note that the only way to truly define a directory
             or folder is with a trailing forward/back slash.
             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.UriExtensions.ToAzureStorageCanonicalizedResourceLocation(System.Uri,System.String)">
+             <summary>
+             This part of the signature string represents the storage account 
+               targeted by the request. Will also include any additional query parameters/values.
+             For ListContainers, this will return something like this:
+               /storageaccountname/\ncomp:list
+             </summary>
+             <param name="uri">The URI of the storage service.</param>
+             <param name="accountName">The storage account name.</param>
+             <returns><see cref="T:System.String" /> representing the canonicalized resource.</returns>
+             <remarks>
+             See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
+            
+             See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage
+            
+             See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+             </remarks>
         </member>
         <member name="M:Songhay.Extensions.UriExtensions.ToBaseUri(System.Uri)">
             <summary>

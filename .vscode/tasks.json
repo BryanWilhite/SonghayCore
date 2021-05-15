@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build [Solution]",
+            "label": "dotnet build [Solution]",
             "command": "dotnet",
             "type": "shell",
             "args": [
@@ -12,7 +12,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build [Solution, Release]",
+            "label": "dotnet build [Solution, Release]",
             "command": "dotnet",
             "type": "shell",
             "args": [
@@ -24,7 +24,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build [SonghayCore]",
+            "label": "dotnet build [SonghayCore]",
             "command": "dotnet",
             "type": "shell",
             "args": [
@@ -34,7 +34,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build [SonghayCore, Release]",
+            "label": "dotnet build [SonghayCore, Release]",
             "command": "dotnet",
             "type": "shell",
             "args": [
@@ -46,7 +46,25 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build [SonghayCore.Tests]",
+            "label": "dotnet pack [SonghayCore, Debug]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "pack",
+                "${workspaceFolder}/SonghayCore/SonghayCore.csproj",
+                "--configuration",
+                "Debug",
+                "-p:NuspecFile=${workspaceFolder}/SonghayCore/SonghayCore.nuspec",
+                "-p:NuspecBasePath=${workspaceFolder}/SonghayCore",
+                "--output",
+                "${workspaceFolder}/SonghayCore",
+                "--verbosity",
+                "normal"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "dotnet build [SonghayCore.Tests]",
             "command": "dotnet",
             "type": "shell",
             "args": [
@@ -56,7 +74,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "test [SonghayCore.Tests]",
+            "label": "dotnet test [SonghayCore.Tests]",
             "command": "dotnet",
             "type": "shell",
             "args": [
@@ -70,7 +88,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build [SonghayCore.Tests, Release]",
+            "label": "dotnet build [SonghayCore.Tests, Release]",
             "command": "dotnet",
             "type": "shell",
             "args": [
@@ -82,7 +100,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "test [SonghayCore.Tests, filtered by selected text]",
+            "label": "dotnet test [SonghayCore.Tests, filtered by selected text]",
             "command": "dotnet",
             "type": "shell",
             "args": [
@@ -96,7 +114,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build [SonghayCore.xUnit]",
+            "label": "dotnet build [SonghayCore.xUnit]",
             "command": "dotnet",
             "type": "shell",
             "args": [
@@ -106,7 +124,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build [SonghayCore.xUnit, Release]",
+            "label": "dotnet build [SonghayCore.xUnit, Release]",
             "command": "dotnet",
             "type": "shell",
             "args": [
