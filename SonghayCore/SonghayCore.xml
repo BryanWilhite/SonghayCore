@@ -7269,16 +7269,22 @@
         </member>
         <member name="M:Songhay.ProgramFileUtility.GetEncodedString(System.String)">
             <summary>
-            Gets the UTF-8 encoded string.
+            Gets the UTF-8 encoded string from.
             </summary>
-            <param name="rawValue">The raw value.</param>
+            <param name="utf16Value">The raw value.</param>
         </member>
         <member name="M:Songhay.ProgramFileUtility.GetEncodedString(System.String,System.Text.Encoding)">
             <summary>
-            Gets the encoded string.
+            Gets the encoded <see cref="T:System.String"/>
+            from its default <see cref="P:System.Text.Encoding.Unicode"/> encoding.
             </summary>
-            <param name="rawValue">The raw value (<see cref="P:System.Text.Encoding.ASCII"/> by default).</param>
-            <param name="encoding">The encoding.</param>
+            <param name="utf16Value">The raw value.</param>
+            <param name="outputEncoding">The output encoding.</param>
+            <remarks>
+            <see cref="P:System.Text.Encoding.Unicode"/> encoding is the UTF-16
+            encoding of strings in .NET.
+            See: https://docs.microsoft.com/en-us/dotnet/api/system.text.unicodeencoding
+            </remarks>
         </member>
         <member name="M:Songhay.ProgramFileUtility.GetFileName(System.String)">
             <summary>

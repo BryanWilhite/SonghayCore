@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Text;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -65,6 +66,17 @@ namespace Songhay.Tests
                         projectFolderInfo.GetDirectories().First().Name,
                         fileIsExpected);
             }
+        }
+
+        [Fact]
+        public void GetEncodedString_Test()
+        {
+            var unicode = "This string contains the unicode character Pi (\u03a0)";
+
+            var actual = ProgramFileUtility.GetEncodedString(unicode, Encoding.ASCII);
+
+            Assert.NotNull(actual);
+            Assert.True(actual.Contains('?'));
         }
 
         [Theory]

@@ -10,26 +10,36 @@ namespace Songhay
     public static partial class ProgramFileUtility
     {
         /// <summary>
-        /// Gets the UTF-8 encoded string.
+        /// Gets the UTF-8 encoded string from.
         /// </summary>
-        /// <param name="rawValue">The raw value.</param>
-        public static string GetEncodedString(string rawValue)
+        /// <param name="utf16Value">The raw value.</param>
+        public static string GetEncodedString(string utf16Value)
         {
-            return ProgramFileUtility.GetEncodedString(rawValue, Encoding.UTF8);
+            return ProgramFileUtility
+                .GetEncodedString(utf16Value, Encoding.UTF8);
         }
 
         /// <summary>
-        /// Gets the encoded string.
+        /// Gets the encoded <see cref="string"/>
+        /// from its default <see cref="Encoding.Unicode"/> encoding.
         /// </summary>
-        /// <param name="rawValue">The raw value (<see cref="System.Text.Encoding.ASCII"/> by default).</param>
-        /// <param name="encoding">The encoding.</param>
-        public static string GetEncodedString(string rawValue, Encoding encoding)
+        /// <param name="utf16Value">The raw value.</param>
+        /// <param name="outputEncoding">The output encoding.</param>
+        /// <remarks>
+        /// <see cref="Encoding.Unicode"/> encoding is the UTF-16
+        /// encoding of strings in .NET.
+        /// See: https://docs.microsoft.com/en-us/dotnet/api/system.text.unicodeencoding
+        /// </remarks>
+        public static string GetEncodedString(string utf16Value, Encoding outputEncoding)
         {
-            if (encoding == null) throw new ArgumentNullException(nameof(encoding));
+            if (outputEncoding == null) throw new ArgumentNullException(nameof(outputEncoding));
 
-            byte[] b = Encoding.Convert(Encoding.ASCII, encoding, encoding.GetBytes(rawValue));
+            byte[] byteArray = Encoding.Convert(
+                Encoding.Unicode,
+                outputEncoding,
+                Encoding.Unicode.GetBytes(utf16Value));
 
-            return new string(Encoding.ASCII.GetChars(b));
+            return new string(outputEncoding.GetChars(byteArray));
         }
     }
 }
