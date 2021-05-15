@@ -151,197 +151,103 @@ namespace Songhay.Extensions
             }
         }
 
+#if NET5_0
+
         /// <summary>
-        /// Converts the specified <see cref="IActivity" />
-        /// to <see cref="IActivityWithOutput{TInput,TOutput}" />.
+        /// Starts the <see cref="IActivity"/>
+        /// with <see cref="ConsoleTraceListener"/>.
+        /// </summary>
+        /// <param name="activity">The activity.</param>
+        /// <param name="args">The arguments.</param>
+        /// <param name="traceSource">The trace source.</param>
+        /// <returns>The trace source log.</returns>
+        public static void StartConsoleActivity(this IActivity activity, ProgramArgs args, TraceSource traceSource)
+        {
+            using (var listener = new ConsoleTraceListener())
+            {
+                traceSource?.Listeners.Add(listener);
+
+                try
+                {
+                    activity.Start(args);
+                }
+                finally
+                {
+                    listener.Flush();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Starts the <see cref="IActivity"/>, asynchronously
+        /// with <see cref="ConsoleTraceListener"/>.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the input.</typeparam>
+        /// <param name="activity">The activity.</param>
+        /// <param name="input">The input.</param>
+        /// <param name="traceSource">The trace source.</param>
+        /// <returns>The trace source log.</returns>
+        /// <exception cref="NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
+        public static async Task StartConsoleActivityAsync<TInput>(this IActivity activity, TInput input, TraceSource traceSource)
+        {
+            if (activity == null) throw new NullReferenceException($"The expected {nameof(IActivity)} is not here.");
+
+            using (var listener = new ConsoleTraceListener())
+            {
+                traceSource?.Listeners.Add(listener);
+
+                try
+                {
+                    var activityWithTask = activity.ToActivityWithTask<TInput>();
+                    await activityWithTask
+                        .StartAsync(input)
+                        .ConfigureAwait(continueOnCapturedContext: false);
+                }
+                finally
+                {
+                    listener.Flush();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Starts the <see cref="IActivity"/>, asynchronously
+        /// with <see cref="ConsoleTraceListener"/>.
         /// </summary>
         /// <typeparam name="TInput">The type of the input.</typeparam>
         /// <typeparam name="TOutput">The type of the output.</typeparam>
         /// <param name="activity">The activity.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException">The expected Activity name is not here.
-        /// or</exception>
-        [Obsolete("use `ToActivityWithTask` overloads instead")]
-        public static IActivityWithOutput<TInput, TOutput> ToActivityWithOutput<TInput, TOutput>(this IActivity activity)
+        /// <param name="input">The input.</param>
+        /// <param name="traceSource">The trace source.</param>
+        /// <returns>The trace source log.</returns>
+        /// <exception cref="NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
+        public static async Task<TOutput> StartConsoleActivityAsync<TInput, TOutput>(this IActivity activity, TInput input, TraceSource traceSource)
         {
-            return activity.ToActivityWithOutput<TInput, TOutput>(throwException: true);
+            if (activity == null) throw new NullReferenceException($"The expected {nameof(IActivity)} is not here.");
+
+            using (var listener = new ConsoleTraceListener())
+            {
+                traceSource?.Listeners.Add(listener);
+
+                TOutput output = default(TOutput);
+
+                try
+                {
+                    var activityWithOutput = activity.ToActivityWithTask<TInput, TOutput>();
+
+                    output = await activityWithOutput
+                        .StartAsync(input)
+                        .ConfigureAwait(continueOnCapturedContext: false);
+                }
+                finally
+                {
+                    listener.Flush();
+                }
+
+                return output;
+            }
         }
 
-        /// <summary>
-        /// Converts the specified <see cref="IActivity" />
-        /// to <see cref="IActivityWithOutput{TInput,TOutput}" />.
-        /// </summary>
-        /// <typeparam name="TInput">The type of the input.</typeparam>
-        /// <typeparam name="TOutput">The type of the output.</typeparam>
-        /// <param name="activity">The activity.</param>
-        /// <param name="throwException">if set to <c>true</c> throw exception.</param>
-        /// <returns></returns>
-        /// <exception cref="NullReferenceException">The expected IActivityOutput{TInput, TOutput} is not here.</exception>
-        /// <exception cref="ArgumentNullException">The expected Activity name is not here.
-        /// or</exception>
-        [Obsolete("use `ToActivityWithTask` overloads instead")]
-        public static IActivityWithOutput<TInput, TOutput> ToActivityWithOutput<TInput, TOutput>(this IActivity activity, bool throwException)
-        {
-            if (activity == null) return null;
-
-            var output = activity as IActivityWithOutput<TInput, TOutput>;
-
-            if (throwException && (output == null))
-                throw new NullReferenceException($"The expected {nameof(IActivityWithOutput<TInput, TOutput>)} is not here.");
-
-            return output;
-        }
-
-        /// <summary>
-        /// Converts the specified <see cref="IActivity" />
-        /// to <see cref="IActivityWithTask{TInput,TOutput}" />.
-        /// </summary>
-        /// <typeparam name="TInput">The type of the input.</typeparam>
-        /// <typeparam name="TOutput">The type of the output.</typeparam>
-        /// <param name="activity">The activity.</param>
-        /// <returns></returns>
-        /// <exception cref="NullReferenceException">
-        /// The expected IActivityWithTask{TInput, TOutput} is not here.
-        /// </exception>
-        public static IActivityWithTask<TInput, TOutput> ToActivityWithTask<TInput, TOutput>(this IActivity activity)
-        {
-            return activity.ToActivityWithTask<TInput, TOutput>(throwException: true);
-        }
-
-        /// <summary>
-        /// Converts the specified <see cref="IActivity" />
-        /// to <see cref="IActivityWithTask{TInput,TOutput}" />.
-        /// </summary>
-        /// <typeparam name="TInput">The type of the input.</typeparam>
-        /// <typeparam name="TOutput">The type of the output.</typeparam>
-        /// <param name="activity">The activity.</param>
-        /// <param name="throwException">if set to <c>true</c> throw exception.</param>
-        /// <returns></returns>
-        /// <exception cref="NullReferenceException">
-        /// The expected IActivityWithTask{TInput, TOutput} is not here.
-        /// </exception>
-        public static IActivityWithTask<TInput, TOutput> ToActivityWithTask<TInput, TOutput>(this IActivity activity, bool throwException)
-        {
-            if (activity == null) return null;
-
-            var output = activity as IActivityWithTask<TInput, TOutput>;
-
-            if (throwException && (output == null))
-                throw new NullReferenceException($"The expected {nameof(IActivityWithTask<TInput, TOutput>)} is not here.");
-
-            return output;
-        }
-
-        /// <summary>
-        /// Converts the specified <see cref="IActivity" />
-        /// to <see cref="IActivityWithTask{TInput}" />.
-        /// </summary>
-        /// <typeparam name="TInput">The type of the input.</typeparam>
-        /// <param name="activity">The activity.</param>
-        /// <returns></returns>
-        /// <exception cref="NullReferenceException">
-        /// The expected IActivityWithTask{TInput, TOutput} is not here.
-        /// </exception>
-        public static IActivityWithTask<TInput> ToActivityWithTask<TInput>(this IActivity activity)
-        {
-            return activity.ToActivityWithTask<TInput>(throwException: true);
-        }
-        
-        /// <summary>
-        /// Converts the specified <see cref="IActivity" />
-        /// to <see cref="IActivityWithTask{TInput}" />.
-        /// </summary>
-        /// <typeparam name="TInput">The type of the input.</typeparam>
-        /// <param name="activity">The activity.</param>
-        /// <param name="throwException">if set to <c>true</c> throw exception.</param>
-        /// <returns></returns>
-        /// <exception cref="NullReferenceException">
-        /// The expected IActivityWithTask{TInput} is not here.
-        /// </exception>
-        public static IActivityWithTask<TInput> ToActivityWithTask<TInput>(this IActivity activity, bool throwException)
-        {
-            if (activity == null) return null;
-
-            var output = activity as IActivityWithTask<TInput>;
-
-            if (throwException && (output == null))
-                throw new NullReferenceException($"The expected {nameof(IActivityWithTask<TInput>)} is not here.");
-
-            return output;
-        }
-
-        /// <summary>
-        /// Converts the specified <see cref="IActivity" />
-        /// to <see cref="IActivityWithTask" />.
-        /// </summary>
-        /// <param name="activity">The activity.</param>
-        /// <returns></returns>
-        /// <exception cref="NullReferenceException">
-        /// The expected IActivityWithTask{TInput, TOutput} is not here.
-        /// </exception>
-        public static IActivityWithTask ToActivityWithTask(this IActivity activity)
-        {
-            return activity.ToActivityWithTask(throwException: true);
-        }
-
-        /// <summary>
-        /// Converts the specified <see cref="IActivity" />
-        /// to <see cref="IActivityWithTask" />.
-        /// </summary>
-        /// <param name="activity">The activity.</param>
-        /// <param name="throwException">if set to <c>true</c> throw exception.</param>
-        /// <returns></returns>
-        /// <exception cref="NullReferenceException">
-        /// The expected IActivityWithTask is not here.
-        /// </exception>
-        public static IActivityWithTask ToActivityWithTask(this IActivity activity, bool throwException)
-        {
-            if (activity == null) return null;
-
-            var output = activity as IActivityWithTask;
-
-            if (throwException && (output == null))
-                throw new NullReferenceException($"The expected {nameof(IActivityWithTask)} is not here.");
-
-            return output;
-        }
-
-        /// <summary>
-        /// Converts the specified <see cref="IActivity" />
-        /// to <see cref="IActivityWithTaskOutput{TOutput}" />.
-        /// </summary>
-        /// <typeparam name="TOutput">The type of the output.</typeparam>
-        /// <param name="activity">The activity.</param>
-        /// <returns></returns>
-        /// <exception cref="NullReferenceException">
-        /// The expected IActivityWithTaskOutput{TOutput} is not here.
-        /// </exception>
-        public static IActivityWithTaskOutput<TOutput> ToActivityWithTaskOutput<TOutput>(this IActivity activity)
-        {
-            return activity.ToActivityWithTaskOutput<TOutput>(throwException: true);
-        }
-        
-        /// <summary>
-        /// Converts the specified <see cref="IActivity" />
-        /// to <see cref="IActivityWithTaskOutput{TOutput}" />.
-        /// </summary>
-        /// <typeparam name="TOutput">The type of the output.</typeparam>
-        /// <param name="activity">The activity.</param>
-        /// <param name="throwException">if set to <c>true</c> throw exception.</param>
-        /// <returns></returns>
-        /// <exception cref="NullReferenceException">
-        /// The expected IActivityWithTaskOutput{TOutput} is not here.
-        /// </exception>
-        public static IActivityWithTaskOutput<TOutput> ToActivityWithTaskOutput<TOutput>(this IActivity activity, bool throwException)
-        {
-            if (activity == null) return null;
-
-            var output = activity as IActivityWithTaskOutput<TOutput>;
-
-            if (throwException && (output == null))
-                throw new NullReferenceException($"The expected {nameof(IActivityWithTaskOutput<TOutput>)} is not here.");
-
-            return output;
-        }
+#endif
     }
 }
