@@ -19,6 +19,7 @@ namespace Songhay.Tests.Extensions
 
             traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
         }
+
         static TraceSource traceSource;
 
         public IActivityExtensionsTests(ITestOutputHelper helper)
@@ -34,7 +35,35 @@ namespace Songhay.Tests.Extensions
             var activity = activitiesGetter?.GetActivity();
             Assert.NotNull(activity);
 
-            this._testOutputHelper.WriteLine(activity.StartActivity(new ProgramArgs(args), traceSource));
+            var log = activity.StartActivity(new ProgramArgs(args), traceSource);
+            Assert.False(string.IsNullOrWhiteSpace(log));
+            this._testOutputHelper.WriteLine(log);
+        }
+
+        [Theory]
+        [ProjectFileData(typeof(IActivityExtensionsTests),
+            "../../../json/StartActivity_StreamWriter_Test_output.log")]
+        public void StartActivity_StreamWriter_Test(FileInfo outputInfo)
+        {
+            var args = new[] { nameof(MyActivity) };
+            var activitiesGetter = new MyActivitiesGetter(args);
+            var activity = activitiesGetter?.GetActivity();
+            Assert.NotNull(activity);
+
+            var disposable = new StreamWriter(outputInfo.FullName);
+
+            var log = activity.StartActivity(
+                new ProgramArgs(args),
+                traceSource,
+                () => disposable,
+                flushLog: false);
+
+            Assert.Null(log);
+            Assert.Throws<ObjectDisposedException>(() => disposable.WriteLine("foo"));
+
+            log = File.ReadAllText(outputInfo.FullName);
+            Assert.False(string.IsNullOrWhiteSpace(log));
+            this._testOutputHelper.WriteLine(log);
         }
 
         ITestOutputHelper _testOutputHelper;

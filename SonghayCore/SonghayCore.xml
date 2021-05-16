@@ -2008,7 +2008,18 @@
             <param name="activity">The activity.</param>
             <param name="args">The arguments.</param>
             <param name="traceSource">The trace source.</param>
-            <returns>The trace source log.</returns>
+            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivity(Songhay.Models.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/>.
+            </summary>
+            <param name="activity">The activity.</param>
+            <param name="args">The arguments.</param>
+            <param name="traceSource">The trace source.</param>
+            <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
+            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
@@ -2018,7 +2029,19 @@
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
             <param name="input">The input.</param>
-            <param name="traceSource">The trace source.</param>
+            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter})">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <param name="activity">The activity.</param>
+            <param name="input">The input.</param>
+            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
@@ -2029,8 +2052,20 @@
             <typeparam name="TInput">The type of the input.</typeparam>
             <param name="activity">The activity.</param>
             <param name="input">The input.</param>
-            <param name="traceSource">The trace source.</param>
-            <returns>The trace source log.</returns>
+            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``1(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <param name="activity">The activity.</param>
+            <param name="input">The input.</param>
+            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
+            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync(Songhay.Models.IActivity,System.Diagnostics.TraceSource)">
@@ -2038,8 +2073,18 @@
             Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
             </summary>
             <param name="activity">The activity.</param>
-            <param name="traceSource">The trace source.</param>
-            <returns>The trace source log.</returns>
+            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync(Songhay.Models.IActivity,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            </summary>
+            <param name="activity">The activity.</param>
+            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
+            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>; otherwise, <c>null</c>.</returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivity(Songhay.Models.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource)">
@@ -2049,8 +2094,8 @@
             </summary>
             <param name="activity">The activity.</param>
             <param name="args">The arguments.</param>
-            <param name="traceSource">The trace source.</param>
-            <returns>The trace source log.</returns>
+            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityAsync``1(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
@@ -2060,8 +2105,8 @@
             <typeparam name="TInput">The type of the input.</typeparam>
             <param name="activity">The activity.</param>
             <param name="input">The input.</param>
-            <param name="traceSource">The trace source.</param>
-            <returns>The trace source log.</returns>
+            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityAsync``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
@@ -2073,8 +2118,8 @@
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
             <param name="input">The input.</param>
-            <param name="traceSource">The trace source.</param>
-            <returns>The trace source log.</returns>
+            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
         <member name="T:Songhay.Extensions.ICommunicationObjectExtensions">
