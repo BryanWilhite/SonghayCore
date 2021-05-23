@@ -160,8 +160,8 @@
 				<li><a href="/SonghayCore/api/Songhay.Models/OpmlDocument">OpmlDocument</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/OpmlHead">OpmlHead</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/OpmlOutline">OpmlOutline</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Models/PackedResource_1">PackedResource<wbr>&lt;TResource&gt;<wbr></a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/PackedResource">PackedResource</a></li>
+				<li><a href="/SonghayCore/api/Songhay.Models/PackedResource_1">PackedResource<wbr>&lt;TResource&gt;<wbr></a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/PagedResult">PagedResult</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/PagedResultMeta">PagedResultMeta</a></li>
 				<li><a href="/SonghayCore/api/Songhay.Models/ProgramArgs">ProgramArgs</a></li>
@@ -234,9 +234,9 @@
 								<dt>Implementing Types</dt>
 								<dd>
 									<ul class="list-unstyled">
+											<li><a href="/SonghayCore/api/Songhay.Models/MenuDisplayItemModel">MenuDisplayItemModel</a></li>								
 											<li><a href="/SonghayCore/api/Songhay.Models/ColorDisplayItemModel">Color<wbr>Display<wbr>Item<wbr>Model</a></li>								
 											<li><a href="/SonghayCore/api/Songhay.Models/DisplayItemModel">DisplayItemModel</a></li>								
-											<li><a href="/SonghayCore/api/Songhay.Models/MenuDisplayItemModel">MenuDisplayItemModel</a></li>								
 									</ul>
 								</dd>				
 						</dl>
@@ -246,12 +246,12 @@
 							graph BT
 	Type["ISortable"]
 class Type type-node
-	Implementing0["ColorDisplayItemModel"]-.-&gt;Type
-	click Implementing0 "/SonghayCore/api/Songhay.Models/ColorDisplayItemModel"
-	Implementing1["DisplayItemModel"]-.-&gt;Type
-	click Implementing1 "/SonghayCore/api/Songhay.Models/DisplayItemModel"
-	Implementing2["MenuDisplayItemModel"]-.-&gt;Type
-	click Implementing2 "/SonghayCore/api/Songhay.Models/MenuDisplayItemModel"
+	Implementing0["MenuDisplayItemModel"]-.-&gt;Type
+	click Implementing0 "/SonghayCore/api/Songhay.Models/MenuDisplayItemModel"
+	Implementing1["ColorDisplayItemModel"]-.-&gt;Type
+	click Implementing1 "/SonghayCore/api/Songhay.Models/ColorDisplayItemModel"
+	Implementing2["DisplayItemModel"]-.-&gt;Type
+	click Implementing2 "/SonghayCore/api/Songhay.Models/DisplayItemModel"
 
 						</div>
 					</div>
@@ -345,7 +345,7 @@ class Type type-node
 								<td>
 									<div>
     Determines whether the specified type
-    can be assigned to <code class="cs"><a href="/SonghayCore">ISerializable</a></code>.
+    can be assigned to <code class="cs">System.Runtime.Serialization.ISerializable</code>.
     </div>
 										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
 								</td>

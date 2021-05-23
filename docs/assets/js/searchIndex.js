@@ -39,202 +39,48 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"DateTimeExtensions",
-            content:"DateTimeExtensions",
+            title:"InterfaceContractResolver",
+            content:"InterfaceContractResolver",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/DateTimeExtensions',
-            title:"DateTimeExtensions",
+            url:'/SonghayCore/api/Songhay.Models/InterfaceContractResolver_1',
+            title:"InterfaceContractResolver<TInterface>",
             description:""
         }
     );
     a(
         {
             id:1,
-            title:"XObjectUtility",
-            content:"XObjectUtility",
+            title:"ActivityOutput",
+            content:"ActivityOutput",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Xml/XObjectUtility',
-            title:"XObjectUtility",
+            url:'/SonghayCore/api/Songhay.Models/ActivityOutput_1',
+            title:"ActivityOutput<TOutput>",
             description:""
         }
     );
     a(
         {
             id:2,
-            title:"ITemporalExtensions",
-            content:"ITemporalExtensions",
+            title:"EnumExtensions",
+            content:"EnumExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/ITemporalExtensions',
-            title:"ITemporalExtensions",
+            url:'/SonghayCore/api/Songhay.Extensions/EnumExtensions',
+            title:"EnumExtensions",
             description:""
         }
     );
     a(
         {
             id:3,
-            title:"ITemporal",
-            content:"ITemporal",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/ITemporal',
-            title:"ITemporal",
-            description:""
-        }
-    );
-    a(
-        {
-            id:4,
-            title:"EncryptionAlgorithm",
-            content:"EncryptionAlgorithm",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Security.Cryptography/EncryptionAlgorithm',
-            title:"EncryptionAlgorithm",
-            description:""
-        }
-    );
-    a(
-        {
-            id:5,
-            title:"MathUtility",
-            content:"MathUtility",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay/MathUtility',
-            title:"MathUtility",
-            description:""
-        }
-    );
-    a(
-        {
-            id:6,
-            title:"ProgramGlyph",
-            content:"ProgramGlyph",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/ProgramGlyph',
-            title:"ProgramGlyph",
-            description:""
-        }
-    );
-    a(
-        {
-            id:7,
-            title:"XhtmlDocument",
-            content:"XhtmlDocument",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/XhtmlDocument',
-            title:"XhtmlDocument",
-            description:""
-        }
-    );
-    a(
-        {
-            id:8,
-            title:"RestApiMetadataExtensions",
-            content:"RestApiMetadataExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/RestApiMetadataExtensions',
-            title:"RestApiMetadataExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:9,
-            title:"JsonSerializerSettingsExtensions",
-            content:"JsonSerializerSettingsExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/JsonSerializerSettingsExtensions',
-            title:"JsonSerializerSettingsExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:10,
-            title:"SmtpUtility",
-            content:"SmtpUtility",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Net/SmtpUtility',
-            title:"SmtpUtility",
-            description:""
-        }
-    );
-    a(
-        {
-            id:11,
-            title:"SystemVariable",
-            content:"SystemVariable",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/SystemVariable',
-            title:"SystemVariable",
-            description:""
-        }
-    );
-    a(
-        {
-            id:12,
-            title:"ProgramArgsExtensions",
-            content:"ProgramArgsExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions',
-            title:"ProgramArgsExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:13,
-            title:"ValidationContextExtensions",
-            content:"ValidationContextExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions',
-            title:"ValidationContextExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:14,
             title:"JObjectExtensions",
             content:"JObjectExtensions",
             description:'',
@@ -248,29 +94,183 @@ var searchModule = function() {
     );
     a(
         {
-            id:15,
-            title:"DataSetExtensions",
-            content:"DataSetExtensions",
+            id:4,
+            title:"SmtpUtility",
+            content:"SmtpUtility",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/DataSetExtensions',
-            title:"DataSetExtensions",
+            url:'/SonghayCore/api/Songhay.Net/SmtpUtility',
+            title:"SmtpUtility",
+            description:""
+        }
+    );
+    a(
+        {
+            id:5,
+            title:"XhtmlImage",
+            content:"XhtmlImage",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/XhtmlImage',
+            title:"XhtmlImage",
+            description:""
+        }
+    );
+    a(
+        {
+            id:6,
+            title:"DisplayItemModel",
+            content:"DisplayItemModel",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/DisplayItemModel',
+            title:"DisplayItemModel",
+            description:""
+        }
+    );
+    a(
+        {
+            id:7,
+            title:"ActivitiesGetter",
+            content:"ActivitiesGetter",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/ActivitiesGetter',
+            title:"ActivitiesGetter",
+            description:""
+        }
+    );
+    a(
+        {
+            id:8,
+            title:"CsvParseException",
+            content:"CsvParseException",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay/CsvParseException',
+            title:"CsvParseException",
+            description:""
+        }
+    );
+    a(
+        {
+            id:9,
+            title:"SystemErrorCodes",
+            content:"SystemErrorCodes",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/SystemErrorCodes',
+            title:"SystemErrorCodes",
+            description:""
+        }
+    );
+    a(
+        {
+            id:10,
+            title:"SaltedHash",
+            content:"SaltedHash",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Security/SaltedHash',
+            title:"SaltedHash",
+            description:""
+        }
+    );
+    a(
+        {
+            id:11,
+            title:"ArrayExtensions",
+            content:"ArrayExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/ArrayExtensions',
+            title:"ArrayExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:12,
+            title:"ValidationContextExtensions",
+            content:"ValidationContextExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions',
+            title:"ValidationContextExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:13,
+            title:"DirectoryInfoExtensions",
+            content:"DirectoryInfoExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions',
+            title:"DirectoryInfoExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:14,
+            title:"RestPagingMetadata",
+            content:"RestPagingMetadata",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/RestPagingMetadata',
+            title:"RestPagingMetadata",
+            description:""
+        }
+    );
+    a(
+        {
+            id:15,
+            title:"XNodeExtensions",
+            content:"XNodeExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/XNodeExtensions',
+            title:"XNodeExtensions",
             description:""
         }
     );
     a(
         {
             id:16,
-            title:"TextInfoUtility",
-            content:"TextInfoUtility",
+            title:"MathUtility",
+            content:"MathUtility",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Globalization/TextInfoUtility',
-            title:"TextInfoUtility",
+            url:'/SonghayCore/api/Songhay/MathUtility',
+            title:"MathUtility",
             description:""
         }
     );
@@ -291,168 +291,168 @@ var searchModule = function() {
     a(
         {
             id:18,
-            title:"OpmlUtility",
-            content:"OpmlUtility",
+            title:"ITemporalExtensions",
+            content:"ITemporalExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Xml/OpmlUtility',
-            title:"OpmlUtility",
+            url:'/SonghayCore/api/Songhay.Extensions/ITemporalExtensions',
+            title:"ITemporalExtensions",
             description:""
         }
     );
     a(
         {
             id:19,
-            title:"IContractResolverExtensions",
-            content:"IContractResolverExtensions",
+            title:"DataParameterMetadata",
+            content:"DataParameterMetadata",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/IContractResolverExtensions',
-            title:"IContractResolverExtensions",
+            url:'/SonghayCore/api/Songhay.Models/DataParameterMetadata',
+            title:"DataParameterMetadata",
             description:""
         }
     );
     a(
         {
             id:20,
-            title:"IControlInteractionMessage",
-            content:"IControlInteractionMessage",
+            title:"HttpResponseMessageExtensions",
+            content:"HttpResponseMessageExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/IControlInteractionMessage',
-            title:"IControlInteractionMessage",
+            url:'/SonghayCore/api/Songhay.Extensions/HttpResponseMessageExtensions',
+            title:"HttpResponseMessageExtensions",
             description:""
         }
     );
     a(
         {
             id:21,
-            title:"IActivityWithTask",
-            content:"IActivityWithTask",
+            title:"PackedResource",
+            content:"PackedResource",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/IActivityWithTask_2',
-            title:"IActivityWithTask<TInput, TOutput>",
+            url:'/SonghayCore/api/Songhay.Models/PackedResource_1',
+            title:"PackedResource<TResource>",
             description:""
         }
     );
     a(
         {
             id:22,
-            title:"ConfigurationManagerExtensions",
-            content:"ConfigurationManagerExtensions",
+            title:"IActivityConfigurationSupport",
+            content:"IActivityConfigurationSupport",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/ConfigurationManagerExtensions',
-            title:"ConfigurationManagerExtensions",
+            url:'/SonghayCore/api/Songhay.Models/IActivityConfigurationSupport',
+            title:"IActivityConfigurationSupport",
             description:""
         }
     );
     a(
         {
             id:23,
-            title:"IDictionaryExtensions",
-            content:"IDictionaryExtensions",
+            title:"PagedResult",
+            content:"PagedResult",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions',
-            title:"IDictionaryExtensions",
+            url:'/SonghayCore/api/Songhay.Models/PagedResult',
+            title:"PagedResult",
             description:""
         }
     );
     a(
         {
             id:24,
-            title:"IActivityExtensions",
-            content:"IActivityExtensions",
+            title:"SystemVariable",
+            content:"SystemVariable",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/IActivityExtensions',
-            title:"IActivityExtensions",
+            url:'/SonghayCore/api/Songhay.Models/SystemVariable_1',
+            title:"SystemVariable<T>",
             description:""
         }
     );
     a(
         {
             id:25,
-            title:"ProgramMetadataExtensions",
-            content:"ProgramMetadataExtensions",
+            title:"ProgramArgsExtensions",
+            content:"ProgramArgsExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/ProgramMetadataExtensions',
-            title:"ProgramMetadataExtensions",
+            url:'/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions',
+            title:"ProgramArgsExtensions",
             description:""
         }
     );
     a(
         {
             id:26,
-            title:"TimeSpanExtensions",
-            content:"TimeSpanExtensions",
+            title:"ProgramAssemblyUtility",
+            content:"ProgramAssemblyUtility",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/TimeSpanExtensions',
-            title:"TimeSpanExtensions",
+            url:'/SonghayCore/api/Songhay/ProgramAssemblyUtility',
+            title:"ProgramAssemblyUtility",
             description:""
         }
     );
     a(
         {
             id:27,
-            title:"ICommunicationObjectExtensions",
-            content:"ICommunicationObjectExtensions",
+            title:"TraceSourceExtensions",
+            content:"TraceSourceExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/ICommunicationObjectExtensions',
-            title:"ICommunicationObjectExtensions",
+            url:'/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions',
+            title:"TraceSourceExtensions",
             description:""
         }
     );
     a(
         {
             id:28,
-            title:"OpenAuthorizationDataExtensions",
-            content:"OpenAuthorizationDataExtensions",
+            title:"ProgramUtility",
+            content:"ProgramUtility",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/OpenAuthorizationDataExtensions',
-            title:"OpenAuthorizationDataExtensions",
+            url:'/SonghayCore/api/Songhay/ProgramUtility',
+            title:"ProgramUtility",
             description:""
         }
     );
     a(
         {
             id:29,
-            title:"MenuDisplayItemModel",
-            content:"MenuDisplayItemModel",
+            title:"IActivityWithOutput",
+            content:"IActivityWithOutput",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/MenuDisplayItemModel',
-            title:"MenuDisplayItemModel",
+            url:'/SonghayCore/api/Songhay.Models/IActivityWithOutput_2',
+            title:"IActivityWithOutput<TInput, TOutput>",
             description:""
         }
     );
@@ -473,42 +473,42 @@ var searchModule = function() {
     a(
         {
             id:31,
-            title:"XhtmlDocuments",
-            content:"XhtmlDocuments",
+            title:"OpmlOutline",
+            content:"OpmlOutline",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/XhtmlDocuments',
-            title:"XhtmlDocuments",
+            url:'/SonghayCore/api/Songhay.Models/OpmlOutline',
+            title:"OpmlOutline",
             description:""
         }
     );
     a(
         {
             id:32,
-            title:"XmlUtility",
-            content:"XmlUtility",
+            title:"EnvironmentExtensions",
+            content:"EnvironmentExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Xml/XmlUtility',
-            title:"XmlUtility",
+            url:'/SonghayCore/api/Songhay.Extensions/EnvironmentExtensions',
+            title:"EnvironmentExtensions",
             description:""
         }
     );
     a(
         {
             id:33,
-            title:"IGroupable",
-            content:"IGroupable",
+            title:"DataSetExtensions",
+            content:"DataSetExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/IGroupable',
-            title:"IGroupable",
+            url:'/SonghayCore/api/Songhay.Extensions/DataSetExtensions',
+            title:"DataSetExtensions",
             description:""
         }
     );
@@ -529,70 +529,70 @@ var searchModule = function() {
     a(
         {
             id:35,
-            title:"HttpWebRequestExtensions",
-            content:"HttpWebRequestExtensions",
+            title:"BackgroundWorkerUtilityData",
+            content:"BackgroundWorkerUtilityData",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions',
-            title:"HttpWebRequestExtensions",
+            url:'/SonghayCore/api/Songhay.Models/BackgroundWorkerUtilityData',
+            title:"BackgroundWorkerUtilityData",
             description:""
         }
     );
     a(
         {
             id:36,
-            title:"OpmlBody",
-            content:"OpmlBody",
+            title:"JsonSerializerSettingsExtensions",
+            content:"JsonSerializerSettingsExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/OpmlBody',
-            title:"OpmlBody",
+            url:'/SonghayCore/api/Songhay.Extensions/JsonSerializerSettingsExtensions',
+            title:"JsonSerializerSettingsExtensions",
             description:""
         }
     );
     a(
         {
             id:37,
-            title:"ProgramAssemblyUtility",
-            content:"ProgramAssemblyUtility",
+            title:"EncryptionMetadata",
+            content:"EncryptionMetadata",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay/ProgramAssemblyUtility',
-            title:"ProgramAssemblyUtility",
+            url:'/SonghayCore/api/Songhay.Models/EncryptionMetadata',
+            title:"EncryptionMetadata",
             description:""
         }
     );
     a(
         {
             id:38,
-            title:"ObservableSortingCollection",
-            content:"ObservableSortingCollection",
+            title:"ProgramAssemblyInfo",
+            content:"ProgramAssemblyInfo",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Collections/ObservableSortingCollection_1',
-            title:"ObservableSortingCollection<T>",
+            url:'/SonghayCore/api/Songhay.Models/ProgramAssemblyInfo',
+            title:"ProgramAssemblyInfo",
             description:""
         }
     );
     a(
         {
             id:39,
-            title:"HttpRequestMessageExtensions",
-            content:"HttpRequestMessageExtensions",
+            title:"ObjectExtensions",
+            content:"ObjectExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/HttpRequestMessageExtensions',
-            title:"HttpRequestMessageExtensions",
+            url:'/SonghayCore/api/Songhay.Extensions/ObjectExtensions',
+            title:"ObjectExtensions",
             description:""
         }
     );
@@ -613,216 +613,6 @@ var searchModule = function() {
     a(
         {
             id:41,
-            title:"IColorable",
-            content:"IColorable",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/IColorable',
-            title:"IColorable",
-            description:""
-        }
-    );
-    a(
-        {
-            id:42,
-            title:"EnumExtensions",
-            content:"EnumExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/EnumExtensions',
-            title:"EnumExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:43,
-            title:"OpcReferencedTypeStrategy",
-            content:"OpcReferencedTypeStrategy",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay/OpcReferencedTypeStrategy',
-            title:"OpcReferencedTypeStrategy",
-            description:""
-        }
-    );
-    a(
-        {
-            id:44,
-            title:"SystemVariable",
-            content:"SystemVariable",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/SystemVariable_1',
-            title:"SystemVariable<T>",
-            description:""
-        }
-    );
-    a(
-        {
-            id:45,
-            title:"IActivityWithTask",
-            content:"IActivityWithTask",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/IActivityWithTask_1',
-            title:"IActivityWithTask<TInput>",
-            description:""
-        }
-    );
-    a(
-        {
-            id:46,
-            title:"IIdentityExtensions",
-            content:"IIdentityExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/IIdentityExtensions',
-            title:"IIdentityExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:47,
-            title:"IActivity",
-            content:"IActivity",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/IActivity',
-            title:"IActivity",
-            description:""
-        }
-    );
-    a(
-        {
-            id:48,
-            title:"XhtmlImage",
-            content:"XhtmlImage",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/XhtmlImage',
-            title:"XhtmlImage",
-            description:""
-        }
-    );
-    a(
-        {
-            id:49,
-            title:"IConfigurationBuilderExtensions",
-            content:"IConfigurationBuilderExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/IConfigurationBuilderExtensions',
-            title:"IConfigurationBuilderExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:50,
-            title:"EncryptionMetadata",
-            content:"EncryptionMetadata",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/EncryptionMetadata',
-            title:"EncryptionMetadata",
-            description:""
-        }
-    );
-    a(
-        {
-            id:51,
-            title:"TraceSources",
-            content:"TraceSources",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Diagnostics/TraceSources',
-            title:"TraceSources",
-            description:""
-        }
-    );
-    a(
-        {
-            id:52,
-            title:"OpmlDocument",
-            content:"OpmlDocument",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/OpmlDocument',
-            title:"OpmlDocument",
-            description:""
-        }
-    );
-    a(
-        {
-            id:53,
-            title:"ActivitiesGetter",
-            content:"ActivitiesGetter",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/ActivitiesGetter',
-            title:"ActivitiesGetter",
-            description:""
-        }
-    );
-    a(
-        {
-            id:54,
-            title:"SymmetricCrypt",
-            content:"SymmetricCrypt",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Security/SymmetricCrypt',
-            title:"SymmetricCrypt",
-            description:""
-        }
-    );
-    a(
-        {
-            id:55,
-            title:"InterfaceContractResolverWithCamelCasing",
-            content:"InterfaceContractResolverWithCamelCasing",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/InterfaceContractResolverWithCamelCasing_1',
-            title:"InterfaceContractResolverWithCamelCasing<TInterface>",
-            description:""
-        }
-    );
-    a(
-        {
-            id:56,
             title:"UriTemplateExtensions",
             content:"UriTemplateExtensions",
             description:'',
@@ -836,63 +626,175 @@ var searchModule = function() {
     );
     a(
         {
-            id:57,
-            title:"FileInfoExtensions",
-            content:"FileInfoExtensions",
+            id:42,
+            title:"HttpWebRequestExtensions",
+            content:"HttpWebRequestExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/FileInfoExtensions',
-            title:"FileInfoExtensions",
+            url:'/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions',
+            title:"HttpWebRequestExtensions",
             description:""
         }
     );
     a(
         {
-            id:58,
-            title:"PackedResource",
-            content:"PackedResource",
+            id:43,
+            title:"IActivity",
+            content:"IActivity",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/PackedResource_1',
-            title:"PackedResource<TResource>",
+            url:'/SonghayCore/api/Songhay.Models/IActivity',
+            title:"IActivity",
             description:""
         }
     );
     a(
         {
-            id:59,
-            title:"StringExtensions",
-            content:"StringExtensions",
+            id:44,
+            title:"OpcReferencedTypeStrategy",
+            content:"OpcReferencedTypeStrategy",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/StringExtensions',
-            title:"StringExtensions",
+            url:'/SonghayCore/api/Songhay/OpcReferencedTypeStrategy',
+            title:"OpcReferencedTypeStrategy",
             description:""
         }
     );
     a(
         {
-            id:60,
-            title:"DbmsMetadata",
-            content:"DbmsMetadata",
+            id:45,
+            title:"RestApiMetadataExtensions",
+            content:"RestApiMetadataExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/DbmsMetadata',
-            title:"DbmsMetadata",
+            url:'/SonghayCore/api/Songhay.Extensions/RestApiMetadataExtensions',
+            title:"RestApiMetadataExtensions",
             description:""
         }
     );
     a(
         {
-            id:61,
+            id:46,
+            title:"ProgramGlyph",
+            content:"ProgramGlyph",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/ProgramGlyph',
+            title:"ProgramGlyph",
+            description:""
+        }
+    );
+    a(
+        {
+            id:47,
+            title:"SymmetricCrypt",
+            content:"SymmetricCrypt",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Security/SymmetricCrypt',
+            title:"SymmetricCrypt",
+            description:""
+        }
+    );
+    a(
+        {
+            id:48,
+            title:"XNamespaceExtensions",
+            content:"XNamespaceExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/XNamespaceExtensions',
+            title:"XNamespaceExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:49,
+            title:"DateTimeExtensions",
+            content:"DateTimeExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/DateTimeExtensions',
+            title:"DateTimeExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:50,
+            title:"StringBuilderExtensions",
+            content:"StringBuilderExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/StringBuilderExtensions',
+            title:"StringBuilderExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:51,
+            title:"ProgramMetadata",
+            content:"ProgramMetadata",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/ProgramMetadata',
+            title:"ProgramMetadata",
+            description:""
+        }
+    );
+    a(
+        {
+            id:52,
+            title:"CorsOrigins",
+            content:"CorsOrigins",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/CorsOrigins',
+            title:"CorsOrigins",
+            description:""
+        }
+    );
+    a(
+        {
+            id:53,
+            title:"ObservableSortingCollection",
+            content:"ObservableSortingCollection",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Collections/ObservableSortingCollection_1',
+            title:"ObservableSortingCollection<T>",
+            description:""
+        }
+    );
+    a(
+        {
+            id:54,
             title:"AssemblyExtensions",
             content:"AssemblyExtensions",
             description:'',
@@ -906,189 +808,49 @@ var searchModule = function() {
     );
     a(
         {
-            id:62,
-            title:"DeploymentEnvironment",
-            content:"DeploymentEnvironment",
+            id:55,
+            title:"IActivityWithTask",
+            content:"IActivityWithTask",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/DeploymentEnvironment',
-            title:"DeploymentEnvironment",
+            url:'/SonghayCore/api/Songhay.Models/IActivityWithTask_1',
+            title:"IActivityWithTask<TInput>",
             description:""
         }
     );
     a(
         {
-            id:63,
-            title:"IActivityWithOutput",
-            content:"IActivityWithOutput",
+            id:56,
+            title:"PackedResource",
+            content:"PackedResource",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/IActivityWithOutput_2',
-            title:"IActivityWithOutput<TInput, TOutput>",
+            url:'/SonghayCore/api/Songhay.Models/PackedResource',
+            title:"PackedResource",
             description:""
         }
     );
     a(
         {
-            id:64,
-            title:"IEnumerableOfTExtensions",
-            content:"IEnumerableOfTExtensions",
+            id:57,
+            title:"ISortable",
+            content:"ISortable",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions',
-            title:"IEnumerableOfTExtensions",
+            url:'/SonghayCore/api/Songhay.Models/ISortable',
+            title:"ISortable",
             description:""
         }
     );
     a(
         {
-            id:65,
-            title:"DirectoryInfoExtensions",
-            content:"DirectoryInfoExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions',
-            title:"DirectoryInfoExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:66,
-            title:"XObjectMetadata",
-            content:"XObjectMetadata",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/XObjectMetadata',
-            title:"XObjectMetadata",
-            description:""
-        }
-    );
-    a(
-        {
-            id:67,
-            title:"NullableExtensions",
-            content:"NullableExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/NullableExtensions',
-            title:"NullableExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:68,
-            title:"DisplayItemModelExtensions",
-            content:"DisplayItemModelExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/DisplayItemModelExtensions',
-            title:"DisplayItemModelExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:69,
-            title:"ArrayExtensions",
-            content:"ArrayExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/ArrayExtensions',
-            title:"ArrayExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:70,
-            title:"OpmlHead",
-            content:"OpmlHead",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/OpmlHead',
-            title:"OpmlHead",
-            description:""
-        }
-    );
-    a(
-        {
-            id:71,
-            title:"ISyndicatable",
-            content:"ISyndicatable",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/ISyndicatable',
-            title:"ISyndicatable",
-            description:""
-        }
-    );
-    a(
-        {
-            id:72,
-            title:"CsvExporter",
-            content:"CsvExporter",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Text/CsvExporter_1',
-            title:"CsvExporter<T>",
-            description:""
-        }
-    );
-    a(
-        {
-            id:73,
-            title:"SaltedHash",
-            content:"SaltedHash",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Security/SaltedHash',
-            title:"SaltedHash",
-            description:""
-        }
-    );
-    a(
-        {
-            id:74,
-            title:"ObjectExtensions",
-            content:"ObjectExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/ObjectExtensions',
-            title:"ObjectExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:75,
+            id:58,
             title:"HierarchicalNameValuePair",
             content:"HierarchicalNameValuePair",
             description:'',
@@ -1102,35 +864,133 @@ var searchModule = function() {
     );
     a(
         {
-            id:76,
-            title:"TraceSourcesExtensions",
-            content:"TraceSourcesExtensions",
+            id:59,
+            title:"ExpressionExtensions",
+            content:"ExpressionExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/TraceSourcesExtensions',
-            title:"TraceSourcesExtensions",
+            url:'/SonghayCore/api/Songhay.Extensions/ExpressionExtensions',
+            title:"ExpressionExtensions",
             description:""
         }
     );
     a(
         {
-            id:77,
-            title:"RestPagingMetadata",
-            content:"RestPagingMetadata",
+            id:60,
+            title:"HttpMethods",
+            content:"HttpMethods",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/RestPagingMetadata',
-            title:"RestPagingMetadata",
+            url:'/SonghayCore/api/Songhay.Models/HttpMethods',
+            title:"HttpMethods",
             description:""
         }
     );
     a(
         {
-            id:78,
+            id:61,
+            title:"Encryptor",
+            content:"Encryptor",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Security.Cryptography/Encryptor',
+            title:"Encryptor",
+            description:""
+        }
+    );
+    a(
+        {
+            id:62,
+            title:"ProgramMetadataExtensions",
+            content:"ProgramMetadataExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/ProgramMetadataExtensions',
+            title:"ProgramMetadataExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:63,
+            title:"JTokenExtensions",
+            content:"JTokenExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/JTokenExtensions',
+            title:"JTokenExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:64,
+            title:"XhtmlDocuments",
+            content:"XhtmlDocuments",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/XhtmlDocuments',
+            title:"XhtmlDocuments",
+            description:""
+        }
+    );
+    a(
+        {
+            id:65,
+            title:"DbmsMetadata",
+            content:"DbmsMetadata",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/DbmsMetadata',
+            title:"DbmsMetadata",
+            description:""
+        }
+    );
+    a(
+        {
+            id:66,
+            title:"ISyndicatable",
+            content:"ISyndicatable",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/ISyndicatable',
+            title:"ISyndicatable",
+            description:""
+        }
+    );
+    a(
+        {
+            id:67,
+            title:"IContractResolverExtensions",
+            content:"IContractResolverExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/IContractResolverExtensions',
+            title:"IContractResolverExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:68,
             title:"RestApiMetadata",
             content:"RestApiMetadata",
             description:'',
@@ -1144,35 +1004,189 @@ var searchModule = function() {
     );
     a(
         {
-            id:79,
-            title:"BackgroundWorkerUtility",
-            content:"BackgroundWorkerUtility",
+            id:69,
+            title:"StringExtensions",
+            content:"StringExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.ComponentModel/BackgroundWorkerUtility',
-            title:"BackgroundWorkerUtility",
+            url:'/SonghayCore/api/Songhay.Extensions/StringExtensions',
+            title:"StringExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:70,
+            title:"IActivityWithTask",
+            content:"IActivityWithTask",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/IActivityWithTask',
+            title:"IActivityWithTask",
+            description:""
+        }
+    );
+    a(
+        {
+            id:71,
+            title:"CsvExporter",
+            content:"CsvExporter",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Text/CsvExporter_1',
+            title:"CsvExporter<T>",
+            description:""
+        }
+    );
+    a(
+        {
+            id:72,
+            title:"NullableExtensions",
+            content:"NullableExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/NullableExtensions',
+            title:"NullableExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:73,
+            title:"XmlUtility",
+            content:"XmlUtility",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Xml/XmlUtility',
+            title:"XmlUtility",
+            description:""
+        }
+    );
+    a(
+        {
+            id:74,
+            title:"EncryptionMetadataExtensions",
+            content:"EncryptionMetadataExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/EncryptionMetadataExtensions',
+            title:"EncryptionMetadataExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:75,
+            title:"DeploymentEnvironment",
+            content:"DeploymentEnvironment",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/DeploymentEnvironment',
+            title:"DeploymentEnvironment",
+            description:""
+        }
+    );
+    a(
+        {
+            id:76,
+            title:"IActivityExtensions",
+            content:"IActivityExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/IActivityExtensions',
+            title:"IActivityExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:77,
+            title:"TimeSpanExtensions",
+            content:"TimeSpanExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/TimeSpanExtensions',
+            title:"TimeSpanExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:78,
+            title:"TimeoutHandler",
+            content:"TimeoutHandler",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Net/TimeoutHandler',
+            title:"TimeoutHandler",
+            description:""
+        }
+    );
+    a(
+        {
+            id:79,
+            title:"XObjectMetadata",
+            content:"XObjectMetadata",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/XObjectMetadata',
+            title:"XObjectMetadata",
             description:""
         }
     );
     a(
         {
             id:80,
-            title:"DisplayItemModel",
-            content:"DisplayItemModel",
+            title:"XhtmlDocumentUtility",
+            content:"XhtmlDocumentUtility",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/DisplayItemModel',
-            title:"DisplayItemModel",
+            url:'/SonghayCore/api/Songhay.Xml/XhtmlDocumentUtility',
+            title:"XhtmlDocumentUtility",
             description:""
         }
     );
     a(
         {
             id:81,
+            title:"IColorable",
+            content:"IColorable",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/IColorable',
+            title:"IColorable",
+            description:""
+        }
+    );
+    a(
+        {
+            id:82,
             title:"LazyDisplayItem",
             content:"LazyDisplayItem",
             description:'',
@@ -1181,20 +1195,6 @@ var searchModule = function() {
         {
             url:'/SonghayCore/api/Songhay.Models/LazyDisplayItem_1',
             title:"LazyDisplayItem<T>",
-            description:""
-        }
-    );
-    a(
-        {
-            id:82,
-            title:"HttpResponseMessageExtensions",
-            content:"HttpResponseMessageExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/HttpResponseMessageExtensions',
-            title:"HttpResponseMessageExtensions",
             description:""
         }
     );
@@ -1215,286 +1215,48 @@ var searchModule = function() {
     a(
         {
             id:84,
-            title:"ProgramAssemblyInfo",
-            content:"ProgramAssemblyInfo",
+            title:"DisplayItemModelExtensions",
+            content:"DisplayItemModelExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/ProgramAssemblyInfo',
-            title:"ProgramAssemblyInfo",
+            url:'/SonghayCore/api/Songhay.Extensions/DisplayItemModelExtensions',
+            title:"DisplayItemModelExtensions",
             description:""
         }
     );
     a(
         {
             id:85,
-            title:"IActivityConfigurationSupport",
-            content:"IActivityConfigurationSupport",
+            title:"Utf JsonWriterExtensions",
+            content:"Utf JsonWriterExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/IActivityConfigurationSupport',
-            title:"IActivityConfigurationSupport",
+            url:'/SonghayCore/api/Songhay.Extensions/Utf8JsonWriterExtensions',
+            title:"Utf8JsonWriterExtensions",
             description:""
         }
     );
     a(
         {
             id:86,
-            title:"StringBuilderExtensions",
-            content:"StringBuilderExtensions",
+            title:"IControlInteractionMessage",
+            content:"IControlInteractionMessage",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/StringBuilderExtensions',
-            title:"StringBuilderExtensions",
+            url:'/SonghayCore/api/Songhay.Models/IControlInteractionMessage',
+            title:"IControlInteractionMessage",
             description:""
         }
     );
     a(
         {
             id:87,
-            title:"PagedResultMeta",
-            content:"PagedResultMeta",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/PagedResultMeta',
-            title:"PagedResultMeta",
-            description:""
-        }
-    );
-    a(
-        {
-            id:88,
-            title:"ExpressionSeed",
-            content:"ExpressionSeed",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay/ExpressionSeed',
-            title:"ExpressionSeed",
-            description:""
-        }
-    );
-    a(
-        {
-            id:89,
-            title:"FuncExtensions",
-            content:"FuncExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/FuncExtensions',
-            title:"FuncExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:90,
-            title:"Decryptor",
-            content:"Decryptor",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Security.Cryptography/Decryptor',
-            title:"Decryptor",
-            description:""
-        }
-    );
-    a(
-        {
-            id:91,
-            title:"HttpClientExtensions",
-            content:"HttpClientExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/HttpClientExtensions',
-            title:"HttpClientExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:92,
-            title:"XEncoding",
-            content:"XEncoding",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/XEncoding',
-            title:"XEncoding",
-            description:""
-        }
-    );
-    a(
-        {
-            id:93,
-            title:"Encryptor",
-            content:"Encryptor",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Security.Cryptography/Encryptor',
-            title:"Encryptor",
-            description:""
-        }
-    );
-    a(
-        {
-            id:94,
-            title:"UriExtensions",
-            content:"UriExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/UriExtensions',
-            title:"UriExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:95,
-            title:"TaskExtensions",
-            content:"TaskExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/TaskExtensions',
-            title:"TaskExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:96,
-            title:"XNodeExtensions",
-            content:"XNodeExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/XNodeExtensions',
-            title:"XNodeExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:97,
-            title:"XNamespaceExtensions",
-            content:"XNamespaceExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/XNamespaceExtensions',
-            title:"XNamespaceExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:98,
-            title:"SystemErrorCodes",
-            content:"SystemErrorCodes",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/SystemErrorCodes',
-            title:"SystemErrorCodes",
-            description:""
-        }
-    );
-    a(
-        {
-            id:99,
-            title:"ISortable",
-            content:"ISortable",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/ISortable',
-            title:"ISortable",
-            description:""
-        }
-    );
-    a(
-        {
-            id:100,
-            title:"JTokenExtensions",
-            content:"JTokenExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/JTokenExtensions',
-            title:"JTokenExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:101,
-            title:"OpcUtility",
-            content:"OpcUtility",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay/OpcUtility',
-            title:"OpcUtility",
-            description:""
-        }
-    );
-    a(
-        {
-            id:102,
-            title:"ProgramMetadata",
-            content:"ProgramMetadata",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/ProgramMetadata',
-            title:"ProgramMetadata",
-            description:""
-        }
-    );
-    a(
-        {
-            id:103,
-            title:"EnvironmentExtensions",
-            content:"EnvironmentExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/EnvironmentExtensions',
-            title:"EnvironmentExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:104,
             title:"ObservableCollectionExtensions",
             content:"ObservableCollectionExtensions",
             description:'',
@@ -1508,329 +1270,35 @@ var searchModule = function() {
     );
     a(
         {
-            id:105,
-            title:"ProgramArgs",
-            content:"ProgramArgs",
+            id:88,
+            title:"InterfaceContractResolverWithCamelCasing",
+            content:"InterfaceContractResolverWithCamelCasing",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/ProgramArgs',
-            title:"ProgramArgs",
+            url:'/SonghayCore/api/Songhay.Models/InterfaceContractResolverWithCamelCasing_1',
+            title:"InterfaceContractResolverWithCamelCasing<TInterface>",
             description:""
         }
     );
     a(
         {
-            id:106,
-            title:"XhtmlDocumentUtility",
-            content:"XhtmlDocumentUtility",
+            id:89,
+            title:"EncryptionAlgorithm",
+            content:"EncryptionAlgorithm",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Xml/XhtmlDocumentUtility',
-            title:"XhtmlDocumentUtility",
+            url:'/SonghayCore/api/Songhay.Security.Cryptography/EncryptionAlgorithm',
+            title:"EncryptionAlgorithm",
             description:""
         }
     );
     a(
         {
-            id:107,
-            title:"IProgramAssemblyInfo",
-            content:"IProgramAssemblyInfo",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/IProgramAssemblyInfo',
-            title:"IProgramAssemblyInfo",
-            description:""
-        }
-    );
-    a(
-        {
-            id:108,
-            title:"HttpMethods",
-            content:"HttpMethods",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/HttpMethods',
-            title:"HttpMethods",
-            description:""
-        }
-    );
-    a(
-        {
-            id:109,
-            title:"XElementExtensions",
-            content:"XElementExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/XElementExtensions',
-            title:"XElementExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:110,
-            title:"MenuDisplayItemModelExtensions",
-            content:"MenuDisplayItemModelExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/MenuDisplayItemModelExtensions',
-            title:"MenuDisplayItemModelExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:111,
-            title:"PackedResource",
-            content:"PackedResource",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/PackedResource',
-            title:"PackedResource",
-            description:""
-        }
-    );
-    a(
-        {
-            id:112,
-            title:"EncryptionMetadataExtensions",
-            content:"EncryptionMetadataExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/EncryptionMetadataExtensions',
-            title:"EncryptionMetadataExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:113,
-            title:"PagedResult",
-            content:"PagedResult",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/PagedResult',
-            title:"PagedResult",
-            description:""
-        }
-    );
-    a(
-        {
-            id:114,
-            title:"ExpressionExtensions",
-            content:"ExpressionExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/ExpressionExtensions',
-            title:"ExpressionExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:115,
-            title:"TimeoutHandler",
-            content:"TimeoutHandler",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Net/TimeoutHandler',
-            title:"TimeoutHandler",
-            description:""
-        }
-    );
-    a(
-        {
-            id:116,
-            title:"OpmlOutline",
-            content:"OpmlOutline",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/OpmlOutline',
-            title:"OpmlOutline",
-            description:""
-        }
-    );
-    a(
-        {
-            id:117,
-            title:"IActivityWithTaskOutput",
-            content:"IActivityWithTaskOutput",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/IActivityWithTaskOutput_1',
-            title:"IActivityWithTaskOutput<TOutput>",
-            description:""
-        }
-    );
-    a(
-        {
-            id:118,
-            title:"LatinGlyphsUtility",
-            content:"LatinGlyphsUtility",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Xml/LatinGlyphsUtility',
-            title:"LatinGlyphsUtility",
-            description:""
-        }
-    );
-    a(
-        {
-            id:119,
-            title:"ProgramUtility",
-            content:"ProgramUtility",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay/ProgramUtility',
-            title:"ProgramUtility",
-            description:""
-        }
-    );
-    a(
-        {
-            id:120,
-            title:"UriBuilderExtensions",
-            content:"UriBuilderExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions',
-            title:"UriBuilderExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:121,
-            title:"CsvParseException",
-            content:"CsvParseException",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay/CsvParseException',
-            title:"CsvParseException",
-            description:""
-        }
-    );
-    a(
-        {
-            id:122,
-            title:"InterfaceContractResolver",
-            content:"InterfaceContractResolver",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/InterfaceContractResolver_1',
-            title:"InterfaceContractResolver<TInterface>",
-            description:""
-        }
-    );
-    a(
-        {
-            id:123,
-            title:"BackgroundWorkerUtilityData",
-            content:"BackgroundWorkerUtilityData",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/BackgroundWorkerUtilityData',
-            title:"BackgroundWorkerUtilityData",
-            description:""
-        }
-    );
-    a(
-        {
-            id:124,
-            title:"ProgramTypeUtility",
-            content:"ProgramTypeUtility",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay/ProgramTypeUtility',
-            title:"ProgramTypeUtility",
-            description:""
-        }
-    );
-    a(
-        {
-            id:125,
-            title:"TraceSourceExtensions",
-            content:"TraceSourceExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions',
-            title:"TraceSourceExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:126,
-            title:"CharExtensions",
-            content:"CharExtensions",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Extensions/CharExtensions',
-            title:"CharExtensions",
-            description:""
-        }
-    );
-    a(
-        {
-            id:127,
-            title:"ActivityOutput",
-            content:"ActivityOutput",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/SonghayCore/api/Songhay.Models/ActivityOutput_1',
-            title:"ActivityOutput<TOutput>",
-            description:""
-        }
-    );
-    a(
-        {
-            id:128,
+            id:90,
             title:"OpenAuthorizationData",
             content:"OpenAuthorizationData",
             description:'',
@@ -1844,77 +1312,301 @@ var searchModule = function() {
     );
     a(
         {
-            id:129,
-            title:"NameValuePair",
-            content:"NameValuePair",
+            id:91,
+            title:"XhtmlDocument",
+            content:"XhtmlDocument",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/NameValuePair',
-            title:"NameValuePair",
+            url:'/SonghayCore/api/Songhay.Models/XhtmlDocument',
+            title:"XhtmlDocument",
             description:""
         }
     );
     a(
         {
-            id:130,
-            title:"CorsOrigins",
-            content:"CorsOrigins",
+            id:92,
+            title:"Decryptor",
+            content:"Decryptor",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/CorsOrigins',
-            title:"CorsOrigins",
+            url:'/SonghayCore/api/Songhay.Security.Cryptography/Decryptor',
+            title:"Decryptor",
             description:""
         }
     );
     a(
         {
-            id:131,
-            title:"MimeTypes",
-            content:"MimeTypes",
+            id:93,
+            title:"IDictionaryExtensions",
+            content:"IDictionaryExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/MimeTypes',
-            title:"MimeTypes",
+            url:'/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions',
+            title:"IDictionaryExtensions",
             description:""
         }
     );
     a(
         {
-            id:132,
-            title:"FuncSeed",
-            content:"FuncSeed",
+            id:94,
+            title:"UriBuilderExtensions",
+            content:"UriBuilderExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay/FuncSeed',
-            title:"FuncSeed",
+            url:'/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions',
+            title:"UriBuilderExtensions",
             description:""
         }
     );
     a(
         {
-            id:133,
-            title:"IActivityWithTask",
-            content:"IActivityWithTask",
+            id:95,
+            title:"FileInfoExtensions",
+            content:"FileInfoExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/IActivityWithTask',
-            title:"IActivityWithTask",
+            url:'/SonghayCore/api/Songhay.Extensions/FileInfoExtensions',
+            title:"FileInfoExtensions",
             description:""
         }
     );
     a(
         {
-            id:134,
+            id:96,
+            title:"XObjectUtility",
+            content:"XObjectUtility",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Xml/XObjectUtility',
+            title:"XObjectUtility",
+            description:""
+        }
+    );
+    a(
+        {
+            id:97,
+            title:"IIdentityExtensions",
+            content:"IIdentityExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/IIdentityExtensions',
+            title:"IIdentityExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:98,
+            title:"TaskExtensions",
+            content:"TaskExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/TaskExtensions',
+            title:"TaskExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:99,
+            title:"OpmlDocument",
+            content:"OpmlDocument",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/OpmlDocument',
+            title:"OpmlDocument",
+            description:""
+        }
+    );
+    a(
+        {
+            id:100,
+            title:"MenuDisplayItemModel",
+            content:"MenuDisplayItemModel",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/MenuDisplayItemModel',
+            title:"MenuDisplayItemModel",
+            description:""
+        }
+    );
+    a(
+        {
+            id:101,
+            title:"PagedResultMeta",
+            content:"PagedResultMeta",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/PagedResultMeta',
+            title:"PagedResultMeta",
+            description:""
+        }
+    );
+    a(
+        {
+            id:102,
+            title:"FuncExtensions",
+            content:"FuncExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/FuncExtensions',
+            title:"FuncExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:103,
+            title:"MenuDisplayItemModelExtensions",
+            content:"MenuDisplayItemModelExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/MenuDisplayItemModelExtensions',
+            title:"MenuDisplayItemModelExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:104,
+            title:"OpmlHead",
+            content:"OpmlHead",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/OpmlHead',
+            title:"OpmlHead",
+            description:""
+        }
+    );
+    a(
+        {
+            id:105,
+            title:"XElementExtensions",
+            content:"XElementExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/XElementExtensions',
+            title:"XElementExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:106,
+            title:"TraceSourcesExtensions",
+            content:"TraceSourcesExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/TraceSourcesExtensions',
+            title:"TraceSourcesExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:107,
+            title:"ITemporal",
+            content:"ITemporal",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/ITemporal',
+            title:"ITemporal",
+            description:""
+        }
+    );
+    a(
+        {
+            id:108,
+            title:"ICommunicationObjectExtensions",
+            content:"ICommunicationObjectExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/ICommunicationObjectExtensions',
+            title:"ICommunicationObjectExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:109,
+            title:"HttpRequestMessageExtensions",
+            content:"HttpRequestMessageExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/HttpRequestMessageExtensions',
+            title:"HttpRequestMessageExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:110,
+            title:"OpmlUtility",
+            content:"OpmlUtility",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Xml/OpmlUtility',
+            title:"OpmlUtility",
+            description:""
+        }
+    );
+    a(
+        {
+            id:111,
+            title:"OpmlBody",
+            content:"OpmlBody",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/OpmlBody',
+            title:"OpmlBody",
+            description:""
+        }
+    );
+    a(
+        {
+            id:112,
             title:"JsonSerializationUtility",
             content:"JsonSerializationUtility",
             description:'',
@@ -1928,21 +1620,259 @@ var searchModule = function() {
     );
     a(
         {
-            id:135,
-            title:"DataParameterMetadata",
-            content:"DataParameterMetadata",
+            id:113,
+            title:"BackgroundWorkerUtility",
+            content:"BackgroundWorkerUtility",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Models/DataParameterMetadata',
-            title:"DataParameterMetadata",
+            url:'/SonghayCore/api/Songhay.ComponentModel/BackgroundWorkerUtility',
+            title:"BackgroundWorkerUtility",
             description:""
         }
     );
     a(
         {
-            id:136,
+            id:114,
+            title:"CharExtensions",
+            content:"CharExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/CharExtensions',
+            title:"CharExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:115,
+            title:"UriExtensions",
+            content:"UriExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/UriExtensions',
+            title:"UriExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:116,
+            title:"IActivityWithTaskOutput",
+            content:"IActivityWithTaskOutput",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/IActivityWithTaskOutput_1',
+            title:"IActivityWithTaskOutput<TOutput>",
+            description:""
+        }
+    );
+    a(
+        {
+            id:117,
+            title:"SystemVariable",
+            content:"SystemVariable",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/SystemVariable',
+            title:"SystemVariable",
+            description:""
+        }
+    );
+    a(
+        {
+            id:118,
+            title:"ConfigurationManagerExtensions",
+            content:"ConfigurationManagerExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/ConfigurationManagerExtensions',
+            title:"ConfigurationManagerExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:119,
+            title:"FuncSeed",
+            content:"FuncSeed",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay/FuncSeed',
+            title:"FuncSeed",
+            description:""
+        }
+    );
+    a(
+        {
+            id:120,
+            title:"IActivityWithTask",
+            content:"IActivityWithTask",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/IActivityWithTask_2',
+            title:"IActivityWithTask<TInput, TOutput>",
+            description:""
+        }
+    );
+    a(
+        {
+            id:121,
+            title:"XEncoding",
+            content:"XEncoding",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/XEncoding',
+            title:"XEncoding",
+            description:""
+        }
+    );
+    a(
+        {
+            id:122,
+            title:"LatinGlyphsUtility",
+            content:"LatinGlyphsUtility",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Xml/LatinGlyphsUtility',
+            title:"LatinGlyphsUtility",
+            description:""
+        }
+    );
+    a(
+        {
+            id:123,
+            title:"ProgramArgs",
+            content:"ProgramArgs",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/ProgramArgs',
+            title:"ProgramArgs",
+            description:""
+        }
+    );
+    a(
+        {
+            id:124,
+            title:"IConfigurationBuilderExtensions",
+            content:"IConfigurationBuilderExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/IConfigurationBuilderExtensions',
+            title:"IConfigurationBuilderExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:125,
+            title:"HttpClientExtensions",
+            content:"HttpClientExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/HttpClientExtensions',
+            title:"HttpClientExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:126,
+            title:"IProgramAssemblyInfo",
+            content:"IProgramAssemblyInfo",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/IProgramAssemblyInfo',
+            title:"IProgramAssemblyInfo",
+            description:""
+        }
+    );
+    a(
+        {
+            id:127,
+            title:"TraceSources",
+            content:"TraceSources",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Diagnostics/TraceSources',
+            title:"TraceSources",
+            description:""
+        }
+    );
+    a(
+        {
+            id:128,
+            title:"IGroupable",
+            content:"IGroupable",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/IGroupable',
+            title:"IGroupable",
+            description:""
+        }
+    );
+    a(
+        {
+            id:129,
+            title:"MimeTypes",
+            content:"MimeTypes",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/MimeTypes',
+            title:"MimeTypes",
+            description:""
+        }
+    );
+    a(
+        {
+            id:130,
+            title:"TextInfoUtility",
+            content:"TextInfoUtility",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Globalization/TextInfoUtility',
+            title:"TextInfoUtility",
+            description:""
+        }
+    );
+    a(
+        {
+            id:131,
             title:"HtmlUtility",
             content:"HtmlUtility",
             description:'',
@@ -1956,15 +1886,85 @@ var searchModule = function() {
     );
     a(
         {
-            id:137,
-            title:"Utf JsonWriterExtensions",
-            content:"Utf JsonWriterExtensions",
+            id:132,
+            title:"IEnumerableOfTExtensions",
+            content:"IEnumerableOfTExtensions",
             description:'',
             tags:''
         },
         {
-            url:'/SonghayCore/api/Songhay.Extensions/Utf8JsonWriterExtensions',
-            title:"Utf8JsonWriterExtensions",
+            url:'/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions',
+            title:"IEnumerableOfTExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:133,
+            title:"NameValuePair",
+            content:"NameValuePair",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Models/NameValuePair',
+            title:"NameValuePair",
+            description:""
+        }
+    );
+    a(
+        {
+            id:134,
+            title:"OpenAuthorizationDataExtensions",
+            content:"OpenAuthorizationDataExtensions",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay.Extensions/OpenAuthorizationDataExtensions',
+            title:"OpenAuthorizationDataExtensions",
+            description:""
+        }
+    );
+    a(
+        {
+            id:135,
+            title:"ProgramTypeUtility",
+            content:"ProgramTypeUtility",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay/ProgramTypeUtility',
+            title:"ProgramTypeUtility",
+            description:""
+        }
+    );
+    a(
+        {
+            id:136,
+            title:"OpcUtility",
+            content:"OpcUtility",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay/OpcUtility',
+            title:"OpcUtility",
+            description:""
+        }
+    );
+    a(
+        {
+            id:137,
+            title:"ExpressionSeed",
+            content:"ExpressionSeed",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/SonghayCore/api/Songhay/ExpressionSeed',
+            title:"ExpressionSeed",
             description:""
         }
     );
