@@ -2021,6 +2021,28 @@
             <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
             <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
         </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityForOutput``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/>
+            for the specified output (<typeparamref name="TOutput"/>).
+            </summary>
+            <param name="activity">The activity.</param>
+            <param name="input">The input.</param>
+            <param name="traceSource">The trace source.</param>
+            <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityForOutput``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/>
+            for the specified output (<typeparamref name="TOutput"/>).
+            </summary>
+            <param name="activity">The activity.</param>
+            <param name="input">The input.</param>
+            <param name="traceSource">The trace source.</param>
+            <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
+            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
+        </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
             Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
@@ -2112,7 +2134,20 @@
         <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityAsync``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
             Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously
-            with <see cref="T:System.Diagnostics.ConsoleTraceListener"/>.
+            with the specified <see cref="T:System.Diagnostics.ConsoleTraceListener"/>.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <param name="activity">The activity.</param>
+            <param name="input">The input.</param>
+            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
+            <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
+        </member>
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityForOutput``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
+            <summary>
+            Starts the <see cref="T:Songhay.Models.IActivity"/>, synchronously
+            with the specified <see cref="T:System.Diagnostics.ConsoleTraceListener"/>.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -4563,13 +4598,18 @@
             <typeparam name="TOutput">The type of the output.</typeparam>
             <seealso cref="T:Songhay.Models.IActivity" />
         </member>
-        <member name="M:Songhay.Models.IActivityWithOutput`2.StartAsync(`0)">
+        <member name="M:Songhay.Models.IActivityWithOutput`2.StartForOutput(`0)">
             <summary>
             Starts with the specified input
-            and asynchronously returns <c>TResult</c>.
+            and synchronously returns <c>TOutput</c>.
             </summary>
             <param name="input">The input.</param>
             <returns></returns>
+            <remarks>
+            This member is called <c>StartForOutput</c>
+            instead of <c>Start</c> to prevent compile-time,
+            overload-clashing with <see cref="M:Songhay.Models.IActivity.Start(Songhay.Models.ProgramArgs)"/>.
+            </remarks>
         </member>
         <member name="T:Songhay.Models.IActivityWithTask">
             <summary>

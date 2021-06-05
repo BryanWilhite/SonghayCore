@@ -18,7 +18,6 @@ namespace Songhay.Extensions
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">The expected Activity name is not here.
         /// or</exception>
-        [Obsolete("use `ToActivityWithTask` overloads instead")]
         public static IActivityWithOutput<TInput, TOutput> ToActivityWithOutput<TInput, TOutput>(this IActivity activity)
         {
             return activity.ToActivityWithOutput<TInput, TOutput>(throwException: true);
@@ -36,7 +35,6 @@ namespace Songhay.Extensions
         /// <exception cref="NullReferenceException">The expected IActivityOutput{TInput, TOutput} is not here.</exception>
         /// <exception cref="ArgumentNullException">The expected Activity name is not here.
         /// or</exception>
-        [Obsolete("use `ToActivityWithTask` overloads instead")]
         public static IActivityWithOutput<TInput, TOutput> ToActivityWithOutput<TInput, TOutput>(this IActivity activity, bool throwException)
         {
             if (activity == null) return null;
