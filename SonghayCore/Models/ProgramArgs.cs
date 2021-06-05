@@ -34,6 +34,21 @@ namespace Songhay.Models
         public const string Help = "--help";
 
         /// <summary>
+        /// The input file argument.
+        /// </summary>
+        public const string InputFile = "--input-file";
+
+        /// <summary>
+        /// The input <see cref="string" /> argument.
+        /// </summary>
+        public const string InputString = "--input-string";
+
+        /// <summary>
+        /// The output file argument.
+        /// </summary>
+        public const string OutputFile = "--output-file";
+
+        /// <summary>
         /// The settings file argument.
         /// </summary>
         public const string SettingsFile = "--settings-file";
