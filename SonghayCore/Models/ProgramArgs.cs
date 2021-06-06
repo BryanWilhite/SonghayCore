@@ -49,6 +49,11 @@ namespace Songhay.Models
         public const string OutputFile = "--output-file";
 
         /// <summary>
+        /// Use the output file argument relative to <see cref="ProgramArgs.BasePath"/>.
+        /// </summary>
+        public const string OutputUnderBasePath = "--output-under-base-path";
+
+        /// <summary>
         /// The settings file argument.
         /// </summary>
         public const string SettingsFile = "--settings-file";
