@@ -78,6 +78,15 @@ namespace Songhay.Tests.Extensions
             this._testOutputHelper.WriteLine(input);
         }
 
+        [Fact]
+        public void WithDefaultHelpText_Test()
+        {
+            var args = new ProgramArgs(new [] { string.Empty });
+            var helpText = args.WithDefaultHelpText().ToHelpDisplayText();
+            Assert.False(string.IsNullOrWhiteSpace(helpText));
+            this._testOutputHelper.WriteLine(helpText);
+        }
+
         [Theory]
         [InlineData("../../../json", "output.json")]
         [InlineData(null, "../../../json/output.json")]

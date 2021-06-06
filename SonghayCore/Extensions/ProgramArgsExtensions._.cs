@@ -1,7 +1,6 @@
 ﻿using Songhay.Models;
 using System;
 using System.Linq;
-using System.Text;
 
 namespace Songhay.Extensions
 {
@@ -64,11 +63,31 @@ namespace Songhay.Extensions
         /// <param name="args">The <see cref="ProgramArgs"/>.</param>
         public static string ToHelpDisplayText(this ProgramArgs args)
         {
+            return args.ToHelpDisplayText(padding: 4);
+        }
+
+        /// <summary>
+        /// Converts the <c>args</c> key any help text.
+        /// </summary>
+        /// <param name="args">The <see cref="ProgramArgs"/>.</param>
+        /// <param name="padding">the padding between <see cref="ProgramArgs.HelpSet"/> keys and values</param>
+        public static string ToHelpDisplayText(this ProgramArgs args, int padding)
+        {
             if (args == null) return null;
-            var builder = new StringBuilder();
-            builder.AppendLine();
-            args.HelpSet.ForEachInEnumerable(i => builder.AppendLine(i.Value));
-            return builder.ToString();
+
+            var maxLength = args.HelpSet.Select(pair => pair.Key.Length).Max();
+
+            return args.HelpSet
+                .Where(pair =>
+                    !string.IsNullOrWhiteSpace(pair.Key) &&
+                    !string.IsNullOrWhiteSpace(pair.Value))
+                .Select(pair =>
+                {
+                    var count = (maxLength - pair.Key.Length) + padding;
+                    var spaces = Enumerable.Repeat(" ", count).ToArray();
+                    return $"{pair.Key}{string.Join(string.Empty, spaces)}{pair.Value}{Environment.NewLine}{Environment.NewLine}";
+                })
+                .Aggregate((a, i) => $"{a}{i}");
         }
     }
 }

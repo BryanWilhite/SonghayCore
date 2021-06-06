@@ -56,11 +56,15 @@ namespace Songhay.Extensions
         /// <returns></returns>
         public static string GetSettings(this ProgramArgs args)
         {
-            var basePath = args.GetBasePathValue();
-            var configFile = args.GetSettingsFilePath();
+            var path = args.GetSettingsFilePath();
 
-            var path = ProgramFileUtility
-                .GetCombinedPath(basePath, configFile, fileIsExpected: true);
+            if (!File.Exists(path))
+            {
+                var basePath = args.GetBasePathValue();
+
+                path = ProgramFileUtility
+                    .GetCombinedPath(basePath, path, fileIsExpected: true);
+            }
 
             return File.ReadAllText(path);
         }
@@ -137,6 +141,42 @@ namespace Songhay.Extensions
                     .TrimStart('-')
                     .Replace("/", string.Empty)
                     .Replace("=", string.Empty);
+        }
+
+        /// <summary>
+        /// Returns <see cref="ProgramArgs"/>
+        /// </summary>
+        /// <param name="args">The <see cref="ProgramArgs"/>.</param>
+        /// <returns></returns>
+        public static ProgramArgs WithDefaultHelpText(this ProgramArgs args)
+        {
+            if (args == null) return null;
+
+            if (!args.HelpSet.ContainsKey(ProgramArgs.BasePath))
+                args.HelpSet.Add(ProgramArgs.BasePath, "The path to the Directory where the Activity will set its context.");
+
+            if (!args.HelpSet.ContainsKey(ProgramArgs.BasePathRequired))
+                args.HelpSet.Add(ProgramArgs.BasePathRequired, $"Indicates that {ProgramArgs.BasePath} is required.");
+
+            if (!args.HelpSet.ContainsKey(ProgramArgs.Help))
+                args.HelpSet.Add(ProgramArgs.Help, "Displays this help text.");
+
+            if (!args.HelpSet.ContainsKey(ProgramArgs.InputFile))
+                args.HelpSet.Add(ProgramArgs.InputFile, $"The path to the file to load as Activity input. {ProgramArgs.InputString} can be used alternatively.");
+
+            if (!args.HelpSet.ContainsKey(ProgramArgs.InputString))
+                args.HelpSet.Add(ProgramArgs.InputString, $"The string literal used as Activity input. {ProgramArgs.InputFile} can be used alternatively.");
+
+            if (!args.HelpSet.ContainsKey(ProgramArgs.OutputFile))
+                args.HelpSet.Add(ProgramArgs.OutputFile, $"The path to the file to write as Activity output. This can be an absolute path or relative to {ProgramArgs.BasePath} when {ProgramArgs.OutputUnderBasePath} is used.");
+
+            if (!args.HelpSet.ContainsKey(ProgramArgs.OutputUnderBasePath))
+                args.HelpSet.Add(ProgramArgs.OutputUnderBasePath, $"See {ProgramArgs.OutputFile}.");
+
+            if (!args.HelpSet.ContainsKey(ProgramArgs.SettingsFile))
+                args.HelpSet.Add(ProgramArgs.SettingsFile, $"The path to the file to load as Activity Settings input. This can be an absolute path or relative to {ProgramArgs.BasePath}.");
+
+            return args;
         }
 
         /// <summary>
