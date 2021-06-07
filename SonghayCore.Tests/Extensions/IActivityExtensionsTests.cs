@@ -51,7 +51,7 @@ namespace Songhay.Tests.Extensions
             var output = activity.StartActivityForOutput<ProgramArgs, string>(new ProgramArgs(args), traceSource);
             Assert.NotNull(output);
             Assert.False(string.IsNullOrWhiteSpace(output.Log));
-            Assert.True(output.Log.TrimEnd().EndsWith(output.Output));
+            Assert.EndsWith(output.Output, output.Log.TrimEnd());
             this._testOutputHelper.WriteLine(output.Log);
         }
 
