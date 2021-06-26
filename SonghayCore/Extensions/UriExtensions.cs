@@ -50,6 +50,9 @@ namespace Songhay.Extensions
         /// See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage
         ///
         /// See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+        /// 
+        /// see “Shared Key format for 2009-09-19 and later”
+        /// [ https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key#shared-key-format-for-2009-09-19-and-later ]
         /// </remarks>
         public static string ToAzureStorageCanonicalizedResourceLocation(this Uri uri, string accountName)
         {
@@ -63,12 +66,13 @@ namespace Songhay.Extensions
             // It will have more entries if you have more query parameters.
             NameValueCollection values = HttpUtility.ParseQueryString(uri.Query);
 
-            foreach (var item in values.AllKeys.OrderBy(k => k))
+            foreach (var item in values.AllKeys
+                .Select(k => k.ToLowerInvariant()).OrderBy(k => k))
             {
                 sb.Append('\n').Append(item).Append(':').Append(values[item]);
             }
 
-            return sb.ToString().ToLower();
+            return sb.ToString();
         }
 
         /// <summary>
