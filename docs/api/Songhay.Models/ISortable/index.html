@@ -234,9 +234,9 @@
 								<dt>Implementing Types</dt>
 								<dd>
 									<ul class="list-unstyled">
-											<li><a href="/SonghayCore/api/Songhay.Models/MenuDisplayItemModel">MenuDisplayItemModel</a></li>								
 											<li><a href="/SonghayCore/api/Songhay.Models/ColorDisplayItemModel">Color<wbr>Display<wbr>Item<wbr>Model</a></li>								
 											<li><a href="/SonghayCore/api/Songhay.Models/DisplayItemModel">DisplayItemModel</a></li>								
+											<li><a href="/SonghayCore/api/Songhay.Models/MenuDisplayItemModel">MenuDisplayItemModel</a></li>								
 									</ul>
 								</dd>				
 						</dl>
@@ -246,12 +246,12 @@
 							graph BT
 	Type["ISortable"]
 class Type type-node
-	Implementing0["MenuDisplayItemModel"]-.-&gt;Type
-	click Implementing0 "/SonghayCore/api/Songhay.Models/MenuDisplayItemModel"
-	Implementing1["ColorDisplayItemModel"]-.-&gt;Type
-	click Implementing1 "/SonghayCore/api/Songhay.Models/ColorDisplayItemModel"
-	Implementing2["DisplayItemModel"]-.-&gt;Type
-	click Implementing2 "/SonghayCore/api/Songhay.Models/DisplayItemModel"
+	Implementing0["ColorDisplayItemModel"]-.-&gt;Type
+	click Implementing0 "/SonghayCore/api/Songhay.Models/ColorDisplayItemModel"
+	Implementing1["DisplayItemModel"]-.-&gt;Type
+	click Implementing1 "/SonghayCore/api/Songhay.Models/DisplayItemModel"
+	Implementing2["MenuDisplayItemModel"]-.-&gt;Type
+	click Implementing2 "/SonghayCore/api/Songhay.Models/MenuDisplayItemModel"
 
 						</div>
 					</div>
@@ -375,7 +375,7 @@ class Type type-node
 								<td>object</td>
 								<td>
 									<div>
-    Boxes the value in object or returns <code class="cs">System.DBNull</code>.
+    Boxes the value in object or returns <code class="cs"><a href="/SonghayCore">DBNull</a></code>.
     </div>
 										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
 								</td>

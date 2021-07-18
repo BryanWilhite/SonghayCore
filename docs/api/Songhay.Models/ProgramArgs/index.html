@@ -327,6 +327,46 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Models/ProgramArgs/115E137F">InputFile</a></td>
+								<td>--input-file</td>
+								<td>
+									<div>
+    The input file argument.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Models/ProgramArgs/0E99CCC4">InputString</a></td>
+								<td>--input-string</td>
+								<td>
+									<div>
+    The input <code class="cs"><a href="/SonghayCore">string</a></code> argument.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Models/ProgramArgs/C93A094F">OutputFile</a></td>
+								<td>--output-file</td>
+								<td>
+									<div>
+    The output file argument.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Models/ProgramArgs/51C40A84">OutputUnderBasePath</a></td>
+								<td>--output-under-base-path</td>
+								<td>
+									<div>
+    Use the output file argument relative to <code class="cs"><a href="/SonghayCore/api/Songhay.Models/ProgramArgs/95933CD1">BasePath</a></code>.
+    </div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Models/ProgramArgs/EF64FA5B">SettingsFile</a></td>
 								<td>--settings-file</td>
 								<td>
@@ -409,6 +449,16 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/814FCAB4">GetOutputPath<wbr>()<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Gets the path to the output file specified by conventional arguments.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions/12A8F2F7">GetProperties<wbr>()<wbr></a></td>
 								<td>PropertyInfo[]</td>
 								<td>
@@ -439,11 +489,33 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/BCDE41C8">GetSettings<wbr>()<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Gets the conventional settings file <code class="cs"><a href="/SonghayCore">string</a></code> content.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/08517372">GetSettingsFilePath<wbr>()<wbr></a></td>
 								<td>string</td>
 								<td>
 									<div>
     Gets the conventional settings file path.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/BAA86145">GetStringInput<wbr>()<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Gets <code class="cs"><a href="/SonghayCore">string</a></code> input
+    from either <code class="cs"><a href="/SonghayCore/api/Songhay.Models/ProgramArgs/0E99CCC4">InputString</a></code>
+    or <code class="cs"><a href="/SonghayCore/api/Songhay.Models/ProgramArgs/115E137F">InputFile</a></code>.
     </div>
 										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></em></small></div>
 								</td>
@@ -520,11 +592,21 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/84BC1E7D">ToHelpDisplayText<wbr>(int)<wbr></a></td>
+								<td>string</td>
+								<td>
+									<div>
+    Converts the <code class="cs">args</code> key any help text.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions/690EAD14">ToObjectOrDBNull<wbr>()<wbr></a></td>
 								<td>object</td>
 								<td>
 									<div>
-    Boxes the value in object or returns <code class="cs">System.DBNull</code>.
+    Boxes the value in object or returns <code class="cs"><a href="/SonghayCore">DBNull</a></code>.
     </div>
 										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
 								</td>
@@ -557,6 +639,38 @@ class Type type-node
     Converts the <code class="cs"><a href="/SonghayCore">object</a></code> into a validation results.
     </div>
 										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/A23BBF14">WithDefaultHelpText<wbr>()<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/ProgramArgs">ProgramArgs</a></td>
+								<td>
+									<div>
+    Returns <code class="cs"><a href="/SonghayCore/api/Songhay.Models/ProgramArgs">ProgramArgs</a></code>
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/67A763EF">WriteOutputToFile<wbr>(byte[])<wbr></a></td>
+								<td>void</td>
+								<td>
+									<div>
+    Writes the <code class="cs"><a href="/SonghayCore">byte</a></code> array output
+    to the file specified by <code class="cs"><a href="/SonghayCore/api/Songhay.Models/ProgramArgs/C93A094F">OutputFile</a></code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/D990CB50">WriteOutputToFile<wbr>(string)<wbr></a></td>
+								<td>void</td>
+								<td>
+									<div>
+    Writes the <code class="cs"><a href="/SonghayCore">string</a></code> output
+    to the file specified by <code class="cs"><a href="/SonghayCore/api/Songhay.Models/ProgramArgs/C93A094F">OutputFile</a></code>.
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></em></small></div>
 								</td>
 							</tr>
 					</tbody></table>

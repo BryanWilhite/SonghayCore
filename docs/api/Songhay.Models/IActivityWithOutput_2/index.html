@@ -72,7 +72,6 @@
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
 <p><a href="#Syntax">Syntax</a></p>
-<p><a href="#Attributes">Attributes</a></p>
 <p><a href="#TypeParameters">Type Parameters</a></p>
 <p><a href="#Methods">Methods</a></p>
 <p><a href="#ExtensionMethods">Extension Methods</a></p>
@@ -257,28 +256,10 @@ class Type type-node
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>[Obsolete("use `IActivityWithTask&lt;TInput, TOutput&gt;` instead", error: false)]
-public interface IActivityWithOutput&lt;TInput, TOutput&gt; : IActivity</code></pre>
+	<pre><code>public interface IActivityWithOutput&lt;TInput, TOutput&gt; : IActivity</code></pre>
 
 
 
-	<h1 id="Attributes">Attributes</h1>
-	<div class="box">
-		<div class="box-body no-padding table-responsive">
-			<table class="table table-striped table-hover two-cols">
-				<thead>
-					<tr>
-						<th>Type</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-					<tbody><tr>
-						<td>ObsoleteAttribute</td>
-						<td></td>
-					</tr>
-			</tbody></table>
-		</div>
-	</div>	
 
 	<h1 id="TypeParameters">Type Parameters</h1>
 	<div class="box">
@@ -320,12 +301,12 @@ public interface IActivityWithOutput&lt;TInput, TOutput&gt; : IActivity</code></
 							</tr>
 						</thead>
 							<tbody><tr>
-								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2/7C5DD021">StartAsync<wbr>(TInput)<wbr></a></td>
-								<td>Task<wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2#typeparam-TOutput">TOutput</a>&gt;<wbr></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2/62D279CB">StartForOutput<wbr>(TInput)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2#typeparam-TOutput">TOutput</a></td>
 								<td>
 									<div>
     Starts with the specified input
-    and asynchronously returns <code class="cs">TResult</code>.
+    and synchronously returns <code class="cs">TOutput</code>.
     </div>
 								</td>
 							</tr>
@@ -488,6 +469,28 @@ public interface IActivityWithOutput&lt;TInput, TOutput&gt; : IActivity</code></
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/B456E25C">Start<wbr>Activity<wbr>For<wbr>Output<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(TInput, <wbr>TraceSource)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/ActivityOutput_1">ActivityOutput</a><wbr>&lt;TOutput&gt;<wbr></td>
+								<td>
+									<div>
+    Starts the <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    for the specified output (<span name="TOutput" class="typeparamref">TOutput</span>).
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/94B11430">Start<wbr>Activity<wbr>For<wbr>Output<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(TInput, <wbr>TraceSource, <wbr>Func<wbr>&lt;TextWriter&gt;<wbr>, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/ActivityOutput_1">ActivityOutput</a><wbr>&lt;TOutput&gt;<wbr></td>
+								<td>
+									<div>
+    Starts the <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    for the specified output (<span name="TOutput" class="typeparamref">TOutput</span>).
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/D72D89FF">ToActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>()<wbr></a></td>
 								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></td>
 								<td>
@@ -602,7 +605,7 @@ public interface IActivityWithOutput&lt;TInput, TOutput&gt; : IActivity</code></
 								<td>object</td>
 								<td>
 									<div>
-    Boxes the value in object or returns <code class="cs">System.DBNull</code>.
+    Boxes the value in object or returns <code class="cs"><a href="/SonghayCore">DBNull</a></code>.
     </div>
 										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
 								</td>

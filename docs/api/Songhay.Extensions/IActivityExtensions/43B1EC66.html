@@ -72,7 +72,6 @@
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
 <p><a href="#Syntax">Syntax</a></p>
-<p><a href="#Attributes">Attributes</a></p>
 <p><a href="#TypeParameters">Type Parameters</a></p>
 <p><a href="#Parameters">Parameters</a></p>
 <p><a href="#ReturnValue">Return Value</a></p>
@@ -149,6 +148,8 @@
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/EC447CA8">StartActivityAsync<wbr>&lt;TInput&gt;<wbr><wbr>(IActivity, <wbr>TInput, <wbr>TraceSource, <wbr>Func<wbr>&lt;TextWriter&gt;<wbr>, <wbr>bool)<wbr></a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/F3BF8FA6">StartActivityAsync<wbr>(IActivity, <wbr>TraceSource)<wbr></a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/0A1EBDCA">StartActivityAsync<wbr>(IActivity, <wbr>TraceSource, <wbr>Func<wbr>&lt;TextWriter&gt;<wbr>, <wbr>bool)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/B456E25C">Start<wbr>Activity<wbr>For<wbr>Output<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(IActivity, <wbr>TInput, <wbr>TraceSource)<wbr></a></li>
+				<li><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/94B11430">Start<wbr>Activity<wbr>For<wbr>Output<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(IActivity, <wbr>TInput, <wbr>TraceSource, <wbr>Func<wbr>&lt;TextWriter&gt;<wbr>, <wbr>bool)<wbr></a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/D72D89FF">ToActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(IActivity)<wbr></a></li>
 				<li class="selected"><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/43B1EC66">ToActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(IActivity, <wbr>bool)<wbr></a></li>
 				<li><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/C238E812">ToActivityWithTask<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(IActivity)<wbr></a></li>
@@ -201,28 +202,10 @@
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>[Obsolete("use `ToActivityWithTask` overloads instead")]
-public static IActivityWithOutput&lt;TInput, TOutput&gt; ToActivityWithOutput&lt;TInput, TOutput&gt;(this IActivity activity, bool throwException)</code></pre>
+	<pre><code>public static IActivityWithOutput&lt;TInput, TOutput&gt; ToActivityWithOutput&lt;TInput, TOutput&gt;(this IActivity activity, bool throwException)</code></pre>
 
 
 
-	<h1 id="Attributes">Attributes</h1>
-	<div class="box">
-		<div class="box-body no-padding table-responsive">
-			<table class="table table-striped table-hover two-cols">
-				<thead>
-					<tr>
-						<th>Type</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-					<tbody><tr>
-						<td>ObsoleteAttribute</td>
-						<td></td>
-					</tr>
-			</tbody></table>
-		</div>
-	</div>	
 
 	<h1 id="TypeParameters">Type Parameters</h1>
 	<div class="box">

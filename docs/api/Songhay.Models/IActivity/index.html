@@ -237,8 +237,8 @@
 									<ul class="list-unstyled">
 											<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTaskOutput_1">I<wbr>Activity<wbr>With<wbr>Task<wbr>Output</a><wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/IActivityWithTaskOutput_1#typeparam-TOutput">TOutput</a>&gt;<wbr></li>								
 											<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2">IActivityWithTask</a><wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2#typeparam-TInput">TInput</a>, <wbr><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_2#typeparam-TOutput">TOutput</a>&gt;<wbr></li>								
-											<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2#typeparam-TInput">TInput</a>, <wbr><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2#typeparam-TOutput">TOutput</a>&gt;<wbr></li>								
 											<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1">IActivityWithTask</a><wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/IActivityWithTask_1#typeparam-TInput">TInput</a>&gt;<wbr></li>								
+											<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;<a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2#typeparam-TInput">TInput</a>, <wbr><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2#typeparam-TOutput">TOutput</a>&gt;<wbr></li>								
 											<li><a href="/SonghayCore/api/Songhay.Models/IActivityWithTask">IActivityWithTask</a></li>								
 									</ul>
 								</dd>				
@@ -253,10 +253,10 @@ class Type type-node
 	click Implementing0 "/SonghayCore/api/Songhay.Models/IActivityWithTaskOutput_1"
 	Implementing1["IActivityWithTask&lt;TInput, TOutput&gt;"]-.-&gt;Type
 	click Implementing1 "/SonghayCore/api/Songhay.Models/IActivityWithTask_2"
-	Implementing2["IActivityWithOutput&lt;TInput, TOutput&gt;"]-.-&gt;Type
-	click Implementing2 "/SonghayCore/api/Songhay.Models/IActivityWithOutput_2"
-	Implementing3["IActivityWithTask&lt;TInput&gt;"]-.-&gt;Type
-	click Implementing3 "/SonghayCore/api/Songhay.Models/IActivityWithTask_1"
+	Implementing2["IActivityWithTask&lt;TInput&gt;"]-.-&gt;Type
+	click Implementing2 "/SonghayCore/api/Songhay.Models/IActivityWithTask_1"
+	Implementing3["IActivityWithOutput&lt;TInput, TOutput&gt;"]-.-&gt;Type
+	click Implementing3 "/SonghayCore/api/Songhay.Models/IActivityWithOutput_2"
 	Implementing4["IActivityWithTask"]-.-&gt;Type
 	click Implementing4 "/SonghayCore/api/Songhay.Models/IActivityWithTask"
 
@@ -472,6 +472,28 @@ class Type type-node
 								</td>
 							</tr>
 							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/B456E25C">Start<wbr>Activity<wbr>For<wbr>Output<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(TInput, <wbr>TraceSource)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/ActivityOutput_1">ActivityOutput</a><wbr>&lt;TOutput&gt;<wbr></td>
+								<td>
+									<div>
+    Starts the <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    for the specified output (<span name="TOutput" class="typeparamref">TOutput</span>).
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/94B11430">Start<wbr>Activity<wbr>For<wbr>Output<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>(TInput, <wbr>TraceSource, <wbr>Func<wbr>&lt;TextWriter&gt;<wbr>, <wbr>bool)<wbr></a></td>
+								<td><a href="/SonghayCore/api/Songhay.Models/ActivityOutput_1">ActivityOutput</a><wbr>&lt;TOutput&gt;<wbr></td>
+								<td>
+									<div>
+    Starts the <code class="cs"><a href="/SonghayCore/api/Songhay.Models/IActivity">IActivity</a></code>
+    for the specified output (<span name="TOutput" class="typeparamref">TOutput</span>).
+    </div>
+										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></em></small></div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions/D72D89FF">ToActivityWithOutput<wbr>&lt;TInput, <wbr>TOutput&gt;<wbr><wbr>()<wbr></a></td>
 								<td><a href="/SonghayCore/api/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;TInput, <wbr>TOutput&gt;<wbr></td>
 								<td>
@@ -586,7 +608,7 @@ class Type type-node
 								<td>object</td>
 								<td>
 									<div>
-    Boxes the value in object or returns <code class="cs">System.DBNull</code>.
+    Boxes the value in object or returns <code class="cs"><a href="/SonghayCore">DBNull</a></code>.
     </div>
 										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
 								</td>
