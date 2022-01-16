@@ -79,6 +79,24 @@ namespace Songhay.Tests
             Assert.True(actual.Contains('?'));
         }
 
+        [Fact]
+        public void GetParentDirectory_Test()
+        {
+            var expected = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+            var actual = ProgramFileUtility.GetParentDirectory(this.GetType().Assembly.Location, 4);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetParentDirectoryInfo_Test()
+        {
+            var expected = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+            var actual = ProgramFileUtility.GetParentDirectoryInfo(this.GetType().Assembly.Location, 4);
+
+            Assert.Equal(expected, actual.FullName);
+        }
+
         [Theory]
         [InlineData("./one/", "one|")]
         [InlineData("../../one/", "one|")]
