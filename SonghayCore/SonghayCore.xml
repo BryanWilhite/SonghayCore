@@ -3863,24 +3863,13 @@
         </member>
         <member name="T:Songhay.Extensions.ValidationContextExtensions">
             <summary>
-            Extensions of <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/>
+            Extensions of <see cref="T:System.ComponentModel.DataAnnotations.ValidationResult" /> and <see cref="T:System.ComponentModel.DataAnnotations.IValidatableObject" />,
+            returning a <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/>.
             </summary>
-            <summary>
-            Extensions of <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/>
-            </summary>
-            <summary>
-            Extensions of <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.Object,System.Object,System.String)">
-            <summary>
-            Converts the <see cref="T:System.Object"/> into a validation results.
-            </summary>
-            <param name="objectToValidate">The object to validate.</param>
-            <param name="propertyValue">The property value.</param>
-            <param name="propertyName">Name of the property.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">propertyName</exception>
+            <remarks>
+            The use of these methods should be the last resort
+            after deferring to a NuGet package like FluentValidation.
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.ValidationContextExtensions.ToDisplayText(System.ComponentModel.DataAnnotations.ValidationResult)">
             <summary>
@@ -3894,7 +3883,7 @@
             </summary>
             <param name="results">The results.</param>
         </member>
-        <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationContext(System.Object)">
+        <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationContext(System.ComponentModel.DataAnnotations.IValidatableObject)">
             <summary>
             Converts the <see cref="T:System.Object"/> into a validation context.
             </summary>
@@ -3902,12 +3891,56 @@
             <returns></returns>
             <exception cref="T:System.NullReferenceException">The expected object to validate is not here.</exception>
         </member>
-        <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.Object)">
+        <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.ComponentModel.DataAnnotations.IValidatableObject)">
+            <summary>
+            Converts the <see cref="T:System.Object" /> into a validation results.
+            </summary>
+            <param name="objectToValidate">The object to validate.</param>
+            <remarks>
+            This member will validate all properties;<c>validateAllProperties == true</c>.
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.ComponentModel.DataAnnotations.IValidatableObject,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            Converts the <see cref="T:System.Object" /> into a validation results.
+            </summary>
+            <param name="objectToValidate">The object to validate.</param>
+            <param name="validationContext">the <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/></param>
+            <remarks>
+            This member will validate all properties;<c>validateAllProperties == true</c>.
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.ComponentModel.DataAnnotations.IValidatableObject,System.Boolean,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            Converts the <see cref="T:System.Object" /> into a validation results.
+            </summary>
+            <param name="objectToValidate">The object to validate.</param>
+            <param name="validateAllProperties"><c>true</c> to validate all properties;if <c>false</c>, only required attributes are validated.</param>
+            <param name="validationContext">the <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.ComponentModel.DataAnnotations.IValidatableObject,System.String,System.Object)">
             <summary>
             Converts the <see cref="T:System.Object"/> into a validation results.
             </summary>
             <param name="objectToValidate">The object to validate.</param>
+            <param name="propertyName">Name of the property.</param>
+            <param name="propertyValue">The property value.</param>
             <returns></returns>
+            <exception cref="T:System.ArgumentNullException">propertyName</exception>
+        </member>
+        <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.ComponentModel.DataAnnotations.IValidatableObject,System.String,System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            Converts the <see cref="T:System.Object"/> into a validation results.
+            </summary>
+            <param name="objectToValidate">The object to validate.</param>
+            <param name="propertyName">Name of the property.</param>
+            <param name="propertyValue">The property value.</param>
+            <param name="validationContext">the <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">propertyName</exception>
         </member>
         <member name="T:Songhay.Extensions.XElementExtensions">
             <summary>

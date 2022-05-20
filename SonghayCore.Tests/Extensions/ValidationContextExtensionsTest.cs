@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Songhay.Extensions;
-using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -13,6 +13,7 @@ namespace Songhay.Tests.Extensions
             this._testOutputHelper = helper;
         }
 
+        [Fact]
         public void ShouldGetDisplayText()
         {
             var mine = new MyModelOne
@@ -22,16 +23,15 @@ namespace Songhay.Tests.Extensions
                 PropertyThree = "three"
             };
 
-            var validation = mine.ToValidationResults();
-            Assert.NotNull(validation);
-            Assert.True(validation.Any(), "The expected validation results are not here.");
-            this._testOutputHelper.WriteLine(validation.ToDisplayText());
+            var results = mine.Validate(mine.ToValidationContext());
+            Assert.NotEmpty(results);
+            this._testOutputHelper.WriteLine(results.ToDisplayText());
         }
 
-        ITestOutputHelper _testOutputHelper;
+        readonly ITestOutputHelper _testOutputHelper;
     }
 
-    class MyModelOne
+    class MyModelOne : IValidatableObject
     {
         [Required]
         public string PropertyOne { get; set; }
@@ -39,5 +39,10 @@ namespace Songhay.Tests.Extensions
         public string PropertyTwo { get; set; }
         [Required]
         public string PropertyThree { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            return this.ToValidationResults(validationContext);
+        }
     }
 }
