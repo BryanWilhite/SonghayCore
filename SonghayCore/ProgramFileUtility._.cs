@@ -202,10 +202,10 @@ namespace Songhay
             if (levels == 0) return info;
 
             if (info.Parent == null) return info;
-            path = info.FullName;
+            path = info.Parent.FullName;
 
             --levels;
-            return (levels >= 1) ? GetParentDirectoryInfo(path, levels) : info;
+            return (levels >= 1) ? GetParentDirectoryInfo(path, levels) : info.Parent;
         }
 
         /// <summary>
