@@ -1,5 +1,7 @@
-using System;
+using System.IO;
 using System.Threading.Tasks;
+using Songhay;
+using Songhay.Extensions;
 using Statiq.App;
 using Statiq.Docs;
 using Xunit;
@@ -11,7 +13,20 @@ namespace SonghayCore.Tests
         [Fact]
         public async Task CreateDocs_Test()
         {
-            string[] args = Array.Empty<string>();
+            var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+            var projectInfo = new DirectoryInfo(projectRoot);
+
+            string[] args = new [] {
+                "--log-file",
+                ProgramFileUtility.GetCombinedPath(projectRoot,"txt/statiq"),
+                "--input",
+                $"{projectInfo.Parent.FullName}/**/**/*.cs",
+                "--output",
+                projectInfo.Parent.ToCombinedPath("docs2022/"),
+                "--root",
+                $"{projectRoot}/",
+                "--normal"
+            };
 
             var actual = await Bootstrapper
                 .Factory
