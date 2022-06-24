@@ -154,6 +154,23 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "dotnet run [Statiq, preview]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "run",
+                "--project",
+                "${workspaceFolder}/Statiq.Docs.Shell/Statiq.Docs.Shell.csproj",
+                "--configuration",
+                "Release",
+                "--",
+                "preview",
+                "--root",
+                "${workspaceFolder}/Statiq.Docs.Shell/root"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "command": "nuget",
             "label": "NuGet pack SonghayCore",
             "isBackground": false,
