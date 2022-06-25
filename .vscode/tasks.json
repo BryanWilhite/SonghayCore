@@ -154,7 +154,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "dotnet run [Statiq, preview]",
+            "label": "dotnet run [Statiq]",
             "command": "dotnet",
             "type": "shell",
             "args": [
@@ -164,10 +164,16 @@
                 "--configuration",
                 "Release",
                 "--",
-                "preview",
                 "--root",
-                "${workspaceFolder}/Statiq.Docs.Shell/root"
+                "${workspaceFolder}/Statiq.Docs.Shell/root",
+                "--log-level",
+                "DEBUG",
+                "--log-file",
+                "${workspaceFolder}/Statiq.Docs.Shell/root/statiq-"
             ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
             "problemMatcher": "$msCompile"
         },
         {
