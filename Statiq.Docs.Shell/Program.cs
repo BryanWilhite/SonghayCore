@@ -6,7 +6,8 @@ using Statiq.Web;
 await Bootstrapper
     .Factory
     .CreateDocs(args)
-    .AddExcludedPath("../../../Statiq.Docs.Shell")
+    //.SetThemePath("../../../Statiq.Themes.Docable")
+    .AddExcludedPath("../Statiq.Docs.Shell")
     .AddSettings(new Dictionary<string, object>
     {
         { DocsKeys.ApiPath, "api" },
@@ -23,6 +24,6 @@ await Bootstrapper
         { WebKeys.Copyright, $"(c) {DateTime.Now.Year} Songhay System" },
         { WebKeys.GitHubName, "Bryan Wilhite" },
         { WebKeys.GitHubUsername, "BryanWilhite" },
-        { WebKeys.OutputPath, "tmp-output" },
+        { WebKeys.OutputPath, "../docs-statiq" },
     })
     .RunAsync();

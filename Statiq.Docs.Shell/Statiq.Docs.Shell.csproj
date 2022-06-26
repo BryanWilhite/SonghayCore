@@ -1,4 +1,4 @@
-<Project sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -8,19 +8,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference include="Statiq.Docs" version="1.0.0-beta.3"/>
+        <PackageReference Include="Statiq.Docs" Version="1.0.0-beta.3" />
     </ItemGroup>
 
     <ItemGroup>
-        <Compile remove="root\theme\**"/>
+        <Compile Remove="root\theme\**"/>
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource remove="root\theme\**"/>
+        <EmbeddedResource Remove="root\theme\**"/>
     </ItemGroup>
 
     <ItemGroup>
-        <None remove="root\theme\**"/>
+        <None Remove="root\theme\**"/>
     </ItemGroup>
 
 </Project>
