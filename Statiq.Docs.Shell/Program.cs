@@ -15,8 +15,8 @@ await Bootstrapper
             DocsKeys.SourceFiles,
             new []
             {
-                "../../../SonghayCore/**/{!.git,!bin,!obj,!packages,!*.Tests,}/**/*.cs",
-                "../../../SonghayCore.xUnit/**/{!.git,!bin,!obj,!packages,!*.Tests,}/**/*.cs",
+                "../../../../SonghayCore/**/{!.git,!bin,!obj,!packages,!*.Tests,}/**/*.cs",
+                "../../../../SonghayCore.xUnit/**/{!.git,!bin,!obj,!packages,!*.Tests,}/**/*.cs",
             }
         },
         { DocsKeys.OutputApiDocuments, true },
@@ -27,4 +27,3 @@ await Bootstrapper
         { WebKeys.OutputPath, "../docs-statiq" },
     })
     .RunAsync();
-    
