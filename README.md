@@ -6,7 +6,7 @@ The _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/S
 
 **NuGet package 📦:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
 
-**Documentation 📚:** [`SonghayCore` API](https://bryanwilhite.github.io/SonghayCore/api/)
+**Documentation 📚:** [`SonghayCore` API](https://bryanwilhite.github.io/SonghayCore/latest/)
 
 ## version 5.0 breaking changes
 
