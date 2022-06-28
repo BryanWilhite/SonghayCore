@@ -6,8 +6,7 @@ using Statiq.Web;
 await Bootstrapper
     .Factory
     .CreateDocs(args)
-    //.SetThemePath("../../../Statiq.Themes.Docable")
-    .AddExcludedPath("../Statiq.Docs.Shell")
+    .AddExcludedPath("../../../../Statiq.Docs.Shell")
     .AddSettings(new Dictionary<string, object>
     {
         { DocsKeys.ApiPath, "api" },
@@ -15,8 +14,8 @@ await Bootstrapper
             DocsKeys.SourceFiles,
             new []
             {
-                "../../../../SonghayCore/**/{!.git,!bin,!obj,!packages,!*.Tests,}/**/*.cs",
-                "../../../../SonghayCore.xUnit/**/{!.git,!bin,!obj,!packages,!*.Tests,}/**/*.cs",
+                "../../../../../SonghayCore/**/{!.git,!bin,!obj,!packages,!*.Tests,}/**/*.cs",
+                "../../../../../SonghayCore.xUnit/**/{!.git,!bin,!obj,!packages,!*.Tests,}/**/*.cs",
             }
         },
         { DocsKeys.OutputApiDocuments, true },
@@ -24,6 +23,6 @@ await Bootstrapper
         { WebKeys.Copyright, $"(c) {DateTime.Now.Year} Songhay System" },
         { WebKeys.GitHubName, "Bryan Wilhite" },
         { WebKeys.GitHubUsername, "BryanWilhite" },
-        { WebKeys.OutputPath, "../docs-statiq" },
+        { WebKeys.OutputPath, "../../../../docs" },
     })
     .RunAsync();

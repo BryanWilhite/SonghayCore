@@ -1,252 +1,233 @@
-﻿<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="description">
-        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
-        <title>SonghayCore Documentation - API - ArrayExtensions Class</title>
-        <link href="/SonghayCore/assets/css/highlight.css" rel="stylesheet">
-        <link href="/SonghayCore/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
-        <link href="/SonghayCore/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
-        <link href="/SonghayCore/assets/css/theme/theme.css" rel="stylesheet">
-        <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
-        <link href="/SonghayCore/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="/SonghayCore/assets/css/override.css" rel="stylesheet">
-        <script src="/SonghayCore/assets/js/jquery-2.2.3.min.js"></script>
-        <script src="/SonghayCore/assets/js/bootstrap.min.js"></script>        
-        <script src="/SonghayCore/assets/js/app.min.js"></script>         
-        <script src="/SonghayCore/assets/js/highlight.pack.js"></script>   
-        <script src="/SonghayCore/assets/js/jquery.slimscroll.min.js"></script>
-        <script src="/SonghayCore/assets/js/jquery.sticky-kit.min.js"></script>
-        <script src="/SonghayCore/assets/js/mermaid.min.js"></script>
-        <script src="/SonghayCore/assets/js/svg-pan-zoom.min.js"></script>
-        <!--[if lt IE 9]>
-        <script src="/SonghayCore/assets/js/html5shiv.min.js"></script>
-        <script src="/SonghayCore/assets/js/respond.min.js"></script>
-        <![endif]-->  
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+        <link rel="manifest" href="/assets/favicons/site.webmanifest">
+        <link rel="shortcut icon" type="image/png" href="/assets/favicons/favicon.ico"/>
+        <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color="#e9ecef">
+        <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml" />
+        <meta name="msapplication-TileColor" content="#e9ecef">
+        <meta name="theme-color" content="#e9ecef">
+
+        <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism.css">
+        <link href="/assets/css/theme.css" rel="stylesheet" />
+        <link href="/assets/css/styles.css" rel="stylesheet" />
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-core.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+        <script src="https://cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
 
         
+
+        
+
+        <title>Documentation - ArrayExtensions</title>
     </head>
-    <body class="hold-transition wyam layout-boxed  ">    
-        <div class="top-banner"></div>
-        <div class="wrapper with-container">
-            <!-- Header -->
-            <header class="main-header">   
-                     
-                <a href="/SonghayCore/" class="logo">
-                            <span>SonghayCore Documentation</span>
-                </a>   
-                         
-                <nav class="navbar navbar-static-top" role="navigation">
-                    <!-- Sidebar toggle button-->
-                        <a href="#" class="sidebar-toggle visible-xs-block" data-toggle="offcanvas" role="button">
-                            <span class="sr-only">Toggle side menu</span>
-                            <i class="fa fa-chevron-circle-right"></i>
-                        </a>
-                                        
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-                            <span class="sr-only">Toggle side menu</span>
-                            <i class="fa fa-chevron-circle-down"></i>
-                        </button>
+    <body class="d-flex flex-column">
+        <div class="flex-grow-1 d-flex flex-column">
+            <div class="bg-nav">
+                <div class="container-xl py-3">
+                    <div class="row">
+                        <div class="offset-lg-2 col-12 col-lg-8 px-0">
+                            <nav class="navbar navbar-expand-md navbar-light align-items-start">
+    <a class="navbar-brand" href="/">
+                <span class="text-primary">Documentation</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse-topnav" aria-controls="collapse-topnav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="collapse-topnav" class="collapse navbar-collapse flex-wrap">
+        <ul class="navbar-nav mr-auto">
+            
+        </ul>
+        <ul class="navbar-nav">
+                    <li class="nav-item">
+            <a class="nav-link" href="/api">API</a>
+        </li>
+
+            
+        </ul>
+    </div>
+</nav>
+                        </div>
                     </div>
+                </div>
+            </div>
             
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-                        <ul class="nav navbar-nav">                            
-                                    <li class="active"><a href="/SonghayCore/api">API</a></li>
- 
-                        </ul>       
+            <div class="flex-grow-1 d-flex flex-column">
+                    <!-- Titlebar -->
+                    <div id="titlebar" class="py-4">
+                        <div class="container-xl">
+                            <div class="row">
+                                <div class="offset-lg-2 col-12 col-lg-8 px-3 px-lg-0 w-100 d-flex flex-wrap align-items-end">
+                                    <div class="flex-grow-1">
+                                        <div class="breadcrumbs d-flex flex-column flex-md-row text-break">
+
+                                        </div>
+                                        <div class="text-white m-0 text-break title">
+
+    <div>ArrayExtensions <small>Class</small></div>
+                                        </div>
+                                    </div>
+                                        <div class="navbar navbar-expand-md navbar-dark p-0">
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#left-sidebar" aria-controls="left-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                                                <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.navbar-collapse -->
-                
-                    <!-- Navbar Right Menu -->
-                </nav>
-            </header>
-            
-            <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar ">
-                <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
-                    	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
-<p><a href="#Syntax">Syntax</a></p>
-<p><a href="#Methods">Methods</a></p>
-<p><a href="#ExtensionMethods">Extension Methods</a></p>
-<hr class="infobar-hidden">
-</div>
+                    <!-- Under title -->
+                    <div id="undertitle">
+                        <div class="container-xl">
+                            <div class="row">
+                                    <div class="col-md-3 col-lg-2">
+                                    </div>
+                                    <div class="col-md-9 col-lg-8 bg-white">
+                                    </div>
+                                <div class="col-lg-2 d-none d-lg-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                </section>
-                <section class="sidebar">    
-                                     
-                    	
-	    <script src="/SonghayCore/assets/js/lunr.min.js"></script>
-    <script src="/SonghayCore/assets/js/searchIndex.js"></script>
-    <div class="sidebar-form">
-        <div class="input-group">
-            <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
-            <span class="input-group-btn">
-                <button class="btn btn-flat"><i class="fa fa-search"></i></button>
-            </span>
-        </div>
-    </div>
-    <div id="search-results">
-    </div>
-    <script>
-        function runSearch(query){
-            $("#search-results").empty();			
-            if( query.length < 2 ){
-                return;
-            }			
-            var results = searchModule.search("*" + query + "*");
-            var listHtml = "<ul class='sidebar-menu'>";	
-            listHtml += "<li class='header'>Type Results</li>";	
-            if(results.length == 0 ){
-                listHtml += "<li>No results found</li>";
-            } else {					
-                for(var i = 0; i < results.length; ++i){
-                    var res = results[i];
-                    listHtml += "<li><a href='" + res.url + "'>" + htmlEscape(res.title) + "</a></li>";
-                }				
-            }
-            listHtml += "</ul>";				
-            $("#search-results").append(listHtml);
-        }
+                <!-- Body -->
+                <div class="flex-grow-1 d-flex flex-column">
+                        <div class="container-xl flex-grow-1 d-flex flex-column">
+                            <div class="row flex-grow-1 align-items-stretch">
+                                        <div class="col-md-3 col-lg-2 p-md-0 m-md-0 bg-body">
+                                            <div id="left-sidebar" class="sidebar collapse px-0 px-md-3 pt-3">
 
-        $(document).ready(function(){
-            $("#search").on('input propertychange paste', function() {
-                runSearch($("#search").val());
-            });
-        });
+	<div class="sidebar-root">
+				<div class="sidebar-root bg-white mb-3 page-box font-size-sm">
+				<div class="sidebar-nav-item sidebar-header mb-0 pb-0">Namespace</div>
+				<div class="sidebar-nav-item font-weight-normal mt-0 pt-0"><a href="/api/Songhay.Extensions">Songhay<wbr>.Extensions</a></div>
+		</div>
+			<div class="sidebar-nav-item sidebar-header">Class Types</div>
+			<div class="sidebar-nav-children">
+					<div class="sidebar-nav-item active"><a href="/api/Songhay.Extensions/ArrayExtensions">ArrayExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/AssemblyExtensions">AssemblyExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/CharExtensions">CharExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ConfigurationManagerExtensions">Configuration<wbr>Manager<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/DataSetExtensions">DataSetExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/DateTimeExtensions">DateTimeExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/DisplayItemModelExtensions">Display<wbr>Item<wbr>Model<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/EncryptionMetadataExtensions">Encryption<wbr>Metadata<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/EnumExtensions">EnumExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/EnvironmentExtensions">Environment<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ExpressionExtensions">ExpressionExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/FileInfoExtensions">FileInfoExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/FuncExtensions">FuncExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/HttpClientExtensions">HttpClientExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/HttpRequestMessageExtensions">Http<wbr>Request<wbr>Message<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/HttpResponseMessageExtensions">Http<wbr>Response<wbr>Message<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/HttpWebRequestExtensions">Http<wbr>Web<wbr>Request<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ICommunicationObjectExtensions">I<wbr>Communication<wbr>Object<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/IConfigurationBuilderExtensions">I<wbr>Configuration<wbr>Builder<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/IContractResolverExtensions">I<wbr>Contract<wbr>Resolver<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/IIdentityExtensions">IIdentityExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ITemporalExtensions">ITemporalExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/JObjectExtensions">JObjectExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/JsonSerializerSettingsExtensions">Json<wbr>Serializer<wbr>Settings<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/JTokenExtensions">JTokenExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/MenuDisplayItemModelExtensions">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/NullableExtensions">NullableExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ObservableCollectionExtensions">Observable<wbr>Collection<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/OpenAuthorizationDataExtensions">Open<wbr>Authorization<wbr>Data<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramMetadataExtensions">Program<wbr>Metadata<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/RestApiMetadataExtensions">Rest<wbr>Api<wbr>Metadata<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/StringBuilderExtensions">String<wbr>Builder<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/StringExtensions">StringExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/TaskExtensions">TaskExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/TimeSpanExtensions">TimeSpanExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/TraceSourceExtensions">Trace<wbr>Source<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/TraceSourcesExtensions">Trace<wbr>Sources<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/UriBuilderExtensions">UriBuilderExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/UriExtensions">UriExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/UriTemplateExtensions">Uri<wbr>Template<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/Utf8JsonWriterExtensions">Utf8<wbr>Json<wbr>Writer<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/XElementExtensions">XElementExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/XNamespaceExtensions">XNamespaceExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/XNodeExtensions">XNodeExtensions</a></div>
+			</div>
 
-        function htmlEscape(html) {
-            return document.createElement('div')
-                .appendChild(document.createTextNode(html))
-                .parentNode
-                .innerHTML;
-        }
-    </script>
-	
-    <hr>
-
-                    <ul class="sidebar-menu">
-                        
-			<li class="header">Namespace</li>
-		<li><a href="/SonghayCore/api/Songhay.Extensions">Songhay<wbr>.Extensions</a></li>
-		<li role="separator" class="divider"></li>
-			<li class="header">Class Types</li>
-				<li class="selected"><a href="/SonghayCore/api/Songhay.Extensions/ArrayExtensions">ArrayExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/AssemblyExtensions">AssemblyExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/CharExtensions">CharExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ConfigurationManagerExtensions">Configuration<wbr>Manager<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/DataSetExtensions">DataSetExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/DateTimeExtensions">DateTimeExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/DirectoryInfoExtensions">Directory<wbr>Info<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/DisplayItemModelExtensions">Display<wbr>Item<wbr>Model<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/EncryptionMetadataExtensions">Encryption<wbr>Metadata<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/EnumExtensions">EnumExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/EnvironmentExtensions">Environment<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ExpressionExtensions">ExpressionExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/FileInfoExtensions">FileInfoExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/FuncExtensions">FuncExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/HttpClientExtensions">HttpClientExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/HttpRequestMessageExtensions">Http<wbr>Request<wbr>Message<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/HttpResponseMessageExtensions">Http<wbr>Response<wbr>Message<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/HttpWebRequestExtensions">Http<wbr>Web<wbr>Request<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ICommunicationObjectExtensions">I<wbr>Communication<wbr>Object<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/IConfigurationBuilderExtensions">I<wbr>Configuration<wbr>Builder<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/IContractResolverExtensions">I<wbr>Contract<wbr>Resolver<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/IIdentityExtensions">IIdentityExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ITemporalExtensions">ITemporalExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/JObjectExtensions">JObjectExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/JsonSerializerSettingsExtensions">Json<wbr>Serializer<wbr>Settings<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/JTokenExtensions">JTokenExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/MenuDisplayItemModelExtensions">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/NullableExtensions">NullableExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ObservableCollectionExtensions">Observable<wbr>Collection<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/OpenAuthorizationDataExtensions">Open<wbr>Authorization<wbr>Data<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramMetadataExtensions">Program<wbr>Metadata<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/RestApiMetadataExtensions">Rest<wbr>Api<wbr>Metadata<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/StringBuilderExtensions">String<wbr>Builder<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/StringExtensions">StringExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TaskExtensions">TaskExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TimeSpanExtensions">TimeSpanExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TraceSourceExtensions">Trace<wbr>Source<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/TraceSourcesExtensions">Trace<wbr>Sources<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/UriBuilderExtensions">UriBuilderExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/UriExtensions">UriExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/UriTemplateExtensions">Uri<wbr>Template<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/Utf8JsonWriterExtensions">Utf8<wbr>Json<wbr>Writer<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/XElementExtensions">XElementExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/XNamespaceExtensions">XNamespaceExtensions</a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/XNodeExtensions">XNodeExtensions</a></li>
-
-
-                    </ul>
-                            
-                </section>                
-            </aside>
-            
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                
+	</div>
+                                            </div>
+                                        </div>
+                                        <div id="content" class="col-md-9 col-lg-8 p-4 pt-md-0 bg-white">
 
 
 
-<section class="content-header">
-	<h1>ArrayExtensions <small>Class</small></h1>
-</section>
-<section class="content">
-	
-	
-		<h1 id="Summary">Summary</h1>
-	<div class="lead">
-    Extensions of <code class="cs"><a href="/SonghayCore">Array</a></code>
+
+
+
+        <div class="lead mb-3">
+    Extensions of <code class="cs">System.Array</code>
     </div>
 
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<div class="row">
-					<div class="col-md-6">
-						<dl class="dl-horizontal">		
+    <div class="container-md">
+	    <div class="row">
+		    <div class="col-md-6 pt-0 pl-0 pb-0 pr-0 pr-md-4 mb-3 mb-md-0">
+			    <div class="p-3 bg-light page-box small" style="min-height: 100%">
+				    		<dl class="dl-horizontal">
 
-								<dt>Namespace</dt>
-								<dd><a href="/SonghayCore/api/Songhay.Extensions">Songhay<wbr>.Extensions</a></dd>
-											
-							
-								<dt>Base Types</dt>
-								<dd>
-									<ul class="list-unstyled">										
-											<li>object</li>								
-									</ul>
-								</dd>				
-							
-							
-						</dl>
-					</div>		
-					<div class="col-md-6">
-						<div class="mermaid">
-							graph BT
-	Type--&gt;Base0["object"]
+    		    <dt>Namespace</dt>
+    		    <dd><a href="/api/Songhay.Extensions">Songhay<wbr>.Extensions</a></dd>
+
+
+
+
+    		    <dt>Base Types</dt>
+    		    <dd>
+    			    <ul class="list-unstyled">
+    					    <li>object</li>
+    			    </ul>
+    		    </dd>
+
+
+
+
+	    </dl>
+
+			    </div>
+		    </div>
+		    <div class="col-md-6 p-0">
+			    <div class="bg-light page-box">
+				    <div class="mermaid text-center">
+	graph BT
+	Type-->Base0["object"]
 	Type["ArrayExtensions"]
 class Type type-node
 
-						</div>
-					</div>
-				</div>
-  			</div>
-		</div>
-
-	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public static class ArrayExtensions</code></pre>
-
+</div>
+			    </div>
+		    </div>
+	    </div>
+    </div>
+		<h1 id="Syntax">Syntax</h1>
+		<pre class="language-csharp"><code class="language-csharp">public static class ArrayExtensions</code></pre>
 
 
 
@@ -257,173 +238,238 @@ class Type type-node
 
 
 
-			<h1 id="Methods">Methods</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover three-cols">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Value</th>
-								<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ArrayExtensions/C38EFB8E">Next<wbr>&lt;T&gt;<wbr><wbr>(Array, <wbr>T)<wbr></a></td>
-								<td>T</td>
-								<td>
-									<div>
+
+
+		<h1 id="Methods">Methods</h1>
+		<div class="table-responsive">
+			<table class="table table-api table-striped table-hover three-cols">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Return Value</th>
+						<th>Summary</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+							<td><a href="/api/Songhay.Extensions/ArrayExtensions/C38EFB8E">Next<wbr>&lt;T&gt;<wbr><wbr>(Array, <wbr>T)<wbr></a></td>
+							<td>T</td>
+							<td>
+								<div>
     Gets the next item in the specified array.
     </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ArrayExtensions/6B123AA5">Previous<wbr>&lt;T&gt;<wbr><wbr>(Array, <wbr>T)<wbr></a></td>
-								<td>T</td>
-								<td>
-									<div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/api/Songhay.Extensions/ArrayExtensions/6B123AA5">Previous<wbr>&lt;T&gt;<wbr><wbr>(Array, <wbr>T)<wbr></a></td>
+							<td>T</td>
+							<td>
+								<div>
     Gets the previous item in the specified array.
     </div>
-											<div><small><em>static</em></small></div>
-								</td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
 
 
-			<h1 id="ExtensionMethods">Extension Methods</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover three-cols">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Value</th>
-								<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions/12A8F2F7">GetProperties<wbr>()<wbr></a></td>
-								<td>PropertyInfo[]</td>
-								<td>
-									<div>
+
+		<h1 id="ExtensionMethods">Extension Methods</h1>
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-api table-striped table-hover three-cols">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Value</th>
+						<th>Summary</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+							<td><a href="/api/Songhay.Extensions/ObjectExtensions/12A8F2F7">GetProperties<wbr>()<wbr></a></td>
+							<td>PropertyInfo[]</td>
+							<td>
+								<div>
     Gets the properties.
     </div>
-										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions/902A9690">GetProperty<wbr>(string)<wbr></a></td>
-								<td>PropertyInfo</td>
-								<td>
-									<div>
+								<div><small><em>From <a href="/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/api/Songhay.Extensions/ObjectExtensions/902A9690">GetProperty<wbr>(string)<wbr></a></td>
+							<td>PropertyInfo</td>
+							<td>
+								<div>
     Gets the property.
     </div>
-										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions/5F8F2990">GetPropertyValue<wbr>(string)<wbr></a></td>
-								<td>object</td>
-								<td>
-									<div>
+								<div><small><em>From <a href="/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/api/Songhay.Extensions/ObjectExtensions/5F8F2990">GetPropertyValue<wbr>(string)<wbr></a></td>
+							<td>object</td>
+							<td>
+								<div>
      Gets the property value.
      </div>
-										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions/BD86D709">IsEnumerableType<wbr>&lt;TEnumerable&gt;<wbr><wbr>()<wbr></a></td>
-								<td>bool</td>
-								<td>
-									<div>
+								<div><small><em>From <a href="/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/api/Songhay.Extensions/IEnumerableOfTExtensions/BD86D709">IsEnumerableType<wbr>&lt;TEnumerable&gt;<wbr><wbr>()<wbr></a></td>
+							<td>bool</td>
+							<td>
+								<div>
     Determines whether this instance is enumerable.
     </div>
-										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions/C312663C">IsType<wbr>&lt;TClass&gt;<wbr><wbr>()<wbr></a></td>
-								<td>bool</td>
-								<td>
-									<div>
+								<div><small><em>From <a href="/api/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/api/Songhay.Extensions/ObjectExtensions/C312663C">IsType<wbr>&lt;TClass&gt;<wbr><wbr>()<wbr></a></td>
+							<td>bool</td>
+							<td>
+								<div>
     Determines whether this instance is type.
     </div>
-										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions/690EAD14">ToObjectOrDBNull<wbr>()<wbr></a></td>
-								<td>object</td>
-								<td>
-									<div>
-    Boxes the value in object or returns <code class="cs"><a href="/SonghayCore">DBNull</a></code>.
+								<div><small><em>From <a href="/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/api/Songhay.Extensions/ObjectExtensions/690EAD14">ToObjectOrDBNull<wbr>()<wbr></a></td>
+							<td>object</td>
+							<td>
+								<div>
+    Boxes the value in object or returns <code class="cs">System.DBNull</code>.
     </div>
-										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/85ABB10B">ToValidationContext<wbr>()<wbr></a></td>
-								<td>ValidationContext</td>
-								<td>
-									<div>
-    Converts the <code class="cs"><a href="/SonghayCore">object</a></code> into a validation context.
-    </div>
-										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1628CF65">ToValidationResults<wbr>()<wbr></a></td>
-								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
-								<td>
-									<div>
-    Converts the <code class="cs"><a href="/SonghayCore">object</a></code> into a validation results.
-    </div>
-										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions/1BB5C098">ToValidationResults<wbr>(object, <wbr>string)<wbr></a></td>
-								<td>IEnumerable<wbr>&lt;ValidationResult&gt;<wbr></td>
-								<td>
-									<div>
-    Converts the <code class="cs"><a href="/SonghayCore">object</a></code> into a validation results.
-    </div>
-										<div><small><em>From <a href="/SonghayCore/api/Songhay.Extensions/ValidationContextExtensions">Validation<wbr>Context<wbr>Extensions</a></em></small></div>
-								</td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
+								<div><small><em>From <a href="/api/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
+							</td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
 
-	
-</section>
-                
-            </div>           
-            
-            <!-- Footer -->
-            <footer class="main-footer">
-            </footer>
-            
+
+
+
+
+
+
+
+                                        </div>
+                                <div class="col-lg-2 p-md-0 m-md-0 bg-body">
+                                    <div id="right-sidebar" class="sidebar px-0 px-md-3 pt-3">
+
+	        <div class="sidebar-root">
+            <div class="sidebar-nav-item sidebar-header">On This Page</div>
+            <div class="sidebar-nav-children">
+                    <div class="sidebar-nav-item"><a href="#Syntax">Syntax</a></div>
+                    <div class="sidebar-nav-item"><a href="#Methods">Methods</a></div>
+                    <div class="sidebar-nav-item"><a href="#ExtensionMethods">Extension Methods</a></div>
+            </div>
         </div>
-        <div class="wrapper bottom-wrapper">
-            <footer class="bottom-footer">
-                Generated by <a href="https://wyam.io">Wyam</a>
-            </footer>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
         </div>
-        <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-        
-        <script>           
-            // Close the sidebar if we select an anchor link
-            $(".main-sidebar a[href^='#']:not('.expand')").click(function(){
-                $(document.body).removeClass('sidebar-open');
-            });
-            
+
+        <!-- Footer -->
+        <div id="footer" class="p-3 text-white">
+            <div class="container-xl">
+                <div class="row">
+    <div class="offset-lg-2 col-12 col-lg-8">
+        <div class="pt-2 font-size-sm text-muted text-center">
+            Generated By <a class="text-muted" href="https://statiq.dev">Statiq</a>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script>
             $(document).ready(function() {
+                quicklink.listen();
+
+                // Bootstrap tooltips
+                $('[data-toggle="tooltip"]').tooltip();
+
+				// Keeps the sidebars in view on wider viewports
+				let left = null;
+				let leftParent = null;
+				let right = null;
+				let rightParent = null;
+                function stickSidebars()
+				{
+				    if (left == null) {
+                        left = $('#left-sidebar');
+                        right = $('#right-sidebar');
+                    }
+                    if (left.length) {
+                        if (window.innerWidth >= 768) {
+                            if (leftParent == null) {
+                                leftParent = left.parent()[0];
+                            }
+                            if (leftParent) {
+                                let leftRect = leftParent.getBoundingClientRect();
+                                stickSidebar(left,  leftRect);
+                            }
+                        } else {
+                            left.css('position', 'relative');
+                            if (left.css('bottom') != 0) {
+                                left.css('bottom', '0');
+                            }
+                        }
+                    }
+                    if (right.length) {
+                        if (window.innerWidth >= 768) {
+                            if (rightParent == null) {
+                                rightParent = right.parent()[0];
+                            }
+                            if (rightParent) {
+                                let rightRect = rightParent.getBoundingClientRect();
+                                stickSidebar(right,  rightRect);
+                            }
+                        } else {
+                            right.css('position', 'relative');
+                            if (right.css('bottom') != 0) {
+                                right.css('bottom', '0');
+                            }
+                        }
+                    }
+				}
+				function stickSidebar(sidebar, rect) {
+                    // Bottom
+                    if (rect.bottom > window.innerHeight) {
+                        sidebar.css('bottom', rect.bottom - window.innerHeight + "px");
+                    } else {
+                        sidebar.css('bottom', 0);
+                    }
+                    // Top
+                    if (rect.top < 0) {
+                        sidebar.css('position', 'sticky');
+                    } else {
+                        sidebar.css('position', 'absolute');
+                    }
+				}
+				$(window).on("load", function() {
+				    stickSidebars();
+				});
+                $(window).scroll(function() {
+				    stickSidebars();
+				});
+				$(window).resize(function() {
+				    stickSidebars();
+				})
+
+                // Mermaid diagrams
                 mermaid.initialize(
                 {
                     flowchart:
@@ -432,12 +478,12 @@ class Type type-node
                     },
 					startOnLoad: false,
 					cloneCssStyles: false
-                });     
+                });
                 mermaid.init(undefined, ".mermaid");
 
                 // Remove the max-width setting that Mermaid sets
                 var mermaidSvg = $('.mermaid svg');
-                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.addClass('img-fluid');
                 mermaidSvg.css('max-width', '');
 
                 // Make it scrollable
@@ -451,40 +497,24 @@ class Type type-node
 						center: true,
                         maxZoom: 20,
                         zoomScaleSensitivity: 0.6
-					});			                          
+					});
 
                     // Do the reset once right away to fit the diagram
                     panZoom.resize();
                     panZoom.fit();
                     panZoom.center();
-                    
+
                     $(window).resize(function(){
                         panZoom.resize();
                         panZoom.fit();
                         panZoom.center();
                     });
 				}
-                
-                $('pre code').each(function(i, block) {
-                    hljs.highlightBlock(block);
-                });  
-            });
-
-            hljs.initHighlightingOnLoad();
-
-            // Back to top
-            $(window).scroll(function() {
-                if ($(this).scrollTop() >= 200) {        // If page is scrolled more than 50px
-                    $('#return-to-top').fadeIn(1000);    // Fade in the arrow
-                } else {
-                    $('#return-to-top').fadeOut(1000);   // Else fade out the arrow
-                }
-            });
-            $('#return-to-top').click(function() {      // When arrow is clicked
-                $('body,html').animate({
-                    scrollTop : 0                       // Scroll to top of body
-                }, 500);
             });
         </script>
-    
-</body></html>
+
+        
+
+        
+    </body>
+</html>

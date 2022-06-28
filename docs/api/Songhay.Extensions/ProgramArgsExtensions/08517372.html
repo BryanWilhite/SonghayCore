@@ -1,207 +1,187 @@
-﻿<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="description">
-        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/SonghayCore/assets/img/favicon.ico" type="image/x-icon">
-        <title>SonghayCore Documentation - API - ProgramArgsExtensions.GetSettingsFilePath(ProgramArgs) Method</title>
-        <link href="/SonghayCore/assets/css/highlight.css" rel="stylesheet">
-        <link href="/SonghayCore/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
-        <link href="/SonghayCore/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
-        <link href="/SonghayCore/assets/css/theme/theme.css" rel="stylesheet">
-        <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
-        <link href="/SonghayCore/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="/SonghayCore/assets/css/override.css" rel="stylesheet">
-        <script src="/SonghayCore/assets/js/jquery-2.2.3.min.js"></script>
-        <script src="/SonghayCore/assets/js/bootstrap.min.js"></script>        
-        <script src="/SonghayCore/assets/js/app.min.js"></script>         
-        <script src="/SonghayCore/assets/js/highlight.pack.js"></script>   
-        <script src="/SonghayCore/assets/js/jquery.slimscroll.min.js"></script>
-        <script src="/SonghayCore/assets/js/jquery.sticky-kit.min.js"></script>
-        <script src="/SonghayCore/assets/js/mermaid.min.js"></script>
-        <script src="/SonghayCore/assets/js/svg-pan-zoom.min.js"></script>
-        <!--[if lt IE 9]>
-        <script src="/SonghayCore/assets/js/html5shiv.min.js"></script>
-        <script src="/SonghayCore/assets/js/respond.min.js"></script>
-        <![endif]-->  
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+        <link rel="manifest" href="/assets/favicons/site.webmanifest">
+        <link rel="shortcut icon" type="image/png" href="/assets/favicons/favicon.ico"/>
+        <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color="#e9ecef">
+        <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml" />
+        <meta name="msapplication-TileColor" content="#e9ecef">
+        <meta name="theme-color" content="#e9ecef">
+
+        <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism.css">
+        <link href="/assets/css/theme.css" rel="stylesheet" />
+        <link href="/assets/css/styles.css" rel="stylesheet" />
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-core.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+        <script src="https://cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
 
         
+
+        
+
+        <title>Documentation - GetSettingsFilePath(ProgramArgs)</title>
     </head>
-    <body class="hold-transition wyam layout-boxed  ">    
-        <div class="top-banner"></div>
-        <div class="wrapper with-container">
-            <!-- Header -->
-            <header class="main-header">   
-                     
-                <a href="/SonghayCore/" class="logo">
-                            <span>SonghayCore Documentation</span>
-                </a>   
-                         
-                <nav class="navbar navbar-static-top" role="navigation">
-                    <!-- Sidebar toggle button-->
-                        <a href="#" class="sidebar-toggle visible-xs-block" data-toggle="offcanvas" role="button">
-                            <span class="sr-only">Toggle side menu</span>
-                            <i class="fa fa-chevron-circle-right"></i>
-                        </a>
-                                        
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-                            <span class="sr-only">Toggle side menu</span>
-                            <i class="fa fa-chevron-circle-down"></i>
-                        </button>
-                    </div>
+    <body class="d-flex flex-column">
+        <div class="flex-grow-1 d-flex flex-column">
+            <div class="bg-nav">
+                <div class="container-xl py-3">
+                    <div class="row">
+                        <div class="offset-lg-2 col-12 col-lg-8 px-0">
+                            <nav class="navbar navbar-expand-md navbar-light align-items-start">
+    <a class="navbar-brand" href="/">
+                <span class="text-primary">Documentation</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse-topnav" aria-controls="collapse-topnav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="collapse-topnav" class="collapse navbar-collapse flex-wrap">
+        <ul class="navbar-nav mr-auto">
             
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-                        <ul class="nav navbar-nav">                            
-                                    <li class="active"><a href="/SonghayCore/api">API</a></li>
- 
-                        </ul>       
-                    </div>
-                    <!-- /.navbar-collapse -->
-                
-                    <!-- Navbar Right Menu -->
-                </nav>
-            </header>
-            
-            <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar ">
-                <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
-                    	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
-<p><a href="#Syntax">Syntax</a></p>
-<p><a href="#Parameters">Parameters</a></p>
-<p><a href="#ReturnValue">Return Value</a></p>
-<hr class="infobar-hidden">
-</div>
+        </ul>
+        <ul class="navbar-nav">
+                    <li class="nav-item">
+            <a class="nav-link" href="/api">API</a>
+        </li>
 
-                </section>
-                <section class="sidebar">    
-                                     
-                    	
-	    <script src="/SonghayCore/assets/js/lunr.min.js"></script>
-    <script src="/SonghayCore/assets/js/searchIndex.js"></script>
-    <div class="sidebar-form">
-        <div class="input-group">
-            <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
-            <span class="input-group-btn">
-                <button class="btn btn-flat"><i class="fa fa-search"></i></button>
-            </span>
+            
+        </ul>
+    </div>
+</nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex-grow-1 d-flex flex-column">
+                    <!-- Titlebar -->
+                    <div id="titlebar" class="py-4">
+                        <div class="container-xl">
+                            <div class="row">
+                                <div class="offset-lg-2 col-12 col-lg-8 px-3 px-lg-0 w-100 d-flex flex-wrap align-items-end">
+                                    <div class="flex-grow-1">
+                                        <div class="breadcrumbs d-flex flex-column flex-md-row text-break">
+
+			<span><a href="/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a>.</span>
+                                        </div>
+                                        <div class="text-white m-0 text-break title">
+
+    <div>GetSettingsFilePath<wbr>(ProgramArgs)<wbr> <small>Method</small></div>
+                                        </div>
+                                    </div>
+                                        <div class="navbar navbar-expand-md navbar-dark p-0">
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#left-sidebar" aria-controls="left-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                                                <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Under title -->
+                    <div id="undertitle">
+                        <div class="container-xl">
+                            <div class="row">
+                                    <div class="col-md-3 col-lg-2">
+                                    </div>
+                                    <div class="col-md-9 col-lg-8 bg-white">
+                                    </div>
+                                <div class="col-lg-2 d-none d-lg-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- Body -->
+                <div class="flex-grow-1 d-flex flex-column">
+                        <div class="container-xl flex-grow-1 d-flex flex-column">
+                            <div class="row flex-grow-1 align-items-stretch">
+                                        <div class="col-md-3 col-lg-2 p-md-0 m-md-0 bg-body">
+                                            <div id="left-sidebar" class="sidebar collapse px-0 px-md-3 pt-3">
+
+	<div class="sidebar-root">
+		        <div class="sidebar-root bg-white mb-3 page-box font-size-sm">
+                <div class="sidebar-nav-item sidebar-header mb-0 pb-0">Namespace</div>
+                <div class="sidebar-nav-item  font-weight-normal mt-0 pt-0"><a href="/api/Songhay.Extensions">Songhay<wbr>.Extensions</a></div>
+                <div class="sidebar-nav-item sidebar-header mb-0 pb-0">Type</div>
+                <div class="sidebar-nav-item font-weight-normal mt-0 pt-0"><a href="/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></div>
         </div>
-    </div>
-    <div id="search-results">
-    </div>
-    <script>
-        function runSearch(query){
-            $("#search-results").empty();			
-            if( query.length < 2 ){
-                return;
-            }			
-            var results = searchModule.search("*" + query + "*");
-            var listHtml = "<ul class='sidebar-menu'>";	
-            listHtml += "<li class='header'>Type Results</li>";	
-            if(results.length == 0 ){
-                listHtml += "<li>No results found</li>";
-            } else {					
-                for(var i = 0; i < results.length; ++i){
-                    var res = results[i];
-                    listHtml += "<li><a href='" + res.url + "'>" + htmlEscape(res.title) + "</a></li>";
-                }				
-            }
-            listHtml += "</ul>";				
-            $("#search-results").append(listHtml);
-        }
+            <div class="sidebar-nav-item sidebar-header">Method Members</div>
+            <div class="sidebar-nav-children">
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/7DC8C70B">GetArgValue<wbr>(ProgramArgs, <wbr>string)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/B9FF5A83">GetBasePathValue<wbr>(ProgramArgs)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/814FCAB4">GetOutputPath<wbr>(ProgramArgs)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/BCDE41C8">GetSettings<wbr>(ProgramArgs)<wbr></a></div>
+                    <div class="sidebar-nav-item active"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/08517372">GetSettingsFilePath<wbr>(ProgramArgs)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/BAA86145">GetStringInput<wbr>(ProgramArgs)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/72D6C867">HasArg<wbr>(ProgramArgs, <wbr>string, <wbr>bool)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/7286A610">IsHelpRequest<wbr>(ProgramArgs)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/FCE162E3">ToConfigurationKey<wbr>(ProgramArgs, <wbr>string)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/0D6B5D4F">ToHelpDisplayText<wbr>(ProgramArgs)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/84BC1E7D">ToHelpDisplayText<wbr>(ProgramArgs, <wbr>int)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/A23BBF14">WithDefaultHelpText<wbr>(ProgramArgs)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/D990CB50">WriteOutputToFile<wbr>(ProgramArgs, <wbr>string)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/api/Songhay.Extensions/ProgramArgsExtensions/67A763EF">WriteOutputToFile<wbr>(ProgramArgs, <wbr>byte[])<wbr></a></div>
+            </div>
 
-        $(document).ready(function(){
-            $("#search").on('input propertychange paste', function() {
-                runSearch($("#search").val());
-            });
-        });
-
-        function htmlEscape(html) {
-            return document.createElement('div')
-                .appendChild(document.createTextNode(html))
-                .parentNode
-                .innerHTML;
-        }
-    </script>
-	
-    <hr>
-
-                    <ul class="sidebar-menu">
-                        
-			<li class="header">Namespace</li>
-		<li><a href="/SonghayCore/api/Songhay.Extensions">Songhay<wbr>.Extensions</a></li>
-		<li class="header">Type</li>
-		<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></li>
-		<li role="separator" class="divider"></li>
-			<li class="header">Method Members</li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/7DC8C70B">GetArgValue<wbr>(ProgramArgs, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/B9FF5A83">GetBasePathValue<wbr>(ProgramArgs)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/814FCAB4">GetOutputPath<wbr>(ProgramArgs)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/BCDE41C8">GetSettings<wbr>(ProgramArgs)<wbr></a></li>
-				<li class="selected"><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/08517372">GetSettingsFilePath<wbr>(ProgramArgs)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/BAA86145">GetStringInput<wbr>(ProgramArgs)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/72D6C867">HasArg<wbr>(ProgramArgs, <wbr>string, <wbr>bool)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/7286A610">IsHelpRequest<wbr>(ProgramArgs)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/FCE162E3">ToConfigurationKey<wbr>(ProgramArgs, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/0D6B5D4F">ToHelpDisplayText<wbr>(ProgramArgs)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/84BC1E7D">ToHelpDisplayText<wbr>(ProgramArgs, <wbr>int)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/A23BBF14">WithDefaultHelpText<wbr>(ProgramArgs)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/D990CB50">WriteOutputToFile<wbr>(ProgramArgs, <wbr>string)<wbr></a></li>
-				<li><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions/67A763EF">WriteOutputToFile<wbr>(ProgramArgs, <wbr>byte[])<wbr></a></li>
-
-
-                    </ul>
-                            
-                </section>                
-            </aside>
-            
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                
+	</div>
+                                            </div>
+                                        </div>
+                                        <div id="content" class="col-md-9 col-lg-8 p-4 pt-md-0 bg-white">
 
 
 
-<section class="content-header">
-			<h3><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a>.</h3>
-	<h1>GetSettingsFilePath<wbr>(ProgramArgs)<wbr> <small>Method</small></h1>
-</section>
-<section class="content">
-	
-	
-		<h1 id="Summary">Summary</h1>
-	<div class="lead">
+
+
+
+        <div class="lead mb-3">
     Gets the conventional settings file path.
     </div>
 
-		<div class="panel panel-default">
-  			<div class="panel-body">	
-				<dl class="dl-horizontal">	
-						
-						<dt>Namespace</dt>
-						<dd><a href="/SonghayCore/api/Songhay.Extensions">Songhay<wbr>.Extensions</a></dd>
-					
-						<dt>Containing Type</dt>
-						<dd><a href="/SonghayCore/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></dd>		
-					
-				</dl>
-  			</div>
-		</div>
+    <div class="p-3 bg-light page-box container small">
+        		<dl class="dl-horizontal">
 
-	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public static string GetSettingsFilePath(this ProgramArgs args)</code></pre>
+    		    <dt>Namespace</dt>
+    		    <dd><a href="/api/Songhay.Extensions">Songhay<wbr>.Extensions</a></dd>
+
+				<dt>Containing Type</dt>
+				<dd><a href="/api/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></dd>
 
 
 
 
 
-	<h1 id="Parameters">Parameters</h1>
-	<div class="box">
-		<div class="box-body no-padding table-responsive">
-			<table class="table table-striped table-hover three-cols">
+
+
+	    </dl>
+
+    </div>
+		<h1 id="Syntax">Syntax</h1>
+		<pre class="language-csharp"><code class="language-csharp">public static string GetSettingsFilePath(this ProgramArgs args)</code></pre>
+
+
+
+
+
+
+		<h1 id="Parameters">Parameters</h1>
+		<div class="table-responsive">
+			<table class="table table-api table-striped table-hover three-cols">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -209,58 +189,153 @@
 						<th>Description</th>
 					</tr>
 				</thead>
-					<tbody><tr>
-						<td>args</td>
-						<td><a href="/SonghayCore/api/Songhay.Models/ProgramArgs">ProgramArgs</a></td>
-						<td>The <code class="cs"><a href="/SonghayCore/api/Songhay.Models/ProgramArgs">ProgramArgs</a></code>.</td>
-					</tr>
-			</tbody></table>
+				<tbody>
+						<tr>
+							<td>args</td>
+							<td><a href="/api/Songhay.Models/ProgramArgs">ProgramArgs</a></td>
+							<td>The <code class="cs"><a href="/api/Songhay.Models/ProgramArgs">ProgramArgs</a></code>.</td>
+						</tr>
+				</tbody>
+			</table>
 		</div>
-	</div>	
 
-	<h1 id="ReturnValue">Return Value</h1>
-	<div class="box">
-		<div class="box-body no-padding table-responsive">
-			<table class="table table-striped table-hover two-cols">
+
+		<h1 id="ReturnValue">Return Value</h1>
+		<div class="table-responsive">
+			<table class="table table-api table-striped table-hover two-cols">
 				<thead>
 					<tr>
 						<th>Type</th>
 						<th>Description</th>
 					</tr>
 				</thead>
-				<tbody><tr>
-					<td>string</td>
-					<td></td>
-				</tr>
-			</tbody></table>
+				<tbody>
+					<tr>
+						<td>string</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-	</div>	
 
 
-	
-</section>
-                
-            </div>           
-            
-            <!-- Footer -->
-            <footer class="main-footer">
-            </footer>
-            
+
+
+
+
+
+
+                                        </div>
+                                <div class="col-lg-2 p-md-0 m-md-0 bg-body">
+                                    <div id="right-sidebar" class="sidebar px-0 px-md-3 pt-3">
+
+	        <div class="sidebar-root">
+            <div class="sidebar-nav-item sidebar-header">On This Page</div>
+            <div class="sidebar-nav-children">
+                    <div class="sidebar-nav-item"><a href="#Syntax">Syntax</a></div>
+                    <div class="sidebar-nav-item"><a href="#Parameters">Parameters</a></div>
+                    <div class="sidebar-nav-item"><a href="#ReturnValue">Return Value</a></div>
+            </div>
         </div>
-        <div class="wrapper bottom-wrapper">
-            <footer class="bottom-footer">
-                Generated by <a href="https://wyam.io">Wyam</a>
-            </footer>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
         </div>
-        <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-        
-        <script>           
-            // Close the sidebar if we select an anchor link
-            $(".main-sidebar a[href^='#']:not('.expand')").click(function(){
-                $(document.body).removeClass('sidebar-open');
-            });
-            
+
+        <!-- Footer -->
+        <div id="footer" class="p-3 text-white">
+            <div class="container-xl">
+                <div class="row">
+    <div class="offset-lg-2 col-12 col-lg-8">
+        <div class="pt-2 font-size-sm text-muted text-center">
+            Generated By <a class="text-muted" href="https://statiq.dev">Statiq</a>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script>
             $(document).ready(function() {
+                quicklink.listen();
+
+                // Bootstrap tooltips
+                $('[data-toggle="tooltip"]').tooltip();
+
+				// Keeps the sidebars in view on wider viewports
+				let left = null;
+				let leftParent = null;
+				let right = null;
+				let rightParent = null;
+                function stickSidebars()
+				{
+				    if (left == null) {
+                        left = $('#left-sidebar');
+                        right = $('#right-sidebar');
+                    }
+                    if (left.length) {
+                        if (window.innerWidth >= 768) {
+                            if (leftParent == null) {
+                                leftParent = left.parent()[0];
+                            }
+                            if (leftParent) {
+                                let leftRect = leftParent.getBoundingClientRect();
+                                stickSidebar(left,  leftRect);
+                            }
+                        } else {
+                            left.css('position', 'relative');
+                            if (left.css('bottom') != 0) {
+                                left.css('bottom', '0');
+                            }
+                        }
+                    }
+                    if (right.length) {
+                        if (window.innerWidth >= 768) {
+                            if (rightParent == null) {
+                                rightParent = right.parent()[0];
+                            }
+                            if (rightParent) {
+                                let rightRect = rightParent.getBoundingClientRect();
+                                stickSidebar(right,  rightRect);
+                            }
+                        } else {
+                            right.css('position', 'relative');
+                            if (right.css('bottom') != 0) {
+                                right.css('bottom', '0');
+                            }
+                        }
+                    }
+				}
+				function stickSidebar(sidebar, rect) {
+                    // Bottom
+                    if (rect.bottom > window.innerHeight) {
+                        sidebar.css('bottom', rect.bottom - window.innerHeight + "px");
+                    } else {
+                        sidebar.css('bottom', 0);
+                    }
+                    // Top
+                    if (rect.top < 0) {
+                        sidebar.css('position', 'sticky');
+                    } else {
+                        sidebar.css('position', 'absolute');
+                    }
+				}
+				$(window).on("load", function() {
+				    stickSidebars();
+				});
+                $(window).scroll(function() {
+				    stickSidebars();
+				});
+				$(window).resize(function() {
+				    stickSidebars();
+				})
+
+                // Mermaid diagrams
                 mermaid.initialize(
                 {
                     flowchart:
@@ -269,12 +344,12 @@
                     },
 					startOnLoad: false,
 					cloneCssStyles: false
-                });     
+                });
                 mermaid.init(undefined, ".mermaid");
 
                 // Remove the max-width setting that Mermaid sets
                 var mermaidSvg = $('.mermaid svg');
-                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.addClass('img-fluid');
                 mermaidSvg.css('max-width', '');
 
                 // Make it scrollable
@@ -288,40 +363,24 @@
 						center: true,
                         maxZoom: 20,
                         zoomScaleSensitivity: 0.6
-					});			                          
+					});
 
                     // Do the reset once right away to fit the diagram
                     panZoom.resize();
                     panZoom.fit();
                     panZoom.center();
-                    
+
                     $(window).resize(function(){
                         panZoom.resize();
                         panZoom.fit();
                         panZoom.center();
                     });
 				}
-                
-                $('pre code').each(function(i, block) {
-                    hljs.highlightBlock(block);
-                });  
-            });
-
-            hljs.initHighlightingOnLoad();
-
-            // Back to top
-            $(window).scroll(function() {
-                if ($(this).scrollTop() >= 200) {        // If page is scrolled more than 50px
-                    $('#return-to-top').fadeIn(1000);    // Fade in the arrow
-                } else {
-                    $('#return-to-top').fadeOut(1000);   // Else fade out the arrow
-                }
-            });
-            $('#return-to-top').click(function() {      // When arrow is clicked
-                $('body,html').animate({
-                    scrollTop : 0                       // Scroll to top of body
-                }, 500);
             });
         </script>
-    
-</body></html>
+
+        
+
+        
+    </body>
+</html>
