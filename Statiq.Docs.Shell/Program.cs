@@ -9,7 +9,8 @@ await Bootstrapper
     .AddExcludedPath("../../../../Statiq.Docs.Shell")
     .AddSettings(new Dictionary<string, object>
     {
-        { DocsKeys.ApiPath, "api" },
+        { Keys.LinkRoot, "SonghayCore/api" },
+        { DocsKeys.ApiPath, "latest" },
         {
             DocsKeys.SourceFiles,
             new []
