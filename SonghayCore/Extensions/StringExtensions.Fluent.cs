@@ -304,19 +304,5 @@ namespace Songhay.Extensions
             string wrapper = @"{""" + riaResultName + @""":";
             return input.Replace(wrapper, string.Empty).Replace("}}", "}").Replace("]}", "]");
         }
-
-        /// <summary>
-        /// Wraps for RIA endpoint input.
-        /// </summary>
-        /// <param name="input">The input.</param>
-        /// <param name="riaParameter">The RIA parameter.</param>
-        public static string WrapForRiaEndpoint(this string input, string riaParameter)
-        {
-            if (string.IsNullOrWhiteSpace(input)) return null;
-            if (string.IsNullOrWhiteSpace(riaParameter)) return null;
-
-            string wrapperFormat = @"{{""" + riaParameter + @""":{0}}}";
-            return string.Format(wrapperFormat, input);
-        }
     }
 }

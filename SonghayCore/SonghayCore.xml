@@ -4,61 +4,6 @@
         <name>SonghayCore</name>
     </assembly>
     <members>
-        <member name="T:Songhay.Collections.ObservableSortingCollection`1">
-            <summary>
-            Extends <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/>
-            with sorting.
-            </summary>
-            <typeparam name="T">Collection Type</typeparam>
-            <remarks>
-                There are many ways to handle this issue. The code here is based on
-                “Write a Sortable ObservableCollection for WPF” by Brian Lagunas
-                [http://elegantcode.com/2009/05/14/write-a-sortable-observablecollection-for-wpf/]
-            </remarks>
-        </member>
-        <member name="M:Songhay.Collections.ObservableSortingCollection`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Collections.ObservableSortingCollection`1"/> class.
-            </summary>
-            <param name="collection">The collection.</param>
-        </member>
-        <member name="M:Songhay.Collections.ObservableSortingCollection`1.Sort``1(System.Func{`0,``0},System.ComponentModel.ListSortDirection)">
-            <summary>
-            Sorts the specified key selector.
-            </summary>
-            <typeparam name="TKey">The type of the key.</typeparam>
-            <param name="keySelector">The key selector.</param>
-            <param name="direction">The direction.</param>
-        </member>
-        <member name="M:Songhay.Collections.ObservableSortingCollection`1.Sort``1(System.Func{`0,``0},System.Collections.Generic.IComparer{``0})">
-            <summary>
-            Sorts the specified key selector.
-            </summary>
-            <typeparam name="TKey">The type of the key.</typeparam>
-            <param name="keySelector">The key selector.</param>
-            <param name="comparer">The comparer.</param>
-        </member>
-        <member name="T:Songhay.ComponentModel.BackgroundWorkerUtility">
-            <summary>
-            Static members
-            for <see cref="T:System.ComponentModel.BackgroundWorker"/>.
-            </summary>
-        </member>
-        <member name="M:Songhay.ComponentModel.BackgroundWorkerUtility.DoWork(System.Action{System.Object,System.ComponentModel.DoWorkEventArgs},System.Action{System.Object,System.ComponentModel.RunWorkerCompletedEventArgs})">
-            <summary>
-            Encapsulates a thread of work that cannot be canceled.
-            </summary>
-            <param name="workAction">The work action.</param>
-            <param name="workCompleteAction">The work complete action.</param>
-        </member>
-        <member name="M:Songhay.ComponentModel.BackgroundWorkerUtility.DoWork(System.Action{System.Object,System.ComponentModel.DoWorkEventArgs},System.Action{System.Object,System.ComponentModel.RunWorkerCompletedEventArgs},System.Action{System.Object,System.ComponentModel.ProgressChangedEventArgs})">
-            <summary>
-            Does the work.
-            </summary>
-            <param name="workAction">The work action.</param>
-            <param name="workCompleteAction">The work complete action.</param>
-            <param name="workProgressAction">The work progress action.</param>
-        </member>
         <member name="T:Songhay.Diagnostics.TraceSources">
             <summary>
             Singleton wrapper for <see cref="T:System.Diagnostics.TraceSource"/>
@@ -796,43 +741,6 @@
             <param name="archiveInfo">The file and/or directory info.</param>
             <param name="fileInfo">The file information.</param>
             <param name="compressionLevel">The <see cref="T:System.IO.Compression.CompressionLevel"/></param>
-        </member>
-        <member name="T:Songhay.Extensions.FuncExtensions">
-            <summary>
-            Extensions of <see cref="T:System.Func`1"/>.
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.FuncExtensions.And``1(System.Func{``0,System.Boolean},System.Func{``0,System.Boolean})">
-            <summary>
-            Ands the specified <see cref="T:System.Func`1"/> predicate.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="thisPredicate">The extended <see cref="T:System.Func`1"/> predicate.</param>
-            <param name="predicate">The composed <see cref="T:System.Func`1"/> predicate.</param>
-        </member>
-        <member name="M:Songhay.Extensions.FuncExtensions.AndNot``1(System.Func{``0,System.Boolean},System.Func{``0,System.Boolean})">
-            <summary>
-            Ands the specified <see cref="T:System.Func`1"/> predicate with negation.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="thisPredicate">The extended <see cref="T:System.Func`1"/> predicate.</param>
-            <param name="predicate">The composed, negated <see cref="T:System.Func`1"/> predicate.</param>
-        </member>
-        <member name="M:Songhay.Extensions.FuncExtensions.Or``1(System.Func{``0,System.Boolean},System.Func{``0,System.Boolean})">
-            <summary>
-            Ors the specified <see cref="T:System.Func`1"/> predicate.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="thisPredicate">The extended <see cref="T:System.Func`1"/> predicate.</param>
-            <param name="predicate">The composed <see cref="T:System.Func`1"/> predicate.</param>
-        </member>
-        <member name="M:Songhay.Extensions.FuncExtensions.OrNot``1(System.Func{``0,System.Boolean},System.Func{``0,System.Boolean})">
-            <summary>
-            Ors the specified <see cref="T:System.Func`1"/> predicate with negation.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="thisPredicate">The extended <see cref="T:System.Func`1"/> predicate.</param>
-            <param name="predicate">The composed, negated <see cref="T:System.Func`1"/> predicate.</param>
         </member>
         <member name="T:Songhay.Extensions.HttpClientExtensions">
             <summary>
@@ -1802,37 +1710,6 @@
             <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>; otherwise, <c>null</c>.</returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
-        <member name="T:Songhay.Extensions.ICommunicationObjectExtensions">
-            <summary>
-            Extensions of <see cref="T:System.ServiceModel.ICommunicationObject"/>.
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.ICommunicationObjectExtensions.CloseConnection(System.ServiceModel.ICommunicationObject)">
-            <summary>
-            Closes the connection.
-            </summary>
-            <param name="serviceClient">The service client.</param>
-            <remarks>
-            For more detail see “IDisposable and WCF”
-            by Steve Smith
-            [http://stevesmithblog.com/blog/idisposable-and-wcf/]
-            </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.ICommunicationObjectExtensions.CloseConnectionOrAbort(System.ServiceModel.ICommunicationObject)">
-            <summary>
-            Closes the connection or abort.
-            </summary>
-            <param name="serviceClient">The service client.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ICommunicationObjectExtensions.IsOpened(System.ServiceModel.ICommunicationObject)">
-            <summary>
-            Determines whether the specified service client is opened.
-            </summary>
-            <param name="serviceClient">The service client.</param>
-            <returns>
-              <c>true</c> if the specified service client is opened; otherwise, <c>false</c>.
-            </returns>
-        </member>
         <member name="T:Songhay.Extensions.IConfigurationBuilderExtensions">
             <summary>
             Extension of <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>.
@@ -1895,28 +1772,8 @@
         </member>
         <member name="T:Songhay.Extensions.IDictionaryExtensions">
             <summary>
-            Extensions of <see cref="T:System.Collections.IDictionary"/>
-            </summary>
-            <summary>
             Extensions of <see cref="T:System.Collections.Generic.IDictionary`2"/>
             </summary>
-        </member>
-        <member name="M:Songhay.Extensions.IDictionaryExtensions.ToStringOrNull(System.Collections.IDictionary,System.String)">
-            <summary>
-            Converts the <see cref="T:System.Collections.IDictionary"/> into a string or null.
-            </summary>
-            <param name="dictionary">The dictionary.</param>
-            <param name="key">The key.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.IDictionaryExtensions.ToValueOrDefault``1(System.Collections.IDictionary,System.String)">
-            <summary>
-            Converts the <see cref="T:System.Collections.IDictionary"/> into a value or default.
-            </summary>
-            <typeparam name="TValue">The type of the value.</typeparam>
-            <param name="dictionary">The dictionary.</param>
-            <param name="key">The key.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.IDictionaryExtensions.ToNameValueCollection``2(System.Collections.Generic.IDictionary{``0,``1})">
             <summary>
@@ -3072,13 +2929,6 @@
             <param name="input">The input.</param>
             <param name="riaEndpointName">Name of the RIA endpoint.</param>
         </member>
-        <member name="M:Songhay.Extensions.StringExtensions.WrapForRiaEndpoint(System.String,System.String)">
-            <summary>
-            Wraps for RIA endpoint input.
-            </summary>
-            <param name="input">The input.</param>
-            <param name="riaParameter">The RIA parameter.</param>
-        </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToNumericString(System.String)">
             <summary>
             Converts the <see cref="T:System.String"/> into a numeric format for parsing.
@@ -3860,30 +3710,6 @@
             <value>
             The log.
             </value>
-        </member>
-        <member name="T:Songhay.Models.BackgroundWorkerUtilityData">
-            <summary>
-            Defines the meta-data
-            for <see cref="T:Songhay.ComponentModel.BackgroundWorkerUtility"/>.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.BackgroundWorkerUtilityData.Input">
-            <summary>
-            Gets or sets the input.
-            </summary>
-            <value>The input.</value>
-        </member>
-        <member name="P:Songhay.Models.BackgroundWorkerUtilityData.Output">
-            <summary>
-            Gets or sets the output.
-            </summary>
-            <value>The output.</value>
-        </member>
-        <member name="P:Songhay.Models.BackgroundWorkerUtilityData.Progress">
-            <summary>
-            Gets or sets the progress.
-            </summary>
-            <value>The progress.</value>
         </member>
         <member name="T:Songhay.Models.ColorDisplayItemModel">
             <summary>
@@ -6994,84 +6820,6 @@
             </returns>
             <exception cref="T:System.TimeoutException"></exception>
         </member>
-        <member name="T:Songhay.OpcReferencedTypeStrategy">
-            <summary>
-            Names the strategies to use
-            to derive the Referenced Type
-            in a Pack URI.
-            </summary>
-        </member>
-        <member name="F:Songhay.OpcReferencedTypeStrategy.FromAssemblyFileName">
-            <summary>
-            Strategy Name
-            </summary>
-        </member>
-        <member name="F:Songhay.OpcReferencedTypeStrategy.FromTypeFullName">
-            <summary>
-            Strategy Name
-            </summary>
-        </member>
-        <member name="T:Songhay.OpcUtility">
-            <summary>
-            Static members for Open Packaging Conventions.
-            </summary>
-            <remarks>
-                See http://blogs.msdn.com/b/opc/.
-            </remarks>
-        </member>
-        <member name="M:Songhay.OpcUtility.GetPackUriFromType(System.Type,Songhay.OpcReferencedTypeStrategy)">
-            <summary>
-            Gets the Pack URI
-            from the specified <see cref="T:System.Type"/>.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="strategy">The strategy.</param>
-            <remarks>
-                The Pack URI we have is of the form:
-            
-                <c>pack://application:,,,/{ReferencedAssembly};component/Subfolder/{TypeName}.{Extension}</c>
-            
-            </remarks>
-        </member>
-        <member name="M:Songhay.OpcUtility.GetPackUriFromType(System.Type,Songhay.OpcReferencedTypeStrategy,System.String)">
-            <summary>
-            Gets the Pack URI
-            from the specified <see cref="T:System.Type"/>.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="strategy">The strategy.</param>
-            <param name="extension">The extension (<c>xaml</c> by default).</param>
-            <remarks>
-                The Pack URI we have is of the form:
-            
-                <c>pack://application:,,,/{ReferencedAssembly};component/Subfolder/{TypeName}.{Extension}</c>
-            
-            </remarks>
-        </member>
-        <member name="M:Songhay.OpcUtility.GetReferencedAssembly(System.Type,Songhay.OpcReferencedTypeStrategy)">
-            <summary>
-            Gets the referenced assembly.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="strategy">The strategy.</param>
-        </member>
-        <member name="M:Songhay.OpcUtility.GetRelativePackUri(System.String)">
-            <summary>
-            Gets the relative pack URI.
-            </summary>
-            <param name="absoluteUri">The absolute URI.</param>
-        </member>
-        <member name="M:Songhay.OpcUtility.IsPackUriValid(System.String)">
-            <summary>
-            Returns <c>true</c> when the pack URI is valid.
-            </summary>
-            <param name="uri">The URI.</param>
-            <remarks>
-            For more detail, see:
-                “Pack URIs in WPF” (http://msdn.microsoft.com/en-us/library/aa970069.aspx)
-                “The "pack" URI Scheme” (http://tools.ietf.org/html/draft-shur-pack-uri-scheme-05)
-            </remarks>
-        </member>
         <member name="T:Songhay.ProgramAssemblyUtility">
             <summary>
             Static members related to <see cref="N:System.Reflection"/>.
@@ -7116,10 +6864,6 @@
             <param name="fileSegment">The file segment.</param>
         </member>
         <member name="T:Songhay.ProgramFileUtility">
-            <summary>
-            A few static helper members
-            for <see cref="N:System.IO"/>.
-            </summary>
             <summary>
             A few static helper members
             for <see cref="N:System.IO"/>.
@@ -7241,73 +6985,6 @@
             encoding of strings in .NET.
             See: https://docs.microsoft.com/en-us/dotnet/api/system.text.unicodeencoding
             </remarks>
-        </member>
-        <member name="M:Songhay.ProgramFileUtility.GetFileName(System.String)">
-            <summary>
-            Returns the file name
-            based on the specified path
-            and <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
-            </summary>
-            <param name="pathWithFile">
-            The specified path.
-            </param>
-        </member>
-        <member name="M:Songhay.ProgramFileUtility.GetFileName(System.String,System.Nullable{System.Char})">
-            <summary>
-            Returns the file name
-            based on the specified path.
-            </summary>
-            <param name="pathWithFile">
-            The specified path.
-            </param>
-            <param name="pathDelimiter">
-            Path delimiter (e.g. \ or /).
-            </param>
-        </member>
-        <member name="M:Songhay.ProgramFileUtility.GetPathRoot(System.String)">
-            <summary>
-            Returns the directory root
-            based on the specified path.
-            </summary>
-            <param name="pathWithFile">
-            The specified path.
-            </param>
-        </member>
-        <member name="M:Songhay.ProgramFileUtility.GetPathRoot(System.String,System.Nullable{System.Char})">
-            <summary>
-            Returns the directory root
-            based on the specified path.
-            </summary>
-            <param name="pathWithFile">
-            The specified path.
-            </param>
-            <param name="pathDelimiter">
-            Path delimiter (e.g. \ or /).
-            </param>
-        </member>
-        <member name="M:Songhay.ProgramFileUtility.JoinPathAndRoot(System.String,System.String)">
-            <summary>
-            Joins the path and root.
-            </summary>
-            <param name="path">The path.</param>
-            <param name="root">The root.</param>
-        </member>
-        <member name="M:Songhay.ProgramFileUtility.JoinPathAndRoot(System.String,System.String,System.Nullable{System.Char})">
-            <summary>
-            Joins the path and root.
-            </summary>
-            <param name="path">The path.</param>
-            <param name="root">The root.</param>
-            <param name="pathDelimiter">
-            Path delimiter (e.g. \ or /).
-            </param>
-        </member>
-        <member name="M:Songhay.ProgramFileUtility.Write(System.String,System.String)">
-            <summary>
-            Writes the specified content to a file.
-            </summary>
-            <param name="content">The content to write or overwrite.</param>
-            <param name="pathWithFile">The path to the file.</param>
         </member>
         <member name="M:Songhay.ProgramFileUtility.CountParentDirectoryChars(System.String)">
             <summary>

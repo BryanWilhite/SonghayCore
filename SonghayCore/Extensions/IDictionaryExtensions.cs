@@ -7,7 +7,7 @@ namespace Songhay.Extensions
     /// <summary>
     /// Extensions of <see cref="IDictionary{TKey, TValue}"/>
     /// </summary>
-    public static partial class IDictionaryExtensions
+    public static class IDictionaryExtensions
     {
         /// <summary>
         /// Converts the <see cref="IDictionary{TKey, TValue}"/>
