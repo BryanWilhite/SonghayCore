@@ -14,7 +14,7 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="path">The path.</param>
-        public static UriBuilder WithPath(this UriBuilder builder, string path)
+        public static UriBuilder? WithPath(this UriBuilder? builder, string? path)
         {
             if (builder == null) return null;
             if (string.IsNullOrWhiteSpace(path)) return builder;

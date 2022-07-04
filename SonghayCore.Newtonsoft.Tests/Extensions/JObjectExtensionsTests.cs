@@ -20,13 +20,13 @@ namespace Songhay.Tests.Extensions
         [InlineData(@"{ ""one"": ""uno"", ""two"": { ""dos"": ""tres"" } }", "tres")]
         [InlineData(@"{ }", "")]
         [InlineData(null, "")]
-        public void ShouldDisplayTopProperties(string json, string unexpectedString)
+        public void ShouldDisplayTopProperties(string? json, string unexpectedString)
         {
             if (json == null)
             {
                 this._testOutputHelper.WriteLine("json is null");
 
-                JObject jO = null;
+                JObject? jO = null;
                 var topProperties = jO.DisplayTopProperties();
                 Assert.Equal(unexpectedString, topProperties);
             }

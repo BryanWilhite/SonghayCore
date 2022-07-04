@@ -14,7 +14,7 @@ namespace Songhay.Extensions
         /// <param name="template">The template.</param>
         /// <param name="values">The values.</param>
         /// <returns></returns>
-        public static Uri BindByPosition(this UriTemplate template, params string[] values) => template.BindByPosition(baseUri: null, values: values);
+        public static Uri? BindByPosition(this UriTemplate template, params string[] values) => template.BindByPosition(baseUri: null, values: values);
 
         /// <summary>
         /// Binds the <see cref="UriTemplate" />
@@ -26,7 +26,7 @@ namespace Songhay.Extensions
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">template</exception>
         /// <exception cref="FormatException"></exception>
-        public static Uri BindByPosition(this UriTemplate? template, Uri? baseUri, params string[] values)
+        public static Uri? BindByPosition(this UriTemplate? template, Uri? baseUri, params string[] values)
         {
             if (template == null) throw new ArgumentNullException(nameof(template));
 
@@ -39,7 +39,7 @@ namespace Songhay.Extensions
             var resolved = template.Resolve();
             if (baseUri != null)
             {
-                return new UriBuilder(baseUri).WithPath(resolved).Uri;
+                return new UriBuilder(baseUri).WithPath(resolved)?.Uri;
             }
             else
             {

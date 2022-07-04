@@ -7,18 +7,18 @@ namespace Songhay.Tests
 {
     class AllTheProperties: INotAllTheProperties
     {
-        public string PropertyOne { get; set; }
+        public string? PropertyOne { get; set; }
 
-        public string PropertyTwo { get; set; }
+        public string? PropertyTwo { get; set; }
 
-        public string PropertyThree { get; set; }
+        public string? PropertyThree { get; set; }
     }
 
     interface INotAllTheProperties
     {
-        string PropertyOne { get; set; }
+        string? PropertyOne { get; set; }
 
-        string PropertyTwo { get; set; }
+        string? PropertyTwo { get; set; }
     }
 
     public class JsonSerializationUtilityTests
