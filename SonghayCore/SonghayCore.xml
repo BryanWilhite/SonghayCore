@@ -1946,9 +1946,6 @@
             <summary>
             Extensions of <see cref="T:System.Object"/>.
             </summary>
-            <summary>
-            Extensions of <see cref="T:System.Object"/>.
-            </summary>
         </member>
         <member name="M:Songhay.Extensions.ObjectExtensions.IsAssignableToISerializable``1(``0)">
             <summary>
@@ -1979,37 +1976,6 @@
             Boxes the value in object or returns <see cref="T:System.DBNull"/>.
             </summary>
             <param name="objectOfDomain">The object of domain.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ObjectExtensions.GetProperties(System.Object)">
-            <summary>
-            Gets the properties.
-            </summary>
-            <param name="objectWithProperties">The object with properties.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ObjectExtensions.GetProperty(System.Object,System.String)">
-            <summary>
-            Gets the property.
-            </summary>
-            <param name="objectWithProperties">The object with properties.</param>
-            <param name="propertyName">Name of the property.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ObjectExtensions.GetPropertyValue(System.Object,System.String)">
-             <summary>
-             Gets the property value.
-             </summary>
-             <param name="objectWithProperties">The object with properties.</param>
-             <param name="propertyName">Name of the property.</param>
-             <remarks>
-             Very useful for an MVVM situation like this:
-             <code>
-                 var command = this.DataContext.GetPropertyValue("MyCommand") as ICommand;
-             </code>
-            
-             Note that this member uses <c>property.GetValue(objectWithProperties, index: null)</c>.
-             Passing null is “fine for normal simple properties, this will fail with indexer properties,
-             which take a non-null argument list as specified by <c>PropertyInfo.GetIndexParameters</c>.”
-             [https://stackoverflow.com/a/1355110/22944]
-             </remarks>
         </member>
         <member name="T:Songhay.Extensions.ObservableCollectionExtensions">
             <summary>
