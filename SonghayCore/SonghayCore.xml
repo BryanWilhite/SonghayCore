@@ -1233,23 +1233,6 @@
             </summary>
             <param name="response">The response.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.StreamToInstanceAsync``1(System.Net.Http.HttpResponseMessage,Newtonsoft.Json.JsonSerializerSettings)">
-            <summary>
-            Serializes the <see cref="T:System.Net.Http.HttpResponseMessage"/>
-            to the specified <c>TInstance</c>
-            </summary>
-            <param name="response">The response.</param>
-            <param name="settings">The <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/></param>
-            <typeparam name="TInstance">The type of the instance.</typeparam>
-            <returns></returns>
-            <remarks>
-            This method uses the Newtsonsoft API to deserialize.
-            
-            Consider using <see cref="F:System.Net.Http.HttpCompletionOption.ResponseHeadersRead"/>
-            with <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpCompletionOption)"/>
-            for increased performance.
-            </remarks>
-        </member>
         <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.StreamToInstanceAsync``1(System.Net.Http.HttpResponseMessage)">
             <summary>
             Serializes the <see cref="T:System.Net.Http.HttpResponseMessage"/>
@@ -1274,14 +1257,6 @@
             <remarks>
             This method uses the Microsoft API to deserialize.
             </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.ToJContainerAsync(System.Net.Http.HttpResponseMessage)">
-            <summary>
-            Converts the specified <see cref="T:System.Net.Http.HttpResponseMessage"/>
-            to <see cref="T:Newtonsoft.Json.Linq.JContainer"/>
-            </summary>
-            <param name="response">The response.</param>
-            <returns></returns>
         </member>
         <member name="T:Songhay.Extensions.HttpWebRequestExtensions">
             <summary>
@@ -1757,19 +1732,6 @@
              When <see cref="F:Songhay.Models.ProgramArgs.SettingsFile"/> is not specified then <see cref="F:Songhay.Extensions.IConfigurationBuilderExtensions.defaultSettingsFileName"/> will be used.
              </remarks>
         </member>
-        <member name="T:Songhay.Extensions.IContractResolverExtensions">
-            <summary>
-            Extensions of <see cref="T:Newtonsoft.Json.Serialization.IContractResolver"/>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.IContractResolverExtensions.ToJsonSerializerSettings(Newtonsoft.Json.Serialization.IContractResolver)">
-            <summary>
-            Converts the <see cref="T:Newtonsoft.Json.Serialization.IContractResolver" />
-            to <see cref="T:Newtonsoft.Json.JsonSerializerSettings" />.
-            </summary>
-            <param name="resolver">The resolver.</param>
-            <returns></returns>
-        </member>
         <member name="T:Songhay.Extensions.IDictionaryExtensions">
             <summary>
             Extensions of <see cref="T:System.Collections.Generic.IDictionary`2"/>
@@ -1951,293 +1913,6 @@
             </summary>
             <param name="data">the <see cref="T:Songhay.Models.ITemporal"/> data</param>
             <param name="endDate">sets <see cref="P:Songhay.Models.ITemporal.EndDate"/></param>
-        </member>
-        <member name="M:Songhay.Extensions.ITemporalExtensions.ToJObject``1(Songhay.Models.ITemporal,System.Boolean)">
-            <summary>
-            Converts the specified <see cref="T:Songhay.Models.ITemporal"/> data
-            to <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
-            </summary>
-            <param name="data">the <see cref="T:Songhay.Models.ITemporal"/> data</param>
-            <param name="useJavaScriptCase">when <c>true</c> use snakecase</param>
-            <typeparam name="TData">a type derived from <see cref="T:Songhay.Models.ITemporal"/></typeparam>
-        </member>
-        <member name="T:Songhay.Extensions.JObjectExtensions">
-            <summary>
-            Extensions of <see cref="T:Newtonsoft.Json.Linq.JObject"/>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.DisplayTopProperties(Newtonsoft.Json.Linq.JObject)">
-            <summary>
-            Displays the top properties of <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.Ensure(Newtonsoft.Json.Linq.JObject)">
-            <summary>
-            Ensures the specified <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <returns></returns>
-            <exception cref="T:System.NullReferenceException">The expected {nameof(JObject)} is not here.</exception>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.FromJObject``2(Newtonsoft.Json.Linq.JObject)">
-            <summary>
-            Converts to <c>TDomainData</c> from <see cref="T:Newtonsoft.Json.Linq.JObject" />.
-            </summary>
-            <typeparam name="TInterface">The type of the interface.</typeparam>
-            <typeparam name="TDomainData">The type of the domain data.</typeparam>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject" />.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.FromJObject``2(Newtonsoft.Json.Linq.JObject,Newtonsoft.Json.JsonSerializerSettings)">
-            <summary>
-            Converts to <c>TDomainData</c> from <see cref="T:Newtonsoft.Json.Linq.JObject" />.
-            </summary>
-            <typeparam name="TInterface">The type of the interface.</typeparam>
-            <typeparam name="TDomainData">The type of the domain data.</typeparam>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject" /> in the shape of <c>TInterface</c>.</param>
-            <param name="settings">The <see cref="T:Newtonsoft.Json.JsonSerializerSettings" />.</param>
-            <returns></returns>
-            <remarks>
-            The default <see cref="T:Newtonsoft.Json.JsonSerializerSettings" />
-            from <see cref="M:Songhay.Extensions.IContractResolverExtensions.ToJsonSerializerSettings(Newtonsoft.Json.Serialization.IContractResolver)" />
-            assumes <c>TDomainData</c> derives from an Interface.
-            </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetDictionary(Newtonsoft.Json.Linq.JObject,System.String)">
-            <summary>
-            Gets the <see cref="T:System.Collections.Generic.Dictionary`2"/>.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="dictionaryPropertyName">Name of the dictionary property.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetDictionary(Newtonsoft.Json.Linq.JObject,System.String,System.Boolean)">
-            <summary>
-            Gets the <see cref="T:System.Collections.Generic.Dictionary`2"/>.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="dictionaryPropertyName">Name of the dictionary property.</param>
-            <param name="throwException">when set to <c>true</c> then [throw exception].</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">dictionaryPropertyName;The expected Dictionary Property Name is not here.</exception>
-            <exception cref="T:System.FormatException"></exception>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetDictionary(Newtonsoft.Json.Linq.JObject)">
-            <summary>
-            Gets the <see cref="T:System.Collections.Generic.Dictionary`2"/>.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetDictionary(Newtonsoft.Json.Linq.JObject,System.Boolean)">
-            <summary>
-            Gets the <see cref="T:System.Collections.Generic.Dictionary`2"/>.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="throwException">when set to <c>true</c> then [throw exception].</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">jObject;The expected JObject is not here.</exception>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetJArray(Newtonsoft.Json.Linq.JObject,System.String)">
-            <summary>
-            Gets the <see cref="T:Newtonsoft.Json.Linq.JArray" /> or will throw <see cref="T:System.FormatException"/>.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="arrayPropertyName">Name of the array property.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetJArray(Newtonsoft.Json.Linq.JObject,System.String,System.Boolean)">
-            <summary>
-            Gets the <see cref="T:Newtonsoft.Json.Linq.JArray" />.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="arrayPropertyName">Name of the array property.</param>
-            <param name="throwException">when set to <c>true</c> then throw <see cref="T:System.FormatException"/>.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">arrayPropertyName;The expected JArray Property Name is not here.</exception>
-            <exception cref="T:System.FormatException">
-            </exception>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetJObject(Newtonsoft.Json.Linq.JObject,System.String)">
-            <summary>
-            Gets the <see cref="T:Newtonsoft.Json.Linq.JObject"/> by the specified property name.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="objectPropertyName">Name of the <see cref="T:Newtonsoft.Json.Linq.JObject" /> property.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetJObject(Newtonsoft.Json.Linq.JObject,System.String,System.Boolean)">
-            <summary>
-            Gets the <see cref="T:Newtonsoft.Json.Linq.JObject"/> by the specified property name.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="objectPropertyName">Name of the <see cref="T:Newtonsoft.Json.Linq.JObject" /> property.</param>
-            <param name="throwException">when set to <c>true</c> then throw exception.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetJToken(Newtonsoft.Json.Linq.JObject,System.String,System.Boolean)">
-            <summary>
-            Gets the <see cref="T:Newtonsoft.Json.Linq.JToken"/>.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="objectPropertyName">Name of the <see cref="T:Newtonsoft.Json.Linq.JObject" /> property.</param>
-            <param name="throwException">when set to <c>true</c> then throw exception.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">
-            jObject;The expected JObject is not here.
-            or
-            objectPropertyName;The expected property name is not here.
-            </exception>
-            <exception cref="T:System.FormatException"></exception>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetJTokenFromJArray(Newtonsoft.Json.Linq.JObject,System.String,System.String,System.Int32)">
-            <summary>
-            Gets the <see cref="T:Newtonsoft.Json.Linq.JToken" /> from <see cref="T:Newtonsoft.Json.Linq.JArray" /> or will throw <see cref="T:System.FormatException"/>.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="arrayPropertyName">Name of the array property.</param>
-            <param name="objectPropertyName">Name of the <see cref="T:Newtonsoft.Json.Linq.JObject" /> property.</param>
-            <param name="arrayIndex">Index of the array.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetJTokenFromJArray(Newtonsoft.Json.Linq.JObject,System.String,System.String,System.Int32,System.Boolean)">
-            <summary>
-            Gets the <see cref="T:Newtonsoft.Json.Linq.JToken" /> from <see cref="T:Newtonsoft.Json.Linq.JArray" />.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="arrayPropertyName">Name of the array property.</param>
-            <param name="objectPropertyName">Name of the <see cref="T:Newtonsoft.Json.Linq.JObject" /> property.</param>
-            <param name="arrayIndex">Index of the array.</param>
-            <param name="throwException">when set to <c>true</c> then throw <see cref="T:System.FormatException"/>.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">objectPropertyName;The expected JObject Property Name is not here.</exception>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetValue``1(Newtonsoft.Json.Linq.JObject,System.String)">
-            <summary>
-            Get the value by property name
-            from the specified <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
-            </summary>
-            <typeparam name="TValue">type of returned value</typeparam>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="objectPropertyName">Name of the <see cref="T:Newtonsoft.Json.Linq.JObject" /> property.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.GetValue``1(Newtonsoft.Json.Linq.JObject,System.String,System.Boolean)">
-            <summary>
-            Get the value by property name
-            from the specified <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
-            </summary>
-            <typeparam name="TValue">type of returned value</typeparam>
-            <param name="jObject"></param>
-            <param name="objectPropertyName"></param>
-            <param name="throwException">when set to <c>true</c> then throw exception.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.HasProperty(Newtonsoft.Json.Linq.JObject,System.String)">
-            <summary>
-            Returns <c>true</c> when <see cref="M:Newtonsoft.Json.Linq.JObject.Properties"/>
-            has a <see cref="T:Newtonsoft.Json.Linq.JProperty"/> with the specified name.
-            </summary>
-            <param name="jObject"></param>
-            <param name="objectPropertyName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.ParseJObject(Newtonsoft.Json.Linq.JObject,System.String)">
-            <summary>
-            Parses the <see cref="T:Newtonsoft.Json.Linq.JObject"/>
-            serialized as a string
-            at the specified property name.
-            
-            It will throw any exceptions.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="objectPropertyName">Name of the object property.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.ParseJObject(Newtonsoft.Json.Linq.JObject,System.String,System.Boolean)">
-            <summary>
-            Parses the <see cref="T:Newtonsoft.Json.Linq.JObject"/>
-            serialized as a string
-            at the specified property name.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="objectPropertyName">Name of the object property.</param>
-            <param name="throwException">when <c>true</c> throw any exceptions; otherwise, return <c>null</c>.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.WithProperty(Newtonsoft.Json.Linq.JObject,System.String)">
-            <summary>
-            Ensures the <see cref="T:Newtonsoft.Json.Linq.JObject"/> has the specified property.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="objectPropertyName">Name of the object property.</param>
-        </member>
-        <member name="M:Songhay.Extensions.JObjectExtensions.WithProperty(Newtonsoft.Json.Linq.JObject,System.String,System.Boolean)">
-            <summary>
-            Ensures the <see cref="T:Newtonsoft.Json.Linq.JObject"/> has the specified property.
-            </summary>
-            <param name="jObject">The <see cref="T:Newtonsoft.Json.Linq.JObject"/>.</param>
-            <param name="objectPropertyName">Name of the object property.</param>
-            <param name="throwException">if set to <c>true</c> [throw exception].</param>
-        </member>
-        <member name="T:Songhay.Extensions.JsonSerializerSettingsExtensions">
-            <summary>
-            Extensions of <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.JsonSerializerSettingsExtensions.WithConventionalSettings(Newtonsoft.Json.JsonSerializerSettings)">
-            <summary>
-            Returns <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>
-            with conventional settings.
-            </summary>
-            <param name="settings">the <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/></param>
-            <returns>
-            Returns <see cref="F:Newtonsoft.Json.Formatting.Indented"/>,
-            <see cref="F:Newtonsoft.Json.MissingMemberHandling.Ignore"/>
-            and <see cref="F:Newtonsoft.Json.NullValueHandling.Ignore"/>.
-            </returns>
-        </member>
-        <member name="M:Songhay.Extensions.JsonSerializerSettingsExtensions.WithFormatting(Newtonsoft.Json.JsonSerializerSettings,Newtonsoft.Json.Formatting)">
-            <summary>
-            Returns <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>
-            with <see cref="P:Newtonsoft.Json.JsonSerializerSettings.Formatting"/> set.
-            </summary>
-            <param name="settings">the <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/></param>
-            <param name="setting">the <see cref="T:Newtonsoft.Json.Formatting"/> setting</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JsonSerializerSettingsExtensions.WithMissingMemberHandling(Newtonsoft.Json.JsonSerializerSettings,Newtonsoft.Json.MissingMemberHandling)">
-            <summary>
-            Returns <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>
-            with <see cref="P:Newtonsoft.Json.JsonSerializerSettings.MissingMemberHandling"/> set.
-            </summary>
-            <param name="settings">the <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/></param>
-            <param name="setting">the <see cref="T:Newtonsoft.Json.MissingMemberHandling"/> setting</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.JsonSerializerSettingsExtensions.WithNullValueHandling(Newtonsoft.Json.JsonSerializerSettings,Newtonsoft.Json.NullValueHandling)">
-            <summary>
-            Returns <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>
-            with <see cref="P:Newtonsoft.Json.JsonSerializerSettings.NullValueHandling"/> set.
-            </summary>
-            <param name="settings">the <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/></param>
-            <param name="setting">the <see cref="T:Newtonsoft.Json.NullValueHandling"/> setting</param>
-            <returns></returns>
-        </member>
-        <member name="T:Songhay.Extensions.JTokenExtensions">
-            <summary>
-            Extensions of <see cref="T:Newtonsoft.Json.Linq.JToken"/>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.JTokenExtensions.GetValue``1(Newtonsoft.Json.Linq.JToken,System.Boolean)">
-            <summary>
-            Gets the value of the specified <see cref="T:Newtonsoft.Json.Linq.JToken"/>
-            </summary>
-            <typeparam name="TValue">type of returned value</typeparam>
-            <param name="jToken">the <see cref="T:Newtonsoft.Json.Linq.JToken"/></param>
-            <param name="throwException">when <c>true</c> throw and exception when value is not here</param>
-            <returns></returns>
         </member>
         <member name="T:Songhay.Extensions.MenuDisplayItemModelExtensions">
             <summary>
@@ -3608,19 +3283,6 @@
             [http://www.cumbrowski.com/CarstenC/articles/20070623_Title_Capitalization_in_the_English_Language.asp]
             </summary>
         </member>
-        <member name="T:Songhay.JsonSerializationUtility">
-            <summary>
-            static members for JSON serialization
-            </summary>
-        </member>
-        <member name="M:Songhay.JsonSerializationUtility.GetConventionalResolver``1(System.Boolean)">
-            <summary>
-            Gets the conventional resolver.
-            </summary>
-            <typeparam name="TInterface">The type of the interface.</typeparam>
-            <param name="useJavaScriptCase">if set to <c>true</c> [use java script case].</param>
-            <returns></returns>
-        </member>
         <member name="T:Songhay.MathUtility">
             <summary>
             Static helpers for Math.
@@ -4285,40 +3947,6 @@
             <summary>
             Returns `true` when group is visually collapsed
             </summary>
-        </member>
-        <member name="T:Songhay.Models.InterfaceContractResolver`1">
-            <summary>
-            JSON.NET Contract Resolver to serialize a type through another type
-            (usually an interface).
-            </summary>
-            <typeparam name="TInterface">The type of the interface.</typeparam>
-        </member>
-        <member name="M:Songhay.Models.InterfaceContractResolver`1.CreateProperties(System.Type,Newtonsoft.Json.MemberSerialization)">
-            <summary>
-            Creates properties for the given <see cref="T:Newtonsoft.Json.Serialization.JsonContract" />.
-            </summary>
-            <param name="type">The type to create properties for.</param>
-            <param name="memberSerialization">The member serialization mode for the type.</param>
-            <returns>
-            Properties for the given <see cref="T:Newtonsoft.Json.Serialization.JsonContract" />.
-            </returns>
-        </member>
-        <member name="T:Songhay.Models.InterfaceContractResolverWithCamelCasing`1">
-            <summary>
-            JSON.NET Contract Resolver to serialize a type through another type
-            (usually an interface).
-            </summary>
-            <typeparam name="TInterface">The type of the interface.</typeparam>
-        </member>
-        <member name="M:Songhay.Models.InterfaceContractResolverWithCamelCasing`1.CreateProperties(System.Type,Newtonsoft.Json.MemberSerialization)">
-            <summary>
-            Creates properties for the given <see cref="T:Newtonsoft.Json.Serialization.JsonContract" />.
-            </summary>
-            <param name="type">The type to create properties for.</param>
-            <param name="memberSerialization">The member serialization mode for the type.</param>
-            <returns>
-            Properties for the given <see cref="T:Newtonsoft.Json.Serialization.JsonContract" />.
-            </returns>
         </member>
         <member name="T:Songhay.Models.IProgramAssemblyInfo">
             <summary>

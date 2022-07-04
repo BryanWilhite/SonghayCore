@@ -306,7 +306,8 @@ namespace Songhay.Extensions
         {
             if (string.IsNullOrWhiteSpace(objectPropertyName)) throw new ArgumentNullException(nameof(objectPropertyName));
             if (jObject == null) return false;
-            return jObject.Properties().Any(i => i.Name.EqualsInvariant(objectPropertyName));
+
+            return jObject.Properties().Any(i => string.Equals(i.Name, objectPropertyName, StringComparison.InvariantCultureIgnoreCase));
         }
 
         /// <summary>
