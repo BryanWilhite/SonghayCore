@@ -1,6 +1,6 @@
-﻿
-using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 
 namespace Songhay.Models
@@ -15,7 +15,8 @@ namespace Songhay.Models
     /// </remarks>
     [Serializable]
     [XmlRoot(ElementName = "opml", Namespace = "http://songhaysystem.com/schemas/opml.xsd")]
-    [JsonObject("opml", MemberSerialization = MemberSerialization.OptIn)]
+    [DataContract(Name = "opml")]
+    [JsonSourceGenerationOptions(PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase, WriteIndented = true)]
     public class OpmlDocument
     {
         /// <summary>
@@ -28,8 +29,8 @@ namespace Songhay.Models
         /// </summary>
         public OpmlDocument()
         {
-            this.Version = "2.0";
-            this.XsiSchemaLocation = rxOpmlSchema + " " + rxOpmlSchema;
+            Version = "2.0";
+            XsiSchemaLocation = rxOpmlSchema + " " + rxOpmlSchema;
         }
 
         /// <summary>
@@ -37,7 +38,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The schema location.</value>
         [XmlAttribute("schemaLocation", Namespace = rxOpmlSchema)]
-        [JsonProperty("schemaLocation")]
+        [JsonPropertyName("schemaLocation")]
         public string XsiSchemaLocation { get; set; }
 
         /// <summary>
@@ -45,7 +46,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The version.</value>
         [XmlAttribute(AttributeName = "version")]
-        [JsonProperty("version")]
+        [JsonPropertyName("version")]
         public string Version { get; set; }
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The OPML head element.</value>
         [XmlElement(ElementName = "head")]
-        [JsonProperty("head")]
+        [JsonPropertyName("head")]
         public OpmlHead OpmlHead { get; set; }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The OPML body element.</value>
         [XmlElement(ElementName = "body")]
-        [JsonProperty("body")]
+        [JsonPropertyName("body")]
         public OpmlBody OpmlBody { get; set; }
     }
 }

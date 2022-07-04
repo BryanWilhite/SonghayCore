@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 
 namespace Songhay.Models
@@ -9,7 +10,7 @@ namespace Songhay.Models
     /// Defines a managed representation of the OPML body element.
     /// </summary>
     [Serializable]
-    [JsonObject("head", MemberSerialization = MemberSerialization.OptIn)]
+    [DataContract(Name = "head")]
     public class OpmlBody
     {
         /// <summary>
@@ -17,9 +18,9 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The outlines.</value>
         [XmlElement(ElementName = "outline")]
-        [JsonProperty("outline")]
         [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays",
             Justification = "Used for XML serialization.")]
+        [JsonPropertyName("outline")]
         public OpmlOutline[] Outlines { get; set; }
     }
 }

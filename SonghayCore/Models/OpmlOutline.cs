@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 
 namespace Songhay.Models
@@ -10,7 +11,7 @@ namespace Songhay.Models
     /// </summary>
     [Serializable]
     [XmlRoot(ElementName = "outline")]
-    [JsonObject("outline", MemberSerialization = MemberSerialization.OptIn)]
+    [DataContract(Name ="outline")]
     public class OpmlOutline
     {
         /// <summary>
@@ -18,7 +19,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The ID.</value>
         [XmlAttribute(AttributeName = "category")]
-        [JsonProperty("category")]
+        [JsonPropertyName("category")]
         public string Category { get; set; }
 
         /// <summary>
@@ -26,7 +27,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The ID.</value>
         [XmlAttribute(AttributeName = "id")]
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
         /// <summary>
@@ -36,7 +37,7 @@ namespace Songhay.Models
         [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays",
             Justification = "Used for XML serialization.")]
         [XmlElement(ElementName = "outline")]
-        [JsonProperty("outline")]
+        [JsonPropertyName("outline")]
         public OpmlOutline[] Outlines { get; set; }
 
         /// <summary>
@@ -44,7 +45,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The text.</value>
         [XmlAttribute(AttributeName = "text")]
-        [JsonProperty("text")]
+        [JsonPropertyName("text")]
         public string Text { get; set; }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The title.</value>
         [XmlAttribute(AttributeName = "title")]
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string Title { get; set; }
 
         /// <summary>
@@ -60,7 +61,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The type.</value>
         [XmlAttribute(AttributeName = "type")]
-        [JsonProperty("type")]
+        [JsonPropertyName("type")]
         public string OutlineType { get; set; }
 
         /// <summary>
@@ -68,7 +69,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The URL.</value>
         [XmlAttribute(AttributeName = "url")]
-        [JsonProperty("url")]
+        [JsonPropertyName("url")]
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings",
             Justification = "OPML does not recognize the concept of the System.Uri.")]
         public string Url { get; set; }
@@ -78,7 +79,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The XML URL.</value>
         [XmlAttribute(AttributeName = "xmlUrl")]
-        [JsonProperty("xmlUrl")]
+        [JsonPropertyName("xmlUrl")]
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings",
             Justification = "OPML does not recognize the concept of the System.Uri.")]
         public string XmlUrl { get; set; }

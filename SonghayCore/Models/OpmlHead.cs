@@ -1,5 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 
 namespace Songhay.Models
@@ -9,7 +10,7 @@ namespace Songhay.Models
     /// </summary>
     [Serializable]
     [XmlRoot(ElementName = "head")]
-    [JsonObject("head", MemberSerialization = MemberSerialization.OptIn)]
+    [DataContract(Name = "head")]
     public class OpmlHead
     {
         /// <summary>
@@ -17,8 +18,8 @@ namespace Songhay.Models
         /// </summary>
         public OpmlHead()
         {
-            this.DateCreated = DateTime.Now;
-            this.DateModified = DateTime.Now;
+            DateCreated = DateTime.Now;
+            DateModified = DateTime.Now;
         }
 
         /// <summary>
@@ -26,7 +27,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The title.</value>
         [XmlElement(ElementName = "title")]
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string Title { get; set; }
 
         /// <summary>
@@ -34,6 +35,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The date created.</value>
         [XmlIgnore]
+        [JsonIgnore]
         public DateTime? DateCreated
         {
             get
@@ -43,7 +45,7 @@ namespace Songhay.Models
             set
             {
                 _dateCreated = value;
-                this.DateCreatedString = value.HasValue ?
+                DateCreatedString = value.HasValue ?
                     ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(value.Value) :
                     null;
             }
@@ -54,7 +56,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The date created string.</value>
         [XmlElement(ElementName = "dateCreated")]
-        [JsonProperty("dateCreated")]
+        [JsonPropertyName("dateCreated")]
         public string DateCreatedString { get; set; }
 
         /// <summary>
@@ -62,6 +64,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The date modified.</value>
         [XmlIgnore]
+        [JsonIgnore]
         public DateTime? DateModified
         {
             get
@@ -71,7 +74,7 @@ namespace Songhay.Models
             set
             {
                 _dateModified = value;
-                this.DateModifiedString = value.HasValue ?
+                DateModifiedString = value.HasValue ?
                     ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(value.Value) :
                     null;
             }
@@ -82,7 +85,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The date created string.</value>
         [XmlElement(ElementName = "dateModified")]
-        [JsonProperty("dateModified")]
+        [JsonPropertyName("dateModified")]
         public string DateModifiedString { get; set; }
 
         /// <summary>
@@ -90,7 +93,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The name of the owner.</value>
         [XmlElement(ElementName = "ownerName")]
-        [JsonProperty("ownerName")]
+        [JsonPropertyName("ownerName")]
         public string OwnerName { get; set; }
 
         /// <summary>
@@ -98,7 +101,7 @@ namespace Songhay.Models
         /// </summary>
         /// <value>The owner email.</value>
         [XmlElement(ElementName = "ownerEmail")]
-        [JsonProperty("ownerEmail")]
+        [JsonPropertyName("ownerEmail")]
         public string OwnerEmail { get; set; }
 
         DateTime? _dateCreated;
