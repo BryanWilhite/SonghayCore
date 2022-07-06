@@ -51,8 +51,6 @@ Notable extensions:
 
 - [`TraceSourceExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/TraceSourceExtensions.cs) — defines shared routines for `TraceSource`-based logging, using work by [Zijian Huang](https://github.com/zijianhuang/Fonlow.Diagnostics).
 
-- [`JObjectExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/JObjectExtensions.cs) — defines conventions around the `Newtonsoft.Json.Linq.JObject` from [James Newton King](https://github.com/JamesNK).
-
 There is support for [URI templates](http://tools.ietf.org/html/rfc6570) (to be used with [`RestApiMetadata`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs)) in the form of [extension methods](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/RestApiMetadataExtensions.Tavis.cs), running on top of [`Tavis.UriTemplates`](https://github.com/tavis-software/Tavis.UriTemplates).
 
 **Documentation 📚:** [`Songhay.Extensions`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Extensions/)
