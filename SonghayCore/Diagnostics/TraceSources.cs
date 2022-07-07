@@ -20,7 +20,7 @@ namespace Songhay.Diagnostics
         /// <summary>
         /// The configured trace source name
         /// </summary>
-        public static string ConfiguredTraceSourceName
+        public static string? ConfiguredTraceSourceName
         {
             get { return configuredTraceSourceName; }
             set
@@ -51,7 +51,7 @@ namespace Songhay.Diagnostics
         /// When the trace source name is not configured
         /// then <see cref="DefaultTraceSourceName"/> is used.
         /// </remarks>
-        public TraceSource GetTraceSourceFromConfiguredName()
+        public TraceSource? GetTraceSourceFromConfiguredName()
         {
             return GetTraceSource(ConfiguredTraceSourceName);
         }
@@ -61,10 +61,10 @@ namespace Songhay.Diagnostics
         /// </summary>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public TraceSource GetTraceSource(string name)
+        public TraceSource? GetTraceSource(string? name)
         {
             if (string.IsNullOrWhiteSpace(name)) return null;
-            if (traceSources.TryGetValue(name, out TraceSource r)) return r;
+            if (traceSources.TryGetValue(name, out TraceSource? r)) return r;
 
             r = new TraceSource(name);
             traceSources.TryAdd(name, r);
@@ -79,7 +79,7 @@ namespace Songhay.Diagnostics
         /// </value>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public TraceSource this[string name]
+        public TraceSource? this[string? name]
         {
             get { return GetTraceSource(name); }
         }
@@ -101,6 +101,6 @@ namespace Songhay.Diagnostics
             internal static readonly TraceSources instance = new TraceSources();
         }
 
-        static string configuredTraceSourceName;
+        static string? configuredTraceSourceName;
     }
 }

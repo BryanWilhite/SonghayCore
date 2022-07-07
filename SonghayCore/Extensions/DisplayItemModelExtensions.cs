@@ -16,23 +16,19 @@ namespace Songhay.Extensions
         /// <param name="data"></param>
         /// <param name="evaluator"></param>
         /// <returns></returns>
-        public static bool HasTag(this DisplayItemModel data, Func<object, bool> evaluator)
+        public static bool HasTag(this DisplayItemModel? data, Func<object, bool>? evaluator)
         {
             if (data == null) return false;
-            if (evaluator == null) return false;
-            return evaluator.Invoke(data.Tag);
+
+            return evaluator != null && evaluator.Invoke(data.Tag);
         }
 
         /// <summary>
         /// Converts the <see cref="DisplayItemModel"/> into a menu display item model.
         /// </summary>
         /// <param name="data">The data.</param>
-        public static MenuDisplayItemModel ToMenuDisplayItemModel(this DisplayItemModel data)
-        {
-            if (data == null) return null;
-
-            return data as MenuDisplayItemModel;
-        }
+        public static MenuDisplayItemModel? ToMenuDisplayItemModel(this DisplayItemModel? data) =>
+            data as MenuDisplayItemModel;
 
         /// <summary>
         /// Fluently sets <see cref="DisplayItemModel.Tag"/>.
@@ -40,10 +36,12 @@ namespace Songhay.Extensions
         /// <param name="data">The data.</param>
         /// <param name="tag">The tag.</param>
         /// <returns></returns>
-        public static DisplayItemModel WithTag(this DisplayItemModel data, object tag)
+        public static DisplayItemModel? WithTag(this DisplayItemModel? data, object tag)
         {
             if (data == null) return null;
+
             data.Tag = tag;
+
             return data;
         }
     }

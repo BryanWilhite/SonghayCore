@@ -15,7 +15,7 @@ namespace Songhay.Extensions
         /// Gets the enum description.
         /// </summary>
         /// <param name="value">The value.</param>
-        public static string GetEnumDescription(this Enum value)
+        public static string? GetEnumDescription(this Enum value)
         {
             var enumType = value.GetType();
             var enumName = Enum.GetName(enumType, value);
@@ -25,9 +25,8 @@ namespace Songhay.Extensions
             if (field == null) return null;
 
             var attr = Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) as DescriptionAttribute;
-            if (attr == null) return null;
 
-            return attr.Description;
+            return attr?.Description;
         }
 
         /// <summary>

@@ -16,7 +16,7 @@ namespace Songhay.Extensions
         /// Gets a <see cref="string"/> from the derived <see cref="HttpResponseMessage"/>.
         /// </summary>
         /// <param name="request">The request.</param>
-        public static async Task<string> GetContentAsync(this HttpRequestMessage request)
+        public static async Task<string> GetContentAsync(this HttpRequestMessage? request)
         {
             return await request.GetContentAsync(responseMessageAction: null, optionalClientGetter: null);
         }
@@ -27,7 +27,8 @@ namespace Songhay.Extensions
         /// <param name="request">The request.</param>
         /// <param name="responseMessageAction">The response message action.</param>
         /// <returns></returns>
-        public static async Task<string> GetContentAsync(this HttpRequestMessage request, Action<HttpResponseMessage> responseMessageAction)
+        public static async Task<string> GetContentAsync(this HttpRequestMessage? request,
+            Action<HttpResponseMessage>? responseMessageAction)
         {
             return await request.GetContentAsync(responseMessageAction, optionalClientGetter: null);
         }
@@ -40,25 +41,23 @@ namespace Songhay.Extensions
         /// <param name="optionalClientGetter">The optional client getter.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">request</exception>
-        public static async Task<string> GetContentAsync(this HttpRequestMessage request,
-            Action<HttpResponseMessage> responseMessageAction,
-            Func<HttpClient> optionalClientGetter)
+        public static async Task<string> GetContentAsync(this HttpRequestMessage? request,
+            Action<HttpResponseMessage>? responseMessageAction,
+            Func<HttpClient>? optionalClientGetter)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
             var client = (optionalClientGetter == null) ? GetHttpClient() : optionalClientGetter.Invoke();
 
-            string content = null;
-
-            using (var response = await client
+            using var response = await client
                 .SendAsync(request)
-                .ConfigureAwait(continueOnCapturedContext: false))
-            {
-                responseMessageAction?.Invoke(response);
-                content = await response.Content
-                    .ReadAsStringAsync()
-                    .ConfigureAwait(continueOnCapturedContext: false);
-            }
+                .ConfigureAwait(continueOnCapturedContext: false);
+
+            responseMessageAction?.Invoke(response);
+
+            var content = await response.Content
+                .ReadAsStringAsync()
+                .ConfigureAwait(continueOnCapturedContext: false);
 
             return content;
 
@@ -68,7 +67,7 @@ namespace Songhay.Extensions
         /// Calls <see cref="HttpClient.SendAsync(HttpRequestMessage)" />
         /// </summary>
         /// <param name="request"></param>
-        public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage request)
+        public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request)
         {
             return await request.SendAsync(requestMessageAction: null,
                 optionalClientGetter: null,
@@ -80,7 +79,8 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="request">The request.</param>
         /// <param name="requestMessageAction">The request message action.</param>
-        public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage request, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request,
+            Action<HttpRequestMessage>? requestMessageAction)
         {
             return await request.SendAsync(requestMessageAction,
                 optionalClientGetter: null,
@@ -100,9 +100,9 @@ namespace Songhay.Extensions
         /// or
         /// mediaType
         /// </exception>
-        public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage request,
-            Action<HttpRequestMessage> requestMessageAction,
-            Func<HttpClient> optionalClientGetter,
+        public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request,
+            Action<HttpRequestMessage>? requestMessageAction,
+            Func<HttpClient>? optionalClientGetter,
             HttpCompletionOption completionOption)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
@@ -125,7 +125,7 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="request">The request.</param>
         /// <param name="requestBody">The request body.</param>
-        public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage request, string requestBody)
+        public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody)
         {
             return await request.SendBodyAsync(requestBody, Encoding.UTF8, MimeTypes.ApplicationJson);
         }
@@ -138,7 +138,7 @@ namespace Songhay.Extensions
         /// <param name="requestBody">The request body.</param>
         /// <param name="encoding">The encoding.</param>
         /// <param name="mediaType">Type of the media.</param>
-        public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage request, string requestBody, Encoding encoding, string mediaType)
+        public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string mediaType)
         {
             return await request.SendBodyAsync(requestBody, encoding, mediaType, requestMessageAction: null, optionalClientGetter: null);
         }
@@ -153,7 +153,7 @@ namespace Songhay.Extensions
         /// <param name="mediaType">Type of the media.</param>
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
-        public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage request, string requestBody, Encoding encoding, string mediaType, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string mediaType, Action<HttpRequestMessage> requestMessageAction)
         {
             return await request.SendBodyAsync(requestBody, encoding, mediaType, requestMessageAction, optionalClientGetter: null);
         }
@@ -174,10 +174,10 @@ namespace Songhay.Extensions
         /// or
         /// mediaType
         /// </exception>
-        public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage request,
-            string requestBody, Encoding encoding, string mediaType,
-            Action<HttpRequestMessage> requestMessageAction,
-            Func<HttpClient> optionalClientGetter)
+        public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request,
+            string? requestBody, Encoding? encoding, string? mediaType,
+            Action<HttpRequestMessage>? requestMessageAction,
+            Func<HttpClient>? optionalClientGetter)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
             if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody));
@@ -196,9 +196,9 @@ namespace Songhay.Extensions
             return response;
         }
 
-        private static HttpClient GetHttpClient() => HttpClientLazy.Value;
+        static HttpClient GetHttpClient() => HttpClientLazy.Value;
 
-        private static readonly Lazy<HttpClient> HttpClientLazy =
+        static readonly Lazy<HttpClient> HttpClientLazy =
             new Lazy<HttpClient>(() => new HttpClient(), LazyThreadSafetyMode.PublicationOnly);
     }
 }

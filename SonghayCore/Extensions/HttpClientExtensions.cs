@@ -22,7 +22,7 @@ namespace Songhay.Extensions
         /// <param name="uri">The URI.</param>
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
-        public static async Task<HttpResponseMessage> DeleteAsync(this HttpClient client, Uri uri, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage?> DeleteAsync(this HttpClient? client, Uri? uri, Action<HttpRequestMessage>? requestMessageAction)
         {
             return await client.SendAsync(uri, HttpMethod.Delete, requestMessageAction);
         }
@@ -35,31 +35,30 @@ namespace Songhay.Extensions
         /// <param name="path">The path.</param>
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
-        public static async Task DownloadToFileAsync(this HttpClient client, Uri uri, string path, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task DownloadToFileAsync(this HttpClient? client, Uri? uri, string path, Action<HttpRequestMessage>? requestMessageAction)
         {
             if (client == null) return;
 
             var buffer = new byte[32768];
-            var bytesRead = 0;
-            var fileName = Path.GetFileName(path);
+            int bytesRead;
 
-            using (var request = new HttpRequestMessage(HttpMethod.Get, uri))
+            using var request = new HttpRequestMessage(HttpMethod.Get, uri);
+
+            requestMessageAction?.Invoke(request);
+
+            using var response = await client
+                .SendAsync(request)
+                .ConfigureAwait(continueOnCapturedContext: false);
+
+            await using var stream = await response.Content
+                .ReadAsStreamAsync()
+                .ConfigureAwait(continueOnCapturedContext: false);
+
+            await using var fs = File.Create(path);
+
+            while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
             {
-                requestMessageAction?.Invoke(request);
-
-                using (var response = await client
-                    .SendAsync(request)
-                    .ConfigureAwait(continueOnCapturedContext: false))
-                using (var stream = await response.Content
-                    .ReadAsStreamAsync()
-                    .ConfigureAwait(continueOnCapturedContext: false))
-                using (var fs = File.Create(path))
-                {
-                    while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
-                    {
-                        fs.Write(buffer, 0, bytesRead);
-                    }
-                }
+                fs.Write(buffer, 0, bytesRead);
             }
         }
 
@@ -69,7 +68,7 @@ namespace Songhay.Extensions
         /// <param name="client">The request.</param>
         /// <param name="uri">The URI.</param>
         /// <param name="path">The path.</param>
-        public static async Task DownloadToFileAsync(this HttpClient client, Uri uri, string path)
+        public static async Task DownloadToFileAsync(this HttpClient? client, Uri? uri, string path)
         {
             await client.DownloadToFileAsync(uri, path, requestMessageAction: null);
         }
@@ -80,7 +79,7 @@ namespace Songhay.Extensions
         /// <param name="client">The request.</param>
         /// <param name="uri">The URI.</param>
         /// <returns></returns>
-        public static async Task<string> DownloadToStringAsync(this HttpClient client, Uri uri)
+        public static async Task<string?> DownloadToStringAsync(this HttpClient? client, Uri? uri)
         {
             if (client == null) return null;
 
@@ -98,26 +97,25 @@ namespace Songhay.Extensions
         /// <param name="uri">The URI.</param>
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
-        public static async Task<string> DownloadToStringAsync(this HttpClient client, Uri uri, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<string?> DownloadToStringAsync(this HttpClient? client, Uri? uri, Action<HttpRequestMessage>? requestMessageAction)
         {
             if (client == null) return null;
 
-            using (var request = new HttpRequestMessage(HttpMethod.Get, uri))
-            {
-                requestMessageAction?.Invoke(request);
+            using var request = new HttpRequestMessage(HttpMethod.Get, uri);
 
-                string content = null;
+            requestMessageAction?.Invoke(request);
 
-                using (var response = await client
-                    .SendAsync(request)
-                    .ConfigureAwait(continueOnCapturedContext: false))
+            string? content;
 
-                    content = await response.Content
-                        .ReadAsStringAsync()
-                        .ConfigureAwait(continueOnCapturedContext: false);
+            using var response = await client
+                .SendAsync(request)
+                .ConfigureAwait(continueOnCapturedContext: false);
 
-                return content;
-            }
+            content = await response.Content
+                .ReadAsStringAsync()
+                .ConfigureAwait(continueOnCapturedContext: false);
+
+            return content;
         }
 
         /// <summary>
@@ -128,7 +126,7 @@ namespace Songhay.Extensions
         /// <param name="uri">The URI.</param>
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
-        public static async Task<HttpResponseMessage> GetAsync(this HttpClient client, Uri uri, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage?> GetAsync(this HttpClient? client, Uri? uri, Action<HttpRequestMessage>? requestMessageAction)
         {
             return await client.SendAsync(uri, HttpMethod.Get, requestMessageAction);
         }
@@ -144,7 +142,7 @@ namespace Songhay.Extensions
         /// <param name="formData">The form data.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
-        public static async Task<HttpResponseMessage> PostFormAsync(this HttpClient client, Uri uri, Hashtable formData)
+        public static async Task<HttpResponseMessage?> PostFormAsync(this HttpClient? client, Uri? uri, Hashtable formData)
         {
             return await client.PostFormAsync(uri, formData, requestMessageAction: null);
         }
@@ -161,12 +159,12 @@ namespace Songhay.Extensions
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
-        public static async Task<HttpResponseMessage> PostFormAsync(this HttpClient client, Uri uri, Hashtable formData, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage?> PostFormAsync(this HttpClient? client, Uri? uri, Hashtable formData, Action<HttpRequestMessage>? requestMessageAction)
         {
             string GetPostData(Hashtable postData)
             {
                 var sb = new StringBuilder();
-                string s = sb.ToString();
+                var s = sb.ToString();
 
                 foreach (DictionaryEntry entry in postData)
                 {
@@ -195,7 +193,7 @@ namespace Songhay.Extensions
         /// <param name="requestBody">The request body.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
-        public static async Task<HttpResponseMessage> PostJsonAsync(this HttpClient client, Uri uri, string requestBody)
+        public static async Task<HttpResponseMessage?> PostJsonAsync(this HttpClient? client, Uri? uri, string requestBody)
         {
             return await client.SendBodyAsync(uri, HttpMethod.Post, requestBody, Encoding.UTF8, MimeTypes.ApplicationJson, requestMessageAction: null);
         }
@@ -212,7 +210,7 @@ namespace Songhay.Extensions
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
-        public static async Task<HttpResponseMessage> PostJsonAsync(this HttpClient client, Uri uri, string requestBody, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage?> PostJsonAsync(this HttpClient? client, Uri? uri, string requestBody, Action<HttpRequestMessage>? requestMessageAction)
         {
             return await client.SendBodyAsync(uri, HttpMethod.Post, requestBody, Encoding.UTF8, MimeTypes.ApplicationJson, requestMessageAction);
         }
@@ -228,7 +226,7 @@ namespace Songhay.Extensions
         /// <param name="requestBody">The request body.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
-        public static async Task<HttpResponseMessage> PostXmlAsync(this HttpClient client, Uri uri, string requestBody)
+        public static async Task<HttpResponseMessage?> PostXmlAsync(this HttpClient? client, Uri? uri, string requestBody)
         {
             return await client.SendBodyAsync(uri, HttpMethod.Post, requestBody, Encoding.UTF8, MimeTypes.ApplicationXml, requestMessageAction: null);
         }
@@ -245,7 +243,7 @@ namespace Songhay.Extensions
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
-        public static async Task<HttpResponseMessage> PostXmlAsync(this HttpClient client, Uri uri, string requestBody, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage?> PostXmlAsync(this HttpClient? client, Uri? uri, string requestBody, Action<HttpRequestMessage>? requestMessageAction)
         {
             return await client.SendBodyAsync(uri, HttpMethod.Post, requestBody, Encoding.UTF8, MimeTypes.ApplicationXml, requestMessageAction);
         }
@@ -261,7 +259,7 @@ namespace Songhay.Extensions
         /// <param name="requestBody">The request body.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
-        public static async Task<HttpResponseMessage> PutJsonAsync(this HttpClient client, Uri uri, string requestBody)
+        public static async Task<HttpResponseMessage?> PutJsonAsync(this HttpClient? client, Uri? uri, string requestBody)
         {
             return await client.SendBodyAsync(uri, HttpMethod.Put, requestBody, Encoding.UTF8, MimeTypes.ApplicationJson, requestMessageAction: null);
         }
@@ -278,7 +276,7 @@ namespace Songhay.Extensions
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
-        public static async Task<HttpResponseMessage> PutJsonAsync(this HttpClient client, Uri uri, string requestBody, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage?> PutJsonAsync(this HttpClient? client, Uri? uri, string requestBody, Action<HttpRequestMessage>? requestMessageAction)
         {
             return await client.SendBodyAsync(uri, HttpMethod.Put, requestBody, Encoding.UTF8, MimeTypes.ApplicationJson, requestMessageAction);
         }
@@ -294,7 +292,7 @@ namespace Songhay.Extensions
         /// <param name="requestBody">The request body.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
-        public static async Task<HttpResponseMessage> PutXmlAsync(this HttpClient client, Uri uri, string requestBody)
+        public static async Task<HttpResponseMessage?> PutXmlAsync(this HttpClient? client, Uri? uri, string requestBody)
         {
             return await client.SendBodyAsync(uri, HttpMethod.Put, requestBody, Encoding.UTF8, MimeTypes.ApplicationXml, requestMessageAction: null);
         }
@@ -311,7 +309,7 @@ namespace Songhay.Extensions
         /// <param name="requestMessageAction">The request message action.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
-        public static async Task<HttpResponseMessage> PutXmlAsync(this HttpClient client, Uri uri, string requestBody, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage?> PutXmlAsync(this HttpClient? client, Uri? uri, string requestBody, Action<HttpRequestMessage>? requestMessageAction)
         {
             return await client.SendBodyAsync(uri, HttpMethod.Put, requestBody, Encoding.UTF8, MimeTypes.ApplicationXml, requestMessageAction);
         }
@@ -328,21 +326,20 @@ namespace Songhay.Extensions
         /// or
         /// mediaType
         /// </exception>
-        public static async Task<HttpResponseMessage> SendAsync(this HttpClient client, Uri uri, HttpMethod method, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage?> SendAsync(this HttpClient? client, Uri? uri, HttpMethod method, Action<HttpRequestMessage>? requestMessageAction)
         {
             if (client == null) return null;
             if (uri == null) throw new ArgumentNullException(nameof(uri));
 
-            using (var request = new HttpRequestMessage(method, uri))
-            {
-                requestMessageAction?.Invoke(request);
+            using var request = new HttpRequestMessage(method, uri);
 
-                var response = await client
-                    .SendAsync(request)
-                    .ConfigureAwait(continueOnCapturedContext: false);
+            requestMessageAction?.Invoke(request);
 
-                return response;
-            }
+            var response = await client
+                .SendAsync(request)
+                .ConfigureAwait(continueOnCapturedContext: false);
+
+            return response;
         }
 
         /// <summary>
@@ -362,26 +359,26 @@ namespace Songhay.Extensions
         /// or
         /// mediaType
         /// </exception>
-        public static async Task<HttpResponseMessage> SendBodyAsync(this HttpClient client, Uri uri, HttpMethod method, string requestBody, Encoding encoding, string mediaType, Action<HttpRequestMessage> requestMessageAction)
+        public static async Task<HttpResponseMessage?> SendBodyAsync(this HttpClient? client, Uri? uri, HttpMethod method,
+            string? requestBody, Encoding encoding, string? mediaType, Action<HttpRequestMessage>? requestMessageAction)
         {
             if (client == null) return null;
             if (uri == null) throw new ArgumentNullException(nameof(uri), "The expected URI is not here.");
             if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody));
             if (string.IsNullOrWhiteSpace(mediaType)) throw new ArgumentNullException(nameof(mediaType));
 
-            using (var request = new HttpRequestMessage(method, uri)
+            using var request = new HttpRequestMessage(method, uri)
             {
                 Content = new StringContent(requestBody, encoding, mediaType)
-            })
-            {
-                requestMessageAction?.Invoke(request);
+            };
 
-                var response = await client
-                    .SendAsync(request)
-                    .ConfigureAwait(continueOnCapturedContext: false);
+            requestMessageAction?.Invoke(request);
 
-                return response;
-            }
+            var response = await client
+                .SendAsync(request)
+                .ConfigureAwait(continueOnCapturedContext: false);
+
+            return response;
         }
     }
 }

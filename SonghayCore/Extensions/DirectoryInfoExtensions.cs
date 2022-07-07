@@ -57,9 +57,10 @@ namespace Songhay.Extensions
         /// <param name="directoryInfo">The directory information.</param>
         /// <param name="levels">The levels.</param>
         /// <returns></returns>
-        public static string GetParentDirectory(this DirectoryInfo directoryInfo, int levels)
+        public static string? GetParentDirectory(this DirectoryInfo directoryInfo, int levels)
         {
             var info = directoryInfo.GetParentDirectoryInfo(levels);
+
             return info?.FullName;
         }
 
@@ -67,9 +68,10 @@ namespace Songhay.Extensions
         /// <param name="directoryInfo">The directory information.</param>
         /// <param name="levels">The levels.</param>
         /// <returns></returns>
-        public static DirectoryInfo GetParentDirectoryInfo(this DirectoryInfo directoryInfo, int levels)
+        public static DirectoryInfo? GetParentDirectoryInfo(this DirectoryInfo directoryInfo, int levels)
         {
-            if (directoryInfo == null) throw new NullReferenceException($"The expected {nameof(DirectoryInfo)} is not here.");
+            if (directoryInfo == null)
+                throw new NullReferenceException($"The expected {nameof(DirectoryInfo)} is not here.");
 
             levels = Math.Abs(levels);
             if (levels == 0) return directoryInfo;
@@ -78,8 +80,8 @@ namespace Songhay.Extensions
             if (parentDirectoryInfo == null) return directoryInfo;
 
             --levels;
-            if (levels >= 1) return parentDirectoryInfo.GetParentDirectoryInfo(levels);
-            return parentDirectoryInfo;
+
+            return levels >= 1 ? parentDirectoryInfo.GetParentDirectoryInfo(levels) : parentDirectoryInfo;
         }
 
         /// <summary>Combines path and root based
@@ -91,10 +93,15 @@ namespace Songhay.Extensions
         /// <exception cref="NullReferenceException">The expected root path is not here.
         /// or
         /// The expected path is not here.</exception>
-        /// <remarks>For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14 and <see cref="ProgramFileUtility.GetCombinedPath(string, string)" />.</remarks>
+        /// <remarks>
+        /// For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14
+        /// and <see cref="ProgramFileUtility.GetCombinedPath(string, string)" />.
+        /// </remarks>
         public static string ToCombinedPath(this DirectoryInfo directoryInfo, string path)
         {
-            if (directoryInfo == null) throw new NullReferenceException($"The expected {nameof(DirectoryInfo)} is not here.");
+            if (directoryInfo == null)
+                throw new NullReferenceException($"The expected {nameof(DirectoryInfo)} is not here.");
+
             return ProgramFileUtility.GetCombinedPath(directoryInfo.FullName, path);
         }
 
@@ -105,7 +112,7 @@ namespace Songhay.Extensions
         /// <param name="directoryInfo">the specified <see cref="DirectoryInfo"/></param>
         /// <param name="expectedDirectoryName">the expected directory name</param>
         /// <returns></returns>
-        public static void VerifyDirectory(this DirectoryInfo directoryInfo, string expectedDirectoryName)
+        public static void VerifyDirectory(this DirectoryInfo directoryInfo, string? expectedDirectoryName)
         {
             if (directoryInfo == null)
                 throw new DirectoryNotFoundException("The expected directory is not here.");
@@ -114,7 +121,8 @@ namespace Songhay.Extensions
                 throw new DirectoryNotFoundException("The expected directory does not exist.");
 
             if (!directoryInfo.Name.EqualsInvariant(expectedDirectoryName))
-                throw new DirectoryNotFoundException($"The expected directory is not here. [actual: { expectedDirectoryName ?? "[name]" }");
+                throw new DirectoryNotFoundException(
+                    $"The expected directory is not here. [actual: {expectedDirectoryName ?? "[name]"}");
         }
     }
 }

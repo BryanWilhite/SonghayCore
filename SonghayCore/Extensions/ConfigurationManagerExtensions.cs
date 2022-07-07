@@ -1,6 +1,5 @@
 using Songhay.Models;
 using System;
-using System.Collections.Specialized;
 using System.Configuration;
 using System.Linq;
 using System.Xml.Linq;
@@ -22,10 +21,10 @@ namespace Songhay.Extensions
         /// <param name="unqualifiedKey">The unqualified key.</param>
         /// <param name="environmentName">Name of the environment.</param>
         /// <returns></returns>
-        public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName)
-        {
-            return collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName, DeploymentEnvironment.ConfigurationKeyDelimiter);
-        }
+        public static string? GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection? collection,
+            string? unqualifiedKey, string? environmentName) =>
+            collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName,
+                DeploymentEnvironment.ConfigurationKeyDelimiter);
 
         /// <summary>
         /// Gets the connection name from environment.
@@ -37,10 +36,10 @@ namespace Songhay.Extensions
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
-        public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName, string delimiter)
-        {
-            return collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName, delimiter, throwConfigurationErrorsException: true);
-        }
+        public static string? GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection? collection,
+            string? unqualifiedKey, string? environmentName, string? delimiter) =>
+            collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName, delimiter,
+            throwConfigurationErrorsException: true);
 
         /// <summary>
         /// Gets the connection name from environment.
@@ -50,9 +49,11 @@ namespace Songhay.Extensions
         /// <param name="environmentName">Name of the environment.</param>
         /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
-        public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName, bool throwConfigurationErrorsException)
+        public static string? GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection? collection,
+            string? unqualifiedKey, string? environmentName, bool throwConfigurationErrorsException)
         {
-            return collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName, DeploymentEnvironment.ConfigurationKeyDelimiter, throwConfigurationErrorsException);
+            return collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName,
+                DeploymentEnvironment.ConfigurationKeyDelimiter, throwConfigurationErrorsException);
         }
 
         /// <summary>
@@ -66,7 +67,8 @@ namespace Songhay.Extensions
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">unqualifiedKey</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
-        public static string GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection collection, string unqualifiedKey, string environmentName, string delimiter, bool throwConfigurationErrorsException)
+        public static string? GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection? collection,
+            string? unqualifiedKey, string? environmentName, string? delimiter, bool throwConfigurationErrorsException)
         {
             if (collection == null) return null;
             if (string.IsNullOrWhiteSpace(unqualifiedKey)) throw new ArgumentNullException(nameof(unqualifiedKey));
@@ -75,9 +77,10 @@ namespace Songhay.Extensions
             var name2 = string.Concat(unqualifiedKey, delimiter, environmentName);
 
             var containsKey1 = collection.OfType<ConnectionStringSettings>().Any(i => i.Name == name1);
-            if (!containsKey1 && !collection.OfType<ConnectionStringSettings>().Any(i => i.Name == name2))
+            if (!containsKey1 && collection.OfType<ConnectionStringSettings>().All(i => i.Name != name2))
             {
-                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException($"The expected Name, “{name1}” or “{name2}”, is not here.");
+                if (throwConfigurationErrorsException)
+                    throw new ConfigurationErrorsException($"The expected Name, “{name1}” or “{name2}”, is not here.");
                 return null;
             }
 
@@ -90,7 +93,7 @@ namespace Songhay.Extensions
         /// <param name="collection">The collection.</param>
         /// <param name="connectionName">Name of the connection.</param>
         /// <returns></returns>
-        public static ConnectionStringSettings GetConnectionStringSettings(this ConnectionStringSettingsCollection collection, string connectionName)
+        public static ConnectionStringSettings? GetConnectionStringSettings(this ConnectionStringSettingsCollection? collection, string connectionName)
         {
             return collection.GetConnectionStringSettings(connectionName, throwConfigurationErrorsException: false);
         }
@@ -103,28 +106,29 @@ namespace Songhay.Extensions
         /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
         /// <exception cref="ConfigurationErrorsException"></exception>
-        public static ConnectionStringSettings GetConnectionStringSettings(this ConnectionStringSettingsCollection collection, string connectionName, bool throwConfigurationErrorsException)
+        public static ConnectionStringSettings? GetConnectionStringSettings(
+            this ConnectionStringSettingsCollection? collection, string connectionName,
+            bool throwConfigurationErrorsException)
         {
             if (collection == null) return null;
             if (string.IsNullOrWhiteSpace(connectionName)) return null;
 
             var setting = collection[connectionName];
-            if ((setting == null) && throwConfigurationErrorsException)
-            {
-                var message = $"The expected connection settings, {connectionName}, are not here.";
-                throw new ConfigurationErrorsException(message);
-            }
 
-            return setting;
+            if (setting != null || !throwConfigurationErrorsException) return setting;
+
+            var message = $"The expected connection settings, {connectionName}, are not here.";
+            throw new ConfigurationErrorsException(message);
         }
 
         /// <summary>
         /// Gets the name of the conventional deployment environment.
         /// </summary>
         /// <param name="settings">The settings.</param>
-        public static string GetEnvironmentName(this KeyValueConfigurationCollection settings)
+        public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings)
         {
-            return settings.GetEnvironmentName(environmentKey: DeploymentEnvironment.ConfigurationKey, defaultEnvironmentName: DeploymentEnvironment.DevelopmentEnvironmentName);
+            return settings.GetEnvironmentName(environmentKey: DeploymentEnvironment.ConfigurationKey,
+                defaultEnvironmentName: DeploymentEnvironment.DevelopmentEnvironmentName);
         }
 
         /// <summary>
@@ -132,9 +136,10 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <param name="environmentKey">The environment key.</param>
-        public static string GetEnvironmentName(this KeyValueConfigurationCollection settings, string environmentKey)
+        public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string environmentKey)
         {
-            return settings.GetEnvironmentName(environmentKey, defaultEnvironmentName: DeploymentEnvironment.DevelopmentEnvironmentName);
+            return settings.GetEnvironmentName(environmentKey,
+                defaultEnvironmentName: DeploymentEnvironment.DevelopmentEnvironmentName);
         }
 
         /// <summary>
@@ -145,7 +150,7 @@ namespace Songhay.Extensions
         /// <param name="defaultEnvironmentName">Default name of the environment.</param>
         /// <returns></returns>
         /// <exception cref="ConfigurationErrorsException"></exception>
-        public static string GetEnvironmentName(this KeyValueConfigurationCollection settings, string environmentKey, string defaultEnvironmentName)
+        public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string environmentKey, string defaultEnvironmentName)
         {
             return settings.GetEnvironmentName(environmentKey, defaultEnvironmentName, throwConfigurationErrorsException: true);
         }
@@ -159,7 +164,8 @@ namespace Songhay.Extensions
         /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
         /// <exception cref="ConfigurationErrorsException"></exception>
-        public static string GetEnvironmentName(this KeyValueConfigurationCollection settings, string environmentKey, string defaultEnvironmentName, bool throwConfigurationErrorsException)
+        public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string environmentKey,
+            string defaultEnvironmentName, bool throwConfigurationErrorsException)
         {
             if (settings == null) return null;
 
@@ -168,13 +174,14 @@ namespace Songhay.Extensions
             if (!hasKey && !string.IsNullOrWhiteSpace(defaultEnvironmentName))
                 return defaultEnvironmentName;
 
-            if (!hasKey && string.IsNullOrWhiteSpace(defaultEnvironmentName))
-            {
-                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException($"The expected Environment Key, `{environmentKey}`, is not here.");
-                return null;
-            }
+            if (hasKey || !string.IsNullOrWhiteSpace(defaultEnvironmentName))
+                return settings.GetSetting(environmentKey, throwConfigurationErrorsException: true);
 
-            return settings.GetSetting(environmentKey, throwConfigurationErrorsException: true);
+            if (throwConfigurationErrorsException)
+                throw new ConfigurationErrorsException(
+                    $"The expected Environment Key, `{environmentKey}`, is not here.");
+
+            return null;
         }
 
         /// <summary>
@@ -184,9 +191,11 @@ namespace Songhay.Extensions
         /// <param name="unqualifiedKey">The unqualified key.</param>
         /// <param name="environmentName">Name of the environment.</param>
         /// <returns></returns>
-        public static string GetKeyWithEnvironmentName(this KeyValueConfigurationCollection settings, string unqualifiedKey, string environmentName)
+        public static string? GetKeyWithEnvironmentName(this KeyValueConfigurationCollection? settings,
+            string? unqualifiedKey, string? environmentName)
         {
-            return settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName, DeploymentEnvironment.ConfigurationKeyDelimiter);
+            return settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName,
+                DeploymentEnvironment.ConfigurationKeyDelimiter);
         }
 
         /// <summary>
@@ -199,9 +208,11 @@ namespace Songhay.Extensions
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
-        public static string GetKeyWithEnvironmentName(this KeyValueConfigurationCollection settings, string unqualifiedKey, string environmentName, string delimiter)
+        public static string? GetKeyWithEnvironmentName(this KeyValueConfigurationCollection? settings,
+            string? unqualifiedKey, string? environmentName, string? delimiter)
         {
-            return settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName, delimiter, throwConfigurationErrorsException: true);
+            return settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName, delimiter,
+                throwConfigurationErrorsException: true);
         }
 
         /// <summary>
@@ -212,9 +223,11 @@ namespace Songhay.Extensions
         /// <param name="environmentName">Name of the environment.</param>
         /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
         /// <returns></returns>
-        public static string GetKeyWithEnvironmentName(this KeyValueConfigurationCollection settings, string unqualifiedKey, string environmentName, bool throwConfigurationErrorsException)
+        public static string? GetKeyWithEnvironmentName(this KeyValueConfigurationCollection? settings,
+            string? unqualifiedKey, string? environmentName, bool throwConfigurationErrorsException)
         {
-            return settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName, DeploymentEnvironment.ConfigurationKeyDelimiter, throwConfigurationErrorsException);
+            return settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName,
+                DeploymentEnvironment.ConfigurationKeyDelimiter, throwConfigurationErrorsException);
         }
 
         /// <summary>
@@ -228,7 +241,8 @@ namespace Songhay.Extensions
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">unqualifiedKey</exception>
         /// <exception cref="ConfigurationErrorsException"></exception>
-        public static string GetKeyWithEnvironmentName(this KeyValueConfigurationCollection settings, string unqualifiedKey, string environmentName, string delimiter, bool throwConfigurationErrorsException)
+        public static string? GetKeyWithEnvironmentName(this KeyValueConfigurationCollection? settings,
+            string? unqualifiedKey, string? environmentName, string? delimiter, bool throwConfigurationErrorsException)
         {
             if (settings == null) return null;
             if (string.IsNullOrWhiteSpace(unqualifiedKey)) throw new ArgumentNullException(nameof(unqualifiedKey));
@@ -237,13 +251,13 @@ namespace Songhay.Extensions
             var key2 = string.Concat(unqualifiedKey, delimiter, environmentName);
 
             var containsKey1 = settings.AllKeys.Contains(key1);
-            if (!containsKey1 && !settings.AllKeys.Contains(key2))
-            {
-                if (throwConfigurationErrorsException) throw new ConfigurationErrorsException($"The expected Key, “{key1}” or “{key2}”, is not here.");
-                return null;
-            }
 
-            return containsKey1 ? key1 : key2;
+            if (containsKey1 || settings.AllKeys.Contains(key2)) return containsKey1 ? key1 : key2;
+
+            if (throwConfigurationErrorsException)
+                throw new ConfigurationErrorsException($"The expected Key, “{key1}” or “{key2}”, is not here.");
+
+            return null;
         }
 
         /// <summary>
@@ -251,7 +265,7 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <param name="key">The key.</param>
-        public static string GetSetting(this KeyValueConfigurationCollection settings, string key)
+        public static string? GetSetting(this KeyValueConfigurationCollection? settings, string key)
         {
             return settings.GetSetting(key, throwConfigurationErrorsException: false);
         }
@@ -264,19 +278,17 @@ namespace Songhay.Extensions
         /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <returns></returns>
         /// <exception cref="ConfigurationErrorsException"></exception>
-        public static string GetSetting(this KeyValueConfigurationCollection settings, string key, bool throwConfigurationErrorsException)
+        public static string? GetSetting(this KeyValueConfigurationCollection? settings, string key, bool throwConfigurationErrorsException)
         {
             if (settings == null) return null;
             if (string.IsNullOrWhiteSpace(key)) return null;
 
             var setting = settings[key];
-            if ((setting == null) && throwConfigurationErrorsException)
-            {
-                var message = $"The expected setting, {key}, is not here.";
-                throw new ConfigurationErrorsException(message);
-            }
 
-            return setting.Value;
+            if (setting != null || !throwConfigurationErrorsException) return setting?.Value;
+
+            var message = $"The expected setting, {key}, is not here.";
+            throw new ConfigurationErrorsException(message);
         }
 
         /// <summary>
@@ -287,9 +299,11 @@ namespace Songhay.Extensions
         /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
         /// <param name="settingModifier">The setting modifier.</param>
         /// <returns></returns>
-        public static string GetSetting(this KeyValueConfigurationCollection settings, string key, bool throwConfigurationErrorsException, Func<string, string> settingModifier)
+        public static string? GetSetting(this KeyValueConfigurationCollection? settings, string key,
+            bool throwConfigurationErrorsException, Func<string?, string>? settingModifier)
         {
             var setting = settings.GetSetting(key, throwConfigurationErrorsException);
+
             return (settingModifier == null) ? setting : settingModifier(setting);
         }
 
@@ -298,15 +312,16 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="externalConfigurationDoc">The external configuration document.</param>
         /// <returns></returns>
-        public static KeyValueConfigurationCollection ToAppSettings(this XDocument externalConfigurationDoc)
+        public static KeyValueConfigurationCollection? ToAppSettings(this XDocument? externalConfigurationDoc)
         {
             if (externalConfigurationDoc == null) return null;
 
             var collection = new KeyValueConfigurationCollection();
 
-            externalConfigurationDoc.Root
-                    .Element("appSettings")
-                    .Elements("add").ForEachInEnumerable(i => collection.Add(i.Attribute("key").Value, i.Attribute("value").Value));
+            externalConfigurationDoc.Root?
+                .Element("appSettings")?
+                    .Elements("add").ForEachInEnumerable(i =>
+                        collection.Add(i.Attribute("key")?.Value, i.Attribute("value")?.Value));
 
             return collection;
         }
@@ -316,19 +331,19 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="externalConfigurationDoc">The external configuration document.</param>
         /// <returns></returns>
-        public static ConnectionStringSettingsCollection ToConnectionStringSettingsCollection(this XDocument externalConfigurationDoc)
+        public static ConnectionStringSettingsCollection? ToConnectionStringSettingsCollection(this XDocument? externalConfigurationDoc)
         {
             if (externalConfigurationDoc == null) return null;
 
             var collection = new ConnectionStringSettingsCollection();
 
-            externalConfigurationDoc.Root
-                    .Element("connectionStrings")
+            externalConfigurationDoc.Root?
+                    .Element("connectionStrings")?
                     .Elements("add").ForEachInEnumerable(i =>
                     {
-                        var name = i.Attribute("name").Value;
-                        var connectionString = i.Attribute("connectionString").Value;
-                        var providerName = i.Attribute("providerName").Value;
+                        var name = i.Attribute("name")?.Value;
+                        var connectionString = i.Attribute("connectionString")?.Value;
+                        var providerName = i.Attribute("providerName")?.Value;
                         var settings = new ConnectionStringSettings(name, connectionString, providerName);
                         collection.Add(settings);
                     });
@@ -344,12 +359,12 @@ namespace Songhay.Extensions
         /// <param name="settings">The settings.</param>
         /// <param name="externalConfigurationDoc">The external configuration document.</param>
         /// <returns></returns>
-        public static KeyValueConfigurationCollection WithAppSettings(this KeyValueConfigurationCollection settings, XDocument externalConfigurationDoc)
+        public static KeyValueConfigurationCollection? WithAppSettings(this KeyValueConfigurationCollection? settings, XDocument? externalConfigurationDoc)
         {
             var externalCollection = externalConfigurationDoc.ToAppSettings();
             if (externalCollection == null) return null;
 
-            settings.AllKeys.ForEachInEnumerable(key =>
+            settings?.AllKeys.ForEachInEnumerable(key =>
                 externalCollection.Add(key, settings.GetSetting(key)));
 
             return externalCollection;
@@ -363,12 +378,14 @@ namespace Songhay.Extensions
         /// <param name="collection">The collection.</param>
         /// <param name="externalConfigurationDoc">The external configuration document.</param>
         /// <returns></returns>
-        public static ConnectionStringSettingsCollection WithConnectionStringSettingsCollection(this ConnectionStringSettingsCollection collection, XDocument externalConfigurationDoc)
+        public static ConnectionStringSettingsCollection? WithConnectionStringSettingsCollection(
+            this ConnectionStringSettingsCollection? collection, XDocument? externalConfigurationDoc)
         {
             var externalCollection = externalConfigurationDoc.ToConnectionStringSettingsCollection();
+
             if (externalCollection == null) return null;
 
-            collection.OfType<ConnectionStringSettings>().ForEachInEnumerable(i => externalCollection.Add(i));
+            collection?.OfType<ConnectionStringSettings>().ForEachInEnumerable(i => externalCollection.Add(i));
 
             return externalCollection;
         }

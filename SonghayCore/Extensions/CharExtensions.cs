@@ -14,11 +14,13 @@ namespace Songhay.Extensions
         /// </summary>
         /// <param name="chars"></param>
         /// <returns></returns>
-        public static string FromCharsToString(this IEnumerable<char> chars)
+        public static string? FromCharsToString(this IEnumerable<char>? chars)
         {
             if (chars == null) return null;
-            if (!chars.Any()) return string.Empty;
-            return new string(chars.ToArray());
+
+            var charArray = chars as char[] ?? chars.ToArray();
+
+            return !charArray.Any() ? string.Empty : new string(charArray);
         }
     }
 }

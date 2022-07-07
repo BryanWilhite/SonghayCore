@@ -1,4 +1,6 @@
-﻿using System;
+﻿#nullable disable // FUNKYKB: this is disabled because netstandard2.1 does not support `T?`
+
+using System;
 
 namespace Songhay.Extensions
 {
@@ -18,9 +20,12 @@ namespace Songhay.Extensions
             if (array == null) return default(T);
 
             var indexOfKey = Array.IndexOf(array, item);
+
             ++indexOfKey;
+
             if (indexOfKey >= array.Length) return default(T);
-            return (T)array.GetValue(indexOfKey);
+
+            return (T)array.GetValue(indexOfKey)!;
         }
 
         /// <summary>
@@ -34,9 +39,12 @@ namespace Songhay.Extensions
             if (array == null) return default(T);
 
             var indexOfKey = Array.IndexOf(array, item);
+
             --indexOfKey;
+
             if (indexOfKey < 0) return default(T);
-            return (T)array.GetValue(indexOfKey);
+
+            return (T)array.GetValue(indexOfKey)!;
         }
     }
 }
