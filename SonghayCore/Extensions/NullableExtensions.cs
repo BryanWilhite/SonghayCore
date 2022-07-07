@@ -21,6 +21,7 @@ public static class NullableExtensions
         var d = decimalValue.GetValueOrDefault();
         decimal factor = Convert.ToDecimal(Math.Pow(10, decimals));
         int sign = Math.Sign(d);
+
         return Decimal.Truncate(d * factor + 0.5m * sign) / factor;
     }
 }

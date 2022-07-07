@@ -13,10 +13,8 @@ public static class ObservableCollectionExtensions
     /// </summary>
     /// <param name="collectionOfByte">The collection of byte.</param>
     /// <param name="digits">The digits.</param>
-    public static void SetCollectionWithDigits(this ObservableCollection<byte?> collectionOfByte, double digits)
-    {
+    public static void SetCollectionWithDigits(this ObservableCollection<byte?> collectionOfByte, double digits) =>
         collectionOfByte.SetCollectionWithDigits(digits, mantissaDigits: 2);
-    }
 
     /// <summary>
     /// Sets the collection with digits.
@@ -24,9 +22,11 @@ public static class ObservableCollectionExtensions
     /// <param name="collectionOfByte">The collection of byte.</param>
     /// <param name="digits">The digits.</param>
     /// <param name="mantissaDigits">The mantissa digits.</param>
-    public static void SetCollectionWithDigits(this ObservableCollection<byte?> collectionOfByte, double digits, int mantissaDigits)
+    public static void SetCollectionWithDigits(this ObservableCollection<byte?>? collectionOfByte, double digits,
+        int mantissaDigits)
     {
         if(collectionOfByte == null) return;
+
         var x = Convert.ToInt32(100 * MathUtility.GetMantissa(digits, mantissaDigits));
         if(collectionOfByte.Count < mantissaDigits) return;
 

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using Songhay.Models;
 
 namespace Songhay.Extensions;
-
-using Songhay.Models;
 
 /// <summary>
 /// Extensions of <see cref="OpenAuthorizationData"/>.
@@ -16,10 +15,11 @@ public static class OpenAuthorizationDataExtensions
     /// </summary>
     /// <param name="twitterBaseUri">The twitter base URI.</param>
     /// <param name="screenName">Name of the screen.</param>
-    public static Uri GetTwitterBaseUriWithScreenName(this Uri twitterBaseUri, string screenName)
+    public static Uri? GetTwitterBaseUriWithScreenName(this Uri? twitterBaseUri, string? screenName)
     {
         if (twitterBaseUri == null) return null;
-        return new Uri(twitterBaseUri.OriginalString + "?screen_name=" + Uri.EscapeDataString(screenName));
+
+        return string.IsNullOrWhiteSpace(screenName) ? null : new Uri(twitterBaseUri.OriginalString + "?screen_name=" + Uri.EscapeDataString(screenName));
     }
 
     /// <summary>
@@ -28,10 +28,13 @@ public static class OpenAuthorizationDataExtensions
     /// <param name="twitterBaseUri">The twitter base URI.</param>
     /// <param name="screenName">Name of the screen.</param>
     /// <param name="count">The count.</param>
-    public static Uri GetTwitterBaseUriWithScreenName(this Uri twitterBaseUri, string screenName, int count)
+    public static Uri? GetTwitterBaseUriWithScreenName(this Uri? twitterBaseUri, string? screenName, int count)
     {
         if (twitterBaseUri == null) return null;
-        return new Uri(twitterBaseUri.OriginalString + string.Format("?count={0}&screen_name={1}", count, Uri.EscapeDataString(screenName)));
+
+        return string.IsNullOrWhiteSpace(screenName)
+            ? null
+            : new Uri(twitterBaseUri.OriginalString + $"?count={count}&screen_name={Uri.EscapeDataString(screenName)}");
     }
 
     /// <summary>
@@ -41,10 +44,12 @@ public static class OpenAuthorizationDataExtensions
     /// <param name="twitterBaseUri">The twitter base URI.</param>
     /// <param name="screenName">Name of the screen.</param>
     /// <param name="httpMethod">The HTTP method.</param>
-    public static string GetTwitterRequestHeader(this OpenAuthorizationData data, Uri twitterBaseUri, string screenName, string httpMethod)
+    public static string? GetTwitterRequestHeader(this OpenAuthorizationData? data, Uri? twitterBaseUri,
+        string? screenName, string httpMethod)
     {
         if (data == null) return null;
         if (twitterBaseUri == null) return null;
+        if (string.IsNullOrWhiteSpace(screenName)) return null;
 
         var baseFormat =
             "oauth_consumer_key={0}&oauth_nonce={1}&oauth_signature_method={2}" +
@@ -64,11 +69,9 @@ public static class OpenAuthorizationDataExtensions
 
         var compositeKey = string.Concat(Uri.EscapeDataString(data.ConsumerSecret), "&", Uri.EscapeDataString(data.TokenSecret));
 
-        string signature;
-        using (HMACSHA1 hasher = new HMACSHA1(ASCIIEncoding.ASCII.GetBytes(compositeKey)))
-        {
-            signature = Convert.ToBase64String(hasher.ComputeHash(ASCIIEncoding.ASCII.GetBytes(baseString)));
-        }
+        using HMACSHA1 hasher = new HMACSHA1(Encoding.ASCII.GetBytes(compositeKey));
+
+        var signature = Convert.ToBase64String(hasher.ComputeHash(Encoding.ASCII.GetBytes(baseString)));
 
         var headerFormat =
             "OAuth oauth_nonce=\"{0}\", oauth_signature_method=\"{1}\", " +

@@ -15,7 +15,7 @@ public static partial class ProgramArgsExtensions
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
     /// <returns></returns>
     /// <exception cref="ArgumentException"></exception>
-    public static string GetBasePathValue(this ProgramArgs args)
+    public static string? GetBasePathValue(this ProgramArgs? args)
     {
         var isBasePathRequired = args.HasArg(ProgramArgs.BasePathRequired, requiresValue: false);
         if (!args.HasArg(ProgramArgs.BasePath, isBasePathRequired)) return null;
@@ -33,7 +33,7 @@ public static partial class ProgramArgsExtensions
     /// <remarks>
     /// This member will generate a file when it does not exist.
     /// </remarks>
-    public static string GetOutputPath(this ProgramArgs args)
+    public static string? GetOutputPath(this ProgramArgs? args)
     {
         var outputFile = args.GetArgValue(ProgramArgs.OutputFile);
 
@@ -44,7 +44,7 @@ public static partial class ProgramArgsExtensions
             outputFile = ProgramFileUtility.GetCombinedPath(basePath, outputFile);
         }
 
-        if (!File.Exists(outputFile)) File.WriteAllText(outputFile, string.Empty);
+        if (!File.Exists(outputFile)) File.WriteAllText(outputFile!, string.Empty);
 
         return outputFile;
     }
@@ -54,17 +54,15 @@ public static partial class ProgramArgsExtensions
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
     /// <returns></returns>
-    public static string GetSettings(this ProgramArgs args)
+    public static string GetSettings(this ProgramArgs? args)
     {
         var path = args.GetSettingsFilePath();
 
-        if (!File.Exists(path))
-        {
-            var basePath = args.GetBasePathValue();
+        if (File.Exists(path)) return File.ReadAllText(path);
 
-            path = ProgramFileUtility
-                .GetCombinedPath(basePath, path, fileIsExpected: true);
-        }
+        var basePath = args.GetBasePathValue();
+
+        path = ProgramFileUtility.GetCombinedPath(basePath, path, fileIsExpected: true);
 
         return File.ReadAllText(path);
     }
@@ -74,7 +72,7 @@ public static partial class ProgramArgsExtensions
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
     /// <returns></returns>
-    public static string GetSettingsFilePath(this ProgramArgs args)
+    public static string? GetSettingsFilePath(this ProgramArgs? args)
     {
         var settingsFileName = args.GetArgValue(ProgramArgs.SettingsFile);
 
@@ -88,9 +86,9 @@ public static partial class ProgramArgsExtensions
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
     /// <returns></returns>
-    public static string GetStringInput(this ProgramArgs args)
+    public static string? GetStringInput(this ProgramArgs? args)
     {
-        string input = null;
+        string? input = null;
 
         if (args.HasArg(ProgramArgs.InputString, requiresValue: false))
         {
@@ -108,7 +106,7 @@ public static partial class ProgramArgsExtensions
                     .GetCombinedPath(basePath, path, fileIsExpected: true);
 
                 if (!File.Exists(path))
-                    throw new FileNotFoundException($"The expected input file, `{path ?? "[null]"}`, is not here.");
+                    throw new FileNotFoundException($"The expected input file, `{path}`, is not here.");
             }
 
             input = File.ReadAllText(path);
@@ -121,10 +119,7 @@ public static partial class ProgramArgsExtensions
     /// Determines whether args contain the <see cref="ProgramArgs.Help"/> flag.
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
-    public static bool IsHelpRequest(this ProgramArgs args)
-    {
-        return args.HasArg(ProgramArgs.Help, requiresValue: false);
-    }
+    public static bool IsHelpRequest(this ProgramArgs? args) => args.HasArg(ProgramArgs.Help, requiresValue: false);
 
     /// <summary>
     /// Converts the <c>args</c> key to a conventional Configuration key.
@@ -133,7 +128,7 @@ public static partial class ProgramArgsExtensions
     /// <param name="argKey">The arguments key.</param>
     /// <returns></returns>
     /// <exception cref="System.NullReferenceException">The expected argument key is not here.</exception>
-    public static string ToConfigurationKey(this ProgramArgs args, string argKey)
+    public static string ToConfigurationKey(this ProgramArgs? args, string argKey)
     {
         if (string.IsNullOrWhiteSpace(argKey)) throw new NullReferenceException("The expected argument key is not here.");
 
@@ -148,7 +143,7 @@ public static partial class ProgramArgsExtensions
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
     /// <returns></returns>
-    public static ProgramArgs WithDefaultHelpText(this ProgramArgs args)
+    public static ProgramArgs? WithDefaultHelpText(this ProgramArgs? args)
     {
         if (args == null) return null;
 
@@ -185,11 +180,11 @@ public static partial class ProgramArgsExtensions
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
     /// <param name="output">the output to write</param>
-    public static void WriteOutputToFile(this ProgramArgs args, string output)
+    public static void WriteOutputToFile(this ProgramArgs? args, string output)
     {
         var outputFile = args.GetOutputPath();
 
-        File.WriteAllText(outputFile, output);
+        File.WriteAllText(outputFile!, output);
     }
 
     /// <summary>
@@ -198,10 +193,10 @@ public static partial class ProgramArgsExtensions
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
     /// <param name="output">the output to write</param>
-    public static void WriteOutputToFile(this ProgramArgs args, byte[] output)
+    public static void WriteOutputToFile(this ProgramArgs? args, byte[] output)
     {
         var outputFile = args.GetOutputPath();
 
-        File.WriteAllBytes(outputFile, output);
+        File.WriteAllBytes(outputFile!, output);
     }
 }

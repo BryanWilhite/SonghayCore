@@ -21,10 +21,12 @@ public static class ProgramMetadataExtensions
         if (meta == null) throw new ArgumentNullException(nameof(meta));
 
         var genWebApiMeta = meta.RestApiMetadataSet.TryGetValueWithKey(restApiMetadataSetKey);
+        if (genWebApiMeta == null) throw new NullReferenceException(nameof(genWebApiMeta));
+
         var headers = new Dictionary<string, string>
         {
             {
-                genWebApiMeta.ClaimsSet.TryGetValueWithKey(RestApiMetadata.ClaimsSetHeaderApiKey),
+                genWebApiMeta.ClaimsSet.TryGetValueWithKey(RestApiMetadata.ClaimsSetHeaderApiKey)!,
                 genWebApiMeta.ApiKey
             }
         };

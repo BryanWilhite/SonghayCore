@@ -6,7 +6,7 @@ namespace Songhay.Extensions;
 /// <summary>
 /// Extensions of <see cref="object"/>.
 /// </summary>
-public static partial class ObjectExtensions
+public static class ObjectExtensions
 {
     /// <summary>
     /// Determines whether the specified type
@@ -23,27 +23,20 @@ public static partial class ObjectExtensions
     /// For background, see https://manski.net/2014/10/net-serializers-comparison-chart/
     /// and https://github.com/BryanWilhite/SonghayCore/issues/76
     /// </remarks>
-    public static bool IsAssignableToISerializable<T>(this T objectOfDomain)
-    {
-        return typeof(ISerializable).IsAssignableFrom(typeof(T));
-    }
+    public static bool IsAssignableToISerializable<T>(this T objectOfDomain) =>
+        typeof(ISerializable).IsAssignableFrom(typeof(T));
 
     /// <summary>
     /// Determines whether this instance is type.
     /// </summary>
     /// <typeparam name="TClass">The type of the class.</typeparam>
     /// <param name="objectOfDomain">The object of domain.</param>
-    public static bool IsType<TClass>(this object objectOfDomain) where TClass : class
-    {
-        return (objectOfDomain as TClass) != null;
-    }
+    public static bool IsType<TClass>(this object objectOfDomain) where TClass : class =>
+        (objectOfDomain as TClass) != null;
 
     /// <summary>
     /// Boxes the value in object or returns <see cref="DBNull"/>.
     /// </summary>
     /// <param name="objectOfDomain">The object of domain.</param>
-    public static object ToObjectOrDBNull(this object objectOfDomain)
-    {
-        return objectOfDomain ?? DBNull.Value;
-    }
+    public static object ToObjectOrDbNull(this object? objectOfDomain) => objectOfDomain ?? DBNull.Value;
 }

@@ -1,9 +1,9 @@
-﻿using Songhay.Diagnostics;
-using Songhay.Extensions;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
+using Songhay.Diagnostics;
+using Songhay.Extensions;
 
 namespace Songhay;
 
@@ -15,13 +15,13 @@ public static partial class ProgramFileUtility
 {
     static ProgramFileUtility()
     {
-        backSlash = '\\';
-        forwardSlash = '/';
-        isForwardSlashSystem = Path.DirectorySeparatorChar.Equals(forwardSlash);
-        traceSource = TraceSources.Instance.GetConfiguredTraceSource();
+        Backslash = '\\';
+        ForwardSlash = '/';
+        IsForwardSlashSystemField = Path.DirectorySeparatorChar.Equals(ForwardSlash);
+        TraceSource = TraceSources.Instance.GetConfiguredTraceSource();
     }
 
-    static readonly TraceSource traceSource;
+    static readonly TraceSource TraceSource;
 
     /// <summary>
     /// Counts the parent directory chars.
@@ -34,12 +34,13 @@ public static partial class ProgramFileUtility
     /// WARNING: call <see cref="NormalizePath(string)"/> to prevent incorrectly returning <c>0</c>
     /// in cross-platform scenarios.
     /// </remarks>
-    public static int CountParentDirectoryChars(string path)
+    public static int CountParentDirectoryChars(string? path)
     {
         if (string.IsNullOrWhiteSpace(path)) return default(int);
 
-        var parentDirectoryCharsPattern = string.Format(@"\.\.\{0}", Path.DirectorySeparatorChar);
+        var parentDirectoryCharsPattern = $@"\.\.\{Path.DirectorySeparatorChar}";
         var matches = Regex.Matches(path, parentDirectoryCharsPattern);
+
         return matches.Count;
     }
 
@@ -51,10 +52,8 @@ public static partial class ProgramFileUtility
     /// <param name="levels">The levels.</param>
     /// <returns></returns>
     /// <exception cref="DirectoryNotFoundException">The expected directory is not here.</exception>
-    public static string FindParentDirectory(string path, string parentName, int levels)
-    {
-        return FindParentDirectoryInfo(path, parentName, levels)?.FullName;
-    }
+    public static string? FindParentDirectory(string? path, string? parentName, int levels) =>
+        FindParentDirectoryInfo(path, parentName, levels)?.FullName;
 
     /// <summary>
     /// Finds the parent <see cref="DirectoryInfo"/>.
@@ -64,7 +63,7 @@ public static partial class ProgramFileUtility
     /// <param name="levels">The levels.</param>
     /// <returns></returns>
     /// <exception cref="DirectoryNotFoundException">The expected directory is not here.</exception>
-    public static DirectoryInfo FindParentDirectoryInfo(string path, string parentName, int levels)
+    public static DirectoryInfo? FindParentDirectoryInfo(string? path, string? parentName, int levels)
     {
         if (string.IsNullOrWhiteSpace(path)) throw new DirectoryNotFoundException("The expected directory is not here.");
 
@@ -72,7 +71,7 @@ public static partial class ProgramFileUtility
 
         var isParent = (info.Name == parentName);
         var hasNullParent = (info.Parent == null);
-        var hasTargetParent = !hasNullParent && (info.Parent.Name == parentName);
+        var hasTargetParent = !hasNullParent && (info.Parent?.Name == parentName);
 
         if (!info.Exists) return null;
         if (isParent) return info;
@@ -84,9 +83,7 @@ public static partial class ProgramFileUtility
 
         var hasNoMoreLevels = (levels == 0);
 
-        if (hasNoMoreLevels) return null;
-
-        return FindParentDirectoryInfo(info.Parent.FullName, parentName, levels);
+        return hasNoMoreLevels ? null : FindParentDirectoryInfo(info.Parent?.FullName, parentName, levels);
     }
 
     /// <summary>Combines path and root based
@@ -104,17 +101,17 @@ public static partial class ProgramFileUtility
     /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/32
     /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/97
     /// </remarks>
-    public static string GetCombinedPath(string root, string path)
+    public static string GetCombinedPath(string? root, string? path)
     {
-        if (string.IsNullOrWhiteSpace(root)) throw new NullReferenceException($"The expected {nameof(root)} is not here.");
-        if (string.IsNullOrWhiteSpace(path)) throw new NullReferenceException($"The expected {nameof(path)} is not here.");
+        if (string.IsNullOrWhiteSpace(root)) throw new ArgumentNullException(nameof(root));
+        if (string.IsNullOrWhiteSpace(path)) throw new ArgumentNullException(nameof(path));
 
         path = GetRelativePath(path);
 
         return Path.IsPathRooted(path) ?
             path
             :
-            Path.Combine(NormalizePath(root), path);
+            Path.Combine(NormalizePath(root)!, path!);
     }
 
     /// <summary>Combines path and root based
@@ -140,19 +137,19 @@ public static partial class ProgramFileUtility
     /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/32
     /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/97
     /// </remarks>
-    public static string GetCombinedPath(string root, string path, bool fileIsExpected)
+    public static string GetCombinedPath(string? root, string? path, bool fileIsExpected)
     {
-        var combinedPath = ProgramFileUtility.GetCombinedPath(root, path);
+        var combinedPath = GetCombinedPath(root, path);
 
         if(fileIsExpected)
         {
             if (!File.Exists(combinedPath))
-                throw new FileNotFoundException($"The expected file, `{combinedPath ?? "[null]"}`, is not here.");
+                throw new FileNotFoundException($"The expected file, `{combinedPath}`, is not here.");
         }
         else
         {
             if (!Directory.Exists(combinedPath))
-                throw new DirectoryNotFoundException($"The expected directory, `{combinedPath ?? "[null]"}`, is not here.");
+                throw new DirectoryNotFoundException($"The expected directory, `{combinedPath}`, is not here.");
         }
 
         return combinedPath;
@@ -167,7 +164,7 @@ public static partial class ProgramFileUtility
     /// <remarks>
     /// A recursive wrapper for <see cref="Directory.GetParent(string)"/>.
     /// </remarks>
-    public static string GetParentDirectory(string path, int levels)
+    public static string? GetParentDirectory(string? path, int levels)
     {
         if (string.IsNullOrWhiteSpace(path)) return path;
 
@@ -179,8 +176,8 @@ public static partial class ProgramFileUtility
         path = info.FullName;
 
         --levels;
-        if (levels >= 1) return GetParentDirectory(path, levels);
-        return path;
+
+        return levels >= 1 ? GetParentDirectory(path, levels) : path;
     }
 
     /// <summary>
@@ -192,7 +189,7 @@ public static partial class ProgramFileUtility
     /// <remarks>
     /// A recursive wrapper for <see cref="Directory.GetParent(string)"/>.
     /// </remarks>
-    public static DirectoryInfo GetParentDirectoryInfo(string path, int levels)
+    public static DirectoryInfo? GetParentDirectoryInfo(string? path, int levels)
     {
         if (string.IsNullOrWhiteSpace(path)) return null;
 
@@ -222,7 +219,7 @@ public static partial class ProgramFileUtility
     ///  * <see cref="RemoveBackslashPrefixes(string)"/>
     ///  * <see cref="RemoveForwardslashPrefixes(string)"/>
     /// </remarks>
-    public static string GetRelativePath(string fileSegment)
+    public static string? GetRelativePath(string? fileSegment)
     {
         if (string.IsNullOrWhiteSpace(fileSegment)) throw new ArgumentNullException(nameof(fileSegment));
 
@@ -239,10 +236,7 @@ public static partial class ProgramFileUtility
     /// uses forward-slash (<c>/</c>) paths or not.
     /// </summary>
     /// <returns></returns>
-    public static bool IsForwardSlashSystem()
-    {
-        return isForwardSlashSystem;
-    }
+    public static bool IsForwardSlashSystem() => IsForwardSlashSystemField;
 
     /// <summary>
     /// Normalizes the specified path with respect
@@ -250,14 +244,14 @@ public static partial class ProgramFileUtility
     /// </summary>
     /// <param name="path"></param>
     /// <returns></returns>
-    public static string NormalizePath(string path)
+    public static string? NormalizePath(string? path)
     {
         if (string.IsNullOrWhiteSpace(path)) return null;
 
-        return isForwardSlashSystem ?
-            path.Replace(backSlash, forwardSlash)
+        return IsForwardSlashSystemField ?
+            path.Replace(Backslash, ForwardSlash)
             :
-            path.Replace(forwardSlash, backSlash);
+            path.Replace(ForwardSlash, Backslash);
     }
 
     /// <summary>
@@ -266,11 +260,11 @@ public static partial class ProgramFileUtility
     /// </summary>
     /// <param name="path"></param>
     /// <returns></returns>
-    public static string RemoveBackslashPrefixes(string path) =>
+    public static string? RemoveBackslashPrefixes(string? path) =>
         path?
-            .TrimStart(backSlash)
-            .Replace($"..{backSlash}", string.Empty)
-            .Replace($".{backSlash}", string.Empty);
+            .TrimStart(Backslash)
+            .Replace($"..{Backslash}", string.Empty)
+            .Replace($".{Backslash}", string.Empty);
 
     /// <summary>
     /// Removes conventional Directory prefixes
@@ -279,8 +273,8 @@ public static partial class ProgramFileUtility
     /// </summary>
     /// <param name="path"></param>
     /// <returns></returns>
-    public static string RemoveConventionalPrefixes(string path) =>
-        isForwardSlashSystem ?
+    public static string? RemoveConventionalPrefixes(string? path) =>
+        IsForwardSlashSystemField ?
             RemoveForwardslashPrefixes(path)
             :
             RemoveBackslashPrefixes(path);
@@ -291,11 +285,11 @@ public static partial class ProgramFileUtility
     /// </summary>
     /// <param name="path"></param>
     /// <returns></returns>
-    public static string RemoveForwardslashPrefixes(string path) =>
+    public static string? RemoveForwardslashPrefixes(string? path) =>
         path?
-            .TrimStart(forwardSlash)
-            .Replace($"..{forwardSlash}", string.Empty)
-            .Replace($".{forwardSlash}", string.Empty);
+            .TrimStart(ForwardSlash)
+            .Replace($"..{ForwardSlash}", string.Empty)
+            .Replace($".{ForwardSlash}", string.Empty);
 
     /// <summary>
     /// Trims the leading directory separator chars.
@@ -306,13 +300,10 @@ public static partial class ProgramFileUtility
     /// Trims leading <see cref="Path.AltDirectorySeparatorChar"/> and/or <see cref="Path.DirectorySeparatorChar"/>,
     /// formatting relative paths for <see cref="Path.Combine(string, string)"/>.
     /// </remarks>
-    public static string TrimLeadingDirectorySeparatorChars(string path)
-    {
-        if (string.IsNullOrWhiteSpace(path)) return path;
-        return path.TrimStart(new[] { backSlash, forwardSlash });
-    }
+    public static string? TrimLeadingDirectorySeparatorChars(string? path) =>
+        string.IsNullOrWhiteSpace(path) ? path : path.TrimStart(Backslash, ForwardSlash);
 
-    static readonly bool isForwardSlashSystem;
-    static readonly char backSlash;
-    static readonly char forwardSlash;
+    static readonly bool IsForwardSlashSystemField;
+    static readonly char Backslash;
+    static readonly char ForwardSlash;
 }

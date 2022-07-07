@@ -14,12 +14,13 @@ public static class MenuDisplayItemModelExtensions
     /// Returns <c>true</c> when the grouping has the specified identifier.
     /// </summary>
     /// <param name="data"></param>
-    /// <param name="GroupId"></param>
+    /// <param name="groupId"></param>
     /// <returns></returns>
-    public static bool HasGroupId(this MenuDisplayItemModel data, string GroupId)
+    public static bool HasGroupId(this MenuDisplayItemModel? data, string groupId)
     {
         if (data == null) return false;
-        return data.GroupId.EqualsInvariant(GroupId);
+
+        return !string.IsNullOrWhiteSpace(groupId) && data.GroupId.EqualsInvariant(groupId);
     }
 
     /// <summary>
@@ -28,18 +29,15 @@ public static class MenuDisplayItemModelExtensions
     /// or the First <see cref="MenuDisplayItemModel"/>.
     /// </summary>
     /// <param name="data">The data.</param>
-    public static MenuDisplayItemModel DefaultOrFirst(this IEnumerable<MenuDisplayItemModel> data)
+    public static MenuDisplayItemModel? DefaultOrFirst(this IEnumerable<MenuDisplayItemModel>? data)
     {
         if (data == null) return null;
 
-        if (data.Where(i => i.IsDefaultSelection == true).Count() > 0)
-        {
-            return data.FirstOrDefault(i => i.IsDefaultSelection == true);
-        }
-        else
-        {
-            return data.FirstOrDefault();
-        }
+        var snapshot = data as MenuDisplayItemModel[] ?? data.ToArray();
+
+        return snapshot.Any(i => i.IsDefaultSelection == true)
+            ? snapshot.FirstOrDefault(i => i.IsDefaultSelection == true)
+            : snapshot.FirstOrDefault();
     }
 
     /// <summary>
@@ -47,11 +45,13 @@ public static class MenuDisplayItemModelExtensions
     /// </summary>
     /// <param name="data">The data.</param>
     /// <param name="child">The child.</param>
-    public static MenuDisplayItemModel WithChildItem(this MenuDisplayItemModel data, MenuDisplayItemModel child)
+    public static MenuDisplayItemModel? WithChildItem(this MenuDisplayItemModel? data, MenuDisplayItemModel? child)
     {
         if (data == null) return null;
         if (child == null) return data;
+
         data.ChildItems = new MenuDisplayItemModel[] { child };
+
         return data;
     }
 
@@ -60,11 +60,16 @@ public static class MenuDisplayItemModelExtensions
     /// </summary>
     /// <param name="data">The data.</param>
     /// <param name="items">The items.</param>
-    public static MenuDisplayItemModel WithChildItems(this MenuDisplayItemModel data, IEnumerable<MenuDisplayItemModel> items)
+    public static MenuDisplayItemModel? WithChildItems(this MenuDisplayItemModel? data,
+        IEnumerable<MenuDisplayItemModel>? items)
     {
         if (data == null) return null;
         if (items == null) return data;
-        data.ChildItems = items.ToArray();
+
+        var snapshot = items as MenuDisplayItemModel[] ?? items.ToArray();
+
+        data.ChildItems = snapshot.ToArray();
+
         return data;
     }
 }
