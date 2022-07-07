@@ -13,7 +13,7 @@ public class ActivityOutput<TOutput>
     /// <value>
     /// The output.
     /// </value>
-    public TOutput Output { get; set; }
+    public TOutput? Output { get; set; }
 
     /// <summary>
     /// Gets or sets the log.
@@ -21,5 +21,5 @@ public class ActivityOutput<TOutput>
     /// <value>
     /// The log.
     /// </value>
-    public string Log { get; set; }
+    public string? Log { get; set; }
 }

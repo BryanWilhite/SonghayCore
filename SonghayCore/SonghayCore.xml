@@ -60,7 +60,7 @@
             <param name="name">The name.</param>
             <returns></returns>
         </member>
-        <member name="P:Songhay.Diagnostics.TraceSources.NestedTraceSources">
+        <member name="P:Songhay.Diagnostics.TraceSources.Instance">
             <summary>
             Gets the instance.
             </summary>
@@ -68,34 +68,29 @@
             The instance.
             </value>
         </member>
-        <member name="T:Songhay.CsvParseException">
+        <member name="T:Songhay.Exceptions.CsvParseException">
             <summary>
             Exception for CSV parsing
             in <see cref="M:Songhay.Extensions.StringExtensions.CsvSplit(System.String)"/>.
             </summary>
         </member>
-        <member name="M:Songhay.CsvParseException.#ctor">
+        <member name="M:Songhay.Exceptions.CsvParseException.#ctor(System.String,System.Exception)">
             <summary>
-            Initializes a new instance of the <see cref="T:Songhay.CsvParseException"/> class.
-            </summary>
-        </member>
-        <member name="M:Songhay.CsvParseException.#ctor(System.String,System.Exception)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.CsvParseException"/> class.
+            Initializes a new instance of the <see cref="T:Songhay.Exceptions.CsvParseException"/> class.
             </summary>
             <param name="message">The message.</param>
             <param name="innerException">The inner exception.</param>
         </member>
-        <member name="M:Songhay.CsvParseException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+        <member name="M:Songhay.Exceptions.CsvParseException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:Songhay.CsvParseException"/> class.
+            Initializes a new instance of the <see cref="T:Songhay.Exceptions.CsvParseException"/> class.
             </summary>
             <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
             <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
         </member>
-        <member name="M:Songhay.CsvParseException.#ctor(System.String)">
+        <member name="M:Songhay.Exceptions.CsvParseException.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Songhay.CsvParseException"/> class.
+            Initializes a new instance of the <see cref="T:Songhay.Exceptions.CsvParseException"/> class.
             </summary>
             <param name="message">The message.</param>
         </member>
@@ -1274,20 +1269,24 @@
             <param name="proxyLocation">The proxy location</param>
             <param name="bypassProxy">when <c>true</c>, bypass proxy</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Uri,System.Collections.Hashtable)">
+        <member name="M:Songhay.Extensions.HttpWebRequestExtensions.EnsureHttpWebResponse(System.Net.HttpWebResponse)">
+            <summary>
+            Verifies existence of the <see cref="T:System.Net.HttpWebResponse"/>.
+            </summary>
+            <param name="response">The request.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Collections.Hashtable)">
             <summary>
             Posts the form.
             </summary>
             <param name="request">The request.</param>
-            <param name="resourceIndicator">The resource indicator.</param>
             <param name="postData">The post data.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Uri,System.Collections.Hashtable,System.Uri,System.Boolean)">
+        <member name="M:Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Collections.Hashtable,System.Uri,System.Boolean)">
             <summary>
             Posts the form.
             </summary>
             <param name="request">The request.</param>
-            <param name="resourceIndicator">The resource indicator.</param>
             <param name="postData">The post data.</param>
             <param name="proxyLocation">The proxy location.</param>
             <param name="bypassProxy">if set to <c>true</c> [bypass proxy].</param>
@@ -1339,12 +1338,16 @@
             <param name="request">The request.</param>
             <param name="requestBody">The request body.</param>
             <param name="requestMethod">The request method.</param>
+        </member>
+        <member name="M:Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest,System.String,System.String,System.String)">
+            <summary>
+            Returns <see cref="T:System.Net.HttpWebRequest" /> with the request body.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="requestMethod">The request method.</param>
+            <param name="contentType">The request content type.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentNullException">
-            requestBody
-            or
-            method
-            </exception>
         </member>
         <member name="T:Songhay.Extensions.IActivityExtensions">
             <summary>
@@ -1665,53 +1668,6 @@
             <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>; otherwise, <c>null</c>.</returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
-        <member name="T:Songhay.Extensions.IConfigurationBuilderExtensions">
-            <summary>
-            Extension of <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>.
-            </summary>
-        </member>
-        <member name="F:Songhay.Extensions.IConfigurationBuilderExtensions.defaultSettingsFileName">
-            <summary>
-            The default settings file name
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.IConfigurationBuilderExtensions.WithSettingsJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)">
-            <summary>
-            Builds <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>
-            with the conventional settings json file.
-            </summary>
-            <param name="builder">The builder.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentException"></exception>
-        </member>
-        <member name="M:Songhay.Extensions.IConfigurationBuilderExtensions.WithSettingsJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder,System.String)">
-            <summary>
-            Builds <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder" />
-            with the conventional settings json file.
-            </summary>
-            <param name="builder">The builder.</param>
-            <param name="basePath">The base path.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentException"></exception>
-        </member>
-        <member name="M:Songhay.Extensions.IConfigurationBuilderExtensions.WithSettingsJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder,System.String,System.String)">
-             <summary>
-             Builds <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder" />
-             with the conventional settings json file.
-             </summary>
-             <param name="builder">The builder.</param>
-             <param name="basePath">The base path.</param>
-             <param name="settingsFileName">Name of the settings file.</param>
-             <returns></returns>
-             <exception cref="T:System.ArgumentException"></exception>
-             <remarks>
-             When <c>basePath</c> is missing, this member group will not call
-             <see cref="M:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath(Microsoft.Extensions.Configuration.IConfigurationBuilder,System.String)"/>
-             unless the command-line argument <see cref="F:Songhay.Models.ProgramArgs.BasePath"/> is set and is valid.
-            
-             When <see cref="F:Songhay.Models.ProgramArgs.SettingsFile"/> is not specified then <see cref="F:Songhay.Extensions.IConfigurationBuilderExtensions.defaultSettingsFileName"/> will be used.
-             </remarks>
-        </member>
         <member name="T:Songhay.Extensions.IDictionaryExtensions">
             <summary>
             Extensions of <see cref="T:System.Collections.Generic.IDictionary`2"/>
@@ -1759,6 +1715,10 @@
             <summary>
             Extensions of <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
             </summary>
+            <remarks>
+            When this ‘greatest hits collection’ is found to be limited,
+            upgrade to MoreLinq [ see https://github.com/morelinq/MoreLINQ ]
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.IEnumerableOfTExtensions.Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})">
             <summary>
@@ -1767,6 +1727,12 @@
             <typeparam name="TSource">The type of the source.</typeparam>
             <param name="source">The source.</param>
             <param name="childGetter">The child getter.</param>
+            <remarks>
+            When <c>source</c> is not already an array,
+            this member will mercilessly allocate a snapshot of <c>TSource[]</c>.
+            To avoid this memory pressure, upgrade to the <c>Flatten</c> method
+            of MoreLinq [ see https://github.com/morelinq/MoreLINQ/blob/master/MoreLinq/Flatten.cs#L91 ]
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.IEnumerableOfTExtensions.Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}},``0)">
             <summary>
@@ -1793,12 +1759,18 @@
             —Eric Lippert, “foreach” vs “ForEach” [http://blogs.msdn.com/b/ericlippert/archive/2009/05/18/foreach-vs-foreach.aspx]
             </remarks>
         </member>
-        <member name="M:Songhay.Extensions.IEnumerableOfTExtensions.IsEnumerableType``1(System.Object)">
+        <member name="M:Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})">
             <summary>
-            Determines whether this instance is enumerable.
+            Performs the <see cref="T:System.Action"/>
+            on each item in the enumerable object.
             </summary>
             <typeparam name="TEnumerable">The type of the enumerable.</typeparam>
-            <param name="data">The data.</param>
+            <param name="enumerable">The enumerable.</param>
+            <param name="action">The action.</param>
+            <remarks>
+            This member is ruthlessly derived from <c>MoreLinq.ForEach{T}</c>
+            [ see https://github.com/morelinq/MoreLINQ/blob/master/MoreLinq/ForEach.cs#L50 ].
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.IEnumerableOfTExtensions.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
             <summary>
@@ -1854,25 +1826,15 @@
             Converts the <see cref="T:System.Collections.Generic.IEnumerable`1"/> into a display string.
             </summary>
             <typeparam name="TSource">The type of the source.</typeparam>
-            <param name="data">The data.</param>
+            <param name="data">The source.</param>
         </member>
         <member name="M:Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString``1(System.Collections.Generic.IEnumerable{``0},System.Byte)">
             <summary>
             Converts the <see cref="T:System.Collections.Generic.IEnumerable`1"/> into a display string.
             </summary>
             <typeparam name="TSource">The type of the source.</typeparam>
-            <param name="data">The data.</param>
+            <param name="source">The source.</param>
             <param name="indent">The indent.</param>
-        </member>
-        <member name="T:Songhay.Extensions.IIdentityExtensions">
-            <summary>
-            Extensions of <see cref="T:System.Security.Principal.IIdentity"/>.
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.IIdentityExtensions.GetWindowsUserName(System.Security.Principal.IIdentity)">
-            <summary>
-            Gets the name of the windows user.
-            </summary>
         </member>
         <member name="T:Songhay.Extensions.ITemporalExtensions">
             <summary>
@@ -4243,6 +4205,11 @@
         <member name="F:Songhay.Models.MimeTypes.TextPlain">
             <summary>
             The text plain
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.MimeTypes.TextXml">
+            <summary>
+            The text HTML
             </summary>
         </member>
         <member name="T:Songhay.Models.NameValuePair">

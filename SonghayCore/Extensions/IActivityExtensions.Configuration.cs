@@ -7,6 +7,7 @@ namespace Songhay.Extensions;
 /// <summary>
 /// Extensions of <see cref="IActivity"/>
 /// </summary>
+// ReSharper disable once InconsistentNaming
 public static partial class IActivityExtensions
 {
     /// <summary>
@@ -16,13 +17,13 @@ public static partial class IActivityExtensions
     /// <param name="configuration">The configuration.</param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">activity</exception>
-    public static IActivity WithConfiguration(this IActivity activity, IConfigurationRoot configuration)
+    public static IActivity WithConfiguration(this IActivity? activity, IConfigurationRoot? configuration)
     {
         if (activity == null) throw new ArgumentNullException(nameof(activity));
         if (configuration == null) return activity;
 
-        var activityWithConfiguration = activity as IActivityConfigurationSupport;
-        if (activityWithConfiguration == null) return activity;
+        // ReSharper disable once SuspiciousTypeConversion.Global
+        if (activity is not IActivityConfigurationSupport activityWithConfiguration) return activity;
 
         activityWithConfiguration.AddConfiguration(configuration);
 

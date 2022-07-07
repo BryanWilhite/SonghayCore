@@ -6,6 +6,7 @@ namespace Songhay.Extensions;
 /// <summary>
 /// Extensions of <see cref="ITemporal"/>
 /// </summary>
+// ReSharper disable once InconsistentNaming
 public static class ITemporalExtensions
 {
     /// <summary>
@@ -24,7 +25,7 @@ public static class ITemporalExtensions
     /// </summary>
     /// <param name="data">the <see cref="ITemporal"/> data</param>
     /// <param name="endDate">sets <see cref="ITemporal.EndDate"/></param>
-    public static void SetDefaults(this ITemporal data, DateTime? endDate)
+    public static void SetDefaults(this ITemporal? data, DateTime? endDate)
     {
         if (data == null) return;
 

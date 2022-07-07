@@ -7,6 +7,7 @@ namespace Songhay.Extensions;
 /// <summary>
 /// Extensions of <see cref="IDictionary{TKey, TValue}"/>
 /// </summary>
+// ReSharper disable once InconsistentNaming
 public static class IDictionaryExtensions
 {
     /// <summary>
@@ -26,11 +27,11 @@ public static class IDictionaryExtensions
 
         foreach (var kvp in dictionary)
         {
-            string value = null;
+            string? value = null;
             if (kvp.Value != null)
                 value = kvp.Value.ToString();
 
-            nameValueCollection.Add(kvp.Key.ToString(), value);
+            nameValueCollection.Add(kvp.Key!.ToString(), value);
         }
 
         return nameValueCollection;
@@ -46,10 +47,8 @@ public static class IDictionaryExtensions
     /// <returns></returns>
     /// <exception cref="System.ArgumentNullException">The expected dictionary is not here.</exception>
     /// <exception cref="System.NullReferenceException"></exception>
-    public static TValue TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
-    {
-        return dictionary.TryGetValueWithKey(key, throwException: false);
-    }
+    public static TValue? TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key) =>
+        dictionary.TryGetValueWithKey(key, throwException: false);
 
     /// <summary>
     /// Tries to get value with the specified key.
@@ -62,15 +61,12 @@ public static class IDictionaryExtensions
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">dictionary</exception>
     /// <exception cref="NullReferenceException"></exception>
-    public static TValue TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, bool throwException)
+    public static TValue? TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, bool throwException)
     {
         if (dictionary == null) throw new ArgumentNullException(nameof(dictionary));
-        if (!dictionary.TryGetValue(key, out var value))
-        {
-            if (throwException) throw new NullReferenceException($"The expected value from key, {key}, is not here.");
-            else return default(TValue);
+        if (dictionary.TryGetValue(key, out var value)) return value;
+        if (throwException) throw new NullReferenceException($"The expected value from key, {key}, is not here.");
 
-        }
-        return value;
+        return default;
     }
 }

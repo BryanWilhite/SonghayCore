@@ -9,6 +9,11 @@ namespace Songhay.Extensions;
 /// <summary>
 /// Extensions of <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/>.
 /// </summary>
+/// <remarks>
+/// When this ‘greatest hits collection’ is found to be limited,
+/// upgrade to MoreLinq [ see https://github.com/morelinq/MoreLINQ ]
+/// </remarks>
+// ReSharper disable once InconsistentNaming
 public static class IEnumerableOfTExtensions
 {
     /// <summary>
@@ -17,14 +22,22 @@ public static class IEnumerableOfTExtensions
     /// <typeparam name="TSource">The type of the source.</typeparam>
     /// <param name="source">The source.</param>
     /// <param name="childGetter">The child getter.</param>
-    public static IEnumerable<TSource> Flatten<TSource>(this IEnumerable<TSource> source, Func<TSource, IEnumerable<TSource>> childGetter)
+    /// <remarks>
+    /// When <c>source</c> is not already an array,
+    /// this member will mercilessly allocate a snapshot of <c>TSource[]</c>.
+    /// To avoid this memory pressure, upgrade to the <c>Flatten</c> method
+    /// of MoreLinq [ see https://github.com/morelinq/MoreLINQ/blob/master/MoreLinq/Flatten.cs#L91 ]
+    /// </remarks>
+    public static IEnumerable<TSource> Flatten<TSource>(this IEnumerable<TSource>? source, Func<TSource, IEnumerable<TSource>>? childGetter)
     {
         if (source == null) return Enumerable.Empty<TSource>();
-        var flattenedList = new List<TSource>(source);
+        var snapshot = source as TSource[] ?? source.ToArray();
 
-        source.ForEachInEnumerable(i =>
+        var flattenedList = new List<TSource>(snapshot);
+
+        snapshot.ForEachInEnumerable(i =>
         {
-            var children = childGetter(i);
+            var children = childGetter?.Invoke(i);
             if (children != null) flattenedList.AddRange(children.Flatten(childGetter));
         });
 
@@ -38,10 +51,9 @@ public static class IEnumerableOfTExtensions
     /// <param name="source">The source.</param>
     /// <param name="childGetter">The child getter.</param>
     /// <param name="flattenedHead">The flattened head.</param>
-    public static IEnumerable<TSource> Flatten<TSource>(this IEnumerable<TSource> source, Func<TSource, IEnumerable<TSource>> childGetter, TSource flattenedHead)
-    {
-        return new[] { flattenedHead }.Concat(source.Flatten(childGetter));
-    }
+    public static IEnumerable<TSource> Flatten<TSource>(this IEnumerable<TSource> source,
+        Func<TSource, IEnumerable<TSource>> childGetter, TSource flattenedHead) =>
+        new[] {flattenedHead}.Concat(source.Flatten(childGetter));
 
     /// <summary>
     /// Performs the <see cref="System.Action"/>
@@ -57,25 +69,40 @@ public static class IEnumerableOfTExtensions
     /// to this method is to cause side effects.”
     /// —Eric Lippert, “foreach” vs “ForEach” [http://blogs.msdn.com/b/ericlippert/archive/2009/05/18/foreach-vs-foreach.aspx]
     /// </remarks>
-    public static void ForEachInEnumerable<TEnumerable>(this IEnumerable<TEnumerable> enumerable, Action<TEnumerable> action)
+    public static void ForEachInEnumerable<TEnumerable>(this IEnumerable<TEnumerable>? enumerable,
+        Action<TEnumerable>? action)
     {
         if (enumerable == null) return;
         if (action == null) return;
 
         foreach (var item in enumerable)
         {
-            action(item);
+            action?.Invoke(item);
         }
     }
 
     /// <summary>
-    /// Determines whether this instance is enumerable.
+    /// Performs the <see cref="System.Action"/>
+    /// on each item in the enumerable object.
     /// </summary>
     /// <typeparam name="TEnumerable">The type of the enumerable.</typeparam>
-    /// <param name="data">The data.</param>
-    public static bool IsEnumerableType<TEnumerable>(this object data)
+    /// <param name="enumerable">The enumerable.</param>
+    /// <param name="action">The action.</param>
+    /// <remarks>
+    /// This member is ruthlessly derived from <c>MoreLinq.ForEach{T}</c>
+    /// [ see https://github.com/morelinq/MoreLINQ/blob/master/MoreLinq/ForEach.cs#L50 ].
+    /// </remarks>
+    public static void ForEachInEnumerable<TEnumerable>(this IEnumerable<TEnumerable>? enumerable,
+        Action<TEnumerable, int>? action)
     {
-        return (data as IEnumerable<TEnumerable>) != null;
+        if (enumerable == null) return;
+        if (action == null) return;
+
+        var index = 0;
+        foreach (var element in enumerable)
+        {
+            action.Invoke(element, index++);
+        }
     }
 
     /// <summary>
@@ -90,7 +117,8 @@ public static class IEnumerableOfTExtensions
     /// </remarks>
     public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> source, int size)
     {
-        T[] array = null;
+        T[]? array = null;
+
         int count = 0;
         foreach (T item in source)
         {
@@ -107,11 +135,11 @@ public static class IEnumerableOfTExtensions
                 count = 0;
             }
         }
-        if (array != null)
-        {
-            Array.Resize(ref array, count);
-            yield return new ReadOnlyCollection<T>(array);
-        }
+
+        if (array == null) yield break;
+
+        Array.Resize(ref array, count);
+        yield return new ReadOnlyCollection<T>(array);
     }
 
     /// <summary>
@@ -136,20 +164,21 @@ public static class IEnumerableOfTExtensions
     /// —Jon Skeet, “Calculate difference from previous item with LINQ”
     /// [http://stackoverflow.com/questions/3683105/calculate-difference-from-previous-item-with-linq/3683217#3683217]
     /// </remarks>
-    public static IEnumerable<TResult> SelectWithPrevious<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TSource, TResult> projection)
+    public static IEnumerable<TResult> SelectWithPrevious<TSource, TResult>(this IEnumerable<TSource> source,
+        Func<TSource, TSource, TResult> projection)
     {
-        using (var iterator = source.GetEnumerator())
+        using var iterator = source.GetEnumerator();
+
+        if (!iterator.MoveNext())
         {
-            if (!iterator.MoveNext())
-            {
-                yield break;
-            }
-            TSource previous = iterator.Current;
-            while (iterator.MoveNext())
-            {
-                yield return projection(previous, iterator.Current);
-                previous = iterator.Current;
-            }
+            yield break;
+        }
+
+        TSource previous = iterator.Current;
+        while (iterator.MoveNext())
+        {
+            yield return projection(previous, iterator.Current);
+            previous = iterator.Current;
         }
     }
 
@@ -164,35 +193,34 @@ public static class IEnumerableOfTExtensions
     /// For details, see “When To Use IEnumerable, ICollection, IList And List”
     /// [http://www.claudiobernasconi.ch/2013/07/22/when-to-use-ienumerable-icollection-ilist-and-list/]
     /// </remarks>
-    public static ICollection<TEnumerable> ToCollection<TEnumerable>(this IEnumerable<TEnumerable> enumerable)
-    {
-        if (enumerable == null) return Enumerable.Empty<TEnumerable>().ToList();
-        return enumerable.ToList();
-    }
+    public static ICollection<TEnumerable> ToCollection<TEnumerable>(this IEnumerable<TEnumerable>? enumerable) =>
+        enumerable == null ? Enumerable.Empty<TEnumerable>().ToList() : enumerable.ToList();
 
     /// <summary>
     /// Converts the <see cref="IEnumerable{TSource}"/> into a display string.
     /// </summary>
     /// <typeparam name="TSource">The type of the source.</typeparam>
-    /// <param name="data">The data.</param>
-    public static string ToDisplayString<TSource>(this IEnumerable<TSource> data) where TSource : class
-    {
-        return data.ToDisplayString<TSource>(indent: 0);
-    }
+    /// <param name="data">The source.</param>
+    public static string ToDisplayString<TSource>(this IEnumerable<TSource> data) where TSource : class =>
+        data.ToDisplayString(indent: 0);
 
     /// <summary>
     /// Converts the <see cref="IEnumerable{TSource}"/> into a display string.
     /// </summary>
     /// <typeparam name="TSource">The type of the source.</typeparam>
-    /// <param name="data">The data.</param>
+    /// <param name="source">The source.</param>
     /// <param name="indent">The indent.</param>
-    public static string ToDisplayString<TSource>(this IEnumerable<TSource> data, byte indent) where TSource : class
+    public static string ToDisplayString<TSource>(this IEnumerable<TSource> source, byte indent) where TSource : class
     {
         var indentation = string.Join(string.Empty, Enumerable.Repeat(" ", indent).ToArray());
         var builder = new StringBuilder();
 
-        if ((data != null) && (data.Any())) builder.Append($"{indentation}{data.Count()} child items:");
-        data.ForEachInEnumerable(i => builder.Append($"{Environment.NewLine}{indentation}{i}"));
+        var snapshot = source as TSource[] ?? source.ToArray();
+
+        if (snapshot.Any()) builder.Append($"{indentation}{snapshot.Length} child items:");
+
+        snapshot.ForEachInEnumerable(i => builder.Append($"{Environment.NewLine}{indentation}{i}"));
+
         if (builder.Length > 0) builder.AppendLine();
 
         return builder.ToString();
