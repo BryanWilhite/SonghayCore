@@ -3,21 +3,20 @@ using Songhay.Extensions;
 using Songhay.Models;
 using System.Diagnostics;
 
-namespace Songhay.Tests.Activities
+namespace Songhay.Tests.Activities;
+
+public class GetHelloWorldReportActivity : IActivity
 {
-    public class GetHelloWorldReportActivity : IActivity
+    static GetHelloWorldReportActivity() => traceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels();
+    static readonly TraceSource traceSource;
+
+    public string DisplayHelp(ProgramArgs args)
     {
-        static GetHelloWorldReportActivity() => traceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels();
-        static readonly TraceSource traceSource;
+        throw new System.NotImplementedException();
+    }
 
-        public string DisplayHelp(ProgramArgs args)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Start(ProgramArgs args)
-        {
-            traceSource.WriteLine("Sorry, but the Hello Worlds reports are not yet available :(");
-        }
+    public void Start(ProgramArgs args)
+    {
+        traceSource.WriteLine("Sorry, but the Hello Worlds reports are not yet available :(");
     }
 }

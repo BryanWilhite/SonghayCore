@@ -3,36 +3,35 @@ using System;
 using System.Linq;
 using Xunit;
 
-namespace Songhay.Tests.Extensions
+namespace Songhay.Tests.Extensions;
+
+public class EnumExtensionsTest
 {
-    public class EnumExtensionsTest
+    [Fact]
+    public void ShouldGetEnumValues()
     {
-        [Fact]
-        public void ShouldGetEnumValues()
-        {
-            Enum myTestEnumOne = MyTestEnum.One;
-            var values = myTestEnumOne.GetEnumValues().OfType<MyTestEnum>();
-            Assert.True(values.Any(), "The expected values are not here.");
-        }
-
-        [Fact]
-        public void ShouldGetEnumDescription()
-        {
-            Enum myTestEnumOne = MyTestEnum.One;
-
-            var expected = "this is one";
-            var actual = myTestEnumOne.GetEnumDescription();
-            Assert.Equal(expected, actual);
-        }
+        Enum myTestEnumOne = MyTestEnum.One;
+        var values = myTestEnumOne.GetEnumValues().OfType<MyTestEnum>();
+        Assert.True(values.Any(), "The expected values are not here.");
     }
 
-    enum MyTestEnum
+    [Fact]
+    public void ShouldGetEnumDescription()
     {
-        [System.ComponentModel.Description("this is one")]
-        One = 1,
-        [System.ComponentModel.Description("this is two")]
-        Two = 2,
-        [System.ComponentModel.Description("this is three")]
-        Three = 3,
+        Enum myTestEnumOne = MyTestEnum.One;
+
+        var expected = "this is one";
+        var actual = myTestEnumOne.GetEnumDescription();
+        Assert.Equal(expected, actual);
     }
+}
+
+enum MyTestEnum
+{
+    [System.ComponentModel.Description("this is one")]
+    One = 1,
+    [System.ComponentModel.Description("this is two")]
+    Two = 2,
+    [System.ComponentModel.Description("this is three")]
+    Three = 3,
 }

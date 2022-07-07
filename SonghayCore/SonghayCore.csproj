@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
     <AssemblyVersion>6.0.0</AssemblyVersion>
     <RootNamespace>Songhay</RootNamespace>
 
@@ -26,18 +27,6 @@
     <PackageVersion>$(AssemblyVersion)</PackageVersion>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <Version>$(AssemblyVersion)</Version>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net6.0;</TargetFrameworks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
-    <DefineConstants>TRACE;NETSTANDARD2_1</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
-    <DefineConstants>TRACE;NET6_0</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">

@@ -3,21 +3,19 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Songhay.Tests.Extensions
+namespace Songhay.Tests.Extensions;
+
+public class TaskExtensionsTest
 {
-
-    public class TaskExtensionsTest
+    public void ShouldDelayByOneSecond()
     {
-        public void ShouldDelayByOneSecond()
-        {
-            var thePast = DateTime.Now;
+        var thePast = DateTime.Now;
 
-            Task delayTask = null;
-            delayTask = delayTask.Delay(TimeSpan.FromSeconds(1), i =>
-            {
-                var test = DateTime.Now.Second - thePast.Second >= 1;
-                Assert.True(test, "The expected delay did not occur.");
-            });
-        }
+        Task delayTask = null;
+        delayTask = delayTask.Delay(TimeSpan.FromSeconds(1), i =>
+        {
+            var test = DateTime.Now.Second - thePast.Second >= 1;
+            Assert.True(test, "The expected delay did not occur.");
+        });
     }
 }

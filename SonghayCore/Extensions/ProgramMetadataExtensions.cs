@@ -2,34 +2,33 @@
 using System;
 using System.Collections.Generic;
 
-namespace Songhay.Extensions
+namespace Songhay.Extensions;
+
+/// <summary>
+/// Extensions of <see cref="ProgramMetadata"/>.
+/// </summary>
+public static class ProgramMetadataExtensions
 {
     /// <summary>
-    /// Extensions of <see cref="ProgramMetadata"/>.
+    /// Converts <see cref="ProgramMetadata" />
+    /// to the conventional <see cref="System.Net.Http.Headers.HttpRequestHeaders"/>.
     /// </summary>
-    public static class ProgramMetadataExtensions
+    /// <param name="meta">The <see cref="ProgramMetadata"/>.</param>
+    /// <param name="restApiMetadataSetKey">The key for <see cref="ProgramMetadata.RestApiMetadataSet"/>.</param>
+    /// <returns></returns>
+    public static Dictionary<string, string> ToConventionalHeaders(this ProgramMetadata meta, string restApiMetadataSetKey)
     {
-        /// <summary>
-        /// Converts <see cref="ProgramMetadata" />
-        /// to the conventional <see cref="System.Net.Http.Headers.HttpRequestHeaders"/>.
-        /// </summary>
-        /// <param name="meta">The <see cref="ProgramMetadata"/>.</param>
-        /// <param name="restApiMetadataSetKey">The key for <see cref="ProgramMetadata.RestApiMetadataSet"/>.</param>
-        /// <returns></returns>
-        public static Dictionary<string, string> ToConventionalHeaders(this ProgramMetadata meta, string restApiMetadataSetKey)
+        if (meta == null) throw new ArgumentNullException(nameof(meta));
+
+        var genWebApiMeta = meta.RestApiMetadataSet.TryGetValueWithKey(restApiMetadataSetKey);
+        var headers = new Dictionary<string, string>
         {
-            if (meta == null) throw new ArgumentNullException(nameof(meta));
-
-            var genWebApiMeta = meta.RestApiMetadataSet.TryGetValueWithKey(restApiMetadataSetKey);
-            var headers = new Dictionary<string, string>
             {
-                {
-                    genWebApiMeta.ClaimsSet.TryGetValueWithKey(RestApiMetadata.ClaimsSetHeaderApiKey),
-                    genWebApiMeta.ApiKey
-                }
-            };
+                genWebApiMeta.ClaimsSet.TryGetValueWithKey(RestApiMetadata.ClaimsSetHeaderApiKey),
+                genWebApiMeta.ApiKey
+            }
+        };
 
-            return headers;
-        }
+        return headers;
     }
 }

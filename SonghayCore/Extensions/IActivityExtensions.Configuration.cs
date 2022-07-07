@@ -2,31 +2,30 @@
 using Songhay.Models;
 using System;
 
-namespace Songhay.Extensions
+namespace Songhay.Extensions;
+
+/// <summary>
+/// Extensions of <see cref="IActivity"/>
+/// </summary>
+public static partial class IActivityExtensions
 {
     /// <summary>
-    /// Extensions of <see cref="IActivity"/>
+    /// Returns <see cref="IActivity"/> with <see cref="IConfigurationRoot"/> added when available.
     /// </summary>
-    public static partial class IActivityExtensions
+    /// <param name="activity">The activity.</param>
+    /// <param name="configuration">The configuration.</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException">activity</exception>
+    public static IActivity WithConfiguration(this IActivity activity, IConfigurationRoot configuration)
     {
-        /// <summary>
-        /// Returns <see cref="IActivity"/> with <see cref="IConfigurationRoot"/> added when available.
-        /// </summary>
-        /// <param name="activity">The activity.</param>
-        /// <param name="configuration">The configuration.</param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException">activity</exception>
-        public static IActivity WithConfiguration(this IActivity activity, IConfigurationRoot configuration)
-        {
-            if (activity == null) throw new ArgumentNullException(nameof(activity));
-            if (configuration == null) return activity;
+        if (activity == null) throw new ArgumentNullException(nameof(activity));
+        if (configuration == null) return activity;
 
-            var activityWithConfiguration = activity as IActivityConfigurationSupport;
-            if (activityWithConfiguration == null) return activity;
+        var activityWithConfiguration = activity as IActivityConfigurationSupport;
+        if (activityWithConfiguration == null) return activity;
 
-            activityWithConfiguration.AddConfiguration(configuration);
+        activityWithConfiguration.AddConfiguration(configuration);
 
-            return activity;
-        }
+        return activity;
     }
 }

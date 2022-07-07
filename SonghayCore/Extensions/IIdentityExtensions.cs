@@ -2,23 +2,22 @@
 using System.Linq;
 using System.Security.Principal;
 
-namespace Songhay.Extensions
+namespace Songhay.Extensions;
+
+/// <summary>
+/// Extensions of <see cref="IIdentity"/>.
+/// </summary>
+public static class IIdentityExtensions
 {
     /// <summary>
-    /// Extensions of <see cref="IIdentity"/>.
+    /// Gets the name of the windows user.
     /// </summary>
-    public static class IIdentityExtensions
+    public static string GetWindowsUserName(this IIdentity id)
     {
-        /// <summary>
-        /// Gets the name of the windows user.
-        /// </summary>
-        public static string GetWindowsUserName(this IIdentity id)
-        {
-            if (id == null) return null;
+        if (id == null) return null;
 
-            var ntlmUserName = id.Name;
-            if (string.IsNullOrWhiteSpace(ntlmUserName)) throw new ArgumentNullException(nameof(ntlmUserName));
-            return ntlmUserName.Split(new char[] { '\\' }).Last();
-        }
+        var ntlmUserName = id.Name;
+        if (string.IsNullOrWhiteSpace(ntlmUserName)) throw new ArgumentNullException(nameof(ntlmUserName));
+        return ntlmUserName.Split(new char[] { '\\' }).Last();
     }
 }

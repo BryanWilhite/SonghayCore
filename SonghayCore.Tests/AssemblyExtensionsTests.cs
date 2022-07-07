@@ -2,18 +2,17 @@ using Songhay.Extensions;
 using System.IO;
 using Xunit;
 
-namespace Songhay.Tests
+namespace Songhay.Tests;
+
+public class AssemblyExtensionsTests
 {
-    public class AssemblyExtensionsTests
+    [Fact]
+    public void GetPathFromAssembly_Test()
     {
-        [Fact]
-        public void GetPathFromAssembly_Test()
-        {
-            var assembly = this.GetType().Assembly;
+        var assembly = this.GetType().Assembly;
 
-            var path = assembly.GetPathFromAssembly();
+        var path = assembly.GetPathFromAssembly();
 
-            Assert.True(Directory.Exists(path));
-        }
+        Assert.True(Directory.Exists(path));
     }
 }

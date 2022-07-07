@@ -5,95 +5,94 @@ using System.Text.Json;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Songhay.Tests.Extensions
+namespace Songhay.Tests.Extensions;
+
+public class Utf8JsonWriterExtensionsTests
 {
-    public class Utf8JsonWriterExtensionsTests
+    public Utf8JsonWriterExtensionsTests(ITestOutputHelper helper)
     {
-        public Utf8JsonWriterExtensionsTests(ITestOutputHelper helper)
+        this._testOutputHelper = helper;
+    }
+
+    [Fact]
+    public void ShouldWriteEmptyJsonObject()
+    {
+        using var stream = new MemoryStream();
+        using var writer = new Utf8JsonWriter(stream);
+
+        writer.WriteObject(writerAction: null);
+
+        writer.Flush();
+
+        string json = Encoding.UTF8.GetString(stream.ToArray());
+
+        this._testOutputHelper.WriteLine(json);
+        Assert.Equal("{}", json);
+    }
+
+    [Fact]
+    public void ShouldWriteJsonObject()
+    {
+        const string match = "match";
+        const string path = "path";
+        const string nested = "nested";
+        const string query = "query";
+
+        var options = new JsonWriterOptions
         {
-            this._testOutputHelper = helper;
-        }
+            Indented = true,
+        };
 
-        [Fact]
-        public void ShouldWriteEmptyJsonObject()
+        var pathPropertyExpectedValue = "myIndexNestedObject";
+
+        var matchPropertyName = "myIndexNestedObject.myProperty";
+        var matchPropertyExpectedValue = 99;
+
+        using var stream = new MemoryStream();
+        using var writer = new Utf8JsonWriter(stream, options);
+
+        writer.WriteObject(() =>
         {
-            using var stream = new MemoryStream();
-            using var writer = new Utf8JsonWriter(stream);
-
-            writer.WriteObject(writerAction: null);
-
-            writer.Flush();
-
-            string json = Encoding.UTF8.GetString(stream.ToArray());
-
-            this._testOutputHelper.WriteLine(json);
-            Assert.Equal("{}", json);
-        }
-
-        [Fact]
-        public void ShouldWriteJsonObject()
-        {
-            const string match = "match";
-            const string path = "path";
-            const string nested = "nested";
-            const string query = "query";
-
-            var options = new JsonWriterOptions
+            writer.WriteObject(query, () =>
             {
-                Indented = true,
-            };
-
-            var pathPropertyExpectedValue = "myIndexNestedObject";
-
-            var matchPropertyName = "myIndexNestedObject.myProperty";
-            var matchPropertyExpectedValue = 99;
-
-            using var stream = new MemoryStream();
-            using var writer = new Utf8JsonWriter(stream, options);
-
-            writer.WriteObject(() =>
-            {
-                writer.WriteObject(query, () =>
+                writer.WriteObject(nested, () =>
                 {
-                    writer.WriteObject(nested, () =>
-                    {
-                        writer.WriteString(path, pathPropertyExpectedValue);
+                    writer.WriteString(path, pathPropertyExpectedValue);
 
-                        writer.WriteObject(query, () =>
+                    writer.WriteObject(query, () =>
+                    {
+                        writer.WriteObject(match, () =>
                         {
-                            writer.WriteObject(match, () =>
-                            {
-                                writer.WriteNumber(matchPropertyName, matchPropertyExpectedValue);
-                            });
+                            writer.WriteNumber(matchPropertyName, matchPropertyExpectedValue);
                         });
                     });
                 });
             });
+        });
 
-            writer.Flush();
+        writer.Flush();
 
-            string json = Encoding.UTF8.GetString(stream.ToArray());
-            using var jDocument = JsonDocument.Parse(json);
+        string json = Encoding.UTF8.GetString(stream.ToArray());
+        using var jDocument = JsonDocument.Parse(json);
 
-            this._testOutputHelper.WriteLine(json);
+        this._testOutputHelper.WriteLine(json);
 
-            var pathProperty = jDocument.RootElement
-                .GetProperty(query)
-                .GetProperty(nested)
-                .GetProperty(path);
+        var pathProperty = jDocument.RootElement
+            .GetProperty(query)
+            .GetProperty(nested)
+            .GetProperty(path);
 
-            Assert.Equal(pathProperty.GetString(), pathPropertyExpectedValue);
+        Assert.Equal(pathProperty.GetString(), pathPropertyExpectedValue);
 
-            var matchProperty = jDocument.RootElement
-                .GetProperty(query)
-                .GetProperty(nested)
-                .GetProperty(query)
-                .GetProperty(match)
-                .GetProperty(matchPropertyName);
+        var matchProperty = jDocument.RootElement
+            .GetProperty(query)
+            .GetProperty(nested)
+            .GetProperty(query)
+            .GetProperty(match)
+            .GetProperty(matchPropertyName);
 
-            Assert.Equal(matchProperty.GetInt32(), matchPropertyExpectedValue);
-        }
-
-        ITestOutputHelper _testOutputHelper;
+        Assert.Equal(matchProperty.GetInt32(), matchPropertyExpectedValue);
     }
+
+    ITestOutputHelper _testOutputHelper;
 }

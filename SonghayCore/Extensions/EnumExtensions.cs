@@ -4,40 +4,40 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 
-namespace Songhay.Extensions
+namespace Songhay.Extensions;
+
+/// <summary>
+/// Extensions of <see cref="Enum"/>.
+/// </summary>
+public static class EnumExtensions
 {
     /// <summary>
-    /// Extensions of <see cref="Enum"/>.
+    /// Gets the enum description.
     /// </summary>
-    public static class EnumExtensions
+    /// <param name="value">The value.</param>
+    public static string? GetEnumDescription(this Enum value)
     {
-        /// <summary>
-        /// Gets the enum description.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        public static string? GetEnumDescription(this Enum value)
-        {
-            var enumType = value.GetType();
-            var enumName = Enum.GetName(enumType, value);
-            if (enumName == null) return null;
+        var enumType = value.GetType();
+        var enumName = Enum.GetName(enumType, value);
+        if (enumName == null) return null;
 
-            FieldInfo field = enumType.GetField(enumName);
-            if (field == null) return null;
+        FieldInfo? field = enumType.GetField(enumName);
+        if (field == null) return null;
 
-            var attr = Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) as DescriptionAttribute;
+        var attr = Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) as DescriptionAttribute;
 
-            return attr?.Description;
-        }
+        return attr?.Description;
+    }
 
-        /// <summary>
-        /// Gets the enum values.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        public static IEnumerable<Enum> GetEnumValues(this Enum value)
-        {
-            var enumType = value.GetType();
-            var enums = Enum.GetValues(enumType).OfType<Enum>();
-            return enums;
-        }
+    /// <summary>
+    /// Gets the enum values.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    public static IEnumerable<Enum> GetEnumValues(this Enum value)
+    {
+        var enumType = value.GetType();
+        var enums = Enum.GetValues(enumType).OfType<Enum>();
+
+        return enums;
     }
 }

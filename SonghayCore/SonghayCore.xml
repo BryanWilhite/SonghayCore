@@ -60,7 +60,7 @@
             <param name="name">The name.</param>
             <returns></returns>
         </member>
-        <member name="P:Songhay.Diagnostics.TraceSources.Instance">
+        <member name="P:Songhay.Diagnostics.TraceSources.NestedTraceSources">
             <summary>
             Gets the instance.
             </summary>
@@ -955,7 +955,7 @@
             Extensions of <see cref="T:System.Net.Http.HttpRequestMessage"/>
             </summary>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String,System.String)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String,System.String)">
              <summary>
              Derives the <see cref="T:System.Net.Http.Headers.AuthenticationHeaderValue"/>
              from the <see cref="T:System.Net.Http.HttpRequestMessage"/>.
@@ -963,7 +963,6 @@
              <param name="request">the <see cref="T:System.Net.Http.HttpRequestMessage"/></param>
              <param name="storageAccountName">the Azure Storage account name</param>
              <param name="storageAccountKey">the Azure Storage account shared key</param>
-             <param name="requestMoment">the moment of the request</param>
              <param name="eTag">entity tag for Web cache validation</param>
              <param name="md5">The MD5 (message-digest algorithm) hash</param>
              <returns></returns>
@@ -977,9 +976,11 @@
             
              See also: https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
             
-             Provide the md5 and it will check and make sure it matches the requested blob's md5. If it doesn't match, it won't return a value.
+             Provide the md5 and it will check and make sure it matches the requested blob's md5.
+             If it doesn't match, it won't return a value.
             
-             Provide an eTag, and it will only make changes to a blob if the current eTag matches, to ensure you don't overwrite someone else's changes.
+             Provide an eTag, and it will only make changes to a blob if the current eTag matches,
+             to ensure you don't overwrite someone else's changes.
              </remarks>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders(System.Net.Http.HttpRequestMessage)">
@@ -1178,7 +1179,6 @@
             </summary>
             <param name="response">The response.</param>
             <param name="fileInfo">The file information.</param>
-            <exception cref="T:System.NullReferenceException">The expected {nameof(FileSystemInfo)} is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpResponseMessageExtensions.DownloadByteArrayToFileAsync(System.Net.Http.HttpResponseMessage,System.String)">
             <summary>
@@ -2593,7 +2593,7 @@
             <summary>
             Delays with a <see cref="T:System.Threading.Timer"/> task for the specified <see cref="T:System.TimeSpan"/>.
             </summary>
-            <param name="task">Instance of </param>
+            <param name="task">NestedTraceSources of </param>
             <param name="timeSpan">The specified timespan</param>
             <param name="actionAfterDelay">The continuation action</param>
         </member>
@@ -2601,7 +2601,7 @@
              <summary>
              Delays with a <see cref="T:System.Threading.Timer"/> task for the specified <see cref="T:System.TimeSpan"/>.
              </summary>
-             <param name="task">Instance of </param>
+             <param name="task">NestedTraceSources of </param>
              <param name="timeSpan">The specified timespan</param>
              <param name="actionAfterDelay">The continuation action</param>
              <param name="schedulerAfterDelay">Work-queue scheduler</param>

@@ -4,39 +4,38 @@ using System.Text;
 using System.Xml;
 using Xunit;
 
-namespace Songhay.Tests
+namespace Songhay.Tests;
+
+public class XmlUtilityTest
 {
-    public class XmlUtilityTest
+    [Fact]
+    public void ShouldGetNavigableDocument()
     {
-        [Fact]
-        public void ShouldGetNavigableDocument()
+        var ms = new MemoryStream();
+        try
         {
-            var ms = new MemoryStream();
-            try
+            using (var writer = XmlWriter.Create(ms, new XmlWriterSettings
+                   {
+                       Encoding = UTF8Encoding.UTF8
+                   }))
             {
-                using (var writer = XmlWriter.Create(ms, new XmlWriterSettings
-                {
-                    Encoding = UTF8Encoding.UTF8
-                }))
-                {
-                    writer.WriteStartDocument();
-                    writer.WriteStartElement("DocumentData");
-                    writer.WriteFullEndElement();
-                    writer.WriteEndDocument();
-                    writer.Flush();
-                }
-
-                var doc = XmlUtility.GetNavigableDocument(ms);
-                Assert.NotNull(doc);
-
-                var nav = doc.CreateNavigator();
-                nav.MoveToFirstChild();
-                Assert.Equal("DocumentData", nav.LocalName);
+                writer.WriteStartDocument();
+                writer.WriteStartElement("DocumentData");
+                writer.WriteFullEndElement();
+                writer.WriteEndDocument();
+                writer.Flush();
             }
-            finally
-            {
-                ms?.Dispose();
-            }
+
+            var doc = XmlUtility.GetNavigableDocument(ms);
+            Assert.NotNull(doc);
+
+            var nav = doc.CreateNavigator();
+            nav.MoveToFirstChild();
+            Assert.Equal("DocumentData", nav.LocalName);
+        }
+        finally
+        {
+            ms?.Dispose();
         }
     }
 }

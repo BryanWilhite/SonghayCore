@@ -1,26 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Songhay.Extensions
+namespace Songhay.Extensions;
+
+/// <summary>
+/// Extension of <see cref="char"/>.
+/// </summary>
+public static class CharExtensions
 {
     /// <summary>
-    /// Extension of <see cref="char"/>.
+    /// Converts an enumeration of <see cref="char"/>
+    /// to <see cref="string"/>
     /// </summary>
-    public static class CharExtensions
+    /// <param name="chars"></param>
+    /// <returns></returns>
+    public static string? FromCharsToString(this IEnumerable<char>? chars)
     {
-        /// <summary>
-        /// Converts an enumeration of <see cref="char"/>
-        /// to <see cref="string"/>
-        /// </summary>
-        /// <param name="chars"></param>
-        /// <returns></returns>
-        public static string? FromCharsToString(this IEnumerable<char>? chars)
-        {
-            if (chars == null) return null;
+        if (chars == null) return null;
 
-            var charArray = chars as char[] ?? chars.ToArray();
+        var charArray = chars as char[] ?? chars.ToArray();
 
-            return !charArray.Any() ? string.Empty : new string(charArray);
-        }
+        return !charArray.Any() ? string.Empty : new string(charArray);
     }
 }

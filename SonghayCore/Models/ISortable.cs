@@ -1,14 +1,13 @@
-﻿namespace Songhay.Models
+﻿namespace Songhay.Models;
+
+/// <summary>
+/// Defines a sortable visual.
+/// </summary>
+public interface ISortable
 {
     /// <summary>
-    /// Defines a sortable visual.
+    /// Gets or sets the sort ordinal.
     /// </summary>
-    public interface ISortable
-    {
-        /// <summary>
-        /// Gets or sets the sort ordinal.
-        /// </summary>
-        /// <value>The sort ordinal.</value>
-        byte SortOrdinal { get; set; }
-    }
+    /// <value>The sort ordinal.</value>
+    byte SortOrdinal { get; set; }
 }
