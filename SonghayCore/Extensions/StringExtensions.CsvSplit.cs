@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Songhay.Exceptions;
 
@@ -18,12 +17,12 @@ public static partial class StringExtensions
     /// This code is based on “LINQ to TEXT and LINQ to CSV” by Eric Lippert
     /// [http://blogs.msdn.com/b/ericwhite/archive/2008/09/30/linq-to-text-and-linq-to-csv.aspx]
     /// </remarks>
-    public static string[] CsvSplit(this String source)
+    public static string[]? CsvSplit(this string? source)
     {
         if(string.IsNullOrWhiteSpace(source)) return null;
 
-        List<string> splitString = new List<string>();
-        List<int> slashesToRemove = null;
+        List<string> splitString = new();
+        List<int> slashesToRemove = new();
         State state = State.AtBeginningOfToken;
         char[] sourceCharArray = source.ToCharArray();
         int tokenStart = 0;
@@ -66,7 +65,6 @@ public static partial class StringExtensions
                     {
                         state = State.InEscapedCharacter;
                         slashesToRemove.Add(i - tokenStart);
-                        continue;
                     }
                     continue;
                 case State.ExpectingComma:
@@ -122,5 +120,5 @@ public static partial class StringExtensions
         InQuotedToken,
         ExpectingComma,
         InEscapedCharacter
-    };
+    }
 }

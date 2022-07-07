@@ -15,10 +15,8 @@ public static class TaskExtensions
     /// <param name="task">NestedTraceSources of </param>
     /// <param name="timeSpan">The specified timespan</param>
     /// <param name="actionAfterDelay">The continuation action</param>
-    public static Task Delay(this Task task, TimeSpan timeSpan, Action<Task> actionAfterDelay)
-    {
-        return task.Delay(timeSpan, actionAfterDelay, null);
-    }
+    public static Task Delay(this Task? task, TimeSpan timeSpan, Action<Task>? actionAfterDelay) =>
+        task.Delay(timeSpan, actionAfterDelay, null);
 
     /// <summary>
     /// Delays with a <see cref="Timer"/> task for the specified <see cref="TimeSpan"/>.
@@ -38,12 +36,22 @@ public static class TaskExtensions
     /// This is done to both initialize the Task and then return its reference until the Task is completed.
     ///
     /// </remarks>
-    public static Task Delay(this Task task, TimeSpan timeSpan, Action<Task> actionAfterDelay, TaskScheduler schedulerAfterDelay)
+    public static Task Delay(this Task? task, TimeSpan timeSpan, Action<Task>? actionAfterDelay,
+        TaskScheduler? schedulerAfterDelay)
     {
-        if (task != null && !task.IsCompleted) return task;
+        if (task is {IsCompleted: false}) return task;
+
         task = Delay(timeSpan);
-        if ((actionAfterDelay != null) && (schedulerAfterDelay != null)) task.ContinueWith(actionAfterDelay, schedulerAfterDelay);
-        else if (actionAfterDelay != null) task.ContinueWith(actionAfterDelay);
+
+        if (actionAfterDelay != null && schedulerAfterDelay != null)
+        {
+            task.ContinueWith(actionAfterDelay, schedulerAfterDelay);
+        }
+        else if (actionAfterDelay != null)
+        {
+            task.ContinueWith(actionAfterDelay);
+        }
+
         return task;
     }
 

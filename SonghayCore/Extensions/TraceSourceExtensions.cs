@@ -19,7 +19,7 @@ public static class TraceSourceExtensions
     /// <param name="traceSource">The trace source.</param>
     /// <returns></returns>
     /// <exception cref="NullReferenceException">The expected Trace Source is not here.</exception>
-    public static TraceSource EnsureTraceSource(this TraceSource traceSource)
+    public static TraceSource EnsureTraceSource(this TraceSource? traceSource)
     {
         if (traceSource == null) throw new NullReferenceException("The expected Trace Source is not here.");
 
@@ -32,34 +32,24 @@ public static class TraceSourceExtensions
     /// <param name="traceSource">The trace source.</param>
     /// <param name="format">The format.</param>
     /// <param name="args">The arguments.</param>
-    public static void TraceError(this TraceSource traceSource, string format, params object[] args)
-    {
-        if (traceSource == null) return;
-
-        traceSource.TraceEvent(TraceEventType.Error, ++eventId, format, args);
-    }
+    public static void TraceError(this TraceSource? traceSource, string format, params object[] args) =>
+        traceSource?.TraceEvent(TraceEventType.Error, ++_eventId, format, args);
 
     /// <summary>
     /// Traces the error.
     /// </summary>
     /// <param name="traceSource">The trace source.</param>
     /// <param name="message">The message.</param>
-    public static void TraceError(this TraceSource traceSource, string message)
-    {
-        if (traceSource == null) return;
-
-        traceSource.TraceEvent(TraceEventType.Error, ++eventId, message);
-    }
+    public static void TraceError(this TraceSource? traceSource, string message) =>
+        traceSource?.TraceEvent(TraceEventType.Error, ++_eventId, message);
 
     /// <summary>
     /// Traces the error.
     /// </summary>
     /// <param name="traceSource">The trace source.</param>
     /// <param name="ex">The exception.</param>
-    public static void TraceError(this TraceSource traceSource, Exception ex)
-    {
+    public static void TraceError(this TraceSource? traceSource, Exception ex) =>
         traceSource.TraceError(ex, includeStackTrace: false);
-    }
 
     /// <summary>
     /// Traces the error.
@@ -67,7 +57,7 @@ public static class TraceSourceExtensions
     /// <param name="traceSource">The trace source.</param>
     /// <param name="ex">The exception.</param>
     /// <param name="includeStackTrace">When <c>true</c>, include <see cref="Exception.StackTrace"/> info</param>
-    public static void TraceError(this TraceSource traceSource, Exception ex, bool includeStackTrace)
+    public static void TraceError(this TraceSource? traceSource, Exception? ex, bool includeStackTrace)
     {
         if (traceSource == null) return;
         if (ex == null) return;
@@ -90,12 +80,8 @@ public static class TraceSourceExtensions
     /// </summary>
     /// <param name="traceSource">The trace source.</param>
     /// <param name="message">The message.</param>
-    public static void TraceWarning(this TraceSource traceSource, string message)
-    {
-        if (traceSource == null) return;
-
-        traceSource.TraceEvent(TraceEventType.Warning, ++eventId, message);
-    }
+    public static void TraceWarning(this TraceSource? traceSource, string message) =>
+        traceSource?.TraceEvent(TraceEventType.Warning, ++_eventId, message);
 
     /// <summary>
     /// Trace event type <see cref="TraceEventType.Warning"/>
@@ -103,24 +89,16 @@ public static class TraceSourceExtensions
     /// <param name="traceSource">The trace source.</param>
     /// <param name="format">The format.</param>
     /// <param name="args">The arguments.</param>
-    public static void TraceWarning(this TraceSource traceSource, string format, params object[] args)
-    {
-        if (traceSource == null) return;
-
-        traceSource.TraceEvent(TraceEventType.Warning, ++eventId, format, args);
-    }
+    public static void TraceWarning(this TraceSource? traceSource, string format, params object[] args) =>
+        traceSource?.TraceEvent(TraceEventType.Warning, ++_eventId, format, args);
 
     /// <summary>
     /// Trace event type <see cref="TraceEventType.Verbose"/>
     /// </summary>
     /// <param name="traceSource">The trace source.</param>
     /// <param name="message">The message.</param>
-    public static void TraceVerbose(this TraceSource traceSource, string message)
-    {
-        if (traceSource == null) return;
-
-        traceSource.TraceEvent(TraceEventType.Verbose, ++eventId, message);
-    }
+    public static void TraceVerbose(this TraceSource? traceSource, string message) =>
+        traceSource?.TraceEvent(TraceEventType.Verbose, ++_eventId, message);
 
     /// <summary>
     /// Trace event type <see cref="TraceEventType.Verbose"/>
@@ -128,12 +106,8 @@ public static class TraceSourceExtensions
     /// <param name="traceSource">The trace source.</param>
     /// <param name="format">The format.</param>
     /// <param name="args">The arguments.</param>
-    public static void TraceVerbose(this TraceSource traceSource, string format, params object[] args)
-    {
-        if (traceSource == null) return;
-
-        traceSource.TraceEvent(TraceEventType.Verbose, ++eventId, format, args);
-    }
+    public static void TraceVerbose(this TraceSource? traceSource, string format, params object[] args) =>
+        traceSource?.TraceEvent(TraceEventType.Verbose, ++_eventId, format, args);
 
     /// <summary>
     /// Returns the <see cref="TraceSource"/>
@@ -141,12 +115,8 @@ public static class TraceSourceExtensions
     /// </summary>
     /// <param name="traceSource">The trace source.</param>
     /// <returns></returns>
-    public static TraceSource WithSourceLevels(this TraceSource traceSource)
-    {
-        if (traceSource == null) return null;
-
-        return traceSource.WithSourceLevels(SourceLevels.All);
-    }
+    public static TraceSource? WithSourceLevels(this TraceSource? traceSource) =>
+        traceSource?.WithSourceLevels(SourceLevels.All);
 
     /// <summary>
     /// Returns the <see cref="TraceSource"/>
@@ -155,7 +125,7 @@ public static class TraceSourceExtensions
     /// <param name="traceSource">The trace source.</param>
     /// <param name="levels">The levels.</param>
     /// <returns></returns>
-    public static TraceSource WithSourceLevels(this TraceSource traceSource, SourceLevels levels)
+    public static TraceSource? WithSourceLevels(this TraceSource? traceSource, SourceLevels levels)
     {
         if (traceSource == null) return null;
 
@@ -173,12 +143,8 @@ public static class TraceSourceExtensions
     /// This member was previously marked with <see cref="ObsoleteAttribute"/>.
     /// For detail, see https://github.com/BryanWilhite/SonghayCore/issues/82#issuecomment-566214635
     /// </remarks>
-    public static void WriteLine(this TraceSource traceSource, string message)
-    {
-        if (traceSource == null) return;
-
-        traceSource.TraceEvent(TraceEventType.Information, ++eventId, message);
-    }
+    public static void WriteLine(this TraceSource? traceSource, string message) =>
+        traceSource?.TraceEvent(TraceEventType.Information, ++_eventId, message);
 
     /// <summary>
     /// Trace event type <see cref="TraceEventType.Information"/>
@@ -190,14 +156,10 @@ public static class TraceSourceExtensions
     /// This member was previously marked with <see cref="ObsoleteAttribute"/>.
     /// For detail, see https://github.com/BryanWilhite/SonghayCore/issues/82#issuecomment-566214635
     /// </remarks>
-    public static void WriteLine(this TraceSource traceSource, string format, params object[] args)
-    {
-        if (traceSource == null) return;
-
-        traceSource.TraceEvent(TraceEventType.Information, ++eventId, format, args);
-    }
+    public static void WriteLine(this TraceSource? traceSource, string format, params object[] args) =>
+        traceSource?.TraceEvent(TraceEventType.Information, ++_eventId, format, args);
 
     [ThreadStatic]
-    static int eventId;
+    static int _eventId;
 
 }

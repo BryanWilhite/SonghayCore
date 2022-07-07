@@ -12,10 +12,7 @@ public static class TimeSpanExtensions
     /// Lists the days for the specified <see cref="System.TimeSpan"/>.
     /// </summary>
     /// <param name="span">The span.</param>
-    public static IList<DateTime> ListDays(this TimeSpan span)
-    {
-        return span.ListDays(DateTime.Now);
-    }
+    public static IList<DateTime> ListDays(this TimeSpan span) => span.ListDays(DateTime.Now);
 
     /// <summary>
     /// Lists the days for the specified <see cref="System.TimeSpan"/>
@@ -26,10 +23,12 @@ public static class TimeSpanExtensions
     public static IList<DateTime> ListDays(this TimeSpan span, DateTime startDate)
     {
         var days = new List<DateTime>(span.Days);
+
         for(int i = 0; i < span.Days; i++)
         {
             days.Add(startDate.AddDays(i));
         }
+
         return days;
     }
 }

@@ -10,7 +10,6 @@ namespace Songhay.Extensions;
 /// </summary>
 public static class TraceSourcesExtensions
 {
-
     /// <summary>
     /// Gets the configured trace source.
     /// </summary>
@@ -25,10 +24,8 @@ public static class TraceSourcesExtensions
     ///
     /// This member makes the <c>GetConfiguredTraceSource</c> pattern cross platform.
     /// </remarks>
-    public static TraceSource GetConfiguredTraceSource(this TraceSources instance)
-    {
-        return instance.GetConfiguredTraceSource(configuration: null, key: null);
-    }
+    public static TraceSource? GetConfiguredTraceSource(this TraceSources? instance) =>
+        instance.GetConfiguredTraceSource(configuration: null, key: null);
 
     /// <summary>
     /// Gets the configured trace source.
@@ -45,10 +42,8 @@ public static class TraceSourcesExtensions
     ///
     /// This member makes the <c>GetConfiguredTraceSource</c> pattern cross platform.
     /// </remarks>
-    public static TraceSource GetConfiguredTraceSource(this TraceSources instance, IConfiguration configuration)
-    {
-        return instance.GetConfiguredTraceSource(configuration, key: null);
-    }
+    public static TraceSource? GetConfiguredTraceSource(this TraceSources? instance, IConfiguration? configuration) =>
+        instance.GetConfiguredTraceSource(configuration, key: null);
 
     /// <summary>
     /// Gets the configured trace source.
@@ -66,17 +61,15 @@ public static class TraceSourcesExtensions
     ///
     /// This member makes the <c>GetConfiguredTraceSource</c> pattern cross platform.
     /// </remarks>
-    public static TraceSource GetConfiguredTraceSource(this TraceSources instance, IConfiguration configuration, string key)
+    public static TraceSource? GetConfiguredTraceSource(this TraceSources? instance, IConfiguration? configuration, string? key)
     {
         if (instance == null) return null;
 
-        if (configuration != null)
-        {
-            if (string.IsNullOrWhiteSpace(key)) key = DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey;
-            TraceSources.ConfiguredTraceSourceName = configuration[key];
-        }
+        if (configuration == null) return instance.GetTraceSourceFromConfiguredName();
+
+        if (string.IsNullOrWhiteSpace(key)) key = DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey;
+        TraceSources.ConfiguredTraceSourceName = configuration[key];
 
         return instance.GetTraceSourceFromConfiguredName();
     }
-
 }

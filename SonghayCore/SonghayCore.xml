@@ -2188,12 +2188,158 @@
             <summary>
             Extensions of <see cref="T:System.String"/>.
             </summary>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.FromSnakeToCaps(System.String)">
             <summary>
-            Extensions of <see cref="T:System.String"/>.
+            Replaces “snake” underscores with caps of first <see cref="T:System.Char"/>
+            after the underscore.
             </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.Reverse(System.String)">
             <summary>
-            Extensions of <see cref="T:System.String"/>.
+            Reverse the string
+            from http://en.wikipedia.org/wiki/Extension_method
             </summary>
+            <param name="input"></param>
+            <remarks>
+            Based on work by Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToAsciiLettersWithSpacer(System.String)">
+            <summary>
+            Converts the <see cref="T:System.String" /> into a ASCII letters with spacer <c>\0</c>.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToAsciiLettersWithSpacer(System.String,System.Char)">
+            <summary>
+            Converts the <see cref="T:System.String" /> into ASCII letters with spacer.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="spacer">The spacer.</param>
+            <remarks>
+            📖 https://en.wikipedia.org/wiki/ASCII
+            📖 https://stackoverflow.com/a/7826216/22944
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToBlogSlug(System.String)">
+            <summary>
+            Converts the <see cref="T:System.String"/> into a blog slug.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToCamelCase(System.String)">
+            <summary>
+            Converts the <see cref="T:System.String"/> into camel case
+            by lower-casing the first character.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToDigitsOnly(System.String)">
+            <summary>
+            Converts the <see cref="T:System.String"/> into digits only.
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToIntString(System.String)">
+            <summary>
+            Prepares a string to be converted to <c>int</c>.
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToIntString(System.String,System.String)">
+            <summary>
+            Prepares a string to be converted to <c>int</c>.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="defaultValue">The default value ("0" by default).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToNumberOfDirectoryLevels(System.String)">
+            <summary>
+            Returns the number of directory levels
+            based on the conventions <c>../</c> or <c>..\</c>.
+            </summary>
+            <param name="path">The path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToNumericString(System.String)">
+            <summary>
+            Converts the <see cref="T:System.String"/> into a numeric format for parsing.
+            </summary>
+            <param name="input">The input.</param>
+            <returns>
+            Returns a numeric string ready for integer or float parsing.
+            </returns>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToNumericString(System.String,System.String)">
+            <summary>
+            Converts the <see cref="T:System.String"/> into a numeric format for parsing.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="defaultValue">The default value ("0" by default).</param>
+            <returns>
+            Returns a numeric string ready for integer or float parsing.
+            </returns>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToPascalCase(System.String)">
+            <summary>
+            Converts the <see cref="T:System.String"/> into camel case
+            by upper-casing the first character.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToSnakeCase(System.String)">
+            <summary>
+            Converts the <see cref="T:System.String"/> into camel case
+            then replaces every upper case character
+            with an underscore and its lowercase equivalent.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToSubstringInContext(System.String,System.String,System.Int32)">
+            <summary>
+            Formats the <see cref="T:System.String"/> into a shortened form,
+            showing the search text in context.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="searchText">The search text.</param>
+            <param name="contextLength">Length of the context.</param>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.Truncate(System.String)">
+            <summary>
+            Truncates the specified input to 16 characters.
+            <param name="input">The input.</param>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.Truncate(System.String,System.Int32)">
+            <summary>
+            Truncates the specified input to 16 characters.
+            <param name="input">The input.</param>
+            <param name="length">The length.</param>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.Truncate(System.String,System.Int32,System.String)">
+            <summary>
+            Truncates the specified input.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="length">The length.</param>
+            <param name="ellipsis"></param>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.CsvSplit(System.String)">
+            <summary>
+            Splits CSV text format into an array of <see cref="T:System.String"/>.
+            </summary>
+            <param name="source">The source.</param>
+            <remarks>
+            This code is based on “LINQ to TEXT and LINQ to CSV” by Eric Lippert
+            [http://blogs.msdn.com/b/ericwhite/archive/2008/09/30/linq-to-text-and-linq-to-csv.aspx]
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.EqualsInvariant(System.String,System.String)">
             <summary>
@@ -2210,6 +2356,13 @@
             <param name="input"></param>
             <param name="otherString"></param>
             <param name="ignoreCase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.EscapeInterpolation(System.String)">
+            <summary>
+            Escapes the interpolation tokens of <see cref="M:System.String.Format(System.String,System.Object[])"/>.
+            </summary>
+            <param name="input">The input.</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.FromCamelCaseToEnumerable(System.String)">
@@ -2232,6 +2385,19 @@
             <param name="input">The input.</param>
             <param name="delimitedValues">The delimited values.</param>
             <param name="separator">The separator.</param>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.InDoubleQuotes(System.String)">
+            <summary>
+            Returns <see cref="T:System.String"/> in double quotes.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.InDoubleQuotesOrDefault(System.String,System.String)">
+            <summary>
+            Returns <see cref="T:System.String"/> in double quotes or default.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="defaultValue">The default value.</param>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.InsertSpacesBeforeCaps(System.String)">
             <summary>
@@ -2351,185 +2517,6 @@
             of an e-mail (jhohn@example.com is correct but it will probably bounce…).”
             [http://stackoverflow.com/questions/201323/how-to-use-a-regular-expression-to-validate-an-email-addresses]
             </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToNumberOfDirectoryLevels(System.String)">
-            <summary>
-            Returns the number of directory levels
-            based on the conventions <c>../</c> or <c>..\</c>.
-            </summary>
-            <param name="path">The path.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.CsvSplit(System.String)">
-            <summary>
-            Splits CSV text format into an array of <see cref="T:System.String"/>.
-            </summary>
-            <param name="source">The source.</param>
-            <remarks>
-            This code is based on “LINQ to TEXT and LINQ to CSV” by Eric Lippert
-            [http://blogs.msdn.com/b/ericwhite/archive/2008/09/30/linq-to-text-and-linq-to-csv.aspx]
-            </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.EscapeInterpolation(System.String)">
-            <summary>
-            Escapes the interpolation tokens of <see cref="M:System.String.Format(System.String,System.Object[])"/>.
-            </summary>
-            <param name="input">The input.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.FromSnakeToCaps(System.String)">
-            <summary>
-            Replaces “snake” underscores with caps of first <see cref="T:System.Char"/>
-            after the underscore.
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.InDoubleQuotes(System.String)">
-            <summary>
-            Returns <see cref="T:System.String"/> in double quotes.
-            </summary>
-            <param name="input">The input.</param>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.InDoubleQuotesOrDefault(System.String,System.String)">
-            <summary>
-            Returns <see cref="T:System.String"/> in double quotes or default.
-            </summary>
-            <param name="input">The input.</param>
-            <param name="defaultValue">The default value.</param>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.Reverse(System.String)">
-            <summary>
-            Reverse the string
-            from http://en.wikipedia.org/wiki/Extension_method
-            </summary>
-            <param name="input"></param>
-            <remarks>
-            Based on work by Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
-            </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToAsciiLettersWithSpacer(System.String)">
-            <summary>
-            Converts the <see cref="T:System.String" /> into a ASCII letters with spacer <c>\0</c>.
-            </summary>
-            <param name="input">The input.</param>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToAsciiLettersWithSpacer(System.String,System.Char)">
-            <summary>
-            Converts the <see cref="T:System.String" /> into ASCII letters with spacer.
-            </summary>
-            <param name="input">The input.</param>
-            <param name="spacer">The spacer.</param>
-            <remarks>
-            📖 https://en.wikipedia.org/wiki/ASCII
-            📖 https://stackoverflow.com/a/7826216/22944
-            </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToBlogSlug(System.String)">
-            <summary>
-            Converts the <see cref="T:System.String"/> into a blog slug.
-            </summary>
-            <param name="input">The input.</param>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToCamelCase(System.String)">
-            <summary>
-            Converts the <see cref="T:System.String"/> into camel case
-            by lower-casing the first character.
-            </summary>
-            <param name="input">The input.</param>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToDigitsOnly(System.String)">
-            <summary>
-            Converts the <see cref="T:System.String"/> into digits only.
-            </summary>
-            <param name="input">The input.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToIntString(System.String)">
-            <summary>
-            Prepares a string to be converted to <c>int</c>.
-            </summary>
-            <param name="input">The input.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToIntString(System.String,System.String)">
-            <summary>
-            Prepares a string to be converted to <c>int</c>.
-            </summary>
-            <param name="input">The input.</param>
-            <param name="defaultValue">The default value ("0" by default).</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToPascalCase(System.String)">
-            <summary>
-            Converts the <see cref="T:System.String"/> into camel case
-            by upper-casing the first character.
-            </summary>
-            <param name="input">The input.</param>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToSnakeCase(System.String)">
-            <summary>
-            Converts the <see cref="T:System.String"/> into camel case
-            then replaces every upper case character
-            with an underscore and its lowercase equivalent.
-            </summary>
-            <param name="input">The input.</param>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToSubstringInContext(System.String,System.String,System.Int32)">
-            <summary>
-            Formats the <see cref="T:System.String"/> into a shortened form,
-            showing the search text in context.
-            </summary>
-            <param name="input">The input.</param>
-            <param name="searchText">The search text.</param>
-            <param name="contextLength">Length of the context.</param>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.Truncate(System.String)">
-            <summary>
-            Truncates the specified input to 16 characters.
-            <param name="input">The input.</param>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.Truncate(System.String,System.Int32)">
-            <summary>
-            Truncates the specified input to 16 characters.
-            <param name="input">The input.</param>
-            <param name="length">The length.</param>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.Truncate(System.String,System.Int32,System.String)">
-            <summary>
-            Truncates the specified input.
-            </summary>
-            <param name="input">The input.</param>
-            <param name="length">The length.</param>
-            <param name="ellipsis"></param>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.UnwrapForRiaEndpoint(System.String,System.String)">
-            <summary>
-            Unwraps for RIA endpoint.
-            </summary>
-            <param name="input">The input.</param>
-            <param name="riaEndpointName">Name of the RIA endpoint.</param>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToNumericString(System.String)">
-            <summary>
-            Converts the <see cref="T:System.String"/> into a numeric format for parsing.
-            </summary>
-            <param name="input">The input.</param>
-            <returns>
-            Returns a numeric string ready for integer or float parsing.
-            </returns>
-        </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToNumericString(System.String,System.String)">
-            <summary>
-            Converts the <see cref="T:System.String"/> into a numeric format for parsing.
-            </summary>
-            <param name="input">The input.</param>
-            <param name="defaultValue">The default value ("0" by default).</param>
-            <returns>
-            Returns a numeric string ready for integer or float parsing.
-            </returns>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.RemoveDiacritics(System.String)">
             <summary>

@@ -19,22 +19,23 @@ public static partial class RestApiMetadataExtensions
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">bindByPositionValues</exception>
     /// <exception cref="FormatException">The expected REST API metadata URI template key is not here.</exception>
-    public static Uri ToUri(this RestApiMetadata meta, string uriTemplateKey, params string[] bindByPositionValues)
+    public static Uri? ToUri(this RestApiMetadata? meta, string? uriTemplateKey, params string?[] bindByPositionValues)
     {
         if (meta == null) return null;
-        if ((bindByPositionValues == null) || !bindByPositionValues.Any())
+        if (bindByPositionValues == null || !bindByPositionValues.Any())
             throw new ArgumentNullException(nameof(bindByPositionValues));
-        if (!meta.UriTemplates.Keys.Any(i => i == uriTemplateKey))
+
+        if (meta.UriTemplates.Keys.All(i => i != uriTemplateKey))
             throw new FormatException("The expected REST API metadata URI template key is not here.");
 
-        var forwardSlash = "/";
+        const string forwardSlash = "/";
         var uriBase = meta.ApiBase.OriginalString.EndsWith(forwardSlash) ?
-            string.Concat(meta.ApiBase.OriginalString, meta.UriTemplates[uriTemplateKey])
+            string.Concat(meta.ApiBase.OriginalString, meta.UriTemplates[uriTemplateKey!])
             :
-            string.Concat(meta.ApiBase.OriginalString, forwardSlash, meta.UriTemplates[uriTemplateKey]);
+            string.Concat(meta.ApiBase.OriginalString, forwardSlash, meta.UriTemplates[uriTemplateKey!]);
 
         var uriTemplate = new UriTemplate(uriBase);
-        var uri = uriTemplate.BindByPosition(bindByPositionValues);
+        var uri = uriTemplate.BindByPosition(bindByPositionValues!);
 
         return uri;
     }

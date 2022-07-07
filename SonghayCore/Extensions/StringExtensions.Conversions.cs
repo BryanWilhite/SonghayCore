@@ -10,49 +10,14 @@ namespace Songhay.Extensions;
 public static partial class StringExtensions
 {
     /// <summary>
-    /// Escapes the interpolation tokens of <see cref="string.Format(string, object[])"/>.
-    /// </summary>
-    /// <param name="input">The input.</param>
-    /// <returns></returns>
-    public static string EscapeInterpolation(this string input)
-    {
-        if (string.IsNullOrWhiteSpace(input)) return input;
-        return input.Replace("{", "{{").Replace("}", "}}");
-    }
-
-    /// <summary>
     /// Replaces “snake” underscores with caps of first <see cref="char"/>
     /// after the underscore.
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    public static string FromSnakeToCaps(this string input)
-    {
-        if (string.IsNullOrWhiteSpace(input)) return input;
-        return input.Split('_').Aggregate((a, i) => $"{a}{i.ToPascalCase()}");
-    }
-
-    /// <summary>
-    /// Returns <see cref="string"/> in double quotes.
-    /// </summary>
-    /// <param name="input">The input.</param>
-    public static string InDoubleQuotes(this string input)
-    {
-        if (string.IsNullOrWhiteSpace(input)) return null;
-        input = input.Replace("\"", "\"\"");
-        return string.Format("\"{0}\"", input);
-    }
-
-    /// <summary>
-    /// Returns <see cref="string"/> in double quotes or default.
-    /// </summary>
-    /// <param name="input">The input.</param>
-    /// <param name="defaultValue">The default value.</param>
-    public static string InDoubleQuotesOrDefault(this string input, string defaultValue)
-    {
-        if (string.IsNullOrWhiteSpace(input)) return defaultValue;
-        return input.InDoubleQuotes();
-    }
+    public static string? FromSnakeToCaps(this string? input) => string.IsNullOrWhiteSpace(input)
+        ? input
+        : input.Split('_').Aggregate((a, i) => $"{a}{i.ToPascalCase()}");
 
     /// <summary>
     /// Reverse the string
@@ -62,20 +27,15 @@ public static partial class StringExtensions
     /// <remarks>
     /// Based on work by Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
     /// </remarks>
-    public static string Reverse(this string input)
-    {
-        if (string.IsNullOrWhiteSpace(input)) return input;
-        return input.ToCharArray().Reverse().FromCharsToString();
-    }
+    public static string? Reverse(this string? input) => string.IsNullOrWhiteSpace(input)
+        ? input
+        : input.ToCharArray().Reverse().FromCharsToString();
 
     /// <summary>
     /// Converts the <see cref="String" /> into a ASCII letters with spacer <c>\0</c>.
     /// </summary>
     /// <param name="input">The input.</param>
-    public static string ToAsciiLettersWithSpacer(this string input)
-    {
-        return input.ToAsciiLettersWithSpacer('\0');
-    }
+    public static string? ToAsciiLettersWithSpacer(this string? input) => input.ToAsciiLettersWithSpacer('\0');
 
     /// <summary>
     /// Converts the <see cref="String" /> into ASCII letters with spacer.
@@ -86,11 +46,11 @@ public static partial class StringExtensions
     /// 📖 https://en.wikipedia.org/wiki/ASCII
     /// 📖 https://stackoverflow.com/a/7826216/22944
     /// </remarks>
-    public static string ToAsciiLettersWithSpacer(this string input, char spacer)
+    public static string? ToAsciiLettersWithSpacer(this string? input, char spacer)
     {
         if (string.IsNullOrWhiteSpace(input)) return null;
 
-        const int ASCII_DECIMAL_MAXIMUM = 127;
+        const int asciiDecimalMaximum = 127;
 
         int GetAsciiDecimal(char c)
         {
@@ -99,23 +59,22 @@ public static partial class StringExtensions
         }
 
         var chars = input
-            .Where(c => GetAsciiDecimal(c) <= ASCII_DECIMAL_MAXIMUM);
+            .Where(c => GetAsciiDecimal(c) <= asciiDecimalMaximum)
+            .ToArray();
 
         if (spacer == '\0')
         {
-            return (chars.Count() > 0) ? new string(chars.ToArray()) : null;
+            return chars.Any() ? new string(chars.ToArray()) : null;
         }
-        else
-        {
-            return (chars.Count() > 0) ? new string(chars.ToArray()).Trim(new char[] { spacer }) : null;
-        }
+
+        return chars.Any() ? new string(chars.ToArray()).Trim(new[] { spacer }) : null;
     }
 
     /// <summary>
     /// Converts the <see cref="String"/> into a blog slug.
     /// </summary>
     /// <param name="input">The input.</param>
-    public static string ToBlogSlug(this string input)
+    public static string ToBlogSlug(this string? input)
     {
         if (string.IsNullOrWhiteSpace(input)) throw new NullReferenceException("The expected input is not here");
 
@@ -143,20 +102,21 @@ public static partial class StringExtensions
     /// by lower-casing the first character.
     /// </summary>
     /// <param name="input">The input.</param>
-    public static string ToCamelCase(this string input)
-    {
-        if (string.IsNullOrWhiteSpace(input)) return input;
-        return $"{input[0].ToString().ToLowerInvariant()}{input.Substring(1)}";
-    }
+    public static string? ToCamelCase(this string? input) => string.IsNullOrWhiteSpace(input)
+        ? input
+        : $"{input[0].ToString().ToLowerInvariant()}{input[1..]}";
 
     /// <summary>
     /// Converts the <see cref="String"/> into digits only.
     /// </summary>
     /// <param name="input">The input.</param>
     /// <returns></returns>
-    public static string ToDigitsOnly(this string input)
+    public static string? ToDigitsOnly(this string? input)
     {
+        if (string.IsNullOrWhiteSpace(input)) return null;
+
         var digitsOnly = new Regex(@"[^\d]");
+
         return digitsOnly.Replace(input, string.Empty);
     }
 
@@ -165,10 +125,7 @@ public static partial class StringExtensions
     /// </summary>
     /// <param name="input">The input.</param>
     /// <returns></returns>
-    public static string ToIntString(this string input)
-    {
-        return input.ToIntString("0");
-    }
+    public static string? ToIntString(this string? input) => input.ToIntString("0");
 
     /// <summary>
     /// Prepares a string to be converted to <c>int</c>.
@@ -176,7 +133,7 @@ public static partial class StringExtensions
     /// <param name="input">The input.</param>
     /// <param name="defaultValue">The default value ("0" by default).</param>
     /// <returns></returns>
-    public static string ToIntString(this string input, string defaultValue)
+    public static string? ToIntString(this string? input, string defaultValue)
     {
         if (input == null) return null;
 
@@ -193,15 +150,54 @@ public static partial class StringExtensions
     }
 
     /// <summary>
+    /// Returns the number of directory levels
+    /// based on the conventions <c>../</c> or <c>..\</c>.
+    /// </summary>
+    /// <param name="path">The path.</param>
+    /// <returns></returns>
+    public static int ToNumberOfDirectoryLevels(this string? path)
+    {
+        if (string.IsNullOrWhiteSpace(path)) return 0;
+
+        var matches = Regex.Matches(path, @"\.\./|\.\.\\");
+
+        return matches.Count;
+    }
+
+    /// <summary>
+    /// Converts the <see cref="string"/> into a numeric format for parsing.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    /// <returns>
+    /// Returns a numeric string ready for integer or float parsing.
+    /// </returns>
+    public static string? ToNumericString(this string? input) => input.ToNumericString("0");
+
+    /// <summary>
+    /// Converts the <see cref="string"/> into a numeric format for parsing.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    /// <param name="defaultValue">The default value ("0" by default).</param>
+    /// <returns>
+    /// Returns a numeric string ready for integer or float parsing.
+    /// </returns>
+    public static string? ToNumericString(this string? input, string? defaultValue)
+    {
+        if(string.IsNullOrWhiteSpace(input)) return defaultValue;
+
+        return string.IsNullOrWhiteSpace(input)
+            ? defaultValue
+            : new string(input.Trim().Where(i => char.IsDigit(i) || i.Equals('.')).ToArray());
+    }
+
+    /// <summary>
     /// Converts the <see cref="String"/> into camel case
     /// by upper-casing the first character.
     /// </summary>
     /// <param name="input">The input.</param>
-    public static string ToPascalCase(this string input)
-    {
-        if (string.IsNullOrWhiteSpace(input)) return input;
-        return $"{input[0].ToString().ToUpperInvariant()}{input.Substring(1)}";
-    }
+    public static string? ToPascalCase(this string? input) => string.IsNullOrWhiteSpace(input)
+        ? input
+        : $"{input[0].ToString().ToUpperInvariant()}{input[1..]}";
 
     /// <summary>
     /// Converts the <see cref="String"/> into camel case
@@ -209,13 +205,14 @@ public static partial class StringExtensions
     /// with an underscore and its lowercase equivalent.
     /// </summary>
     /// <param name="input">The input.</param>
-    public static string ToSnakeCase(this string input)
+    public static string? ToSnakeCase(this string? input)
     {
         if (string.IsNullOrWhiteSpace(input)) return input;
+
         return input.ToCamelCase()
             .InsertSpacesBeforeCaps()
             .FromCharsToString()
-            .Replace(' ', '_')
+            ?.Replace(' ', '_')
             .ToLowerInvariant();
     }
 
@@ -226,7 +223,7 @@ public static partial class StringExtensions
     /// <param name="input">The input.</param>
     /// <param name="searchText">The search text.</param>
     /// <param name="contextLength">Length of the context.</param>
-    public static string ToSubstringInContext(this string input, string searchText, int contextLength)
+    public static string? ToSubstringInContext(this string? input, string? searchText, int contextLength)
     {
         if (string.IsNullOrWhiteSpace(input)) return input;
         if (string.IsNullOrWhiteSpace(searchText)) return input;
@@ -234,11 +231,11 @@ public static partial class StringExtensions
         if (input.Contains(searchText))
         {
             if (searchText.Length >= contextLength)
-                return searchText.Substring(0, contextLength);
+                return searchText[..contextLength];
 
             var edgesLength = Convert.ToInt32(Math.Ceiling((contextLength - searchText.Length) / 2d));
 
-            var i0 = input.IndexOf(searchText) - edgesLength;
+            var i0 = input.IndexOf(searchText, StringComparison.Ordinal) - edgesLength;
             if (i0 < 0) i0 = 0;
 
             var i1 = i0 + searchText.Length + edgesLength;
@@ -260,20 +257,14 @@ public static partial class StringExtensions
     /// Truncates the specified input to 16 characters.
     /// <param name="input">The input.</param>
     /// </summary>
-    public static string Truncate(this string input)
-    {
-        return input.Truncate(length: 16, ellipsis: "…");
-    }
+    public static string? Truncate(this string? input) => input.Truncate(length: 16, ellipsis: "…");
 
     /// <summary>
     /// Truncates the specified input to 16 characters.
     /// <param name="input">The input.</param>
     /// <param name="length">The length.</param>
     /// </summary>
-    public static string Truncate(this string input, int length)
-    {
-        return input.Truncate(length, ellipsis: "…");
-    }
+    public static string? Truncate(this string? input, int length) => input.Truncate(length, ellipsis: "…");
 
     /// <summary>
     /// Truncates the specified input.
@@ -281,27 +272,12 @@ public static partial class StringExtensions
     /// <param name="input">The input.</param>
     /// <param name="length">The length.</param>
     /// <param name="ellipsis"></param>
-    public static string Truncate(this string input, int length, string ellipsis)
+    public static string? Truncate(this string? input, int length, string ellipsis)
     {
         if (string.IsNullOrWhiteSpace(input)) return input;
         if (input.Length <= length) return input;
         if (length <= 0) length = 0;
-        return string.Concat(input.Substring(0, length).TrimEnd(), ellipsis);
-    }
 
-    /// <summary>
-    /// Unwraps for RIA endpoint.
-    /// </summary>
-    /// <param name="input">The input.</param>
-    /// <param name="riaEndpointName">Name of the RIA endpoint.</param>
-    public static string UnwrapForRiaEndpoint(this string input, string riaEndpointName)
-    {
-        if (string.IsNullOrWhiteSpace(input)) return null;
-        if (string.IsNullOrWhiteSpace(riaEndpointName)) return null;
-
-        var riaResultName = riaEndpointName + "Result";
-
-        string wrapper = @"{""" + riaResultName + @""":";
-        return input.Replace(wrapper, string.Empty).Replace("}}", "}").Replace("]}", "]");
+        return string.Concat(input[..length].TrimEnd(), ellipsis);
     }
 }
