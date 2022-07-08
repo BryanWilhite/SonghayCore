@@ -11,11 +11,11 @@ public class PackedResource<TResource> : PackedResource
     /// Gets or sets the XAML string.
     /// </summary>
     /// <value>The XAML string.</value>
-    public string XamlString { get; set; }
+    public string? XamlString { get; set; }
 
     /// <summary>
     /// Gets or sets the XAML object.
     /// </summary>
     /// <value>The XAML object.</value>
-    public TResource XamlObject { get; set; }
+    public TResource? XamlObject { get; set; }
 }

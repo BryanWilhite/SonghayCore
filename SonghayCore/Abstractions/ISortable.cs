@@ -1,4 +1,4 @@
-﻿namespace Songhay.Models;
+﻿namespace Songhay.Abstractions;
 
 /// <summary>
 /// Defines a sortable visual.

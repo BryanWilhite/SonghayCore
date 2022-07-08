@@ -24,7 +24,7 @@ public class TimeoutHandler : DelegatingHandler
     /// <value>
     /// The default timeout.
     /// </value>
-    public static TimeSpan DefaultTimeout {get; private set; } = TimeSpan.FromSeconds(100);
+    public static TimeSpan DefaultTimeout {get; } = TimeSpan.FromSeconds(100);
 
     /// <summary>
     /// Gets or sets the request timeout.
@@ -32,7 +32,7 @@ public class TimeoutHandler : DelegatingHandler
     /// <value>
     /// The request timeout.
     /// </value>
-    public TimeSpan RequestTimeout { get; set; } = TimeoutHandler.DefaultTimeout;
+    public TimeSpan RequestTimeout { get; init; } = DefaultTimeout;
 
     /// <summary>
     /// Sends an HTTP request to the inner handler to send to the server as an asynchronous operation.
@@ -43,26 +43,24 @@ public class TimeoutHandler : DelegatingHandler
     /// The task object representing the asynchronous operation.
     /// </returns>
     /// <exception cref="TimeoutException"></exception>
-    protected async override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        using (var cts = GetCancellationTokenSource(cancellationToken))
+        using var cts = GetCancellationTokenSource(cancellationToken);
+        try
         {
-            try
-            {
-                return await base
-                    .SendAsync(request, cts?.Token ?? cancellationToken)
-                    .ConfigureAwait(continueOnCapturedContext: false);
-            }
-            catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested)
-            {
-                throw new TimeoutException();
-            }
+            return await base
+                .SendAsync(request, cts?.Token ?? cancellationToken)
+                .ConfigureAwait(continueOnCapturedContext: false);
+        }
+        catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested)
+        {
+            throw new TimeoutException();
         }
     }
 
-    private CancellationTokenSource GetCancellationTokenSource(CancellationToken cancellationToken)
+    CancellationTokenSource? GetCancellationTokenSource(CancellationToken cancellationToken)
     {
-        if (this.RequestTimeout == Timeout.InfiniteTimeSpan)
+        if (RequestTimeout == Timeout.InfiniteTimeSpan)
         {
             // No need to create a CTS if there's no timeout
             return null;
@@ -70,7 +68,7 @@ public class TimeoutHandler : DelegatingHandler
         else
         {
             var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-            cts.CancelAfter(this.RequestTimeout);
+            cts.CancelAfter(RequestTimeout);
 
             return cts;
         }

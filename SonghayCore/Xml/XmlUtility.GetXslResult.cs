@@ -24,7 +24,7 @@ public static partial class XmlUtility
         Justification = "Specific functionality provided by the concrete type may be required.")]
     public static XPathDocument GetXslResult(IXPathNavigable xslSet, IXPathNavigable navigableSet)
     {
-        return XmlUtility.GetXslResult(xslSet, null, navigableSet);
+        return GetXslResult(xslSet, null, navigableSet);
     }
 
     /// <summary>

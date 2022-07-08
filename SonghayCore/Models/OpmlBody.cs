@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using System.Xml.Serialization;
@@ -21,5 +22,5 @@ public class OpmlBody
     [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays",
         Justification = "Used for XML serialization.")]
     [JsonPropertyName("outline")]
-    public OpmlOutline[] Outlines { get; set; }
+    public OpmlOutline[] Outlines { get; set; } = Enumerable.Empty<OpmlOutline>().ToArray();
 }

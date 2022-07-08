@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Songhay.Models;
 
@@ -13,11 +14,11 @@ public class PagedResult
     /// <value>
     /// The metadata.
     /// </value>
-    public PagedResultMeta Metadata { get; set; }
+    public PagedResultMeta? Metadata { get; set; }
 
     /// <summary>
     /// Gets or sets the paged result set.
     /// </summary>
     /// <value>The paged result set.</value>
-    public IEnumerable<DisplayItemModel> PagedResultSet { get; set; }
+    public IEnumerable<DisplayItemModel> PagedResultSet { get; set; } = Enumerable.Empty<DisplayItemModel>();
 }

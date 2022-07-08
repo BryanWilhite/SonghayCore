@@ -19,7 +19,7 @@ public static partial class XmlUtility
     /// </remarks>
     public static string StripNamespaces(string xml)
     {
-        return XmlUtility.StripNamespaces(xml, false);
+        return StripNamespaces(xml, false);
     }
 
     /// <summary>

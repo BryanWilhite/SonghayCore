@@ -15,8 +15,7 @@ public static partial class ProgramFileUtility
     /// <param name="utf16Value">The raw value.</param>
     public static string GetEncodedString(string utf16Value)
     {
-        return ProgramFileUtility
-            .GetEncodedString(utf16Value, Encoding.UTF8);
+        return GetEncodedString(utf16Value, Encoding.UTF8);
     }
 
     /// <summary>

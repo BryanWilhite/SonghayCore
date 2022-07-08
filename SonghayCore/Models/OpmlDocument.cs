@@ -22,7 +22,7 @@ public class OpmlDocument
     /// <summary>
     /// The rx opml schema URI
     /// </summary>
-    public const string rxOpmlSchema = "http://songhaysystem.com/schemas/opml.xsd";
+    public const string RxOpmlSchema = "http://songhaysystem.com/schemas/opml.xsd";
 
     /// <summary>
     /// Initializes a new instance of the <see cref="OpmlDocument"/> class.
@@ -30,16 +30,16 @@ public class OpmlDocument
     public OpmlDocument()
     {
         Version = "2.0";
-        XsiSchemaLocation = rxOpmlSchema + " " + rxOpmlSchema;
+        XsiSchemaLocation = RxOpmlSchema + " " + RxOpmlSchema;
     }
 
     /// <summary>
     /// Gets or sets the schema location.
     /// </summary>
     /// <value>The schema location.</value>
-    [XmlAttribute("schemaLocation", Namespace = rxOpmlSchema)]
+    [XmlAttribute("schemaLocation", Namespace = RxOpmlSchema)]
     [JsonPropertyName("schemaLocation")]
-    public string XsiSchemaLocation { get; set; }
+    public string? XsiSchemaLocation { get; set; }
 
     /// <summary>
     /// Gets the version.
@@ -47,7 +47,7 @@ public class OpmlDocument
     /// <value>The version.</value>
     [XmlAttribute(AttributeName = "version")]
     [JsonPropertyName("version")]
-    public string Version { get; set; }
+    public string? Version { get; set; }
 
     /// <summary>
     /// Gets the OPML head element.
@@ -55,7 +55,7 @@ public class OpmlDocument
     /// <value>The OPML head element.</value>
     [XmlElement(ElementName = "head")]
     [JsonPropertyName("head")]
-    public OpmlHead OpmlHead { get; set; }
+    public OpmlHead? OpmlHead { get; set; }
 
     /// <summary>
     /// Gets the OPML body element.
@@ -63,5 +63,5 @@ public class OpmlDocument
     /// <value>The OPML body element.</value>
     [XmlElement(ElementName = "body")]
     [JsonPropertyName("body")]
-    public OpmlBody OpmlBody { get; set; }
+    public OpmlBody? OpmlBody { get; set; }
 }

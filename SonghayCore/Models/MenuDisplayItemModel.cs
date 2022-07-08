@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Songhay.Abstractions;
 
 namespace Songhay.Models;
 
@@ -12,7 +13,7 @@ public class MenuDisplayItemModel : ColorDisplayItemModel, IGroupable, ISelectab
     /// </summary>
     public MenuDisplayItemModel()
     {
-        this.ChildItems = Enumerable.Empty<MenuDisplayItemModel>().ToArray();
+        ChildItems = Enumerable.Empty<MenuDisplayItemModel>().ToArray();
     }
 
     /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace Songhay.Models;
@@ -17,12 +18,12 @@ public class XhtmlDocuments
     [XmlElement("XhtmlDocument")]
     [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays",
         Justification = "Used for XML serialization.")]
-    public XhtmlDocument[] Documents { get; set; }
+    public XhtmlDocument[] Documents { get; set; } = Enumerable.Empty<XhtmlDocument>().ToArray();
 
     /// <summary>
     /// Gets or sets the title.
     /// </summary>
     /// <value>The title.</value>
     [XmlAttribute]
-    public string Title { get; set; }
+    public string? Title { get; set; }
 }

@@ -1,4 +1,6 @@
-﻿namespace Songhay.Models;
+﻿using Songhay.Models;
+
+namespace Songhay.Abstractions;
 
 /// <summary>
 /// Defines an Activity in a shell environment.
@@ -14,11 +16,11 @@ public interface IActivity
     /// </summary>
     /// <param name="args">The arguments.</param>
     /// <returns></returns>
-    string DisplayHelp(ProgramArgs args);
+    string DisplayHelp(ProgramArgs? args);
 
     /// <summary>
     /// Starts with the specified arguments.
     /// </summary>
     /// <param name="args">The arguments.</param>
-    void Start(ProgramArgs args);
+    void Start(ProgramArgs? args);
 }

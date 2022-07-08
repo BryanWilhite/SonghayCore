@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace Songhay.Models;
+namespace Songhay.Abstractions;
 
 /// <summary>
 /// Defines <see cref="IConfigurationRoot"/> support
@@ -12,5 +12,5 @@ public interface IActivityConfigurationSupport
     /// Adds the configuration.
     /// </summary>
     /// <param name="configuration">The configuration.</param>
-    void AddConfiguration(IConfigurationRoot configuration);
+    void AddConfiguration(IConfigurationRoot? configuration);
 }

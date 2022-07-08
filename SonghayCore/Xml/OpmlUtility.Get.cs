@@ -45,10 +45,10 @@ public static partial class OpmlUtility
         var xd = XDocument.Load(path);
 
         XNamespace ns = xd.Root.GetDefaultNamespace();
-        if ((ns != null) && !string.IsNullOrWhiteSpace(ns.ToString())) return OpmlUtility.GetDocument(xd.Root, ns);
+        if ((ns != null) && !string.IsNullOrWhiteSpace(ns.ToString())) return GetDocument(xd.Root, ns);
 
-        ns = xd.Root.GetNamespaceOfPrefix(nameof(OpmlUtility.rx));
-        if (ns == OpmlUtility.rx) return OpmlUtility.GetDocument(xd.Root, OpmlUtility.rx);
+        ns = xd.Root.GetNamespaceOfPrefix(nameof(rx));
+        if (ns == rx) return GetDocument(xd.Root, rx);
 
         return GetRawDocument(xd);
     }
@@ -62,7 +62,7 @@ public static partial class OpmlUtility
     public static OpmlDocument GetDocument(string xml, XNamespace ns)
     {
         var xd = XDocument.Parse(xml);
-        var opml = OpmlUtility.GetDocument(xd.Root, ns);
+        var opml = GetDocument(xd.Root, ns);
         return opml;
     }
 

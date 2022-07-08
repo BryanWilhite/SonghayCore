@@ -19,8 +19,8 @@ public static partial class XmlUtility
         }
         else
         {
-            XPathDocument d = XmlUtility.GetNavigableDocument(xmlFragment);
-            return XmlUtility.OutputAs<TOut>(d);
+            XPathDocument d = GetNavigableDocument(xmlFragment);
+            return OutputAs<TOut>(d);
         }
     }
 

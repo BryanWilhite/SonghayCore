@@ -12,8 +12,8 @@ public class DataParameterMetadata
     /// </summary>
     public DataParameterMetadata()
     {
-        this.DataRowVersion = DataRowVersion.Default;
-        this.ParameterDirection = ParameterDirection.Input;
+        DataRowVersion = DataRowVersion.Default;
+        ParameterDirection = ParameterDirection.Input;
     }
 
     /// <summary>

@@ -38,7 +38,7 @@ public static partial class XmlUtility
     /// <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
     public static object GetNodeValue(IXPathNavigable node, string setQuery, bool throwException, object defaultValue)
     {
-        return XmlUtility.GetNodeValue(node, setQuery, throwException, defaultValue, null);
+        return GetNodeValue(node, setQuery, throwException, defaultValue, null);
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ public static partial class XmlUtility
     /// </param>
     public static object GetNodeValue(IXPathNavigable node, string setQuery, bool throwException, object defaultValue, XmlNamespaceManager nsMan)
     {
-        XPathNavigator n = XmlUtility.GetNavigableNode(node, setQuery, nsMan);
+        XPathNavigator n = GetNavigableNode(node, setQuery, nsMan);
         object p = defaultValue;
 
         if(n != null) { if(n.Value.Trim().Length > 0) p = n.Value.Trim(); }
@@ -78,7 +78,7 @@ public static partial class XmlUtility
     /// <typeparam name="T">The type to parse from the node value.</typeparam>
     public static object GetNodeValueAndParse<T>(IXPathNavigable node, string setQuery, bool throwException, T defaultValue)
     {
-        return XmlUtility.GetNodeValueAndParse<T>(node, setQuery, throwException, defaultValue, null);
+        return GetNodeValueAndParse<T>(node, setQuery, throwException, defaultValue, null);
     }
 
     /// <summary>

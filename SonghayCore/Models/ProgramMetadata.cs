@@ -46,10 +46,10 @@ public class ProgramMetadata
     {
         var sb = new StringBuilder();
 
-        if ((this.CloudStorageSet != null) && this.CloudStorageSet.Any())
+        if ((CloudStorageSet != null) && CloudStorageSet.Any())
         {
-            sb.AppendLine($"{nameof(this.CloudStorageSet)}:");
-            foreach (var item in this.CloudStorageSet)
+            sb.AppendLine($"{nameof(CloudStorageSet)}:");
+            foreach (var item in CloudStorageSet)
             {
                 sb.AppendLine($"    {item.Key}:");
                 if ((item.Value != null) && item.Value.Any())
@@ -66,20 +66,20 @@ public class ProgramMetadata
             }
         }
 
-        if ((this.DbmsSet != null) && this.DbmsSet.Any())
+        if ((DbmsSet != null) && DbmsSet.Any())
         {
-            sb.AppendLine($"{nameof(this.DbmsSet)}:");
-            foreach (var item in this.DbmsSet)
+            sb.AppendLine($"{nameof(DbmsSet)}:");
+            foreach (var item in DbmsSet)
             {
                 sb.AppendLine($"    {item.Key}:");
                 sb.AppendLine($"        {item.Value}");
             }
         }
 
-        if ((this.RestApiMetadataSet != null) && this.RestApiMetadataSet.Any())
+        if ((RestApiMetadataSet != null) && RestApiMetadataSet.Any())
         {
-            sb.AppendLine($"{nameof(this.RestApiMetadataSet)}:");
-            foreach (var item in this.RestApiMetadataSet)
+            sb.AppendLine($"{nameof(RestApiMetadataSet)}:");
+            foreach (var item in RestApiMetadataSet)
             {
                 sb.AppendLine($"    {item.Key}:");
                 sb.AppendLine($"        {item.Value}");

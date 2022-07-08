@@ -33,17 +33,17 @@ public class OpenAuthorizationData
     /// <param name="data">The data.</param>
     public OpenAuthorizationData(string nonce, NameValueCollection data)
     {
-        this.Nonce = string.IsNullOrWhiteSpace(nonce) ? Convert.ToBase64String(new ASCIIEncoding().GetBytes(DateTime.Now.Ticks.ToString())) : nonce;
-        this.SignatureMethod = "HMAC-SHA1";
+        Nonce = string.IsNullOrWhiteSpace(nonce) ? Convert.ToBase64String(new ASCIIEncoding().GetBytes(DateTime.Now.Ticks.ToString())) : nonce;
+        SignatureMethod = "HMAC-SHA1";
         var timeSpan = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-        this.TimeStamp = Convert.ToInt64(timeSpan.TotalSeconds).ToString();
-        this.Version = "1.0";
+        TimeStamp = Convert.ToInt64(timeSpan.TotalSeconds).ToString();
+        Version = "1.0";
 
         if (data == null) return;
-        this.ConsumerKey = data["TwitterConsumerKey"];
-        this.ConsumerSecret = data["TwitterConsumerSecret"];
-        this.Token = data["TwitterToken"];
-        this.TokenSecret = data["TwitterTokenSecret"];
+        ConsumerKey = data["TwitterConsumerKey"];
+        ConsumerSecret = data["TwitterConsumerSecret"];
+        Token = data["TwitterToken"];
+        TokenSecret = data["TwitterTokenSecret"];
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ public class OpenAuthorizationData
     /// <param name="nonce">The nonce.</param>
     public OpenAuthorizationData(string nonce) : this()
     {
-        this.Nonce = nonce;
+        Nonce = nonce;
     }
 
     /// <summary>

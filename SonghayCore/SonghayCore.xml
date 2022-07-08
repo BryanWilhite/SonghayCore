@@ -4,6 +4,325 @@
         <name>SonghayCore</name>
     </assembly>
     <members>
+        <member name="T:Songhay.Abstractions.IActivity">
+            <summary>
+            Defines an Activity in a shell environment.
+            </summary>
+            <remarks>
+            For more detail, see “Songhay Shell Activities”
+            [https://github.com/BryanWilhite/Songhay.HelloWorlds.Activities]
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivity.DisplayHelp(Songhay.Models.ProgramArgs)">
+            <summary>
+            Displays the help.
+            </summary>
+            <param name="args">The arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivity.Start(Songhay.Models.ProgramArgs)">
+            <summary>
+            Starts with the specified arguments.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityConfigurationSupport">
+            <summary>
+            Defines <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> support
+            for an <see cref="T:Songhay.Abstractions.IActivity"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityConfigurationSupport.AddConfiguration(Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+            Adds the configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityWithOutput`2">
+            <summary>
+            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with output support.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivity" />
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityWithOutput`2.StartForOutput(`0)">
+            <summary>
+            Starts with the specified input
+            and synchronously returns <c>TOutput</c>.
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+            <remarks>
+            This member is called <c>StartForOutput</c>
+            instead of <c>Start</c> to prevent compile-time,
+            overload-clashing with <see cref="M:Songhay.Abstractions.IActivity.Start(Songhay.Models.ProgramArgs)"/>.
+            </remarks>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityWithTask">
+            <summary>
+            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            </summary>
+            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <remarks>
+            For detail aound why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityWithTask.StartAsync">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityWithTask`1">
+            <summary>
+            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <remarks>
+            For detail aound why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityWithTask`1.StartAsync(`0)">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityWithTaskOutput`1">
+            <summary>
+            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> output support.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityWithTaskOutput`1.StartAsync">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityWithTask`2">
+            <summary>
+            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <remarks>
+            For detail aound why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityWithTask`2.StartAsync(`0)">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
+            </summary>
+        </member>
+        <member name="T:Songhay.Abstractions.IColorable">
+            <summary>
+            Defines a colorable visual.
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.IColorable.BackgroundHex">
+            <summary>
+            Gets or sets the background hexadecimal value.
+            </summary>
+            <value>The background hexadecimal value.</value>
+        </member>
+        <member name="P:Songhay.Abstractions.IColorable.ForegroundHex">
+            <summary>
+            Gets or sets the foreground hexadecimal value.
+            </summary>
+            <value>The foreground hexadecimal value.</value>
+        </member>
+        <member name="T:Songhay.Abstractions.IGroupable">
+            <summary>
+            Defines a group-able visual
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.IGroupable.GroupDisplayText">
+            <summary>
+            Display text of the Group
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.IGroupable.GroupId">
+            <summary>
+            Identifier of the Group
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.IGroupable.IsCollapsed">
+            <summary>
+            Returns `true` when group is visually collapsed
+            </summary>
+        </member>
+        <member name="T:Songhay.Abstractions.IProgramAssemblyInfo">
+            <summary>
+            Contract for <see cref="T:Songhay.Models.ProgramAssemblyInfo"/>
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyCompany">
+            <summary>
+            Gets the assembly company.
+            </summary>
+            <value>The assembly company.</value>
+        </member>
+        <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyCopyright">
+            <summary>
+            Gets the assembly copyright.
+            </summary>
+            <value>The assembly copyright.</value>
+        </member>
+        <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyDescription">
+            <summary>
+            Gets the assembly description.
+            </summary>
+            <value>The assembly description.</value>
+        </member>
+        <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyProduct">
+            <summary>
+            Gets the assembly product.
+            </summary>
+            <value>The assembly product.</value>
+        </member>
+        <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyTitle">
+            <summary>
+            Gets the assembly title.
+            </summary>
+            <value>The assembly title.</value>
+        </member>
+        <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyVersion">
+            <summary>
+            Gets the assembly version.
+            </summary>
+            <value>The assembly version.</value>
+        </member>
+        <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyVersionDetail">
+            <summary>
+            Gets the assembly version detail.
+            </summary>
+            <value>The assembly version detail.</value>
+        </member>
+        <member name="T:Songhay.Abstractions.IRepository">
+            <summary>
+            Defines the repository pattern for an Entity.
+            </summary>
+            <remarks>
+            Based on the NBlog repository by Chris Fulstow
+            [https://github.com/ChrisFulstow/NBlog/blob/master/NBlog.Web/Application/Storage/IRepository.cs]
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IRepository.DeleteEntity``1(System.Object)">
+            <summary>
+            Deletes the entity.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Songhay.Abstractions.IRepository.HasEntity``1(System.Object)">
+            <summary>
+            Determines whether the specified key has entity.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Songhay.Abstractions.IRepository.LoadAll``1">
+            <summary>
+            Loads all.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="M:Songhay.Abstractions.IRepository.LoadSingle``1(System.Object)">
+            <summary>
+            Loads the single.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Songhay.Abstractions.IRepository.SaveEntity``1(``0)">
+            <summary>
+            Saves the entity.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+            <param name="item">The item.</param>
+        </member>
+        <member name="T:Songhay.Abstractions.ISelectable">
+            <summary>
+            Defines a selectable visual.
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.ISelectable.IsDefaultSelection">
+            <summary>
+            Gets or sets whether this is default selection.
+            </summary>
+            <value>
+            This is default selection.
+            </value>
+        </member>
+        <member name="P:Songhay.Abstractions.ISelectable.IsEnabled">
+            <summary>
+            Gets or sets whether this is enabled.
+            </summary>
+            <value>
+            This is enabled.
+            </value>
+        </member>
+        <member name="P:Songhay.Abstractions.ISelectable.IsSelected">
+            <summary>
+            Gets or sets whether this is selected.
+            </summary>
+            <value>
+            <c>true</c> when this is selected.
+            </value>
+        </member>
+        <member name="T:Songhay.Abstractions.ISortable">
+            <summary>
+            Defines a sortable visual.
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.ISortable.SortOrdinal">
+            <summary>
+            Gets or sets the sort ordinal.
+            </summary>
+            <value>The sort ordinal.</value>
+        </member>
+        <member name="T:Songhay.Abstractions.ISyndicatable">
+            <summary>
+            Specifies that a Model supports syndication.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.ISyndicatable.GetSyndicationFeed">
+            <summary>
+            Gets the syndication feed.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.ISyndicatable.GetSyndicationItem">
+            <summary>
+            Gets the syndication item.
+            </summary>
+        </member>
+        <member name="T:Songhay.Abstractions.ITemporal">
+            <summary>
+            Adds temporal properties to an item
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.ITemporal.EndDate">
+            <summary>
+            End/expiration <see cref="T:System.DateTime"/> of the item.
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.ITemporal.InceptDate">
+            <summary>
+            Origin <see cref="T:System.DateTime"/> of the item.
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.ITemporal.ModificationDate">
+            <summary>
+            Modification/editorial <see cref="T:System.DateTime"/> of the item.
+            </summary>
+        </member>
         <member name="T:Songhay.Diagnostics.TraceSources">
             <summary>
             Singleton wrapper for <see cref="T:System.Diagnostics.TraceSource"/>
@@ -1351,33 +1670,33 @@
         </member>
         <member name="T:Songhay.Extensions.IActivityExtensions">
             <summary>
-            Extensions of <see cref="T:Songhay.Models.IActivity"/>
+            Extensions of <see cref="T:Songhay.Abstractions.IActivity"/>
             </summary>
             <summary>
-            Extensions of <see cref="T:Songhay.Models.IActivity"/>
+            Extensions of <see cref="T:Songhay.Abstractions.IActivity"/>
             </summary>
             <summary>
-            Extensions of <see cref="T:Songhay.Models.IActivity"/>
+            Extensions of <see cref="T:Songhay.Abstractions.IActivity"/>
             </summary>
             <summary>
-            Extensions of <see cref="T:Songhay.Models.IActivity"/>
+            Extensions of <see cref="T:Songhay.Abstractions.IActivity"/>
             </summary>
             <summary>
-            Extensions of <see cref="T:Songhay.Models.IActivity"/>
+            Extensions of <see cref="T:Songhay.Abstractions.IActivity"/>
             </summary>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.WithConfiguration(Songhay.Models.IActivity,Microsoft.Extensions.Configuration.IConfigurationRoot)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.WithConfiguration(Songhay.Abstractions.IActivity,Microsoft.Extensions.Configuration.IConfigurationRoot)">
             <summary>
-            Returns <see cref="T:Songhay.Models.IActivity"/> with <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> added when available.
+            Returns <see cref="T:Songhay.Abstractions.IActivity"/> with <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> added when available.
             </summary>
             <param name="activity">The activity.</param>
             <param name="configuration">The configuration.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">activity</exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivity(Songhay.Models.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivity(Songhay.Abstractions.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>
             with <see cref="T:System.Diagnostics.ConsoleTraceListener"/>.
             </summary>
             <param name="activity">The activity.</param>
@@ -1385,9 +1704,9 @@
             <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityAsync``1(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityAsync``1(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously
             with <see cref="T:System.Diagnostics.ConsoleTraceListener"/>.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
@@ -1397,9 +1716,9 @@
             <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityAsync``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityAsync``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously
             with the specified <see cref="T:System.Diagnostics.ConsoleTraceListener"/>.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
@@ -1410,9 +1729,9 @@
             <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityForOutput``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityForOutput``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>, synchronously
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, synchronously
             with the specified <see cref="T:System.Diagnostics.ConsoleTraceListener"/>.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
@@ -1423,10 +1742,10 @@
             <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithOutput``2(Songhay.Models.IActivity)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithOutput``2(Songhay.Abstractions.IActivity)">
             <summary>
-            Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityWithOutput`2" />.
+            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
+            to <see cref="T:Songhay.Abstractions.IActivityWithOutput`2" />.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -1435,10 +1754,10 @@
             <exception cref="T:System.ArgumentNullException">The expected Activity name is not here.
             or</exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithOutput``2(Songhay.Models.IActivity,System.Boolean)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithOutput``2(Songhay.Abstractions.IActivity,System.Boolean)">
             <summary>
-            Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityWithOutput`2" />.
+            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
+            to <see cref="T:Songhay.Abstractions.IActivityWithOutput`2" />.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -1449,10 +1768,10 @@
             <exception cref="T:System.ArgumentNullException">The expected Activity name is not here.
             or</exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``2(Songhay.Models.IActivity)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``2(Songhay.Abstractions.IActivity)">
             <summary>
-            Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityWithTask`2" />.
+            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
+            to <see cref="T:Songhay.Abstractions.IActivityWithTask`2" />.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -1462,10 +1781,10 @@
             The expected IActivityWithTask{TInput, TOutput} is not here.
             </exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``2(Songhay.Models.IActivity,System.Boolean)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``2(Songhay.Abstractions.IActivity,System.Boolean)">
             <summary>
-            Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityWithTask`2" />.
+            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
+            to <see cref="T:Songhay.Abstractions.IActivityWithTask`2" />.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -1476,10 +1795,10 @@
             The expected IActivityWithTask{TInput, TOutput} is not here.
             </exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``1(Songhay.Models.IActivity)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``1(Songhay.Abstractions.IActivity)">
             <summary>
-            Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityWithTask`1" />.
+            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
+            to <see cref="T:Songhay.Abstractions.IActivityWithTask`1" />.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <param name="activity">The activity.</param>
@@ -1488,10 +1807,10 @@
             The expected IActivityWithTask{TInput, TOutput} is not here.
             </exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``1(Songhay.Models.IActivity,System.Boolean)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``1(Songhay.Abstractions.IActivity,System.Boolean)">
             <summary>
-            Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityWithTask`1" />.
+            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
+            to <see cref="T:Songhay.Abstractions.IActivityWithTask`1" />.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <param name="activity">The activity.</param>
@@ -1501,10 +1820,10 @@
             The expected IActivityWithTask{TInput} is not here.
             </exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask(Songhay.Models.IActivity)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask(Songhay.Abstractions.IActivity)">
             <summary>
-            Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityWithTask" />.
+            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
+            to <see cref="T:Songhay.Abstractions.IActivityWithTask" />.
             </summary>
             <param name="activity">The activity.</param>
             <returns></returns>
@@ -1512,10 +1831,10 @@
             The expected IActivityWithTask{TInput, TOutput} is not here.
             </exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask(Songhay.Models.IActivity,System.Boolean)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask(Songhay.Abstractions.IActivity,System.Boolean)">
             <summary>
-            Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityWithTask" />.
+            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
+            to <see cref="T:Songhay.Abstractions.IActivityWithTask" />.
             </summary>
             <param name="activity">The activity.</param>
             <param name="throwException">if set to <c>true</c> throw exception.</param>
@@ -1524,10 +1843,10 @@
             The expected IActivityWithTask is not here.
             </exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTaskOutput``1(Songhay.Models.IActivity)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTaskOutput``1(Songhay.Abstractions.IActivity)">
             <summary>
-            Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityWithTaskOutput`1" />.
+            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
+            to <see cref="T:Songhay.Abstractions.IActivityWithTaskOutput`1" />.
             </summary>
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
@@ -1536,10 +1855,10 @@
             The expected IActivityWithTaskOutput{TOutput} is not here.
             </exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTaskOutput``1(Songhay.Models.IActivity,System.Boolean)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTaskOutput``1(Songhay.Abstractions.IActivity,System.Boolean)">
             <summary>
-            Converts the specified <see cref="T:Songhay.Models.IActivity" />
-            to <see cref="T:Songhay.Models.IActivityWithTaskOutput`1" />.
+            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
+            to <see cref="T:Songhay.Abstractions.IActivityWithTaskOutput`1" />.
             </summary>
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
@@ -1549,7 +1868,7 @@
             The expected IActivityWithTaskOutput{TOutput} is not here.
             </exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.GetActivity(System.Collections.Generic.Dictionary{System.String,System.Lazy{Songhay.Models.IActivity}},System.String)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.GetActivity(System.Collections.Generic.Dictionary{System.String,System.Lazy{Songhay.Abstractions.IActivity}},System.String)">
             <summary>
             Gets the activity.
             </summary>
@@ -1560,18 +1879,18 @@
             activityName
             </exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivity(Songhay.Models.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivity(Songhay.Abstractions.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>.
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>.
             </summary>
             <param name="activity">The activity.</param>
             <param name="args">The arguments.</param>
             <param name="traceSource">The trace source.</param>
             <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivity(Songhay.Models.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivity(Songhay.Abstractions.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>.
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>.
             </summary>
             <param name="activity">The activity.</param>
             <param name="args">The arguments.</param>
@@ -1580,9 +1899,9 @@
             <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
             <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityForOutput``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityForOutput``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>
             for the specified output (<typeparamref name="TOutput"/>).
             </summary>
             <param name="activity">The activity.</param>
@@ -1590,9 +1909,9 @@
             <param name="traceSource">The trace source.</param>
             <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityForOutput``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityForOutput``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>
             for the specified output (<typeparamref name="TOutput"/>).
             </summary>
             <param name="activity">The activity.</param>
@@ -1602,9 +1921,9 @@
             <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
             <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -1613,9 +1932,9 @@
             <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter})">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter})">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -1626,9 +1945,9 @@
             <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``1(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``1(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <param name="activity">The activity.</param>
@@ -1636,9 +1955,9 @@
             <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``1(Songhay.Models.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``1(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <param name="activity">The activity.</param>
@@ -1649,17 +1968,17 @@
             <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
             <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync(Songhay.Models.IActivity,System.Diagnostics.TraceSource)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync(Songhay.Abstractions.IActivity,System.Diagnostics.TraceSource)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
             </summary>
             <param name="activity">The activity.</param>
             <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync(Songhay.Models.IActivity,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
+        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync(Songhay.Abstractions.IActivity,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
             <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/>, asynchronously.
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
             </summary>
             <param name="activity">The activity.</param>
             <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
@@ -1838,23 +2157,23 @@
         </member>
         <member name="T:Songhay.Extensions.ITemporalExtensions">
             <summary>
-            Extensions of <see cref="T:Songhay.Models.ITemporal"/>
+            Extensions of <see cref="T:Songhay.Abstractions.ITemporal"/>
             </summary>
         </member>
-        <member name="M:Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Models.ITemporal)">
+        <member name="M:Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal)">
             <summary>
             Sets conventional default values
-            for <see cref="T:Songhay.Models.ITemporal"/> data.
+            for <see cref="T:Songhay.Abstractions.ITemporal"/> data.
             </summary>
-            <param name="data">the <see cref="T:Songhay.Models.ITemporal"/> data</param>
+            <param name="data">the <see cref="T:Songhay.Abstractions.ITemporal"/> data</param>
         </member>
-        <member name="M:Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Models.ITemporal,System.Nullable{System.DateTime})">
+        <member name="M:Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal,System.Nullable{System.DateTime})">
             <summary>
             Sets conventional default values
-            for <see cref="T:Songhay.Models.ITemporal"/> data.
+            for <see cref="T:Songhay.Abstractions.ITemporal"/> data.
             </summary>
-            <param name="data">the <see cref="T:Songhay.Models.ITemporal"/> data</param>
-            <param name="endDate">sets <see cref="P:Songhay.Models.ITemporal.EndDate"/></param>
+            <param name="data">the <see cref="T:Songhay.Abstractions.ITemporal"/> data</param>
+            <param name="endDate">sets <see cref="P:Songhay.Abstractions.ITemporal.EndDate"/></param>
         </member>
         <member name="T:Songhay.Extensions.MenuDisplayItemModelExtensions">
             <summary>
@@ -3210,7 +3529,7 @@
         <member name="T:Songhay.Models.ActivitiesGetter">
             <summary>
             Defines the in-memory storage
-            and getting of <see cref="T:Songhay.Models.IActivity"/> types.
+            and getting of <see cref="T:Songhay.Abstractions.IActivity"/> types.
             </summary>
         </member>
         <member name="M:Songhay.Models.ActivitiesGetter.#ctor(System.String[])">
@@ -3229,18 +3548,18 @@
         </member>
         <member name="M:Songhay.Models.ActivitiesGetter.GetActivity">
             <summary>
-            Gets the <see cref="T:Songhay.Models.IActivity"/>.
+            Gets the <see cref="T:Songhay.Abstractions.IActivity"/>.
             </summary>
             <returns></returns>
         </member>
         <member name="M:Songhay.Models.ActivitiesGetter.GetActivity(System.String)">
             <summary>
-            Gets the <see cref="T:Songhay.Models.IActivity"/>.
+            Gets the <see cref="T:Songhay.Abstractions.IActivity"/>.
             </summary>
-            <param name="activityName">Name of the <see cref="T:Songhay.Models.IActivity"/>.</param>
+            <param name="activityName">Name of the <see cref="T:Songhay.Abstractions.IActivity"/>.</param>
             <returns></returns>
         </member>
-        <member name="M:Songhay.Models.ActivitiesGetter.LoadActivities(System.Collections.Generic.Dictionary{System.String,System.Lazy{Songhay.Models.IActivity}})">
+        <member name="M:Songhay.Models.ActivitiesGetter.LoadActivities(System.Collections.Generic.Dictionary{System.String,System.Lazy{Songhay.Abstractions.IActivity}})">
             <summary>
             Loads the activities.
             </summary>
@@ -3249,7 +3568,7 @@
         <member name="T:Songhay.Models.ActivityOutput`1">
             <summary>
             Defines the conventional output
-            of <see cref="T:Songhay.Models.IActivityWithTask`2"/>
+            of <see cref="T:Songhay.Abstractions.IActivityWithTask`2"/>
             </summary>
             <typeparam name="TOutput">The type of the output.</typeparam>
         </member>
@@ -3301,7 +3620,7 @@
             Uri <see cref="T:System.String"/> constant
             </summary>
         </member>
-        <member name="F:Songhay.Models.CorsOrigins.CodePenIO">
+        <member name="F:Songhay.Models.CorsOrigins.CodePenIo">
             <summary>
             Uri <see cref="T:System.String"/> constant
             </summary>
@@ -3346,7 +3665,7 @@
             Uri <see cref="T:System.String"/> constant
             </summary>
         </member>
-        <member name="F:Songhay.Models.CorsOrigins.StaticsCodePenIO">
+        <member name="F:Songhay.Models.CorsOrigins.StaticsCodePenIo">
             <summary>
             Uri <see cref="T:System.String"/> constant
             </summary>
@@ -3631,382 +3950,39 @@
             Reference: “HTTP request methods” [https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods]
             </remarks>
         </member>
-        <member name="F:Songhay.Models.HttpMethods.DELETE">
+        <member name="F:Songhay.Models.HttpMethods.Delete">
             <summary>
             HTTP Method <c>DELETE</c>
             </summary>
         </member>
-        <member name="F:Songhay.Models.HttpMethods.GET">
+        <member name="F:Songhay.Models.HttpMethods.Get">
             <summary>
             HTTP Method <c>GET</c>
             </summary>
         </member>
-        <member name="F:Songhay.Models.HttpMethods.HEAD">
+        <member name="F:Songhay.Models.HttpMethods.Head">
             <summary>
             HTTP Method <c>HEAD</c>
             </summary>
         </member>
-        <member name="F:Songhay.Models.HttpMethods.OPTIONS">
+        <member name="F:Songhay.Models.HttpMethods.Options">
             <summary>
             HTTP Method <c>OPTIONS</c>
             </summary>
         </member>
-        <member name="F:Songhay.Models.HttpMethods.POST">
+        <member name="F:Songhay.Models.HttpMethods.Post">
             <summary>
             HTTP Method <c>POST</c>
             </summary>
         </member>
-        <member name="F:Songhay.Models.HttpMethods.PUT">
+        <member name="F:Songhay.Models.HttpMethods.Put">
             <summary>
             HTTP Method <c>PUT</c>
             </summary>
         </member>
-        <member name="F:Songhay.Models.HttpMethods.TRACE">
+        <member name="F:Songhay.Models.HttpMethods.Trace">
             <summary>
             HTTP Method <c>TRACE</c>
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.IActivity">
-            <summary>
-            Defines an Activity in a shell environment.
-            </summary>
-            <remarks>
-            For more detail, see “Songhay Shell Activities”
-            [https://github.com/BryanWilhite/Songhay.HelloWorlds.Activities]
-            </remarks>
-        </member>
-        <member name="M:Songhay.Models.IActivity.DisplayHelp(Songhay.Models.ProgramArgs)">
-            <summary>
-            Displays the help.
-            </summary>
-            <param name="args">The arguments.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Models.IActivity.Start(Songhay.Models.ProgramArgs)">
-            <summary>
-            Starts with the specified arguments.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="T:Songhay.Models.IActivityConfigurationSupport">
-            <summary>
-            Defines <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> support
-            for an <see cref="T:Songhay.Models.IActivity"/>.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.IActivityConfigurationSupport.AddConfiguration(Microsoft.Extensions.Configuration.IConfigurationRoot)">
-            <summary>
-            Adds the configuration.
-            </summary>
-            <param name="configuration">The configuration.</param>
-        </member>
-        <member name="T:Songhay.Models.IActivityWithOutput`2">
-            <summary>
-            Extends <see cref="T:Songhay.Models.IActivity" /> with output support.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <seealso cref="T:Songhay.Models.IActivity" />
-        </member>
-        <member name="M:Songhay.Models.IActivityWithOutput`2.StartForOutput(`0)">
-            <summary>
-            Starts with the specified input
-            and synchronously returns <c>TOutput</c>.
-            </summary>
-            <param name="input">The input.</param>
-            <returns></returns>
-            <remarks>
-            This member is called <c>StartForOutput</c>
-            instead of <c>Start</c> to prevent compile-time,
-            overload-clashing with <see cref="M:Songhay.Models.IActivity.Start(Songhay.Models.ProgramArgs)"/>.
-            </remarks>
-        </member>
-        <member name="T:Songhay.Models.IActivityWithTask">
-            <summary>
-            Extends <see cref="T:Songhay.Models.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
-            </summary>
-            <seealso cref="T:Songhay.Models.IActivity" />
-            <remarks>
-            For detail aound why this definition exists,
-            see https://github.com/BryanWilhite/SonghayCore/issues/83
-            </remarks>
-        </member>
-        <member name="M:Songhay.Models.IActivityWithTask.StartAsync">
-            <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/> asynchronously.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Songhay.Models.IActivityWithTask`1">
-            <summary>
-            Extends <see cref="T:Songhay.Models.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <seealso cref="T:Songhay.Models.IActivity" />
-            <remarks>
-            For detail aound why this definition exists,
-            see https://github.com/BryanWilhite/SonghayCore/issues/83
-            </remarks>
-        </member>
-        <member name="M:Songhay.Models.IActivityWithTask`1.StartAsync(`0)">
-            <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity" /> asynchronously.
-            </summary>
-            <param name="input">The input.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Songhay.Models.IActivityWithTaskOutput`1">
-            <summary>
-            Extends <see cref="T:Songhay.Models.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> output support.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.IActivityWithTaskOutput`1.StartAsync">
-            <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity" /> asynchronously.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Songhay.Models.IActivityWithTask`2">
-            <summary>
-            Extends <see cref="T:Songhay.Models.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <seealso cref="T:Songhay.Models.IActivity" />
-            <remarks>
-            For detail aound why this definition exists,
-            see https://github.com/BryanWilhite/SonghayCore/issues/83
-            </remarks>
-        </member>
-        <member name="M:Songhay.Models.IActivityWithTask`2.StartAsync(`0)">
-            <summary>
-            Starts the <see cref="T:Songhay.Models.IActivity"/> asynchronously.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.IColorable">
-            <summary>
-            Defines a colorable visual.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.IColorable.BackgroundHex">
-            <summary>
-            Gets or sets the background hexadecimal value.
-            </summary>
-            <value>The background hexadecimal value.</value>
-        </member>
-        <member name="P:Songhay.Models.IColorable.ForegroundHex">
-            <summary>
-            Gets or sets the foreground hexadecimal value.
-            </summary>
-            <value>The foreground hexadecimal value.</value>
-        </member>
-        <member name="T:Songhay.Models.IControlInteractionMessage">
-            <summary>
-            Defines a Composition Message
-            for a Control interaction event.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.IControlInteractionMessage.ControlValue">
-            <summary>
-            Gets or sets the control value.
-            </summary>
-            <value>The control value.</value>
-        </member>
-        <member name="P:Songhay.Models.IControlInteractionMessage.ControlId">
-            <summary>
-            Gets or sets the control id.
-            </summary>
-            <value>The control id.</value>
-        </member>
-        <member name="P:Songhay.Models.IControlInteractionMessage.ControlTag">
-            <summary>
-            Gets or sets the control tag.
-            </summary>
-            <value>The control tag.</value>
-        </member>
-        <member name="T:Songhay.Models.IGroupable">
-            <summary>
-            Defines a group-able visual
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.IGroupable.GroupDisplayText">
-            <summary>
-            Display text of the Group
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.IGroupable.GroupId">
-            <summary>
-            Identifier of the Group
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.IGroupable.IsCollapsed">
-            <summary>
-            Returns `true` when group is visually collapsed
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.IProgramAssemblyInfo">
-            <summary>
-            Contract for <see cref="T:Songhay.Models.ProgramAssemblyInfo"/>
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyCompany">
-            <summary>
-            Gets the assembly company.
-            </summary>
-            <value>The assembly company.</value>
-        </member>
-        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyCopyright">
-            <summary>
-            Gets the assembly copyright.
-            </summary>
-            <value>The assembly copyright.</value>
-        </member>
-        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyDescription">
-            <summary>
-            Gets the assembly description.
-            </summary>
-            <value>The assembly description.</value>
-        </member>
-        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyProduct">
-            <summary>
-            Gets the assembly product.
-            </summary>
-            <value>The assembly product.</value>
-        </member>
-        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyTitle">
-            <summary>
-            Gets the assembly title.
-            </summary>
-            <value>The assembly title.</value>
-        </member>
-        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyVersion">
-            <summary>
-            Gets the assembly version.
-            </summary>
-            <value>The assembly version.</value>
-        </member>
-        <member name="P:Songhay.Models.IProgramAssemblyInfo.AssemblyVersionDetail">
-            <summary>
-            Gets the assembly version detail.
-            </summary>
-            <value>The assembly version detail.</value>
-        </member>
-        <member name="T:Songhay.Models.IRepository">
-            <summary>
-            Defines the repository pattern for an Entity.
-            </summary>
-            <remarks>
-            Based on the NBlog repository by Chris Fulstow
-            [https://github.com/ChrisFulstow/NBlog/blob/master/NBlog.Web/Application/Storage/IRepository.cs]
-            </remarks>
-        </member>
-        <member name="M:Songhay.Models.IRepository.DeleteEntity``1(System.Object)">
-            <summary>
-            Deletes the entity.
-            </summary>
-            <typeparam name="TEntity">The type of the entity.</typeparam>
-            <param name="key">The key.</param>
-        </member>
-        <member name="M:Songhay.Models.IRepository.HasEntity``1(System.Object)">
-            <summary>
-            Determines whether the specified key has entity.
-            </summary>
-            <typeparam name="TEntity">The type of the entity.</typeparam>
-            <param name="key">The key.</param>
-        </member>
-        <member name="M:Songhay.Models.IRepository.LoadAll``1">
-            <summary>
-            Loads all.
-            </summary>
-            <typeparam name="TEntity">The type of the entity.</typeparam>
-        </member>
-        <member name="M:Songhay.Models.IRepository.LoadSingle``1(System.Object)">
-            <summary>
-            Loads the single.
-            </summary>
-            <typeparam name="TEntity">The type of the entity.</typeparam>
-            <param name="key">The key.</param>
-        </member>
-        <member name="M:Songhay.Models.IRepository.SaveEntity``1(``0)">
-            <summary>
-            Saves the entity.
-            </summary>
-            <typeparam name="TEntity">The type of the entity.</typeparam>
-            <param name="item">The item.</param>
-        </member>
-        <member name="T:Songhay.Models.ISelectable">
-            <summary>
-            Defines a selectable visual.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.ISelectable.IsDefaultSelection">
-            <summary>
-            Gets or sets whether this is default selection.
-            </summary>
-            <value>
-            This is default selection.
-            </value>
-        </member>
-        <member name="P:Songhay.Models.ISelectable.IsEnabled">
-            <summary>
-            Gets or sets whether this is enabled.
-            </summary>
-            <value>
-            This is enabled.
-            </value>
-        </member>
-        <member name="P:Songhay.Models.ISelectable.IsSelected">
-            <summary>
-            Gets or sets whether this is selected.
-            </summary>
-            <value>
-            <c>true</c> when this is selected.
-            </value>
-        </member>
-        <member name="T:Songhay.Models.ISortable">
-            <summary>
-            Defines a sortable visual.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.ISortable.SortOrdinal">
-            <summary>
-            Gets or sets the sort ordinal.
-            </summary>
-            <value>The sort ordinal.</value>
-        </member>
-        <member name="T:Songhay.Models.ISyndicatable">
-            <summary>
-            Specifies that a Model supports syndication.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.ISyndicatable.GetSyndicationFeed">
-            <summary>
-            Gets the syndication feed.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.ISyndicatable.GetSyndicationItem">
-            <summary>
-            Gets the syndication item.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.ITemporal">
-            <summary>
-            Adds temporal properties to an item
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.ITemporal.EndDate">
-            <summary>
-            End/expiration <see cref="T:System.DateTime"/> of the item.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.ITemporal.InceptDate">
-            <summary>
-            Origin <see cref="T:System.DateTime"/> of the item.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.ITemporal.ModificationDate">
-            <summary>
-            Modification/editorial <see cref="T:System.DateTime"/> of the item.
             </summary>
         </member>
         <member name="T:Songhay.Models.LazyDisplayItem`1">
@@ -4343,7 +4319,7 @@
             http://www.opml.org/about
             </remarks>
         </member>
-        <member name="F:Songhay.Models.OpmlDocument.rxOpmlSchema">
+        <member name="F:Songhay.Models.OpmlDocument.RxOpmlSchema">
             <summary>
             The rx opml schema URI
             </summary>

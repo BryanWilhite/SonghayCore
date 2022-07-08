@@ -15,7 +15,7 @@ public static partial class XmlUtility
     /// <param name="testValue">The specified value to test with the node value.</param>
     public static bool IsNodeValue(IXPathNavigable node, string setQuery, bool throwException, string testValue)
     {
-        string s = (string)XmlUtility.GetNodeValue(node, setQuery, throwException);
+        string s = (string)GetNodeValue(node, setQuery, throwException);
         return string.Equals(s, testValue, StringComparison.OrdinalIgnoreCase);
     }
 
@@ -29,7 +29,7 @@ public static partial class XmlUtility
     /// <param name="comparisonType">The <see cref="System.StringComparison"/> type.</param>
     public static bool IsNodeValue(IXPathNavigable node, string setQuery, bool throwException, string testValue, StringComparison comparisonType)
     {
-        string s = (string)XmlUtility.GetNodeValue(node, setQuery, throwException);
+        string s = (string)GetNodeValue(node, setQuery, throwException);
         return string.Equals(s, testValue, comparisonType);
     }
 
@@ -46,7 +46,7 @@ public static partial class XmlUtility
     /// </param>
     public static bool IsNodeValue(IXPathNavigable node, string setQuery, bool throwException, string testValue, XmlNamespaceManager nsMan)
     {
-        string s = (string)XmlUtility.GetNodeValue(node, setQuery, throwException, null, nsMan);
+        string s = (string)GetNodeValue(node, setQuery, throwException, null, nsMan);
         return string.Equals(s, testValue);
     }
 
@@ -64,7 +64,7 @@ public static partial class XmlUtility
     /// <param name="comparisonType">The <see cref="System.StringComparison"/> type.</param>
     public static bool IsNodeValue(IXPathNavigable node, string setQuery, bool throwException, string testValue, XmlNamespaceManager nsMan, StringComparison comparisonType)
     {
-        string s = (string)XmlUtility.GetNodeValue(node, setQuery, throwException, null, nsMan);
+        string s = (string)GetNodeValue(node, setQuery, throwException, null, nsMan);
         return string.Equals(s, testValue, comparisonType);
     }
 
@@ -76,7 +76,7 @@ public static partial class XmlUtility
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     public static bool IsNoNodeValue(IXPathNavigable node, string setQuery, bool throwException)
     {
-        return XmlUtility.IsNodeValue(node, setQuery, throwException, "no", StringComparison.OrdinalIgnoreCase);
+        return IsNodeValue(node, setQuery, throwException, "no", StringComparison.OrdinalIgnoreCase);
     }
 
     /// <summary>
@@ -87,6 +87,6 @@ public static partial class XmlUtility
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     public static bool IsYesNodeValue(IXPathNavigable node, string setQuery, bool throwException)
     {
-        return XmlUtility.IsNodeValue(node, setQuery, throwException, "yes", StringComparison.OrdinalIgnoreCase);
+        return IsNodeValue(node, setQuery, throwException, "yes", StringComparison.OrdinalIgnoreCase);
     }
 }

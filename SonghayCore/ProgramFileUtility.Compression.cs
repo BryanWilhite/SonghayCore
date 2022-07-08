@@ -103,7 +103,7 @@ public static partial class ProgramFileUtility
     /// <param name="archiveAction">The action to take for the ZIP archive in use.</param>
     public static void UseZipArchive(FileInfo archiveInfo, Action<ZipArchive> archiveAction)
     {
-        ProgramFileUtility.UseZipArchive(archiveInfo, archiveAction, ZipArchiveMode.Read);
+        UseZipArchive(archiveInfo, archiveAction, ZipArchiveMode.Read);
     }
 
     /// <summary>

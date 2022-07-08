@@ -21,7 +21,7 @@ public class XhtmlImage
     /// <value>
     /// The height.
     /// </value>
-    public string Height { get; set; }
+    public string? Height { get; set; }
 
     /// <summary>
     /// Gets or sets the height in pixels.
@@ -37,7 +37,7 @@ public class XhtmlImage
     /// <value>
     /// The width.
     /// </value>
-    public string Width { get; set; }
+    public string? Width { get; set; }
 
     /// <summary>
     /// Gets or sets the width in pixels.

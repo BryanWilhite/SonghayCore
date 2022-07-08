@@ -43,7 +43,7 @@ public static partial class XObjectUtility
     /// <param name="query">The xpath query.</param>
     public static IEnumerable<XElement> GetXElements(XNode currentElement, string query)
     {
-        var nodes = XObjectUtility.GetXNodes(currentElement, query);
+        var nodes = GetXNodes(currentElement, query);
         return nodes.OfType<XElement>();
     }
 }

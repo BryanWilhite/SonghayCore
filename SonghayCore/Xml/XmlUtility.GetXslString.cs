@@ -17,7 +17,7 @@ public static partial class XmlUtility
     /// <param name="navigableSet">The source <see cref="System.Xml.XPath.IXPathNavigable"/> XML set.</param>
     public static string GetXslString(IXPathNavigable xslSet, IXPathNavigable navigableSet)
     {
-        return XmlUtility.GetXslString(xslSet, null, navigableSet, null);
+        return GetXslString(xslSet, null, navigableSet, null);
     }
 
     /// <summary>
@@ -47,7 +47,7 @@ public static partial class XmlUtility
     /// </param>
     public static string GetXslString(IXPathNavigable xslSet, XsltArgumentList xslArgs, IXPathNavigable navigableSet)
     {
-        return XmlUtility.GetXslString(xslSet, xslArgs, navigableSet, null);
+        return GetXslString(xslSet, xslArgs, navigableSet, null);
     }
 
     /// <summary>
@@ -79,7 +79,7 @@ public static partial class XmlUtility
             }
             ms.Position = 0;
 
-            ret = XmlUtility.GetText(ms);
+            ret = GetText(ms);
         }
         return ret;
     }

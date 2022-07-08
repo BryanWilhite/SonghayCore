@@ -18,7 +18,7 @@ public static class CorsOrigins
     /// <summary>
     /// Uri <see cref="string"/> constant
     /// </summary>
-    public const string CodePenIO = "http://codepen.io";
+    public const string CodePenIo = "http://codepen.io";
 
     /// <summary>
     /// The comma delimiter
@@ -63,7 +63,7 @@ public static class CorsOrigins
     /// <summary>
     /// Uri <see cref="string"/> constant
     /// </summary>
-    public const string StaticsCodePenIO = "http://s.codepen.io";
+    public const string StaticsCodePenIo = "http://s.codepen.io";
 
     /// <summary>
     /// Uri <see cref="string"/> constant

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Songhay.Models;
+namespace Songhay.Abstractions;
 
 /// <summary>
 /// Extends <see cref="IActivity" /> with <see cref="Task"/> support.
@@ -28,14 +28,14 @@ public interface IActivityWithTask : IActivity
 /// For detail aound why this definition exists,
 /// see https://github.com/BryanWilhite/SonghayCore/issues/83
 /// </remarks>
-public interface IActivityWithTask<TInput> : IActivity
+public interface IActivityWithTask<in TInput> : IActivity
 {
     /// <summary>
     /// Starts the <see cref="IActivity" /> asynchronously.
     /// </summary>
     /// <param name="input">The input.</param>
     /// <returns></returns>
-    Task StartAsync(TInput input);
+    Task StartAsync(TInput? input);
 }
 
 /// <summary>
@@ -47,7 +47,7 @@ public interface IActivityWithTaskOutput<TOutput> : IActivity
     /// Starts the <see cref="IActivity" /> asynchronously.
     /// </summary>
     /// <returns></returns>
-    Task<TOutput> StartAsync();
+    Task<TOutput?> StartAsync();
 }
 
 /// <summary>
@@ -60,10 +60,10 @@ public interface IActivityWithTaskOutput<TOutput> : IActivity
 /// For detail aound why this definition exists,
 /// see https://github.com/BryanWilhite/SonghayCore/issues/83
 /// </remarks>
-public interface IActivityWithTask<TInput, TOutput> : IActivity
+public interface IActivityWithTask<in TInput, TOutput> : IActivity
 {
     /// <summary>
     /// Starts the <see cref="IActivity"/> asynchronously.
     /// </summary>
-    Task<TOutput> StartAsync(TInput input);
+    Task<TOutput?> StartAsync(TInput? input);
 }

@@ -78,7 +78,7 @@ public class RestPagingMetadata
     /// <returns></returns>
     public RestPagingMetadata ToShallowCopy()
     {
-        return this.MemberwiseClone() as RestPagingMetadata;
+        return MemberwiseClone() as RestPagingMetadata;
     }
 
     /// <summary>
@@ -91,12 +91,12 @@ public class RestPagingMetadata
     {
         var sb = new StringBuilder();
         sb.AppendFormat("resultSetSize: {0}, totalSetSize: {1}, startPosition: {2}, endPosition: {3}",
-            this.ResultSetSize, this.TotalSetSize, this.StartPosition, this.EndPosition);
+            ResultSetSize, TotalSetSize, StartPosition, EndPosition);
 
-        if (this.FromDate != null) sb.AppendFormat(", fromDate: {0}", this.FromDate);
-        if (this.ToDate != null) sb.AppendFormat(", toDate: {0}", this.ToDate);
-        if (this.NextUri != null) sb.AppendFormat(", nextUri: {0}", this.NextUri);
-        if (this.PreviousUri != null) sb.AppendFormat(", previousUri: {0}", this.PreviousUri);
+        if (FromDate != null) sb.AppendFormat(", fromDate: {0}", FromDate);
+        if (ToDate != null) sb.AppendFormat(", toDate: {0}", ToDate);
+        if (NextUri != null) sb.AppendFormat(", nextUri: {0}", NextUri);
+        if (PreviousUri != null) sb.AppendFormat(", previousUri: {0}", PreviousUri);
 
         return (sb.Length > 0) ? sb.ToString() : base.ToString();
     }

@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Reflection;
+using Songhay.Abstractions;
 
 namespace Songhay.Models;
 
@@ -18,7 +19,7 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
     /// <param name="targetAssembly">The target <see cref="System.Reflection.Assembly"/></param>
     public ProgramAssemblyInfo(Assembly targetAssembly)
     {
-        this._dll = targetAssembly;
+        _dll = targetAssembly;
     }
 
     /// <summary>
@@ -28,7 +29,7 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
     {
         get
         {
-            object[] attributes = this._dll.GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
+            object[] attributes = _dll.GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
             if (attributes.Length > 0)
             {
                 AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
@@ -38,7 +39,7 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
                 }
             }
 #pragma warning disable SYSLIB0012
-            return System.IO.Path.GetFileNameWithoutExtension(this._dll.CodeBase);
+            return System.IO.Path.GetFileNameWithoutExtension(_dll.CodeBase);
 #pragma warning restore SYSLIB0012
         }
     }
@@ -50,7 +51,7 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
     {
         get
         {
-            AssemblyName name = this._dll.GetName();
+            AssemblyName name = _dll.GetName();
             return name.Version.ToString();
         }
     }
@@ -62,7 +63,7 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
     {
         get
         {
-            AssemblyName dllName = this._dll.GetName();
+            AssemblyName dllName = _dll.GetName();
             return string.Format(CultureInfo.CurrentCulture, "{0:D}.{1:D2}", dllName.Version.Major, dllName.Version.Minor);
         }
     }
@@ -74,7 +75,7 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
     {
         get
         {
-            object[] attributes = this._dll.GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
+            object[] attributes = _dll.GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
             if (attributes.Length == 0)
             {
                 return string.Empty;
@@ -91,7 +92,7 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
     {
         get
         {
-            object[] attributes = this._dll.GetCustomAttributes(typeof(AssemblyProductAttribute), false);
+            object[] attributes = _dll.GetCustomAttributes(typeof(AssemblyProductAttribute), false);
             if (attributes.Length == 0)
             {
                 return string.Empty;
@@ -108,7 +109,7 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
     {
         get
         {
-            object[] attributes = this._dll.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
+            object[] attributes = _dll.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
             if (attributes.Length == 0)
             {
                 return string.Empty;
@@ -125,7 +126,7 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
     {
         get
         {
-            object[] attributes = this._dll.GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
+            object[] attributes = _dll.GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
             if (attributes.Length == 0)
             {
                 return string.Empty;
@@ -141,10 +142,10 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
     public override string ToString()
     {
         string s = string.Format("{0}, {1} Version: {2}, {3}",
-            this.AssemblyCompany,
-            this.AssemblyTitle,
-            this.AssemblyVersion,
-            this.AssemblyVersionDetail);
+            AssemblyCompany,
+            AssemblyTitle,
+            AssemblyVersion,
+            AssemblyVersionDetail);
         return s;
     }
 

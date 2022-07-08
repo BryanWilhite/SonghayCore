@@ -20,7 +20,7 @@ public class CsvExporter<T> where T : class
     /// Initializes a new instance of the <see cref="CsvExporter{T}"/> class.
     /// </summary>
     /// <param name="rows">The rows.</param>
-    public CsvExporter(IEnumerable<T> rows)
+    public CsvExporter(IEnumerable<T>? rows)
         : this(rows, null)
     {
     }
@@ -30,10 +30,10 @@ public class CsvExporter<T> where T : class
     /// </summary>
     /// <param name="rows">The rows.</param>
     /// <param name="columns">The columns.</param>
-    public CsvExporter(IEnumerable<T> rows, IEnumerable<string> columns)
+    public CsvExporter(IEnumerable<T>? rows, IEnumerable<string>? columns)
     {
-        this.Columns = columns;
-        this.Rows = rows;
+        Rows = rows ?? Enumerable.Empty<T>();
+        Columns = columns ?? Enumerable.Empty<string>();
     }
 
     /// <summary>
@@ -57,7 +57,7 @@ public class CsvExporter<T> where T : class
     /// </summary>
     public string Export()
     {
-        return this.Export(true);
+        return Export(true);
     }
 
     /// <summary>
@@ -67,43 +67,43 @@ public class CsvExporter<T> where T : class
     public string Export(bool includeHeaderLine)
     {
 
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
         IList<PropertyInfo> propertyInfoList = typeof(T).GetProperties();
 
         if (includeHeaderLine)
         {
-            if (this.Columns != null)
+            if (Columns.Any())
             {
                 foreach (var propertyName in Columns)
                 {
-                    sb.Append(propertyName).Append(",");
-                }
-            }
-            else
-            {
-                foreach (PropertyInfo propertyInfo in propertyInfoList)
-                {
-                    sb.Append(propertyInfo.Name).Append(",");
-                }
-            }
-            sb.Remove(sb.Length - 1, 1).AppendLine();
-        }
-
-        foreach (T obj in this.Rows)
-        {
-            if (this.Columns != null)
-            {
-                foreach (var propertyName in Columns)
-                {
-                    var propertyInfo = propertyInfoList.FirstOrDefault(i => i.Name == propertyName);
-                    if (propertyInfo != null) sb.Append(this.MakeCsvText(propertyInfo.GetValue(obj, null))).Append(",");
+                    sb.Append(propertyName).Append(',');
                 }
             }
             else
             {
                 foreach (var propertyInfo in propertyInfoList)
                 {
-                    sb.Append(this.MakeCsvText(propertyInfo.GetValue(obj, null))).Append(",");
+                    sb.Append(propertyInfo.Name).Append(',');
+                }
+            }
+            sb.Remove(sb.Length - 1, 1).AppendLine();
+        }
+
+        foreach (T obj in Rows)
+        {
+            if (Columns != null)
+            {
+                foreach (var propertyName in Columns)
+                {
+                    var propertyInfo = propertyInfoList.FirstOrDefault(i => i.Name == propertyName);
+                    if (propertyInfo != null) sb.Append(MakeCsvText(propertyInfo.GetValue(obj, null))).Append(",");
+                }
+            }
+            else
+            {
+                foreach (var propertyInfo in propertyInfoList)
+                {
+                    sb.Append(MakeCsvText(propertyInfo.GetValue(obj, null))).Append(",");
                 }
             }
             sb.Remove(sb.Length - 1, 1).AppendLine();
@@ -116,32 +116,25 @@ public class CsvExporter<T> where T : class
     /// Exports to file.
     /// </summary>
     /// <param name="path">The path.</param>
-    public void ExportToFile(string path)
-    {
-        File.WriteAllText(path, this.Export());
-    }
+    public void ExportToFile(string? path) => File.WriteAllText(path!, Export());
 
     /// <summary>
     /// Exports to bytes.
     /// </summary>
-    public byte[] ExportToBytes()
-    {
-        return Encoding.UTF8.GetBytes(this.Export());
-    }
+    public byte[] ExportToBytes() => Encoding.UTF8.GetBytes(Export());
 
-    string MakeCsvText(object value)
+    static string MakeCsvText(object? value)
     {
         if (value == null) return string.Empty;
 
-        if (value is DateTime)
+        if (value is DateTime time)
         {
-            if (((DateTime)value).TimeOfDay.TotalSeconds == 0)
-                return ((DateTime)value).ToString("yyyy-MM-dd");
-            return ((DateTime)value).ToString("yyyy-MM-dd HH:mm:ss");
+            return time.ToString(time.TimeOfDay.TotalSeconds == 0 ? "yyyy-MM-dd" : "yyyy-MM-dd HH:mm:ss");
         }
-        string output = value.ToString();
 
-        if (output.Contains(",") || output.Contains("\""))
+        string output = value.ToString()!;
+
+        if (output.Contains(',') || output.Contains('"'))
             output = '"' + output.Replace("\"", "\"\"") + '"';
 
         return output;

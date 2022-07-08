@@ -15,14 +15,8 @@ public static class XObjectMetadata
     /// <summary>
     /// DOCTYPE XHTML Transitional
     /// </summary>
-    public static XDocumentType XhtmlDocTypeTransitional
-    {
-        get
-        {
-            return
-                new XDocumentType("xhtml",
-                    "-//W3C//DTD XHTML 1.0 Transitional//EN",
-                    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd", null);
-        }
-    }
+    public static XDocumentType XhtmlDocTypeTransitional =>
+        new("xhtml",
+            "-//W3C//DTD XHTML 1.0 Transitional//EN",
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd", null);
 }

@@ -78,7 +78,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static bool? ParseBoolean(object value, bool supportBitStrings, bool defaultValue)
     {
-        bool? bln = ProgramTypeUtility.ParseBoolean(value, supportBitStrings);
+        bool? bln = ParseBoolean(value, supportBitStrings);
 
         if (bln.HasValue) return bln;
         else return new bool?(defaultValue);
@@ -121,7 +121,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static byte? ParseByte(object value, byte defaultValue)
     {
-        byte? b = ProgramTypeUtility.ParseByte(value);
+        byte? b = ParseByte(value);
         if (b.HasValue) return b;
         else return new byte?(defaultValue);
     }
@@ -163,7 +163,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static DateTime? ParseDateTime(object value, DateTime defaultValue)
     {
-        DateTime? d = ProgramTypeUtility.ParseDateTime(value);
+        DateTime? d = ParseDateTime(value);
         if (d.HasValue) return d;
         else return new DateTime?(defaultValue);
     }
@@ -211,7 +211,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static string ParseDateTimeWithFormat(object value, string formatExpression, string defaultValue)
     {
-        string d = ProgramTypeUtility.ParseDateTimeWithFormat(value, formatExpression);
+        string d = ParseDateTimeWithFormat(value, formatExpression);
         if (string.IsNullOrWhiteSpace(d)) return defaultValue;
         else return d;
     }
@@ -295,7 +295,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static double? ParseDouble(object value, double defaultValue)
     {
-        double? d = ProgramTypeUtility.ParseDouble(value);
+        double? d = ParseDouble(value);
         if (d.HasValue) return d;
         else return new double?(defaultValue);
     }
@@ -354,7 +354,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static Int16? ParseInt16(object value, Int16 defaultValue)
     {
-        Int16? i = ProgramTypeUtility.ParseInt16(value);
+        Int16? i = ParseInt16(value);
         if (i.HasValue) return i;
         else return new Int16?(defaultValue);
     }
@@ -396,7 +396,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static Int32? ParseInt32(object value, Int32 defaultValue)
     {
-        Int32? i = ProgramTypeUtility.ParseInt32(value);
+        Int32? i = ParseInt32(value);
         if (i.HasValue) return i;
         else return new Int32?(defaultValue);
     }
@@ -438,7 +438,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static Int64? ParseInt64(object value, Int64 defaultValue)
     {
-        Int64? i = ProgramTypeUtility.ParseInt64(value);
+        Int64? i = ParseInt64(value);
         if (i.HasValue) return i;
         else return new Int64?(defaultValue);
     }

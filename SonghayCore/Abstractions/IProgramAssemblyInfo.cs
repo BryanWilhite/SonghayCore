@@ -1,4 +1,4 @@
-﻿namespace Songhay.Models;
+﻿namespace Songhay.Abstractions;
 
 /// <summary>
 /// Contract for <see cref="Songhay.Models.ProgramAssemblyInfo"/>
@@ -9,41 +9,41 @@ public interface IProgramAssemblyInfo
     /// Gets the assembly company.
     /// </summary>
     /// <value>The assembly company.</value>
-    string AssemblyCompany { get; }
+    string? AssemblyCompany { get; }
 
     /// <summary>
     /// Gets the assembly copyright.
     /// </summary>
     /// <value>The assembly copyright.</value>
-    string AssemblyCopyright { get; }
+    string? AssemblyCopyright { get; }
 
     /// <summary>
     /// Gets the assembly description.
     /// </summary>
     /// <value>The assembly description.</value>
-    string AssemblyDescription { get; }
+    string? AssemblyDescription { get; }
 
     /// <summary>
     /// Gets the assembly product.
     /// </summary>
     /// <value>The assembly product.</value>
-    string AssemblyProduct { get; }
+    string? AssemblyProduct { get; }
 
     /// <summary>
     /// Gets the assembly title.
     /// </summary>
     /// <value>The assembly title.</value>
-    string AssemblyTitle { get; }
+    string? AssemblyTitle { get; }
 
     /// <summary>
     /// Gets the assembly version.
     /// </summary>
     /// <value>The assembly version.</value>
-    string AssemblyVersion { get; }
+    string? AssemblyVersion { get; }
 
     /// <summary>
     /// Gets the assembly version detail.
     /// </summary>
     /// <value>The assembly version detail.</value>
-    string AssemblyVersionDetail { get; }
+    string? AssemblyVersionDetail { get; }
 }

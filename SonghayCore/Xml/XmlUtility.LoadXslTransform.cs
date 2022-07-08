@@ -21,7 +21,7 @@ public static partial class XmlUtility
     /// </param>
     public static string LoadXslTransform(string xslPath, string xmlPath)
     {
-        return XmlUtility.LoadXslTransform(xslPath, new XsltArgumentList(), xmlPath);
+        return LoadXslTransform(xslPath, new XsltArgumentList(), xmlPath);
     }
 
 
@@ -61,7 +61,7 @@ public static partial class XmlUtility
                 xslt.Transform(reader, xslArgs, writer, null);
             }
 
-            ret = XmlUtility.GetText(ms);
+            ret = GetText(ms);
         }
         return ret;
     }
@@ -106,7 +106,7 @@ public static partial class XmlUtility
                 XmlWriter writer = XmlWriter.Create(ms);
                 xslt.Transform(reader, xslArgs, writer, null);
             }
-            ret = XmlUtility.GetText(ms);
+            ret = GetText(ms);
         }
         return ret;
     }
@@ -143,7 +143,7 @@ public static partial class XmlUtility
                 XmlWriter writer = XmlWriter.Create(ms);
                 xslt.Transform(reader, xslArgs, writer, null);
             }
-            ret = XmlUtility.GetText(ms);
+            ret = GetText(ms);
         }
         return ret;
     }

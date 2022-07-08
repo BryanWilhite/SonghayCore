@@ -1,8 +1,10 @@
-﻿namespace Songhay.Models;
+﻿using Songhay.Abstractions;
+
+namespace Songhay.Models;
 
 /// <summary>
 /// Defines the conventional output
-/// of <see cref="IActivityWithTask{TInput, TOutput}"/>
+/// of <see cref="IActivityWithTask{TInput,TOutput}"/>
 /// </summary>
 /// <typeparam name="TOutput">The type of the output.</typeparam>
 public class ActivityOutput<TOutput>

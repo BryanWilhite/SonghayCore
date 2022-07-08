@@ -25,7 +25,7 @@ public static partial class XmlUtility
         Justification = "Specific functionality provided by the concrete type may be required.")]
     public static XPathDocument CombineNavigableDocuments(IXPathNavigable parentDocument, IXPathNavigable childDocument)
     {
-        return XmlUtility.CombineNavigableDocuments(parentDocument, childDocument, null);
+        return CombineNavigableDocuments(parentDocument, childDocument, null);
     }
 
     /// <summary>

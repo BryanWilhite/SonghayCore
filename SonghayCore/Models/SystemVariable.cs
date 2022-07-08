@@ -10,17 +10,17 @@ public class SystemVariable
     /// Gets or sets the name of the variable.
     /// </summary>
     /// <value>The name of the variable.</value>
-    public string VariableName { get; set; }
+    public string? VariableName { get; set; }
 
     /// <summary>
     /// Gets or sets the variable description.
     /// </summary>
     /// <value>The variable description.</value>
-    public string VariableDescription { get; set; }
+    public string? VariableDescription { get; set; }
 
     /// <summary>
     /// Gets or sets the variable value.
     /// </summary>
     /// <value>The variable value.</value>
-    public string VariableValue { get; set; }
+    public string? VariableValue { get; set; }
 }

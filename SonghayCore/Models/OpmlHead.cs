@@ -28,7 +28,7 @@ public class OpmlHead
     /// <value>The title.</value>
     [XmlElement(ElementName = "title")]
     [JsonPropertyName("title")]
-    public string Title { get; set; }
+    public string? Title { get; set; }
 
     /// <summary>
     /// Gets or sets the date created.
@@ -38,10 +38,7 @@ public class OpmlHead
     [JsonIgnore]
     public DateTime? DateCreated
     {
-        get
-        {
-            return _dateCreated;
-        }
+        get => _dateCreated;
         set
         {
             _dateCreated = value;
@@ -57,7 +54,7 @@ public class OpmlHead
     /// <value>The date created string.</value>
     [XmlElement(ElementName = "dateCreated")]
     [JsonPropertyName("dateCreated")]
-    public string DateCreatedString { get; set; }
+    public string? DateCreatedString { get; set; }
 
     /// <summary>
     /// Gets or sets the date modified.
@@ -67,10 +64,7 @@ public class OpmlHead
     [JsonIgnore]
     public DateTime? DateModified
     {
-        get
-        {
-            return _dateModified;
-        }
+        get => _dateModified;
         set
         {
             _dateModified = value;
@@ -86,7 +80,7 @@ public class OpmlHead
     /// <value>The date created string.</value>
     [XmlElement(ElementName = "dateModified")]
     [JsonPropertyName("dateModified")]
-    public string DateModifiedString { get; set; }
+    public string? DateModifiedString { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the owner.
@@ -94,7 +88,7 @@ public class OpmlHead
     /// <value>The name of the owner.</value>
     [XmlElement(ElementName = "ownerName")]
     [JsonPropertyName("ownerName")]
-    public string OwnerName { get; set; }
+    public string? OwnerName { get; set; }
 
     /// <summary>
     /// Gets or sets the owner email.
@@ -102,7 +96,7 @@ public class OpmlHead
     /// <value>The owner email.</value>
     [XmlElement(ElementName = "ownerEmail")]
     [JsonPropertyName("ownerEmail")]
-    public string OwnerEmail { get; set; }
+    public string? OwnerEmail { get; set; }
 
     DateTime? _dateCreated;
     DateTime? _dateModified;

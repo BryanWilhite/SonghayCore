@@ -96,7 +96,7 @@ public static partial class XObjectUtility
     /// <param name="throwException">if set to <c>true</c> throw exception.</param>
     public static string GetValue(XNode currentNode, string query, bool throwException)
     {
-        var node = XObjectUtility.GetXObject(currentNode, query);
+        var node = GetXObject(currentNode, query);
         if(node == null)
         {
             if(throwException) throw new ArgumentException("The XPath query returns a null node", "query");
@@ -106,7 +106,7 @@ public static partial class XObjectUtility
         if(node.NodeType == System.Xml.XmlNodeType.Element)
             return (node as XElement).Value;
         else if(node.NodeType == System.Xml.XmlNodeType.Attribute)
-            return (string)XObjectUtility.GetXAttributeValue(currentNode, query, throwException);
+            return (string)GetXAttributeValue(currentNode, query, throwException);
         else
             return null;
     }

@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Songhay.Models;
 
@@ -13,5 +14,5 @@ public class HierarchicalNameValuePair : NameValuePair
     /// <value>The name value pairs.</value>
     [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays",
         Justification = "Used for XML serialization.")]
-    public NameValuePair[] NameValuePairs { get; set; }
+    public NameValuePair[] NameValuePairs { get; set; } = Enumerable.Empty<NameValuePair>().ToArray();
 }

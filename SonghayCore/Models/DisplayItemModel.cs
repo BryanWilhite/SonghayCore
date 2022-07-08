@@ -1,4 +1,5 @@
 ﻿using System;
+using Songhay.Abstractions;
 
 namespace Songhay.Models;
 
@@ -17,13 +18,13 @@ public class DisplayItemModel : ISortable, ITemporal
     /// Gets or sets the description.
     /// </summary>
     /// <value>The description.</value>
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
     /// <summary>
     /// Gets or sets the display text.
     /// </summary>
     /// <value>The display text.</value>
-    public string DisplayText { get; set; }
+    public string? DisplayText { get; set; }
 
     /// <summary>
     /// Gets or sets the id.
@@ -35,7 +36,7 @@ public class DisplayItemModel : ISortable, ITemporal
     /// Gets or sets the item name.
     /// </summary>
     /// <value>The item name.</value>
-    public string ItemName { get; set; }
+    public string? ItemName { get; set; }
 
     /// <summary>
     /// Gets or sets the resource indicator.
@@ -43,7 +44,7 @@ public class DisplayItemModel : ISortable, ITemporal
     /// <value>
     /// The resource indicator.
     /// </value>
-    public Uri ResourceIndicator { get; set; }
+    public Uri? ResourceIndicator { get; set; }
 
     /// <summary>
     /// Gets or sets the tag.
@@ -51,7 +52,7 @@ public class DisplayItemModel : ISortable, ITemporal
     /// <value>
     /// The tag.
     /// </value>
-    public object Tag { get; set; }
+    public object? Tag { get; set; }
 
     #region ISortable members:
 
@@ -87,12 +88,9 @@ public class DisplayItemModel : ISortable, ITemporal
     /// </summary>
     public override string ToString()
     {
-        if (this.DisplayText != null)
-            return string.Format("{0}: {1}", this.Id, this.DisplayText);
+        if (DisplayText != null)
+            return $"{Id}: {DisplayText}";
 
-        if (this.ItemName != null)
-            return string.Format("{0}: {1}", this.Id, this.ItemName);
-
-        return string.Format("ID: {0}", this.Id);
+        return ItemName != null ? $"{Id}: {ItemName}" : $"ID: {Id}";
     }
 }

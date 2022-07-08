@@ -14,8 +14,8 @@ public class ProgramArgs
     /// <param name="args">The arguments.</param>
     public ProgramArgs(string[] args)
     {
-        this.Args = args;
-        if ((args != null) && args.Any()) this.HelpSet = new Dictionary<string, string>(capacity: args.Length);
+        Args = args;
+        if ((args != null) && args.Any()) HelpSet = new Dictionary<string, string>(capacity: args.Length);
     }
 
     /// <summary>

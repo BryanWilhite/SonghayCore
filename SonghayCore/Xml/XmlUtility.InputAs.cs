@@ -25,11 +25,11 @@ public partial class XmlUtility
             s = HtmlUtility.ConvertToXml(s);
             s = LatinGlyphsUtility.Condense(s);
 
-            return XmlUtility.GetNavigableDocument(s);
+            return GetNavigableDocument(s);
         }
         else if(typeof(TIn).Equals(typeof(XmlDocument)))
         {
-            return XmlUtility.GetNavigableDocument(input as XmlDocument);
+            return GetNavigableDocument(input as XmlDocument);
         }
         else if(typeof(TIn).Equals(typeof(XPathDocument)))
         {

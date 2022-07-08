@@ -48,7 +48,7 @@ public class TimeoutHandlerTests
         }
     }
 
-    [Theory]
+    [Theory(Skip = "slowwly server is down")]
     [InlineData("http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
     public async Task ShouldTimeout(string location, int timeInSeconds)
     {

@@ -23,7 +23,7 @@ public static partial class XmlUtility
         Justification = "Specific functionality provided by the concrete type may be required.")]
     public static XPathDocument StripNamespaces(IXPathNavigable navigableSet)
     {
-        return XmlUtility.StripNamespaces(navigableSet, false);
+        return StripNamespaces(navigableSet, false);
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ public static partial class XmlUtility
 
         XPathNavigator node = navigableSet.CreateNavigator();
 
-        string xmlString = XmlUtility.StripNamespaces(node.OuterXml, removeDocType);
+        string xmlString = StripNamespaces(node.OuterXml, removeDocType);
 
         using(StringReader s = new StringReader(xmlString))
         {

@@ -24,8 +24,8 @@ public abstract class EditableObjectCache
     {
         if (action == null) throw new ArgumentNullException(nameof(action));
 
-        this.IsRestoringFromCache = true;
+        IsRestoringFromCache = true;
         action.Invoke();
-        this.IsRestoringFromCache = false;
+        IsRestoringFromCache = false;
     }
 }

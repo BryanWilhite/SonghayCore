@@ -80,23 +80,23 @@ public class RestApiMetadata
     {
         var sb = new StringBuilder();
 
-        if (this.ApiBase != null) sb.AppendFormat("ApiBase: {0}", this.ApiBase);
-        if (!string.IsNullOrWhiteSpace(this.ApiKey)) sb.AppendFormat(" ApiKey: {0}", this.ApiKey);
+        if (ApiBase != null) sb.AppendFormat("ApiBase: {0}", ApiBase);
+        if (!string.IsNullOrWhiteSpace(ApiKey)) sb.AppendFormat(" ApiKey: {0}", ApiKey);
 
-        if ((this.ClaimsSet != null) && (this.ClaimsSet.Count > 0))
+        if ((ClaimsSet != null) && (ClaimsSet.Count > 0))
         {
-            sb.AppendLine($"{nameof(this.ClaimsSet)}:");
-            foreach (var item in this.ClaimsSet)
+            sb.AppendLine($"{nameof(ClaimsSet)}:");
+            foreach (var item in ClaimsSet)
             {
                 sb.AppendLine($"    {item.Key}:");
                 sb.AppendLine($"        {item.Value}");
             }
         }
 
-        if ((this.UriTemplates != null) && (this.UriTemplates.Count > 0))
+        if ((UriTemplates != null) && (UriTemplates.Count > 0))
         {
-            sb.AppendLine($"{nameof(this.UriTemplates)}:");
-            foreach (var item in this.UriTemplates)
+            sb.AppendLine($"{nameof(UriTemplates)}:");
+            foreach (var item in UriTemplates)
             {
                 sb.AppendLine($"    {item.Key}:");
                 sb.AppendLine($"        {item.Value}");

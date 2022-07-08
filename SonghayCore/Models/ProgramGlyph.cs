@@ -21,7 +21,7 @@ public class ProgramGlyph
     /// <value>
     /// The unicode integer.
     /// </value>
-    public int UnicodeInteger { get { return string.IsNullOrWhiteSpace(this.UnicodePoint) ? 0 : Convert.ToInt32(this.UnicodePoint, 16); } }
+    public int UnicodeInteger { get { return string.IsNullOrWhiteSpace(UnicodePoint) ? 0 : Convert.ToInt32(UnicodePoint, 16); } }
 
     /// <summary>
     /// Gets or sets the unicode group.

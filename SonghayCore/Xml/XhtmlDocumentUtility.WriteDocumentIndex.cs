@@ -32,7 +32,7 @@ public static partial class XhtmlDocumentUtility
             .ForEachInEnumerable(f =>
             {
                 var uri = string.Concat(publicRoot, f.Name);
-                list.Add(XhtmlDocumentUtility.LoadDocument(f.FullName, uri));
+                list.Add(LoadDocument(f.FullName, uri));
             });
 
         var serializer = new XmlSerializer(typeof(XhtmlDocuments));

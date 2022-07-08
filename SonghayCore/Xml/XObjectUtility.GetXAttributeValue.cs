@@ -35,7 +35,7 @@ public static partial class XObjectUtility
     /// <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
     public static string GetXAttributeValue(XNode set, string setQuery, bool throwException, string defaultValue)
     {
-        return XObjectUtility.GetXAttributeValue(set, setQuery, throwException, defaultValue, null);
+        return GetXAttributeValue(set, setQuery, throwException, defaultValue, null);
     }
 
     /// <summary>
@@ -82,7 +82,7 @@ public static partial class XObjectUtility
     /// <typeparam name="T">The type to parse from the node value.</typeparam>
     public static object GetXAttributeValueAndParse<T>(XNode set, string setQuery, bool throwException, T defaultValue)
     {
-        return XObjectUtility.GetXAttributeValueAndParse<T>(set, setQuery, throwException, defaultValue, null);
+        return GetXAttributeValueAndParse<T>(set, setQuery, throwException, defaultValue, null);
     }
 
     /// <summary>

@@ -1,4 +1,4 @@
-﻿namespace Songhay.Models;
+﻿namespace Songhay.Abstractions;
 
 /// <summary>
 /// Extends <see cref="IActivity" /> with output support.
@@ -6,7 +6,7 @@
 /// <typeparam name="TInput">The type of the input.</typeparam>
 /// <typeparam name="TOutput">The type of the output.</typeparam>
 /// <seealso cref="IActivity" />
-public interface IActivityWithOutput<TInput, TOutput> : IActivity
+public interface IActivityWithOutput<in TInput, out TOutput> : IActivity
 {
     /// <summary>
     /// Starts with the specified input
@@ -17,7 +17,7 @@ public interface IActivityWithOutput<TInput, TOutput> : IActivity
     /// <remarks>
     /// This member is called <c>StartForOutput</c>
     /// instead of <c>Start</c> to prevent compile-time,
-    /// overload-clashing with <see cref="IActivity.Start(ProgramArgs)"/>.
+    /// overload-clashing with <see cref="IActivity.Start"/>.
     /// </remarks>
-    TOutput StartForOutput(TInput input);
+    TOutput? StartForOutput(TInput? input);
 }

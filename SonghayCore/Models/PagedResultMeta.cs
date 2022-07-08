@@ -21,8 +21,8 @@ public class PagedResultMeta
     {
         get
         {
-            return (this.PageSize > 0) ?
-                Convert.ToInt32(Math.Ceiling((this.TotalCount / this.PageSize) * 1d)) + 1 : 0;
+            return (PageSize > 0) ?
+                Convert.ToInt32(Math.Ceiling((TotalCount / PageSize) * 1d)) + 1 : 0;
         }
     }
 

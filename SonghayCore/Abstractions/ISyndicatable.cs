@@ -1,6 +1,6 @@
 ﻿using System.ServiceModel.Syndication;
 
-namespace Songhay.Models;
+namespace Songhay.Abstractions;
 
 /// <summary>
 /// Specifies that a Model supports syndication.
@@ -10,10 +10,10 @@ public interface ISyndicatable
     /// <summary>
     /// Gets the syndication feed.
     /// </summary>
-    SyndicationFeed GetSyndicationFeed();
+    SyndicationFeed? GetSyndicationFeed();
 
     /// <summary>
     /// Gets the syndication item.
     /// </summary>
-    SyndicationItem GetSyndicationItem();
+    SyndicationItem? GetSyndicationItem();
 }

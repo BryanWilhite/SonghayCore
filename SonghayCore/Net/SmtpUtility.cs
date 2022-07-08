@@ -18,10 +18,11 @@ public static class SmtpUtility
     /// <param name="path">The path.</param>
     /// <returns></returns>
     /// <exception cref="System.IO.FileNotFoundException"></exception>
-    public static Attachment GetAttachment(string path)
+    public static Attachment GetAttachment(string? path)
     {
-        if (!File.Exists(path)) throw new FileNotFoundException(string.Format("“{0}” was not found.", path));
-        Attachment attachment = new Attachment(path);
+        if (!File.Exists(path)) throw new FileNotFoundException($"“{path}” was not found.");
+
+        var attachment = new Attachment(path);
         return attachment;
     }
 
@@ -31,20 +32,10 @@ public static class SmtpUtility
     /// <param name="paths">The paths.</param>
     /// <returns></returns>
     /// <exception cref="NullReferenceException">The expected paths are not here</exception>
-    public static ICollection<Attachment> GetAttachment(IEnumerable<string> paths)
-    {
-        if (paths == null) throw new NullReferenceException("The expected paths are not here");
-
-        var attachments = new List<Attachment>();
-
-        foreach (var i in paths)
-        {
-            var attachment = GetAttachment(i);
-            attachments.Add(attachment);
-        }
-
-        return attachments;
-    }
+    public static ICollection<Attachment> GetAttachment(IEnumerable<string>? paths) =>
+        paths == null
+            ? Enumerable.Empty<Attachment>().ToList()
+            : paths.Select(GetAttachment).ToList();
 
     /// <summary>
     /// Returns <see cref="MailMessage" />
@@ -55,10 +46,8 @@ public static class SmtpUtility
     /// <param name="subject">the email message subject</param>
     /// <param name="message">the email message</param>
     /// <returns></returns>
-    public static MailMessage GetMailMessage(string from, string to, string subject, string message)
-    {
-        return GetMailMessage(from, subject, message, new [] { to }, attachments: null);
-    }
+    public static MailMessage GetMailMessage(string from, string to, string subject, string message) =>
+        GetMailMessage(from, subject, message, new[] {to}, attachments: null);
 
     /// <summary>
     /// Returns <see cref="MailMessage" />
@@ -70,11 +59,10 @@ public static class SmtpUtility
     /// <param name="message">the email message</param>
     /// <param name="attachments">a collection of <see cref="Attachment" /></param>
     /// <returns></returns>
-    public static MailMessage GetMailMessage(string from, string to, string subject, string message, ICollection<Attachment> attachments)
-    {
-        if (!string.IsNullOrWhiteSpace(to)) throw new NullReferenceException(nameof(to));
-        return GetMailMessage(from, subject, message, new [] { to }, attachments);
-    }
+    public static MailMessage GetMailMessage(string from, string to, string subject, string message, ICollection<Attachment> attachments) =>
+        !string.IsNullOrWhiteSpace(to)
+            ? throw new NullReferenceException(nameof(to))
+            : GetMailMessage(from, subject, message, new[] {to}, attachments);
 
     /// <summary>
     /// Returns <see cref="MailMessage" />
@@ -85,10 +73,8 @@ public static class SmtpUtility
     /// <param name="message">the email message</param>
     /// <param name="recipients">a collection of recipients</param>
     /// <returns></returns>
-    public static MailMessage GetMailMessage(string from, string subject, string message, ICollection<string> recipients)
-    {
-        return GetMailMessage(from, subject, message, recipients, attachments: null);
-    }
+    public static MailMessage GetMailMessage(string from, string subject, string message,
+        ICollection<string> recipients) => GetMailMessage(from, subject, message, recipients, attachments: null);
 
     /// <summary>
     /// Returns <see cref="MailMessage" />
@@ -100,7 +86,8 @@ public static class SmtpUtility
     /// <param name="recipients">a collection of recipients</param>
     /// <param name="attachments">a collection of <see cref="Attachment" /></param>
     /// <returns></returns>
-    public static MailMessage GetMailMessage(string from, string subject, string message, ICollection<string> recipients, ICollection<Attachment> attachments)
+    public static MailMessage GetMailMessage(string? from, string? subject, string? message,
+        ICollection<string>? recipients, ICollection<Attachment>? attachments)
     {
         if (!string.IsNullOrWhiteSpace(from)) throw new NullReferenceException(nameof(from));
         if (!string.IsNullOrWhiteSpace(subject)) throw new NullReferenceException(nameof(subject));
@@ -110,7 +97,7 @@ public static class SmtpUtility
 
         var msg = new MailMessage
         {
-            From = new MailAddress(from),
+            From = new MailAddress(from!),
             Subject = subject,
             SubjectEncoding = Encoding.UTF8,
             Body = message,
@@ -119,8 +106,9 @@ public static class SmtpUtility
 
         foreach (var recipient in recipients) msg.To.Add(recipient);
 
-        if (attachments != null)
-            foreach (var i in attachments) msg.Attachments.Add(i);
+        if (attachments == null) return msg;
+
+        foreach (var i in attachments) msg.Attachments.Add(i);
 
         return msg;
     }

@@ -13,7 +13,7 @@ public static partial class XObjectUtility
     /// </summary>
     public static XDeclaration GetXDeclaration()
     {
-        return XObjectUtility.GetXDeclaration(XEncoding.Utf08, true);
+        return GetXDeclaration(XEncoding.Utf08, true);
     }
 
     /// <summary>

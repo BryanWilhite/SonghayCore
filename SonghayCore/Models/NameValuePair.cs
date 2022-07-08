@@ -30,6 +30,6 @@ public class NameValuePair
     /// </returns>
     public override string ToString()
     {
-        return string.Format("Name: {0}, Value: {1}", this.Name ?? "[null]", this.Value ?? "[null]");
+        return string.Format("Name: {0}, Value: {1}", Name ?? "[null]", Value ?? "[null]");
     }
 }

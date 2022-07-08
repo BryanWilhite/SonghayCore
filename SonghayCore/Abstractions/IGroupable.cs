@@ -1,4 +1,4 @@
-﻿namespace Songhay.Models;
+﻿namespace Songhay.Abstractions;
 
 /// <summary>
 /// Defines a group-able visual
@@ -8,12 +8,12 @@ public interface IGroupable
     /// <summary>
     /// Display text of the Group
     /// </summary>
-    string GroupDisplayText { get; set; }
+    string? GroupDisplayText { get; set; }
 
     /// <summary>
     /// Identifier of the Group
     /// </summary>
-    string GroupId { get; set; }
+    string? GroupId { get; set; }
 
     /// <summary>
     /// Returns `true` when group is visually collapsed

@@ -11,7 +11,7 @@ public class EncryptionMetadata
     /// <value>
     /// The initial vector.
     /// </value>
-    public string InitialVector { get; set; }
+    public string? InitialVector { get; set; }
 
     /// <summary>
     /// Gets or sets the key.
@@ -19,5 +19,5 @@ public class EncryptionMetadata
     /// <value>
     /// The key.
     /// </value>
-    public string Key { get; set; }
+    public string? Key { get; set; }
 }

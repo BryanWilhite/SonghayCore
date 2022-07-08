@@ -13,35 +13,35 @@ public static class HttpMethods
     /// <summary>
     /// HTTP Method <c>DELETE</c>
     /// </summary>
-    public const string DELETE = "DELETE";
+    public const string Delete = "DELETE";
 
     /// <summary>
     /// HTTP Method <c>GET</c>
     /// </summary>
-    public const string GET = "GET";
+    public const string Get = "GET";
 
     /// <summary>
     /// HTTP Method <c>HEAD</c>
     /// </summary>
-    public const string HEAD = "HEAD";
+    public const string Head = "HEAD";
 
     /// <summary>
     /// HTTP Method <c>OPTIONS</c>
     /// </summary>
-    public const string OPTIONS = "OPTIONS";
+    public const string Options = "OPTIONS";
 
     /// <summary>
     /// HTTP Method <c>POST</c>
     /// </summary>
-    public const string POST = "POST";
+    public const string Post = "POST";
 
     /// <summary>
     /// HTTP Method <c>PUT</c>
     /// </summary>
-    public const string PUT = "PUT";
+    public const string Put = "PUT";
 
     /// <summary>
     /// HTTP Method <c>TRACE</c>
     /// </summary>
-    public const string TRACE = "TRACE";
+    public const string Trace = "TRACE";
 }

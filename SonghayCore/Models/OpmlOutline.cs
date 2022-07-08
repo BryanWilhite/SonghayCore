@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using System.Xml.Serialization;
@@ -20,7 +21,7 @@ public class OpmlOutline
     /// <value>The ID.</value>
     [XmlAttribute(AttributeName = "category")]
     [JsonPropertyName("category")]
-    public string Category { get; set; }
+    public string? Category { get; set; }
 
     /// <summary>
     /// Gets or sets the ID.
@@ -28,7 +29,7 @@ public class OpmlOutline
     /// <value>The ID.</value>
     [XmlAttribute(AttributeName = "id")]
     [JsonPropertyName("id")]
-    public string Id { get; set; }
+    public string? Id { get; set; }
 
     /// <summary>
     /// Gets or sets the outlines.
@@ -38,7 +39,7 @@ public class OpmlOutline
         Justification = "Used for XML serialization.")]
     [XmlElement(ElementName = "outline")]
     [JsonPropertyName("outline")]
-    public OpmlOutline[] Outlines { get; set; }
+    public OpmlOutline[] Outlines { get; set; } = Enumerable.Empty<OpmlOutline>().ToArray();
 
     /// <summary>
     /// Gets or sets the text.
@@ -46,7 +47,7 @@ public class OpmlOutline
     /// <value>The text.</value>
     [XmlAttribute(AttributeName = "text")]
     [JsonPropertyName("text")]
-    public string Text { get; set; }
+    public string? Text { get; set; }
 
     /// <summary>
     /// Gets or sets the title.
@@ -54,7 +55,7 @@ public class OpmlOutline
     /// <value>The title.</value>
     [XmlAttribute(AttributeName = "title")]
     [JsonPropertyName("title")]
-    public string Title { get; set; }
+    public string? Title { get; set; }
 
     /// <summary>
     /// Gets or sets the type.
@@ -62,7 +63,7 @@ public class OpmlOutline
     /// <value>The type.</value>
     [XmlAttribute(AttributeName = "type")]
     [JsonPropertyName("type")]
-    public string OutlineType { get; set; }
+    public string? OutlineType { get; set; }
 
     /// <summary>
     /// Gets or sets the URL.
@@ -72,7 +73,7 @@ public class OpmlOutline
     [JsonPropertyName("url")]
     [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings",
         Justification = "OPML does not recognize the concept of the System.Uri.")]
-    public string Url { get; set; }
+    public string? Url { get; set; }
 
     /// <summary>
     /// Gets or sets the XML URL.
@@ -82,5 +83,5 @@ public class OpmlOutline
     [JsonPropertyName("xmlUrl")]
     [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings",
         Justification = "OPML does not recognize the concept of the System.Uri.")]
-    public string XmlUrl { get; set; }
+    public string? XmlUrl { get; set; }
 }
