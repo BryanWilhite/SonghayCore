@@ -12,14 +12,18 @@ namespace Songhay.Extensions;
 public static class XElementExtensions
 {
     /// <summary>
-    /// Adds the once.
+    /// Prevents the specified <see cref="XAttribute"/>
+    /// from being added more than once.
     /// </summary>
     /// <param name="element">The element.</param>
     /// <param name="attribute">The attribute.</param>
-    public static void AddOnce(this XElement element, XAttribute attribute)
+    public static void AddOnce(this XElement? element, XAttribute? attribute)
     {
         if (element == null) return;
+        if (attribute == null) return;
+
         if (element.HasElementName(attribute.Name)) return;
+
         element.Add(attribute);
     }
 
@@ -28,15 +32,8 @@ public static class XElementExtensions
     /// </summary>
     /// <param name="node">The node.</param>
     /// <param name="name">The name.</param>
-    public static XElement GetElement(this XNode node, XName name)
-    {
-        var element = node as XElement;
-        if ((element != null) && (element.Name == name))
-        {
-            return element;
-        }
-        return null;
-    }
+    public static XElement? GetElement(this XNode? node, XName? name) =>
+        node is XElement element && element.Name == name ? element : null;
 
     /// <summary>
     /// Determines whether the <see cref="System.Xml.Linq.XElement"/>
@@ -47,11 +44,7 @@ public static class XElementExtensions
     /// <returns>
     /// 	<c>true</c> when the element has the name; otherwise, <c>false</c>.
     /// </returns>
-    public static bool HasElementName(this XElement element, XName name)
-    {
-        if (element == null) return false;
-        return (element.Name == name);
-    }
+    public static bool HasElementName(this XElement? element, XName? name) => element != null && element.Name == name;
 
     /// <summary>
     /// Determines whether the <see cref="System.Xml.Linq.XNode"/>
@@ -62,11 +55,8 @@ public static class XElementExtensions
     /// <returns>
     /// 	<c>true</c> when the node has the name; otherwise, <c>false</c>.
     /// </returns>
-    public static bool HasElementName(this XNode node, XName name)
-    {
-        var element = node as XElement;
-        return (element != null) && (element.Name == name);
-    }
+    public static bool HasElementName(this XNode? node, XName? name) =>
+        node is XElement element && (element.Name == name);
 
     /// <summary>
     /// Determines whether the specified node is <see cref="System.Xml.Linq.XElement"/>.
@@ -75,11 +65,7 @@ public static class XElementExtensions
     /// <returns>
     /// 	<c>true</c> if the specified node is element; otherwise, <c>false</c>.
     /// </returns>
-    public static bool IsElement(this XNode node)
-    {
-        var element = node as XElement;
-        return (element != null);
-    }
+    public static bool IsElement(this XNode? node) => node is XElement;
 
     /// <summary>
     /// Converts the <see cref="XElement" /> into a attribute value or default.
@@ -87,11 +73,11 @@ public static class XElementExtensions
     /// <param name="element">The element.</param>
     /// <param name="attributeName">Name of the attribute.</param>
     /// <param name="defaultValue">The default value.</param>
-    public static string ToAttributeValueOrDefault(this XElement element, string attributeName, string defaultValue)
+    public static string? ToAttributeValueOrDefault(this XElement? element, string? attributeName, string? defaultValue)
     {
         var s = element.ToAttributeValueOrNull(attributeName);
-        if (string.IsNullOrWhiteSpace(s)) return defaultValue;
-        return s;
+
+        return string.IsNullOrWhiteSpace(s) ? defaultValue : s;
     }
 
     /// <summary>
@@ -99,15 +85,16 @@ public static class XElementExtensions
     /// </summary>
     /// <param name="element">The element.</param>
     /// <param name="attributeName">Name of the attribute.</param>
-    public static string ToAttributeValueOrNull(this XElement element, string attributeName)
+    public static string? ToAttributeValueOrNull(this XElement? element, string? attributeName)
     {
         if (element == null) return null;
+        if (attributeName == null) return null;
 
-        string s = null;
+        string? s = null;
         var attr = element.Attribute(attributeName);
         if (attr != null) s = attr.Value;
-        if (string.IsNullOrWhiteSpace(s)) return null;
-        return s;
+
+        return string.IsNullOrWhiteSpace(s) ? null : s;
     }
 
     /// <summary>
@@ -115,34 +102,26 @@ public static class XElementExtensions
     /// </summary>
     /// <param name="element">The element.</param>
     /// <param name="defaultValue">The default value.</param>
-    public static string ToElementValueOrDefault(this XElement element, string defaultValue)
+    public static string? ToElementValueOrDefault(this XElement? element, string? defaultValue)
     {
         var s = element.ToElementValueOrNull();
-        if (string.IsNullOrWhiteSpace(s)) return defaultValue;
-        return s;
+
+        return string.IsNullOrWhiteSpace(s) ? defaultValue : s;
     }
 
     /// <summary>
     /// Converts the <see cref="XElement" /> into a element value or null.
     /// </summary>
     /// <param name="element">The element.</param>
-    public static string ToElementValueOrNull(this XElement element)
-    {
-        string s = null;
-        if (element != null) s = element.Value;
-        if (string.IsNullOrWhiteSpace(s)) return null;
-        return s;
-    }
+    public static string? ToElementValueOrNull(this XElement? element) =>
+        string.IsNullOrWhiteSpace(element?.Value) ? null : element.Value;
 
     /// <summary>
     /// Returns the element value or null.
     /// </summary>
     /// <param name="elements">The elements.</param>
-    public static string ToElementValueOrNull(this IEnumerable<XElement> elements)
-    {
-        var element = elements.FirstOrDefault();
-        return element.ToElementValueOrNull();
-    }
+    public static string? ToElementValueOrNull(this IEnumerable<XElement>? elements) =>
+        elements?.FirstOrDefault().ToElementValueOrNull();
 
     /// <summary>
     /// Returns the specified <see cref="XElement"/>
@@ -153,25 +132,23 @@ public static class XElementExtensions
     /// Based on “Answer: How to remove all namespaces from XML with C#?”
     /// [http://stackoverflow.com/a/7238007/22944?stw=2]
     /// </remarks>
-    public static XElement WithoutNamespaces(this XElement element)
+    public static XElement? WithoutNamespaces(this XElement? element)
     {
         if (element == null) return null;
 
         #region delegates:
 
-        Func<XNode, XNode> getChildNode = e => (e.NodeType == XmlNodeType.Element) ? (e as XElement).WithoutNamespaces() : e;
+        XNode? GetChildNode(XNode e) => e.NodeType == XmlNodeType.Element ? (e as XElement).WithoutNamespaces() : e;
 
-        Func<XElement, IEnumerable<XAttribute>> getAttributes = e => (e.HasAttributes) ?
-            e.Attributes()
-                .Where(a => !a.IsNamespaceDeclaration)
-                .Select(a => new XAttribute(a.Name.LocalName, a.Value))
-            :
-            Enumerable.Empty<XAttribute>();
+        IEnumerable<XAttribute> GetAttributes(XElement e) =>
+            e.HasAttributes
+                ? e.Attributes()
+                    .Where(a => !a.IsNamespaceDeclaration)
+                    .Select(a => new XAttribute(a.Name.LocalName, a.Value))
+                : Enumerable.Empty<XAttribute>();
 
         #endregion
 
-        return new XElement(element.Name.LocalName,
-            element.Nodes().Select(getChildNode),
-            getAttributes(element));
+        return new XElement(element.Name.LocalName, element.Nodes().Select(GetChildNode), GetAttributes(element));
     }
 }

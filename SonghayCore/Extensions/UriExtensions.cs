@@ -28,11 +28,11 @@ public static class UriExtensions
     /// Also note that the only way to truly define a directory
     /// or folder is with a trailing forward/back slash.
     /// </remarks>
-    public static bool IsProbablyAFile(this Uri input)
+    public static bool IsProbablyAFile(this Uri? input)
     {
         if (input == null) return false;
-        if (input.IsFile) return true;
-        return Path.HasExtension(input.OriginalString);
+
+        return input.IsFile || Path.HasExtension(input.OriginalString);
     }
 
     /// <summary>
@@ -68,7 +68,8 @@ public static class UriExtensions
         NameValueCollection values = HttpUtility.ParseQueryString(uri.Query);
 
         foreach (var item in values.AllKeys
-                     .Select(k => k.ToLowerInvariant()).OrderBy(k => k))
+                     .Where(k => k != null)
+                     .Select(k => k!.ToLowerInvariant()).OrderBy(k => k))
         {
             sb.Append('\n').Append(item).Append(':').Append(values[item]);
         }
@@ -83,11 +84,12 @@ public static class UriExtensions
     /// <returns>
     /// Returns <see cref="string"/> like: <c>https://MyServer:8080/</c>
     /// </returns>
-    public static string ToBaseUri(this Uri input)
+    public static string? ToBaseUri(this Uri? input)
     {
         if (input == null) return null;
-        var baseLocation = string.Format("{0}/",
-            input.GetComponents(UriComponents.SchemeAndServer, UriFormat.SafeUnescaped));
+
+        var baseLocation = $"{input.GetComponents(UriComponents.SchemeAndServer, UriFormat.SafeUnescaped)}/";
+
         return baseLocation;
     }
 
@@ -97,10 +99,7 @@ public static class UriExtensions
     /// <param name="input">The input.</param>
     /// <returns>
     /// </returns>
-    public static string ToFileName(this Uri input)
-    {
-        return Path.GetFileName(input?.LocalPath);
-    }
+    public static string? ToFileName(this Uri? input) => Path.GetFileName(input?.LocalPath);
 
     /// <summary>
     /// Converts the specified <see cref="Uri" />
@@ -108,29 +107,27 @@ public static class UriExtensions
     /// </summary>
     /// <param name="expandableUri"></param>
     /// <returns></returns>
-    public static async Task<Uri> ToExpandedUriAsync(this Uri expandableUri)
+    public static async Task<Uri?> ToExpandedUriAsync(this Uri? expandableUri)
     {
         if (expandableUri == null) throw new ArgumentNullException(nameof(expandableUri));
 
         var message = new HttpRequestMessage(HttpMethod.Get, expandableUri);
-        Uri uri = null;
 
-        using (var response = await message.SendAsync())
+        using var response = await message.SendAsync();
+
+        if (response.Headers.Location == null)
         {
-            if (response.Headers.Location == null)
-            {
-                return message.RequestUri;
-            }
-
-            if (response.IsMovedOrRedirected())
-            {
-                return response.Headers.Location;
-            }
-
-            uri = await response.Headers.Location
-                .ToExpandedUriAsync()
-                .ConfigureAwait(continueOnCapturedContext: false);
+            return message.RequestUri;
         }
+
+        if (response.IsMovedOrRedirected())
+        {
+            return response.Headers.Location;
+        }
+
+        var uri = await response.Headers.Location
+            .ToExpandedUriAsync()
+            .ConfigureAwait(continueOnCapturedContext: false);
 
         return uri;
     }
@@ -141,24 +138,25 @@ public static class UriExtensions
     /// </summary>
     /// <param name="expandableUri"></param>
     /// <returns></returns>
-    public static async Task<KeyValuePair<Uri, Uri>> ToExpandedUriPairAsync(this Uri expandableUri)
+    public static async Task<KeyValuePair<Uri?, Uri?>> ToExpandedUriPairAsync(this Uri? expandableUri)
     {
         var expandedUri = await expandableUri
             .ToExpandedUriAsync()
             .ConfigureAwait(continueOnCapturedContext: false);
-        return new KeyValuePair<Uri, Uri>(expandableUri, expandedUri);
+
+        return new KeyValuePair<Uri?, Uri?>(expandableUri, expandedUri);
     }
 
     /// <summary>
     /// Converts the <see cref="Uri"/> into a relative URI from query.
     /// </summary>
     /// <param name="input">The input.</param>
-    public static Uri ToRelativeUriFromQuery(this Uri input)
+    public static Uri? ToRelativeUriFromQuery(this Uri? input)
     {
         if (input == null) return null;
-        var query = input.OriginalString.Split('?').Last();
-        if (string.IsNullOrWhiteSpace(query)) return null;
 
-        return new Uri(query, UriKind.Relative);
+        var query = input.OriginalString.Split('?').Last();
+
+        return string.IsNullOrWhiteSpace(query) ? null : new Uri(query, UriKind.Relative);
     }
 }

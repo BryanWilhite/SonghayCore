@@ -14,13 +14,13 @@ public static class UriBuilderExtensions
     /// </summary>
     /// <param name="builder">The builder.</param>
     /// <param name="path">The path.</param>
-    public static UriBuilder WithPath(this UriBuilder builder, string path)
+    public static UriBuilder? WithPath(this UriBuilder? builder, string? path)
     {
         if (builder == null) return null;
         if (string.IsNullOrWhiteSpace(path)) return builder;
 
-        var delimiter = "/";
-        var delimiterChar = '/';
+        const string delimiter = "/";
+        const char delimiterChar = '/';
 
         var baseSegments = builder.Uri.Segments
             .Where(i => i != delimiter)

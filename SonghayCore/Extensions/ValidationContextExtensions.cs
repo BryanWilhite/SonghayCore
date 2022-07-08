@@ -20,19 +20,15 @@ public static class ValidationContextExtensions
     /// Converts the <see cref="ValidationResult"/> into a display text.
     /// </summary>
     /// <param name="result">The result.</param>
-    public static string ToDisplayText(this ValidationResult result)
-    {
-        if (result == null) return DisplayErrorMessage;
-
-        return string.Format("Message: {0};Properties: {1}",
-            result.ErrorMessage, string.Join(",", result.MemberNames).Trim(new[] { ',' }));
-    }
+    public static string ToDisplayText(this ValidationResult? result) => result == null
+        ? DisplayErrorMessage
+        : $"Message: {result.ErrorMessage};Properties: {string.Join(",", result.MemberNames).Trim(new[] {','})}";
 
     /// <summary>
     /// Converts the <see cref="IEnumerable{ValidationResult}"/> into a display text.
     /// </summary>
     /// <param name="results">The results.</param>
-    public static string ToDisplayText(this IEnumerable<ValidationResult> results)
+    public static string ToDisplayText(this IEnumerable<ValidationResult>? results)
     {
         if (results == null) return DisplayErrorMessage;
 
@@ -43,7 +39,7 @@ public static class ValidationContextExtensions
         if (resultsCount == 0) return DisplayErrorMessage;
 
         var builder = new StringBuilder();
-        builder.AppendFormat("Count: {0}", resultsCount);
+        builder.Append($"Count: {resultsCount}");
         builder.AppendLine();
 
         foreach (var result in results)
@@ -61,12 +57,10 @@ public static class ValidationContextExtensions
     /// <param name="objectToValidate">The object to validate.</param>
     /// <returns></returns>
     /// <exception cref="NullReferenceException">The expected object to validate is not here.</exception>
-    public static ValidationContext ToValidationContext(this IValidatableObject objectToValidate)
-    {
-        if (objectToValidate == null) throw new NullReferenceException("The expected object to validate is not here.");
-
-        return new ValidationContext(objectToValidate);
-    }
+    public static ValidationContext ToValidationContext(this IValidatableObject objectToValidate) =>
+        objectToValidate == null
+            ? throw new NullReferenceException("The expected object to validate is not here.")
+            : new ValidationContext(objectToValidate);
 
     /// <summary>
     /// Converts the <see cref="Object" /> into a validation results.
@@ -76,10 +70,8 @@ public static class ValidationContextExtensions
     /// This member will validate all properties;<c>validateAllProperties == true</c>.
     /// </remarks>
     /// <returns></returns>
-    public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject objectToValidate)
-    {
-        return objectToValidate.ToValidationResults(validateAllProperties: true, validationContext: null);
-    }
+    public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject? objectToValidate) =>
+        objectToValidate.ToValidationResults(validateAllProperties: true, validationContext: null);
 
     /// <summary>
     /// Converts the <see cref="Object" /> into a validation results.
@@ -90,10 +82,9 @@ public static class ValidationContextExtensions
     /// This member will validate all properties;<c>validateAllProperties == true</c>.
     /// </remarks>
     /// <returns></returns>
-    public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject objectToValidate, ValidationContext validationContext)
-    {
-        return objectToValidate.ToValidationResults(validateAllProperties: true, validationContext: validationContext);
-    }
+    public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject? objectToValidate,
+        ValidationContext? validationContext) =>
+        objectToValidate.ToValidationResults(validateAllProperties: true, validationContext: validationContext);
 
     /// <summary>
     /// Converts the <see cref="Object" /> into a validation results.
@@ -102,11 +93,11 @@ public static class ValidationContextExtensions
     /// <param name="validateAllProperties"><c>true</c> to validate all properties;if <c>false</c>, only required attributes are validated.</param>
     /// <param name="validationContext">the <see cref="ValidationContext"/></param>
     /// <returns></returns>
-    public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject objectToValidate,
-        bool validateAllProperties, ValidationContext validationContext)
+    public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject? objectToValidate,
+        bool validateAllProperties, ValidationContext? validationContext)
     {
         if (objectToValidate == null) return Enumerable.Empty<ValidationResult>();
-        if (validationContext == null) validationContext = objectToValidate.ToValidationContext();
+        validationContext ??= objectToValidate.ToValidationContext();
 
         var results = new List<ValidationResult>();
 
@@ -123,11 +114,9 @@ public static class ValidationContextExtensions
     /// <param name="propertyValue">The property value.</param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">propertyName</exception>
-    public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject objectToValidate,
-        string propertyName, object propertyValue)
-    {
-        return objectToValidate.ToValidationResults(propertyName, propertyValue, validationContext: null);
-    }
+    public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject? objectToValidate,
+        string? propertyName, object? propertyValue) =>
+        objectToValidate.ToValidationResults(propertyName, propertyValue, validationContext: null);
 
     /// <summary>
     /// Converts the <see cref="Object"/> into a validation results.
@@ -138,11 +127,11 @@ public static class ValidationContextExtensions
     /// <param name="validationContext">the <see cref="ValidationContext"/></param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">propertyName</exception>
-    public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject objectToValidate,
-        string propertyName, object propertyValue, ValidationContext validationContext)
+    public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject? objectToValidate,
+        string? propertyName, object? propertyValue, ValidationContext? validationContext)
     {
         if (objectToValidate == null) return Enumerable.Empty<ValidationResult>();
-        if (validationContext == null) validationContext = objectToValidate.ToValidationContext();
+        validationContext ??= objectToValidate.ToValidationContext();
         if (string.IsNullOrWhiteSpace(propertyName)) throw new ArgumentNullException(nameof(propertyName));
 
         var results = new List<ValidationResult>();
@@ -153,5 +142,5 @@ public static class ValidationContextExtensions
         return results;
     }
 
-    internal static readonly string DisplayErrorMessage = $"[Unable to display {nameof(ValidationResult)}s]";
+    internal const string DisplayErrorMessage = $"[Unable to display {nameof(ValidationResult)}s]";
 }

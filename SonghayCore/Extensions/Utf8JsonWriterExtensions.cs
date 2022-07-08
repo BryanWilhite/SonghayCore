@@ -19,7 +19,7 @@ public static class Utf8JsonWriterExtensions
     /// <remarks>
     /// This method is for building a JSON object.
     /// </remarks>
-    public static Utf8JsonWriter WriteObject(this Utf8JsonWriter writer, Action writerAction)
+    public static Utf8JsonWriter? WriteObject(this Utf8JsonWriter? writer, Action? writerAction)
     {
         if (writer == null) return writer;
 
@@ -43,7 +43,7 @@ public static class Utf8JsonWriterExtensions
     /// <remarks>
     /// This method is for building a JSON object for a JSON property.
     /// </remarks>
-    public static Utf8JsonWriter WriteObject(this Utf8JsonWriter writer, string propertyName, Action writerAction)
+    public static Utf8JsonWriter? WriteObject(this Utf8JsonWriter? writer, string propertyName, Action? writerAction)
     {
         if (writer == null) return writer;
         if (string.IsNullOrEmpty(propertyName)) throw new ArgumentNullException(nameof(propertyName));

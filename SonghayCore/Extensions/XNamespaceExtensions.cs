@@ -13,9 +13,10 @@ public static class XNamespaceExtensions
     /// </summary>
     /// <param name="ns">The ns.</param>
     /// <param name="elementName">Name of the element.</param>
-    public static XName ToXName(this XNamespace ns, string elementName)
-    {
-        if (string.IsNullOrWhiteSpace(elementName)) return null;
-        return (ns == null) ? elementName : ns + elementName;
-    }
+    public static XName? ToXName(this XNamespace? ns, string? elementName) => string.IsNullOrWhiteSpace(elementName)
+        ?
+        null
+        : ns == null
+            ? elementName
+            : ns + elementName;
 }

@@ -16,7 +16,7 @@ public static class UriTemplateExtensions
     /// <param name="template">The template.</param>
     /// <param name="values">The values.</param>
     /// <returns></returns>
-    public static Uri BindByPosition(this UriTemplate template, params string[] values) => template.BindByPosition(baseUri: null, values: values);
+    public static Uri? BindByPosition(this UriTemplate? template, params string[] values) => template.BindByPosition(baseUri: null, values: values);
 
     /// <summary>
     /// Binds the <see cref="UriTemplate" />
@@ -28,27 +28,31 @@ public static class UriTemplateExtensions
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">template</exception>
     /// <exception cref="FormatException"></exception>
-    public static Uri BindByPosition(this UriTemplate template, Uri baseUri, params string[] values)
+    public static Uri? BindByPosition(this UriTemplate? template, Uri? baseUri, params string[] values)
     {
         if (template == null) throw new ArgumentNullException(nameof(template));
 
         var keys = template.GetParameterNames();
-        for (int i = 0; i < keys.Count(); i++)
+        if (keys == null) throw new NullReferenceException(nameof(keys));
+
+        var snapshot = keys.ToArray();
+
+        for (int i = 0; i < snapshot.Length; i++)
         {
-            template.AddParameter(keys.ElementAt(i), values.ElementAtOrDefault(i));
+            template.AddParameter(snapshot[i], values.ElementAtOrDefault(i));
         }
 
         var resolved = template.Resolve();
         if (baseUri != null)
         {
-            return new UriBuilder(baseUri).WithPath(resolved).Uri;
+            return new UriBuilder(baseUri).WithPath(resolved)!.Uri;
         }
-        else
-        {
-            var isAbsolute = Uri.IsWellFormedUriString(resolved, UriKind.Absolute);
-            var isRelative = Uri.IsWellFormedUriString(resolved, UriKind.Relative);
-            if (!isAbsolute && !isRelative) throw new FormatException($"The resolved URI template, {resolved}, is in an unknown format.");
-            return isAbsolute ? new Uri(resolved, UriKind.Absolute) : new Uri(resolved, UriKind.Relative);
-        }
+
+        var isAbsolute = Uri.IsWellFormedUriString(resolved, UriKind.Absolute);
+        var isRelative = Uri.IsWellFormedUriString(resolved, UriKind.Relative);
+        if (!isAbsolute && !isRelative)
+            throw new FormatException($"The resolved URI template, {resolved}, is in an unknown format.");
+
+        return isAbsolute ? new Uri(resolved, UriKind.Absolute) : new Uri(resolved, UriKind.Relative);
     }
 }
