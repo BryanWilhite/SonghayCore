@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
-using System.Xml.XPath;
 
 namespace Songhay.Xml;
 
@@ -16,75 +13,71 @@ public static partial class XObjectUtility
     /// <summary>
     /// Gets the <see cref="XNode"/> from the specified XPath query.
     /// </summary>
-    /// <param name="set">The set.</param>
-    /// <param name="setQuery">The set query.</param>
+    /// <param name="node">The node.</param>
+    /// <param name="nodeQuery">The node query.</param>
     /// <returns></returns>
-    public static XNode GetXNode(XNode set, string setQuery)
-    {
-        return GetXObject(set, setQuery) as XNode;
-    }
+    public static XNode? GetXNode(XNode? node, string? nodeQuery) => GetXObject(node, nodeQuery) as XNode;
 
     /// <summary>
     /// Gets the <see cref="XNode"/> from the specified XPath query.
     /// </summary>
-    /// <param name="set">The set.</param>
-    /// <param name="setQuery">The set query.</param>
-    /// <param name="throwException">if set to <c>true</c> [throw exception].</param>
+    /// <param name="node">The node.</param>
+    /// <param name="nodeQuery">The node query.</param>
+    /// <param name="throwException">if node to <c>true</c> [throw exception].</param>
     /// <returns></returns>
-    public static XNode GetXNode(XNode set, string setQuery, bool throwException)
-    {
-        return GetXObject(set, setQuery, throwException) as XNode;
-    }
+    public static XNode? GetXNode(XNode? node, string? nodeQuery, bool throwException) =>
+        GetXObject(node, nodeQuery, throwException) as XNode;
 
     /// <summary>
     /// Gets the <see cref="XNode"/> from the specified XPath query.
     /// </summary>
-    /// <param name="set">The set.</param>
-    /// <param name="setQuery">The set query.</param>
-    /// <param name="throwException">if set to <c>true</c> [throw exception].</param>
+    /// <param name="node">The node.</param>
+    /// <param name="nodeQuery">The node query.</param>
+    /// <param name="throwException">if node to <c>true</c> [throw exception].</param>
     /// <param name="resolver">The resolver.</param>
     /// <returns></returns>
-    public static XNode GetXNode(XNode set, string setQuery, bool throwException, IXmlNamespaceResolver resolver)
-    {
-        return GetXObject(set, setQuery, throwException, resolver) as XNode;
-    }
+    public static XNode? GetXNode(XNode? node, string? nodeQuery, bool throwException, IXmlNamespaceResolver resolver) =>
+        GetXObject(node, nodeQuery, throwException, resolver) as XNode;
 
     /// <summary>
     /// Gets <see cref="IEnumerable{XNode}"/> from the specified XPath query.
     /// </summary>
-    /// <param name="set">The set.</param>
-    /// <param name="setQuery">The set query.</param>
+    /// <param name="node">The node.</param>
+    /// <param name="nodeQuery">The node query.</param>
     /// <returns></returns>
-    public static IEnumerable<XNode> GetXNodes(XNode set, string setQuery)
+    public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery)
     {
-        var nodes = GetXObjects(set, setQuery);
+        var nodes = GetXObjects(node, nodeQuery);
+
         return nodes.OfType<XNode>();
     }
 
     /// <summary>
     /// Gets <see cref="IEnumerable{XNode}"/> from the specified XPath query.
     /// </summary>
-    /// <param name="set">The set.</param>
-    /// <param name="setQuery">The set query.</param>
-    /// <param name="throwException">if set to <c>true</c> [throw exception].</param>
+    /// <param name="node">The node.</param>
+    /// <param name="nodeQuery">The node query.</param>
+    /// <param name="throwException">if node to <c>true</c> [throw exception].</param>
     /// <returns></returns>
-    public static IEnumerable<XNode> GetXNodes(XNode set, string setQuery, bool throwException)
+    public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery, bool throwException)
     {
-        var nodes = GetXObjects(set, setQuery, throwException);
+        var nodes = GetXObjects(node, nodeQuery, throwException);
+
         return nodes.OfType<XNode>();
     }
 
     /// <summary>
     /// Gets <see cref="IEnumerable{XNode}"/> from the specified XPath query.
     /// </summary>
-    /// <param name="set">The set.</param>
-    /// <param name="setQuery">The set query.</param>
-    /// <param name="throwException">if set to <c>true</c> [throw exception].</param>
+    /// <param name="node">The node.</param>
+    /// <param name="nodeQuery">The node query.</param>
+    /// <param name="throwException">if node to <c>true</c> [throw exception].</param>
     /// <param name="resolver">The resolver.</param>
     /// <returns></returns>
-    public static IEnumerable<XNode> GetXNodes(XNode set, string setQuery, bool throwException, IXmlNamespaceResolver resolver)
+    public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery, bool throwException, IXmlNamespaceResolver? resolver)
     {
-        var nodes = GetXObjects(set, setQuery, throwException, resolver);
+        var nodes = GetXObjects(node, nodeQuery, throwException, resolver);
+
         return nodes.OfType<XNode>();
     }
 }

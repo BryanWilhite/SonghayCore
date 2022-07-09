@@ -61,12 +61,18 @@ public static class IDictionaryExtensions
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">dictionary</exception>
     /// <exception cref="NullReferenceException"></exception>
-    public static TValue? TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, bool throwException)
+    public static TValue? TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey? key, bool throwException)
     {
         if (dictionary == null) throw new ArgumentNullException(nameof(dictionary));
-        if (dictionary.TryGetValue(key, out var value)) return value;
-        if (throwException) throw new NullReferenceException($"The expected value from key, {key}, is not here.");
+        if (key == null) throw new ArgumentNullException(nameof(key));
 
-        return default;
+        var test = dictionary.TryGetValue(key, out var value);
+
+        return value switch
+        {
+            null when !test && throwException => throw new NullReferenceException($"The expected value from key, {key}, is not here."),
+            null when !test => default,
+            _ => value
+        };
     }
 }

@@ -11,7 +11,7 @@ namespace Songhay.Xml;
 /// </summary>
 /// <remarks>
 /// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> sets.
+/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
 /// However, many accept any input implementing the
 /// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
 /// </remarks>
@@ -21,7 +21,7 @@ public static partial class XmlUtility
     /// XMLs the encode.
     /// </summary>
     /// <param name="value">The value.</param>
-    public static string XmlEncode(string value)
+    public static string? XmlEncode(string? value)
     {
         if (string.IsNullOrWhiteSpace(value)) return null;
 
@@ -37,7 +37,7 @@ public static partial class XmlUtility
     /// XMLs the decode.
     /// </summary>
     /// <param name="value">The value.</param>
-    public static string XmlDecode(string value)
+    public static string? XmlDecode(string? value)
     {
         if (string.IsNullOrWhiteSpace(value)) return null;
 

@@ -12,18 +12,16 @@ public static partial class XObjectUtility
     /// Get the CDATA value from the specified <see cref="XElement"/>.
     /// </summary>
     /// <param name="element">The <see cref="XElement"/></param>
-    public static string GetCDataValue(XElement element)
-    {
-        return GetCDataValue(element?.FirstNode);
-    }
+    public static string? GetCDataValue(XElement? element) => GetCDataValue(element?.FirstNode);
 
     /// <summary>
     /// Get the CDATA value from the specified <see cref="XNode"/>.
     /// </summary>
     /// <param name="node">The <see cref="XNode"/></param>
-    public static string GetCDataValue(XNode node)
+    public static string? GetCDataValue(XNode? node)
     {
         var cData = node as XCData;
+
         return cData?.Value;
     }
 
@@ -32,10 +30,9 @@ public static partial class XObjectUtility
     /// </summary>
     /// <param name="childElementName">Name of the child element.</param>
     /// <returns></returns>
-    public static string GetLocalNameXPathQuery(string childElementName)
-    {
-        return GetLocalNameXPathQuery(namespacePrefixOrUri: null, childElementName: childElementName, childAttributeName: null);
-    }
+    public static string? GetLocalNameXPathQuery(string? childElementName) =>
+        GetLocalNameXPathQuery(namespacePrefixOrUri: null, childElementName: childElementName,
+            childAttributeName: null);
 
     /// <summary>
     /// Gets the <see cref="XNode" /> into a <c>local-name()</c>, XPath-predicate query.
@@ -43,10 +40,8 @@ public static partial class XObjectUtility
     /// <param name="namespacePrefixOrUri">The namespace prefix or URI.</param>
     /// <param name="childElementName">Name of the child element.</param>
     /// <returns></returns>
-    public static string GetLocalNameXPathQuery(string namespacePrefixOrUri, string childElementName)
-    {
-        return GetLocalNameXPathQuery(namespacePrefixOrUri, childElementName, childAttributeName: null);
-    }
+    public static string? GetLocalNameXPathQuery(string? namespacePrefixOrUri, string? childElementName) =>
+        GetLocalNameXPathQuery(namespacePrefixOrUri, childElementName, childAttributeName: null);
 
     /// <summary>
     /// Gets the <see cref="XNode" /> into a <c>local-name()</c>, XPath-predicate query.
@@ -58,24 +53,18 @@ public static partial class XObjectUtility
     /// <remarks>
     /// This routine is useful when namespace-resolving is not desirable or available.
     /// </remarks>
-    public static string GetLocalNameXPathQuery(string namespacePrefixOrUri, string childElementName, string childAttributeName)
+    public static string? GetLocalNameXPathQuery(string? namespacePrefixOrUri, string? childElementName, string? childAttributeName)
     {
         if (string.IsNullOrWhiteSpace(childElementName)) return null;
 
         if (string.IsNullOrWhiteSpace(childAttributeName))
         {
-            return string.IsNullOrWhiteSpace(namespacePrefixOrUri) ?
-                string.Format("./*[local-name()='{0}']", childElementName)
-                :
-                string.Format("./*[namespace-uri()='{0}' and local-name()='{1}']", namespacePrefixOrUri, childElementName);
+            return string.IsNullOrWhiteSpace(namespacePrefixOrUri) ? $"./*[local-name()='{childElementName}']"
+                : $"./*[namespace-uri()='{namespacePrefixOrUri}' and local-name()='{childElementName}']";
         }
-        else
-        {
-            return string.IsNullOrWhiteSpace(namespacePrefixOrUri) ?
-                string.Format("./*[local-name()='{0}']/@{1}", childElementName, childAttributeName)
-                :
-                string.Format("./*[namespace-uri()='{0}' and local-name()='{1}']/@{2}", namespacePrefixOrUri, childElementName, childAttributeName);
-        }
+
+        return string.IsNullOrWhiteSpace(namespacePrefixOrUri) ? $"./*[local-name()='{childElementName}']/@{childAttributeName}"
+            : $"./*[namespace-uri()='{namespacePrefixOrUri}' and local-name()='{childElementName}']/@{childAttributeName}";
     }
 
     /// <summary>
@@ -83,10 +72,7 @@ public static partial class XObjectUtility
     /// </summary>
     /// <param name="currentNode">The current element.</param>
     /// <param name="query">The xpath query.</param>
-    public static string GetValue(XNode currentNode, string query)
-    {
-        return GetValue(currentNode, query, true);
-    }
+    public static string? GetValue(XNode? currentNode, string? query) => GetValue(currentNode, query, true);
 
     /// <summary>
     /// Gets the element or attribute value of the specified element.
@@ -94,20 +80,20 @@ public static partial class XObjectUtility
     /// <param name="currentNode">The current </param>
     /// <param name="query">The xpath query.</param>
     /// <param name="throwException">if set to <c>true</c> throw exception.</param>
-    public static string GetValue(XNode currentNode, string query, bool throwException)
+    public static string? GetValue(XNode? currentNode, string? query, bool throwException)
     {
         var node = GetXObject(currentNode, query);
-        if(node == null)
-        {
-            if(throwException) throw new ArgumentException("The XPath query returns a null node", "query");
-            else return null;
-        }
 
-        if(node.NodeType == System.Xml.XmlNodeType.Element)
-            return (node as XElement).Value;
-        else if(node.NodeType == System.Xml.XmlNodeType.Attribute)
-            return (string)GetXAttributeValue(currentNode, query, throwException);
-        else
-            return null;
+        return node switch
+        {
+            null when throwException => throw new ArgumentException("The XPath query returns a null node", "query"),
+            null => null,
+            _ => node.NodeType switch
+            {
+                System.Xml.XmlNodeType.Element => (node as XElement)?.Value,
+                System.Xml.XmlNodeType.Attribute => GetXAttributeValue(currentNode, query, throwException),
+                _ => null
+            }
+        };
     }
 }

@@ -10,7 +10,7 @@ public static partial class XmlUtility
     /// Strip the namespaces from specified document.
     /// </summary>
     /// <param name="navigableSet">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> set.
+    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
     /// <remarks>
     /// WARNING: Stripping namespaces “flattens” the document
@@ -21,16 +21,13 @@ public static partial class XmlUtility
     /// </remarks>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument StripNamespaces(IXPathNavigable navigableSet)
-    {
-        return StripNamespaces(navigableSet, false);
-    }
+    public static XPathDocument? StripNamespaces(IXPathNavigable? navigableSet) => StripNamespaces(navigableSet, false);
 
     /// <summary>
     /// Strip the namespaces from specified document.
     /// </summary>
     /// <param name="navigableSet">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> set.
+    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
     /// <param name="removeDocType">
     /// When <c>true</c>, removes any DOCTYPE preambles.
@@ -44,20 +41,18 @@ public static partial class XmlUtility
     /// </remarks>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument StripNamespaces(IXPathNavigable navigableSet, bool removeDocType)
+    public static XPathDocument? StripNamespaces(IXPathNavigable? navigableSet, bool removeDocType)
     {
-        XPathDocument newXml = null;
+        if(navigableSet == null) return null;
 
-        if(navigableSet == null) return newXml;
+        XPathNavigator? navigator = navigableSet.CreateNavigator();
 
-        XPathNavigator node = navigableSet.CreateNavigator();
+        string? xmlString = StripNamespaces(navigator?.OuterXml, removeDocType);
 
-        string xmlString = StripNamespaces(node.OuterXml, removeDocType);
+        using StringReader s = new StringReader(xmlString!);
 
-        using(StringReader s = new StringReader(xmlString))
-        {
-            newXml = new XPathDocument(s);
-        }
+        var newXml = new XPathDocument(s);
+
         return newXml;
     }
 }

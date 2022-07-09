@@ -8,7 +8,7 @@ namespace Songhay.Xml;
 /// </summary>
 /// <remarks>
 /// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> sets.
+/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
 /// However, many accept any input implementing the
 /// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
 /// </remarks>
@@ -20,10 +20,8 @@ public static partial class XmlUtility
     /// <param name="messageHeader">Message header</param>
     /// <param name="messageLines">Message lines</param>
     /// <param name="xmlDataWriter">The <see cref="System.Xml.XmlWriter"/></param>
-    public static void GetInternalMessage(string messageHeader, string[] messageLines, XmlWriter xmlDataWriter)
-    {
+    public static void GetInternalMessage(string? messageHeader, string[]? messageLines, XmlWriter? xmlDataWriter) =>
         GetInternalMessage(messageHeader, string.Empty, messageLines, xmlDataWriter, false);
-    }
 
     /// <summary>
     /// Write a message to the specified
@@ -32,10 +30,8 @@ public static partial class XmlUtility
     /// <param name="messageCode">Message code for errors, exceptions or faults</param>
     /// <param name="messageLines">Message lines</param>
     /// <param name="xmlDataWriter">The <see cref="System.Xml.XmlTextWriter"/></param>
-    public static void GetInternalMessage(string messageHeader, string messageCode, string[] messageLines, XmlWriter xmlDataWriter)
-    {
-        GetInternalMessage(messageHeader, messageCode, messageLines, xmlDataWriter, false);
-    }
+    public static void GetInternalMessage(string? messageHeader, string? messageCode, string[]? messageLines,
+        XmlWriter xmlDataWriter) => GetInternalMessage(messageHeader, messageCode, messageLines, xmlDataWriter, false);
 
     /// <summary>
     /// Write a message to the specified
@@ -44,10 +40,8 @@ public static partial class XmlUtility
     /// <param name="messageLines">Message lines</param>
     /// <param name="xmlDataWriter">The <see cref="System.Xml.XmlWriter"/></param>
     /// <param name="isFragment">When <c>false</c> a new document is started.</param>
-    public static void GetInternalMessage(string messageHeader, string[] messageLines, XmlWriter xmlDataWriter, bool isFragment)
-    {
-        GetInternalMessage(messageHeader, string.Empty, messageLines, xmlDataWriter, isFragment);
-    }
+    public static void GetInternalMessage(string? messageHeader, string[]? messageLines, XmlWriter? xmlDataWriter,
+        bool isFragment) => GetInternalMessage(messageHeader, string.Empty, messageLines, xmlDataWriter, isFragment);
 
     /// <summary>
     /// Write a message to the specified
@@ -57,7 +51,8 @@ public static partial class XmlUtility
     /// <param name="messageLines">Message lines</param>
     /// <param name="xmlDataWriter">The <see cref="System.Xml.XmlWriter"/></param>
     /// <param name="isFragment">When <c>false</c> a new document is started.</param>
-    public static void GetInternalMessage(string messageHeader, string messageCode, string[] messageLines, XmlWriter xmlDataWriter, bool isFragment)
+    public static void GetInternalMessage(string? messageHeader, string? messageCode, string[]? messageLines,
+        XmlWriter? xmlDataWriter, bool isFragment)
     {
         if(xmlDataWriter == null) throw new ArgumentNullException(nameof(xmlDataWriter));
 
@@ -67,7 +62,7 @@ public static partial class XmlUtility
         xmlDataWriter.WriteElementString("Header", messageHeader);
         if (!string.IsNullOrWhiteSpace(messageCode)) xmlDataWriter.WriteElementString("Code", messageCode);
 
-        if ((messageLines != null) && (messageLines.Length > 0))
+        if (messageLines is {Length: > 0})
         {
             foreach (string line in messageLines)
             {

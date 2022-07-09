@@ -8,7 +8,7 @@ namespace Songhay.Xml;
 /// </summary>
 /// <remarks>
 /// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> sets.
+/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
 /// However, many accept any input implementing the
 /// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
 /// </remarks>
@@ -16,35 +16,35 @@ public static partial class XmlUtility
 {
     /// <summary>
     /// Returns an <see cref="System.Xml.XPath.XPathNavigator"/>
-    /// based on the setQuery Expression toward the source document.
+    /// based on the nodeQuery Expression toward the source document.
     /// </summary>
-    /// <param name="navigableSet">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> set.
+    /// <param name="navigable">
+    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
-    /// <param name="setQuery">
+    /// <param name="nodeQuery">
     /// The value to be compiled
     /// into an <see cref="System.Xml.XPath.XPathExpression"/>.
     /// </param>
-    public static XPathNavigator GetNavigableNode(IXPathNavigable navigableSet, string setQuery)
+    public static XPathNavigator? GetNavigableNode(IXPathNavigable? navigable, string? nodeQuery)
     {
-        XPathNavigator node = null;
+        if (navigable == null) return null;
+        if (string.IsNullOrWhiteSpace(nodeQuery)) return null;
 
-        if (navigableSet == null) return node;
-        XPathNavigator xset = navigableSet.CreateNavigator();
-        XPathExpression xpath = XPathExpression.Compile(setQuery);
-        node = xset.SelectSingleNode(xpath);
+        XPathNavigator? navigator = navigable.CreateNavigator();
+        XPathExpression xpath = XPathExpression.Compile(nodeQuery);
+        var node = navigator?.SelectSingleNode(xpath);
 
         return node;
     }
 
     /// <summary>
     /// Returns an <see cref="System.Xml.XPath.XPathNavigator"/>
-    /// based on the setQuery Expression toward the source document.
+    /// based on the nodeQuery Expression toward the source document.
     /// </summary>
-    /// <param name="navigableSet">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> set.
+    /// <param name="navigable">
+    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
-    /// <param name="setQuery">
+    /// <param name="nodeQuery">
     /// The value to be compiled
     /// into an <see cref="System.Xml.XPath.XPathExpression"/>.
     /// </param>
@@ -52,50 +52,50 @@ public static partial class XmlUtility
     /// The <see cref="System.Xml.XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
-    public static XPathNavigator GetNavigableNode(IXPathNavigable navigableSet, string setQuery, XmlNamespaceManager nsMan)
+    public static XPathNavigator? GetNavigableNode(IXPathNavigable? navigable, string? nodeQuery, XmlNamespaceManager? nsMan)
     {
-        XPathNavigator node = null;
+        if (navigable == null) return null;
+        if (string.IsNullOrWhiteSpace(nodeQuery)) return null;
 
-        if (navigableSet == null) return node;
-        XPathNavigator xset = navigableSet.CreateNavigator();
-        XPathExpression xpath = XPathExpression.Compile(setQuery, nsMan);
-        node = xset.SelectSingleNode(xpath);
+        XPathNavigator? navigator = navigable.CreateNavigator();
+        XPathExpression xpath = XPathExpression.Compile(nodeQuery, nsMan);
+        var node = navigator?.SelectSingleNode(xpath);
 
         return node;
     }
 
     /// <summary>
     /// Returns an <see cref="System.Xml.XPath.XPathNodeIterator"/>
-    /// based on the setQuery Expression toward the source document.
+    /// based on the nodeQuery Expression toward the source document.
     /// </summary>
-    /// <param name="navigableSet">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> set.
+    /// <param name="navigable">
+    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
-    /// <param name="setQuery">
+    /// <param name="nodeQuery">
     /// The value to be compiled
     /// into an <see cref="System.Xml.XPath.XPathExpression"/>.
     /// </param>
-    public static XPathNodeIterator GetNavigableNodes(IXPathNavigable navigableSet, string setQuery)
+    public static XPathNodeIterator? GetNavigableNodes(IXPathNavigable? navigable, string? nodeQuery)
     {
-        XPathNodeIterator nodes = null;
+        if (navigable == null) return null;
+        if (string.IsNullOrWhiteSpace(nodeQuery)) return null;
 
-        if (navigableSet == null) return nodes;
-        XPathNavigator xset = navigableSet.CreateNavigator();
+        XPathNavigator? navigator = navigable.CreateNavigator();
 
-        XPathExpression xpath = XPathExpression.Compile(setQuery);
-        nodes = xset.Select(xpath);
+        XPathExpression xpath = XPathExpression.Compile(nodeQuery);
+        var nodes = navigator?.Select(xpath);
 
         return nodes;
     }
 
     /// <summary>
     /// Returns an <see cref="System.Xml.XPath.XPathNodeIterator"/>
-    /// based on the setQuery Expression toward the source document.
+    /// based on the nodeQuery Expression toward the source document.
     /// </summary>
-    /// <param name="navigableSet">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> set.
+    /// <param name="navigable">
+    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
-    /// <param name="setQuery">
+    /// <param name="nodeQuery">
     /// The value to be compiled
     /// into an <see cref="System.Xml.XPath.XPathExpression"/>.
     /// </param>
@@ -103,15 +103,15 @@ public static partial class XmlUtility
     /// The <see cref="System.Xml.XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
-    public static XPathNodeIterator GetNavigableNodes(IXPathNavigable navigableSet, string setQuery, XmlNamespaceManager nsMan)
+    public static XPathNodeIterator? GetNavigableNodes(IXPathNavigable? navigable, string? nodeQuery, XmlNamespaceManager nsMan)
     {
-        XPathNodeIterator nodes = null;
+        if (navigable == null) return null;
+        if (string.IsNullOrWhiteSpace(nodeQuery)) return null;
 
-        if (navigableSet == null) return nodes;
-        XPathNavigator xset = navigableSet.CreateNavigator();
+        XPathNavigator? navigator = navigable.CreateNavigator();
 
-        XPathExpression xpath = XPathExpression.Compile(setQuery, nsMan);
-        nodes = xset.Select(xpath);
+        XPathExpression xpath = XPathExpression.Compile(nodeQuery, nsMan);
+        var nodes = navigator?.Select(xpath);
 
         return nodes;
     }

@@ -16,9 +16,10 @@ public static partial class XObjectUtility
     /// </summary>
     /// <param name="rootElement">The root element.</param>
     /// <param name="innerXml">The inner XML.</param>
-    public static XElement GetXElement(string rootElement, object innerXml)
+    public static XElement GetXElement(string? rootElement, object? innerXml)
     {
         if(string.IsNullOrWhiteSpace(rootElement)) throw new ArgumentNullException(nameof(rootElement));
+
         return XElement.Parse(string.Format("<{0}>{1}</{0}>", rootElement, innerXml));
     }
 
@@ -28,7 +29,7 @@ public static partial class XObjectUtility
     /// <param name="root">The root.</param>
     /// <param name="pathToElement">The XPath to element.</param>
     /// <returns></returns>
-    public static XElement GetXElement(XNode root, string pathToElement)
+    public static XElement? GetXElement(XNode? root, string? pathToElement)
     {
         if(root == null) throw new ArgumentNullException(nameof(root));
         if(string.IsNullOrWhiteSpace(pathToElement)) throw new ArgumentNullException(nameof(pathToElement));
@@ -41,9 +42,10 @@ public static partial class XObjectUtility
     /// </summary>
     /// <param name="currentElement">The current element.</param>
     /// <param name="query">The xpath query.</param>
-    public static IEnumerable<XElement> GetXElements(XNode currentElement, string query)
+    public static IEnumerable<XElement> GetXElements(XNode? currentElement, string? query)
     {
         var nodes = GetXNodes(currentElement, query);
+
         return nodes.OfType<XElement>();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 using System.Xml.XPath;
 
@@ -9,22 +10,21 @@ public static partial class XmlUtility
     /// <summary>
     /// Returns a <see cref="System.Xml.XmlNamespaceManager"/>
     /// with respect to the document element of the specified
-    /// <see cref="System.Xml.XPath.IXPathNavigable"/> set.
+    /// <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </summary>
-    /// <param name="navigableSet">
-    /// The <see cref="System.Xml.XPath.IXPathNavigable"/> set.
+    /// <param name="navigable">
+    /// The <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
-    public static XmlNamespaceManager GetNamespaceManager(IXPathNavigable navigableSet)
+    public static XmlNamespaceManager? GetNamespaceManager(IXPathNavigable? navigable)
     {
-        XmlNamespaceManager nsman = null;
+        XmlNamespaceManager? nsman = null;
+        if (navigable == null) return nsman;
 
-        XPathNavigator root;
-
-        if (navigableSet == null) return nsman;
-        XPathNavigator xset = navigableSet.CreateNavigator();
-
+        XPathNavigator? navigator = navigable.CreateNavigator();
         XPathExpression xpath = XPathExpression.Compile("//*[1]");
-        root = xset.SelectSingleNode(xpath);
+        var root = navigator?.SelectSingleNode(xpath);
+
+        if (root == null) throw new NullReferenceException("The expected XPath Navigator is not here.");
 
         nsman = new XmlNamespaceManager(root.NameTable);
 

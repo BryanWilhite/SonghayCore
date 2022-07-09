@@ -10,20 +10,20 @@ namespace Songhay.Xml;
 /// <summary>
 /// Static helpers for OPML.
 /// </summary>
-public static partial class OpmlUtility
+public static class OpmlUtility
 {
-
     /// <summary>
     /// Conventional namespace for OPML documents.
     /// </summary>
-    public static XNamespace rx { get { return "http://songhaysystem.com/schemas/opml.xsd"; } }
+    // ReSharper disable once InconsistentNaming
+    public static XNamespace rx => "http://songhaysystem.com/schemas/opml.xsd";
 
     /// <summary>
     /// Gets the body.
     /// </summary>
     /// <param name="root">The root.</param>
     /// <param name="ns">The namespace.</param>
-    public static OpmlBody GetBody(XContainer root, XNamespace ns)
+    public static OpmlBody? GetBody(XContainer? root, XNamespace? ns)
     {
         if (root == null) return null;
 
@@ -40,14 +40,14 @@ public static partial class OpmlUtility
     /// </summary>
     /// <param name="path">The path.</param>
     /// <returns></returns>
-    public static OpmlDocument GetDocument(string path)
+    public static OpmlDocument? GetDocument(string? path)
     {
-        var xd = XDocument.Load(path);
+        var xd = XDocument.Load(path!);
 
-        XNamespace ns = xd.Root.GetDefaultNamespace();
-        if ((ns != null) && !string.IsNullOrWhiteSpace(ns.ToString())) return GetDocument(xd.Root, ns);
+        XNamespace? ns = xd.Root?.GetDefaultNamespace();
+        if (ns != null && !string.IsNullOrWhiteSpace(ns.ToString())) return GetDocument(xd.Root, ns);
 
-        ns = xd.Root.GetNamespaceOfPrefix(nameof(rx));
+        ns = xd.Root?.GetNamespaceOfPrefix(nameof(rx));
         if (ns == rx) return GetDocument(xd.Root, rx);
 
         return GetRawDocument(xd);
@@ -59,10 +59,11 @@ public static partial class OpmlUtility
     /// <param name="xml">The XML.</param>
     /// <param name="ns">The ns.</param>
     /// <returns></returns>
-    public static OpmlDocument GetDocument(string xml, XNamespace ns)
+    public static OpmlDocument? GetDocument(string? xml, XNamespace? ns)
     {
-        var xd = XDocument.Parse(xml);
+        var xd = XDocument.Parse(xml!);
         var opml = GetDocument(xd.Root, ns);
+
         return opml;
     }
 
@@ -71,14 +72,14 @@ public static partial class OpmlUtility
     /// </summary>
     /// <param name="root">The root.</param>
     /// <param name="ns">The conventional namespace.</param>
-    public static OpmlDocument GetDocument(XContainer root, XNamespace ns)
+    public static OpmlDocument? GetDocument(XContainer? root, XNamespace? ns)
     {
         if (root == null) return null;
 
         var data = new OpmlDocument
         {
-            OpmlBody = GetBody(root.Element(ns.ToXName("body")), ns),
-            OpmlHead = GetHead(root.Element(ns.ToXName("head")), ns)
+            OpmlBody = GetBody(root.Element(ns.ToXName("body")!), ns),
+            OpmlHead = GetHead(root.Element(ns.ToXName("head")!), ns)
         };
 
         return data;
@@ -89,7 +90,7 @@ public static partial class OpmlUtility
     /// </summary>
     /// <param name="root">The root.</param>
     /// <param name="ns">The namespace.</param>
-    public static OpmlHead GetHead(XContainer root, XNamespace ns)
+    public static OpmlHead? GetHead(XContainer? root, XNamespace? ns)
     {
         if (root == null) return null;
 
@@ -107,7 +108,7 @@ public static partial class OpmlUtility
     /// </summary>
     /// <param name="root">The root.</param>
     /// <param name="ns">The namespace.</param>
-    public static OpmlOutline GetOutline(XElement root, XNamespace ns)
+    public static OpmlOutline? GetOutline(XElement? root, XNamespace? ns)
     {
         if (root == null) return null;
 
@@ -122,9 +123,9 @@ public static partial class OpmlUtility
     /// </summary>
     /// <param name="root">The root.</param>
     /// <param name="ns">The namespace.</param>
-    public static OpmlOutline[] GetOutlines(XContainer root, XNamespace ns)
+    public static OpmlOutline[] GetOutlines(XContainer? root, XNamespace? ns)
     {
-        if (root == null) return null;
+        if (root == null) return Enumerable.Empty<OpmlOutline>().ToArray();
 
         var data = new List<OpmlOutline>();
         root
@@ -132,17 +133,16 @@ public static partial class OpmlUtility
             .ForEachInEnumerable(o =>
             {
                 var outline = GetOutline(o, ns);
-                if (outline != null)
-                {
-                    outline.Outlines = GetOutlines(o, ns);
-                    data.Add(outline);
-                }
+                if (outline == null) return;
+
+                outline.Outlines = GetOutlines(o, ns);
+                data.Add(outline);
             });
 
         return data.ToArray();
     }
 
-    static OpmlBody GetBody(XContainer root)
+    static OpmlBody? GetBody(XContainer? root)
     {
         if (root == null) return null;
 
@@ -154,27 +154,28 @@ public static partial class OpmlUtility
         return data;
     }
 
-    static OpmlHead GetHead(XContainer root, XName ownerEmail, XName ownerName, XName title, XName dateCreated, XName dateModified)
+    static OpmlHead GetHead(XContainer? root, XName? ownerEmail, XName? ownerName, XName? title, XName? dateCreated,
+        XName? dateModified)
     {
         var data = new OpmlHead
         {
-            OwnerEmail = root.Elements(ownerEmail).ToElementValueOrNull(),
-            OwnerName = root.Elements(ownerName).ToElementValueOrNull(),
-            Title = root.Elements(title).ToElementValueOrNull()
+            OwnerEmail = root?.Elements(ownerEmail).ToElementValueOrNull(),
+            OwnerName = root?.Elements(ownerName).ToElementValueOrNull(),
+            Title = root?.Elements(title).ToElementValueOrNull()
         };
 
-        var s = string.Empty;
+        string? s;
 
-        s = root.Elements(dateCreated).ToElementValueOrNull();
+        s = root?.Elements(dateCreated).ToElementValueOrNull();
         if (!string.IsNullOrWhiteSpace(s)) data.DateCreated = ProgramTypeUtility.ParseRfc822DateTime(s);
 
-        s = root.Elements(dateModified).ToElementValueOrNull();
+        s = root?.Elements(dateModified).ToElementValueOrNull();
         if (!string.IsNullOrWhiteSpace(s)) data.DateModified = ProgramTypeUtility.ParseRfc822DateTime(s);
 
         return data;
     }
 
-    static OpmlDocument GetRawDocument(XContainer root)
+    static OpmlDocument? GetRawDocument(XContainer? root)
     {
         if (root == null) return null;
 
@@ -187,7 +188,7 @@ public static partial class OpmlUtility
         return data;
     }
 
-    static OpmlOutline GetOutline(XElement root)
+    static OpmlOutline GetOutline(XElement? root)
     {
         var data = new OpmlOutline
         {
@@ -208,9 +209,9 @@ public static partial class OpmlUtility
         return data;
     }
 
-    static OpmlOutline[] GetOutlines(XContainer root)
+    static OpmlOutline[] GetOutlines(XContainer? root)
     {
-        if (root == null) return null;
+        if (root == null) return Enumerable.Empty<OpmlOutline>().ToArray();
 
         var data = new List<OpmlOutline>();
         root
@@ -218,11 +219,8 @@ public static partial class OpmlUtility
             .ForEachInEnumerable(o =>
             {
                 var outline = GetOutline(o);
-                if (outline != null)
-                {
-                    outline.Outlines = GetOutlines(o);
-                    data.Add(outline);
-                }
+                outline.Outlines = GetOutlines(o);
+                data.Add(outline);
             });
 
         return data.ToArray();

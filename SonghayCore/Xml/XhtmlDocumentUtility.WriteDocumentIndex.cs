@@ -22,28 +22,30 @@ public static partial class XhtmlDocumentUtility
     /// <param name="publicRoot">The public root.</param>
     /// <param name="pathToDirectory">The path to the specified directory.</param>
     /// <param name="pathToOutput">The path to output.</param>
-    public static void WriteDocumentIndex(string indexFileName,
-        string indexTitle, string publicRoot,
-        string pathToDirectory, string pathToOutput)
+    public static void WriteDocumentIndex(string? indexFileName,
+        string? indexTitle, string? publicRoot,
+        string? pathToDirectory, string? pathToOutput)
     {
-        var directory = new DirectoryInfo(pathToDirectory);
+        var directory = new DirectoryInfo(pathToDirectory!);
         var list = new List<XhtmlDocument>();
         directory.GetFiles()
             .ForEachInEnumerable(f =>
             {
                 var uri = string.Concat(publicRoot, f.Name);
-                list.Add(LoadDocument(f.FullName, uri));
+                var d = LoadDocument(f.FullName, uri);
+                if(d != null) list.Add(d);
             });
 
         var serializer = new XmlSerializer(typeof(XhtmlDocuments));
-        using(var writer = new XmlTextWriter(string.Concat(pathToOutput, indexFileName), Encoding.UTF8))
+
+        using var writer = new XmlTextWriter(string.Concat(pathToOutput, indexFileName), Encoding.UTF8);
+
+        var documents = new XhtmlDocuments
         {
-            var documents = new XhtmlDocuments
-            {
-                Documents = list.OrderBy(d => d.Title).ToArray(),
-                Title = indexTitle
-            };
-            serializer.Serialize(writer, documents);
-        }
+            Documents = list.OrderBy(d => d.Title).ToArray(),
+            Title = indexTitle
+        };
+
+        serializer.Serialize(writer, documents);
     }
 }

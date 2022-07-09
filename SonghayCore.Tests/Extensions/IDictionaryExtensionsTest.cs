@@ -1,16 +1,17 @@
-﻿using Songhay.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Songhay.Extensions;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace Songhay.Tests.Extensions;
 
+// ReSharper disable once InconsistentNaming
 public class IDictionaryExtensionsTest
 {
     public IDictionaryExtensionsTest(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Fact]
@@ -44,9 +45,9 @@ public class IDictionaryExtensionsTest
     {
         #region local functions:
 
-        void testException()
+        void TestException()
         {
-            this._testOutputHelper.WriteLine("Testing for exception...");
+            _testOutputHelper.WriteLine("Testing for exception...");
 
             var hasThrownException = false;
 
@@ -62,16 +63,16 @@ public class IDictionaryExtensionsTest
             }
             catch (NullReferenceException)
             {
-                this._testOutputHelper.WriteLine("Exception expected.");
+                _testOutputHelper.WriteLine("Exception expected.");
                 hasThrownException = true;
             }
 
             Assert.True(hasThrownException, "The expected exception did not throw.");
         }
 
-        void testRef()
+        void TestRef()
         {
-            this._testOutputHelper.WriteLine("Testing for refence value...");
+            _testOutputHelper.WriteLine("Testing for reference value...");
 
             var dictionary = new Dictionary<int, string>
             {
@@ -82,12 +83,12 @@ public class IDictionaryExtensionsTest
             };
 
             var actual = dictionary.TryGetValueWithKey(4);
-            Assert.Equal(default(string), actual);
+            Assert.Equal(default, actual);
         }
 
-        void testValue()
+        void TestValue()
         {
-            this._testOutputHelper.WriteLine("Testing for value...");
+            _testOutputHelper.WriteLine("Testing for value...");
 
             var dictionary = new Dictionary<string, int>
             {
@@ -103,9 +104,9 @@ public class IDictionaryExtensionsTest
 
         #endregion
 
-        testException();
-        testRef();
-        testValue();
+        TestException();
+        TestRef();
+        TestValue();
     }
 
     readonly ITestOutputHelper _testOutputHelper;

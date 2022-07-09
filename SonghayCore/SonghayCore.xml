@@ -3463,6 +3463,20 @@
             <param name="stripNamespaces">if set to <c>true</c> then strip namespaces (<c>true</c> by default).</param>
             <param name="options">The options (<see cref="F:System.Xml.Linq.ReaderOptions.None"/> by default).</param>
         </member>
+        <member name="T:Songhay.Extensions.XPathNavigatorExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Xml.XPath.XPathNavigator"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.XPathNavigatorExtensions.EnsureXPathNavigator(System.Xml.XPath.XPathNavigator)">
+            <summary>
+            Ensures the specified <see cref="T:System.Xml.XPath.XPathNavigator"/>
+            or throws an exception.
+            </summary>
+            <param name="navigator"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="T:Songhay.FuncSeed">
             <summary>
             Functor seeds
@@ -7392,14 +7406,6 @@
             The local name of the element in the XML string.
             </param>
         </member>
-        <member name="M:Songhay.Xml.HtmlUtility.PublicDocType">
-            <summary>
-            Emits a public <c>DOCTYPE</c> tag.
-            </summary>
-            <returns>
-            A public <c>DOCTYPE</c> tag for XHTML 1.0 transitional.
-            </returns>
-        </member>
         <member name="M:Songhay.Xml.HtmlUtility.PublicDocType(System.String,System.String,System.String)">
             <summary>
             Emits a public <c>DOCTYPE</c> tag.
@@ -7544,7 +7550,7 @@
             Static members for XHTML Documents.
             </summary>
         </member>
-        <member name="P:Songhay.Xml.XhtmlDocumentUtility.xhtml">
+        <member name="P:Songhay.Xml.XhtmlDocumentUtility.Xhtml">
             <summary>
             XHTML Namespace
             </summary>
@@ -7587,7 +7593,7 @@
             </summary>
             <remarks>
             These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> sets.
+            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
@@ -7596,7 +7602,7 @@
             </summary>
             <remarks>
             These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> sets.
+            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
@@ -7605,7 +7611,7 @@
             </summary>
             <remarks>
             These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> sets.
+            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
@@ -7614,7 +7620,7 @@
             </summary>
             <remarks>
             These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> sets.
+            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
@@ -7623,7 +7629,7 @@
             </summary>
             <remarks>
             These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> sets.
+            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
@@ -7632,7 +7638,7 @@
             </summary>
             <remarks>
             These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> sets.
+            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
@@ -7641,7 +7647,7 @@
             </summary>
             <remarks>
             These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> sets.
+            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
@@ -7650,7 +7656,7 @@
             </summary>
             <remarks>
             These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> sets.
+            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
@@ -7659,7 +7665,7 @@
             </summary>
             <remarks>
             These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> sets.
+            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
@@ -7668,7 +7674,7 @@
             </summary>
             <remarks>
             These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> sets.
+            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
@@ -7686,7 +7692,7 @@
             </summary>
             <param name="parentDocument">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> “hosting” document.</param>
             <param name="childDocument">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> child document.</param>
-            <param name="setQuery">The XPath query to the child document loaction in the “hosting” document. </param>
+            <param name="nodeQuery">The XPath query to the child document location in the “hosting” document. </param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.ExpandSpecialChars(System.String)">
             <summary>
@@ -7700,10 +7706,10 @@
             <summary>
             An alternative to <see cref="M:System.Xml.XPath.XPathNavigator.GetAttribute(System.String,System.String)"/>.
             </summary>
-            <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            <param name="navigable">
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/>.
             </param>
-            <param name="setQuery">
+            <param name="nodeQuery">
             The value to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
@@ -7712,10 +7718,10 @@
             <summary>
             An alternative to <see cref="M:System.Xml.XPath.XPathNavigator.GetAttribute(System.String,System.String)"/>.
             </summary>
-            <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            <param name="navigable">
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/>.
             </param>
-            <param name="setQuery">
+            <param name="nodeQuery">
             The value to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
@@ -7765,16 +7771,7 @@
             <param name="messageHeader">Message header</param>
             <param name="messageLines">Message lines</param>
         </member>
-        <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String,System.String[])">
-            <summary>
-            Returns an XML <see cref="T:System.String"/>
-            based on the specified header and lines.
-            </summary>
-            <param name="messageHeader">Message header</param>
-            <param name="messageCode">Message code for errors, exceptions or faults</param>
-            <param name="messageLines">Message lines</param>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String,System.Collections.ObjectModel.ReadOnlyCollection{System.String})">
+        <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
             <summary>
             Returns an XML <see cref="T:System.String"/>
             based on the specified header and lines.
@@ -7840,10 +7837,10 @@
             <summary>
             Returns a <see cref="T:System.Xml.XmlNamespaceManager"/>
             with respect to the document element of the specified
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </summary>
-            <param name="navigableSet">
-            The <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            <param name="navigable">
+            The <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetNavigableDocument(System.String)">
@@ -7860,11 +7857,11 @@
             Returns an <see cref="T:System.Xml.XPath.XPathDocument"/>
             based on the specified <see cref="T:System.Xml.XmlNode"/>.
             </summary>
-            <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            <param name="navigable">
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <remarks>
-            Use this member to convert <see cref="T:System.Xml.XmlDocument"/> sets.
+            Use this member to convert <see cref="T:System.Xml.XmlDocument"/> documents.
             </remarks>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetNavigableDocument(System.IO.Stream)">
@@ -7877,12 +7874,12 @@
         <member name="M:Songhay.Xml.XmlUtility.GetNavigableNode(System.Xml.XPath.IXPathNavigable,System.String)">
             <summary>
             Returns an <see cref="T:System.Xml.XPath.XPathNavigator"/>
-            based on the setQuery Expression toward the source document.
+            based on the nodeQuery Expression toward the source document.
             </summary>
-            <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            <param name="navigable">
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
-            <param name="setQuery">
+            <param name="nodeQuery">
             The value to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
@@ -7890,12 +7887,12 @@
         <member name="M:Songhay.Xml.XmlUtility.GetNavigableNode(System.Xml.XPath.IXPathNavigable,System.String,System.Xml.XmlNamespaceManager)">
             <summary>
             Returns an <see cref="T:System.Xml.XPath.XPathNavigator"/>
-            based on the setQuery Expression toward the source document.
+            based on the nodeQuery Expression toward the source document.
             </summary>
-            <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            <param name="navigable">
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
-            <param name="setQuery">
+            <param name="nodeQuery">
             The value to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
@@ -7907,12 +7904,12 @@
         <member name="M:Songhay.Xml.XmlUtility.GetNavigableNodes(System.Xml.XPath.IXPathNavigable,System.String)">
             <summary>
             Returns an <see cref="T:System.Xml.XPath.XPathNodeIterator"/>
-            based on the setQuery Expression toward the source document.
+            based on the nodeQuery Expression toward the source document.
             </summary>
-            <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            <param name="navigable">
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
-            <param name="setQuery">
+            <param name="nodeQuery">
             The value to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
@@ -7920,12 +7917,12 @@
         <member name="M:Songhay.Xml.XmlUtility.GetNavigableNodes(System.Xml.XPath.IXPathNavigable,System.String,System.Xml.XmlNamespaceManager)">
             <summary>
             Returns an <see cref="T:System.Xml.XPath.XPathNodeIterator"/>
-            based on the setQuery Expression toward the source document.
+            based on the nodeQuery Expression toward the source document.
             </summary>
-            <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            <param name="navigable">
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
-            <param name="setQuery">
+            <param name="nodeQuery">
             The value to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
@@ -7940,7 +7937,7 @@
             and adding to a list of parameters for data access.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="setQuery">The <see cref="T:System.String"/></param>
+            <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.Object)">
@@ -7949,7 +7946,7 @@
             and adding to a list of parameters for data access.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="setQuery">The <see cref="T:System.String"/></param>
+            <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
         </member>
@@ -7959,7 +7956,7 @@
             and adding to a list of parameters for data access.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="setQuery">The <see cref="T:System.String"/></param>
+            <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
             <param name="nsMan">
@@ -7973,7 +7970,7 @@
             and adding to a list of parameters for data access.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> to query.</param>
-            <param name="setQuery">The XPath <see cref="T:System.String"/>.</param>
+            <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
             <typeparam name="T">The type to parse from the node value.</typeparam>
@@ -7984,7 +7981,7 @@
             and adding to a list of parameters for data access.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> to query.</param>
-            <param name="setQuery">The XPath <see cref="T:System.String"/>.</param>
+            <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
             <param name="nsMan">
@@ -8007,10 +8004,10 @@
             and the XML document.
             </summary>
             <param name="xslSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL set.
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL document.
             </param>
             <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML set.
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML document.
             </param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetXslResult(System.Xml.XPath.IXPathNavigable,System.Xml.Xsl.XsltArgumentList,System.Xml.XPath.IXPathNavigable)">
@@ -8020,13 +8017,13 @@
             and the XML document.
             </summary>
             <param name="xslSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL set.
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL document.
             </param>
             <param name="xslArgs">
             The <see cref="T:System.Xml.Xsl.XsltArgumentList"/>.
             </param>
             <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML set.
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML document.
             </param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetXslString(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
@@ -8035,16 +8032,8 @@
             for the transformation of the XSLT document
             and the XML document.
             </summary>
-            <param name="xslSet">The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL set.</param>
-            <param name="navigableSet">The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML set.</param>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.GetNavigableDocument(System.Object)">
-            <summary>
-            Gets the navigable document.
-            </summary>
-            <param name="rss">The RSS.</param>
-            <returns></returns>
-            <exception cref="T:System.NotImplementedException"></exception>
+            <param name="navigableXsl">The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL document.</param>
+            <param name="navigableSet">The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML document.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetXslString(System.Xml.XPath.IXPathNavigable,System.Xml.Xsl.XsltArgumentList,System.Xml.XPath.IXPathNavigable)">
             <summary>
@@ -8052,14 +8041,14 @@
             for the transformation of the XSLT document
             and the XML document.
             </summary>
-            <param name="xslSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL set.
+            <param name="navigableXsl">
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL document.
             </param>
             <param name="xslArgs">
             The <see cref="T:System.Xml.Xsl.XsltArgumentList"/>.
             </param>
-            <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML set.
+            <param name="navigableXml">
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML document.
             </param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetXslString(System.Xml.XPath.IXPathNavigable,System.Xml.Xsl.XsltArgumentList,System.Xml.XPath.IXPathNavigable,System.Xml.XmlWriterSettings)">
@@ -8068,9 +8057,9 @@
             for the transformation of the XSLT document
             and the XML document.
             </summary>
-            <param name="xslSet">The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL set.</param>
+            <param name="navigableXsl">The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL document.</param>
             <param name="xslArgs">The <see cref="T:System.Xml.Xsl.XsltArgumentList"/>.</param>
-            <param name="navigableSet">The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML set.</param>
+            <param name="navigableXml">The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML document.</param>
             <param name="settings">The settings.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.InputAs``1(``0)">
@@ -8087,7 +8076,7 @@
             Returns true when the node has the specified value.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="setQuery">The query <see cref="T:System.String"/></param>
+            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="testValue">The specified value to test with the node value.</param>
         </member>
@@ -8096,7 +8085,7 @@
             Returns true when the node has the specified value.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="setQuery">The query <see cref="T:System.String"/></param>
+            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="testValue">The specified value to test with the node value.</param>
             <param name="comparisonType">The <see cref="T:System.StringComparison"/> type.</param>
@@ -8106,7 +8095,7 @@
             Returns true when the node has the specified value.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="setQuery">The query <see cref="T:System.String"/></param>
+            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="testValue">The specified value to test with the node value.</param>
             <param name="nsMan">
@@ -8119,7 +8108,7 @@
             Returns true when the node has the specified value.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="setQuery">The query <see cref="T:System.String"/></param>
+            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="testValue">The specified value to test with the node value.</param>
             <param name="nsMan">
@@ -8133,7 +8122,7 @@
             Returns true when the node has the value “no”.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="setQuery">The query <see cref="T:System.String"/></param>
+            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsYesNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean)">
@@ -8141,7 +8130,7 @@
             Returns true when the node has the value “yes”.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="setQuery">The query <see cref="T:System.String"/></param>
+            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsXml(System.String)">
@@ -8157,10 +8146,10 @@
             and the XML file.
             </summary>
             <param name="xslPath">
-            outputPath to the XSLT file.
+            output path to the XSLT file.
             </param>
             <param name="xmlPath">
-            outputPath to the XML file.
+            output path to the XML file.
             </param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.LoadXslTransform(System.String,System.String,System.String)">
@@ -8170,7 +8159,39 @@
             and the XML file.
             </summary>
             <param name="xslPath">
-            outputPath to the XSLT file.
+            output path to the XSLT file.
+            </param>
+            <param name="commandName">
+            The value for the <code>cmd</code>-parameter convention.
+            </param>
+            <param name="xmlPath">
+            output path to the XML file.
+            </param>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.LoadXslTransform(System.String,System.Xml.Xsl.XsltArgumentList,System.String)">
+            <summary>
+            Returns a <see cref="T:System.String"/>
+            for the transformation of the XSLT file
+            and the XML file.
+            </summary>
+            <param name="xslPath">
+            output path to the XSLT file.
+            </param>
+            <param name="xslArgs">
+            The <see cref="T:System.Xml.Xsl.XsltArgumentList"/>.
+            </param>
+            <param name="xmlPath">
+            output path to the XML file.
+            </param>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.LoadXslTransformForMemoryInput(System.String,System.String,System.String)">
+            <summary>
+            Returns a <see cref="T:System.String"/>
+            for the transformation of the XSLT file
+            and the specified <see cref="T:System.Xml.XPath.IXPathNavigable"/> in memory.
+            </summary>
+            <param name="xslPath">
+            output path to the XSLT file.
             </param>
             <param name="commandName">
             The value for the <code>cmd</code>-parameter convention.
@@ -8182,40 +8203,43 @@
             This convention is used in ASP.NET Web applications.
             </remarks>
         </member>
-        <member name="M:Songhay.Xml.XmlUtility.LoadXslTransform(System.String,System.String,System.Xml.XPath.IXPathNavigable)">
+        <member name="M:Songhay.Xml.XmlUtility.LoadXslTransformForMemoryInput(System.String,System.String,System.Xml.XPath.IXPathNavigable)">
             <summary>
             Returns a <see cref="T:System.String"/>
             for the transformation of the XSLT file
-            and the XML file.
+            and the specified <see cref="T:System.Xml.XPath.IXPathNavigable"/> in memory.
             </summary>
             <param name="xslPath">
-            outputPath to the XSLT file.
+            output path to the XSLT file.
             </param>
             <param name="commandName">
             The value for the <code>cmd</code>-parameter convention.
             </param>
             <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            The <see cref="T:System.Xml.XPath.IXPathNavigable"/> in memory.
             </param>
             <remarks>
             This convention is used in ASP.NET Web applications.
             </remarks>
         </member>
-        <member name="M:Songhay.Xml.XmlUtility.LoadXslTransform(System.String,System.Xml.Xsl.XsltArgumentList,System.String)">
+        <member name="M:Songhay.Xml.XmlUtility.LoadXslTransformForMemoryInput(System.String,System.Xml.Xsl.XsltArgumentList,System.String)">
             <summary>
             Returns a <see cref="T:System.String"/>
             for the transformation of the XSLT file
-            and the XML file.
+            and the XML in-memory fragment.
             </summary>
             <param name="xslPath">
-            outputPath to the XSLT file.
+            output path to the XSLT file.
             </param>
             <param name="xslArgs">
             The <see cref="T:System.Xml.Xsl.XsltArgumentList"/>.
             </param>
-            <param name="xmlPath">
-            outputPath to the XML file.
+            <param name="xmlFragment">
+            A well-formed XML <see cref="T:System.String"/>.
             </param>
+            <remarks>
+            This convention is used in ASP.NET Web applications.
+            </remarks>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.OutputAs``1(System.String)">
             <summary>
@@ -8271,7 +8295,7 @@
             Strip the namespaces from specified document.
             </summary>
             <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <remarks>
             WARNING: Stripping namespaces “flattens” the document
@@ -8286,7 +8310,7 @@
             Strip the namespaces from specified document.
             </summary>
             <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="removeDocType">
             When <c>true</c>, removes any DOCTYPE preambles.
@@ -8305,7 +8329,7 @@
             on the specified navigable set and validation event handler.
             </summary>
             <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="eventHandler">
             The <see cref="T:System.Xml.Schema.ValidationEventHandler"/>
@@ -8331,7 +8355,7 @@
             with the specified schema and validation event handler.
             </summary>
             <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="schema">
             The <see cref="T:System.Xml.Schema.XmlSchema"/>.
@@ -8363,7 +8387,7 @@
             </summary>
             <param name="xmlInput">The specified input.</param>
             <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="outputPath">
             The file-system, target path.
@@ -8375,7 +8399,7 @@
             </summary>
             <param name="xmlInput">The specified input.</param>
             <param name="navigableSet">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> set.
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="outputPath">
             The file-system, target path.
@@ -8414,7 +8438,7 @@
             </summary>
             <remarks>
             These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> sets.
+            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
@@ -8481,8 +8505,8 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="set">The <see cref="T:System.Xml.Linq.XNode"/></param>
-            <param name="setQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
+            <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String)">
@@ -8490,8 +8514,8 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="set">The <see cref="T:System.Xml.Linq.XNode"/></param>
-            <param name="setQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
+            <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
         </member>
@@ -8500,8 +8524,8 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="set">The <see cref="T:System.Xml.Linq.XNode"/></param>
-            <param name="setQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
+            <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
             <param name="resolver">
@@ -8514,8 +8538,8 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="set">The <see cref="T:System.Xml.Linq.XNode"/></param>
-            <param name="setQuery">The XPath <see cref="T:System.String"/>.</param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
+            <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
             <typeparam name="T">The type to parse from the node value.</typeparam>
@@ -8526,8 +8550,8 @@
             and adding to a list of parameters for data access.
             </summary>
             <typeparam name="T">The type to parse from the node value.</typeparam>
-            <param name="set">The <see cref="T:System.Xml.Linq.XNode"/> set.</param>
-            <param name="setQuery">The XPath <see cref="T:System.String"/>.</param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/>.</param>
+            <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
             <param name="resolver">The <see cref="T:System.Xml.IXmlNamespaceResolver"/>
@@ -8572,26 +8596,26 @@
             <summary>
             Gets the <see cref="T:System.Xml.Linq.XNode"/> from the specified XPath query.
             </summary>
-            <param name="set">The set.</param>
-            <param name="setQuery">The set query.</param>
+            <param name="node">The node.</param>
+            <param name="nodeQuery">The node query.</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>
             Gets the <see cref="T:System.Xml.Linq.XNode"/> from the specified XPath query.
             </summary>
-            <param name="set">The set.</param>
-            <param name="setQuery">The set query.</param>
-            <param name="throwException">if set to <c>true</c> [throw exception].</param>
+            <param name="node">The node.</param>
+            <param name="nodeQuery">The node query.</param>
+            <param name="throwException">if node to <c>true</c> [throw exception].</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)">
             <summary>
             Gets the <see cref="T:System.Xml.Linq.XNode"/> from the specified XPath query.
             </summary>
-            <param name="set">The set.</param>
-            <param name="setQuery">The set query.</param>
-            <param name="throwException">if set to <c>true</c> [throw exception].</param>
+            <param name="node">The node.</param>
+            <param name="nodeQuery">The node query.</param>
+            <param name="throwException">if node to <c>true</c> [throw exception].</param>
             <param name="resolver">The resolver.</param>
             <returns></returns>
         </member>
@@ -8599,26 +8623,26 @@
             <summary>
             Gets <see cref="T:System.Collections.Generic.IEnumerable`1"/> from the specified XPath query.
             </summary>
-            <param name="set">The set.</param>
-            <param name="setQuery">The set query.</param>
+            <param name="node">The node.</param>
+            <param name="nodeQuery">The node query.</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>
             Gets <see cref="T:System.Collections.Generic.IEnumerable`1"/> from the specified XPath query.
             </summary>
-            <param name="set">The set.</param>
-            <param name="setQuery">The set query.</param>
-            <param name="throwException">if set to <c>true</c> [throw exception].</param>
+            <param name="node">The node.</param>
+            <param name="nodeQuery">The node query.</param>
+            <param name="throwException">if node to <c>true</c> [throw exception].</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)">
             <summary>
             Gets <see cref="T:System.Collections.Generic.IEnumerable`1"/> from the specified XPath query.
             </summary>
-            <param name="set">The set.</param>
-            <param name="setQuery">The set query.</param>
-            <param name="throwException">if set to <c>true</c> [throw exception].</param>
+            <param name="node">The node.</param>
+            <param name="nodeQuery">The node query.</param>
+            <param name="throwException">if node to <c>true</c> [throw exception].</param>
             <param name="resolver">The resolver.</param>
             <returns></returns>
         </member>
@@ -8626,23 +8650,23 @@
             <summary>
             Gets the <see cref="T:System.Xml.Linq.XObject"/> from the specified XPath query..
             </summary>
-            <param name="set">The <see cref="T:System.Xml.Linq.XNode"/> set.</param>
-            <param name="setQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/> node.</param>
+            <param name="nodeQuery">The <see cref="T:System.String"/></param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>
             Gets the <see cref="T:System.Xml.Linq.XObject"/> from the specified XPath query..
             </summary>
-            <param name="set">The <see cref="T:System.Xml.Linq.XNode"/> set.</param>
-            <param name="setQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/> node.</param>
+            <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)">
             <summary>
             Gets the XObject.
             </summary>
-            <param name="set">The <see cref="T:System.Xml.Linq.XNode"/> set.</param>
-            <param name="setQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/> node.</param>
+            <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="resolver">
             The <see cref="T:System.Xml.IXmlNamespaceResolver"/>
@@ -8653,26 +8677,26 @@
             <summary>
             Gets <see cref="T:System.Collections.Generic.IEnumerable`1"/> from the specified XPath query.
             </summary>
-            <param name="set">The set.</param>
-            <param name="setQuery">The set query.</param>
+            <param name="node">The node.</param>
+            <param name="nodeQuery">The node query.</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>
             Gets <see cref="T:System.Collections.Generic.IEnumerable`1"/> from the specified XPath query.
             </summary>
-            <param name="set">The set.</param>
-            <param name="setQuery">The set query.</param>
-            <param name="throwException">if set to <c>true</c> [throw exception].</param>
+            <param name="node">The node.</param>
+            <param name="nodeQuery">The node query.</param>
+            <param name="throwException">if node to <c>true</c> [throw exception].</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)">
             <summary>
             Gets <see cref="T:System.Collections.Generic.IEnumerable`1"/> from the specified XPath query.
             </summary>
-            <param name="set">The set.</param>
-            <param name="setQuery">The set query.</param>
-            <param name="throwException">if set to <c>true</c> [throw exception].</param>
+            <param name="node">The node.</param>
+            <param name="nodeQuery">The node query.</param>
+            <param name="throwException">if node to <c>true</c> [throw exception].</param>
             <param name="resolver">The resolver.</param>
             <returns></returns>
             <exception cref="T:System.Xml.XmlException"></exception>

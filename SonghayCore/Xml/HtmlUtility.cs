@@ -17,7 +17,7 @@ public static class HtmlUtility
     /// <param name="inputValue">
     /// A string of marked up text.
     /// </param>
-    public static string ConvertToHtml(string inputValue)
+    public static string? ConvertToHtml(string? inputValue)
     {
         if (string.IsNullOrWhiteSpace(inputValue)) return null;
 
@@ -61,7 +61,7 @@ public static class HtmlUtility
     /// </param>
     /// <returns><see cref="System.String"/></returns>
     /// <remarks>This task is simpler than converting to XHTML.</remarks>
-    public static string ConvertToXml(string html)
+    public static string? ConvertToXml(string? html)
     {
         if (string.IsNullOrWhiteSpace(html)) return null;
 
@@ -72,25 +72,25 @@ public static class HtmlUtility
         html = Regex.Replace(html, @"\s*xmlns\s*=\s*""[^""]+""\s*", string.Empty);
 
         //Close open elements:
-        me = new MatchEvaluator(EvaluateOpenElement);
+        me = EvaluateOpenElement;
 
         re = new Regex(@"<\s*(br|hr|img|link|meta)([^>]*)(>)", RegexOptions.IgnoreCase);
         html = re.Replace(html, me);
 
         //Find attribute minimization:
-        me = new MatchEvaluator(EvaluateElementForMinimizedAttribute);
+        me = EvaluateElementForMinimizedAttribute;
 
         re = new Regex(@"<[^>]+>", RegexOptions.IgnoreCase);
         html = re.Replace(html, me);
 
         //Find attributes without quotes:
-        me = new MatchEvaluator(EvaluateElementForMalformedAttribute);
+        me = EvaluateElementForMalformedAttribute;
 
         re = new Regex(@"<[^>]+>", RegexOptions.IgnoreCase);
         html = re.Replace(html, me);
 
         //Generate attributes:
-        me = new MatchEvaluator(EvaluateAttribute);
+        me = EvaluateAttribute;
 
         re = new Regex(@"<\s*[^>]+\s(checked|nobreak|nosave|selected)[^=>]*\/*>", RegexOptions.IgnoreCase);
         html = re.Replace(html, me);
@@ -117,7 +117,7 @@ public static class HtmlUtility
     /// This member addresses certain quirks
     /// that well-formed XML cannot have in a contemporary Web browser.
     /// </remarks>
-    public static string FormatXhtmlElements(string xmlFragment)
+    public static string? FormatXhtmlElements(string? xmlFragment)
     {
         if (string.IsNullOrWhiteSpace(xmlFragment)) return null;
 
@@ -146,7 +146,7 @@ public static class HtmlUtility
     /// <param name="elementName">
     /// The local name of the element in the XML string.
     /// </param>
-    public static string GetInnerXml(string xmlFragment, string elementName)
+    public static string? GetInnerXml(string? xmlFragment, string elementName)
     {
         if (string.IsNullOrWhiteSpace(xmlFragment)) return null;
 
@@ -168,19 +168,6 @@ public static class HtmlUtility
     /// <summary>
     /// Emits a public <c>DOCTYPE</c> tag.
     /// </summary>
-    /// <returns>
-    /// A public <c>DOCTYPE</c> tag for XHTML 1.0 transitional.
-    /// </returns>
-    public static string PublicDocType()
-    {
-        return PublicDocType("html",
-            "-//W3C//DTD XHTML 1.0 Transitional//EN",
-            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd");
-    }
-
-    /// <summary>
-    /// Emits a public <c>DOCTYPE</c> tag.
-    /// </summary>
     /// <param name="rootElement">
     /// The root element of the DTD.
     /// </param>
@@ -193,12 +180,10 @@ public static class HtmlUtility
     /// <returns>
     /// A public <c>DOCTYPE</c> tag.
     /// </returns>
-    public static string PublicDocType(string rootElement,
-        string publicIdentifier, string resourceReference)
-    {
-        return string.Format(CultureInfo.InvariantCulture, "<!DOCTYPE {0} PUBLIC \"{1}\" \"{2}\">",
+    public static string PublicDocType(string? rootElement = "html",
+        string? publicIdentifier = "-//W3C//DTD XHTML 1.0 Transitional//EN", string? resourceReference = "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd") =>
+        string.Format(CultureInfo.InvariantCulture, "<!DOCTYPE {0} PUBLIC \"{1}\" \"{2}\">",
             rootElement, publicIdentifier, resourceReference);
-    }
 
     #region Regular Expression Match Evaluators
 
@@ -217,7 +202,7 @@ public static class HtmlUtility
     {
         var s = match.Value;
         var re = new Regex(@"([^\""\s]+)(\s*=\s*)([^\""\s]+)\s", RegexOptions.IgnoreCase);
-        var me = new MatchEvaluator(EvalauteMalformedAttribute);
+        var me = new MatchEvaluator(EvaluateMalformedAttribute);
         return re.Replace(s, me);
     }
 
@@ -236,15 +221,15 @@ public static class HtmlUtility
         foreach (Match m in betweenQuotes)
         {
             var placeholder = string.Format(placeholderTemplate, m.Index);
-            s = s.Replace(m.Value, string.Format(placeholderTemplate, m.Index));
+            s = s.Replace(m.Value, string.Format(placeholder, m.Index));
         }
-        
+
         //evaluate what was not removed:
         var possibilities = Regex.Matches(s, @"(\b[^\s]+\b)", RegexOptions.IgnoreCase);
         foreach (Match m in possibilities)
         {
             if(m.Index == 1) continue; //match should not be element name
-            if (m.Value.Contains("=")) continue; //match should not be attribute-value pair
+            if (m.Value.Contains('=')) continue; //match should not be attribute-value pair
             s = s.Replace(m.Value, string.Format(@"{0}=""{0}""", m.Value));
         }
         
@@ -255,21 +240,19 @@ public static class HtmlUtility
             re = new Regex(reArg);
             s = re.Replace(s, m.Value, 1);
         }
-        
+
         return s;
     }
 
-    static string EvalauteMalformedAttribute(Match match)
+    static string EvaluateMalformedAttribute(Match match)
     {
         var s = match.Value;
         if (match.Groups.Count != 4) return s;
-        if (s.Contains(@"'")) return s;
-        if (s.Contains(@"""")) return s;
+        if (s.Contains('\'')) return s;
 
-        return string.Format(@" {0}{1}""{2}"" ",
-            match.Groups[1].Value.Trim(),
-            match.Groups[2].Value.Trim(),
-            match.Groups[3].Value.Trim());
+        return s.Contains('"')
+            ? s
+            : $@" {match.Groups[1].Value.Trim()}{match.Groups[2].Value.Trim()}""{match.Groups[3].Value.Trim()}"" ";
     }
 
     static string EvaluateOpenElement(Match match)

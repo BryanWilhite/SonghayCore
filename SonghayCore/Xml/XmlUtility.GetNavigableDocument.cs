@@ -9,7 +9,7 @@ namespace Songhay.Xml;
 /// </summary>
 /// <remarks>
 /// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> sets.
+/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
 /// However, many accept any input implementing the
 /// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
 /// </remarks>
@@ -24,13 +24,13 @@ public static partial class XmlUtility
     /// </param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument GetNavigableDocument(string xmlFragment)
+    public static XPathDocument? GetNavigableDocument(string? xmlFragment)
     {
-        XPathDocument d = null;
-        using(StringReader reader = new StringReader(xmlFragment))
-        {
-            d = new XPathDocument(reader);
-        }
+        if (string.IsNullOrWhiteSpace(xmlFragment)) return null;
+
+        using StringReader reader = new StringReader(xmlFragment);
+        var d = new XPathDocument(reader);
+
         return d;
     }
 
@@ -38,23 +38,22 @@ public static partial class XmlUtility
     /// Returns an <see cref="System.Xml.XPath.XPathDocument"/>
     /// based on the specified <see cref="System.Xml.XmlNode"/>.
     /// </summary>
-    /// <param name="navigableSet">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> set.
+    /// <param name="navigable">
+    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
     /// <remarks>
-    /// Use this member to convert <see cref="System.Xml.XmlDocument"/> sets.
+    /// Use this member to convert <see cref="System.Xml.XmlDocument"/> documents.
     /// </remarks>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument GetNavigableDocument(IXPathNavigable navigableSet)
+    public static XPathDocument? GetNavigableDocument(IXPathNavigable? navigable)
     {
-        if (navigableSet == null) return null;
+        var navigator = navigable?.CreateNavigator();
+        if (navigator == null) return null;
 
-        XPathDocument d = null;
-        using(StringReader reader = new StringReader(navigableSet.CreateNavigator().OuterXml))
-        {
-            d = new XPathDocument(reader);
-        }
+        using StringReader reader = new StringReader(navigator.OuterXml);
+        var d = new XPathDocument(reader);
+
         return d;
     }
 
@@ -65,11 +64,12 @@ public static partial class XmlUtility
     /// <param name="stream">The stream.</param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument GetNavigableDocument(Stream stream)
+    public static XPathDocument? GetNavigableDocument(Stream? stream)
     {
         if(stream == null) return null;
         if(stream.Position != 0) stream.Position = 0;
         XPathDocument d = new XPathDocument(stream);
+
         return d;
     }
 }

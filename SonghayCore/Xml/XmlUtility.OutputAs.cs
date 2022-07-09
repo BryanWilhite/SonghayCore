@@ -11,17 +11,16 @@ public static partial class XmlUtility
     /// <typeparam name="TOut">The <see cref="System.Type"/> of output to return (constrained to <c>class</c>).</typeparam>
     /// <param name="xmlFragment">An XML fragment or document as a well-formed <see cref="System.String"/>.</param>
     /// <returns>Returns the specified <see cref="System.Type"/>.</returns>
-    public static TOut OutputAs<TOut>(string xmlFragment) where TOut : class
+    public static TOut? OutputAs<TOut>(string xmlFragment) where TOut : class
     {
-        if(typeof(TOut).Equals(typeof(string)))
+        if (typeof(TOut).IsAssignableFrom(typeof(string)))
         {
             return xmlFragment as TOut;
         }
-        else
-        {
-            XPathDocument d = GetNavigableDocument(xmlFragment);
-            return OutputAs<TOut>(d);
-        }
+
+        XPathDocument? d = GetNavigableDocument(xmlFragment);
+
+        return OutputAs<TOut>(d);
     }
 
     /// <summary>
@@ -30,27 +29,28 @@ public static partial class XmlUtility
     /// <typeparam name="TOut">The <see cref="System.Type"/> of output to return (constrained to <c>class</c>).</typeparam>
     /// <param name="navigableDocument">An <see cref="System.Xml.XPath.IXPathNavigable"/>.</param>
     /// <returns>Returns the specified <see cref="System.Type"/>.</returns>
-    public static TOut OutputAs<TOut>(IXPathNavigable navigableDocument) where TOut : class
+    public static TOut? OutputAs<TOut>(IXPathNavigable? navigableDocument) where TOut : class
     {
-        if(navigableDocument == null) return default(TOut);
+        if(navigableDocument == null) return default;
 
-        if(typeof(TOut).Equals(typeof(string)))
+        if (typeof(TOut).IsAssignableFrom(typeof(string)))
         {
-            return navigableDocument.CreateNavigator().OuterXml as TOut;
+            return navigableDocument.CreateNavigator()?.OuterXml as TOut;
         }
-        else if(typeof(TOut).Equals(typeof(XPathDocument)))
+
+        TOut? stronglyOfTOut = default(TOut);
+        switch (stronglyOfTOut)
         {
-            return navigableDocument as TOut;
+            case XmlDocument:
+                XmlDocument dom = new XmlDocument();
+                dom.LoadXml(navigableDocument.ToString()!);
+
+                return dom as TOut;
+
+            case XPathDocument:
+                return navigableDocument as TOut;
         }
-        else if(typeof(TOut).Equals(typeof(XmlDocument)))
-        {
-            XmlDocument dom = new XmlDocument();
-            dom.LoadXml(navigableDocument.ToString());
-            return dom as TOut;
-        }
-        else
-        {
-            return default(TOut);
-        }
+
+        return default;
     }
 }

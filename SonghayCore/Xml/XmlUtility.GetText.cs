@@ -10,12 +10,11 @@ public static partial class XmlUtility
     /// in a <see cref="System.IO.MemoryStream"/>.
     /// </summary>
     /// <param name="ramStream"><see cref="System.IO.MemoryStream"/></param>
-    public static string GetText(MemoryStream ramStream)
+    public static string? GetText(MemoryStream? ramStream)
     {
-        string s = null;
+        if(ramStream == null) return null;
 
-        if(ramStream == null) return s;
-        s = Encoding.UTF8.GetString(ramStream.ToArray());
+        var s = Encoding.UTF8.GetString(ramStream.ToArray());
 
         if(!string.IsNullOrWhiteSpace(s))
             s = s.Trim().Replace("\0", string.Empty);

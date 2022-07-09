@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -13,14 +14,14 @@ public static partial class XmlUtility
     /// The specified type to deserialize.
     /// </typeparam>
     /// <param name="xmlPath">the XML file path</param>
-    public static T GetInstance<T>(string xmlPath) where T : class
+    public static T? GetInstance<T>(string? xmlPath) where T : class
     {
         var serializer = new XmlSerializer(typeof(T));
-        using(XmlReader reader = XmlReader.Create(xmlPath))
-        {
-            T instance = (T)serializer.Deserialize(reader);
-            return instance;
-        }
+
+        using XmlReader reader = XmlReader.Create(xmlPath!);
+        T? instance = serializer.Deserialize(reader) as T;
+
+        return instance;
     }
 
     /// <summary>
@@ -30,14 +31,14 @@ public static partial class XmlUtility
     /// The specified type to deserialize.
     /// </typeparam>
     /// <param name="xmlFragment">the raw XML</param>
-    public static T GetInstanceRaw<T>(string xmlFragment) where T : class
+    public static T? GetInstanceRaw<T>(string? xmlFragment) where T : class
     {
+        if (string.IsNullOrWhiteSpace(xmlFragment)) throw new ArgumentNullException(nameof(xmlFragment));
+
         var serializer = new XmlSerializer(typeof(T));
-        T instance = default(T);
-        using(StringReader reader = new StringReader(xmlFragment))
-        {
-            instance = (T)serializer.Deserialize(reader);
-        }
+        using StringReader reader = new StringReader(xmlFragment);
+        var instance = serializer.Deserialize(reader) as T;
+
         return instance;
     }
 }

@@ -17,10 +17,7 @@ public static partial class XmlUtility
     /// This routine does not remove namespace prefixes.
     /// 
     /// </remarks>
-    public static string StripNamespaces(string xml)
-    {
-        return StripNamespaces(xml, false);
-    }
+    public static string? StripNamespaces(string xml) => StripNamespaces(xml, false);
 
     /// <summary>
     /// Strip the namespaces from specified <see cref="System.String"/>.
@@ -38,7 +35,7 @@ public static partial class XmlUtility
     /// This routine does not remove namespace prefixes.
     /// 
     /// </remarks>
-    public static string StripNamespaces(string xml, bool removeDocType)
+    public static string? StripNamespaces(string? xml, bool removeDocType)
     {
         if(string.IsNullOrWhiteSpace(xml)) return null;
 
@@ -53,18 +50,17 @@ public static partial class XmlUtility
         foreach(Match m in Regex.Matches(xml,
                     @"\s*xmlns:?([^=]*)=[""][^""]*[""]\s*", RegexOptions.IgnoreCase | RegexOptions.Multiline))
         {
-            if(m.Groups.Count == 2)
-            {
-                string pattern = string.Empty;
+            if (m.Groups.Count != 2) continue;
 
-                pattern = m.Groups[1].Value;
-                pattern = string.Concat("<", pattern, ":");
-                xml = xml.Replace(pattern, "<");
+            string pattern;
 
-                pattern = m.Groups[1].Value;
-                pattern = string.Concat("</", pattern, ":");
-                xml = xml.Replace(pattern, "</");
-            }
+            pattern = m.Groups[1].Value;
+            pattern = string.Concat("<", pattern, ":");
+            xml = xml.Replace(pattern, "<");
+
+            pattern = m.Groups[1].Value;
+            pattern = string.Concat("</", pattern, ":");
+            xml = xml.Replace(pattern, "</");
         }
 
         //Attempt to remove namespace declarations:
@@ -77,6 +73,6 @@ public static partial class XmlUtility
             @"\s*([a-zA-z0-9:]*schemaLocation\s*=[""][^""]*[""])\s*", string.Empty,
             RegexOptions.IgnoreCase);
 
-        return (!string.IsNullOrWhiteSpace(xml)) ? xml.Trim() : null;
+        return !string.IsNullOrWhiteSpace(xml) ? xml.Trim() : null;
     }
 }

@@ -10,7 +10,7 @@ namespace Songhay.Xml;
 /// </summary>
 /// <remarks>
 /// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> sets.
+/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
 /// However, many accept any input implementing the
 /// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
 /// </remarks>
@@ -23,50 +23,53 @@ public static partial class XmlUtility
     /// <param name="childDocument">The <see cref="System.Xml.XPath.IXPathNavigable"/> child document.</param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument CombineNavigableDocuments(IXPathNavigable parentDocument, IXPathNavigable childDocument)
-    {
-        return CombineNavigableDocuments(parentDocument, childDocument, null);
-    }
+    public static XPathDocument? CombineNavigableDocuments(IXPathNavigable? parentDocument,
+        IXPathNavigable? childDocument) => CombineNavigableDocuments(parentDocument, childDocument, null);
 
     /// <summary>
     /// Combines two <see cref="System.Xml.XPath.IXPathNavigable"/> documents.
     /// </summary>
     /// <param name="parentDocument">The <see cref="System.Xml.XPath.IXPathNavigable"/> “hosting” document.</param>
     /// <param name="childDocument">The <see cref="System.Xml.XPath.IXPathNavigable"/> child document.</param>
-    /// <param name="setQuery">The XPath query to the child document loaction in the “hosting” document. </param>
+    /// <param name="nodeQuery">The XPath query to the child document location in the “hosting” document. </param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument CombineNavigableDocuments(IXPathNavigable parentDocument, IXPathNavigable childDocument, string setQuery)
+    public static XPathDocument? CombineNavigableDocuments(IXPathNavigable? parentDocument,
+        IXPathNavigable? childDocument, string? nodeQuery)
     {
-        if((parentDocument == null) || (childDocument == null)) return null;
+        if(parentDocument == null || childDocument == null) return null;
 
-        XmlDocument dom = new XmlDocument();
-        dom.LoadXml(parentDocument.CreateNavigator().OuterXml);
+        var dom = new XmlDocument();
+        XPathNavigator? domNavigator = dom.CreateNavigator();
+        if (domNavigator == null) return null;
 
-        XPathNavigator domNavigator = dom.CreateNavigator();
+        var navigator = parentDocument.CreateNavigator();
+        if (navigator == null) return null;
 
-        if(!string.IsNullOrWhiteSpace(setQuery))
-        {
-            XPathNodeIterator nodes = domNavigator.Select(setQuery);
-            foreach(XPathNavigator n in nodes)
-            {
-                n.AppendChild(childDocument.CreateNavigator().OuterXml);
-                break;
-            }
-        }
-        else
+        dom.LoadXml(navigator.OuterXml);
+
+        if (string.IsNullOrWhiteSpace(nodeQuery))
         {
             domNavigator.MoveToFirstChild();
 
-            domNavigator.AppendChild(childDocument.CreateNavigator().OuterXml);
+            XPathNavigator? childNavigator = childDocument.CreateNavigator();
+            if (childNavigator != null) domNavigator.AppendChild(childNavigator.OuterXml);
             domNavigator.MoveToRoot();
         }
-
-        XPathDocument combinedDocument = null;
-        using(StringReader reader = new StringReader(domNavigator.OuterXml))
+        else
         {
-            combinedDocument = new XPathDocument(reader);
+            XPathNodeIterator nodes = domNavigator.Select(nodeQuery);
+            foreach (XPathNavigator n in nodes)
+            {
+                XPathNavigator? childNavigator = childDocument.CreateNavigator();
+                if (childNavigator != null) n.AppendChild(childNavigator.OuterXml);
+                break;
+            }
         }
+
+        using var reader = new StringReader(domNavigator.OuterXml);
+        var combinedDocument = new XPathDocument(reader);
+
         return combinedDocument;
     }
 }

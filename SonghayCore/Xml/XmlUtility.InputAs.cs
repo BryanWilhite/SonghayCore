@@ -15,29 +15,25 @@ public partial class XmlUtility
     /// <returns>Returns an <see cref="System.Xml.XPath.XPathDocument"/>.</returns>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument InputAs<TIn>(TIn input)
+    public static XPathDocument? InputAs<TIn>(TIn? input)
     {
         if(input == null) return null;
 
-        if(typeof(TIn).Equals(typeof(string)))
+        TIn? stronglyOfTIn = default(TIn);
+        switch (stronglyOfTIn)
         {
-            string s = input as string;
-            s = HtmlUtility.ConvertToXml(s);
-            s = LatinGlyphsUtility.Condense(s);
+            case XmlDocument:
+                return GetNavigableDocument(input as XmlDocument);
+            case XPathDocument:
+                return input as XPathDocument;
+            default:
+                if (!typeof(TIn).IsAssignableFrom(typeof(string))) return null;
 
-            return GetNavigableDocument(s);
-        }
-        else if(typeof(TIn).Equals(typeof(XmlDocument)))
-        {
-            return GetNavigableDocument(input as XmlDocument);
-        }
-        else if(typeof(TIn).Equals(typeof(XPathDocument)))
-        {
-            return input as XPathDocument;
-        }
-        else
-        {
-            return null;
+                string? s = input as string;
+                s = HtmlUtility.ConvertToXml(s);
+                s = LatinGlyphsUtility.Condense(s);
+
+                return GetNavigableDocument(s);
         }
     }
 }

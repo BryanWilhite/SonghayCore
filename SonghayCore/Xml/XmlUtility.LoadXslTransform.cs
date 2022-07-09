@@ -3,6 +3,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.XPath;
 using System.Xml.Xsl;
+using Songhay.Extensions;
 
 namespace Songhay.Xml;
 
@@ -14,16 +15,13 @@ public static partial class XmlUtility
     /// and the XML file.
     /// </summary>
     /// <param name="xslPath">
-    /// outputPath to the XSLT file.
+    /// output path to the XSLT file.
     /// </param>
     /// <param name="xmlPath">
-    /// outputPath to the XML file.
+    /// output path to the XML file.
     /// </param>
-    public static string LoadXslTransform(string xslPath, string xmlPath)
-    {
-        return LoadXslTransform(xslPath, new XsltArgumentList(), xmlPath);
-    }
-
+    public static string? LoadXslTransform(string? xslPath, string? xmlPath) =>
+        LoadXslTransform(xslPath, xslArgs: null, xmlPath);
 
     /// <summary>
     /// Returns a <see cref="System.String"/>
@@ -31,7 +29,64 @@ public static partial class XmlUtility
     /// and the XML file.
     /// </summary>
     /// <param name="xslPath">
-    /// outputPath to the XSLT file.
+    /// output path to the XSLT file.
+    /// </param>
+    /// <param name="commandName">
+    /// The value for the <code>cmd</code>-parameter convention.
+    /// </param>
+    /// <param name="xmlPath">
+    /// output path to the XML file.
+    /// </param>
+    public static string? LoadXslTransform(string? xslPath, string? commandName, string? xmlPath)
+    {
+        var xslArgs = GetXsltArgumentList(commandName);
+
+        return LoadXslTransform(xslPath, xslArgs, xmlPath);
+    }
+
+    /// <summary>
+    /// Returns a <see cref="System.String"/>
+    /// for the transformation of the XSLT file
+    /// and the XML file.
+    /// </summary>
+    /// <param name="xslPath">
+    /// output path to the XSLT file.
+    /// </param>
+    /// <param name="xslArgs">
+    /// The <see cref="System.Xml.Xsl.XsltArgumentList"/>.
+    /// </param>
+    /// <param name="xmlPath">
+    /// output path to the XML file.
+    /// </param>
+    public static string? LoadXslTransform(string? xslPath, XsltArgumentList? xslArgs, string? xmlPath)
+    {
+        if (string.IsNullOrWhiteSpace(xslPath)) throw new ArgumentNullException(nameof(xslPath));
+        if (string.IsNullOrWhiteSpace(xmlPath)) throw new ArgumentNullException(nameof(xmlPath));
+
+        xslArgs ??= new XsltArgumentList();
+
+        XslCompiledTransform xslt = new XslCompiledTransform(false);
+        xslt.Load(xslPath);
+
+        using MemoryStream ms = new MemoryStream();
+        using (XmlReader reader = XmlReader.Create(xmlPath))
+        {
+            XmlWriter writer = XmlWriter.Create(ms);
+            xslt.Transform(reader, xslArgs, writer, null);
+        }
+
+        var ret = GetText(ms);
+
+        return ret;
+    }
+
+    /// <summary>
+    /// Returns a <see cref="System.String"/>
+    /// for the transformation of the XSLT file
+    /// and the specified <see cref="System.Xml.XPath.IXPathNavigable"/> in memory.
+    /// </summary>
+    /// <param name="xslPath">
+    /// output path to the XSLT file.
     /// </param>
     /// <param name="commandName">
     /// The value for the <code>cmd</code>-parameter convention.
@@ -42,109 +97,91 @@ public static partial class XmlUtility
     /// <remarks>
     /// This convention is used in ASP.NET Web applications.
     /// </remarks>
-    public static string LoadXslTransform(string xslPath, string commandName, string xmlFragment)
+    public static string? LoadXslTransformForMemoryInput(string? xslPath, string? commandName,
+        string? xmlFragment)
     {
-        XsltArgumentList xslArgs = new XsltArgumentList();
-        //CONVENTION: XSL templates use a parameter called “cmd”:
-        xslArgs.AddParam("cmd", string.Empty, commandName);
+        var xslArgs = GetXsltArgumentList(commandName);
 
-        XslCompiledTransform xslt = new XslCompiledTransform(false);
-
-        string ret = null;
-        using (MemoryStream ms = new MemoryStream())
-        {
-            xslt.Load(xslPath);
-            using (StringReader sr = new StringReader(xmlFragment))
-            {
-                XmlReader reader = XmlReader.Create(sr);
-                XmlWriter writer = XmlWriter.Create(ms);
-                xslt.Transform(reader, xslArgs, writer, null);
-            }
-
-            ret = GetText(ms);
-        }
-        return ret;
+        return LoadXslTransformForMemoryInput(xslPath, xslArgs, xmlFragment);
     }
-
 
     /// <summary>
     /// Returns a <see cref="System.String"/>
     /// for the transformation of the XSLT file
-    /// and the XML file.
+    /// and the specified <see cref="System.Xml.XPath.IXPathNavigable"/> in memory.
     /// </summary>
     /// <param name="xslPath">
-    /// outputPath to the XSLT file.
+    /// output path to the XSLT file.
     /// </param>
     /// <param name="commandName">
     /// The value for the <code>cmd</code>-parameter convention.
     /// </param>
     /// <param name="navigableSet">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> set.
+    /// The <see cref="System.Xml.XPath.IXPathNavigable"/> in memory.
     /// </param>
     /// <remarks>
     /// This convention is used in ASP.NET Web applications.
     /// </remarks>
-    public static string LoadXslTransform(string xslPath, string commandName, IXPathNavigable navigableSet)
+    public static string? LoadXslTransformForMemoryInput(string? xslPath, string? commandName,
+        IXPathNavigable navigableSet)
     {
-        if (string.IsNullOrWhiteSpace(xslPath)) throw new ArgumentNullException(nameof(xslPath));
-        if (string.IsNullOrWhiteSpace(commandName)) throw new ArgumentNullException(nameof(commandName));
         if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
+        var navigator = navigableSet.CreateNavigator().EnsureXPathNavigator();
+        var xmlFragment = navigator.OuterXml;
+        var xslArgs = GetXsltArgumentList(commandName);
 
-        XsltArgumentList xslArgs = new XsltArgumentList();
-        //CONVENTION: XSL templates use a parameter called “cmd”:
-        xslArgs.AddParam("cmd", string.Empty, commandName);
-
-        XslCompiledTransform xslt = new XslCompiledTransform(false);
-
-        string ret = null;
-        using (MemoryStream ms = new MemoryStream())
-        {
-            xslt.Load(xslPath);
-            using (StringReader sr = new StringReader(navigableSet.CreateNavigator().OuterXml))
-            {
-                XmlReader reader = XmlReader.Create(sr);
-                XmlWriter writer = XmlWriter.Create(ms);
-                xslt.Transform(reader, xslArgs, writer, null);
-            }
-            ret = GetText(ms);
-        }
-        return ret;
+        return LoadXslTransformForMemoryInput(xslPath, xslArgs, xmlFragment);
     }
-
 
     /// <summary>
     /// Returns a <see cref="System.String"/>
     /// for the transformation of the XSLT file
-    /// and the XML file.
+    /// and the XML in-memory fragment.
     /// </summary>
     /// <param name="xslPath">
-    /// outputPath to the XSLT file.
+    /// output path to the XSLT file.
     /// </param>
     /// <param name="xslArgs">
     /// The <see cref="System.Xml.Xsl.XsltArgumentList"/>.
     /// </param>
-    /// <param name="xmlPath">
-    /// outputPath to the XML file.
+    /// <param name="xmlFragment">
+    /// A well-formed XML <see cref="System.String"/>.
     /// </param>
-    public static string LoadXslTransform(string xslPath, XsltArgumentList xslArgs, string xmlPath)
+    /// <remarks>
+    /// This convention is used in ASP.NET Web applications.
+    /// </remarks>
+    public static string? LoadXslTransformForMemoryInput(string? xslPath, XsltArgumentList? xslArgs,
+        string? xmlFragment)
     {
-        if (string.IsNullOrWhiteSpace(xslPath)) throw new ArgumentNullException(nameof(xslPath));
-        if (xslArgs == null) throw new ArgumentNullException(nameof(xslArgs));
-        if (string.IsNullOrWhiteSpace(xmlPath)) throw new ArgumentNullException(nameof(xmlPath));
+        if (string.IsNullOrWhiteSpace(xslPath)) throw new ArgumentException(nameof(xslPath));
+        if (string.IsNullOrWhiteSpace(xmlFragment)) throw new ArgumentException(nameof(xmlFragment));
 
-        XslCompiledTransform xslt = new XslCompiledTransform(false);
+        xslArgs ??= new XsltArgumentList();
 
-        string ret = null;
-        using (MemoryStream ms = new MemoryStream())
+        var xslt = new XslCompiledTransform(false);
+        xslt.Load(xslPath);
+
+        using MemoryStream ms = new MemoryStream();
+        using (StringReader sr = new StringReader(xmlFragment))
         {
-            xslt.Load(xslPath);
-            using (XmlReader reader = XmlReader.Create(xmlPath))
-            {
-                XmlWriter writer = XmlWriter.Create(ms);
-                xslt.Transform(reader, xslArgs, writer, null);
-            }
-            ret = GetText(ms);
+            XmlReader reader = XmlReader.Create(sr);
+            XmlWriter writer = XmlWriter.Create(ms);
+            xslt.Transform(reader, xslArgs, writer, null);
         }
+
+        var ret = GetText(ms);
+
         return ret;
+    }
+
+    static XsltArgumentList GetXsltArgumentList(string? commandName)
+    {
+        XsltArgumentList xslArgs = new XsltArgumentList();
+
+        if (!string.IsNullOrWhiteSpace(commandName))
+            //CONVENTION: XSL templates use a parameter called “cmd”:
+            xslArgs.AddParam("cmd", string.Empty, commandName);
+
+        return xslArgs;
     }
 }

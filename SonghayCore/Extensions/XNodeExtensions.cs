@@ -44,15 +44,8 @@ public static class XNodeExtensions
     /// Gets <see cref="IXmlNamespaceResolver"/> from the specified node.
     /// </summary>
     /// <param name="node">The node.</param>
-    public static IXmlNamespaceResolver? GetNamespaceResolver(this XNode? node)
-    {
-        if (node == null) return null;
-
-        var navigator = node.CreateNavigator();
-        var resolver = XmlUtility.GetNamespaceManager(navigator);
-
-        return resolver;
-    }
+    public static IXmlNamespaceResolver? GetNamespaceResolver(this XNode? node) =>
+        node == null ? null : XmlUtility.GetNamespaceManager(node.CreateNavigator());
 
     /// <summary>
     /// Gets the outer XML.

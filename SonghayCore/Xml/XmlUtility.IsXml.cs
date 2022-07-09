@@ -8,10 +8,13 @@ public static partial class XmlUtility
     /// Returns <c>true</c> when the fragment is XML-like.
     /// </summary>
     /// <param name="fragment">The fragment to test.</param>
-    public static bool IsXml(string fragment)
+    public static bool IsXml(string? fragment)
     {
+        if (string.IsNullOrWhiteSpace(fragment)) return false;
+
         Match xmlMatch = Regex.Match(fragment, @"<([^>]+)>(.*?</(\1)>|[^>]*/>)");
         Match xmlMatchMinimized = Regex.Match(fragment, @"<([^>]+)/>");
+
         return (xmlMatch.Success || xmlMatchMinimized.Success);
     }
 }

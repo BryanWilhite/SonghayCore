@@ -1,5 +1,4 @@
-﻿using Songhay.Models;
-using System;
+﻿using System;
 using Songhay.Abstractions;
 
 namespace Songhay.Extensions;
@@ -20,10 +19,9 @@ public static partial class IActivityExtensions
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">The expected Activity name is not here.
     /// or</exception>
-    public static IActivityWithOutput<TInput?, TOutput?>? ToActivityWithOutput<TInput, TOutput>(this IActivity? activity)
-    {
-        return activity.ToActivityWithOutput<TInput?, TOutput?>(throwException: true);
-    }
+    public static IActivityWithOutput<TInput?, TOutput?>?
+        ToActivityWithOutput<TInput, TOutput>(this IActivity? activity) =>
+        activity.ToActivityWithOutput<TInput?, TOutput?>(throwException: true);
 
     /// <summary>
     /// Converts the specified <see cref="IActivity" />
@@ -43,10 +41,11 @@ public static partial class IActivityExtensions
 
         var output = activity as IActivityWithOutput<TInput?, TOutput?>;
 
-        if (throwException && (output == null))
-            throw new NullReferenceException($"The expected {nameof(IActivityWithOutput<TInput?, TOutput?>)} is not here.");
-
-        return output;
+        return output switch
+        {
+            null when throwException => throw new NullReferenceException($"The expected {nameof(IActivityWithOutput<TInput?, TOutput?>)} is not here."),
+            _ => output
+        };
     }
 
     /// <summary>
@@ -60,10 +59,8 @@ public static partial class IActivityExtensions
     /// <exception cref="NullReferenceException">
     /// The expected IActivityWithTask{TInput, TOutput} is not here.
     /// </exception>
-    public static IActivityWithTask<TInput?, TOutput?>? ToActivityWithTask<TInput, TOutput>(this IActivity? activity)
-    {
-        return activity.ToActivityWithTask<TInput, TOutput>(throwException: true);
-    }
+    public static IActivityWithTask<TInput?, TOutput?>? ToActivityWithTask<TInput, TOutput>(this IActivity? activity) =>
+        activity.ToActivityWithTask<TInput, TOutput>(throwException: true);
 
     /// <summary>
     /// Converts the specified <see cref="IActivity" />
@@ -83,10 +80,11 @@ public static partial class IActivityExtensions
 
         var output = activity as IActivityWithTask<TInput?, TOutput?>;
 
-        if (throwException && (output == null))
-            throw new NullReferenceException($"The expected {nameof(IActivityWithTask<TInput, TOutput>)} is not here.");
-
-        return output;
+        return output switch
+        {
+            null when throwException => throw new NullReferenceException($"The expected {nameof(IActivityWithTask<TInput, TOutput>)} is not here."),
+            _ => output
+        };
     }
 
     /// <summary>
@@ -99,11 +97,9 @@ public static partial class IActivityExtensions
     /// <exception cref="NullReferenceException">
     /// The expected IActivityWithTask{TInput, TOutput} is not here.
     /// </exception>
-    public static IActivityWithTask<TInput?>? ToActivityWithTask<TInput>(this IActivity? activity)
-    {
-        return activity.ToActivityWithTask<TInput>(throwException: true);
-    }
-        
+    public static IActivityWithTask<TInput?>? ToActivityWithTask<TInput>(this IActivity? activity) =>
+        activity.ToActivityWithTask<TInput>(throwException: true);
+
     /// <summary>
     /// Converts the specified <see cref="IActivity" />
     /// to <see cref="IActivityWithTask{TInput}" />.
@@ -121,10 +117,11 @@ public static partial class IActivityExtensions
 
         var output = activity as IActivityWithTask<TInput?>;
 
-        if (throwException && (output == null))
-            throw new NullReferenceException($"The expected {nameof(IActivityWithTask<TInput>)} is not here.");
-
-        return output;
+        return output switch
+        {
+            null when throwException => throw new NullReferenceException($"The expected {nameof(IActivityWithTask<TInput>)} is not here."),
+            _ => output
+        };
     }
 
     /// <summary>
@@ -136,10 +133,8 @@ public static partial class IActivityExtensions
     /// <exception cref="NullReferenceException">
     /// The expected IActivityWithTask{TInput, TOutput} is not here.
     /// </exception>
-    public static IActivityWithTask? ToActivityWithTask(this IActivity? activity)
-    {
-        return activity.ToActivityWithTask(throwException: true);
-    }
+    public static IActivityWithTask? ToActivityWithTask(this IActivity? activity) =>
+        activity.ToActivityWithTask(throwException: true);
 
     /// <summary>
     /// Converts the specified <see cref="IActivity" />
@@ -157,10 +152,11 @@ public static partial class IActivityExtensions
 
         var output = activity as IActivityWithTask;
 
-        if (throwException && (output == null))
-            throw new NullReferenceException($"The expected {nameof(IActivityWithTask)} is not here.");
-
-        return output;
+        return output switch
+        {
+            null when throwException => throw new NullReferenceException($"The expected {nameof(IActivityWithTask)} is not here."),
+            _ => output
+        };
     }
 
     /// <summary>
@@ -173,11 +169,9 @@ public static partial class IActivityExtensions
     /// <exception cref="NullReferenceException">
     /// The expected IActivityWithTaskOutput{TOutput} is not here.
     /// </exception>
-    public static IActivityWithTaskOutput<TOutput?>? ToActivityWithTaskOutput<TOutput>(this IActivity? activity)
-    {
-        return activity.ToActivityWithTaskOutput<TOutput>(throwException: true);
-    }
-        
+    public static IActivityWithTaskOutput<TOutput?>? ToActivityWithTaskOutput<TOutput>(this IActivity? activity) =>
+        activity.ToActivityWithTaskOutput<TOutput>(throwException: true);
+
     /// <summary>
     /// Converts the specified <see cref="IActivity" />
     /// to <see cref="IActivityWithTaskOutput{TOutput}" />.
@@ -195,9 +189,10 @@ public static partial class IActivityExtensions
 
         var output = activity as IActivityWithTaskOutput<TOutput?>;
 
-        if (throwException && (output == null))
-            throw new NullReferenceException($"The expected {nameof(IActivityWithTaskOutput<TOutput>)} is not here.");
-
-        return output;
+        return output switch
+        {
+            null when throwException => throw new NullReferenceException($"The expected {nameof(IActivityWithTaskOutput<TOutput>)} is not here."),
+            _ => output
+        };
     }
 }

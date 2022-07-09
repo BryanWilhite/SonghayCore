@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Text;
 
@@ -9,7 +10,7 @@ namespace Songhay.Xml;
 /// </summary>
 /// <remarks>
 /// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> sets.
+/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
 /// However, many accept any input implementing the
 /// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
 /// </remarks>
@@ -20,10 +21,8 @@ public static partial class XmlUtility
     /// based on the specified header and lines.
     /// </summary>
     /// <param name="messageHeader">Message header</param>
-    public static string GetInternalMessage(string messageHeader)
-    {
-        return GetInternalMessage(messageHeader, string.Empty, new string[] { });
-    }
+    public static string GetInternalMessage(string messageHeader) =>
+        GetInternalMessage(messageHeader, string.Empty, null);
 
     /// <summary>
     /// Returns an XML <see cref="System.String"/>
@@ -31,10 +30,8 @@ public static partial class XmlUtility
     /// </summary>
     /// <param name="messageHeader">Message header</param>
     /// <param name="messageLines">Message lines</param>
-    public static string GetInternalMessage(string messageHeader, string[] messageLines)
-    {
-        return GetInternalMessage(messageHeader, string.Empty, messageLines);
-    }
+    public static string GetInternalMessage(string messageHeader, string[] messageLines) =>
+        GetInternalMessage(messageHeader, string.Empty, messageLines);
 
     /// <summary>
     /// Returns an XML <see cref="System.String"/>
@@ -42,10 +39,8 @@ public static partial class XmlUtility
     /// </summary>
     /// <param name="messageHeader">Message header</param>
     /// <param name="messageLines">Message lines</param>
-    public static string GetInternalMessage(string messageHeader, ReadOnlyCollection<string> messageLines)
-    {
-        return GetInternalMessage(messageHeader, string.Empty, messageLines);
-    }
+    public static string GetInternalMessage(string messageHeader, ReadOnlyCollection<string>? messageLines) =>
+        GetInternalMessage(messageHeader, string.Empty, messageLines);
 
     /// <summary>
     /// Returns an XML <see cref="System.String"/>
@@ -54,49 +49,25 @@ public static partial class XmlUtility
     /// <param name="messageHeader">Message header</param>
     /// <param name="messageCode">Message code for errors, exceptions or faults</param>
     /// <param name="messageLines">Message lines</param>
-    public static string GetInternalMessage(string messageHeader, string messageCode, string[] messageLines)
+    public static string GetInternalMessage(string? messageHeader, string? messageCode, IEnumerable<string>? messageLines)
     {
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
         sb.AppendLine("<InternalMessage>");
 
-        sb.AppendFormat("<Header>{0}</Header>\n", messageHeader);
-        if (!string.IsNullOrWhiteSpace(messageCode)) sb.AppendFormat("<Code>{0}</Code>\n", messageCode);
+        sb.AppendLine(CultureInfo.InvariantCulture, $"<Header>{messageHeader}</Header>");
+        if (!string.IsNullOrWhiteSpace(messageCode))
+            sb.AppendLine(CultureInfo.InvariantCulture, $"<Code>{messageCode}</Code>");
 
-        if ((messageLines != null) && (messageLines.Length > 0))
+        if (messageLines is not null)
         {
             foreach (string line in messageLines)
             {
-                sb.AppendFormat("<Line>{0}</Line>\n", line);
+                sb.AppendLine(CultureInfo.InvariantCulture, $"<Line>{line}</Line>");
             }
-
         }
+
         sb.AppendLine("</InternalMessage>");
 
         return sb.ToString();
-    }
-
-    /// <summary>
-    /// Returns an XML <see cref="System.String"/>
-    /// based on the specified header and lines.
-    /// </summary>
-    /// <param name="messageHeader">Message header</param>
-    /// <param name="messageCode">Message code for errors, exceptions or faults</param>
-    /// <param name="messageLines">Message lines</param>
-    public static string GetInternalMessage(string messageHeader, string messageCode, ReadOnlyCollection<string> messageLines)
-    {
-        string s = "<InternalMessage>\n";
-
-        s += string.Format(CultureInfo.InvariantCulture, "<Header>{0}</Header>\n", messageHeader);
-        if (!string.IsNullOrWhiteSpace(messageCode)) s += string.Format(CultureInfo.InvariantCulture, "<Code>{0}</Code>\n", messageCode);
-
-        if ((messageLines != null) && (messageLines.Count > 0))
-        {
-            foreach (string line in messageLines)
-            {
-                s += string.Format(CultureInfo.InvariantCulture, "<Line>{0}</Line>\n", line);
-            }
-
-        }
-        return s += "</InternalMessage>\n";
     }
 }

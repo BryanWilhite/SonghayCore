@@ -1,4 +1,5 @@
-﻿using Songhay.Models;
+﻿using System;
+using Songhay.Models;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -12,17 +13,14 @@ public static partial class XhtmlDocumentUtility
     /// <summary>
     /// XHTML Namespace
     /// </summary>
-    public static XNamespace xhtml { get { return "http://www.w3.org/1999/xhtml"; } }
+    public static XNamespace Xhtml => "http://www.w3.org/1999/xhtml";
 
     /// <summary>
     /// Loads the document.
     /// </summary>
     /// <param name="document">The XML document.</param>
     /// <param name="webPath">The public web path.</param>
-    public static XhtmlDocument GetDocument(XDocument document, string webPath)
-    {
-        return GetDocument(document, webPath, true);
-    }
+    public static XhtmlDocument? GetDocument(XDocument? document, string? webPath) => GetDocument(document, webPath, true);
 
     /// <summary>
     /// Loads the document.
@@ -30,31 +28,31 @@ public static partial class XhtmlDocumentUtility
     /// <param name="document">The XML document.</param>
     /// <param name="webPath">The public web path.</param>
     /// <param name="useXhtmlNamespace">if set to <c>true</c> use XHTML namespace (<c>true</c> by default).</param>
-    public static XhtmlDocument GetDocument(XDocument document, string webPath, bool useXhtmlNamespace)
+    public static XhtmlDocument? GetDocument(XDocument? document, string? webPath, bool useXhtmlNamespace)
     {
         if(document == null) return null;
 
         var heading = useXhtmlNamespace ?
-            document.Root
-                .Element(xhtml + "body")
-                .Element(xhtml + "h1") :
-            document.Root
-                .Element("body")
+            document.Root?
+                .Element(Xhtml + "body")?
+                .Element(Xhtml + "h1") :
+            document.Root?
+                .Element("body")?
                 .Element("h1");
 
         var title = useXhtmlNamespace ?
-            document.Root
-                .Element(xhtml + "head")
-                .Element(xhtml + "title")
+            document.Root?
+                .Element(Xhtml + "head")?
+                .Element(Xhtml + "title")?
                 .Value :
-            document.Root
-                .Element("head")
-                .Element("title")
+            document.Root?
+                .Element("head")?
+                .Element("title")?
                 .Value;
 
         var d = new XhtmlDocument
         {
-            Header = (heading == null) ? null : heading.Value,
+            Header = heading?.Value,
             Location = webPath,
             Title = title
         };
@@ -67,19 +65,17 @@ public static partial class XhtmlDocumentUtility
     /// </summary>
     /// <param name="pathToDocument">The path to document.</param>
     /// <param name="webPath">The public web path.</param>
-    public static XhtmlDocument LoadDocument(string pathToDocument, string webPath)
+    public static XhtmlDocument? LoadDocument(string? pathToDocument, string? webPath)
     {
-        var xd = XDocument.Load(pathToDocument);
-        var hasAttributes = xd.Root.HasAttributes;
+        var xd = XDocument.Load(pathToDocument!);
+        var hasAttributes = (xd.Root?.HasAttributes).GetValueOrDefault();
         var hasXhtmlNamespace = false;
-        if(hasAttributes) hasXhtmlNamespace = xd.Root.Attributes("xmlns").Count() > 0;
+        if(hasAttributes) hasXhtmlNamespace = (xd.Root?.Attributes("xmlns") ?? Array.Empty<XAttribute>()).Any();
         if(hasAttributes && hasXhtmlNamespace)
         {
             return GetDocument(xd, webPath);
         }
-        else
-        {
-            return GetDocument(xd, webPath, false);
-        }
+
+        return GetDocument(xd, webPath, false);
     }
 }
