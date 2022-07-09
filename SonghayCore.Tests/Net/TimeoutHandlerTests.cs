@@ -15,7 +15,7 @@ public class TimeoutHandlerTests
         this._testOutputHelper = helper;
     }
 
-    [Theory]
+    [Theory(Skip = "slowwly server is down")]
     [InlineData("http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
     public async Task ShouldCancel(string location, int timeInSeconds)
     {
