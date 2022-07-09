@@ -10,7 +10,7 @@ public static partial class ProgramUtility
     /// </summary>
     /// <param name="input">The input.</param>
     /// <returns>Returns formatted input.</returns>
-    public static string GetConsoleCharacters(string input)
+    public static string? GetConsoleCharacters(string? input)
     {
         if(string.IsNullOrWhiteSpace(input)) return null;
 

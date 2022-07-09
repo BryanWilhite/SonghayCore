@@ -15,14 +15,15 @@ public static partial class ProgramUtility
     /// Initializes the trace source.
     /// </summary>
     /// <param name="listener">The listener.</param>
-    public static TraceSource InitializeTraceSource(TraceListener listener)
+    public static TraceSource? InitializeTraceSource(TraceListener? listener)
     {
+
         var traceSource = TraceSources
             .Instance
             .GetTraceSourceFromConfiguredName()
             .WithSourceLevels();
 
-        traceSource?.Listeners.Add(listener);
+        if (listener!= null) traceSource?.Listeners.Add(listener);
 
         return traceSource;
     }
@@ -32,10 +33,8 @@ public static partial class ProgramUtility
     /// </summary>
     /// <param name="basePath">The base path.</param>
     /// <returns></returns>
-    public static IConfigurationRoot LoadConfiguration(string basePath)
-    {
-        return LoadConfiguration(basePath, builderModifier: null);
-    }
+    public static IConfigurationRoot LoadConfiguration(string? basePath) =>
+        LoadConfiguration(basePath, builderModifier: null);
 
     /// <summary>
     /// Loads the built configuration.
@@ -43,11 +42,10 @@ public static partial class ProgramUtility
     /// <param name="basePath">The base path.</param>
     /// <param name="requiredJsonConfigurationFiles">specify any additional JSON configuration files before build</param>
     /// <returns>Returns the built configuration.</returns>
-    public static IConfigurationRoot LoadConfiguration(string basePath, params string[] requiredJsonConfigurationFiles)
-    {
-        return LoadConfiguration(basePath, builderModifier: null, requiredJsonConfigurationFiles);
-    }
- 
+    public static IConfigurationRoot
+        LoadConfiguration(string? basePath, params string[] requiredJsonConfigurationFiles) =>
+        LoadConfiguration(basePath, builderModifier: null, requiredJsonConfigurationFiles);
+
     /// <summary>
     /// Loads the built configuration.
     /// </summary>
@@ -55,24 +53,28 @@ public static partial class ProgramUtility
     /// <param name="builderModifier">Allows modification of <see cref="ConfigurationBuilder"/> before build.</param>
     /// <param name="requiredJsonConfigurationFiles">specify any additional JSON configuration files before build</param>
     /// <returns>Returns the built configuration.</returns>
-    public static IConfigurationRoot LoadConfiguration(string basePath, Func<IConfigurationBuilder, IConfigurationBuilder> builderModifier, params string[] requiredJsonConfigurationFiles)
+    public static IConfigurationRoot LoadConfiguration(string? basePath,
+        Func<IConfigurationBuilder, IConfigurationBuilder>? builderModifier,
+        params string[] requiredJsonConfigurationFiles)
     {
 
         Console.WriteLine("Loading configuration...");
+
         var builder = new ConfigurationBuilder()
                 .AddEnvironmentVariables()
                 .SetBasePath(basePath)
                 .AddJsonFile("./appsettings.json", optional: false, reloadOnChange: false)
             ;
 
-        requiredJsonConfigurationFiles.ForEachInEnumerable(i =>
+        foreach (var jsonFile in requiredJsonConfigurationFiles)
         {
-            builder.AddJsonFile(i, optional: false, reloadOnChange: false);
-        });
+            builder.AddJsonFile(jsonFile, optional: false, reloadOnChange: false);
+        }
 
         if (builderModifier != null) builder = builderModifier(builder);
 
         Console.WriteLine("Building configuration...");
+
         var configuration = builder.Build();
 
         return configuration;
@@ -84,7 +86,7 @@ public static partial class ProgramUtility
     public static void HandleDebug()
     {
 #if DEBUG
-        Console.WriteLine(string.Format("{0}Press any key to continue...", Environment.NewLine));
+        Console.WriteLine($"{Environment.NewLine}Press any key to continue...");
         Console.ReadKey(false);
 #endif
     }

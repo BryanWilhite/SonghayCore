@@ -14,12 +14,12 @@ public static partial class ProgramUtility
     /// Starts the process.
     /// </summary>
     /// <param name="command">The command.</param>
-    public static void StartProcess(string command)
+    public static void StartProcess(string? command)
     {
         if(string.IsNullOrWhiteSpace(command)) return;
 
         string file = Environment.ExpandEnvironmentVariables(command);
-        string args = string.Empty;
+        string? args;
 
         if(File.Exists(file) || Directory.Exists(file))
         {
