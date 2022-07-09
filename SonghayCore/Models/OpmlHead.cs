@@ -42,9 +42,7 @@ public class OpmlHead
         set
         {
             _dateCreated = value;
-            DateCreatedString = value.HasValue ?
-                ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(value.Value) :
-                null;
+            DateCreatedString = value.HasValue ? ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(value.Value) : null;
         }
     }
 
@@ -68,9 +66,8 @@ public class OpmlHead
         set
         {
             _dateModified = value;
-            DateModifiedString = value.HasValue ?
-                ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(value.Value) :
-                null;
+            DateModifiedString =
+                value.HasValue ? ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(value.Value) : null;
         }
     }
 

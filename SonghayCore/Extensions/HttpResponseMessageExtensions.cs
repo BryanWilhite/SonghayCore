@@ -93,7 +93,7 @@ public static class HttpResponseMessageExtensions
     /// <remarks>
     /// This method uses the Microsoft API to deserialize.
     /// </remarks>
-    public static async Task<TInstance> StreamToInstanceAsync<TInstance>(this HttpResponseMessage? response) =>
+    public static async Task<TInstance?> StreamToInstanceAsync<TInstance>(this HttpResponseMessage? response) =>
         await response.StreamToInstanceAsync<TInstance>(options: null);
 
     /// <summary>
@@ -107,24 +107,26 @@ public static class HttpResponseMessageExtensions
     /// <remarks>
     /// This method uses the Microsoft API to deserialize.
     /// </remarks>
-    public static async Task<TInstance> StreamToInstanceAsync<TInstance>(this HttpResponseMessage? response,
+    public static async Task<TInstance?> StreamToInstanceAsync<TInstance>(this HttpResponseMessage? response,
         JsonSerializerOptions? options)
     {
-        if (response == null) return await Task
-            .FromResult(default(TInstance))
-            .ConfigureAwait(continueOnCapturedContext: false)!;
+        if (response == null)
+            return await Task
+                .FromResult(default(TInstance))
+                .ConfigureAwait(continueOnCapturedContext: false);
 
         await using var stream = await response.Content.ReadAsStreamAsync();
 
-        if (stream.CanRead == false) return await Task
-            .FromResult(default(TInstance))
-            .ConfigureAwait(continueOnCapturedContext: false)!;
+        if (stream.CanRead == false)
+            return await Task
+                .FromResult(default(TInstance))
+                .ConfigureAwait(continueOnCapturedContext: false);
 
         using var streamReader = new StreamReader(stream);
 
         var instance = await JsonSerializer
             .DeserializeAsync<TInstance>(stream, options);
 
-        return instance!;
+        return instance;
     }
 }

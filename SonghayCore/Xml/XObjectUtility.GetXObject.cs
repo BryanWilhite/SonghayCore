@@ -47,7 +47,8 @@ public static partial class XObjectUtility
     /// The <see cref="System.Xml.IXmlNamespaceResolver"/>
     /// to use to resolve prefixes.
     /// </param>
-    public static XObject? GetXObject(XNode? node, string? nodeQuery, bool throwException, IXmlNamespaceResolver? resolver)
+    public static XObject? GetXObject(XNode? node, string? nodeQuery, bool throwException,
+        IXmlNamespaceResolver? resolver)
     {
         var result = GetXObjects(node, nodeQuery, throwException, resolver).ToArray();
 
@@ -89,13 +90,14 @@ public static partial class XObjectUtility
         if (node == null) return Enumerable.Empty<XObject>();
 
         var result = resolver == null
-            ? ((IEnumerable)node.XPathEvaluate(nodeQuery)).OfType<XObject>()
-            : ((IEnumerable)node.XPathEvaluate(nodeQuery, resolver)).OfType<XObject>();
+            ? ((IEnumerable) node.XPathEvaluate(nodeQuery)).OfType<XObject>()
+            : ((IEnumerable) node.XPathEvaluate(nodeQuery, resolver)).OfType<XObject>();
 
         return result switch
         {
             null when throwException =>
-                throw new XmlException(string.Format(CultureInfo.CurrentCulture, "Element at “{0}” was not found.", nodeQuery)),
+                throw new XmlException(string.Format(CultureInfo.CurrentCulture, "Element at “{0}” was not found.",
+                    nodeQuery)),
             null => Enumerable.Empty<XObject>(),
             _ => result
         };

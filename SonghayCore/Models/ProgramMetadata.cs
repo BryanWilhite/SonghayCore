@@ -15,7 +15,7 @@ public class ProgramMetadata
     /// <value>
     /// The cloud storage set.
     /// </value>
-    public Dictionary<string, Dictionary<string, string>> CloudStorageSet { get; set; }
+    public Dictionary<string, Dictionary<string, string>> CloudStorageSet { get; set; } = new();
 
     /// <summary>
     /// Gets or sets the DBMS set.
@@ -23,7 +23,7 @@ public class ProgramMetadata
     /// <value>
     /// The DBMS set.
     /// </value>
-    public Dictionary<string, DbmsMetadata> DbmsSet { get; set; }
+    public Dictionary<string, DbmsMetadata> DbmsSet { get; set; } = new();
 
     /// <summary>
     /// Returns a <see cref="System.String" /> that represents this instance.
@@ -37,7 +37,7 @@ public class ProgramMetadata
     /// <value>
     /// The API metadata set.
     /// </value>
-    public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; set; }
+    public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; set; } = new();
 
     /// <summary>
     /// Represents this instance as a <c>string</c>.
@@ -46,13 +46,13 @@ public class ProgramMetadata
     {
         var sb = new StringBuilder();
 
-        if ((CloudStorageSet != null) && CloudStorageSet.Any())
+        if (CloudStorageSet.Any())
         {
             sb.AppendLine($"{nameof(CloudStorageSet)}:");
             foreach (var item in CloudStorageSet)
             {
                 sb.AppendLine($"    {item.Key}:");
-                if ((item.Value != null) && item.Value.Any())
+                if (item.Value.Any())
                 {
                     foreach (var item2 in item.Value)
                     {
@@ -66,7 +66,7 @@ public class ProgramMetadata
             }
         }
 
-        if ((DbmsSet != null) && DbmsSet.Any())
+        if (DbmsSet.Any())
         {
             sb.AppendLine($"{nameof(DbmsSet)}:");
             foreach (var item in DbmsSet)
@@ -76,7 +76,7 @@ public class ProgramMetadata
             }
         }
 
-        if ((RestApiMetadataSet != null) && RestApiMetadataSet.Any())
+        if (RestApiMetadataSet.Any())
         {
             sb.AppendLine($"{nameof(RestApiMetadataSet)}:");
             foreach (var item in RestApiMetadataSet)
@@ -86,6 +86,6 @@ public class ProgramMetadata
             }
         }
 
-        return (sb.Length > 0) ? sb.ToString() : base.ToString();
+        return sb.Length > 0 ? sb.ToString() : base.ToString() ?? GetType().Name;
     }
 }

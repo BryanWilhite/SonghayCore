@@ -61,7 +61,8 @@ public static class TraceSourcesExtensions
     ///
     /// This member makes the <c>GetConfiguredTraceSource</c> pattern cross platform.
     /// </remarks>
-    public static TraceSource? GetConfiguredTraceSource(this TraceSources? instance, IConfiguration? configuration, string? key)
+    public static TraceSource? GetConfiguredTraceSource(this TraceSources? instance, IConfiguration? configuration,
+        string? key)
     {
         if (instance == null) return null;
 

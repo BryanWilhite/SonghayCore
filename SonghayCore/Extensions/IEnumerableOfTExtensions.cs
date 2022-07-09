@@ -28,7 +28,8 @@ public static class IEnumerableOfTExtensions
     /// To avoid this memory pressure, upgrade to the <c>Flatten</c> method
     /// of MoreLinq [ see https://github.com/morelinq/MoreLINQ/blob/master/MoreLinq/Flatten.cs#L91 ]
     /// </remarks>
-    public static IEnumerable<TSource> Flatten<TSource>(this IEnumerable<TSource>? source, Func<TSource, IEnumerable<TSource>>? childGetter)
+    public static IEnumerable<TSource> Flatten<TSource>(this IEnumerable<TSource>? source,
+        Func<TSource, IEnumerable<TSource>>? childGetter)
     {
         if (source == null) return Enumerable.Empty<TSource>();
         var snapshot = source as TSource[] ?? source.ToArray();
@@ -126,6 +127,7 @@ public static class IEnumerableOfTExtensions
             {
                 array = new T[size];
             }
+
             array[count] = item;
             count++;
             if (count == size)

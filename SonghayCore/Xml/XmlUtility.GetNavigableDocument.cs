@@ -66,8 +66,8 @@ public static partial class XmlUtility
         Justification = "Specific functionality provided by the concrete type may be required.")]
     public static XPathDocument? GetNavigableDocument(Stream? stream)
     {
-        if(stream == null) return null;
-        if(stream.Position != 0) stream.Position = 0;
+        if (stream == null) return null;
+        if (stream.Position != 0) stream.Position = 0;
         XPathDocument d = new XPathDocument(stream);
 
         return d;

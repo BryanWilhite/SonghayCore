@@ -20,7 +20,8 @@ public static partial class XhtmlDocumentUtility
     /// </summary>
     /// <param name="document">The XML document.</param>
     /// <param name="webPath">The public web path.</param>
-    public static XhtmlDocument? GetDocument(XDocument? document, string? webPath) => GetDocument(document, webPath, true);
+    public static XhtmlDocument? GetDocument(XDocument? document, string? webPath) =>
+        GetDocument(document, webPath, true);
 
     /// <summary>
     /// Loads the document.
@@ -30,22 +31,22 @@ public static partial class XhtmlDocumentUtility
     /// <param name="useXhtmlNamespace">if set to <c>true</c> use XHTML namespace (<c>true</c> by default).</param>
     public static XhtmlDocument? GetDocument(XDocument? document, string? webPath, bool useXhtmlNamespace)
     {
-        if(document == null) return null;
+        if (document == null) return null;
 
-        var heading = useXhtmlNamespace ?
-            document.Root?
+        var heading = useXhtmlNamespace
+            ? document.Root?
                 .Element(Xhtml + "body")?
-                .Element(Xhtml + "h1") :
-            document.Root?
+                .Element(Xhtml + "h1")
+            : document.Root?
                 .Element("body")?
                 .Element("h1");
 
-        var title = useXhtmlNamespace ?
-            document.Root?
+        var title = useXhtmlNamespace
+            ? document.Root?
                 .Element(Xhtml + "head")?
                 .Element(Xhtml + "title")?
-                .Value :
-            document.Root?
+                .Value
+            : document.Root?
                 .Element("head")?
                 .Element("title")?
                 .Value;
@@ -70,8 +71,8 @@ public static partial class XhtmlDocumentUtility
         var xd = XDocument.Load(pathToDocument!);
         var hasAttributes = (xd.Root?.HasAttributes).GetValueOrDefault();
         var hasXhtmlNamespace = false;
-        if(hasAttributes) hasXhtmlNamespace = (xd.Root?.Attributes("xmlns") ?? Array.Empty<XAttribute>()).Any();
-        if(hasAttributes && hasXhtmlNamespace)
+        if (hasAttributes) hasXhtmlNamespace = (xd.Root?.Attributes("xmlns") ?? Array.Empty<XAttribute>()).Any();
+        if (hasAttributes && hasXhtmlNamespace)
         {
             return GetDocument(xd, webPath);
         }

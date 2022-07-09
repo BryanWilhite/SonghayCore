@@ -53,17 +53,20 @@ public static partial class XObjectUtility
     /// <remarks>
     /// This routine is useful when namespace-resolving is not desirable or available.
     /// </remarks>
-    public static string? GetLocalNameXPathQuery(string? namespacePrefixOrUri, string? childElementName, string? childAttributeName)
+    public static string? GetLocalNameXPathQuery(string? namespacePrefixOrUri, string? childElementName,
+        string? childAttributeName)
     {
         if (string.IsNullOrWhiteSpace(childElementName)) return null;
 
         if (string.IsNullOrWhiteSpace(childAttributeName))
         {
-            return string.IsNullOrWhiteSpace(namespacePrefixOrUri) ? $"./*[local-name()='{childElementName}']"
+            return string.IsNullOrWhiteSpace(namespacePrefixOrUri)
+                ? $"./*[local-name()='{childElementName}']"
                 : $"./*[namespace-uri()='{namespacePrefixOrUri}' and local-name()='{childElementName}']";
         }
 
-        return string.IsNullOrWhiteSpace(namespacePrefixOrUri) ? $"./*[local-name()='{childElementName}']/@{childAttributeName}"
+        return string.IsNullOrWhiteSpace(namespacePrefixOrUri)
+            ? $"./*[local-name()='{childElementName}']/@{childAttributeName}"
             : $"./*[namespace-uri()='{namespacePrefixOrUri}' and local-name()='{childElementName}']/@{childAttributeName}";
     }
 

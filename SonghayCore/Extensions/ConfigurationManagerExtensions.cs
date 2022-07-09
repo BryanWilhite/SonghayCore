@@ -93,7 +93,8 @@ public static class ConfigurationManagerExtensions
     /// <param name="collection">The collection.</param>
     /// <param name="connectionName">Name of the connection.</param>
     /// <returns></returns>
-    public static ConnectionStringSettings? GetConnectionStringSettings(this ConnectionStringSettingsCollection? collection, string connectionName)
+    public static ConnectionStringSettings? GetConnectionStringSettings(
+        this ConnectionStringSettingsCollection? collection, string connectionName)
     {
         return collection.GetConnectionStringSettings(connectionName, throwConfigurationErrorsException: false);
     }
@@ -150,9 +151,11 @@ public static class ConfigurationManagerExtensions
     /// <param name="defaultEnvironmentName">Default name of the environment.</param>
     /// <returns></returns>
     /// <exception cref="ConfigurationErrorsException"></exception>
-    public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string environmentKey, string defaultEnvironmentName)
+    public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string environmentKey,
+        string defaultEnvironmentName)
     {
-        return settings.GetEnvironmentName(environmentKey, defaultEnvironmentName, throwConfigurationErrorsException: true);
+        return settings.GetEnvironmentName(environmentKey, defaultEnvironmentName,
+            throwConfigurationErrorsException: true);
     }
 
     /// <summary>
@@ -278,7 +281,8 @@ public static class ConfigurationManagerExtensions
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
     /// <returns></returns>
     /// <exception cref="ConfigurationErrorsException"></exception>
-    public static string? GetSetting(this KeyValueConfigurationCollection? settings, string key, bool throwConfigurationErrorsException)
+    public static string? GetSetting(this KeyValueConfigurationCollection? settings, string key,
+        bool throwConfigurationErrorsException)
     {
         if (settings == null) return null;
         if (string.IsNullOrWhiteSpace(key)) return null;

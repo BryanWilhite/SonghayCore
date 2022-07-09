@@ -40,7 +40,7 @@ public static class DataSetExtensions
     {
         var rows = dataSet.ToFirstTableDataRows();
 
-        return rows.Select(i => (TColumn)i[0]);
+        return rows.Select(i => (TColumn) i[0]);
     }
 
     /// <summary>
@@ -60,6 +60,6 @@ public static class DataSetExtensions
     {
         var rows = dataSet.ToFirstTableDataRows();
 
-        return rows.Select(i => new KeyValuePair<TKey, TValue>((TKey)i[0], (TValue)i[1]));
+        return rows.Select(i => new KeyValuePair<TKey, TValue>((TKey) i[0], (TValue) i[1]));
     }
 }

@@ -31,7 +31,8 @@ public static partial class XObjectUtility
     /// <param name="nodeQuery">The <see cref="System.String"/></param>
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     /// <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
-    public static string? GetXAttributeValue(XNode? node, string? nodeQuery, bool throwException, string? defaultValue) =>
+    public static string?
+        GetXAttributeValue(XNode? node, string? nodeQuery, bool throwException, string? defaultValue) =>
         GetXAttributeValue(node, nodeQuery, throwException, defaultValue, null);
 
     /// <summary>
@@ -49,16 +50,17 @@ public static partial class XObjectUtility
     public static string? GetXAttributeValue(XNode? node, string? nodeQuery, bool throwException, string? defaultValue,
         IXmlNamespaceResolver? resolver)
     {
-        if(node == null) return defaultValue;
+        if (node == null) return defaultValue;
         if (nodeQuery == null) throw new ArgumentNullException(nameof(nodeQuery));
 
         var a = resolver == null
-            ? ((IEnumerable)node.XPathEvaluate(nodeQuery)).OfType<XAttribute>().FirstOrDefault()
-            : ((IEnumerable)node.XPathEvaluate(nodeQuery, resolver)).OfType<XAttribute>().FirstOrDefault();
+            ? ((IEnumerable) node.XPathEvaluate(nodeQuery)).OfType<XAttribute>().FirstOrDefault()
+            : ((IEnumerable) node.XPathEvaluate(nodeQuery, resolver)).OfType<XAttribute>().FirstOrDefault();
 
         return a switch
         {
-            null when throwException => throw new XmlException(string.Format(CultureInfo.CurrentCulture,"Element at “{0}” was not found.", nodeQuery)),
+            null when throwException => throw new XmlException(string.Format(CultureInfo.CurrentCulture,
+                "Element at “{0}” was not found.", nodeQuery)),
             null => defaultValue,
             _ => a.Value
         };
@@ -98,7 +100,7 @@ public static partial class XObjectUtility
 
         try
         {
-            if(string.IsNullOrWhiteSpace(s?.Trim()))
+            if (string.IsNullOrWhiteSpace(s?.Trim()))
             {
                 return defaultValue;
             }
@@ -132,7 +134,7 @@ public static partial class XObjectUtility
                     break;
                 default:
                 {
-                    if(typeof(T).IsAssignableFrom(typeof(string)))
+                    if (typeof(T).IsAssignableFrom(typeof(string)))
                     {
                         o = s;
                     }
@@ -147,10 +149,11 @@ public static partial class XObjectUtility
                 }
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Type t = typeof(T);
-            var errMsg = string.Format(CultureInfo.CurrentCulture, "Parse for “{0}” fails for element in “{1}.” Value to parse: “{2}.” Default Message: “{3}.”",
+            var errMsg = string.Format(CultureInfo.CurrentCulture,
+                "Parse for “{0}” fails for element in “{1}.” Value to parse: “{2}.” Default Message: “{3}.”",
                 t.FullName, nodeQuery, s ?? "Null", ex.Message);
             throw new XmlException(errMsg);
         }

@@ -1,5 +1,4 @@
-﻿
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines name-value pair.
@@ -14,13 +13,13 @@ public class NameValuePair
     /// Gets or sets the name.
     /// </summary>
     /// <value>The name.</value>
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// Gets or sets the value.
     /// </summary>
     /// <value>The value.</value>
-    public string Value { get; set; }
+    public string? Value { get; set; }
 
     /// <summary>
     /// Returns a <see cref="System.String" /> that represents this instance.
@@ -30,6 +29,6 @@ public class NameValuePair
     /// </returns>
     public override string ToString()
     {
-        return string.Format("Name: {0}, Value: {1}", Name ?? "[null]", Value ?? "[null]");
+        return $"Name: {Name ?? "[null]"}, Value: {Value ?? "[null]"}";
     }
 }

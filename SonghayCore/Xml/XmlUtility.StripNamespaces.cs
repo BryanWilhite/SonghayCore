@@ -37,9 +37,9 @@ public static partial class XmlUtility
     /// </remarks>
     public static string? StripNamespaces(string? xml, bool removeDocType)
     {
-        if(string.IsNullOrWhiteSpace(xml)) return null;
+        if (string.IsNullOrWhiteSpace(xml)) return null;
 
-        if(removeDocType)
+        if (removeDocType)
         {
             xml = Regex.Replace(xml,
                 @"\<\!DOCTYPE [^<]+\>", string.Empty,
@@ -47,8 +47,8 @@ public static partial class XmlUtility
         }
 
         //Attempt to remove all namespace prefixes:
-        foreach(Match m in Regex.Matches(xml,
-                    @"\s*xmlns:?([^=]*)=[""][^""]*[""]\s*", RegexOptions.IgnoreCase | RegexOptions.Multiline))
+        foreach (Match m in Regex.Matches(xml,
+                     @"\s*xmlns:?([^=]*)=[""][^""]*[""]\s*", RegexOptions.IgnoreCase | RegexOptions.Multiline))
         {
             if (m.Groups.Count != 2) continue;
 

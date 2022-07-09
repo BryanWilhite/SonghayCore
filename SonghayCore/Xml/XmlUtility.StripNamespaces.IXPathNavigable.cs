@@ -43,7 +43,7 @@ public static partial class XmlUtility
         Justification = "Specific functionality provided by the concrete type may be required.")]
     public static XPathDocument? StripNamespaces(IXPathNavigable? navigableSet, bool removeDocType)
     {
-        if(navigableSet == null) return null;
+        if (navigableSet == null) return null;
 
         XPathNavigator? navigator = navigableSet.CreateNavigator();
 

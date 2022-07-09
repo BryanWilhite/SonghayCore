@@ -1,4 +1,5 @@
 ﻿using System;
+
 // ReSharper disable InconsistentNaming
 
 namespace Songhay.Models;
@@ -15,870 +16,1087 @@ public static class SystemErrorCodes
     /// System error code
     /// </summary>
     public const Int32 ERROR_ACCESS_DENIED = 5;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_ADAP_HDW_ERR = 57;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_ALREADY_ASSIGNED = 85;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_ALREADY_EXISTS = 183;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_ARENA_TRASHED = 7;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_ATOMIC_LOCKS_NOT_SUPPORTED = 174;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_AUTODATASEG_EXCEEDS_64k = 199;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_ARGUMENTS = 160;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_COMMAND = 22;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_DEV_TYPE = 66;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_DRIVER_LEVEL = 119;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_ENVIRONMENT = 10;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_EXE_FORMAT = 193;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_FILE_TYPE = 222;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_FORMAT = 11;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_LENGTH = 24;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_NET_NAME = 67;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_NET_RESP = 58;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_NETPATH = 53;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_PATHNAME = 161;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_PIPE = 230;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_REM_ADAP = 60;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_THREADID_ADDR = 159;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BAD_UNIT = 20;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BROKEN_PIPE = 109;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BUFFER_OVERFLOW = 111;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BUSY_DRIVE = 142;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_BUSY = 170;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_CALL_NOT_IMPLEMENTED = 120;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_CANCEL_VIOLATION = 173;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_CANNOT_COPY = 266;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_CANNOT_MAKE = 82;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_CHECKOUT_REQUIRED = 221;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_CHILD_NOT_COMPLETE = 129;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_CRC = 23;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_CURRENT_DIRECTORY = 16;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DELETE_PENDING = 303;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DEV_NOT_EXIST = 55;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DIR_NOT_EMPTY = 145;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DIR_NOT_ROOT = 144;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DIRECT_ACCESS_HANDLE = 130;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DIRECTORY = 267;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DISCARDED = 157;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DISK_CHANGE = 107;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DISK_FULL = 112;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DISK_TOO_FRAGMENTED = 302;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DRIVE_LOCKED = 108;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DUP_NAME = 52;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_DYNLINK_FROM_INVALID_RING = 196;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_EA_FILE_CORRUPT = 276;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_EA_LIST_INCONSISTENT = 255;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_EA_TABLE_FULL = 277;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_EAS_DIDNT_FIT = 275;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_EAS_NOT_SUPPORTED = 282;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_ENVVAR_NOT_FOUND = 203;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_EXCL_SEM_ALREADY_OWNED = 101;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_EXE_CANNOT_MODIFY_SIGNED_BINARY = 217;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_EXE_CANNOT_MODIFY_STRONG_SIGNED_BINARY = 218;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_EXE_MACHINE_TYPE_MISMATCH = 216;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_EXE_MARKED_INVALID = 192;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_FAIL_I24 = 83;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_FAIL_NOACTION_REBOOT = 350;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_FAIL_RESTART = 352;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_FAIL_SHUTDOWN = 351;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_FILE_CHECKED_OUT = 220;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_FILE_EXISTS = 80;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_FILE_NOT_FOUND = 2;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_FILE_TOO_LARGE = 223;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_FILENAME_EXCED_RANGE = 206;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_FORMS_AUTH_REQUIRED = 224;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_GEN_FAILURE = 31;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_HANDLE_DISK_FULL = 39;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_HANDLE_EOF = 38;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_IMAGE_SUBSYSTEM_NOT_PRESENT = 308;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INCOMPATIBLE_WITH_GLOBAL_SHORT_NAME_REGISTRY_SETTING = 304;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INFLOOP_IN_RELOC_CHAIN = 202;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INSUFFICIENT_BUFFER = 122;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_ACCESS = 12;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_ADDRESS = 487;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_AT_INTERRUPT_TIME = 104;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_BLOCK = 9;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_CATEGORY = 117;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_DATA = 13;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_DRIVE = 15;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_EA_HANDLE = 278;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_EA_NAME = 254;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_EVENT_COUNT = 151;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_EXE_SIGNATURE = 191;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_FLAG_NUMBER = 186;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_FUNCTION = 1;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_HANDLE = 6;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_LEVEL = 124;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_LIST_FORMAT = 153;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_LOCK_RANGE = 307;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_MINALLOCSIZE = 195;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_MODULETYPE = 190;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_NAME = 123;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_OPLOCK_PROTOCOL = 301;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_ORDINAL = 182;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_PARAMETER = 87;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_PASSWORD = 86;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_SEGDPL = 198;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_SEGMENT_NUMBER = 180;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_SIGNAL_NUMBER = 209;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_STACKSEG = 189;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_STARTING_CODESEG = 188;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_TARGET_HANDLE = 114;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_INVALID_VERIFY_SWITCH = 118;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_IOPL_NOT_ENABLED = 197;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_IS_JOIN_PATH = 147;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_IS_JOIN_TARGET = 133;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_IS_JOINED = 134;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_IS_SUBST_PATH = 146;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_IS_SUBST_TARGET = 149;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_IS_SUBSTED = 135;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_ITERATED_DATA_EXCEEDS_64k = 194;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_JOIN_TO_JOIN = 138;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_JOIN_TO_SUBST = 140;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_LABEL_TOO_LONG = 154;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_LOCK_FAILED = 167;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_LOCK_VIOLATION = 33;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_LOCKED = 212;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_MAX_SESSIONS_REACHED = 353;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_MAX_THRDS_REACHED = 164;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_META_EXPANSION_TOO_LONG = 208;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_MOD_NOT_FOUND = 126;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_MORE_DATA = 234;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_MR_MID_NOT_FOUND = 317;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NEGATIVE_SEEK = 131;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NESTING_NOT_ALLOWED = 215;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NET_WRITE_FAULT = 88;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NETNAME_DELETED = 64;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NETWORK_ACCESS_DENIED = 65;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NETWORK_BUSY = 54;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NO_DATA = 232;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NO_MORE_FILES = 18;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NO_MORE_ITEMS = 259;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NO_MORE_SEARCH_HANDLES = 113;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NO_PROC_SLOTS = 89;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NO_SIGNAL_SENT = 205;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NO_SPOOL_SPACE = 62;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NO_VOLUME_LABEL = 125;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NOT_DOS_DISK = 26;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NOT_ENOUGH_MEMORY = 8;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NOT_JOINED = 136;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NOT_LOCKED = 158;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NOT_OWNER = 288;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NOT_READY = 21;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NOT_SAME_DEVICE = 17;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NOT_SUBSTED = 137;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NOT_SUPPORTED = 50;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_NOTIFICATION_GUID_ALREADY_DEFINED = 309;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_OPEN_FAILED = 110;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_OPLOCK_NOT_GRANTED = 300;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_OUT_OF_PAPER = 28;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_OUT_OF_STRUCTURES = 84;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_OUTOFMEMORY = 14;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_PARTIAL_COPY = 299;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_PATH_BUSY = 148;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_PATH_NOT_FOUND = 3;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_PIPE_BUSY = 231;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_PIPE_LOCAL = 229;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_PIPE_NOT_CONNECTED = 233;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_PRINT_CANCELLED = 63;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_PRINTQ_FULL = 61;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_PROC_NOT_FOUND = 127;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_PROCESS_MODE_ALREADY_BACKGROUND = 402;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_PROCESS_MODE_NOT_BACKGROUND = 403;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_READ_FAULT = 30;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_REDIR_PAUSED = 72;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_RELOC_CHAIN_XEEDS_SEGLIM = 201;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_REM_NOT_LIST = 51;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_REQ_NOT_ACCEP = 71;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_RING2_STACK_IN_USE = 207;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_RING2SEG_MUST_BE_MOVABLE = 200;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SAME_DRIVE = 143;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SCOPE_NOT_FOUND = 318;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SECTOR_NOT_FOUND = 27;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SECURITY_STREAM_IS_INCONSISTENT = 306;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SEEK_ON_DEVICE = 132;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SEEK = 25;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SEM_IS_SET = 102;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SEM_NOT_FOUND = 187;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SEM_OWNER_DIED = 105;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SEM_TIMEOUT = 121;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SEM_USER_LIMIT = 106;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SHARING_BUFFER_EXCEEDED = 36;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SHARING_PAUSED = 70;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SHARING_VIOLATION = 32;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SHORT_NAMES_NOT_ENABLED_ON_VOLUME = 305;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SIGNAL_PENDING = 162;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SIGNAL_REFUSED = 156;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SUBST_TO_JOIN = 141;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SUBST_TO_SUBST = 139;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SUCCESS = 0;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_SYSTEM_TRACE = 150;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_THREAD_1_INACTIVE = 210;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_THREAD_MODE_ALREADY_BACKGROUND = 400;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_THREAD_MODE_NOT_BACKGROUND = 401;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_TOO_MANY_CMDS = 56;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_TOO_MANY_MODULES = 214;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_TOO_MANY_MUXWAITERS = 152;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_TOO_MANY_NAMES = 68;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_TOO_MANY_OPEN_FILES = 4;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_TOO_MANY_POSTS = 298;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_TOO_MANY_SEM_REQUESTS = 103;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_TOO_MANY_SEMAPHORES = 100;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_TOO_MANY_SESS = 69;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_TOO_MANY_TCBS = 155;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_UNEXP_NET_ERR = 59;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_VC_DISCONNECTED = 240;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_VIRUS_DELETED = 226;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_VIRUS_INFECTED = 225;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_WAIT_NO_CHILDREN = 128;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_WRITE_FAULT = 29;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_WRITE_PROTECT = 19;
+
     /// <summary>
     /// System error code
     /// </summary>
     public const Int32 ERROR_WRONG_DISK = 34;
+
     /// <summary>
     /// System error code
     /// </summary>
@@ -892,7 +1110,6 @@ public static class SystemErrorCodes
     {
         switch (ERR)
         {
-
             case 0: return "The operation completed successfully.";
             case 1: return "Incorrect function.";
             case 10: return "The environment is incorrect.";
@@ -927,12 +1144,18 @@ public static class SystemErrorCodes
             case 128: return "There are no child processes to wait for.";
             case 129: return "The %1 application cannot be run in Win32 mode.";
             case 13: return "The data is invalid.";
-            case 130: return "Attempt to use a file handle to an open disk partition for an operation other than raw disk I/O.";
+            case 130:
+                return
+                    "Attempt to use a file handle to an open disk partition for an operation other than raw disk I/O.";
             case 131: return "An attempt was made to move the file pointer before the beginning of the file.";
             case 132: return "The file pointer cannot be set on the specified device or file.";
-            case 133: return "A JOIN or SUBST command cannot be used for a drive that contains previously joined drives.";
-            case 134: return "An attempt was made to use a JOIN or SUBST command on a drive that has already been joined.";
-            case 135: return "An attempt was made to use a JOIN or SUBST command on a drive that has already been substituted.";
+            case 133:
+                return "A JOIN or SUBST command cannot be used for a drive that contains previously joined drives.";
+            case 134:
+                return "An attempt was made to use a JOIN or SUBST command on a drive that has already been joined.";
+            case 135:
+                return
+                    "An attempt was made to use a JOIN or SUBST command on a drive that has already been substituted.";
             case 136: return "The system tried to delete the JOIN of a drive that is not joined.";
             case 137: return "The system tried to delete the substitution of a drive that is not substituted.";
             case 138: return "The system tried to join a drive to a directory on a joined drive.";
@@ -947,13 +1170,17 @@ public static class SystemErrorCodes
             case 146: return "The path specified is being used in a substitute.";
             case 147: return "Not enough resources are available to process this command.";
             case 148: return "The path specified cannot be used at this time.";
-            case 149: return "An attempt was made to join or substitute a drive for which a directory on the drive is the target of a previous substitute.";
+            case 149:
+                return
+                    "An attempt was made to join or substitute a drive for which a directory on the drive is the target of a previous substitute.";
             case 15: return "The system cannot find the drive specified.";
-            case 150: return "System trace information was not specified in your CONFIG.SYS file, or tracing is disallowed.";
+            case 150:
+                return "System trace information was not specified in your CONFIG.SYS file, or tracing is disallowed.";
             case 151: return "The number of specified semaphore events for DosMuxSemWait is not correct.";
             case 152: return "DosMuxSemWait did not execute; too many semaphores are already set.";
             case 153: return "The DosMuxSemWait list is not correct.";
-            case 154: return "The volume label you entered exceeds the label character limit of the target file system.";
+            case 154:
+                return "The volume label you entered exceeds the label character limit of the target file system.";
             case 155: return "Cannot create another thread.";
             case 156: return "The recipient process has refused the signal.";
             case 157: return "The segment is already discarded and cannot be locked.";
@@ -997,14 +1224,18 @@ public static class SystemErrorCodes
             case 205: return "No process in the command subtree has a signal handler.";
             case 206: return "The filename or extension is too long.";
             case 207: return "The ring 2 stack is in use.";
-            case 208: return "The global filename characters, * or ?, are entered incorrectly or too many global filename characters are specified.";
+            case 208:
+                return
+                    "The global filename characters, * or ?, are entered incorrectly or too many global filename characters are specified.";
             case 209: return "The signal being posted is not correct.";
             case 21: return "The device is not ready.";
             case 210: return "The signal handler cannot be set.";
             case 212: return "The segment is locked and cannot be reallocated.";
             case 214: return "Too many dynamic-link modules are attached to this program or dynamic-link module.";
             case 215: return "Cannot nest calls to LoadModule.";
-            case 216: return "The version of %1 is not compatible with the version you're running. Check your computer's system information to see whether you need a x86 ; or x64 ; version of the program, and then contact the software publisher.";
+            case 216:
+                return
+                    "The version of %1 is not compatible with the version you're running. Check your computer's system information to see whether you need a x86 ; or x64 ; version of the program, and then contact the software publisher.";
             case 217: return "The image file %1 is signed, unable to modify.";
             case 218: return "The image file %1 is strong signed, unable to modify.";
             case 22: return "The device does not recognize the command.";
@@ -1012,9 +1243,13 @@ public static class SystemErrorCodes
             case 221: return "The file must be checked out before saving changes.";
             case 222: return "The file type being saved or retrieved has been blocked.";
             case 223: return "The file size exceeds the limit allowed and cannot be saved.";
-            case 224: return "Access Denied. Before opening files in this location, you must first add the web site to your trusted sites list, browse to the web site, and select the option to login automatically.";
+            case 224:
+                return
+                    "Access Denied. Before opening files in this location, you must first add the web site to your trusted sites list, browse to the web site, and select the option to login automatically.";
             case 225: return "Operation did not complete successfully because the file contains a virus.";
-            case 226: return "This file contains a virus and cannot be opened. Due to the nature of this virus, the file has been removed from this location.";
+            case 226:
+                return
+                    "This file contains a virus and cannot be opened. Due to the nature of this virus, the file has been removed from this location.";
             case 229: return "The pipe is local.";
             case 23: return "Data error ;.";
             case 230: return "The pipe state is invalid.";
@@ -1049,9 +1284,12 @@ public static class SystemErrorCodes
             case 301: return "An invalid oplock acknowledgment was received by the system.";
             case 302: return "The volume is too fragmented to complete this operation.";
             case 303: return "The file cannot be opened because it is in the process of being deleted.";
-            case 304: return "Short name settings may not be changed on this volume due to the global registry setting.";
+            case 304:
+                return "Short name settings may not be changed on this volume due to the global registry setting.";
             case 305: return "Short names are not enabled on this volume.";
-            case 306: return "The security stream for the given volume is in an inconsistent state. Please run CHKDSK on the volume.";
+            case 306:
+                return
+                    "The security stream for the given volume is in an inconsistent state. Please run CHKDSK on the volume.";
             case 307: return "A requested file lock operation cannot be processed due to an invalid byte range.";
             case 308: return "The subsystem needed to support the image type is not present.";
             case 309: return "The specified file already has a notification GUID associated with it.";
@@ -1059,7 +1297,8 @@ public static class SystemErrorCodes
             case 317: return "The system cannot find message text for message number 0x%1 in the message file for %2.";
             case 318: return "The scope specified was not found.";
             case 32: return "The process cannot access the file because it is being used by another process.";
-            case 33: return "The process cannot access the file because another process has locked a portion of the file.";
+            case 33:
+                return "The process cannot access the file because another process has locked a portion of the file.";
             case 34: return "The wrong diskette is in the drive. Insert %2 ; into drive %1.";
             case 350: return "No action was taken as a system reboot is required.";
             case 351: return "The shutdown operation failed.";
@@ -1076,8 +1315,12 @@ public static class SystemErrorCodes
             case 487: return "Attempt to access invalid address.";
             case 5: return "Access is denied.";
             case 50: return "The request is not supported.";
-            case 51: return "Windows cannot find the network path. Verify that the network path is correct and the destination computer is not busy or turned off. If Windows still cannot find the network path, contact your network administrator.";
-            case 52: return "You were not connected because a duplicate name exists on the network. If joining a domain, go to System in Control Panel to change the computer name and try again. If joining a workgroup, choose another workgroup name.";
+            case 51:
+                return
+                    "Windows cannot find the network path. Verify that the network path is correct and the destination computer is not busy or turned off. If Windows still cannot find the network path, contact your network administrator.";
+            case 52:
+                return
+                    "You were not connected because a duplicate name exists on the network. If joining a domain, go to System in Control Panel to change the computer name and try again. If joining a workgroup, choose another workgroup name.";
             case 53: return "The network path was not found.";
             case 54: return "The network is busy.";
             case 55: return "The specified network resource or device is no longer available.";
@@ -1098,7 +1341,9 @@ public static class SystemErrorCodes
             case 69: return "The network BIOS session limit was exceeded.";
             case 7: return "The storage control blocks were destroyed.";
             case 70: return "The remote server has been paused or is in the process of being started.";
-            case 71: return "No more connections can be made to this remote computer at this time because there are already as many connections as the computer can accept.";
+            case 71:
+                return
+                    "No more connections can be made to this remote computer at this time because there are already as many connections as the computer can accept.";
             case 72: return "The specified printer or disk device has been paused.";
             case 8: return "Not enough storage is available to process this command.";
             case 80: return "The file exists.";

@@ -15,7 +15,7 @@ public static class DisplayItemModelExtensions
     /// <param name="data"></param>
     /// <param name="evaluator"></param>
     /// <returns></returns>
-    public static bool HasTag(this DisplayItemModel? data, Func<object, bool>? evaluator)
+    public static bool HasTag(this DisplayItemModel? data, Func<object?, bool>? evaluator)
     {
         if (data == null) return false;
 

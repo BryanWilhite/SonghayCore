@@ -65,7 +65,8 @@ public static partial class ProgramFileUtility
     /// <exception cref="DirectoryNotFoundException">The expected directory is not here.</exception>
     public static DirectoryInfo? FindParentDirectoryInfo(string? path, string? parentName, int levels)
     {
-        if (string.IsNullOrWhiteSpace(path)) throw new DirectoryNotFoundException("The expected directory is not here.");
+        if (string.IsNullOrWhiteSpace(path))
+            throw new DirectoryNotFoundException("The expected directory is not here.");
 
         var info = new DirectoryInfo(path);
 
@@ -108,10 +109,9 @@ public static partial class ProgramFileUtility
 
         path = GetRelativePath(path);
 
-        return Path.IsPathRooted(path) ?
-            path
-            :
-            Path.Combine(NormalizePath(root)!, path!);
+        return Path.IsPathRooted(path)
+            ? path
+            : Path.Combine(NormalizePath(root)!, path!);
     }
 
     /// <summary>Combines path and root based
@@ -141,7 +141,7 @@ public static partial class ProgramFileUtility
     {
         var combinedPath = GetCombinedPath(root, path);
 
-        if(fileIsExpected)
+        if (fileIsExpected)
         {
             if (!File.Exists(combinedPath))
                 throw new FileNotFoundException($"The expected file, `{combinedPath}`, is not here.");
@@ -249,10 +249,9 @@ public static partial class ProgramFileUtility
     {
         if (string.IsNullOrWhiteSpace(path)) return null;
 
-        return IsForwardSlashSystemField ?
-            path.Replace(Backslash, ForwardSlash)
-            :
-            path.Replace(ForwardSlash, Backslash);
+        return IsForwardSlashSystemField
+            ? path.Replace(Backslash, ForwardSlash)
+            : path.Replace(ForwardSlash, Backslash);
     }
 
     /// <summary>
@@ -275,10 +274,9 @@ public static partial class ProgramFileUtility
     /// <param name="path"></param>
     /// <returns></returns>
     public static string? RemoveConventionalPrefixes(string? path) =>
-        IsForwardSlashSystemField ?
-            RemoveForwardslashPrefixes(path)
-            :
-            RemoveBackslashPrefixes(path);
+        IsForwardSlashSystemField
+            ? RemoveForwardslashPrefixes(path)
+            : RemoveBackslashPrefixes(path);
 
     /// <summary>
     /// Removes conventional Directory prefixes

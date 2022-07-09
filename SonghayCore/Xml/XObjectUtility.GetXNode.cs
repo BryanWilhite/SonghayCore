@@ -36,7 +36,8 @@ public static partial class XObjectUtility
     /// <param name="throwException">if node to <c>true</c> [throw exception].</param>
     /// <param name="resolver">The resolver.</param>
     /// <returns></returns>
-    public static XNode? GetXNode(XNode? node, string? nodeQuery, bool throwException, IXmlNamespaceResolver resolver) =>
+    public static XNode? GetXNode(XNode? node, string? nodeQuery, bool throwException,
+        IXmlNamespaceResolver resolver) =>
         GetXObject(node, nodeQuery, throwException, resolver) as XNode;
 
     /// <summary>
@@ -74,7 +75,8 @@ public static partial class XObjectUtility
     /// <param name="throwException">if node to <c>true</c> [throw exception].</param>
     /// <param name="resolver">The resolver.</param>
     /// <returns></returns>
-    public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery, bool throwException, IXmlNamespaceResolver? resolver)
+    public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery, bool throwException,
+        IXmlNamespaceResolver? resolver)
     {
         var nodes = GetXObjects(node, nodeQuery, throwException, resolver);
 

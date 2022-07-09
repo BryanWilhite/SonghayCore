@@ -25,10 +25,9 @@ public static partial class ProgramTypeUtility
     {
         DateTimeFormatInfo dateTimeFormat = CultureInfo.InvariantCulture.DateTimeFormat;
 
-        var format = (utcDateTime.Kind == DateTimeKind.Local) ?
-                "yyyy'-'MM'-'dd'T'HH:mm:ss.ffzzz"
-                :
-                "yyyy'-'MM'-'dd'T'HH':'mm':'ss.ff'Z'"
+        var format = (utcDateTime.Kind == DateTimeKind.Local)
+                ? "yyyy'-'MM'-'dd'T'HH:mm:ss.ffzzz"
+                : "yyyy'-'MM'-'dd'T'HH':'mm':'ss.ff'Z'"
             ;
 
         return utcDateTime.ToString(format, dateTimeFormat);

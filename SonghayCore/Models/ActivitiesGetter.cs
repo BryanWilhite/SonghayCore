@@ -47,7 +47,7 @@ public abstract class ActivitiesGetter
     /// Loads the activities.
     /// </summary>
     /// <param name="activities">The activities.</param>
-    public virtual void LoadActivities(Dictionary<string, Lazy<IActivity?>> activities) => _activities = activities;
+    public virtual void LoadActivities(Dictionary<string, Lazy<IActivity?>>? activities) => _activities = activities;
 
     static string[] ToActivityArgs(string[] args)
     {
@@ -64,6 +64,6 @@ public abstract class ActivitiesGetter
         return args.First();
     }
 
-    Dictionary<string, Lazy<IActivity?>> _activities;
+    Dictionary<string, Lazy<IActivity?>>? _activities;
     readonly string _defaultActivityName;
 }

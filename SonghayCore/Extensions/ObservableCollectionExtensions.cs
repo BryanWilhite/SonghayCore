@@ -25,17 +25,17 @@ public static class ObservableCollectionExtensions
     public static void SetCollectionWithDigits(this ObservableCollection<byte?>? collectionOfByte, double digits,
         int mantissaDigits)
     {
-        if(collectionOfByte == null) return;
+        if (collectionOfByte == null) return;
 
         var x = Convert.ToInt32(100 * MathUtility.GetMantissa(digits, mantissaDigits));
-        if(collectionOfByte.Count < mantissaDigits) return;
+        if (collectionOfByte.Count < mantissaDigits) return;
 
         collectionOfByte[0] = (x >= 1e0) ? MathUtility.GetDigitInNumber(x, 1) : 0;
         collectionOfByte[1] = (x >= 1e1) ? MathUtility.GetDigitInNumber(x, 2) : 0;
 
         x = Convert.ToInt32(MathUtility.TruncateNumber(digits));
 
-        for(int i = 2; i < collectionOfByte.Count; i++)
+        for (int i = 2; i < collectionOfByte.Count; i++)
         {
             var place = i - 1;
             var y = i - 2;

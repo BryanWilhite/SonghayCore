@@ -13,7 +13,7 @@ public class XhtmlImage
     /// <value>
     /// The location.
     /// </value>
-    public Uri Location { get; set; }
+    public Uri? Location { get; set; }
 
     /// <summary>
     /// Gets or sets the height.

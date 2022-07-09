@@ -46,7 +46,7 @@ public class RestApiMetadata
     /// <value>
     /// The API base.
     /// </value>
-    public Uri ApiBase { get; set; }
+    public Uri? ApiBase { get; set; }
 
     /// <summary>
     /// Gets or sets the API key.
@@ -54,7 +54,7 @@ public class RestApiMetadata
     /// <value>
     /// The API key.
     /// </value>
-    public string ApiKey { get; set; }
+    public string? ApiKey { get; set; }
 
     /// <summary>
     /// Gets or sets the claims set.
@@ -62,7 +62,7 @@ public class RestApiMetadata
     /// <value>
     /// The claims set.
     /// </value>
-    public Dictionary<string, string> ClaimsSet { get; set; }
+    public Dictionary<string, string> ClaimsSet { get; set; } = new();
 
     /// <summary>
     /// Gets or sets the URI templates.
@@ -70,7 +70,7 @@ public class RestApiMetadata
     /// <value>
     /// The URI templates.
     /// </value>
-    public Dictionary<string, string> UriTemplates { get; set; }
+    public Dictionary<string, string> UriTemplates { get; set; } = new();
 
     /// <summary>
     /// Converts this instance into a <see cref="string"/> representation.
@@ -81,9 +81,9 @@ public class RestApiMetadata
         var sb = new StringBuilder();
 
         if (ApiBase != null) sb.AppendFormat("ApiBase: {0}", ApiBase);
-        if (!string.IsNullOrWhiteSpace(ApiKey)) sb.AppendFormat(" ApiKey: {0}", ApiKey);
+        if (!string.IsNullOrWhiteSpace(ApiKey)) sb.Append($" ApiKey: {ApiKey}");
 
-        if ((ClaimsSet != null) && (ClaimsSet.Count > 0))
+        if (ClaimsSet is {Count: > 0})
         {
             sb.AppendLine($"{nameof(ClaimsSet)}:");
             foreach (var item in ClaimsSet)
@@ -93,7 +93,7 @@ public class RestApiMetadata
             }
         }
 
-        if ((UriTemplates != null) && (UriTemplates.Count > 0))
+        if (UriTemplates is {Count: > 0})
         {
             sb.AppendLine($"{nameof(UriTemplates)}:");
             foreach (var item in UriTemplates)
@@ -103,6 +103,6 @@ public class RestApiMetadata
             }
         }
 
-        return (sb.Length > 0) ? sb.ToString().Trim() : base.ToString();
+        return sb.Length > 0 ? sb.ToString().Trim() : base.ToString() ?? GetType().Name;
     }
 }

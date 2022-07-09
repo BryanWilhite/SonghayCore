@@ -1,54 +1,54 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <AssemblyVersion>6.0.0</AssemblyVersion>
-    <RootNamespace>Songhay</RootNamespace>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <AssemblyVersion>6.0.0</AssemblyVersion>
+        <RootNamespace>Songhay</RootNamespace>
 
-    <Title>Songhay Core</Title>
-    <Description>Core reusable definitions for .NET Core and .NET Framework</Description>
-    <Authors>Bryan D. Wilhite</Authors>
-    <Copyright>(c) 2022 Bryan D. Wilhite</Copyright>
-    <Company>Songhay System</Company>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/BryanWilhite/SonghayCore</RepositoryUrl>
+        <Title>Songhay Core</Title>
+        <Description>Core reusable definitions for .NET Core and .NET Framework</Description>
+        <Authors>Bryan D. Wilhite</Authors>
+        <Copyright>(c) 2022 Bryan D. Wilhite</Copyright>
+        <Company>Songhay System</Company>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/BryanWilhite/SonghayCore</RepositoryUrl>
 
-    <IncludeSource>false</IncludeSource>
-    <IncludeSymbols>false</IncludeSymbols>
-    <ImplicitUsings>disable</ImplicitUsings>
-    <IsPackable>true</IsPackable>
-    <Nullable>enable</Nullable>
-    <PackageIcon>..\songhay_icon.png</PackageIcon>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/BryanWilhite/SonghayCore</PackageProjectUrl>
-    <PackageReleaseNotes>see https://github.com/users/BryanWilhite/projects/1</PackageReleaseNotes>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>Core;Songhay;Configuration;Cryptography;LINQ</PackageTags>
-    <PackageVersion>$(AssemblyVersion)</PackageVersion>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Version>$(AssemblyVersion)</Version>
-  </PropertyGroup>
+        <IncludeSource>false</IncludeSource>
+        <IncludeSymbols>false</IncludeSymbols>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <IsPackable>true</IsPackable>
+        <Nullable>enable</Nullable>
+        <PackageIcon>..\songhay_icon.png</PackageIcon>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <PackageProjectUrl>https://github.com/BryanWilhite/SonghayCore</PackageProjectUrl>
+        <PackageReleaseNotes>see https://github.com/users/BryanWilhite/projects/1</PackageReleaseNotes>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageTags>Core;Songhay;Configuration;Cryptography;LINQ</PackageTags>
+        <PackageVersion>$(AssemblyVersion)</PackageVersion>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Version>$(AssemblyVersion)</Version>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
-    <DocumentationFile>.\SonghayCore.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
+        <DocumentationFile>.\SonghayCore.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\LICENSE.md" Link="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="..\LICENSE.md" Link="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
-    <PackageReference Include="System.ObjectModel" Version="4.3.0" />
-    <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
-    <PackageReference Include="System.ServiceModel.Syndication" Version="6.0.0" />
-    <PackageReference Include="Tavis.UriTemplates" Version="1.1.1" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="6.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0"/>
+        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"/>
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0"/>
+        <PackageReference Include="System.ObjectModel" Version="4.3.0"/>
+        <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0"/>
+        <PackageReference Include="System.ServiceModel.Syndication" Version="6.0.0"/>
+        <PackageReference Include="Tavis.UriTemplates" Version="1.1.1"/>
+    </ItemGroup>
 
 </Project>

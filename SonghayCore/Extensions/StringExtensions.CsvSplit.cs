@@ -19,7 +19,7 @@ public static partial class StringExtensions
     /// </remarks>
     public static string[]? CsvSplit(this string? source)
     {
-        if(string.IsNullOrWhiteSpace(source)) return null;
+        if (string.IsNullOrWhiteSpace(source)) return null;
 
         List<string> splitString = new();
         List<int> slashesToRemove = new();
@@ -27,52 +27,57 @@ public static partial class StringExtensions
         char[] sourceCharArray = source.ToCharArray();
         int tokenStart = 0;
         int len = sourceCharArray.Length;
-        for(int i = 0; i < len; ++i)
+        for (int i = 0; i < len; ++i)
         {
-            switch(state)
+            switch (state)
             {
                 case State.AtBeginningOfToken:
-                    if(sourceCharArray[i] == '"')
+                    if (sourceCharArray[i] == '"')
                     {
                         state = State.InQuotedToken;
                         slashesToRemove = new List<int>();
                         continue;
                     }
-                    if(sourceCharArray[i] == ',')
+
+                    if (sourceCharArray[i] == ',')
                     {
                         splitString.Add("");
                         tokenStart = i + 1;
                         continue;
                     }
+
                     state = State.InNonQuotedToken;
                     continue;
                 case State.InNonQuotedToken:
-                    if(sourceCharArray[i] == ',')
+                    if (sourceCharArray[i] == ',')
                     {
                         splitString.Add(
                             source.Substring(tokenStart, i - tokenStart));
                         state = State.AtBeginningOfToken;
                         tokenStart = i + 1;
                     }
+
                     continue;
                 case State.InQuotedToken:
-                    if(sourceCharArray[i] == '"')
+                    if (sourceCharArray[i] == '"')
                     {
                         state = State.ExpectingComma;
                         continue;
                     }
-                    if(sourceCharArray[i] == '\\')
+
+                    if (sourceCharArray[i] == '\\')
                     {
                         state = State.InEscapedCharacter;
                         slashesToRemove.Add(i - tokenStart);
                     }
+
                     continue;
                 case State.ExpectingComma:
-                    if(sourceCharArray[i] != ',')
+                    if (sourceCharArray[i] != ',')
                         throw new CsvParseException("Expecting comma");
                     string stringWithSlashes =
                         source.Substring(tokenStart, i - tokenStart);
-                    foreach(int item in slashesToRemove.Reverse<int>())
+                    foreach (int item in slashesToRemove.Reverse<int>())
                         stringWithSlashes =
                             stringWithSlashes.Remove(item, 1);
                     splitString.Add(
@@ -86,7 +91,8 @@ public static partial class StringExtensions
                     continue;
             }
         }
-        switch(state)
+
+        switch (state)
         {
             case State.AtBeginningOfToken:
                 splitString.Add("");
@@ -101,7 +107,7 @@ public static partial class StringExtensions
             case State.ExpectingComma:
                 string stringWithSlashes =
                     source.Substring(tokenStart, source.Length - tokenStart);
-                foreach(int item in slashesToRemove.Reverse<int>())
+                foreach (int item in slashesToRemove.Reverse<int>())
                     stringWithSlashes = stringWithSlashes.Remove(item, 1);
                 splitString.Add(
                     stringWithSlashes.Substring(1,
@@ -110,6 +116,7 @@ public static partial class StringExtensions
             case State.InEscapedCharacter:
                 throw new CsvParseException("Expecting escaped character");
         }
+
         throw new CsvParseException("Unexpected error");
     }
 

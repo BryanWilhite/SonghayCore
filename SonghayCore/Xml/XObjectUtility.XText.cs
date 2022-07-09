@@ -47,10 +47,9 @@ public static partial class XObjectUtility
 
         if (string.IsNullOrWhiteSpace(joinDelimiter)) joinDelimiter = string.Empty;
 
-        var nodes = includeRootElement ?
-            rootElement.DescendantNodesAndSelf().Where(i => i.NodeType == XmlNodeType.Text)
-            :
-            rootElement.DescendantNodes().Where(i => i.NodeType == XmlNodeType.Text);
+        var nodes = includeRootElement
+            ? rootElement.DescendantNodesAndSelf().Where(i => i.NodeType == XmlNodeType.Text)
+            : rootElement.DescendantNodes().Where(i => i.NodeType == XmlNodeType.Text);
 
         var displayText = string.Join(joinDelimiter, nodes.Select(i => i.ToString()).ToArray());
 

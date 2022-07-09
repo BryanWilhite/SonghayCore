@@ -1,5 +1,4 @@
-﻿
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines the Data for displaying meta-data about variables.

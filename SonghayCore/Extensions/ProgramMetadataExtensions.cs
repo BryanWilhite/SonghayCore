@@ -16,7 +16,8 @@ public static class ProgramMetadataExtensions
     /// <param name="meta">The <see cref="ProgramMetadata"/>.</param>
     /// <param name="restApiMetadataSetKey">The key for <see cref="ProgramMetadata.RestApiMetadataSet"/>.</param>
     /// <returns></returns>
-    public static Dictionary<string, string> ToConventionalHeaders(this ProgramMetadata meta, string restApiMetadataSetKey)
+    public static Dictionary<string, string> ToConventionalHeaders(this ProgramMetadata? meta,
+        string restApiMetadataSetKey)
     {
         if (meta == null) throw new ArgumentNullException(nameof(meta));
 
@@ -26,8 +27,11 @@ public static class ProgramMetadataExtensions
         var headers = new Dictionary<string, string>
         {
             {
-                genWebApiMeta.ClaimsSet.TryGetValueWithKey(RestApiMetadata.ClaimsSetHeaderApiKey)!,
-                genWebApiMeta.ApiKey
+                genWebApiMeta.ClaimsSet.TryGetValueWithKey(RestApiMetadata.ClaimsSetHeaderApiKey,
+                    throwException: true)!,
+                genWebApiMeta.ApiKey ??
+                throw new NullReferenceException(
+                    $"The expected {nameof(RestApiMetadata.ClaimsSetHeaderApiKey)} is not here.")
             }
         };
 

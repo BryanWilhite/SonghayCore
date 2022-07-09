@@ -30,10 +30,9 @@ public static partial class StringExtensions
     /// <returns></returns>
     public static bool EqualsInvariant(this string? input, string? otherString, bool ignoreCase)
     {
-        return ignoreCase ?
-            string.Equals(input, otherString, StringComparison.InvariantCultureIgnoreCase)
-            :
-            string.Equals(input, otherString, StringComparison.InvariantCulture);
+        return ignoreCase
+            ? string.Equals(input, otherString, StringComparison.InvariantCultureIgnoreCase)
+            : string.Equals(input, otherString, StringComparison.InvariantCulture);
     }
 
     /// <summary>
@@ -276,6 +275,7 @@ public static partial class StringExtensions
                 sb.Append(t);
             }
         }
+
         return (sb.ToString().Normalize(NormalizationForm.FormC));
     }
 }

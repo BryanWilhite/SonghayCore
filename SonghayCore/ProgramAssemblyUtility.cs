@@ -19,7 +19,7 @@ public static class ProgramAssemblyUtility
     /// The executing <see cref="System.Reflection.Assembly"/>.
     /// </param>
     /// <returns>Returns <see cref="string"/></returns>
-    public static string GetAssemblyInfo(Assembly targetAssembly) => GetAssemblyInfo(targetAssembly, false);
+    public static string? GetAssemblyInfo(Assembly targetAssembly) => GetAssemblyInfo(targetAssembly, false);
 
     /// <summary>
     /// Returns a <see cref="string"/>
@@ -32,13 +32,13 @@ public static class ProgramAssemblyUtility
     /// When <c>true</c> selected “special” characters are formatted for the Windows Console.
     /// </param>
     /// <returns>Returns <see cref="string"/></returns>
-    public static string GetAssemblyInfo(Assembly? targetAssembly, bool useConsoleChars)
+    public static string? GetAssemblyInfo(Assembly? targetAssembly, bool useConsoleChars)
     {
         var sb = new StringBuilder();
 
         var info = new ProgramAssemblyInfo(targetAssembly);
 
-        sb.AppendFormat("{0} {1}{2}", info.AssemblyTitle, info.AssemblyVersion, Environment.NewLine);
+        sb.Append($"{info.AssemblyTitle} {info.AssemblyVersion}{Environment.NewLine}");
         sb.Append(info.AssemblyDescription);
         sb.Append(Environment.NewLine);
         sb.Append(info.AssemblyCopyright);

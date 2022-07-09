@@ -13,7 +13,7 @@ public class DbmsMetadata
     /// <value>
     /// The connection string.
     /// </value>
-    public string ConnectionString { get; set; }
+    public string? ConnectionString { get; set; }
 
     /// <summary>
     /// Gets or sets the connection string key.
@@ -21,7 +21,7 @@ public class DbmsMetadata
     /// <value>
     /// The connection string key.
     /// </value>
-    public string ConnectionStringKey { get; set; }
+    public string? ConnectionStringKey { get; set; }
 
     /// <summary>
     /// Gets or sets the encryption metadata.
@@ -29,7 +29,7 @@ public class DbmsMetadata
     /// <value>
     /// The encryption metadata.
     /// </value>
-    public EncryptionMetadata EncryptionMetadata { get; set; }
+    public EncryptionMetadata? EncryptionMetadata { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the provider.
@@ -37,7 +37,7 @@ public class DbmsMetadata
     /// <value>
     /// The name of the provider.
     /// </value>
-    public string ProviderName { get; set; }
+    public string? ProviderName { get; set; }
 
     /// <summary>
     /// Returns a <see cref="System.String" /> that represents this instance.
@@ -50,9 +50,10 @@ public class DbmsMetadata
         var sb = new StringBuilder();
 
         if (!string.IsNullOrWhiteSpace(ProviderName)) sb.Append($"{nameof(ProviderName)}: {ProviderName} | ");
-        if (!string.IsNullOrWhiteSpace(ConnectionString)) sb.Append($"{nameof(ConnectionString)}: {ConnectionString.Substring(0, 72)}... ");
+        if (!string.IsNullOrWhiteSpace(ConnectionString))
+            sb.Append($"{nameof(ConnectionString)}: {ConnectionString[..72]}... ");
         if (EncryptionMetadata != null) sb.Append("| has encryption metadata");
 
-        return (sb.Length > 0) ? sb.ToString() : base.ToString();
+        return (sb.Length > 0) ? sb.ToString() : base.ToString() ?? GetType().Name;
     }
 }

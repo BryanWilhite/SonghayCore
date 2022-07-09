@@ -1,7 +1,6 @@
 ﻿using Songhay.Models;
 using System;
 using System.Diagnostics;
-using System.IO;
 using System.Threading.Tasks;
 using Songhay.Abstractions;
 
@@ -13,7 +12,6 @@ namespace Songhay.Extensions;
 // ReSharper disable once InconsistentNaming
 public static partial class IActivityExtensions
 {
-
     /// <summary>
     /// Starts the <see cref="IActivity"/>
     /// with <see cref="ConsoleTraceListener"/>.
@@ -48,7 +46,8 @@ public static partial class IActivityExtensions
     /// <param name="traceSource">The the <see cref="TraceSource"/>.</param>
     /// <returns>The the <see cref="TraceSource"/> log.</returns>
     /// <exception cref="NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
-    public static async Task StartConsoleActivityAsync<TInput>(this IActivity? activity, TInput? input, TraceSource? traceSource)
+    public static async Task StartConsoleActivityAsync<TInput>(this IActivity? activity, TInput? input,
+        TraceSource? traceSource)
     {
         if (activity == null) throw new NullReferenceException($"The expected {nameof(IActivity)} is not here.");
 
@@ -56,10 +55,10 @@ public static partial class IActivityExtensions
 
         traceSource?.Listeners.Add(listener);
 
+        var activityWithTask = activity.ToActivityWithTask<TInput>();
         try
         {
-            var activityWithTask = activity.ToActivityWithTask<TInput>();
-            await activityWithTask
+            await activityWithTask!
                 .StartAsync(input)
                 .ConfigureAwait(continueOnCapturedContext: false);
         }
@@ -80,7 +79,8 @@ public static partial class IActivityExtensions
     /// <param name="traceSource">The the <see cref="TraceSource"/>.</param>
     /// <returns>The the <see cref="TraceSource"/> log.</returns>
     /// <exception cref="NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
-    public static async Task<TOutput?> StartConsoleActivityAsync<TInput, TOutput>(this IActivity? activity, TInput? input, TraceSource? traceSource)
+    public static async Task<TOutput?> StartConsoleActivityAsync<TInput, TOutput>(this IActivity? activity,
+        TInput? input, TraceSource? traceSource)
     {
         if (activity == null) throw new NullReferenceException($"The expected {nameof(IActivity)} is not here.");
 
@@ -88,12 +88,12 @@ public static partial class IActivityExtensions
         {
             traceSource?.Listeners.Add(listener);
 
+            var activityWithTask = activity.ToActivityWithTask<TInput, TOutput>();
             TOutput? output;
             try
             {
-                var activityWithTask = activity.ToActivityWithTask<TInput, TOutput>();
 
-                output = await activityWithTask
+                output = await activityWithTask!
                     .StartAsync(input)
                     .ConfigureAwait(continueOnCapturedContext: false);
             }
@@ -126,12 +126,12 @@ public static partial class IActivityExtensions
 
         traceSource?.Listeners.Add(listener);
 
+        var activityWithOutput = activity.ToActivityWithOutput<TInput, TOutput>();
         TOutput? output;
         try
         {
-            var activityWithOutput = activity.ToActivityWithOutput<TInput, TOutput>();
 
-            output = activityWithOutput.StartForOutput(input);
+            output = activityWithOutput!.StartForOutput(input);
         }
         finally
         {
@@ -140,5 +140,4 @@ public static partial class IActivityExtensions
 
         return output;
     }
-
 }

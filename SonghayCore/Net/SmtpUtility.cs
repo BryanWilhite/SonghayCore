@@ -59,7 +59,8 @@ public static class SmtpUtility
     /// <param name="message">the email message</param>
     /// <param name="attachments">a collection of <see cref="Attachment" /></param>
     /// <returns></returns>
-    public static MailMessage GetMailMessage(string from, string to, string subject, string message, ICollection<Attachment> attachments) =>
+    public static MailMessage GetMailMessage(string from, string to, string subject, string message,
+        ICollection<Attachment> attachments) =>
         !string.IsNullOrWhiteSpace(to)
             ? throw new NullReferenceException(nameof(to))
             : GetMailMessage(from, subject, message, new[] {to}, attachments);

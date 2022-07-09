@@ -67,7 +67,7 @@ public static partial class StringExtensions
             return chars.Any() ? new string(chars.ToArray()) : null;
         }
 
-        return chars.Any() ? new string(chars.ToArray()).Trim(new[] { spacer }) : null;
+        return chars.Any() ? new string(chars.ToArray()).Trim(new[] {spacer}) : null;
     }
 
     /// <summary>
@@ -183,7 +183,7 @@ public static partial class StringExtensions
     /// </returns>
     public static string? ToNumericString(this string? input, string? defaultValue)
     {
-        if(string.IsNullOrWhiteSpace(input)) return defaultValue;
+        if (string.IsNullOrWhiteSpace(input)) return defaultValue;
 
         return string.IsNullOrWhiteSpace(input)
             ? defaultValue

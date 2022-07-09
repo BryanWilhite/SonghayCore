@@ -17,7 +17,7 @@ public partial class XmlUtility
         Justification = "Specific functionality provided by the concrete type may be required.")]
     public static XPathDocument? InputAs<TIn>(TIn? input)
     {
-        if(input == null) return null;
+        if (input == null) return null;
 
         TIn? stronglyOfTIn = default(TIn);
         switch (stronglyOfTIn)

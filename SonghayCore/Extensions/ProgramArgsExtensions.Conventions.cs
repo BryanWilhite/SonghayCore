@@ -130,7 +130,8 @@ public static partial class ProgramArgsExtensions
     /// <exception cref="System.NullReferenceException">The expected argument key is not here.</exception>
     public static string ToConfigurationKey(this ProgramArgs? args, string argKey)
     {
-        if (string.IsNullOrWhiteSpace(argKey)) throw new NullReferenceException("The expected argument key is not here.");
+        if (string.IsNullOrWhiteSpace(argKey))
+            throw new NullReferenceException("The expected argument key is not here.");
 
         return argKey
             .TrimStart('-')
@@ -148,7 +149,8 @@ public static partial class ProgramArgsExtensions
         if (args == null) return null;
 
         if (!args.HelpSet.ContainsKey(ProgramArgs.BasePath))
-            args.HelpSet.Add(ProgramArgs.BasePath, "The path to the Directory where the Activity will set its context.");
+            args.HelpSet.Add(ProgramArgs.BasePath,
+                "The path to the Directory where the Activity will set its context.");
 
         if (!args.HelpSet.ContainsKey(ProgramArgs.BasePathRequired))
             args.HelpSet.Add(ProgramArgs.BasePathRequired, $"Indicates that {ProgramArgs.BasePath} is required.");
@@ -157,19 +159,23 @@ public static partial class ProgramArgsExtensions
             args.HelpSet.Add(ProgramArgs.Help, "Displays this help text.");
 
         if (!args.HelpSet.ContainsKey(ProgramArgs.InputFile))
-            args.HelpSet.Add(ProgramArgs.InputFile, $"The path to the file to load as Activity input. {ProgramArgs.InputString} can be used alternatively.");
+            args.HelpSet.Add(ProgramArgs.InputFile,
+                $"The path to the file to load as Activity input. {ProgramArgs.InputString} can be used alternatively.");
 
         if (!args.HelpSet.ContainsKey(ProgramArgs.InputString))
-            args.HelpSet.Add(ProgramArgs.InputString, $"The string literal used as Activity input. {ProgramArgs.InputFile} can be used alternatively.");
+            args.HelpSet.Add(ProgramArgs.InputString,
+                $"The string literal used as Activity input. {ProgramArgs.InputFile} can be used alternatively.");
 
         if (!args.HelpSet.ContainsKey(ProgramArgs.OutputFile))
-            args.HelpSet.Add(ProgramArgs.OutputFile, $"The path to the file to write as Activity output. This can be an absolute path or relative to {ProgramArgs.BasePath} when {ProgramArgs.OutputUnderBasePath} is used.");
+            args.HelpSet.Add(ProgramArgs.OutputFile,
+                $"The path to the file to write as Activity output. This can be an absolute path or relative to {ProgramArgs.BasePath} when {ProgramArgs.OutputUnderBasePath} is used.");
 
         if (!args.HelpSet.ContainsKey(ProgramArgs.OutputUnderBasePath))
             args.HelpSet.Add(ProgramArgs.OutputUnderBasePath, $"See {ProgramArgs.OutputFile}.");
 
         if (!args.HelpSet.ContainsKey(ProgramArgs.SettingsFile))
-            args.HelpSet.Add(ProgramArgs.SettingsFile, $"The path to the file to load as Activity Settings input. This can be an absolute path or relative to {ProgramArgs.BasePath}.");
+            args.HelpSet.Add(ProgramArgs.SettingsFile,
+                $"The path to the file to load as Activity Settings input. This can be an absolute path or relative to {ProgramArgs.BasePath}.");
 
         return args;
     }

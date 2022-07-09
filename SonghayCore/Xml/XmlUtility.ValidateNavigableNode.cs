@@ -46,7 +46,7 @@ public static partial class XmlUtility
     /// </param>
     public static XmlSchema? LoadXmlSchema(string? pathToSchema, ValidationEventHandler? eventHandler)
     {
-        if(string.IsNullOrWhiteSpace(pathToSchema)) throw new ArgumentNullException(nameof(pathToSchema));
+        if (string.IsNullOrWhiteSpace(pathToSchema)) throw new ArgumentNullException(nameof(pathToSchema));
         if (!File.Exists(pathToSchema)) throw new FileNotFoundException(nameof(pathToSchema));
         if (eventHandler == null) throw new ArgumentNullException(nameof(eventHandler));
 

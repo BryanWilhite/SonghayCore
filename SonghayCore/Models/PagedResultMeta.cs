@@ -19,11 +19,7 @@ public class PagedResultMeta
     /// <value>The page count.</value>
     public int PageCount
     {
-        get
-        {
-            return (PageSize > 0) ?
-                Convert.ToInt32(Math.Ceiling((TotalCount / PageSize) * 1d)) + 1 : 0;
-        }
+        get { return (PageSize > 0) ? Convert.ToInt32(Math.Ceiling((TotalCount / PageSize) * 1d)) + 1 : 0; }
     }
 
     /// <summary>

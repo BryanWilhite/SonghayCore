@@ -12,7 +12,7 @@ public static partial class ProgramUtility
     /// <returns>Returns formatted input.</returns>
     public static string? GetConsoleCharacters(string? input)
     {
-        if(string.IsNullOrWhiteSpace(input)) return null;
+        if (string.IsNullOrWhiteSpace(input)) return null;
 
         #region replace operations:
 

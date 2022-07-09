@@ -9,32 +9,24 @@ namespace Songhay.Models;
 public class MenuDisplayItemModel : ColorDisplayItemModel, IGroupable, ISelectable
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="MenuDisplayItemModel"/> class.
-    /// </summary>
-    public MenuDisplayItemModel()
-    {
-        ChildItems = Enumerable.Empty<MenuDisplayItemModel>().ToArray();
-    }
-
-    /// <summary>
     /// Gets or sets the child items.
     /// </summary>
     /// <value>
     /// The child items.
     /// </value>
-    public MenuDisplayItemModel[] ChildItems { get; set; }
+    public MenuDisplayItemModel[] ChildItems { get; set; } = Enumerable.Empty<MenuDisplayItemModel>().ToArray();
 
     #region IGroupable members:
 
     /// <summary>
     /// Display text of the Group
     /// </summary>
-    public string GroupDisplayText { get; set; }
+    public string? GroupDisplayText { get; set; }
 
     /// <summary>
     /// Identifier of the Group
     /// </summary>
-    public string GroupId { get; set; }
+    public string? GroupId { get; set; }
 
     /// <summary>
     /// Returns `true` when group is visually collapsed

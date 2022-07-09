@@ -35,7 +35,8 @@ public static partial class IActivityExtensions
     /// <exception cref="NullReferenceException">The expected IActivityOutput{TInput, TOutput} is not here.</exception>
     /// <exception cref="ArgumentNullException">The expected Activity name is not here.
     /// or</exception>
-    public static IActivityWithOutput<TInput?, TOutput?>? ToActivityWithOutput<TInput, TOutput>(this IActivity? activity, bool throwException)
+    public static IActivityWithOutput<TInput?, TOutput?>? ToActivityWithOutput<TInput, TOutput>(
+        this IActivity? activity, bool throwException)
     {
         if (activity == null) return null;
 
@@ -43,7 +44,8 @@ public static partial class IActivityExtensions
 
         return output switch
         {
-            null when throwException => throw new NullReferenceException($"The expected {nameof(IActivityWithOutput<TInput?, TOutput?>)} is not here."),
+            null when throwException => throw new NullReferenceException(
+                $"The expected {nameof(IActivityWithOutput<TInput?, TOutput?>)} is not here."),
             _ => output
         };
     }
@@ -74,7 +76,8 @@ public static partial class IActivityExtensions
     /// <exception cref="NullReferenceException">
     /// The expected IActivityWithTask{TInput, TOutput} is not here.
     /// </exception>
-    public static IActivityWithTask<TInput?, TOutput?>? ToActivityWithTask<TInput, TOutput>(this IActivity? activity, bool throwException)
+    public static IActivityWithTask<TInput?, TOutput?>? ToActivityWithTask<TInput, TOutput>(this IActivity? activity,
+        bool throwException)
     {
         if (activity == null) return null;
 
@@ -82,7 +85,8 @@ public static partial class IActivityExtensions
 
         return output switch
         {
-            null when throwException => throw new NullReferenceException($"The expected {nameof(IActivityWithTask<TInput, TOutput>)} is not here."),
+            null when throwException => throw new NullReferenceException(
+                $"The expected {nameof(IActivityWithTask<TInput, TOutput>)} is not here."),
             _ => output
         };
     }
@@ -119,7 +123,8 @@ public static partial class IActivityExtensions
 
         return output switch
         {
-            null when throwException => throw new NullReferenceException($"The expected {nameof(IActivityWithTask<TInput>)} is not here."),
+            null when throwException => throw new NullReferenceException(
+                $"The expected {nameof(IActivityWithTask<TInput>)} is not here."),
             _ => output
         };
     }
@@ -154,7 +159,8 @@ public static partial class IActivityExtensions
 
         return output switch
         {
-            null when throwException => throw new NullReferenceException($"The expected {nameof(IActivityWithTask)} is not here."),
+            null when throwException => throw new NullReferenceException(
+                $"The expected {nameof(IActivityWithTask)} is not here."),
             _ => output
         };
     }
@@ -183,7 +189,8 @@ public static partial class IActivityExtensions
     /// <exception cref="NullReferenceException">
     /// The expected IActivityWithTaskOutput{TOutput} is not here.
     /// </exception>
-    public static IActivityWithTaskOutput<TOutput?>? ToActivityWithTaskOutput<TOutput>(this IActivity? activity, bool throwException)
+    public static IActivityWithTaskOutput<TOutput?>? ToActivityWithTaskOutput<TOutput>(this IActivity? activity,
+        bool throwException)
     {
         if (activity == null) return null;
 
@@ -191,7 +198,8 @@ public static partial class IActivityExtensions
 
         return output switch
         {
-            null when throwException => throw new NullReferenceException($"The expected {nameof(IActivityWithTaskOutput<TOutput>)} is not here."),
+            null when throwException => throw new NullReferenceException(
+                $"The expected {nameof(IActivityWithTaskOutput<TOutput>)} is not here."),
             _ => output
         };
     }

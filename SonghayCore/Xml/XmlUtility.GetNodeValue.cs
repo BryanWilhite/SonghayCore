@@ -49,16 +49,21 @@ public static partial class XmlUtility
     /// The <see cref="System.Xml.XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
-    public static object? GetNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, object? defaultValue,
+    public static object? GetNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException,
+        object? defaultValue,
         XmlNamespaceManager? nsMan)
     {
         XPathNavigator? n = GetNavigableNode(node, nodeQuery, nsMan);
         object? p = defaultValue;
 
-        if(n != null) { if(n.Value.Trim().Length > 0) p = n.Value.Trim(); }
-        else if(throwException)
+        if (n != null)
         {
-            throw new XmlException(string.Format(CultureInfo.CurrentCulture, "Element at “{0}” was not found.", nodeQuery));
+            if (n.Value.Trim().Length > 0) p = n.Value.Trim();
+        }
+        else if (throwException)
+        {
+            throw new XmlException(string.Format(CultureInfo.CurrentCulture, "Element at “{0}” was not found.",
+                nodeQuery));
         }
 
         return p;
@@ -98,54 +103,55 @@ public static partial class XmlUtility
         {
             T? stronglyT = default(T);
 
-            if(p == null || string.IsNullOrWhiteSpace(p.ToString()?.Trim()))
+            if (p == null || string.IsNullOrWhiteSpace(p.ToString()?.Trim()))
             {
                 p = defaultValue;
             }
-            else switch (stronglyT)
-            {
-                case bool:
-                    p = bool.Parse(p.ToString() ?? string.Empty);
-                    break;
-                case byte:
-                    p = Byte.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                    break;
-                case DateTime:
-                    p = DateTime.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                    break;
-                case decimal:
-                    p = Decimal.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                    break;
-                case double:
-                    p = Double.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                    break;
-                case short:
-                    p = Int16.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                    break;
-                case int:
-                    p = Int32.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                    break;
-                case long:
-                    p = Int64.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                    break;
-                default:
+            else
+                switch (stronglyT)
                 {
-                    if(typeof(T).IsAssignableFrom(typeof(string)))
+                    case bool:
+                        p = bool.Parse(p.ToString() ?? string.Empty);
+                        break;
+                    case byte:
+                        p = Byte.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        break;
+                    case DateTime:
+                        p = DateTime.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        break;
+                    case decimal:
+                        p = Decimal.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        break;
+                    case double:
+                        p = Double.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        break;
+                    case short:
+                        p = Int16.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        break;
+                    case int:
+                        p = Int32.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        break;
+                    case long:
+                        p = Int64.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        break;
+                    default:
                     {
-                        p = p.ToString();
-                    }
-                    else
-                    {
-                        Type t = typeof(T);
-                        throw new ArgumentException(string.Format(CultureInfo.CurrentCulture,
-                            "The specified type, “{0},” is not supported.", t.FullName));
-                    }
+                        if (typeof(T).IsAssignableFrom(typeof(string)))
+                        {
+                            p = p.ToString();
+                        }
+                        else
+                        {
+                            Type t = typeof(T);
+                            throw new ArgumentException(string.Format(CultureInfo.CurrentCulture,
+                                "The specified type, “{0},” is not supported.", t.FullName));
+                        }
 
-                    break;
+                        break;
+                    }
                 }
-            }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Type t = typeof(T);
             var errMsg = string.Format(CultureInfo.CurrentCulture,

@@ -12,7 +12,7 @@ namespace Songhay.Models;
 /// </summary>
 [Serializable]
 [XmlRoot(ElementName = "outline")]
-[DataContract(Name ="outline")]
+[DataContract(Name = "outline")]
 public class OpmlOutline
 {
     /// <summary>

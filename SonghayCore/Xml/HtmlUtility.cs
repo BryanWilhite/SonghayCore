@@ -46,6 +46,7 @@ public static class HtmlUtility
                     = strReplace.Replace(mAttr.Value,
                         string.Concat(" ", mAttr.Groups[1].Value));
             }
+
             inputValue = inputValue.Replace(mTag.Value, strReplace);
         }
 
@@ -123,7 +124,8 @@ public static class HtmlUtility
 
         //Maximize selected empty minimized block elements.
         string newValue;
-        foreach (Match m in Regex.Matches(xmlFragment, @"<(a|iframe|td|th|script)\s+[^>]*\s*(\/>)", RegexOptions.IgnoreCase))
+        foreach (Match m in Regex.Matches(xmlFragment, @"<(a|iframe|td|th|script)\s+[^>]*\s*(\/>)",
+                     RegexOptions.IgnoreCase))
         {
             if (m.Groups.Count == 2)
             {
@@ -181,7 +183,8 @@ public static class HtmlUtility
     /// A public <c>DOCTYPE</c> tag.
     /// </returns>
     public static string PublicDocType(string? rootElement = "html",
-        string? publicIdentifier = "-//W3C//DTD XHTML 1.0 Transitional//EN", string? resourceReference = "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd") =>
+        string? publicIdentifier = "-//W3C//DTD XHTML 1.0 Transitional//EN",
+        string? resourceReference = "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd") =>
         string.Format(CultureInfo.InvariantCulture, "<!DOCTYPE {0} PUBLIC \"{1}\" \"{2}\">",
             rootElement, publicIdentifier, resourceReference);
 
@@ -193,7 +196,8 @@ public static class HtmlUtility
         if (match.Groups.Count != 2) return s;
 
         var group1Value = match.Groups[1].Value;
-        s = match.Groups[0].Value.Replace(group1Value, string.Format(CultureInfo.InvariantCulture, @"{0}=""{0}""", group1Value));
+        s = match.Groups[0].Value.Replace(group1Value,
+            string.Format(CultureInfo.InvariantCulture, @"{0}=""{0}""", group1Value));
 
         return s;
     }
@@ -215,7 +219,7 @@ public static class HtmlUtility
 
         var placeholderPrefix = "!*m";
         var placeholderTemplate = string.Concat(placeholderPrefix, "{0}");
-        
+
         //remove strings between quotes:
         var betweenQuotes = Regex.Matches(s, @"([""'])(?:(?=(\\?))\2.)*?\1", RegexOptions.IgnoreCase);
         foreach (Match m in betweenQuotes)
@@ -228,11 +232,11 @@ public static class HtmlUtility
         var possibilities = Regex.Matches(s, @"(\b[^\s]+\b)", RegexOptions.IgnoreCase);
         foreach (Match m in possibilities)
         {
-            if(m.Index == 1) continue; //match should not be element name
+            if (m.Index == 1) continue; //match should not be element name
             if (m.Value.Contains('=')) continue; //match should not be attribute-value pair
             s = s.Replace(m.Value, string.Format(@"{0}=""{0}""", m.Value));
         }
-        
+
         //restore strings between quotes:
         foreach (Match m in betweenQuotes)
         {

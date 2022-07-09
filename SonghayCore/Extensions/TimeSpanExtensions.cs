@@ -24,7 +24,7 @@ public static class TimeSpanExtensions
     {
         var days = new List<DateTime>(span.Days);
 
-        for(int i = 0; i < span.Days; i++)
+        for (int i = 0; i < span.Days; i++)
         {
             days.Add(startDate.AddDays(i));
         }

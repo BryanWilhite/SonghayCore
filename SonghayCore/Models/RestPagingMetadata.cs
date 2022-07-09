@@ -62,7 +62,7 @@ public class RestPagingMetadata
     /// <value>
     /// The next URI.
     /// </value>
-    public string NextUri { get; set; }
+    public string? NextUri { get; set; }
 
     /// <summary>
     /// Gets or sets the previous URI.
@@ -70,13 +70,13 @@ public class RestPagingMetadata
     /// <value>
     /// The previous URI.
     /// </value>
-    public string PreviousUri { get; set; }
+    public string? PreviousUri { get; set; }
 
     /// <summary>
     /// Returns the shallow copy from <see cref="object.MemberwiseClone"/>.
     /// </summary>
     /// <returns></returns>
-    public RestPagingMetadata ToShallowCopy()
+    public RestPagingMetadata? ToShallowCopy()
     {
         return MemberwiseClone() as RestPagingMetadata;
     }
@@ -90,14 +90,14 @@ public class RestPagingMetadata
     public override string ToString()
     {
         var sb = new StringBuilder();
-        sb.AppendFormat("resultSetSize: {0}, totalSetSize: {1}, startPosition: {2}, endPosition: {3}",
-            ResultSetSize, TotalSetSize, StartPosition, EndPosition);
+        sb.Append(
+            $"resultSetSize: {ResultSetSize}, totalSetSize: {TotalSetSize}, startPosition: {StartPosition}, endPosition: {EndPosition}");
 
-        if (FromDate != null) sb.AppendFormat(", fromDate: {0}", FromDate);
-        if (ToDate != null) sb.AppendFormat(", toDate: {0}", ToDate);
-        if (NextUri != null) sb.AppendFormat(", nextUri: {0}", NextUri);
-        if (PreviousUri != null) sb.AppendFormat(", previousUri: {0}", PreviousUri);
+        if (FromDate != null) sb.Append($", fromDate: {FromDate}");
+        if (ToDate != null) sb.Append($", toDate: {ToDate}");
+        if (NextUri != null) sb.Append($", nextUri: {NextUri}");
+        if (PreviousUri != null) sb.Append($", previousUri: {PreviousUri}");
 
-        return (sb.Length > 0) ? sb.ToString() : base.ToString();
+        return sb.Length > 0 ? sb.ToString() : base.ToString() ?? GetType().Name;
     }
 }

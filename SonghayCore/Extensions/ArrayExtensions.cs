@@ -25,7 +25,7 @@ public static class ArrayExtensions
 
         if (indexOfKey >= array.Length) return default(T);
 
-        return (T)array.GetValue(indexOfKey)!;
+        return (T) array.GetValue(indexOfKey)!;
     }
 
     /// <summary>
@@ -44,6 +44,6 @@ public static class ArrayExtensions
 
         if (indexOfKey < 0) return default(T);
 
-        return (T)array.GetValue(indexOfKey)!;
+        return (T) array.GetValue(indexOfKey)!;
     }
 }

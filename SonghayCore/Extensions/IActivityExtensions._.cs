@@ -245,7 +245,8 @@ public static partial class IActivityExtensions
     /// <param name="flushLog">when <c>true</c> return <see cref="TraceSource"/> log</param>
     /// <returns>The the <see cref="TraceSource"/> log when <c>flushLog</c> is <c>true</c>; otherwise, <c>null</c>.</returns>
     /// <exception cref="NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
-    public static async Task<string?> StartActivityAsync(this IActivity? activity, TraceSource? traceSource, Func<TextWriter>? traceWriterGetter, bool flushLog)
+    public static async Task<string?> StartActivityAsync(this IActivity? activity, TraceSource? traceSource,
+        Func<TextWriter>? traceWriterGetter, bool flushLog)
     {
         if (activity == null) throw new NullReferenceException($"The expected {nameof(IActivity)} is not here.");
 

@@ -45,8 +45,8 @@ public static partial class XmlUtility
     public static XPathDocument GetXslResult(IXPathNavigable? xslSet, XsltArgumentList? xslArgs,
         IXPathNavigable? navigableSet)
     {
-        if(xslSet == null) throw new ArgumentNullException(nameof(xslSet));
-        if(navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
+        if (xslSet == null) throw new ArgumentNullException(nameof(xslSet));
+        if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
 
         XslCompiledTransform xslt = new XslCompiledTransform(false);
         xslt.Load(xslSet);
@@ -54,7 +54,7 @@ public static partial class XmlUtility
         var navigator = navigableSet.CreateNavigator().EnsureXPathNavigator();
 
         using MemoryStream ms = new MemoryStream();
-        using(StringReader sr = new StringReader(navigator.OuterXml))
+        using (StringReader sr = new StringReader(navigator.OuterXml))
         {
             XmlReader reader = XmlReader.Create(sr);
             XmlWriter writer = XmlWriter.Create(ms);

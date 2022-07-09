@@ -15,7 +15,7 @@ public class ProgramArgs
     public ProgramArgs(string[] args)
     {
         Args = args;
-        if ((args != null) && args.Any()) HelpSet = new Dictionary<string, string>(capacity: args.Length);
+        if (args.Any()) HelpSet = new Dictionary<string, string>(capacity: args.Length);
     }
 
     /// <summary>
@@ -64,7 +64,7 @@ public class ProgramArgs
     /// <value>
     /// The arguments.
     /// </value>
-    public string[] Args { get; private set; }
+    public string[] Args { get; }
 
     /// <summary>
     /// Gets the help set.
@@ -72,5 +72,5 @@ public class ProgramArgs
     /// <value>
     /// The help set.
     /// </value>
-    public Dictionary<string, string> HelpSet { get; private set; }
+    public Dictionary<string, string> HelpSet { get; } = new();
 }

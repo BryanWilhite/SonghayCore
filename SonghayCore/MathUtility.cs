@@ -14,8 +14,8 @@ public static class MathUtility
     /// <param name="place">The place (from right to left).</param>
     public static byte? GetDigitInNumber(int x, int place)
     {
-        var d = (int)Math.Pow(10, place - 1);
-        if(d < 0) return null;
+        var d = (int) Math.Pow(10, place - 1);
+        if (d < 0) return null;
 
         return Convert.ToByte((x / d) % 10);
     }

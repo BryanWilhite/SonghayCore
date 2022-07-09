@@ -49,7 +49,8 @@ public static partial class XmlUtility
     /// <param name="messageHeader">Message header</param>
     /// <param name="messageCode">Message code for errors, exceptions or faults</param>
     /// <param name="messageLines">Message lines</param>
-    public static string GetInternalMessage(string? messageHeader, string? messageCode, IEnumerable<string>? messageLines)
+    public static string GetInternalMessage(string? messageHeader, string? messageCode,
+        IEnumerable<string>? messageLines)
     {
         var sb = new StringBuilder();
         sb.AppendLine("<InternalMessage>");

@@ -28,7 +28,8 @@ public static partial class XmlUtility
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     /// <param name="testValue">The specified value to test with the node value.</param>
     /// <param name="comparisonType">The <see cref="System.StringComparison"/> type.</param>
-    public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue, StringComparison comparisonType)
+    public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue,
+        StringComparison comparisonType)
     {
         string? s = GetNodeValue(node, nodeQuery, throwException) as string;
 
@@ -46,7 +47,8 @@ public static partial class XmlUtility
     /// The <see cref="System.Xml.XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
-    public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue, XmlNamespaceManager nsMan)
+    public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue,
+        XmlNamespaceManager nsMan)
     {
         string? s = GetNodeValue(node, nodeQuery, throwException, null, nsMan) as string;
 
@@ -65,7 +67,8 @@ public static partial class XmlUtility
     /// to use to resolve prefixes.
     /// </param>
     /// <param name="comparisonType">The <see cref="System.StringComparison"/> type.</param>
-    public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue, XmlNamespaceManager nsMan, StringComparison comparisonType)
+    public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue,
+        XmlNamespaceManager nsMan, StringComparison comparisonType)
     {
         string? s = GetNodeValue(node, nodeQuery, throwException, null, nsMan) as string;
 

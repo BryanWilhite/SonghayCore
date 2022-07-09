@@ -159,7 +159,5 @@ public static class TraceSourceExtensions
     public static void WriteLine(this TraceSource? traceSource, string format, params object[] args) =>
         traceSource?.TraceEvent(TraceEventType.Information, ++_eventId, format, args);
 
-    [ThreadStatic]
-    static int _eventId;
-
+    [ThreadStatic] static int _eventId;
 }

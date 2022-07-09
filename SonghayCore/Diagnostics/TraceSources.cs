@@ -87,8 +87,6 @@ public class TraceSources
 
     static class Nested
     {
-        static Nested() { }
-
         internal static readonly TraceSources NestedInstance = new();
     }
 

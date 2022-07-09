@@ -56,7 +56,6 @@ public static partial class HttpRequestMessageExtensions
             .ConfigureAwait(continueOnCapturedContext: false);
 
         return content;
-
     }
 
     /// <summary>

@@ -37,7 +37,7 @@ public static partial class XmlUtility
     public static XPathDocument? CombineNavigableDocuments(IXPathNavigable? parentDocument,
         IXPathNavigable? childDocument, string? nodeQuery)
     {
-        if(parentDocument == null || childDocument == null) return null;
+        if (parentDocument == null || childDocument == null) return null;
 
         var dom = new XmlDocument();
         XPathNavigator? domNavigator = dom.CreateNavigator();

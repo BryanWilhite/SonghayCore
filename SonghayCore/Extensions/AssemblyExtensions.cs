@@ -9,7 +9,7 @@ public static class AssemblyExtensions
     /// <summary>Gets the path from assembly.</summary>
     /// <param name="assembly">The assembly.</param>
     /// <exception cref="ArgumentNullException">assembly - The expected assembly is not here.</exception>
-    public static string GetPathFromAssembly(this Assembly assembly) =>
+    public static string? GetPathFromAssembly(this Assembly assembly) =>
         ProgramAssemblyUtility.GetPathFromAssembly(assembly);
 
     /// <summary>Gets the path from assembly.</summary>

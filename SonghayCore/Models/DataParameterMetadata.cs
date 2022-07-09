@@ -8,21 +8,12 @@ namespace Songhay.Models;
 public class DataParameterMetadata
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="DataParameterMetadata"/> class.
-    /// </summary>
-    public DataParameterMetadata()
-    {
-        DataRowVersion = DataRowVersion.Default;
-        ParameterDirection = ParameterDirection.Input;
-    }
-
-    /// <summary>
     /// Gets or sets the data row version.
     /// </summary>
     /// <value>
     /// The data row version.
     /// </value>
-    public DataRowVersion DataRowVersion { get; set; }
+    public DataRowVersion DataRowVersion { get; set; } = DataRowVersion.Default;
 
     /// <summary>
     /// Gets or sets the type of the database.
@@ -38,7 +29,7 @@ public class DataParameterMetadata
     /// <value>
     /// The parameter direction.
     /// </value>
-    public ParameterDirection ParameterDirection { get; set; }
+    public ParameterDirection ParameterDirection { get; set; } = ParameterDirection.Input;
 
     /// <summary>
     /// Gets or sets the name of the parameter.
@@ -46,14 +37,15 @@ public class DataParameterMetadata
     /// <value>
     /// The name of the parameter.
     /// </value>
-    public string ParameterName { get; set; }
+    public string? ParameterName { get; set; }
+
     /// <summary>
     /// Gets or sets the parameter value.
     /// </summary>
     /// <value>
     /// The parameter value.
     /// </value>
-    public object ParameterValue { get; set; }
+    public object? ParameterValue { get; set; }
 
     /// <summary>
     /// Gets or sets the source column.
@@ -61,5 +53,5 @@ public class DataParameterMetadata
     /// <value>
     /// The source column.
     /// </value>
-    public string SourceColumn { get; set; }
+    public string? SourceColumn { get; set; }
 }

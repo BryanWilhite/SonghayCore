@@ -17,13 +17,12 @@ public static partial class ProgramUtility
     /// <param name="listener">The listener.</param>
     public static TraceSource? InitializeTraceSource(TraceListener? listener)
     {
-
         var traceSource = TraceSources
             .Instance
             .GetTraceSourceFromConfiguredName()
             .WithSourceLevels();
 
-        if (listener!= null) traceSource?.Listeners.Add(listener);
+        if (listener != null) traceSource?.Listeners.Add(listener);
 
         return traceSource;
     }
@@ -57,7 +56,6 @@ public static partial class ProgramUtility
         Func<IConfigurationBuilder, IConfigurationBuilder>? builderModifier,
         params string[] requiredJsonConfigurationFiles)
     {
-
         Console.WriteLine("Loading configuration...");
 
         var builder = new ConfigurationBuilder()

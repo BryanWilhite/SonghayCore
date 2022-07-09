@@ -33,7 +33,7 @@ public static partial class XhtmlDocumentUtility
             {
                 var uri = string.Concat(publicRoot, f.Name);
                 var d = LoadDocument(f.FullName, uri);
-                if(d != null) list.Add(d);
+                if (d != null) list.Add(d);
             });
 
         var serializer = new XmlSerializer(typeof(XhtmlDocuments));

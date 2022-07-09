@@ -16,7 +16,8 @@ public static class UriTemplateExtensions
     /// <param name="template">The template.</param>
     /// <param name="values">The values.</param>
     /// <returns></returns>
-    public static Uri? BindByPosition(this UriTemplate? template, params string[] values) => template.BindByPosition(baseUri: null, values: values);
+    public static Uri? BindByPosition(this UriTemplate? template, params string[] values) =>
+        template.BindByPosition(baseUri: null, values: values);
 
     /// <summary>
     /// Binds the <see cref="UriTemplate" />

@@ -1,5 +1,4 @@
-﻿
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines the meta-data of an Application resource.

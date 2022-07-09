@@ -31,7 +31,7 @@ public static partial class XmlUtility
     /// <returns>Returns the specified <see cref="System.Type"/>.</returns>
     public static TOut? OutputAs<TOut>(IXPathNavigable? navigableDocument) where TOut : class
     {
-        if(navigableDocument == null) return default;
+        if (navigableDocument == null) return default;
 
         if (typeof(TOut).IsAssignableFrom(typeof(string)))
         {

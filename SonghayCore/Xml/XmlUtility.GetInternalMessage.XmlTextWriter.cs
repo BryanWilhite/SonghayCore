@@ -54,7 +54,7 @@ public static partial class XmlUtility
     public static void GetInternalMessage(string? messageHeader, string? messageCode, string[]? messageLines,
         XmlWriter? xmlDataWriter, bool isFragment)
     {
-        if(xmlDataWriter == null) throw new ArgumentNullException(nameof(xmlDataWriter));
+        if (xmlDataWriter == null) throw new ArgumentNullException(nameof(xmlDataWriter));
 
         if (!isFragment) xmlDataWriter.WriteStartDocument();
         xmlDataWriter.WriteStartElement("InternalMessage");

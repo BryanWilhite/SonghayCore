@@ -50,7 +50,7 @@ public static class MenuDisplayItemModelExtensions
         if (data == null) return null;
         if (child == null) return data;
 
-        data.ChildItems = new MenuDisplayItemModel[] { child };
+        data.ChildItems = new MenuDisplayItemModel[] {child};
 
         return data;
     }

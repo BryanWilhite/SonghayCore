@@ -312,7 +312,7 @@ public static partial class ProgramTypeUtility
     {
         var isDefined = !string.IsNullOrWhiteSpace(value) && Enum.IsDefined(typeof(TEnum), value);
 
-        return isDefined ? (TEnum)Enum.Parse(typeof(TEnum), value) : defaultValue;
+        return isDefined ? (TEnum) Enum.Parse(typeof(TEnum), value) : defaultValue;
     }
 
     /// <summary>
@@ -452,7 +452,7 @@ public static partial class ProgramTypeUtility
         if (!TryParseRfc3339DateTime(value, out var minValue))
         {
             throw new FormatException(string.Format(CultureInfo.CurrentCulture,
-                "'{0}' is not a valid RFC-3339 formatted date-time value.", new object[] { value }));
+                "'{0}' is not a valid RFC-3339 formatted date-time value.", new object[] {value}));
         }
 
         return minValue;
@@ -471,7 +471,8 @@ public static partial class ProgramTypeUtility
 
         if (!TryParseRfc822DateTime(value, out var minValue))
         {
-            throw new FormatException(string.Format(CultureInfo.CurrentCulture, "'{0}' is not a valid RFC-822 formatted date-time value.", new object[] { value }));
+            throw new FormatException(string.Format(CultureInfo.CurrentCulture,
+                "'{0}' is not a valid RFC-822 formatted date-time value.", new object[] {value}));
         }
 
         return minValue;
@@ -545,7 +546,8 @@ public static partial class ProgramTypeUtility
             return false;
         }
 
-        return DateTime.TryParseExact(ReplaceRfc822TimeZoneWithOffset(value), formats, dateTimeFormat, DateTimeStyles.None, out result);
+        return DateTime.TryParseExact(ReplaceRfc822TimeZoneWithOffset(value), formats, dateTimeFormat,
+            DateTimeStyles.None, out result);
     }
 
     static string ReplaceRfc822TimeZoneWithOffset(string? value)
@@ -555,59 +557,85 @@ public static partial class ProgramTypeUtility
         value = value.Trim();
         if (value.EndsWith("UT", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}GMT", new object[] { value.TrimEnd("UT".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}GMT",
+                new object[] {value.TrimEnd("UT".ToCharArray())});
         }
+
         if (value.EndsWith("EST", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}-05:00", new object[] { value.TrimEnd("EST".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}-05:00",
+                new object[] {value.TrimEnd("EST".ToCharArray())});
         }
+
         if (value.EndsWith("EDT", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}-04:00", new object[] { value.TrimEnd("EDT".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}-04:00",
+                new object[] {value.TrimEnd("EDT".ToCharArray())});
         }
+
         if (value.EndsWith("CST", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}-06:00", new object[] { value.TrimEnd("CST".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}-06:00",
+                new object[] {value.TrimEnd("CST".ToCharArray())});
         }
+
         if (value.EndsWith("CDT", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}-05:00", new object[] { value.TrimEnd("CDT".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}-05:00",
+                new object[] {value.TrimEnd("CDT".ToCharArray())});
         }
+
         if (value.EndsWith("MST", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}-07:00", new object[] { value.TrimEnd("MST".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}-07:00",
+                new object[] {value.TrimEnd("MST".ToCharArray())});
         }
+
         if (value.EndsWith("MDT", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}-06:00", new object[] { value.TrimEnd("MDT".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}-06:00",
+                new object[] {value.TrimEnd("MDT".ToCharArray())});
         }
+
         if (value.EndsWith("PST", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}-08:00", new object[] { value.TrimEnd("PST".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}-08:00",
+                new object[] {value.TrimEnd("PST".ToCharArray())});
         }
+
         if (value.EndsWith("PDT", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}-07:00", new object[] { value.TrimEnd("PDT".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}-07:00",
+                new object[] {value.TrimEnd("PDT".ToCharArray())});
         }
+
         if (value.EndsWith("Z", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}GMT", new object[] { value.TrimEnd("Z".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}GMT", new object[] {value.TrimEnd("Z".ToCharArray())});
         }
+
         if (value.EndsWith("A", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}-01:00", new object[] { value.TrimEnd("A".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}-01:00",
+                new object[] {value.TrimEnd("A".ToCharArray())});
         }
+
         if (value.EndsWith("M", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}-12:00", new object[] { value.TrimEnd("M".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}-12:00",
+                new object[] {value.TrimEnd("M".ToCharArray())});
         }
+
         if (value.EndsWith("N", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}+01:00", new object[] { value.TrimEnd("N".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}+01:00",
+                new object[] {value.TrimEnd("N".ToCharArray())});
         }
+
         if (value.EndsWith("Y", StringComparison.OrdinalIgnoreCase))
         {
-            return string.Format(CultureInfo.CurrentCulture, "{0}+12:00", new object[] { value.TrimEnd("Y".ToCharArray()) });
+            return string.Format(CultureInfo.CurrentCulture, "{0}+12:00",
+                new object[] {value.TrimEnd("Y".ToCharArray())});
         }
 
         return value;

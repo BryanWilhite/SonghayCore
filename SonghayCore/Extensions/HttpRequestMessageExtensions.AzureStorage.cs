@@ -76,7 +76,7 @@ public static partial class HttpRequestMessageExtensions
         var xMsHeaders = request.Headers
             .Where(pair => pair.Key.StartsWith("x-ms-", StringComparison.OrdinalIgnoreCase))
             .OrderBy(pair => pair.Key)
-            .Select(pair => new { Key = pair.Key.ToLowerInvariant(), pair.Value });
+            .Select(pair => new {Key = pair.Key.ToLowerInvariant(), pair.Value});
 
         var sb = new StringBuilder();
 
@@ -94,8 +94,10 @@ public static partial class HttpRequestMessageExtensions
                 //   if there are multiple values for one of the headers.
                 separator = ',';
             }
+
             sb.Append(innerBuilder.ToString()).Append("\n");
         }
+
         return sb.ToString();
     }
 

@@ -182,7 +182,8 @@ public static class OpmlUtility
         var data = new OpmlDocument
         {
             OpmlBody = GetBody(root.Descendants("body").FirstOrDefault()),
-            OpmlHead = GetHead(root.Descendants("head").FirstOrDefault(), "ownerEmail", "ownerName", "title", "dateCreated", "dateModified")
+            OpmlHead = GetHead(root.Descendants("head").FirstOrDefault(), "ownerEmail", "ownerName", "title",
+                "dateCreated", "dateModified")
         };
 
         return data;

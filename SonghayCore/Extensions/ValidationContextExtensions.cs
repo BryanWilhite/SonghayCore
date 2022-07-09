@@ -14,7 +14,7 @@ namespace Songhay.Extensions;
 /// The use of these methods should be the last resort
 /// after deferring to a NuGet package like FluentValidation.
 /// </remarks>
-public static class ValidationContextExtensions 
+public static class ValidationContextExtensions
 {
     /// <summary>
     /// Converts the <see cref="ValidationResult"/> into a display text.
@@ -43,10 +43,10 @@ public static class ValidationContextExtensions
         builder.AppendLine();
 
         foreach (var result in results)
-        { 
+        {
             builder.Append(result.ToDisplayText());
             builder.AppendLine();
-        } 
+        }
 
         return builder.ToString();
     }

@@ -80,7 +80,8 @@ public static partial class ProgramArgsExtensions
             {
                 var count = (maxLength - pair.Key.Length) + padding;
                 var spaces = Enumerable.Repeat(" ", count).ToArray();
-                return $"{pair.Key}{string.Join(string.Empty, spaces)}{pair.Value}{Environment.NewLine}{Environment.NewLine}";
+                return
+                    $"{pair.Key}{string.Join(string.Empty, spaces)}{pair.Value}{Environment.NewLine}{Environment.NewLine}";
             })
             .Aggregate((a, i) => $"{a}{i}");
     }

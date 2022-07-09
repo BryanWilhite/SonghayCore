@@ -19,7 +19,9 @@ public static class OpenAuthorizationDataExtensions
     {
         if (twitterBaseUri == null) return null;
 
-        return string.IsNullOrWhiteSpace(screenName) ? null : new Uri(twitterBaseUri.OriginalString + "?screen_name=" + Uri.EscapeDataString(screenName));
+        return string.IsNullOrWhiteSpace(screenName)
+            ? null
+            : new Uri(twitterBaseUri.OriginalString + "?screen_name=" + Uri.EscapeDataString(screenName));
     }
 
     /// <summary>
@@ -65,9 +67,11 @@ public static class OpenAuthorizationDataExtensions
             data.Version,
             Uri.EscapeDataString(screenName));
 
-        baseString = string.Concat(httpMethod.ToUpper(),"&", Uri.EscapeDataString(twitterBaseUri.OriginalString), "&", Uri.EscapeDataString(baseString));
+        baseString = string.Concat(httpMethod.ToUpper(), "&", Uri.EscapeDataString(twitterBaseUri.OriginalString), "&",
+            Uri.EscapeDataString(baseString));
 
-        var compositeKey = string.Concat(Uri.EscapeDataString(data.ConsumerSecret), "&", Uri.EscapeDataString(data.TokenSecret));
+        var compositeKey = string.Concat(Uri.EscapeDataString(data.ConsumerSecret ?? string.Empty), "&",
+            Uri.EscapeDataString(data.TokenSecret ?? string.Empty));
 
         using HMACSHA1 hasher = new HMACSHA1(Encoding.ASCII.GetBytes(compositeKey));
 
@@ -80,13 +84,13 @@ public static class OpenAuthorizationDataExtensions
             "oauth_version=\"{6}\"";
 
         var authHeader = string.Format(headerFormat,
-            Uri.EscapeDataString(data.Nonce),
-            Uri.EscapeDataString(data.SignatureMethod),
-            Uri.EscapeDataString(data.TimeStamp),
-            Uri.EscapeDataString(data.ConsumerKey),
-            Uri.EscapeDataString(data.Token),
+            Uri.EscapeDataString(data.Nonce ?? string.Empty),
+            Uri.EscapeDataString(data.SignatureMethod ?? string.Empty),
+            Uri.EscapeDataString(data.TimeStamp ?? string.Empty),
+            Uri.EscapeDataString(data.ConsumerKey ?? string.Empty),
+            Uri.EscapeDataString(data.Token ?? string.Empty),
             Uri.EscapeDataString(signature),
-            Uri.EscapeDataString(data.Version));
+            Uri.EscapeDataString(data.Version ?? string.Empty));
 
         return authHeader;
     }

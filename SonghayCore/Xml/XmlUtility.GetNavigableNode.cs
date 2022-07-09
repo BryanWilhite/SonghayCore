@@ -52,7 +52,8 @@ public static partial class XmlUtility
     /// The <see cref="System.Xml.XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
-    public static XPathNavigator? GetNavigableNode(IXPathNavigable? navigable, string? nodeQuery, XmlNamespaceManager? nsMan)
+    public static XPathNavigator? GetNavigableNode(IXPathNavigable? navigable, string? nodeQuery,
+        XmlNamespaceManager? nsMan)
     {
         if (navigable == null) return null;
         if (string.IsNullOrWhiteSpace(nodeQuery)) return null;
@@ -103,7 +104,8 @@ public static partial class XmlUtility
     /// The <see cref="System.Xml.XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
-    public static XPathNodeIterator? GetNavigableNodes(IXPathNavigable? navigable, string? nodeQuery, XmlNamespaceManager nsMan)
+    public static XPathNodeIterator? GetNavigableNodes(IXPathNavigable? navigable, string? nodeQuery,
+        XmlNamespaceManager nsMan)
     {
         if (navigable == null) return null;
         if (string.IsNullOrWhiteSpace(nodeQuery)) return null;

@@ -47,7 +47,7 @@ public static partial class XmlUtility
     /// The <see cref="System.Xml.XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
-    [Obsolete("Should be replaced with XmlUtility.GetNodeValue.")] 
+    [Obsolete("Should be replaced with XmlUtility.GetNodeValue.")]
     public static string? GetAttributeValue(IXPathNavigable? navigable, string? nodeQuery, XmlNamespaceManager nsMan)
     {
         XPathNavigator? node = GetNavigableNode(navigable, nodeQuery, nsMan);

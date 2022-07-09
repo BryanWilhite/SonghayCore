@@ -46,23 +46,25 @@ public static partial class XmlUtility
     /// <param name="xslArgs">The <see cref="System.Xml.Xsl.XsltArgumentList"/>.</param>
     /// <param name="navigableXml">The source <see cref="System.Xml.XPath.IXPathNavigable"/> XML document.</param>
     /// <param name="settings">The settings.</param>
-    public static string? GetXslString(IXPathNavigable? navigableXsl, XsltArgumentList? xslArgs, IXPathNavigable? navigableXml,
+    public static string? GetXslString(IXPathNavigable? navigableXsl, XsltArgumentList? xslArgs,
+        IXPathNavigable? navigableXml,
         XmlWriterSettings? settings)
     {
-        if(navigableXsl == null) throw new ArgumentNullException(nameof(navigableXsl));
-        if(navigableXml == null) throw new ArgumentNullException(nameof(navigableXml));
+        if (navigableXsl == null) throw new ArgumentNullException(nameof(navigableXsl));
+        if (navigableXml == null) throw new ArgumentNullException(nameof(navigableXml));
         var navigator = navigableXml.CreateNavigator().EnsureXPathNavigator();
 
         XslCompiledTransform xslt = new XslCompiledTransform(false);
         xslt.Load(navigableXsl);
 
         using MemoryStream ms = new MemoryStream();
-        using(StringReader sr = new StringReader(navigator.OuterXml))
+        using (StringReader sr = new StringReader(navigator.OuterXml))
         {
             XmlReader reader = XmlReader.Create(sr);
             XmlWriter writer = (settings != null) ? XmlWriter.Create(ms, settings) : XmlWriter.Create(ms);
             xslt.Transform(reader, xslArgs, writer, null);
         }
+
         ms.Position = 0;
 
         var ret = GetText(ms);

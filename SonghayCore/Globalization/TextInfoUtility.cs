@@ -42,8 +42,9 @@ public static class TextInfoUtility
         var words = input.Split(' ')
             .Skip(1)
             .Select(word => EnglishWordsNotCapitalized
-                .Contains(word.ToLowerInvariant()) ?
-                word.ToLowerInvariant() : word);
+                .Contains(word.ToLowerInvariant())
+                ? word.ToLowerInvariant()
+                : word);
         input = $"{firstWord} {string.Join(" ", words.ToArray())}";
 
         return input;

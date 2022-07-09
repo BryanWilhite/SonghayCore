@@ -66,7 +66,6 @@ public class CsvExporter<T> where T : class
     /// <param name="includeHeaderLine">if set to <c>true</c> [include header line].</param>
     public string Export(bool includeHeaderLine)
     {
-
         var sb = new StringBuilder();
         IList<PropertyInfo> propertyInfoList = typeof(T).GetProperties();
 
@@ -86,6 +85,7 @@ public class CsvExporter<T> where T : class
                     sb.Append(propertyInfo.Name).Append(',');
                 }
             }
+
             sb.Remove(sb.Length - 1, 1).AppendLine();
         }
 
@@ -106,6 +106,7 @@ public class CsvExporter<T> where T : class
                     sb.Append(MakeCsvText(propertyInfo.GetValue(obj, null))).Append(",");
                 }
             }
+
             sb.Remove(sb.Length - 1, 1).AppendLine();
         }
 
@@ -138,6 +139,5 @@ public class CsvExporter<T> where T : class
             output = '"' + output.Replace("\"", "\"\"") + '"';
 
         return output;
-
     }
 }

@@ -19,7 +19,7 @@ public static class EnvironmentExtensions
     /// </summary>
     /// <param name="conventionalName">Name of the conventional.</param>
     /// <returns>Returns the value of named data.</returns>
-    public static string GetConventionalValue(string conventionalName)
+    public static string? GetConventionalValue(string? conventionalName)
     {
         return (from e in EnvironmentVariables
             where e.VariableName == conventionalName
@@ -145,7 +145,7 @@ public static class EnvironmentExtensions
                 variableDescription = "Machine Environment Variables";
                 variableValue = environment.Value?.ToString();
 
-                if(string.IsNullOrWhiteSpace(variableValue)) continue;
+                if (string.IsNullOrWhiteSpace(variableValue)) continue;
 
                 list.Add(new SystemVariable
                 {
@@ -153,9 +153,8 @@ public static class EnvironmentExtensions
                     VariableValue = variableValue
                 });
             }
-
         }
-        catch(SecurityException ex)
+        catch (SecurityException ex)
         {
             variableName = "EXCEPTION for EnvironmentVariableTarget.Machine";
             variableDescription = string.Empty;
@@ -179,7 +178,7 @@ public static class EnvironmentExtensions
                 variableDescription = "Process Environment Variables";
                 variableValue = environment.Value?.ToString();
 
-                if(string.IsNullOrWhiteSpace(variableValue)) continue;
+                if (string.IsNullOrWhiteSpace(variableValue)) continue;
 
                 list.Add(new SystemVariable
                 {
@@ -188,7 +187,7 @@ public static class EnvironmentExtensions
                 });
             }
         }
-        catch(SecurityException ex)
+        catch (SecurityException ex)
         {
             variableName = "EXCEPTION for EnvironmentVariableTarget.Process";
             variableDescription = string.Empty;
@@ -212,7 +211,7 @@ public static class EnvironmentExtensions
                 variableDescription = "User Environment Variables";
                 variableValue = environment.Value?.ToString();
 
-                if(string.IsNullOrWhiteSpace(variableValue)) continue;
+                if (string.IsNullOrWhiteSpace(variableValue)) continue;
 
                 list.Add(new SystemVariable
                 {
@@ -221,7 +220,7 @@ public static class EnvironmentExtensions
                 });
             }
         }
-        catch(SecurityException ex)
+        catch (SecurityException ex)
         {
             variableName = "EXCEPTION!";
             variableDescription = "EXCEPTION for EnvironmentVariableTarget.User";

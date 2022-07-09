@@ -104,7 +104,7 @@ public static class HttpWebRequestExtensions
     /// <param name="response">The request.</param>
     public static HttpWebResponse EnsureHttpWebResponse(this HttpWebResponse? response)
     {
-        if(response == null)
+        if (response == null)
             throw new NullReferenceException($"The expected {nameof(HttpWebResponse)} is not here.");
 
         return response;
@@ -159,7 +159,8 @@ public static class HttpWebRequestExtensions
     /// <param name="proxyLocation">The proxy location.</param>
     /// <param name="bypassProxy">if set to <c>true</c> [bypass proxy].</param>
     /// <returns></returns>
-    public static string? PostXml(this HttpWebRequest? request, string? xmlFragment, Uri? proxyLocation, bool bypassProxy)
+    public static string? PostXml(this HttpWebRequest? request, string? xmlFragment, Uri? proxyLocation,
+        bool bypassProxy)
     {
         if (request == null) return null;
 
