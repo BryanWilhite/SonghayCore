@@ -44,9 +44,6 @@ public static class IDictionaryExtensions
     /// <typeparam name="TValue">The type of the value.</typeparam>
     /// <param name="dictionary">The dictionary.</param>
     /// <param name="key">The key.</param>
-    /// <returns></returns>
-    /// <exception cref="System.ArgumentNullException">The expected dictionary is not here.</exception>
-    /// <exception cref="System.NullReferenceException"></exception>
     public static TValue? TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key) =>
         dictionary.TryGetValueWithKey(key, throwException: false);
 
@@ -58,14 +55,11 @@ public static class IDictionaryExtensions
     /// <param name="dictionary">The dictionary.</param>
     /// <param name="key">The key.</param>
     /// <param name="throwException">if set to <c>true</c> [throw exception].</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">dictionary</exception>
-    /// <exception cref="NullReferenceException"></exception>
     public static TValue? TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey? key,
         bool throwException)
     {
-        if (dictionary == null) throw new ArgumentNullException(nameof(dictionary));
-        if (key == null) throw new ArgumentNullException(nameof(key));
+        ArgumentNullException.ThrowIfNull(dictionary);
+        ArgumentNullException.ThrowIfNull(key);
 
         var test = dictionary.TryGetValue(key, out var value);
 

@@ -42,7 +42,7 @@ public static class StringBuilderExtensions
         string? defaultValue, bool hasLineBreak)
     {
         if (builder == null) return;
-        if ((value == null) && string.IsNullOrWhiteSpace(defaultValue)) return;
+        if (value == null && string.IsNullOrWhiteSpace(defaultValue)) return;
 
         if (hasLineBreak)
         {

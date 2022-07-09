@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using Songhay.Extensions;
 
 namespace Songhay;
 
@@ -141,7 +142,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static DateTime? ParseDateTime(object? value)
     {
-        string? s = (value != null) ? value.ToString() : string.Empty;
+        string? s = value != null ? value.ToString() : string.Empty;
 
         return DateTime.TryParse(s, out var d) ? d : default(DateTime?);
     }
@@ -270,7 +271,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static double? ParseDouble(object? value)
     {
-        string? s = (value != null) ? value.ToString() : string.Empty;
+        string? s = value != null ? value.ToString() : string.Empty;
 
         return double.TryParse(s, out var d) ? d : default(double?);
     }
@@ -370,7 +371,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static Int32? ParseInt32(object? value)
     {
-        string? s = (value != null) ? value.ToString() : string.Empty;
+        string? s = value != null ? value.ToString() : string.Empty;
 
         return Int32.TryParse(s, out var i) ? i : default(Int32?);
     }
@@ -411,7 +412,7 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static Int64? ParseInt64(object? value)
     {
-        string? s = (value != null) ? value.ToString() : string.Empty;
+        string? s = value != null ? value.ToString() : string.Empty;
 
         return Int64.TryParse(s, out var i) ? i : default(Int64?);
     }
@@ -447,7 +448,7 @@ public static partial class ProgramTypeUtility
     /// </remarks>
     public static DateTime ParseRfc3339DateTime(string? value)
     {
-        if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException(nameof(value));
+        value.ThrowWhenNullOrWhiteSpace();
 
         if (!TryParseRfc3339DateTime(value, out var minValue))
         {
@@ -467,7 +468,7 @@ public static partial class ProgramTypeUtility
     /// </remarks>
     public static DateTime ParseRfc822DateTime(string value)
     {
-        if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException(nameof(value));
+        value.ThrowWhenNullOrWhiteSpace();
 
         if (!TryParseRfc822DateTime(value, out var minValue))
         {
@@ -552,7 +553,7 @@ public static partial class ProgramTypeUtility
 
     static string ReplaceRfc822TimeZoneWithOffset(string? value)
     {
-        if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException(nameof(value));
+        value.ThrowWhenNullOrWhiteSpace();
 
         value = value.Trim();
         if (value.EndsWith("UT", StringComparison.OrdinalIgnoreCase))

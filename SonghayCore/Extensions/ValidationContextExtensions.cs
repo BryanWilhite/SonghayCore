@@ -56,11 +56,12 @@ public static class ValidationContextExtensions
     /// </summary>
     /// <param name="objectToValidate">The object to validate.</param>
     /// <returns></returns>
-    /// <exception cref="NullReferenceException">The expected object to validate is not here.</exception>
-    public static ValidationContext ToValidationContext(this IValidatableObject objectToValidate) =>
-        objectToValidate == null
-            ? throw new NullReferenceException("The expected object to validate is not here.")
-            : new ValidationContext(objectToValidate);
+    public static ValidationContext ToValidationContext(this IValidatableObject objectToValidate)
+    {
+        ArgumentNullException.ThrowIfNull(objectToValidate);
+
+        return new ValidationContext(objectToValidate);
+    }
 
     /// <summary>
     /// Converts the <see cref="Object" /> into a validation results.
@@ -131,8 +132,10 @@ public static class ValidationContextExtensions
         string? propertyName, object? propertyValue, ValidationContext? validationContext)
     {
         if (objectToValidate == null) return Enumerable.Empty<ValidationResult>();
+
         validationContext ??= objectToValidate.ToValidationContext();
-        if (string.IsNullOrWhiteSpace(propertyName)) throw new ArgumentNullException(nameof(propertyName));
+
+        propertyName.ThrowWhenNullOrWhiteSpace();
 
         var results = new List<ValidationResult>();
         validationContext.MemberName = propertyName;

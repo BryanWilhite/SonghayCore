@@ -17,7 +17,7 @@ public static class ArrayExtensions
     /// <param name="item">The item.</param>
     public static T Next<T>(this Array array, T item)
     {
-        if (array == null) return default(T);
+        if (array == null) return default;
 
         var indexOfKey = Array.IndexOf(array, item);
 
@@ -36,7 +36,7 @@ public static class ArrayExtensions
     /// <param name="item">The item.</param>
     public static T Previous<T>(this Array array, T item)
     {
-        if (array == null) return default(T);
+        if (array == null) return default;
 
         var indexOfKey = Array.IndexOf(array, item);
 

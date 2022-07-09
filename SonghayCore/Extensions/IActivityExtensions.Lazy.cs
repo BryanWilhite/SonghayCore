@@ -15,14 +15,12 @@ public static partial class IActivityExtensions
     /// </summary>
     /// <param name="activities">The activities.</param>
     /// <param name="activityName">Name of the activity.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">
-    /// activityName
-    /// </exception>
     public static IActivity? GetActivity(this Dictionary<string, Lazy<IActivity?>>? activities, string? activityName)
     {
         if (activities == null) return null;
-        if (string.IsNullOrWhiteSpace(activityName)) throw new ArgumentNullException(nameof(activityName));
+
+        activityName.ThrowWhenNullOrWhiteSpace();
+
         if (!activities.ContainsKey(activityName))
             throw new FormatException($"The expected {nameof(IActivity)} name, {activityName}, is not here.");
 

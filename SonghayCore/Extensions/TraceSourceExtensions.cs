@@ -14,19 +14,6 @@ namespace Songhay.Extensions;
 public static class TraceSourceExtensions
 {
     /// <summary>
-    /// Ensures the trace source.
-    /// </summary>
-    /// <param name="traceSource">The trace source.</param>
-    /// <returns></returns>
-    /// <exception cref="NullReferenceException">The expected Trace Source is not here.</exception>
-    public static TraceSource EnsureTraceSource(this TraceSource? traceSource)
-    {
-        if (traceSource == null) throw new NullReferenceException("The expected Trace Source is not here.");
-
-        return traceSource;
-    }
-
-    /// <summary>
     /// Traces the error.
     /// </summary>
     /// <param name="traceSource">The trace source.</param>

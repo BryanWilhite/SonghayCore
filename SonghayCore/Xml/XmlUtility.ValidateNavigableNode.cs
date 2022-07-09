@@ -3,6 +3,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.XPath;
+using Songhay.Extensions;
 
 namespace Songhay.Xml;
 
@@ -12,19 +13,19 @@ public static partial class XmlUtility
     /// Returns an <see cref="System.Xml.Schema.XmlSchema"/> based
     /// on the specified navigable set and validation event handler.
     /// </summary>
-    /// <param name="navigableSet">
+    /// <param name="navigable">
     /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
     /// <param name="eventHandler">
     /// The <see cref="System.Xml.Schema.ValidationEventHandler"/>
     /// with signature MyHandler(object sender, ValidationEventArgs args).
     /// </param>
-    public static XmlSchema? GetXmlSchema(IXPathNavigable navigableSet, ValidationEventHandler eventHandler)
+    public static XmlSchema? GetXmlSchema(IXPathNavigable navigable, ValidationEventHandler eventHandler)
     {
-        if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
-        if (eventHandler == null) throw new ArgumentNullException(nameof(eventHandler));
+        ArgumentNullException.ThrowIfNull(navigable);
+        ArgumentNullException.ThrowIfNull(eventHandler);
 
-        XPathNavigator? navigator = navigableSet.CreateNavigator();
+        XPathNavigator? navigator = navigable.CreateNavigator();
         if (navigator == null) throw new NullReferenceException("The expected XPath Navigator is not here.");
 
         using StringReader s = new StringReader(navigator.OuterXml);
@@ -46,9 +47,11 @@ public static partial class XmlUtility
     /// </param>
     public static XmlSchema? LoadXmlSchema(string? pathToSchema, ValidationEventHandler? eventHandler)
     {
-        if (string.IsNullOrWhiteSpace(pathToSchema)) throw new ArgumentNullException(nameof(pathToSchema));
+        pathToSchema.ThrowWhenNullOrWhiteSpace();
+
         if (!File.Exists(pathToSchema)) throw new FileNotFoundException(nameof(pathToSchema));
-        if (eventHandler == null) throw new ArgumentNullException(nameof(eventHandler));
+
+        ArgumentNullException.ThrowIfNull(eventHandler);
 
         using XmlTextReader x = new XmlTextReader(pathToSchema);
         var schema = XmlSchema.Read(x, eventHandler);
@@ -60,7 +63,7 @@ public static partial class XmlUtility
     /// Validates the specified navigable set
     /// with the specified schema and validation event handler.
     /// </summary>
-    /// <param name="navigableSet">
+    /// <param name="navigable">
     /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
     /// <param name="schema">
@@ -70,19 +73,19 @@ public static partial class XmlUtility
     /// The <see cref="System.Xml.Schema.ValidationEventHandler"/>
     /// with signature MyHandler(object sender, ValidationEventArgs args).
     /// </param>
-    public static void ValidateNavigableNode(IXPathNavigable? navigableSet, XmlSchema? schema,
+    public static void ValidateNavigableNode(IXPathNavigable? navigable, XmlSchema? schema,
         ValidationEventHandler? eventHandler)
     {
-        if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
-        if (schema == null) throw new ArgumentNullException(nameof(schema));
-        if (eventHandler == null) throw new ArgumentNullException(nameof(eventHandler));
+        ArgumentNullException.ThrowIfNull(navigable);
+        ArgumentNullException.ThrowIfNull(schema);
+        ArgumentNullException.ThrowIfNull(eventHandler);
 
         XmlReaderSettings settings = new XmlReaderSettings();
         settings.Schemas.Add(schema);
         settings.ValidationType = ValidationType.Schema;
         settings.ValidationEventHandler += eventHandler;
 
-        XPathNavigator? navigator = navigableSet.CreateNavigator();
+        XPathNavigator? navigator = navigable.CreateNavigator();
         if (navigator == null) throw new NullReferenceException("The expected XPath Navigator is not here.");
 
         using var s = new StringReader(navigator.OuterXml);

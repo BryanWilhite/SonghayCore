@@ -822,12 +822,11 @@
         </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.FindDirectory(System.IO.DirectoryInfo,System.String)">
             <summary>
-            Finds the specified sub <see cref="T:System.IO.DirectoryInfo"/>
-            under the specified <see cref="T:System.IO.DirectoryInfo"/>.
+            Finds the specified target <see cref="T:System.IO.DirectoryInfo"/>
+            under the specified root <see cref="T:System.IO.DirectoryInfo"/>.
             </summary>
-            <param name="directoryInfo">the specified <see cref="T:System.IO.DirectoryInfo"/></param>
-            <param name="expectedDirectoryName">the specified sub <see cref="P:System.IO.DirectoryInfo.Name"/></param>
-            <returns></returns>
+            <param name="directoryInfo">the specified root <see cref="T:System.IO.DirectoryInfo"/></param>
+            <param name="expectedDirectoryName">the specified target <see cref="P:System.IO.DirectoryInfo.Name"/></param>
         </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.FindFile(System.IO.DirectoryInfo,System.String)">
             <summary>
@@ -842,7 +841,7 @@
             <summary>Gets the parent directory.</summary>
             <param name="directoryInfo">The directory information.</param>
             <param name="levels">The levels.</param>
-            <returns></returns>
+            <returns>Returns a <see cref="T:System.String"/> representing the directory.</returns>
         </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectoryInfo(System.IO.DirectoryInfo,System.Int32)">
             <summary>Gets the parent <see cref="T:System.IO.DirectoryInfo"/>.</summary>
@@ -1569,12 +1568,6 @@
             <param name="proxyLocation">The proxy location</param>
             <param name="bypassProxy">when <c>true</c>, bypass proxy</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpWebRequestExtensions.EnsureHttpWebResponse(System.Net.HttpWebResponse)">
-            <summary>
-            Verifies existence of the <see cref="T:System.Net.HttpWebResponse"/>.
-            </summary>
-            <param name="response">The request.</param>
-        </member>
         <member name="M:Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Collections.Hashtable)">
             <summary>
             Posts the form.
@@ -2206,6 +2199,59 @@
             <remarks>
             For more detail see http://anderly.com/2009/08/08/silverlight-midpoint-rounding-solution/
             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.NullableExtensions.ThrowWhenNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Throws an <see cref="T:System.ArgumentNullException"/>
+            when the specified enumerable is null or empty.
+            </summary>
+            <param name="enumerable">the <see cref="T:System.Collections.Generic.IEnumerable`1"/></param>
+            <param name="paramName">the name of the variable holding the <see cref="T:System.Collections.Generic.IEnumerable`1"/></param>
+            <typeparam name="T">the type of the <see cref="T:System.Collections.Generic.IEnumerable`1"/></typeparam>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.NullableExtensions.ThrowWhenNullOrWhiteSpace(System.String,System.String)">
+             <summary>
+             Throws an <see cref="T:System.ArgumentNullException"/>
+             when <see cref="M:System.String.IsNullOrWhiteSpace(System.String)"/> is <c>true</c>.
+             </summary>
+             <param name="value">the <see cref="T:System.String"/> value</param>
+             <param name="paramName">the name of the variable holding the <see cref="T:System.String"/></param>
+             <exception cref="T:System.ArgumentNullException"></exception>
+             <remarks>
+             This member borrows heavily from <see cref="M:System.ArgumentNullException.ThrowIfNull(System.Object,System.String)"/>.
+            
+             The <see cref="T:System.Diagnostics.CodeAnalysis.NotNullAttribute"/> is applied to this member based
+             on the following statement from Microsoft:
+            
+             “Callers can pass a variable with the null value,
+             but the argument is guaranteed to never be null
+             if the method returns without throwing an exception.”
+            
+             [ see https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/attributes/nullable-analysis#postconditions-maybenull-and-notnull ]
+             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.NullableExtensions.ToValueOrThrow``1(``0,System.String)">
+             <summary>
+             Returns the non-null type
+             or throws an <see cref="T:System.ArgumentNullException"/>.
+             </summary>
+             <param name="nullable">the nullable</param>
+             <param name="paramName">the name of the variable holding the nullable</param>
+             <typeparam name="T">the type</typeparam>
+             <exception cref="T:System.ArgumentNullException"></exception>
+             <remarks>
+             This member borrows heavily from <see cref="M:System.ArgumentNullException.ThrowIfNull(System.Object,System.String)"/>.
+            
+             The <see cref="T:System.Diagnostics.CodeAnalysis.NotNullAttribute"/> is applied to this member based
+             on the following statement from Microsoft:
+            
+             “Callers can pass a variable with the null value,
+             but the argument is guaranteed to never be null
+             if the method returns without throwing an exception.”
+            
+             [ see https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/attributes/nullable-analysis#postconditions-maybenull-and-notnull ]
+             </remarks>
         </member>
         <member name="T:Songhay.Extensions.ObjectExtensions">
             <summary>
@@ -2894,14 +2940,6 @@
             Also see “Use TraceSource Efficiently” [http://www.codeproject.com/Tips/1071853/Use-TraceSource-Efficiently]
             </remarks>
         </member>
-        <member name="M:Songhay.Extensions.TraceSourceExtensions.EnsureTraceSource(System.Diagnostics.TraceSource)">
-            <summary>
-            Ensures the trace source.
-            </summary>
-            <param name="traceSource">The trace source.</param>
-            <returns></returns>
-            <exception cref="T:System.NullReferenceException">The expected Trace Source is not here.</exception>
-        </member>
         <member name="M:Songhay.Extensions.TraceSourceExtensions.TraceError(System.Diagnostics.TraceSource,System.String,System.Object[])">
             <summary>
             Traces the error.
@@ -3444,20 +3482,6 @@
             <param name="stripNamespaces">if set to <c>true</c> then strip namespaces (<c>true</c> by default).</param>
             <param name="options">The options (<see cref="F:System.Xml.Linq.ReaderOptions.None"/> by default).</param>
         </member>
-        <member name="T:Songhay.Extensions.XPathNavigatorExtensions">
-            <summary>
-            Extensions of <see cref="T:System.Xml.XPath.XPathNavigator"/>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.XPathNavigatorExtensions.EnsureXPathNavigator(System.Xml.XPath.XPathNavigator)">
-            <summary>
-            Ensures the specified <see cref="T:System.Xml.XPath.XPathNavigator"/>
-            or throws an exception.
-            </summary>
-            <param name="navigator"></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
         <member name="T:Songhay.Globalization.TextInfoUtility">
             <summary>
             Helper members for <see cref="T:System.Globalization.TextInfo" />.
@@ -3862,26 +3886,6 @@
             <summary>
             Represents this instance as a <c>string</c>.
             </summary>
-        </member>
-        <member name="T:Songhay.Models.EditableObjectCache">
-            <summary>
-            Defines an undo pattern for MVVM.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.EditableObjectCache.IsRestoringFromCache">
-            <summary>
-            Gets or sets a value indicating whether this instance is restoring from cache.
-            </summary>
-            <value>
-            <c>true</c> if this instance is restoring from cache; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="M:Songhay.Models.EditableObjectCache.Restore(System.Action)">
-            <summary>
-            Restores the specified action.
-            </summary>
-            <param name="action">The action.</param>
-            <exception cref="T:System.ArgumentNullException">action</exception>
         </member>
         <member name="T:Songhay.Models.EncryptionMetadata">
             <summary>
@@ -7903,10 +7907,10 @@
             for the transformation of the XSLT document
             and the XML document.
             </summary>
-            <param name="xslSet">
+            <param name="navigableXsl">
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL document.
             </param>
-            <param name="navigableSet">
+            <param name="navigableXsl">
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML document.
             </param>
         </member>
@@ -7916,13 +7920,13 @@
             for the transformation of the XSLT document
             and the XML document.
             </summary>
-            <param name="xslSet">
+            <param name="navigableXsl">
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL document.
             </param>
             <param name="xslArgs">
             The <see cref="T:System.Xml.Xsl.XsltArgumentList"/>.
             </param>
-            <param name="navigableSet">
+            <param name="navigableXml">
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML document.
             </param>
         </member>
@@ -7933,7 +7937,7 @@
             and the XML document.
             </summary>
             <param name="navigableXsl">The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XSL document.</param>
-            <param name="navigableSet">The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML document.</param>
+            <param name="navigableXsl">The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> XML document.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetXslString(System.Xml.XPath.IXPathNavigable,System.Xml.Xsl.XsltArgumentList,System.Xml.XPath.IXPathNavigable)">
             <summary>
@@ -8115,7 +8119,7 @@
             <param name="commandName">
             The value for the <code>cmd</code>-parameter convention.
             </param>
-            <param name="navigableSet">
+            <param name="navigableXml">
             The <see cref="T:System.Xml.XPath.IXPathNavigable"/> in memory.
             </param>
             <remarks>
@@ -8194,7 +8198,7 @@
             <summary>
             Strip the namespaces from specified document.
             </summary>
-            <param name="navigableSet">
+            <param name="navigable">
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <remarks>
@@ -8209,7 +8213,7 @@
             <summary>
             Strip the namespaces from specified document.
             </summary>
-            <param name="navigableSet">
+            <param name="navigable">
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="removeDocType">
@@ -8228,7 +8232,7 @@
             Returns an <see cref="T:System.Xml.Schema.XmlSchema"/> based
             on the specified navigable set and validation event handler.
             </summary>
-            <param name="navigableSet">
+            <param name="navigable">
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="eventHandler">
@@ -8254,7 +8258,7 @@
             Validates the specified navigable set
             with the specified schema and validation event handler.
             </summary>
-            <param name="navigableSet">
+            <param name="navigable">
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="schema">
@@ -8286,7 +8290,7 @@
             and writes to disk with the specified path.
             </summary>
             <param name="xmlInput">The specified input.</param>
-            <param name="navigableSet">
+            <param name="navigableXsl">
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="outputPath">
@@ -8298,7 +8302,7 @@
             Transforms the specified input and writes to disk.
             </summary>
             <param name="xmlInput">The specified input.</param>
-            <param name="navigableSet">
+            <param name="navigableXsl">
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="outputPath">

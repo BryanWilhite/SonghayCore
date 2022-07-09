@@ -19,7 +19,7 @@ public static class ProgramMetadataExtensions
     public static Dictionary<string, string> ToConventionalHeaders(this ProgramMetadata? meta,
         string restApiMetadataSetKey)
     {
-        if (meta == null) throw new ArgumentNullException(nameof(meta));
+        ArgumentNullException.ThrowIfNull(meta);
 
         var genWebApiMeta = meta.RestApiMetadataSet.TryGetValueWithKey(restApiMetadataSetKey);
         if (genWebApiMeta == null) throw new NullReferenceException(nameof(genWebApiMeta));

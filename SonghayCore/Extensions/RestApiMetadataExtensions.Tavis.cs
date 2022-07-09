@@ -22,8 +22,8 @@ public static class RestApiMetadataExtensions
     public static Uri? ToUri(this RestApiMetadata? meta, string? uriTemplateKey, params string?[] bindByPositionValues)
     {
         if (meta == null || meta.ApiBase == null) return null;
-        if (bindByPositionValues == null || !bindByPositionValues.Any())
-            throw new ArgumentNullException(nameof(bindByPositionValues));
+
+        bindByPositionValues.ThrowWhenNullOrEmpty();
 
         if (meta.UriTemplates.Keys.All(i => i != uriTemplateKey))
             throw new FormatException("The expected REST API metadata URI template key is not here.");

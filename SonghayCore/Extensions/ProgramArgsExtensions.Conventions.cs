@@ -126,12 +126,9 @@ public static partial class ProgramArgsExtensions
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
     /// <param name="argKey">The arguments key.</param>
-    /// <returns></returns>
-    /// <exception cref="System.NullReferenceException">The expected argument key is not here.</exception>
     public static string ToConfigurationKey(this ProgramArgs? args, string argKey)
     {
-        if (string.IsNullOrWhiteSpace(argKey))
-            throw new NullReferenceException("The expected argument key is not here.");
+        argKey.ThrowWhenNullOrWhiteSpace();
 
         return argKey
             .TrimStart('-')
@@ -143,7 +140,6 @@ public static partial class ProgramArgsExtensions
     /// Returns <see cref="ProgramArgs"/>
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
-    /// <returns></returns>
     public static ProgramArgs? WithDefaultHelpText(this ProgramArgs? args)
     {
         if (args == null) return null;

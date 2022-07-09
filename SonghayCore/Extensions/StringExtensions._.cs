@@ -276,6 +276,6 @@ public static partial class StringExtensions
             }
         }
 
-        return (sb.ToString().Normalize(NormalizationForm.FormC));
+        return sb.ToString().Normalize(NormalizationForm.FormC);
     }
 }

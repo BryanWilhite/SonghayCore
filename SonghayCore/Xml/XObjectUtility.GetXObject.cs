@@ -6,6 +6,7 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using Songhay.Extensions;
 
 namespace Songhay.Xml;
 
@@ -86,7 +87,8 @@ public static partial class XObjectUtility
     public static IEnumerable<XObject> GetXObjects(XNode? node, string? nodeQuery, bool throwException,
         IXmlNamespaceResolver? resolver)
     {
-        if (nodeQuery == null) throw new ArgumentNullException(nameof(nodeQuery));
+        nodeQuery.ThrowWhenNullOrWhiteSpace();
+
         if (node == null) return Enumerable.Empty<XObject>();
 
         var result = resolver == null

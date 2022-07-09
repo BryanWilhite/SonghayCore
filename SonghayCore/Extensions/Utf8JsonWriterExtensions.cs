@@ -46,7 +46,7 @@ public static class Utf8JsonWriterExtensions
     public static Utf8JsonWriter? WriteObject(this Utf8JsonWriter? writer, string propertyName, Action? writerAction)
     {
         if (writer == null) return writer;
-        if (string.IsNullOrEmpty(propertyName)) throw new ArgumentNullException(nameof(propertyName));
+        propertyName.ThrowWhenNullOrWhiteSpace();
 
         writer.WritePropertyName(propertyName);
         writer.WriteStartObject();

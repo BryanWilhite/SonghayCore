@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using Songhay.Extensions;
 
 namespace Songhay.Xml;
 
@@ -33,7 +34,7 @@ public static partial class XmlUtility
     /// <param name="xmlFragment">the raw XML</param>
     public static T? GetInstanceRaw<T>(string? xmlFragment) where T : class
     {
-        if (string.IsNullOrWhiteSpace(xmlFragment)) throw new ArgumentNullException(nameof(xmlFragment));
+        xmlFragment.ThrowWhenNullOrWhiteSpace();
 
         var serializer = new XmlSerializer(typeof(T));
         using StringReader reader = new StringReader(xmlFragment);

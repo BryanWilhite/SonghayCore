@@ -105,8 +105,7 @@ public static partial class ProgramFileUtility
     public static void UseZipArchive(FileInfo? archiveInfo, Action<ZipArchive>? archiveAction,
         ZipArchiveMode zipArchiveMode)
     {
-        if (archiveInfo == null)
-            throw new NullReferenceException("The expected file or directory info is not here.");
+        ArgumentNullException.ThrowIfNull(archiveInfo);
         if (!archiveInfo.Exists)
             throw new FileNotFoundException($"The expected file {archiveInfo.FullName} is not here.");
 

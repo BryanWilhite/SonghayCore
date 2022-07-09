@@ -32,7 +32,7 @@ public static class ObjectExtensions
     /// <typeparam name="TClass">The type of the class.</typeparam>
     /// <param name="objectOfDomain">The object of domain.</param>
     public static bool IsType<TClass>(this object objectOfDomain) where TClass : class =>
-        (objectOfDomain as TClass) != null;
+        objectOfDomain is TClass;
 
     /// <summary>
     /// Boxes the value in object or returns <see cref="DBNull"/>.

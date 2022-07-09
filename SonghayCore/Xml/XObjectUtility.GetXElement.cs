@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using Songhay.Extensions;
 
 namespace Songhay.Xml;
 
@@ -18,7 +19,7 @@ public static partial class XObjectUtility
     /// <param name="innerXml">The inner XML.</param>
     public static XElement GetXElement(string? rootElement, object? innerXml)
     {
-        if (string.IsNullOrWhiteSpace(rootElement)) throw new ArgumentNullException(nameof(rootElement));
+        rootElement.ThrowWhenNullOrWhiteSpace();
 
         return XElement.Parse(string.Format("<{0}>{1}</{0}>", rootElement, innerXml));
     }
@@ -31,8 +32,8 @@ public static partial class XObjectUtility
     /// <returns></returns>
     public static XElement? GetXElement(XNode? root, string? pathToElement)
     {
-        if (root == null) throw new ArgumentNullException(nameof(root));
-        if (string.IsNullOrWhiteSpace(pathToElement)) throw new ArgumentNullException(nameof(pathToElement));
+        ArgumentNullException.ThrowIfNull(root);
+        pathToElement.ThrowWhenNullOrWhiteSpace();
 
         return root.XPathSelectElement(pathToElement);
     }

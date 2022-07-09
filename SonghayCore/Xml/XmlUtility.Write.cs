@@ -26,10 +26,11 @@ public static partial class XmlUtility
     /// <typeparam name="T">The type of the instance.</typeparam>
     /// <param name="instance">The instance.</param>
     /// <param name="path">The path.</param>
-    public static void Write<T>(T instance, string path) where T : class
+    public static void Write<T>(T? instance, string? path) where T : class
     {
-        if (instance == null) throw new ArgumentNullException(nameof(instance));
-        if (path == null) throw new ArgumentNullException(nameof(path));
+        ArgumentNullException.ThrowIfNull(instance);
+
+        path.ThrowWhenNullOrWhiteSpace();
 
         var serializer = new XmlSerializer(typeof(T));
 
@@ -52,10 +53,10 @@ public static partial class XmlUtility
     /// </summary>
     /// <param name="readerSource"><see cref="System.Xml.XmlReader"/></param>
     /// <param name="writerDestination"><see cref="System.Xml.XmlWriter"/></param>
-    public static void WriteReader(XmlReader readerSource, XmlWriter? writerDestination)
+    public static void WriteReader(XmlReader? readerSource, XmlWriter? writerDestination)
     {
-        if (readerSource == null) throw new ArgumentNullException(nameof(readerSource));
-        if (writerDestination == null) throw new ArgumentNullException(nameof(writerDestination));
+        ArgumentNullException.ThrowIfNull(readerSource);
+        ArgumentNullException.ThrowIfNull(writerDestination);
 
         while (readerSource is {EOF: false}) writerDestination.WriteNode(readerSource, false);
     }
@@ -65,25 +66,25 @@ public static partial class XmlUtility
     /// and writes to disk with the specified path.
     /// </summary>
     /// <param name="xmlInput">The specified input.</param>
-    /// <param name="navigableSet">
+    /// <param name="navigableXsl">
     /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
     /// <param name="outputPath">
     /// The file-system, target path.
     /// </param>
     public static void WriteXslTransform(IXPathNavigable? xmlInput,
-        IXPathNavigable? navigableSet, string? outputPath)
+        IXPathNavigable? navigableXsl, string? outputPath)
     {
-        if (xmlInput == null) throw new ArgumentNullException(nameof(xmlInput));
-        if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
-        if (outputPath == null) throw new ArgumentNullException(nameof(outputPath));
+        ArgumentNullException.ThrowIfNull(xmlInput);
+        ArgumentNullException.ThrowIfNull(navigableXsl);
+        ArgumentNullException.ThrowIfNull(outputPath);
 
         using var fs = new FileStream(outputPath, FileMode.Create);
 
         var xslt = new XslCompiledTransform(false);
-        xslt.Load(navigableSet);
+        xslt.Load(navigableXsl);
 
-        using var sr = new StringReader(xmlInput.CreateNavigator().EnsureXPathNavigator().OuterXml);
+        using var sr = new StringReader(xmlInput.CreateNavigator().ToValueOrThrow().OuterXml);
         XmlReader reader = XmlReader.Create(sr);
         XmlWriter writer = XmlWriter.Create(fs);
 
@@ -94,23 +95,23 @@ public static partial class XmlUtility
     /// Transforms the specified input and writes to disk.
     /// </summary>
     /// <param name="xmlInput">The specified input.</param>
-    /// <param name="navigableSet">
+    /// <param name="navigableXsl">
     /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
     /// <param name="outputPath">
     /// The file-system, target path.
     /// </param>
     public static void WriteXslTransform(XmlReader? xmlInput,
-        IXPathNavigable? navigableSet, string? outputPath)
+        IXPathNavigable? navigableXsl, string? outputPath)
     {
-        if (xmlInput == null) throw new ArgumentNullException(nameof(xmlInput));
-        if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
-        if (string.IsNullOrWhiteSpace(outputPath)) throw new ArgumentNullException(nameof(outputPath));
+        ArgumentNullException.ThrowIfNull(xmlInput);
+        ArgumentNullException.ThrowIfNull(navigableXsl);
+        outputPath.ThrowWhenNullOrWhiteSpace();
 
         using var fs = new FileStream(outputPath, FileMode.Create);
 
         var xslt = new XslCompiledTransform(false);
-        xslt.Load(navigableSet);
+        xslt.Load(navigableXsl);
         XmlWriter writer = XmlWriter.Create(fs);
 
         xslt.Transform(xmlInput, null, writer, null);

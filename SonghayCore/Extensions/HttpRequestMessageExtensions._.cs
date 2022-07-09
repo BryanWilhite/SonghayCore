@@ -41,7 +41,7 @@ public static partial class HttpRequestMessageExtensions
         Action<HttpResponseMessage>? responseMessageAction,
         Func<HttpClient>? optionalClientGetter)
     {
-        if (request == null) throw new ArgumentNullException(nameof(request));
+        ArgumentNullException.ThrowIfNull(request);
 
         var client = (optionalClientGetter == null) ? GetHttpClient() : optionalClientGetter.Invoke();
 
@@ -98,7 +98,7 @@ public static partial class HttpRequestMessageExtensions
         Func<HttpClient>? optionalClientGetter,
         HttpCompletionOption completionOption)
     {
-        if (request == null) throw new ArgumentNullException(nameof(request));
+        ArgumentNullException.ThrowIfNull(request);
 
         requestMessageAction?.Invoke(request);
 
@@ -169,9 +169,9 @@ public static partial class HttpRequestMessageExtensions
         Action<HttpRequestMessage>? requestMessageAction,
         Func<HttpClient>? optionalClientGetter)
     {
-        if (request == null) throw new ArgumentNullException(nameof(request));
-        if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody));
-        if (string.IsNullOrWhiteSpace(mediaType)) throw new ArgumentNullException(nameof(mediaType));
+        ArgumentNullException.ThrowIfNull(request);
+        requestBody.ThrowWhenNullOrWhiteSpace();
+        mediaType.ThrowWhenNullOrWhiteSpace();
 
         request.Content = new StringContent(requestBody, encoding, mediaType);
 
@@ -188,6 +188,5 @@ public static partial class HttpRequestMessageExtensions
 
     static HttpClient GetHttpClient() => HttpClientLazy.Value;
 
-    static readonly Lazy<HttpClient> HttpClientLazy =
-        new Lazy<HttpClient>(() => new HttpClient(), LazyThreadSafetyMode.PublicationOnly);
+    static readonly Lazy<HttpClient> HttpClientLazy = new(() => new HttpClient(), LazyThreadSafetyMode.PublicationOnly);
 }

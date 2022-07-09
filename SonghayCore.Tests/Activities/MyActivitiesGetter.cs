@@ -1,23 +1,23 @@
-﻿using Songhay.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Songhay.Abstractions;
+using Songhay.Models;
 
 namespace Songhay.Tests.Activities;
 
-public class MyActivitiesGetter : ActivitiesGetter
+public sealed class MyActivitiesGetter : ActivitiesGetter
 {
     public MyActivitiesGetter(string[] args) : base(args)
     {
-        this.LoadActivities(new Dictionary<string, Lazy<IActivity>>
+        LoadActivities(new Dictionary<string, Lazy<IActivity>>
         {
             {
-                nameof(Activities.GetHelloWorldActivity),
-                new Lazy<IActivity>(() => new Activities.GetHelloWorldActivity())
+                nameof(GetHelloWorldActivity),
+                new Lazy<IActivity>(() => new GetHelloWorldActivity())
             },
             {
-                nameof(Activities.GetHelloWorldReportActivity),
-                new Lazy<IActivity>(() => new Activities.GetHelloWorldReportActivity())
+                nameof(GetHelloWorldReportActivity),
+                new Lazy<IActivity>(() => new GetHelloWorldReportActivity())
             }
         });
     }

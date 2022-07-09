@@ -76,7 +76,7 @@ public static partial class StringExtensions
     /// <param name="input">The input.</param>
     public static string ToBlogSlug(this string? input)
     {
-        if (string.IsNullOrWhiteSpace(input)) throw new NullReferenceException("The expected input is not here");
+        input.ThrowWhenNullOrWhiteSpace();
 
         // Remove/replace entities:
         input = input.Replace("&amp;", "and");

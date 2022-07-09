@@ -50,10 +50,10 @@ public static partial class XmlUtility
         IXPathNavigable? navigableXml,
         XmlWriterSettings? settings)
     {
-        if (navigableXsl == null) throw new ArgumentNullException(nameof(navigableXsl));
-        if (navigableXml == null) throw new ArgumentNullException(nameof(navigableXml));
-        var navigator = navigableXml.CreateNavigator().EnsureXPathNavigator();
+        ArgumentNullException.ThrowIfNull(navigableXsl);
+        ArgumentNullException.ThrowIfNull(navigableXml);
 
+        var navigator = navigableXml.CreateNavigator().ToValueOrThrow();
         XslCompiledTransform xslt = new XslCompiledTransform(false);
         xslt.Load(navigableXsl);
 

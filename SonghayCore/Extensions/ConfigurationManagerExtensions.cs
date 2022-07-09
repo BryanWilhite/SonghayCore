@@ -71,7 +71,7 @@ public static class ConfigurationManagerExtensions
         string? unqualifiedKey, string? environmentName, string? delimiter, bool throwConfigurationErrorsException)
     {
         if (collection == null) return null;
-        if (string.IsNullOrWhiteSpace(unqualifiedKey)) throw new ArgumentNullException(nameof(unqualifiedKey));
+        unqualifiedKey.ThrowWhenNullOrWhiteSpace();
 
         var name1 = string.Concat(environmentName, delimiter, unqualifiedKey);
         var name2 = string.Concat(unqualifiedKey, delimiter, environmentName);
@@ -94,10 +94,8 @@ public static class ConfigurationManagerExtensions
     /// <param name="connectionName">Name of the connection.</param>
     /// <returns></returns>
     public static ConnectionStringSettings? GetConnectionStringSettings(
-        this ConnectionStringSettingsCollection? collection, string connectionName)
-    {
-        return collection.GetConnectionStringSettings(connectionName, throwConfigurationErrorsException: false);
-    }
+        this ConnectionStringSettingsCollection? collection, string connectionName) =>
+        collection.GetConnectionStringSettings(connectionName, throwConfigurationErrorsException: false);
 
     /// <summary>
     /// Gets the connection string settings.
@@ -248,7 +246,7 @@ public static class ConfigurationManagerExtensions
         string? unqualifiedKey, string? environmentName, string? delimiter, bool throwConfigurationErrorsException)
     {
         if (settings == null) return null;
-        if (string.IsNullOrWhiteSpace(unqualifiedKey)) throw new ArgumentNullException(nameof(unqualifiedKey));
+        unqualifiedKey.ThrowWhenNullOrWhiteSpace();
 
         var key1 = string.Concat(environmentName, delimiter, unqualifiedKey);
         var key2 = string.Concat(unqualifiedKey, delimiter, environmentName);
@@ -268,10 +266,8 @@ public static class ConfigurationManagerExtensions
     /// </summary>
     /// <param name="settings">The settings.</param>
     /// <param name="key">The key.</param>
-    public static string? GetSetting(this KeyValueConfigurationCollection? settings, string key)
-    {
-        return settings.GetSetting(key, throwConfigurationErrorsException: false);
-    }
+    public static string? GetSetting(this KeyValueConfigurationCollection? settings, string key) =>
+        settings.GetSetting(key, throwConfigurationErrorsException: false);
 
     /// <summary>
     /// Gets the setting from the current <see cref="KeyValueConfigurationCollection"/>.
@@ -308,7 +304,7 @@ public static class ConfigurationManagerExtensions
     {
         var setting = settings.GetSetting(key, throwConfigurationErrorsException);
 
-        return (settingModifier == null) ? setting : settingModifier(setting);
+        return settingModifier == null ? setting : settingModifier(setting);
     }
 
     /// <summary>

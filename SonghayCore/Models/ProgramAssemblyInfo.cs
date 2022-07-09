@@ -18,8 +18,12 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
     /// Constructor of this class.
     /// </summary>
     /// <param name="targetAssembly">The target <see cref="System.Reflection.Assembly"/></param>
-    public ProgramAssemblyInfo(Assembly? targetAssembly) =>
-        _dll = targetAssembly ?? throw new ArgumentNullException(nameof(targetAssembly));
+    public ProgramAssemblyInfo(Assembly? targetAssembly)
+    {
+        ArgumentNullException.ThrowIfNull(targetAssembly);
+
+        _dll = targetAssembly;
+    }
 
     /// <summary>
     /// Gets title of assembly.

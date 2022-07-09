@@ -15,7 +15,7 @@ public static partial class XmlUtility
     /// for the transformation of the XSLT document
     /// and the XML document.
     /// </summary>
-    /// <param name="xslSet">
+    /// <param name="navigableXsl">
     /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> XSL document.
     /// </param>
     /// <param name="navigableSet">
@@ -23,35 +23,35 @@ public static partial class XmlUtility
     /// </param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument GetXslResult(IXPathNavigable? xslSet, IXPathNavigable? navigableSet) =>
-        GetXslResult(xslSet, null, navigableSet);
+    public static XPathDocument GetXslResult(IXPathNavigable? navigableXsl, IXPathNavigable? navigableSet) =>
+        GetXslResult(navigableXsl, null, navigableSet);
 
     /// <summary>
     /// Returns a <see cref="System.Xml.XPath.XPathDocument"/>
     /// for the transformation of the XSLT document
     /// and the XML document.
     /// </summary>
-    /// <param name="xslSet">
+    /// <param name="navigableXsl">
     /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> XSL document.
     /// </param>
     /// <param name="xslArgs">
     /// The <see cref="System.Xml.Xsl.XsltArgumentList"/>.
     /// </param>
-    /// <param name="navigableSet">
+    /// <param name="navigableXml">
     /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> XML document.
     /// </param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument GetXslResult(IXPathNavigable? xslSet, XsltArgumentList? xslArgs,
-        IXPathNavigable? navigableSet)
+    public static XPathDocument GetXslResult(IXPathNavigable? navigableXsl, XsltArgumentList? xslArgs,
+        IXPathNavigable? navigableXml)
     {
-        if (xslSet == null) throw new ArgumentNullException(nameof(xslSet));
-        if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
+        ArgumentNullException.ThrowIfNull(navigableXsl);
+        ArgumentNullException.ThrowIfNull(navigableXml);
 
         XslCompiledTransform xslt = new XslCompiledTransform(false);
-        xslt.Load(xslSet);
+        xslt.Load(navigableXsl);
 
-        var navigator = navigableSet.CreateNavigator().EnsureXPathNavigator();
+        var navigator = navigableXml.CreateNavigator().ToValueOrThrow();
 
         using MemoryStream ms = new MemoryStream();
         using (StringReader sr = new StringReader(navigator.OuterXml))

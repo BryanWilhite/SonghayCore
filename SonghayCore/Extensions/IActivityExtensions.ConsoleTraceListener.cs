@@ -45,11 +45,10 @@ public static partial class IActivityExtensions
     /// <param name="input">The input.</param>
     /// <param name="traceSource">The the <see cref="TraceSource"/>.</param>
     /// <returns>The the <see cref="TraceSource"/> log.</returns>
-    /// <exception cref="NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
     public static async Task StartConsoleActivityAsync<TInput>(this IActivity? activity, TInput? input,
         TraceSource? traceSource)
     {
-        if (activity == null) throw new NullReferenceException($"The expected {nameof(IActivity)} is not here.");
+        ArgumentNullException.ThrowIfNull(activity);
 
         using var listener = new ConsoleTraceListener();
 
@@ -78,32 +77,30 @@ public static partial class IActivityExtensions
     /// <param name="input">The input.</param>
     /// <param name="traceSource">The the <see cref="TraceSource"/>.</param>
     /// <returns>The the <see cref="TraceSource"/> log.</returns>
-    /// <exception cref="NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
     public static async Task<TOutput?> StartConsoleActivityAsync<TInput, TOutput>(this IActivity? activity,
         TInput? input, TraceSource? traceSource)
     {
-        if (activity == null) throw new NullReferenceException($"The expected {nameof(IActivity)} is not here.");
+        ArgumentNullException.ThrowIfNull(activity);
 
-        using (var listener = new ConsoleTraceListener())
+        using var listener = new ConsoleTraceListener();
+
+        traceSource?.Listeners.Add(listener);
+
+        var activityWithTask = activity.ToActivityWithTask<TInput, TOutput>();
+        TOutput? output;
+        try
         {
-            traceSource?.Listeners.Add(listener);
 
-            var activityWithTask = activity.ToActivityWithTask<TInput, TOutput>();
-            TOutput? output;
-            try
-            {
-
-                output = await activityWithTask!
-                    .StartAsync(input)
-                    .ConfigureAwait(continueOnCapturedContext: false);
-            }
-            finally
-            {
-                listener.Flush();
-            }
-
-            return output;
+            output = await activityWithTask!
+                .StartAsync(input)
+                .ConfigureAwait(continueOnCapturedContext: false);
         }
+        finally
+        {
+            listener.Flush();
+        }
+
+        return output;
     }
 
     /// <summary>
@@ -116,11 +113,10 @@ public static partial class IActivityExtensions
     /// <param name="input">The input.</param>
     /// <param name="traceSource">The the <see cref="TraceSource"/>.</param>
     /// <returns>The the <see cref="TraceSource"/> log.</returns>
-    /// <exception cref="NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
     public static TOutput? StartConsoleActivityForOutput<TInput, TOutput>(this IActivity? activity, TInput? input,
         TraceSource? traceSource)
     {
-        if (activity == null) throw new NullReferenceException($"The expected {nameof(IActivity)} is not here.");
+        ArgumentNullException.ThrowIfNull(activity);
 
         using var listener = new ConsoleTraceListener();
 

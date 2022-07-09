@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using Songhay.Extensions;
 
 namespace Songhay;
 
@@ -28,8 +29,8 @@ public static partial class ProgramFileUtility
     /// </remarks>
     public static string GetEncodedString(string? utf16Value, Encoding? outputEncoding)
     {
-        if (utf16Value == null) throw new ArgumentNullException(nameof(utf16Value));
-        if (outputEncoding == null) throw new ArgumentNullException(nameof(outputEncoding));
+        utf16Value.ThrowWhenNullOrWhiteSpace();
+        ArgumentNullException.ThrowIfNull(outputEncoding);
 
         byte[] byteArray = Encoding.Convert(
             Encoding.Unicode,

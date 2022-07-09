@@ -35,8 +35,8 @@ public static partial class IActivityExtensions
     public static string? StartActivity(this IActivity? activity, ProgramArgs? args, TraceSource? traceSource,
         Func<TextWriter>? traceWriterGetter, bool flushLog)
     {
-        if (activity == null) throw new ArgumentNullException(nameof(activity));
-        if (args == null) throw new ArgumentNullException(nameof(args));
+        ArgumentNullException.ThrowIfNull(activity);
+        ArgumentNullException.ThrowIfNull(args);
 
         using var writer = traceWriterGetter?.Invoke() ?? new StringWriter();
         using var listener = new TextWriterTraceListener(writer);
@@ -138,11 +138,10 @@ public static partial class IActivityExtensions
     /// <param name="traceSource">The the <see cref="TraceSource"/>.</param>
     /// <param name="traceWriterGetter">gets the <see cref="TextWriter"/> for the <see cref="TraceSource"/>.</param>
     /// <returns><see cref="ActivityOutput{TOutput}"/></returns>
-    /// <exception cref="NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
     public static async Task<ActivityOutput<TOutput>> StartActivityAsync<TInput, TOutput>(this IActivity? activity,
         TInput input, TraceSource? traceSource, Func<TextWriter>? traceWriterGetter)
     {
-        if (activity == null) throw new NullReferenceException($"The expected {nameof(IActivity)} is not here.");
+        ArgumentNullException.ThrowIfNull(activity);
 
         await using var writer = traceWriterGetter?.Invoke() ?? new StringWriter();
         using var listener = new TextWriterTraceListener(writer);
@@ -197,7 +196,7 @@ public static partial class IActivityExtensions
     public static async Task<string?> StartActivityAsync<TInput>(this IActivity? activity, TInput input,
         TraceSource? traceSource, Func<TextWriter>? traceWriterGetter, bool flushLog)
     {
-        if (activity == null) throw new NullReferenceException($"The expected {nameof(IActivity)} is not here.");
+        ArgumentNullException.ThrowIfNull(activity);
 
         await using var writer = traceWriterGetter?.Invoke() ?? new StringWriter();
         using var listener = new TextWriterTraceListener(writer);
@@ -244,11 +243,10 @@ public static partial class IActivityExtensions
     /// <param name="traceWriterGetter">gets the <see cref="TextWriter"/> for the <see cref="TraceSource"/>.</param>
     /// <param name="flushLog">when <c>true</c> return <see cref="TraceSource"/> log</param>
     /// <returns>The the <see cref="TraceSource"/> log when <c>flushLog</c> is <c>true</c>; otherwise, <c>null</c>.</returns>
-    /// <exception cref="NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
     public static async Task<string?> StartActivityAsync(this IActivity? activity, TraceSource? traceSource,
         Func<TextWriter>? traceWriterGetter, bool flushLog)
     {
-        if (activity == null) throw new NullReferenceException($"The expected {nameof(IActivity)} is not here.");
+        ArgumentNullException.ThrowIfNull(activity);
 
         await using var writer = traceWriterGetter?.Invoke() ?? new StringWriter();
         using var listener = new TextWriterTraceListener(writer);

@@ -36,7 +36,7 @@ public static partial class ProgramFileUtility
     /// </remarks>
     public static int CountParentDirectoryChars(string? path)
     {
-        if (string.IsNullOrWhiteSpace(path)) return default(int);
+        if (string.IsNullOrWhiteSpace(path)) return default;
 
         var parentDirectoryCharsPattern = $@"\.\.\{Path.DirectorySeparatorChar}";
         var matches = Regex.Matches(path, parentDirectoryCharsPattern);
@@ -92,10 +92,6 @@ public static partial class ProgramFileUtility
     /// of the current OS.</summary>
     /// <param name="root">The root.</param>
     /// <param name="path">The path.</param>
-    /// <returns></returns>
-    /// <exception cref="NullReferenceException">The expected root path is not here.
-    /// or
-    /// The expected path is not here.</exception>
     /// <remarks>
     /// For detail, see:
     /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/14
@@ -104,8 +100,8 @@ public static partial class ProgramFileUtility
     /// </remarks>
     public static string GetCombinedPath(string? root, string? path)
     {
-        if (string.IsNullOrWhiteSpace(root)) throw new ArgumentNullException(nameof(root));
-        if (string.IsNullOrWhiteSpace(path)) throw new ArgumentNullException(nameof(path));
+        root.ThrowWhenNullOrWhiteSpace();
+        path.ThrowWhenNullOrWhiteSpace();
 
         path = GetRelativePath(path);
 
@@ -125,12 +121,6 @@ public static partial class ProgramFileUtility
     /// will throw <see cref="DirectoryNotFoundException"/>
     /// when combined path is not a directory
     /// </param>
-    /// <returns></returns>
-    /// <exception cref="NullReferenceException">The expected root path is not here.
-    /// or
-    /// The expected path is not here.</exception>
-    /// <exception cref="FileNotFoundException">see documentation for <c>fileIsExpected</c> parameter</exception>
-    /// <exception cref="DirectoryNotFoundException">see documentation for <c>fileIsExpected</c> parameter</exception>
     /// <remarks>
     /// For detail, see:
     /// 📚 https://github.com/BryanWilhite/SonghayCore/issues/14
@@ -166,7 +156,7 @@ public static partial class ProgramFileUtility
     /// </remarks>
     public static string? GetParentDirectory(string? path, int levels)
     {
-        if (string.IsNullOrWhiteSpace(path)) return path;
+        path.ThrowWhenNullOrWhiteSpace();
 
         levels = Math.Abs(levels);
         if (levels == 0) return path;
@@ -191,7 +181,7 @@ public static partial class ProgramFileUtility
     /// </remarks>
     public static DirectoryInfo? GetParentDirectoryInfo(string? path, int levels)
     {
-        if (string.IsNullOrWhiteSpace(path)) return null;
+        path.ThrowWhenNullOrWhiteSpace();
 
         var info = new DirectoryInfo(path);
 
@@ -222,7 +212,7 @@ public static partial class ProgramFileUtility
     /// </remarks>
     public static string? GetRelativePath(string? fileSegment)
     {
-        if (string.IsNullOrWhiteSpace(fileSegment)) throw new ArgumentNullException(nameof(fileSegment));
+        fileSegment.ThrowWhenNullOrWhiteSpace();
 
         fileSegment = TrimLeadingDirectorySeparatorChars(fileSegment);
         fileSegment = NormalizePath(fileSegment);

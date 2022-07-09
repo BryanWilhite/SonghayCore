@@ -51,15 +51,14 @@ public abstract class ActivitiesGetter
 
     static string[] ToActivityArgs(string[] args)
     {
-        if (args == null) throw new ArgumentNullException(nameof(args));
+        ArgumentNullException.ThrowIfNull(args);
 
         return args.Length < 2 ? Enumerable.Empty<string>().ToArray() : args.Skip(1).ToArray();
     }
 
     static string ToActivityName(string[] args)
     {
-        if (args == null) throw new ArgumentNullException(nameof(args));
-        if (!args.Any()) throw new ArgumentException("The expected Activity name is not here.");
+        args.ThrowWhenNullOrEmpty();
 
         return args.First();
     }

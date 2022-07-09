@@ -320,7 +320,7 @@ public static class HttpClientExtensions
         Action<HttpRequestMessage>? requestMessageAction)
     {
         if (client == null) return null;
-        if (uri == null) throw new ArgumentNullException(nameof(uri));
+        ArgumentNullException.ThrowIfNull(uri);
 
         using var request = new HttpRequestMessage(method, uri);
 
@@ -354,9 +354,10 @@ public static class HttpClientExtensions
         string? requestBody, Encoding encoding, string? mediaType, Action<HttpRequestMessage>? requestMessageAction)
     {
         if (client == null) return null;
-        if (uri == null) throw new ArgumentNullException(nameof(uri), "The expected URI is not here.");
-        if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody));
-        if (string.IsNullOrWhiteSpace(mediaType)) throw new ArgumentNullException(nameof(mediaType));
+
+        ArgumentNullException.ThrowIfNull(uri);
+        requestBody.ThrowWhenNullOrWhiteSpace();
+        mediaType.ThrowWhenNullOrWhiteSpace();
 
         using var request = new HttpRequestMessage(method, uri)
         {

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using Songhay.Extensions;
 
 namespace Songhay.Xml;
 
@@ -51,7 +52,8 @@ public static partial class XObjectUtility
         IXmlNamespaceResolver? resolver)
     {
         if (node == null) return defaultValue;
-        if (nodeQuery == null) throw new ArgumentNullException(nameof(nodeQuery));
+
+        nodeQuery.ThrowWhenNullOrWhiteSpace();
 
         var a = resolver == null
             ? ((IEnumerable) node.XPathEvaluate(nodeQuery)).OfType<XAttribute>().FirstOrDefault()

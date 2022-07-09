@@ -14,10 +14,7 @@ public static class ITemporalExtensions
     /// for <see cref="ITemporal"/> data.
     /// </summary>
     /// <param name="data">the <see cref="ITemporal"/> data</param>
-    public static void SetDefaults(this ITemporal data)
-    {
-        data.SetDefaults(endDate: null);
-    }
+    public static void SetDefaults(this ITemporal data) => data.SetDefaults(endDate: null);
 
     /// <summary>
     /// Sets conventional default values

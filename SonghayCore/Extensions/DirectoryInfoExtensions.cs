@@ -8,24 +8,25 @@ namespace Songhay.Extensions;
 public static class DirectoryInfoExtensions
 {
     /// <summary>
-    /// Finds the specified sub <see cref="DirectoryInfo"/>
-    /// under the specified <see cref="DirectoryInfo"/>.
+    /// Finds the specified target <see cref="DirectoryInfo"/>
+    /// under the specified root <see cref="DirectoryInfo"/>.
     /// </summary>
-    /// <param name="directoryInfo">the specified <see cref="DirectoryInfo"/></param>
-    /// <param name="expectedDirectoryName">the specified sub <see cref="DirectoryInfo.Name"/></param>
-    /// <returns></returns>
-    public static DirectoryInfo FindDirectory(this DirectoryInfo directoryInfo, string expectedDirectoryName)
+    /// <param name="directoryInfo">the specified root <see cref="DirectoryInfo"/></param>
+    /// <param name="expectedDirectoryName">the specified target <see cref="DirectoryInfo.Name"/></param>
+    public static DirectoryInfo FindDirectory(this DirectoryInfo? directoryInfo, string? expectedDirectoryName)
     {
+        expectedDirectoryName.ThrowWhenNullOrWhiteSpace();
+
         if (directoryInfo == null)
-            throw new DirectoryNotFoundException("The expected directory is not here.");
+            throw new DirectoryNotFoundException("The expected root directory is not here.");
 
         if (!directoryInfo.Exists)
-            throw new DirectoryNotFoundException("The expected directory does not exist.");
+            throw new DirectoryNotFoundException("The expected root directory does not exist.");
 
         var subDirectoryInfo = directoryInfo.GetDirectories(expectedDirectoryName).FirstOrDefault();
 
         if (subDirectoryInfo == null)
-            throw new DirectoryNotFoundException("The expected directory is not here.");
+            throw new DirectoryNotFoundException("The expected target directory is not here.");
 
         return subDirectoryInfo;
     }
@@ -37,8 +38,10 @@ public static class DirectoryInfoExtensions
     /// <param name="directoryInfo">the specified <see cref="DirectoryInfo"/></param>
     /// <param name="expectedFileName">the specified <see cref="FileInfo.Name"/></param>
     /// <returns></returns>
-    public static FileInfo FindFile(this DirectoryInfo directoryInfo, string expectedFileName)
+    public static FileInfo FindFile(this DirectoryInfo? directoryInfo, string? expectedFileName)
     {
+        expectedFileName.ThrowWhenNullOrWhiteSpace();
+
         if (directoryInfo == null)
             throw new DirectoryNotFoundException("The expected directory is not here.");
 
@@ -56,8 +59,8 @@ public static class DirectoryInfoExtensions
     /// <summary>Gets the parent directory.</summary>
     /// <param name="directoryInfo">The directory information.</param>
     /// <param name="levels">The levels.</param>
-    /// <returns></returns>
-    public static string? GetParentDirectory(this DirectoryInfo directoryInfo, int levels)
+    /// <returns>Returns a <see cref="string"/> representing the directory.</returns>
+    public static string? GetParentDirectory(this DirectoryInfo? directoryInfo, int levels)
     {
         var info = directoryInfo.GetParentDirectoryInfo(levels);
 
@@ -68,10 +71,9 @@ public static class DirectoryInfoExtensions
     /// <param name="directoryInfo">The directory information.</param>
     /// <param name="levels">The levels.</param>
     /// <returns></returns>
-    public static DirectoryInfo? GetParentDirectoryInfo(this DirectoryInfo directoryInfo, int levels)
+    public static DirectoryInfo? GetParentDirectoryInfo(this DirectoryInfo? directoryInfo, int levels)
     {
-        if (directoryInfo == null)
-            throw new NullReferenceException($"The expected {nameof(DirectoryInfo)} is not here.");
+        ArgumentNullException.ThrowIfNull(directoryInfo);
 
         levels = Math.Abs(levels);
         if (levels == 0) return directoryInfo;
@@ -89,18 +91,13 @@ public static class DirectoryInfoExtensions
     /// of the current OS or passes through a drive-letter rooted path.</summary>
     /// <param name="directoryInfo">The directory information.</param>
     /// <param name="path">The path.</param>
-    /// <returns></returns>
-    /// <exception cref="NullReferenceException">The expected root path is not here.
-    /// or
-    /// The expected path is not here.</exception>
     /// <remarks>
     /// For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14
     /// and <see cref="ProgramFileUtility.GetCombinedPath(string, string)" />.
     /// </remarks>
-    public static string ToCombinedPath(this DirectoryInfo directoryInfo, string path)
+    public static string ToCombinedPath(this DirectoryInfo? directoryInfo, string? path)
     {
-        if (directoryInfo == null)
-            throw new NullReferenceException($"The expected {nameof(DirectoryInfo)} is not here.");
+        ArgumentNullException.ThrowIfNull(directoryInfo);
 
         return ProgramFileUtility.GetCombinedPath(directoryInfo.FullName, path);
     }
@@ -112,7 +109,7 @@ public static class DirectoryInfoExtensions
     /// <param name="directoryInfo">the specified <see cref="DirectoryInfo"/></param>
     /// <param name="expectedDirectoryName">the expected directory name</param>
     /// <returns></returns>
-    public static void VerifyDirectory(this DirectoryInfo directoryInfo, string? expectedDirectoryName)
+    public static void VerifyDirectory(this DirectoryInfo? directoryInfo, string? expectedDirectoryName)
     {
         if (directoryInfo == null)
             throw new DirectoryNotFoundException("The expected directory is not here.");

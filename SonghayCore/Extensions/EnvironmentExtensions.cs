@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security;
+using System.Threading;
 
 namespace Songhay.Extensions;
 
@@ -21,9 +22,9 @@ public static class EnvironmentExtensions
     /// <returns>Returns the value of named data.</returns>
     public static string? GetConventionalValue(string? conventionalName)
     {
-        return (from e in EnvironmentVariables
-            where e.VariableName == conventionalName
-            select e.VariableValue ?? string.Empty).First();
+        return EnvironmentVariables.Value
+            .Where(e => e.VariableName.EqualsInvariant(conventionalName))
+            .Select(e => e.VariableValue).First();
     }
 
     static ICollection<SystemVariable> ListEnvironmentVariables()
@@ -41,7 +42,8 @@ public static class EnvironmentExtensions
         variableValue = Environment.MachineName;
         list.Add(new SystemVariable
         {
-            VariableName = variableName, VariableDescription = variableDescription,
+            VariableName = variableName,
+            VariableDescription = variableDescription,
             VariableValue = variableValue
         });
 
@@ -50,7 +52,8 @@ public static class EnvironmentExtensions
         variableValue = Environment.OSVersion.Platform.ToString();
         list.Add(new SystemVariable
         {
-            VariableName = variableName, VariableDescription = variableDescription,
+            VariableName = variableName,
+            VariableDescription = variableDescription,
             VariableValue = variableValue
         });
 
@@ -59,7 +62,8 @@ public static class EnvironmentExtensions
         variableValue = Environment.OSVersion.ServicePack;
         list.Add(new SystemVariable
         {
-            VariableName = variableName, VariableDescription = variableDescription,
+            VariableName = variableName,
+            VariableDescription = variableDescription,
             VariableValue = variableValue
         });
 
@@ -68,7 +72,8 @@ public static class EnvironmentExtensions
         variableValue = Environment.OSVersion.VersionString;
         list.Add(new SystemVariable
         {
-            VariableName = variableName, VariableDescription = variableDescription,
+            VariableName = variableName,
+            VariableDescription = variableDescription,
             VariableValue = variableValue
         });
 
@@ -77,7 +82,8 @@ public static class EnvironmentExtensions
         variableValue = Environment.UserDomainName;
         list.Add(new SystemVariable
         {
-            VariableName = variableName, VariableDescription = variableDescription,
+            VariableName = variableName,
+            VariableDescription = variableDescription,
             VariableValue = variableValue
         });
 
@@ -86,7 +92,8 @@ public static class EnvironmentExtensions
         variableValue = Environment.UserName;
         list.Add(new SystemVariable
         {
-            VariableName = variableName, VariableDescription = variableDescription,
+            VariableName = variableName,
+            VariableDescription = variableDescription,
             VariableValue = variableValue
         });
 
@@ -95,7 +102,8 @@ public static class EnvironmentExtensions
         variableValue = Environment.Version.Major.ToString(CultureInfo.CurrentCulture);
         list.Add(new SystemVariable
         {
-            VariableName = variableName, VariableDescription = variableDescription,
+            VariableName = variableName,
+            VariableDescription = variableDescription,
             VariableValue = variableValue
         });
 
@@ -104,7 +112,8 @@ public static class EnvironmentExtensions
         variableValue = Environment.Version.MajorRevision.ToString(CultureInfo.CurrentCulture);
         list.Add(new SystemVariable
         {
-            VariableName = variableName, VariableDescription = variableDescription,
+            VariableName = variableName,
+            VariableDescription = variableDescription,
             VariableValue = variableValue
         });
 
@@ -113,7 +122,8 @@ public static class EnvironmentExtensions
         variableValue = Environment.Version.Minor.ToString(CultureInfo.CurrentCulture);
         list.Add(new SystemVariable
         {
-            VariableName = variableName, VariableDescription = variableDescription,
+            VariableName = variableName,
+            VariableDescription = variableDescription,
             VariableValue = variableValue
         });
 
@@ -122,7 +132,8 @@ public static class EnvironmentExtensions
         variableValue = Environment.Version.MinorRevision.ToString(CultureInfo.CurrentCulture);
         list.Add(new SystemVariable
         {
-            VariableName = variableName, VariableDescription = variableDescription,
+            VariableName = variableName,
+            VariableDescription = variableDescription,
             VariableValue = variableValue
         });
 
@@ -131,7 +142,8 @@ public static class EnvironmentExtensions
         variableValue = Environment.Version.Revision.ToString(CultureInfo.CurrentCulture);
         list.Add(new SystemVariable
         {
-            VariableName = variableName, VariableDescription = variableDescription,
+            VariableName = variableName,
+            VariableDescription = variableDescription,
             VariableValue = variableValue
         });
 
@@ -149,7 +161,8 @@ public static class EnvironmentExtensions
 
                 list.Add(new SystemVariable
                 {
-                    VariableName = variableName, VariableDescription = variableDescription,
+                    VariableName = variableName,
+                    VariableDescription = variableDescription,
                     VariableValue = variableValue
                 });
             }
@@ -163,7 +176,8 @@ public static class EnvironmentExtensions
                 ex.GrantedSet, ex.PermissionState, ex.RefusedSet);
             list.Add(new SystemVariable
             {
-                VariableName = variableName, VariableDescription = variableDescription,
+                VariableName = variableName,
+                VariableDescription = variableDescription,
                 VariableValue = variableValue
             });
         }
@@ -182,7 +196,8 @@ public static class EnvironmentExtensions
 
                 list.Add(new SystemVariable
                 {
-                    VariableName = variableName, VariableDescription = variableDescription,
+                    VariableName = variableName,
+                    VariableDescription = variableDescription,
                     VariableValue = variableValue
                 });
             }
@@ -196,7 +211,8 @@ public static class EnvironmentExtensions
                 ex.GrantedSet, ex.PermissionState, ex.RefusedSet);
             list.Add(new SystemVariable
             {
-                VariableName = variableName, VariableDescription = variableDescription,
+                VariableName = variableName,
+                VariableDescription = variableDescription,
                 VariableValue = variableValue
             });
         }
@@ -215,7 +231,8 @@ public static class EnvironmentExtensions
 
                 list.Add(new SystemVariable
                 {
-                    VariableName = variableName, VariableDescription = variableDescription,
+                    VariableName = variableName,
+                    VariableDescription = variableDescription,
                     VariableValue = variableValue
                 });
             }
@@ -229,7 +246,8 @@ public static class EnvironmentExtensions
                 ex.GrantedSet, ex.PermissionState, ex.RefusedSet);
             list.Add(new SystemVariable
             {
-                VariableName = variableName, VariableDescription = variableDescription,
+                VariableName = variableName,
+                VariableDescription = variableDescription,
                 VariableValue = variableValue
             });
         }
@@ -239,5 +257,6 @@ public static class EnvironmentExtensions
         return list;
     }
 
-    static readonly ICollection<SystemVariable> EnvironmentVariables = ListEnvironmentVariables();
+    static readonly Lazy<ICollection<SystemVariable>> EnvironmentVariables =
+        new(ListEnvironmentVariables, LazyThreadSafetyMode.PublicationOnly);
 }

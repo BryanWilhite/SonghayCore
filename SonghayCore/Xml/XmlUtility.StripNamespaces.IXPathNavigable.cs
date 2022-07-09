@@ -9,7 +9,7 @@ public static partial class XmlUtility
     /// <summary>
     /// Strip the namespaces from specified document.
     /// </summary>
-    /// <param name="navigableSet">
+    /// <param name="navigable">
     /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
     /// <remarks>
@@ -21,12 +21,12 @@ public static partial class XmlUtility
     /// </remarks>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument? StripNamespaces(IXPathNavigable? navigableSet) => StripNamespaces(navigableSet, false);
+    public static XPathDocument? StripNamespaces(IXPathNavigable? navigable) => StripNamespaces(navigable, false);
 
     /// <summary>
     /// Strip the namespaces from specified document.
     /// </summary>
-    /// <param name="navigableSet">
+    /// <param name="navigable">
     /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
     /// </param>
     /// <param name="removeDocType">
@@ -41,11 +41,11 @@ public static partial class XmlUtility
     /// </remarks>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument? StripNamespaces(IXPathNavigable? navigableSet, bool removeDocType)
+    public static XPathDocument? StripNamespaces(IXPathNavigable? navigable, bool removeDocType)
     {
-        if (navigableSet == null) return null;
+        if (navigable == null) return null;
 
-        XPathNavigator? navigator = navigableSet.CreateNavigator();
+        XPathNavigator? navigator = navigable.CreateNavigator();
 
         string? xmlString = StripNamespaces(navigator?.OuterXml, removeDocType);
 

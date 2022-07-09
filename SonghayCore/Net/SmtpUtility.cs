@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using Songhay.Extensions;
 
 namespace Songhay.Net;
 
@@ -16,8 +17,6 @@ public static class SmtpUtility
     /// Gets the attachment.
     /// </summary>
     /// <param name="path">The path.</param>
-    /// <returns></returns>
-    /// <exception cref="System.IO.FileNotFoundException"></exception>
     public static Attachment GetAttachment(string? path)
     {
         if (!File.Exists(path)) throw new FileNotFoundException($"“{path}” was not found.");
@@ -30,8 +29,6 @@ public static class SmtpUtility
     /// Gets the attachment.
     /// </summary>
     /// <param name="paths">The paths.</param>
-    /// <returns></returns>
-    /// <exception cref="NullReferenceException">The expected paths are not here</exception>
     public static ICollection<Attachment> GetAttachment(IEnumerable<string>? paths) =>
         paths == null
             ? Enumerable.Empty<Attachment>().ToList()
@@ -45,7 +42,6 @@ public static class SmtpUtility
     /// <param name="to">the to email address</param>
     /// <param name="subject">the email message subject</param>
     /// <param name="message">the email message</param>
-    /// <returns></returns>
     public static MailMessage GetMailMessage(string from, string to, string subject, string message) =>
         GetMailMessage(from, subject, message, new[] {to}, attachments: null);
 
@@ -58,7 +54,6 @@ public static class SmtpUtility
     /// <param name="subject">the email message subject</param>
     /// <param name="message">the email message</param>
     /// <param name="attachments">a collection of <see cref="Attachment" /></param>
-    /// <returns></returns>
     public static MailMessage GetMailMessage(string from, string to, string subject, string message,
         ICollection<Attachment> attachments) =>
         !string.IsNullOrWhiteSpace(to)
@@ -73,7 +68,6 @@ public static class SmtpUtility
     /// <param name="subject">the email message subject</param>
     /// <param name="message">the email message</param>
     /// <param name="recipients">a collection of recipients</param>
-    /// <returns></returns>
     public static MailMessage GetMailMessage(string from, string subject, string message,
         ICollection<string> recipients) => GetMailMessage(from, subject, message, recipients, attachments: null);
 
@@ -86,15 +80,13 @@ public static class SmtpUtility
     /// <param name="message">the email message</param>
     /// <param name="recipients">a collection of recipients</param>
     /// <param name="attachments">a collection of <see cref="Attachment" /></param>
-    /// <returns></returns>
     public static MailMessage GetMailMessage(string? from, string? subject, string? message,
         ICollection<string>? recipients, ICollection<Attachment>? attachments)
     {
-        if (!string.IsNullOrWhiteSpace(from)) throw new NullReferenceException(nameof(from));
-        if (!string.IsNullOrWhiteSpace(subject)) throw new NullReferenceException(nameof(subject));
-        if (!string.IsNullOrWhiteSpace(message)) throw new NullReferenceException(nameof(message));
-        if (recipients == null) throw new NullReferenceException(nameof(recipients));
-        if (!recipients.Any()) throw new ArgumentException($"The expected number of {nameof(recipients)} is not here.");
+        from.ThrowWhenNullOrWhiteSpace();
+        subject.ThrowWhenNullOrWhiteSpace();
+        message.ThrowWhenNullOrWhiteSpace();
+        recipients.ThrowWhenNullOrEmpty();
 
         var msg = new MailMessage
         {

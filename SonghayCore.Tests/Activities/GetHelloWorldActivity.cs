@@ -27,7 +27,7 @@ public class GetHelloWorldActivity : IActivity
         if (args.IsHelpRequest()) return;
 
         var worldName = args.GetArgValue(argWorldName);
-        traceSource.EnsureTraceSource().WriteLine($"Hello from world {worldName}!");
+        traceSource.ToValueOrThrow().WriteLine($"Hello from world {worldName}!");
     }
 
     void SetupHelp(ProgramArgs args)

@@ -20,7 +20,7 @@ public static partial class IActivityExtensions
     /// <exception cref="ArgumentNullException">activity</exception>
     public static IActivity WithConfiguration(this IActivity? activity, IConfigurationRoot? configuration)
     {
-        if (activity == null) throw new ArgumentNullException(nameof(activity));
+        ArgumentNullException.ThrowIfNull(activity);
         if (configuration == null) return activity;
 
         // ReSharper disable once SuspiciousTypeConversion.Global

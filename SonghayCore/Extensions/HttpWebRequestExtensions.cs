@@ -31,7 +31,7 @@ public static class HttpWebRequestExtensions
     public static void DownloadToFile(this HttpWebRequest? request, string? path, Uri? proxyLocation, bool bypassProxy)
     {
         if (request == null) return;
-        if (string.IsNullOrWhiteSpace(path)) throw new ArgumentNullException(nameof(path));
+        path.ThrowWhenNullOrWhiteSpace();
 
         var buffer = new byte[32768];
         var fileName = Path.GetFileName(path);
@@ -41,7 +41,7 @@ public static class HttpWebRequestExtensions
         var response = request
             .WithProxy(proxyLocation, bypassProxy)
             .ToHttpWebResponse()
-            .EnsureHttpWebResponse();
+            .ToValueOrThrow();
 
         var stream = response.GetResponseStream();
         try
@@ -83,7 +83,7 @@ public static class HttpWebRequestExtensions
         var response = request
             .WithProxy(proxyLocation, bypassProxy)
             .ToHttpWebResponse()
-            .EnsureHttpWebResponse();
+            .ToValueOrThrow();
         try
         {
             using var sr = new StreamReader(response.GetResponseStream());
@@ -96,18 +96,6 @@ public static class HttpWebRequestExtensions
         }
 
         return content;
-    }
-
-    /// <summary>
-    /// Verifies existence of the <see cref="HttpWebResponse"/>.
-    /// </summary>
-    /// <param name="response">The request.</param>
-    public static HttpWebResponse EnsureHttpWebResponse(this HttpWebResponse? response)
-    {
-        if (response == null)
-            throw new NullReferenceException($"The expected {nameof(HttpWebResponse)} is not here.");
-
-        return response;
     }
 
     /// <summary>
@@ -129,7 +117,7 @@ public static class HttpWebRequestExtensions
         Uri? proxyLocation, bool bypassProxy)
     {
         if (request == null) return null;
-        if (postData == null) throw new ArgumentNullException(nameof(postData));
+        ArgumentNullException.ThrowIfNull(postData);
 
         var postParams = GetPostData(postData);
 
@@ -246,8 +234,10 @@ public static class HttpWebRequestExtensions
         string? requestMethod, string? contentType)
     {
         if (request == null) return null;
-        if (string.IsNullOrWhiteSpace(requestBody)) throw new ArgumentNullException(nameof(requestBody));
-        if (string.IsNullOrWhiteSpace(requestMethod)) throw new ArgumentNullException(nameof(requestMethod));
+
+        requestBody.ThrowWhenNullOrWhiteSpace();
+        requestMethod.ThrowWhenNullOrWhiteSpace();
+
         if (string.IsNullOrWhiteSpace(contentType)) contentType = MimeTypes.TextPlain;
 
         request.Method = requestMethod;

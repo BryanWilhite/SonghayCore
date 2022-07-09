@@ -31,16 +31,13 @@ public static class UriTemplateExtensions
     /// <exception cref="FormatException"></exception>
     public static Uri? BindByPosition(this UriTemplate? template, Uri? baseUri, params string[] values)
     {
-        if (template == null) throw new ArgumentNullException(nameof(template));
+        ArgumentNullException.ThrowIfNull(template);
 
-        var keys = template.GetParameterNames();
-        if (keys == null) throw new NullReferenceException(nameof(keys));
+        var keys = template.GetParameterNames().ToValueOrThrow().ToArray();
 
-        var snapshot = keys.ToArray();
-
-        for (int i = 0; i < snapshot.Length; i++)
+        for (int i = 0; i < keys.Length; i++)
         {
-            template.AddParameter(snapshot[i], values.ElementAtOrDefault(i));
+            template.AddParameter(keys[i], values.ElementAtOrDefault(i));
         }
 
         var resolved = template.Resolve();

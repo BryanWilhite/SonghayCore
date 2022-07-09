@@ -56,8 +56,8 @@ public static class UriExtensions
     /// </remarks>
     public static string ToAzureStorageCanonicalizedResourceLocation(this Uri? uri, string? accountName)
     {
-        if (uri == null) throw new ArgumentNullException(nameof(uri));
-        if (accountName == null) throw new ArgumentNullException(nameof(accountName));
+        ArgumentNullException.ThrowIfNull(uri);
+        ArgumentNullException.ThrowIfNull(accountName);
 
         // The absolute path is "/" because for we're getting a list of containers.
         StringBuilder sb = new StringBuilder("/").Append(accountName).Append(uri.AbsolutePath);
@@ -109,7 +109,7 @@ public static class UriExtensions
     /// <returns></returns>
     public static async Task<Uri?> ToExpandedUriAsync(this Uri? expandableUri)
     {
-        if (expandableUri == null) throw new ArgumentNullException(nameof(expandableUri));
+        ArgumentNullException.ThrowIfNull(expandableUri);
 
         var message = new HttpRequestMessage(HttpMethod.Get, expandableUri);
 

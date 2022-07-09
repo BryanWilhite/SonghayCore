@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using Songhay.Extensions;
 
 namespace Songhay;
 
@@ -55,7 +56,7 @@ public static class ProgramAssemblyUtility
     /// <exception cref="ArgumentNullException">assembly</exception>
     public static string? GetPathFromAssembly(Assembly? assembly)
     {
-        if (assembly == null) throw new ArgumentNullException(nameof(assembly));
+        ArgumentNullException.ThrowIfNull(assembly);
 
         var root = Path.GetDirectoryName(assembly.Location);
 
@@ -69,7 +70,7 @@ public static class ProgramAssemblyUtility
     /// <param name="fileSegment">The file segment.</param>
     public static string GetPathFromAssembly(Assembly? assembly, string? fileSegment)
     {
-        if (string.IsNullOrWhiteSpace(fileSegment)) throw new ArgumentNullException(nameof(fileSegment));
+        fileSegment.ThrowWhenNullOrWhiteSpace();
 
         fileSegment = ProgramFileUtility.TrimLeadingDirectorySeparatorChars(fileSegment);
 

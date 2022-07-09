@@ -20,7 +20,7 @@ public static class HttpResponseMessageExtensions
     /// <param name="fileInfo">The file information.</param>
     public static async Task DownloadByteArrayToFileAsync(this HttpResponseMessage? response, FileSystemInfo? fileInfo)
     {
-        if (fileInfo == null) throw new ArgumentNullException(nameof(fileInfo));
+        ArgumentNullException.ThrowIfNull(fileInfo);
 
         await response.DownloadByteArrayToFileAsync(fileInfo.FullName);
     }
@@ -48,10 +48,9 @@ public static class HttpResponseMessageExtensions
     /// </summary>
     /// <param name="response">The response.</param>
     /// <param name="fileInfo">The file information.</param>
-    /// <exception cref="NullReferenceException">The expected {nameof(FileSystemInfo)} is not here.</exception>
     public static async Task DownloadStringToFileAsync(this HttpResponseMessage? response, FileSystemInfo? fileInfo)
     {
-        if (fileInfo == null) throw new ArgumentNullException(nameof(fileInfo));
+        ArgumentNullException.ThrowIfNull(fileInfo);
 
         await response.DownloadStringToFileAsync(fileInfo.FullName);
     }
@@ -65,7 +64,8 @@ public static class HttpResponseMessageExtensions
     public static async Task DownloadStringToFileAsync(this HttpResponseMessage? response, string? target)
     {
         if (response == null) return;
-        if (target == null) throw new ArgumentNullException(nameof(target));
+
+        target.ThrowWhenNullOrWhiteSpace();
 
         var data = await response.Content
             .ReadAsStringAsync()

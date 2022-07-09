@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
@@ -39,8 +40,8 @@ public static partial class HttpRequestMessageExtensions
     public static AuthenticationHeaderValue ToAzureStorageAuthorizationHeader(this HttpRequestMessage? request,
         string? storageAccountName, string? storageAccountKey, string? eTag, string? md5)
     {
-        if (request == null) throw new ArgumentNullException(nameof(request));
-        if (string.IsNullOrWhiteSpace(storageAccountKey)) throw new ArgumentNullException(nameof(storageAccountKey));
+        ArgumentNullException.ThrowIfNull(request);
+        storageAccountKey.ThrowWhenNullOrWhiteSpace();
 
         var signatureBytes = request.ToAzureStorageSignature(storageAccountName, eTag, md5);
 
@@ -71,7 +72,7 @@ public static partial class HttpRequestMessageExtensions
     /// </remarks>
     public static string ToAzureStorageCanonicalizedHeaders(this HttpRequestMessage? request)
     {
-        if (request == null) throw new ArgumentNullException(nameof(request));
+        ArgumentNullException.ThrowIfNull(request);
 
         var xMsHeaders = request.Headers
             .Where(pair => pair.Key.StartsWith("x-ms-", StringComparison.OrdinalIgnoreCase))
@@ -120,7 +121,7 @@ public static partial class HttpRequestMessageExtensions
     public static byte[] ToAzureStorageSignature(this HttpRequestMessage? request, string? storageAccountName,
         string? eTag, string? md5)
     {
-        if (request == null) throw new ArgumentNullException(nameof(request));
+        ArgumentNullException.ThrowIfNull(request);
         if (request.Content == null)
             throw new NullReferenceException($"{nameof(request)}.{nameof(request.Content)}");
         if (string.IsNullOrWhiteSpace(eTag)) eTag = string.Empty;
@@ -167,9 +168,9 @@ public static partial class HttpRequestMessageExtensions
     public static HttpRequestMessage WithAzureStorageBlockBlobContent(this HttpRequestMessage? request,
         string? blobName, string? content)
     {
-        if (request == null) throw new ArgumentNullException(nameof(request));
-        if (blobName == null) throw new ArgumentNullException(nameof(blobName));
-        if (content == null) throw new ArgumentNullException(nameof(content));
+        ArgumentNullException.ThrowIfNull(request);
+        ArgumentNullException.ThrowIfNull(blobName);
+        ArgumentNullException.ThrowIfNull(content);
 
         byte[] bytes = Encoding.UTF8.GetBytes(content);
 
@@ -233,7 +234,7 @@ public static partial class HttpRequestMessageExtensions
         DateTime requestMoment, string? serviceVersion, string? storageAccountName, string? storageAccountKey,
         string? eTag, string? md5)
     {
-        if (request == null) throw new ArgumentNullException(nameof(request));
+        ArgumentNullException.ThrowIfNull(request);
 
         request.Headers.Add("x-ms-date", requestMoment.ToString("R", CultureInfo.InvariantCulture));
         request.Headers.Add("x-ms-version", serviceVersion);

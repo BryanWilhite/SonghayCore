@@ -8,16 +8,16 @@ public class MyClass
 {
     static MyClass()
     {
-        traceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels().EnsureTraceSource();
-        traceSource.WriteLine($"static constructor: {nameof(MyClass)}");
+        TraceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels().ToValueOrThrow();
+        TraceSource.WriteLine($"static constructor: {nameof(MyClass)}");
     }
 
-    static readonly TraceSource traceSource;
+    static readonly TraceSource TraceSource;
 
     public MyClass()
     {
-        traceSource.WriteLine($"{nameof(MyClass)} constructed.");
+        TraceSource.WriteLine($"{nameof(MyClass)} constructed.");
     }
 
-    public string GetConfiguredTraceSourceName() => traceSource.Name;
+    public string GetConfiguredTraceSourceName() => TraceSource.Name;
 }

@@ -60,8 +60,8 @@ public static partial class XmlUtility
     /// </param>
     public static string? LoadXslTransform(string? xslPath, XsltArgumentList? xslArgs, string? xmlPath)
     {
-        if (string.IsNullOrWhiteSpace(xslPath)) throw new ArgumentNullException(nameof(xslPath));
-        if (string.IsNullOrWhiteSpace(xmlPath)) throw new ArgumentNullException(nameof(xmlPath));
+        xslPath.ThrowWhenNullOrWhiteSpace();
+        xmlPath.ThrowWhenNullOrWhiteSpace();
 
         xslArgs ??= new XsltArgumentList();
 
@@ -116,17 +116,18 @@ public static partial class XmlUtility
     /// <param name="commandName">
     /// The value for the <code>cmd</code>-parameter convention.
     /// </param>
-    /// <param name="navigableSet">
+    /// <param name="navigableXml">
     /// The <see cref="System.Xml.XPath.IXPathNavigable"/> in memory.
     /// </param>
     /// <remarks>
     /// This convention is used in ASP.NET Web applications.
     /// </remarks>
     public static string? LoadXslTransformForMemoryInput(string? xslPath, string? commandName,
-        IXPathNavigable navigableSet)
+        IXPathNavigable navigableXml)
     {
-        if (navigableSet == null) throw new ArgumentNullException(nameof(navigableSet));
-        var navigator = navigableSet.CreateNavigator().EnsureXPathNavigator();
+        ArgumentNullException.ThrowIfNull(navigableXml);
+
+        var navigator = navigableXml.CreateNavigator().ToValueOrThrow();
         var xmlFragment = navigator.OuterXml;
         var xslArgs = GetXsltArgumentList(commandName);
 
@@ -153,8 +154,8 @@ public static partial class XmlUtility
     public static string? LoadXslTransformForMemoryInput(string? xslPath, XsltArgumentList? xslArgs,
         string? xmlFragment)
     {
-        if (string.IsNullOrWhiteSpace(xslPath)) throw new ArgumentException(nameof(xslPath));
-        if (string.IsNullOrWhiteSpace(xmlFragment)) throw new ArgumentException(nameof(xmlFragment));
+        xslPath.ThrowWhenNullOrWhiteSpace();
+        xmlFragment.ThrowWhenNullOrWhiteSpace();
 
         xslArgs ??= new XsltArgumentList();
 
