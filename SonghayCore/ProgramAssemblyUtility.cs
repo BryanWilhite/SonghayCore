@@ -9,7 +9,7 @@ namespace Songhay;
 /// <summary>
 /// Static members related to <see cref="System.Reflection"/>.
 /// </summary>
-public static partial class ProgramAssemblyUtility
+public static class ProgramAssemblyUtility
 {
     /// <summary>
     /// Returns a <see cref="string"/>
@@ -19,10 +19,7 @@ public static partial class ProgramAssemblyUtility
     /// The executing <see cref="System.Reflection.Assembly"/>.
     /// </param>
     /// <returns>Returns <see cref="string"/></returns>
-    public static string GetAssemblyInfo(Assembly targetAssembly)
-    {
-        return GetAssemblyInfo(targetAssembly, false);
-    }
+    public static string GetAssemblyInfo(Assembly targetAssembly) => GetAssemblyInfo(targetAssembly, false);
 
     /// <summary>
     /// Returns a <see cref="string"/>
@@ -35,10 +32,11 @@ public static partial class ProgramAssemblyUtility
     /// When <c>true</c> selected “special” characters are formatted for the Windows Console.
     /// </param>
     /// <returns>Returns <see cref="string"/></returns>
-    public static string GetAssemblyInfo(Assembly targetAssembly, bool useConsoleChars)
+    public static string GetAssemblyInfo(Assembly? targetAssembly, bool useConsoleChars)
     {
         var sb = new StringBuilder();
-        ProgramAssemblyInfo info = new ProgramAssemblyInfo(targetAssembly);
+
+        var info = new ProgramAssemblyInfo(targetAssembly);
 
         sb.AppendFormat("{0} {1}{2}", info.AssemblyTitle, info.AssemblyVersion, Environment.NewLine);
         sb.Append(info.AssemblyDescription);
@@ -55,23 +53,12 @@ public static partial class ProgramAssemblyUtility
     /// <param name="assembly">The assembly.</param>
     /// <returns></returns>
     /// <exception cref="ArgumentNullException">assembly</exception>
-    public static string GetPathFromAssembly(Assembly assembly)
+    public static string? GetPathFromAssembly(Assembly? assembly)
     {
         if (assembly == null) throw new ArgumentNullException(nameof(assembly));
 
-#pragma warning disable SYSLIB0012
-        var hasCodeBaseOnWindows =
-                !string.IsNullOrWhiteSpace(assembly.CodeBase)
-                &&
-                !ProgramFileUtility.IsForwardSlashSystem()
-            ;
+        var root = Path.GetDirectoryName(assembly.Location);
 
-        var location = hasCodeBaseOnWindows ?
-            assembly.CodeBase.Replace("file:///", string.Empty) :
-            assembly.Location;
-#pragma warning restore SYSLIB0012
-
-        var root = Path.GetDirectoryName(location);
         return root;
     }
 
@@ -80,11 +67,12 @@ public static partial class ProgramAssemblyUtility
     /// </summary>
     /// <param name="assembly">The assembly.</param>
     /// <param name="fileSegment">The file segment.</param>
-    public static string GetPathFromAssembly(Assembly assembly, string fileSegment)
+    public static string GetPathFromAssembly(Assembly? assembly, string? fileSegment)
     {
         if (string.IsNullOrWhiteSpace(fileSegment)) throw new ArgumentNullException(nameof(fileSegment));
 
         fileSegment = ProgramFileUtility.TrimLeadingDirectorySeparatorChars(fileSegment);
+
         if (Path.IsPathRooted(fileSegment)) throw new FormatException("The expected relative path is not here.");
 
         fileSegment = ProgramFileUtility.NormalizePath(fileSegment);
@@ -94,6 +82,7 @@ public static partial class ProgramAssemblyUtility
         if (levels > 0) root = ProgramFileUtility.GetParentDirectory(root, levels);
 
         var path = ProgramFileUtility.GetCombinedPath(root, fileSegment);
+
         return path;
     }
 }

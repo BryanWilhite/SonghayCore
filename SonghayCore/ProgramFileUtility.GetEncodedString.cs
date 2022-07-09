@@ -13,10 +13,7 @@ public static partial class ProgramFileUtility
     /// Gets the UTF-8 encoded string from.
     /// </summary>
     /// <param name="utf16Value">The raw value.</param>
-    public static string GetEncodedString(string utf16Value)
-    {
-        return GetEncodedString(utf16Value, Encoding.UTF8);
-    }
+    public static string GetEncodedString(string? utf16Value) => GetEncodedString(utf16Value, Encoding.UTF8);
 
     /// <summary>
     /// Gets the encoded <see cref="string"/>
@@ -29,8 +26,9 @@ public static partial class ProgramFileUtility
     /// encoding of strings in .NET.
     /// See: https://docs.microsoft.com/en-us/dotnet/api/system.text.unicodeencoding
     /// </remarks>
-    public static string GetEncodedString(string utf16Value, Encoding outputEncoding)
+    public static string GetEncodedString(string? utf16Value, Encoding? outputEncoding)
     {
+        if (utf16Value == null) throw new ArgumentNullException(nameof(utf16Value));
         if (outputEncoding == null) throw new ArgumentNullException(nameof(outputEncoding));
 
         byte[] byteArray = Encoding.Convert(

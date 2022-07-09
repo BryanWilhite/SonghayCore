@@ -21,7 +21,7 @@ public static partial class ProgramFileUtility
         TraceSource = TraceSources.Instance.GetConfiguredTraceSource();
     }
 
-    static readonly TraceSource TraceSource;
+    static readonly TraceSource? TraceSource;
 
     /// <summary>
     /// Counts the parent directory chars.
@@ -202,6 +202,7 @@ public static partial class ProgramFileUtility
         path = info.Parent.FullName;
 
         --levels;
+
         return (levels >= 1) ? GetParentDirectoryInfo(path, levels) : info.Parent;
     }
 

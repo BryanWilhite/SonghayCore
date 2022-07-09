@@ -6,6 +6,10 @@ namespace Songhay;
 /// <summary>
 /// Static members for type handling.
 /// </summary>
+/// <remarks>
+/// Most of the Parse methods were originally meant
+/// for unboxing values from XML documents.
+/// </remarks>
 public static partial class ProgramTypeUtility
 {
     /// <summary>
@@ -20,11 +24,7 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static bool? ParseBoolean(object value)
-    {
-        bool supportBitStrings = false;
-        return ParseBoolean(value, supportBitStrings);
-    }
+    public static bool? ParseBoolean(object? value) => ParseBoolean(value, supportBitStrings: false);
 
     /// <summary>
     /// Tries to convert the specified value
@@ -42,19 +42,22 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static bool? ParseBoolean(object value, bool supportBitStrings)
+    public static bool? ParseBoolean(object? value, bool supportBitStrings)
     {
-        bool bln;
-        string s = (value != null) ? value.ToString() : string.Empty;
+        string? s = (value != null) ? value.ToString() : string.Empty;
 
         if (supportBitStrings)
         {
-            if (s.Trim().Equals("0")) return new bool?(false);
-            if (s.Trim().Equals("1")) return new bool?(true);
+            switch (s?.Trim())
+            {
+                case "0":
+                    return false;
+                case "1":
+                    return true;
+            }
         }
 
-        if (bool.TryParse(s, out bln)) return bln;
-        else return default(bool?);
+        return bool.TryParse(s, out var bln) ? bln : default(bool?);
     }
 
     /// <summary>
@@ -76,12 +79,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static bool? ParseBoolean(object value, bool supportBitStrings, bool defaultValue)
+    public static bool? ParseBoolean(object? value, bool supportBitStrings, bool defaultValue)
     {
         bool? bln = ParseBoolean(value, supportBitStrings);
 
-        if (bln.HasValue) return bln;
-        else return new bool?(defaultValue);
+        return bln ?? new bool?(defaultValue);
     }
 
     /// <summary>
@@ -96,12 +98,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static byte? ParseByte(object value)
+    public static byte? ParseByte(object? value)
     {
-        byte b;
-        string s = (value != null) ? value.ToString() : string.Empty;
-        if (byte.TryParse(s, out b)) return b;
-        else return default(byte?);
+        string? s = value != null ? value.ToString() : string.Empty;
+
+        return byte.TryParse(s, out var b) ? b : default(byte?);
     }
 
     /// <summary>
@@ -119,11 +120,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static byte? ParseByte(object value, byte defaultValue)
+    public static byte? ParseByte(object? value, byte defaultValue)
     {
         byte? b = ParseByte(value);
-        if (b.HasValue) return b;
-        else return new byte?(defaultValue);
+
+        return b ?? new byte?(defaultValue);
     }
 
     /// <summary>
@@ -138,12 +139,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static DateTime? ParseDateTime(object value)
+    public static DateTime? ParseDateTime(object? value)
     {
-        DateTime d;
-        string s = (value != null) ? value.ToString() : string.Empty;
-        if (DateTime.TryParse(s, out d)) return d;
-        else return default(DateTime?);
+        string? s = (value != null) ? value.ToString() : string.Empty;
+
+        return DateTime.TryParse(s, out var d) ? d : default(DateTime?);
     }
 
     /// <summary>
@@ -161,11 +161,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static DateTime? ParseDateTime(object value, DateTime defaultValue)
+    public static DateTime? ParseDateTime(object? value, DateTime defaultValue)
     {
         DateTime? d = ParseDateTime(value);
-        if (d.HasValue) return d;
-        else return new DateTime?(defaultValue);
+
+        return d ?? new DateTime?(defaultValue);
     }
 
     /// <summary>
@@ -183,12 +183,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static string ParseDateTimeWithFormat(object value, string formatExpression)
+    public static string? ParseDateTimeWithFormat(object? value, string formatExpression)
     {
-        DateTime d;
-        string s = (value != null) ? value.ToString() : string.Empty;
-        if (DateTime.TryParse(s, out d)) return d.ToString(formatExpression, CultureInfo.CurrentCulture);
-        else return null;
+        string? s = (value != null) ? value.ToString() : string.Empty;
+
+        return DateTime.TryParse(s, out var d) ? d.ToString(formatExpression, CultureInfo.CurrentCulture) : null;
     }
 
     /// <summary>
@@ -209,11 +208,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static string ParseDateTimeWithFormat(object value, string formatExpression, string defaultValue)
+    public static string ParseDateTimeWithFormat(object? value, string formatExpression, string defaultValue)
     {
-        string d = ParseDateTimeWithFormat(value, formatExpression);
-        if (string.IsNullOrWhiteSpace(d)) return defaultValue;
-        else return d;
+        string? d = ParseDateTimeWithFormat(value, formatExpression);
+
+        return string.IsNullOrWhiteSpace(d) ? defaultValue : d;
     }
 
     /// <summary>
@@ -228,12 +227,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static decimal? ParseDecimal(object value)
+    public static decimal? ParseDecimal(object? value)
     {
-        decimal d;
-        string s = (value != null) ? value.ToString() : string.Empty;
-        if (decimal.TryParse(s, out d)) return d;
-        else return default(decimal?);
+        string? s = (value != null) ? value.ToString() : string.Empty;
+
+        return decimal.TryParse(s, out var d) ? d : default(decimal?);
     }
 
     /// <summary>
@@ -251,11 +249,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static decimal? ParseDecimal(object value, decimal defaultValue)
+    public static decimal? ParseDecimal(object? value, decimal defaultValue)
     {
         decimal? d = ParseDecimal(value);
-        if (d.HasValue) return d;
-        else return new decimal?(defaultValue);
+
+        return d ?? new decimal?(defaultValue);
     }
 
     /// <summary>
@@ -270,12 +268,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static double? ParseDouble(object value)
+    public static double? ParseDouble(object? value)
     {
-        double d;
-        string s = (value != null) ? value.ToString() : string.Empty;
-        if (double.TryParse(s, out d)) return d;
-        else return default(double?);
+        string? s = (value != null) ? value.ToString() : string.Empty;
+
+        return double.TryParse(s, out var d) ? d : default(double?);
     }
 
     /// <summary>
@@ -293,11 +290,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static double? ParseDouble(object value, double defaultValue)
+    public static double? ParseDouble(object? value, double defaultValue)
     {
         double? d = ParseDouble(value);
-        if (d.HasValue) return d;
-        else return new double?(defaultValue);
+
+        return d ?? new double?(defaultValue);
     }
 
     /// <summary>
@@ -313,7 +310,8 @@ public static partial class ProgramTypeUtility
     /// </remarks>
     public static TEnum ParseEnum<TEnum>(string value, TEnum defaultValue) where TEnum : struct
     {
-        var isDefined = string.IsNullOrWhiteSpace(value) ? false : Enum.IsDefined(typeof(TEnum), value);
+        var isDefined = !string.IsNullOrWhiteSpace(value) && Enum.IsDefined(typeof(TEnum), value);
+
         return isDefined ? (TEnum)Enum.Parse(typeof(TEnum), value) : defaultValue;
     }
 
@@ -329,12 +327,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static Int16? ParseInt16(object value)
+    public static Int16? ParseInt16(object? value)
     {
-        Int16 i;
-        string s = (value != null) ? value.ToString() : string.Empty;
-        if (Int16.TryParse(s, out i)) return i;
-        else return default(Int16?);
+        string? s = (value != null) ? value.ToString() : string.Empty;
+
+        return Int16.TryParse(s, out var i) ? i : default(Int16?);
     }
 
     /// <summary>
@@ -352,11 +349,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static Int16? ParseInt16(object value, Int16 defaultValue)
+    public static Int16? ParseInt16(object? value, Int16 defaultValue)
     {
         Int16? i = ParseInt16(value);
-        if (i.HasValue) return i;
-        else return new Int16?(defaultValue);
+
+        return i ?? new Int16?(defaultValue);
     }
 
     /// <summary>
@@ -371,12 +368,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static Int32? ParseInt32(object value)
+    public static Int32? ParseInt32(object? value)
     {
-        Int32 i;
-        string s = (value != null) ? value.ToString() : string.Empty;
-        if (Int32.TryParse(s, out i)) return i;
-        else return default(Int32?);
+        string? s = (value != null) ? value.ToString() : string.Empty;
+
+        return Int32.TryParse(s, out var i) ? i : default(Int32?);
     }
 
     /// <summary>
@@ -394,11 +390,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static Int32? ParseInt32(object value, Int32 defaultValue)
+    public static Int32? ParseInt32(object? value, Int32 defaultValue)
     {
         Int32? i = ParseInt32(value);
-        if (i.HasValue) return i;
-        else return new Int32?(defaultValue);
+
+        return i ?? new Int32?(defaultValue);
     }
 
     /// <summary>
@@ -413,12 +409,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static Int64? ParseInt64(object value)
+    public static Int64? ParseInt64(object? value)
     {
-        Int64 i;
-        string s = (value != null) ? value.ToString() : string.Empty;
-        if (Int64.TryParse(s, out i)) return i;
-        else return default(Int64?);
+        string? s = (value != null) ? value.ToString() : string.Empty;
+
+        return Int64.TryParse(s, out var i) ? i : default(Int64?);
     }
 
     /// <summary>
@@ -436,11 +431,11 @@ public static partial class ProgramTypeUtility
     /// as parse failure means <c>HasValue</c>
     /// is false.
     /// </returns>
-    public static Int64? ParseInt64(object value, Int64 defaultValue)
+    public static Int64? ParseInt64(object? value, Int64 defaultValue)
     {
         Int64? i = ParseInt64(value);
-        if (i.HasValue) return i;
-        else return new Int64?(defaultValue);
+
+        return i ?? new Int64?(defaultValue);
     }
 
     /// <summary>
@@ -450,14 +445,16 @@ public static partial class ProgramTypeUtility
     /// <remarks>
     ///     This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
     /// </remarks>
-    public static DateTime ParseRfc3339DateTime(string value)
+    public static DateTime ParseRfc3339DateTime(string? value)
     {
-        DateTime minValue = DateTime.MinValue;
         if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException(nameof(value));
-        if (!TryParseRfc3339DateTime(value, out minValue))
+
+        if (!TryParseRfc3339DateTime(value, out var minValue))
         {
-            throw new FormatException(string.Format(CultureInfo.CurrentCulture, "'{0}' is not a valid RFC-3339 formatted date-time value.", new object[] { value }));
+            throw new FormatException(string.Format(CultureInfo.CurrentCulture,
+                "'{0}' is not a valid RFC-3339 formatted date-time value.", new object[] { value }));
         }
+
         return minValue;
     }
 
@@ -470,12 +467,13 @@ public static partial class ProgramTypeUtility
     /// </remarks>
     public static DateTime ParseRfc822DateTime(string value)
     {
-        DateTime minValue = DateTime.MinValue;
         if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException(nameof(value));
-        if (!TryParseRfc822DateTime(value, out minValue))
+
+        if (!TryParseRfc822DateTime(value, out var minValue))
         {
             throw new FormatException(string.Format(CultureInfo.CurrentCulture, "'{0}' is not a valid RFC-822 formatted date-time value.", new object[] { value }));
         }
+
         return minValue;
     }
 
@@ -486,10 +484,7 @@ public static partial class ProgramTypeUtility
     /// <param name="value">
     /// The specified <see cref="Object"/> box.
     /// </param>
-    public static string ParseString(object value)
-    {
-        return (value != null) ? value.ToString() : null;
-    }
+    public static string? ParseString(object? value) => value?.ToString();
 
     /// <summary>
     /// Tries to convert the specified value
@@ -497,10 +492,8 @@ public static partial class ProgramTypeUtility
     /// </summary>
     /// <param name="value">The value.</param>
     /// <param name="defaultValue">The default value.</param>
-    public static string ParseString(object value, string defaultValue)
-    {
-        return (value != null) ? value.ToString() : defaultValue;
-    }
+    public static string? ParseString(object? value, string? defaultValue) =>
+        value != null ? value.ToString() : defaultValue;
 
     /// <summary>
     /// Tries the parse RFC3339 date and time.
@@ -513,12 +506,22 @@ public static partial class ProgramTypeUtility
     public static bool TryParseRfc3339DateTime(string value, out DateTime result)
     {
         DateTimeFormatInfo dateTimeFormat = CultureInfo.InvariantCulture.DateTimeFormat;
-        string[] formats = new string[] { dateTimeFormat.SortableDateTimePattern, dateTimeFormat.UniversalSortableDateTimePattern, "yyyy'-'MM'-'dd'T'HH:mm:ss'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.f'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.fff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.fffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:sszzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.fffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.fffffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffffzzz" };
+        string[] formats =
+        {
+            dateTimeFormat.SortableDateTimePattern, dateTimeFormat.UniversalSortableDateTimePattern,
+            "yyyy'-'MM'-'dd'T'HH:mm:ss'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.f'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ff'Z'",
+            "yyyy'-'MM'-'dd'T'HH:mm:ss.fff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffff'Z'",
+            "yyyy'-'MM'-'dd'T'HH:mm:ss.fffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:sszzz",
+            "yyyy'-'MM'-'dd'T'HH:mm:ss.ffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.fffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffzzz",
+            "yyyy'-'MM'-'dd'T'HH:mm:ss.fffffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffffzzz"
+        };
+
         if (string.IsNullOrWhiteSpace(value))
         {
             result = DateTime.MinValue;
             return false;
         }
+
         return DateTime.TryParseExact(value, formats, dateTimeFormat, DateTimeStyles.AssumeUniversal, out result);
     }
 
@@ -533,18 +536,22 @@ public static partial class ProgramTypeUtility
     public static bool TryParseRfc822DateTime(string value, out DateTime result)
     {
         DateTimeFormatInfo dateTimeFormat = CultureInfo.InvariantCulture.DateTimeFormat;
-        string[] formats = new string[] { dateTimeFormat.RFC1123Pattern, "ddd',' d MMM yyyy HH:mm:ss zzz", "ddd',' dd MMM yyyy HH:mm:ss zzz" };
+        string[] formats =
+            {dateTimeFormat.RFC1123Pattern, "ddd',' d MMM yyyy HH:mm:ss zzz", "ddd',' dd MMM yyyy HH:mm:ss zzz"};
+
         if (string.IsNullOrWhiteSpace(value))
         {
             result = DateTime.MinValue;
             return false;
         }
+
         return DateTime.TryParseExact(ReplaceRfc822TimeZoneWithOffset(value), formats, dateTimeFormat, DateTimeStyles.None, out result);
     }
 
-    static string ReplaceRfc822TimeZoneWithOffset(string value)
+    static string ReplaceRfc822TimeZoneWithOffset(string? value)
     {
         if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException(nameof(value));
+
         value = value.Trim();
         if (value.EndsWith("UT", StringComparison.OrdinalIgnoreCase))
         {
@@ -602,7 +609,7 @@ public static partial class ProgramTypeUtility
         {
             return string.Format(CultureInfo.CurrentCulture, "{0}+12:00", new object[] { value.TrimEnd("Y".ToCharArray()) });
         }
+
         return value;
     }
-
 }
