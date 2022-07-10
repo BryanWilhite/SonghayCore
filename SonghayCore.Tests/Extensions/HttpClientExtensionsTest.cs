@@ -13,8 +13,8 @@ public class HttpClientExtensionsTest
 {
     public HttpClientExtensionsTest(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
-        this._basePath = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+        _testOutputHelper = helper;
+        _basePath = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
     }
 
     [Theory]
@@ -23,7 +23,7 @@ public class HttpClientExtensionsTest
         "https://github.com/BryanWilhite/SonghayCore/blob/master/README.md")]
     public async Task DownloadToFileAsync_Test(string file, string uri)
     {
-        file = ProgramFileUtility.GetCombinedPath(this._basePath, file);
+        file = ProgramFileUtility.GetCombinedPath(_basePath, file);
         Assert.True(File.Exists(file), "The expected target download file is not here.");
 
         await GetHttpClient().DownloadToFileAsync(new Uri(uri, UriKind.Absolute), file);
@@ -35,12 +35,12 @@ public class HttpClientExtensionsTest
         "https://github.com/BryanWilhite/SonghayCore/blob/master/README.md")]
     public async Task DownloadToStringAsync_Test(string file, string uri)
     {
-        file = ProgramFileUtility.GetCombinedPath(this._basePath, file);
+        file = ProgramFileUtility.GetCombinedPath(_basePath, file);
         Assert.True(File.Exists(file), "The expected target download file is not here.");
 
         var content = await GetHttpClient().DownloadToStringAsync(new Uri(uri, UriKind.Absolute));
         Assert.False(string.IsNullOrWhiteSpace(content), "The expected response is not here.");
-        this._testOutputHelper.WriteLine(content);
+        _testOutputHelper.WriteLine(content);
     }
 
     [Theory]
@@ -49,12 +49,12 @@ public class HttpClientExtensionsTest
         "https://github.com/BryanWilhite/SonghayCore/blob/master/README.md")]
     public async Task DownloadToStringAsync_HttpRequestMessage_Test(string file, string uri)
     {
-        file = ProgramFileUtility.GetCombinedPath(this._basePath, file);
+        file = ProgramFileUtility.GetCombinedPath(_basePath, file);
         Assert.True(File.Exists(file), "The expected target download file is not here.");
 
         var response = await GetHttpClient().DownloadToStringAsync(new Uri(uri, UriKind.Absolute), requestMessageAction: null);
         Assert.False(string.IsNullOrWhiteSpace(response), "The expected response is not here.");
-        this._testOutputHelper.WriteLine(response);
+        _testOutputHelper.WriteLine(response);
     }
 
     static HttpClient GetHttpClient() => HttpClientLazy.Value;

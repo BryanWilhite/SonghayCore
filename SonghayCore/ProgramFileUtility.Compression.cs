@@ -93,7 +93,7 @@ public static partial class ProgramFileUtility
     /// </summary>
     /// <param name="archiveInfo">The ZIP archive <see cref="FileInfo"/>.</param>
     /// <param name="archiveAction">The action to take for the ZIP archive in use.</param>
-    public static void UseZipArchive(FileInfo? archiveInfo, Action<ZipArchive>? archiveAction) =>
+    public static void UseZipArchive(FileInfo? archiveInfo, Action<ZipArchive?>? archiveAction) =>
         UseZipArchive(archiveInfo, archiveAction, ZipArchiveMode.Read);
 
     /// <summary>
@@ -102,7 +102,7 @@ public static partial class ProgramFileUtility
     /// <param name="archiveInfo">The ZIP archive <see cref="FileInfo"/>.</param>
     /// <param name="archiveAction">The action to take for the ZIP archive in use.</param>
     /// <param name="zipArchiveMode">The <see cref="ZipArchiveMode"/></param>
-    public static void UseZipArchive(FileInfo? archiveInfo, Action<ZipArchive>? archiveAction,
+    public static void UseZipArchive(FileInfo? archiveInfo, Action<ZipArchive?>? archiveAction,
         ZipArchiveMode zipArchiveMode)
     {
         ArgumentNullException.ThrowIfNull(archiveInfo);
@@ -136,6 +136,8 @@ public static partial class ProgramFileUtility
     {
         UseZipArchive(archiveInfo, archive =>
         {
+            if (archive == null) return;
+
             var entries = archive.Entries;
 
             if (entriesProjector != null)
@@ -163,6 +165,8 @@ public static partial class ProgramFileUtility
         CompressionLevel compressionLevel) =>
         UseZipArchive(archiveInfo, archive =>
         {
+            if (archive == null) return;
+
             var entry = archive.CreateEntry(fileInfo.Name, compressionLevel);
             using var writer = new StreamWriter(entry.Open());
             var s = File.ReadAllText(fileInfo.FullName);

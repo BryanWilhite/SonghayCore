@@ -11,7 +11,7 @@ public class Utf8JsonWriterExtensionsTests
 {
     public Utf8JsonWriterExtensionsTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Fact]
@@ -26,7 +26,7 @@ public class Utf8JsonWriterExtensionsTests
 
         string json = Encoding.UTF8.GetString(stream.ToArray());
 
-        this._testOutputHelper.WriteLine(json);
+        _testOutputHelper.WriteLine(json);
         Assert.Equal("{}", json);
     }
 
@@ -75,7 +75,7 @@ public class Utf8JsonWriterExtensionsTests
         string json = Encoding.UTF8.GetString(stream.ToArray());
         using var jDocument = JsonDocument.Parse(json);
 
-        this._testOutputHelper.WriteLine(json);
+        _testOutputHelper.WriteLine(json);
 
         var pathProperty = jDocument.RootElement
             .GetProperty(query)

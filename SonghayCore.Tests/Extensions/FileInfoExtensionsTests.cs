@@ -1,17 +1,17 @@
-using Songhay.Extensions;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Songhay.Extensions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Songhay.Tests;
+namespace Songhay.Tests.Extensions;
 
 public class FileInfoExtensionsTests
 {
     public FileInfoExtensionsTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../zip/ReadZipArchiveEntries.zip")]
@@ -23,7 +23,7 @@ public class FileInfoExtensionsTests
         // act
         archiveInfo.ReadZipArchiveEntries(entry =>
         {
-            this._testOutputHelper.WriteLine(entry);
+            _testOutputHelper.WriteLine(entry);
             isReading = true;
         });
 
@@ -43,7 +43,7 @@ public class FileInfoExtensionsTests
         archiveInfo.ReadZipArchiveEntries(entry =>
         {
             isReading = true;
-            this._testOutputHelper.WriteLine(entry);
+            _testOutputHelper.WriteLine(entry);
             builder.Append(entry);
         }, entries => entries.OrderByDescending(i => i.Name));
 
@@ -61,7 +61,7 @@ public class FileInfoExtensionsTests
         // act
         archiveInfo.ReadZipArchiveEntriesByLine((lineNum, line) =>
         {
-            this._testOutputHelper.WriteLine($"{lineNum}: {line}");
+            _testOutputHelper.WriteLine($"{lineNum}: {line}");
             isReading = true;
         }, entries => entries.Where(i => i.Name.EqualsInvariant("c.txt")));
 
@@ -76,7 +76,7 @@ public class FileInfoExtensionsTests
         var isUsing = false;
 
         // act
-        archiveInfo.UseZipArchive(archive => { isUsing = (archive != null); });
+        archiveInfo.UseZipArchive(archive => { isUsing = archive != null; });
 
         // assert
         Assert.True(isUsing);
@@ -91,5 +91,5 @@ public class FileInfoExtensionsTests
         archiveInfo.WriteZipArchiveEntry(fileInfo);
     }
 
-    private readonly ITestOutputHelper _testOutputHelper;
+    readonly ITestOutputHelper _testOutputHelper;
 }

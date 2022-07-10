@@ -31,6 +31,7 @@ public class ConfigurationManagerExtensionsTest
         */
         var configuration = ConfigurationManager
             .OpenExeConfiguration(GetType().Assembly.Location);
+
         Assert.NotNull(configuration);
         Assert.True(configuration.HasFile);
 
@@ -42,7 +43,9 @@ public class ConfigurationManagerExtensionsTest
 
         var collection = ConfigurationManager
             .ConnectionStrings
-            .WithConnectionStringSettingsCollection(externalConfigurationDoc);
+            .WithConnectionStringSettingsCollection(externalConfigurationDoc)
+            .ToReferenceTypeValueOrThrow();
+
         Assert.NotEmpty(collection);
         Assert.True(collection.OfType<ConnectionStringSettings>().Any(), "The expected ConnectionStringSettings are not here.");
         collection.OfType<ConnectionStringSettings>().ForEachInEnumerable(i => _testOutputHelper.WriteLine(i.ToString()));
@@ -50,8 +53,8 @@ public class ConfigurationManagerExtensionsTest
         var name = collection.GetConnectionNameFromEnvironment(unqualifiedName, environmentName);
         _testOutputHelper.WriteLine("name: {0}", name);
 
-        var settings = collection.GetConnectionStringSettings(name);
-        Assert.NotNull(settings);
+        var settings = collection.GetConnectionStringSettings(name).ToReferenceTypeValueOrThrow();
+
         var actual = settings.ConnectionString;
         _testOutputHelper.WriteLine("actual: {0}", actual);
 
@@ -79,11 +82,14 @@ public class ConfigurationManagerExtensionsTest
 
         var externalConfigurationDoc =
             XDocument.Load(externalConfigurationFileInfo.FullName);
+
         var collection = configuration
             .AppSettings.Settings
-            .WithAppSettings(externalConfigurationDoc);
+            .WithAppSettings(externalConfigurationDoc)
+            .ToReferenceTypeValueOrThrow();
+
         _testOutputHelper.WriteLine("appSettings keys:");
-        Assert.NotEmpty(collection);
+
         Assert.True(collection.AllKeys.Any(), "The expected appSettings keys are not here.");
         collection.AllKeys.ForEachInEnumerable(i => _testOutputHelper.WriteLine("key: {0}, value: {1}", i, collection[i]));
 
@@ -115,8 +121,9 @@ public class ConfigurationManagerExtensionsTest
 
         var settings = configuration
             .ConnectionStrings.ConnectionStrings
-            .GetConnectionStringSettings(name);
-        Assert.NotNull(settings);
+            .GetConnectionStringSettings(name)
+            .ToReferenceTypeValueOrThrow();
+
         var actual = settings.ConnectionString;
         _testOutputHelper.WriteLine("actual: {0}", actual);
 

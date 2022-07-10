@@ -20,8 +20,8 @@ namespace Songhay.Tests.Orderers
         protected void AssertTestName(string testName)
         {
             var type = GetType();
-            var queue = TestCaseOrderer.QueuedTests[type.FullName];
-            var result = queue.TryDequeue(out string dequeuedName);
+            var queue = TestCaseOrderer.QueuedTests[type.FullName!];
+            var result = queue.TryDequeue(out string? dequeuedName);
             Assert.True(result);
             Assert.Equal(testName, dequeuedName);
         }

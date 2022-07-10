@@ -94,7 +94,7 @@ public static class ConfigurationManagerExtensions
     /// <param name="connectionName">Name of the connection.</param>
     /// <returns></returns>
     public static ConnectionStringSettings? GetConnectionStringSettings(
-        this ConnectionStringSettingsCollection? collection, string connectionName) =>
+        this ConnectionStringSettingsCollection? collection, string? connectionName) =>
         collection.GetConnectionStringSettings(connectionName, throwConfigurationErrorsException: false);
 
     /// <summary>
@@ -106,7 +106,7 @@ public static class ConfigurationManagerExtensions
     /// <returns></returns>
     /// <exception cref="ConfigurationErrorsException"></exception>
     public static ConnectionStringSettings? GetConnectionStringSettings(
-        this ConnectionStringSettingsCollection? collection, string connectionName,
+        this ConnectionStringSettingsCollection? collection, string? connectionName,
         bool throwConfigurationErrorsException)
     {
         if (collection == null) return null;
@@ -135,7 +135,7 @@ public static class ConfigurationManagerExtensions
     /// </summary>
     /// <param name="settings">The settings.</param>
     /// <param name="environmentKey">The environment key.</param>
-    public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string environmentKey)
+    public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string? environmentKey)
     {
         return settings.GetEnvironmentName(environmentKey,
             defaultEnvironmentName: DeploymentEnvironment.DevelopmentEnvironmentName);
@@ -149,7 +149,7 @@ public static class ConfigurationManagerExtensions
     /// <param name="defaultEnvironmentName">Default name of the environment.</param>
     /// <returns></returns>
     /// <exception cref="ConfigurationErrorsException"></exception>
-    public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string environmentKey,
+    public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string? environmentKey,
         string defaultEnvironmentName)
     {
         return settings.GetEnvironmentName(environmentKey, defaultEnvironmentName,
@@ -165,7 +165,7 @@ public static class ConfigurationManagerExtensions
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
     /// <returns></returns>
     /// <exception cref="ConfigurationErrorsException"></exception>
-    public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string environmentKey,
+    public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string? environmentKey,
         string defaultEnvironmentName, bool throwConfigurationErrorsException)
     {
         if (settings == null) return null;
@@ -266,7 +266,7 @@ public static class ConfigurationManagerExtensions
     /// </summary>
     /// <param name="settings">The settings.</param>
     /// <param name="key">The key.</param>
-    public static string? GetSetting(this KeyValueConfigurationCollection? settings, string key) =>
+    public static string? GetSetting(this KeyValueConfigurationCollection? settings, string? key) =>
         settings.GetSetting(key, throwConfigurationErrorsException: false);
 
     /// <summary>
@@ -277,7 +277,7 @@ public static class ConfigurationManagerExtensions
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
     /// <returns></returns>
     /// <exception cref="ConfigurationErrorsException"></exception>
-    public static string? GetSetting(this KeyValueConfigurationCollection? settings, string key,
+    public static string? GetSetting(this KeyValueConfigurationCollection? settings, string? key,
         bool throwConfigurationErrorsException)
     {
         if (settings == null) return null;
@@ -299,7 +299,7 @@ public static class ConfigurationManagerExtensions
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
     /// <param name="settingModifier">The setting modifier.</param>
     /// <returns></returns>
-    public static string? GetSetting(this KeyValueConfigurationCollection? settings, string key,
+    public static string? GetSetting(this KeyValueConfigurationCollection? settings, string? key,
         bool throwConfigurationErrorsException, Func<string?, string>? settingModifier)
     {
         var setting = settings.GetSetting(key, throwConfigurationErrorsException);

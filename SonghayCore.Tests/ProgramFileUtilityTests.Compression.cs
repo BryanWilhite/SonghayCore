@@ -17,7 +17,7 @@ public partial class ProgramFileUtilityTests
         // act
         ProgramFileUtility.ReadZipArchiveEntries(archiveInfo, entry =>
         {
-            this._testOutputHelper.WriteLine(entry);
+            _testOutputHelper.WriteLine(entry);
             isReading = true;
         });
 
@@ -37,7 +37,7 @@ public partial class ProgramFileUtilityTests
         ProgramFileUtility.ReadZipArchiveEntries(archiveInfo, entry =>
         {
             isReading = true;
-            this._testOutputHelper.WriteLine(entry);
+            _testOutputHelper.WriteLine(entry);
             builder.Append(entry);
         }, entries => entries.OrderByDescending(i => i.Name));
 
@@ -55,7 +55,7 @@ public partial class ProgramFileUtilityTests
         // act
         ProgramFileUtility.ReadZipArchiveEntriesByLine(archiveInfo, (lineNum, line) =>
         {
-            this._testOutputHelper.WriteLine($"{lineNum}: {line}");
+            _testOutputHelper.WriteLine($"{lineNum}: {line}");
             isReading = true;
         }, entries => entries.Where(i => i.Name.EqualsInvariant("c.txt")));
 
@@ -70,7 +70,7 @@ public partial class ProgramFileUtilityTests
         var isUsing = false;
 
         // act
-        ProgramFileUtility.UseZipArchive(archiveInfo, archive => { isUsing = (archive != null); });
+        ProgramFileUtility.UseZipArchive(archiveInfo, archive => { isUsing = archive != null; });
 
         // assert
         Assert.True(isUsing);

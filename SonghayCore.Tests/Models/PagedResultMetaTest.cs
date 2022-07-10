@@ -1,7 +1,7 @@
 ﻿using Songhay.Models;
 using Xunit;
 
-namespace Songhay.Tests;
+namespace Songhay.Tests.Models;
 
 public class PagedResultMetaTest
 {

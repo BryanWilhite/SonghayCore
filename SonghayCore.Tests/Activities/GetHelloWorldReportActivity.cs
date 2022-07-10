@@ -8,16 +8,16 @@ namespace Songhay.Tests.Activities;
 
 public class GetHelloWorldReportActivity : IActivity
 {
-    static GetHelloWorldReportActivity() => traceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels();
-    static readonly TraceSource traceSource;
+    static GetHelloWorldReportActivity() => TraceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels();
+    static readonly TraceSource? TraceSource;
 
-    public string DisplayHelp(ProgramArgs args)
+    public string DisplayHelp(ProgramArgs? args)
     {
         throw new System.NotImplementedException();
     }
 
-    public void Start(ProgramArgs args)
+    public void Start(ProgramArgs? args)
     {
-        traceSource.WriteLine("Sorry, but the Hello Worlds reports are not yet available :(");
+        TraceSource.WriteLine("Sorry, but the Hello Worlds reports are not yet available :(");
     }
 }

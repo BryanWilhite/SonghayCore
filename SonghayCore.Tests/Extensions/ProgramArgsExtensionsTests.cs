@@ -12,7 +12,7 @@ public class ProgramArgsExtensionsTests
 {
     public ProgramArgsExtensionsTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Theory]
@@ -20,7 +20,7 @@ public class ProgramArgsExtensionsTests
     public void ShouldLoadSettings(string basePath, string configFile)
     {
         basePath = ProgramAssemblyUtility
-            .GetPathFromAssembly(this.GetType().Assembly, basePath);
+            .GetPathFromAssembly(GetType().Assembly, basePath);
 
         var args = new ProgramArgs(new[]
         {
@@ -35,25 +35,25 @@ public class ProgramArgsExtensionsTests
         var json = args.GetSettings();
         Assert.False(string.IsNullOrWhiteSpace(json));
 
-        this._testOutputHelper.WriteLine(json);
+        _testOutputHelper.WriteLine(json);
     }
 
     [Theory]
     [InlineData("../../../json", "input.json")]
     [InlineData(null, "../../../json/input.json")]
     [InlineData(null, @"{ ""arg1"": 1, ""arg2"": 2, ""arg3"": 3 }")]
-    public void ShouldLoadInput(string basePath, string input)
+    public void ShouldLoadInput(string? basePath, string input)
     {
         if (string.IsNullOrWhiteSpace(basePath))
         {
             if (input.EndsWith(".json"))
                 input = ProgramAssemblyUtility
-                    .GetPathFromAssembly(this.GetType().Assembly, input);
+                    .GetPathFromAssembly(GetType().Assembly, input);
         }
         else
         {
             basePath = ProgramAssemblyUtility
-                .GetPathFromAssembly(this.GetType().Assembly, basePath);
+                .GetPathFromAssembly(GetType().Assembly, basePath);
         }
 
         var args = input.EndsWith(".json") ?
@@ -75,7 +75,7 @@ public class ProgramArgsExtensionsTests
 
         Assert.False(string.IsNullOrWhiteSpace(input));
 
-        this._testOutputHelper.WriteLine(input);
+        _testOutputHelper.WriteLine(input);
     }
 
     [Fact]
@@ -84,7 +84,7 @@ public class ProgramArgsExtensionsTests
         var args = new ProgramArgs(new [] { string.Empty });
         var helpText = args.WithDefaultHelpText().ToHelpDisplayText();
         Assert.False(string.IsNullOrWhiteSpace(helpText));
-        this._testOutputHelper.WriteLine(helpText);
+        _testOutputHelper.WriteLine(helpText);
     }
 
     [Theory]
@@ -95,12 +95,12 @@ public class ProgramArgsExtensionsTests
         if (string.IsNullOrWhiteSpace(basePath))
         {
             outputFile = ProgramAssemblyUtility
-                .GetPathFromAssembly(this.GetType().Assembly, outputFile);
+                .GetPathFromAssembly(GetType().Assembly, outputFile);
         }
         else
         {
             basePath = ProgramAssemblyUtility
-                .GetPathFromAssembly(this.GetType().Assembly, basePath);
+                .GetPathFromAssembly(GetType().Assembly, basePath);
         }
 
         var args = string.IsNullOrWhiteSpace(basePath) ?
@@ -122,11 +122,11 @@ public class ProgramArgsExtensionsTests
 
         args.WriteOutputToFile(JsonSerializer.Serialize(anon));
 
-        var actual = args.GetOutputPath();
+        var actual = args.GetOutputPath().ToReferenceTypeValueOrThrow();
 
-        this._testOutputHelper.WriteLine($"output path: {actual}");
+        _testOutputHelper.WriteLine($"output path: {actual}");
 
-        this._testOutputHelper.WriteLine($"file content: {File.ReadAllText(actual)}");
+        _testOutputHelper.WriteLine($"file content: {File.ReadAllText(actual)}");
     }
 
     ITestOutputHelper _testOutputHelper;

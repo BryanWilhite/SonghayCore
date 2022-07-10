@@ -86,7 +86,7 @@ public static partial class ProgramArgsExtensions
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
     /// <returns></returns>
-    public static string? GetStringInput(this ProgramArgs? args)
+    public static string GetStringInput(this ProgramArgs? args)
     {
         string? input = null;
 
@@ -112,7 +112,7 @@ public static partial class ProgramArgsExtensions
             input = File.ReadAllText(path);
         }
 
-        return input;
+        return input.ToReferenceTypeValueOrThrow();
     }
 
     /// <summary>

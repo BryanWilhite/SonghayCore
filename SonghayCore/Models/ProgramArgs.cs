@@ -12,10 +12,10 @@ public class ProgramArgs
     /// Initializes a new instance of the <see cref="ProgramArgs"/> class.
     /// </summary>
     /// <param name="args">The arguments.</param>
-    public ProgramArgs(string[] args)
+    public ProgramArgs(string?[] args)
     {
-        Args = args;
-        if (args.Any()) HelpSet = new Dictionary<string, string>(capacity: args.Length);
+        Args = args.OfType<string>().ToArray();
+        if (Args.Any()) HelpSet = new Dictionary<string, string>(capacity: Args.Length);
     }
 
     /// <summary>

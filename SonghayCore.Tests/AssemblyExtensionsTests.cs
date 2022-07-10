@@ -9,7 +9,7 @@ public class AssemblyExtensionsTests
     [Fact]
     public void GetPathFromAssembly_Test()
     {
-        var assembly = this.GetType().Assembly;
+        var assembly = GetType().Assembly;
 
         var path = assembly.GetPathFromAssembly();
 

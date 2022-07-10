@@ -16,7 +16,7 @@ public class HttpRequestMessageExtensionsTests
 {
     public HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Theory(Skip = "slowwly server is down")]
@@ -36,7 +36,7 @@ public class HttpRequestMessageExtensionsTests
             {
                 client.Timeout = Timeout.InfiniteTimeSpan;
 
-                this._testOutputHelper.WriteLine($"calling `{location}`...");
+                _testOutputHelper.WriteLine($"calling `{location}`...");
                 var request = new HttpRequestMessage(HttpMethod.Get, location);
 
                 cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
@@ -74,7 +74,7 @@ public class HttpRequestMessageExtensionsTests
         var uri = template.BindByPosition($"{id}");
         var content = await new HttpRequestMessage(HttpMethod.Get, uri)
             .GetContentAsync(response => Assert.Equal(HttpStatusCode.OK, response.StatusCode));
-        this._testOutputHelper.WriteLine(content);
+        _testOutputHelper.WriteLine(content);
     }
 
     [Trait("Category", "Integration")]
@@ -92,7 +92,7 @@ public class HttpRequestMessageExtensionsTests
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         var content = await response.Content.ReadAsStringAsync();
-        this._testOutputHelper.WriteLine(content);
+        _testOutputHelper.WriteLine(content);
         var jO = JObject.Parse(content);
         Assert.Equal(albumId, jO.GetValue(nameof(albumId)).Value<int>());
     }
@@ -119,7 +119,7 @@ public class HttpRequestMessageExtensionsTests
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         var content = await response.Content.ReadAsStringAsync();
-        this._testOutputHelper.WriteLine(content);
+        _testOutputHelper.WriteLine(content);
         var jO = JObject.Parse(content);
         Assert.Equal(albumId, jO.GetValue(nameof(albumId)).Value<int>());
     }
@@ -154,7 +154,7 @@ public class HttpRequestMessageExtensionsTests
             {
                 client.Timeout = Timeout.InfiniteTimeSpan;
 
-                this._testOutputHelper.WriteLine($"calling `{location}`...");
+                _testOutputHelper.WriteLine($"calling `{location}`...");
                 var request = new HttpRequestMessage(HttpMethod.Get, location);
 
                 await request.GetContentAsync(

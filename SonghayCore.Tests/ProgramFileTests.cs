@@ -14,23 +14,23 @@ public class ProgramFileTests
 {
     public ProgramFileTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Theory, InlineData(200)]
     public void ShouldFindPathOfGivenLength(int length)
     {
-        var assemblyRoot = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly);
+        var assemblyRoot = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly);
         var projectsFolder = ProgramFileUtility.GetParentDirectory(assemblyRoot, 3);
 
-        var directory = new DirectoryInfo(projectsFolder);
+        var directory = new DirectoryInfo(projectsFolder.ToReferenceTypeValueOrThrow());
         var dict = new Dictionary<string, int>();
         AddPathsToList(directory, dict);
         dict.ForEachInEnumerable(d =>
         {
             if (d.Value > length)
-                this._testOutputHelper
-                    .WriteLine(string.Format("{0}:{1}", d.Key, d.Value.ToString()));
+                _testOutputHelper
+                    .WriteLine($"{d.Key}:{d.Value.ToString()}");
         });
     }
 
@@ -64,36 +64,34 @@ public class ProgramFileTests
     [Theory, InlineData(@"content\FrameworkFileTest-ShouldSortTextFileData.txt")]
     public void ShouldSortTextFileData(string outFile)
     {
-        var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+        var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
         outFile = ProgramFileUtility.GetCombinedPath(projectRoot, outFile);
         Assert.True(File.Exists(outFile), "The expected output file is not here");
 
-        var output = new List<string>();
         var stream = new FileStream(outFile, FileMode.Open);
         try
         {
-            using (var sr = new StreamReader(stream))
-            {
-                var dataArray = sr.ReadToEnd().Replace(Environment.NewLine, ",").Split(',');
-                dataArray.Select(s => new { Car = s, Count = dataArray.Where(i => i == s).Count() })
-                    .OrderByDescending(o => o.Count).ThenBy(o => o.Car)
-                    .GroupBy(o => o.Car)
-                    .ForEachInEnumerable(o =>
-                    {
-                        this._testOutputHelper.WriteLine($"{o.Key} = {o.Count()}");
-                    });
-            }
+            using var sr = new StreamReader(stream);
+
+            var dataArray = sr.ReadToEnd().Replace(Environment.NewLine, ",").Split(',');
+            dataArray.Select(s => new { Car = s, Count = dataArray.Count(i => i == s) })
+                .OrderByDescending(o => o.Count).ThenBy(o => o.Car)
+                .GroupBy(o => o.Car)
+                .ForEachInEnumerable(o =>
+                {
+                    _testOutputHelper.WriteLine($"{o.Key} = {o.Count()}");
+                });
         }
         finally
         {
-            stream?.Dispose();
+            stream.Dispose();
         }
     }
 
     [Theory, InlineData(@"content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt")]
     public void ShouldWriteTextFileWithStreamWriter(string outFile)
     {
-        var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+        var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
         outFile = ProgramFileUtility.GetCombinedPath(projectRoot, outFile);
         Assert.True(File.Exists(outFile), "The expected output file is not here");
 
@@ -108,43 +106,40 @@ This is the end of the file.
         var stream = new FileStream(outFile, FileMode.Create);
         try
         {
-            using (var sw = new StreamWriter(stream, Encoding.UTF8))
-            {
-                sw.Write(fileText);
-            }
+            using var sw = new StreamWriter(stream, Encoding.UTF8);
+            sw.Write(fileText);
         }
         finally
         {
-            stream?.Dispose();
+            stream.Dispose();
         }
     }
 
     [Theory, InlineData(@"content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml")]
     public void ShouldWriteTextFileWithXmlTextWriter(string outFile)
     {
-        var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
+        var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
         outFile = ProgramFileUtility.GetCombinedPath(projectRoot, outFile);
         Assert.True(File.Exists(outFile), "The expected output file is not here");
 
         var stream = new FileStream(outFile, FileMode.Create);
         try
         {
-            using (var writer = new XmlTextWriter(stream, Encoding.UTF8))
-            {
-                writer.WriteStartElement("root");
-                writer.WriteAttributeString("xmlns", "x", null, "urn:1");
-                writer.WriteStartElement("item", "urn:1");
-                writer.WriteString("This is the text to write to the test file.");
-                writer.WriteEndElement();
-                writer.WriteStartElement("item", "urn:1");
-                writer.WriteString("According to Notepad++, when Encoding.UTF8 is specified the encoding is UTF8.");
-                writer.WriteEndElement();
-                writer.WriteEndElement();
-            }
+            using var writer = new XmlTextWriter(stream, Encoding.UTF8);
+
+            writer.WriteStartElement("root");
+            writer.WriteAttributeString("xmlns", "x", null, "urn:1");
+            writer.WriteStartElement("item", "urn:1");
+            writer.WriteString("This is the text to write to the test file.");
+            writer.WriteEndElement();
+            writer.WriteStartElement("item", "urn:1");
+            writer.WriteString("According to Notepad++, when Encoding.UTF8 is specified the encoding is UTF8.");
+            writer.WriteEndElement();
+            writer.WriteEndElement();
         }
         finally
         {
-            stream?.Dispose();
+            stream.Dispose();
         }
     }
 

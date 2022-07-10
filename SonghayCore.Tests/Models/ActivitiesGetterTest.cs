@@ -25,94 +25,92 @@ public class ActivitiesGetterTest
 
         TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
 
-        traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
+        TraceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
     }
 
     public ActivitiesGetterTest(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
-    static readonly TraceSource traceSource;
+    static readonly TraceSource? TraceSource;
 
     [Fact]
     public void ShouldGetActivityFromDefaultName()
     {
-        using (var writer = new StringWriter())
-        using (var listener = new TextWriterTraceListener(writer))
+        using var writer = new StringWriter();
+        using var listener = new TextWriterTraceListener(writer);
+
+        TraceSource?.Listeners.Add(listener);
+
+        var args = new[]
         {
-            traceSource.Listeners.Add(listener);
+            nameof(GetHelloWorldActivity),
+            "--world-name",
+            "Saturn"
+        };
 
-            var args = new[]
-            {
-                nameof(GetHelloWorldActivity),
-                "--world-name",
-                "Saturn"
-            };
+        var getter = new MyActivitiesGetter(args);
+        var activity = getter.GetActivity();
+        Assert.NotNull(activity);
 
-            var getter = new MyActivitiesGetter(args);
-            var activity = getter.GetActivity();
-            Assert.NotNull(activity);
+        activity?.Start(getter.Args);
 
-            activity.Start(getter.Args);
-
-            listener.Flush();
-            this._testOutputHelper.WriteLine(writer.ToString());
-        }
+        listener.Flush();
+        _testOutputHelper.WriteLine(writer.ToString());
     }
 
     [Fact]
-    public void ShouldHandleEmptyArgments()
+    public void ShouldHandleEmptyArguments()
     {
         try
         {
-            var getter = new MyActivitiesGetter(new string[] { });
+            _ = new MyActivitiesGetter(new string[] { });
         }
         catch (ArgumentException ex)
         {
-            this._testOutputHelper.WriteLine($"The expected exception: {ex.Message}");
+            _testOutputHelper.WriteLine($"The expected exception: {ex.Message}");
         }
     }
 
     [Fact]
-    public void ShouldHandleNullArgments()
+    public void ShouldHandleNullArguments()
     {
         try
         {
-            var getter = new MyActivitiesGetter(null);
+            _ = new MyActivitiesGetter(null!);
         }
         catch (ArgumentNullException ex)
         {
-            this._testOutputHelper.WriteLine($"The expected exception: {ex.Message}");
+            _testOutputHelper.WriteLine($"The expected exception: {ex.Message}");
         }
     }
 
     [Fact]
     public void ShouldShowHelpDisplayText()
     {
-        using (var writer = new StringWriter())
-        using (var listener = new TextWriterTraceListener(writer))
+        using var writer = new StringWriter();
+        using var listener = new TextWriterTraceListener(writer);
+
+        TraceSource?.Listeners.Add(listener);
+
+        var args = new[]
         {
-            traceSource.Listeners.Add(listener);
+            nameof(GetHelloWorldActivity),
+            ProgramArgs.Help
+        };
 
-            var args = new[]
-            {
-                nameof(GetHelloWorldActivity),
-                ProgramArgs.Help
-            };
+        var getter = new MyActivitiesGetter(args);
+        var activity = getter.GetActivity();
+        Assert.NotNull(activity);
 
-            var getter = new MyActivitiesGetter(args);
-            var activity = getter.GetActivity();
-            Assert.NotNull(activity);
+        if (getter.Args.IsHelpRequest())
+            _testOutputHelper.WriteLine(activity?.DisplayHelp(getter.Args));
 
-            if (getter.Args.IsHelpRequest())
-                this._testOutputHelper.WriteLine(activity.DisplayHelp(getter.Args));
+        activity?.Start(getter.Args);
 
-            activity.Start(getter.Args);
-
-            listener.Flush();
-            this._testOutputHelper.WriteLine(writer.ToString());
-        }
+        listener.Flush();
+        _testOutputHelper.WriteLine(writer.ToString());
     }
 
     readonly ITestOutputHelper _testOutputHelper;

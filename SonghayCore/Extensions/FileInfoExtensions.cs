@@ -66,7 +66,7 @@ public static class FileInfoExtensions
     /// </summary>
     /// <param name="archiveInfo"></param>
     /// <param name="archiveAction"></param>
-    public static void UseZipArchive(this FileInfo archiveInfo, Action<ZipArchive> archiveAction) =>
+    public static void UseZipArchive(this FileInfo archiveInfo, Action<ZipArchive?> archiveAction) =>
         ProgramFileUtility.UseZipArchive(archiveInfo, archiveAction);
 
     /// <summary>

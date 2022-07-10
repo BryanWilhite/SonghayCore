@@ -24,58 +24,68 @@ public class TraceSourceTests
 
         TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
 
-        traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
-        nullTraceSource = TraceSources.Instance.GetConfiguredTraceSource(configuration, "wha?").WithSourceLevels();
-        otherTraceSource = TraceSources.Instance.GetConfiguredTraceSource(configuration, "other.TraceSourceName").WithSourceLevels();
+        TraceSource = TraceSources
+            .Instance
+            .GetConfiguredTraceSource()
+            .WithSourceLevels()
+            .ToReferenceTypeValueOrThrow();
+        NullTraceSource = TraceSources
+            .Instance
+            .GetConfiguredTraceSource(configuration, "wha?")
+            .WithSourceLevels();
+        OtherTraceSource = TraceSources
+            .Instance
+            .GetConfiguredTraceSource(configuration, "other.TraceSourceName")
+            .WithSourceLevels()
+            .ToReferenceTypeValueOrThrow();
     }
 
-    static readonly TraceSource traceSource;
-    static readonly TraceSource nullTraceSource;
-    static readonly TraceSource otherTraceSource;
+    static readonly TraceSource TraceSource;
+    static readonly TraceSource? NullTraceSource;
+    static readonly TraceSource OtherTraceSource;
 
     public TraceSourceTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Fact]
     public void ShouldHaveConfiguredTraceSources()
     {
-        Assert.NotNull(traceSource);
-        Assert.NotNull(otherTraceSource);
+        Assert.NotNull(TraceSource);
+        Assert.NotNull(OtherTraceSource);
 
-        using (var writer = new StringWriter())
-        using (var listener = new TextWriterTraceListener(writer))
-        {
-            traceSource.Listeners.Add(listener);
-            otherTraceSource.Listeners.Add(listener);
+        using var writer = new StringWriter();
+        using var listener = new TextWriterTraceListener(writer);
 
-            traceSource?.WriteLine("info!");
-            otherTraceSource?.WriteLine("other info!");
+        TraceSource.Listeners.Add(listener);
+        OtherTraceSource.Listeners.Add(listener);
 
-            traceSource.TraceVerbose("verbose!");
-            otherTraceSource.TraceVerbose("other verbose!");
+        TraceSource.WriteLine("info!");
+        OtherTraceSource.WriteLine("other info!");
 
-            traceSource.TraceError("warn!");
-            otherTraceSource.TraceError("other warn!");
+        TraceSource.TraceVerbose("verbose!");
+        OtherTraceSource.TraceVerbose("other verbose!");
 
-            traceSource.TraceError("err!");
-            otherTraceSource.TraceError("other err!");
+        TraceSource.TraceError("warn!");
+        OtherTraceSource.TraceError("other warn!");
 
-            listener.Flush();
-            this._testOutputHelper.WriteLine(writer.ToString());
-        }
+        TraceSource.TraceError("err!");
+        OtherTraceSource.TraceError("other err!");
+
+        listener.Flush();
+        _testOutputHelper.WriteLine(writer.ToString());
     }
 
     [Fact]
     public void ShouldNotHaveConfiguredTraceSource()
     {
-        Assert.Null(nullTraceSource);
+        Assert.Null(NullTraceSource);
 
-        nullTraceSource?.WriteLine("info!");
-        nullTraceSource.TraceVerbose("info!");
-        nullTraceSource.TraceWarning("info!");
-        nullTraceSource.TraceError("info!");
+        NullTraceSource.WriteLine("info!");
+        NullTraceSource.TraceVerbose("info!");
+        NullTraceSource.TraceWarning("info!");
+        NullTraceSource.TraceError("info!");
     }
 
     readonly ITestOutputHelper _testOutputHelper;

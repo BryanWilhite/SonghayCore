@@ -12,7 +12,7 @@ public class TimeoutHandlerTests
 {
     public TimeoutHandlerTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Theory(Skip = "slowwly server is down")]
@@ -32,7 +32,7 @@ public class TimeoutHandlerTests
             {
                 client.Timeout = Timeout.InfiniteTimeSpan;
 
-                this._testOutputHelper.WriteLine($"calling `{location}`...");
+                _testOutputHelper.WriteLine($"calling `{location}`...");
                 var request = new HttpRequestMessage(HttpMethod.Get, location);
 
                 cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
@@ -65,7 +65,7 @@ public class TimeoutHandlerTests
             {
                 client.Timeout = Timeout.InfiniteTimeSpan;
 
-                this._testOutputHelper.WriteLine($"calling `{location}`...");
+                _testOutputHelper.WriteLine($"calling `{location}`...");
                 var request = new HttpRequestMessage(HttpMethod.Get, location);
 
                 using var response = await client

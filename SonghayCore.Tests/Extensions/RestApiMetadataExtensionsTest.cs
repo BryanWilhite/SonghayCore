@@ -11,7 +11,7 @@ public class RestApiMetadataExtensionsTest
 {
     public RestApiMetadataExtensionsTest(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Fact]
@@ -27,7 +27,10 @@ public class RestApiMetadataExtensionsTest
             }
         };
 
-        this._testOutputHelper.WriteLine(meta.ToUri(key, "Washington", "Redmond", "Today").OriginalString);
+        _testOutputHelper.WriteLine(
+            meta.ToUri(key, "Washington", "Redmond", "Today")
+                .ToReferenceTypeValueOrThrow()
+                .OriginalString);
     }
 
     readonly ITestOutputHelper _testOutputHelper;

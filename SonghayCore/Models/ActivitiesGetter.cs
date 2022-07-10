@@ -51,8 +51,6 @@ public abstract class ActivitiesGetter
 
     static string[] ToActivityArgs(string[] args)
     {
-        ArgumentNullException.ThrowIfNull(args);
-
         return args.Length < 2 ? Enumerable.Empty<string>().ToArray() : args.Skip(1).ToArray();
     }
 

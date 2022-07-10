@@ -1,10 +1,10 @@
-﻿using Songhay.Xml;
-using System.IO;
+﻿using System.IO;
 using System.Text;
 using System.Xml;
+using Songhay.Xml;
 using Xunit;
 
-namespace Songhay.Tests;
+namespace Songhay.Tests.Xml;
 
 public class XmlUtilityTest
 {
@@ -16,7 +16,7 @@ public class XmlUtilityTest
         {
             using (var writer = XmlWriter.Create(ms, new XmlWriterSettings
                    {
-                       Encoding = UTF8Encoding.UTF8
+                       Encoding = Encoding.UTF8
                    }))
             {
                 writer.WriteStartDocument();
@@ -29,13 +29,13 @@ public class XmlUtilityTest
             var doc = XmlUtility.GetNavigableDocument(ms);
             Assert.NotNull(doc);
 
-            var nav = doc.CreateNavigator();
+            var nav = doc!.CreateNavigator();
             nav.MoveToFirstChild();
             Assert.Equal("DocumentData", nav.LocalName);
         }
         finally
         {
-            ms?.Dispose();
+            ms.Dispose();
         }
     }
 }

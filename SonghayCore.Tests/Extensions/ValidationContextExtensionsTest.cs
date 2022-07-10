@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using Songhay.Extensions;
 using Xunit;
 using Xunit.Abstractions;
@@ -10,7 +11,7 @@ public class ValidationContextExtensionsTest
 {
     public ValidationContextExtensionsTest(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Fact]
@@ -23,9 +24,9 @@ public class ValidationContextExtensionsTest
             PropertyThree = "three"
         };
 
-        var results = mine.Validate(mine.ToValidationContext());
+        var results = mine.Validate(mine.ToValidationContext()).ToArray();
         Assert.NotEmpty(results);
-        this._testOutputHelper.WriteLine(results.ToDisplayText());
+        _testOutputHelper.WriteLine(results.ToDisplayText());
     }
 
     readonly ITestOutputHelper _testOutputHelper;
@@ -34,11 +35,14 @@ public class ValidationContextExtensionsTest
 class MyModelOne : IValidatableObject
 {
     [Required]
-    public string PropertyOne { get; set; }
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
+    public string? PropertyOne { get; set; }
     [Required]
-    public string PropertyTwo { get; set; }
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
+    public string? PropertyTwo { get; set; }
     [Required]
-    public string PropertyThree { get; set; }
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
+    public string? PropertyThree { get; set; }
 
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {

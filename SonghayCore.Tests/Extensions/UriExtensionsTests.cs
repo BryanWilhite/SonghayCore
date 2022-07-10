@@ -10,7 +10,7 @@ public class UriExtensionsTests
 {
     public UriExtensionsTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [DebuggerAttachedTheory]
@@ -31,11 +31,11 @@ public class UriExtensionsTests
     [InlineData("https://t.co/vKonTficpv")] //returns null `response.Headers.Location`
     public async Task ToExpandedUriAsync_Test(string location)
     {
-        this._testOutputHelper.WriteLine($"expanding `{location}`...");
+        _testOutputHelper.WriteLine($"expanding `{location}`...");
         var uri = new Uri(location);
 
         var expandedUri = await uri.ToExpandedUriAsync();
-        this._testOutputHelper.WriteLine($"expanded to `{expandedUri.OriginalString}`.");
+        _testOutputHelper.WriteLine($"expanded to `{expandedUri.ToReferenceTypeValueOrThrow().OriginalString}`.");
     }
 
     readonly ITestOutputHelper _testOutputHelper;

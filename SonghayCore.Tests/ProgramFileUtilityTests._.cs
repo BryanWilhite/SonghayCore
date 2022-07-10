@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Text;
+using Songhay.Extensions;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -10,7 +11,7 @@ public partial class ProgramFileUtilityTests
 {
     public ProgramFileUtilityTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [SkippableTheory]
@@ -32,7 +33,7 @@ public partial class ProgramFileUtilityTests
     [InlineData(false)]
     public void GetCombinedPath_fileIsExpected_Test(bool fileIsExpected)
     {
-        var assembly = this.GetType().Assembly;
+        var assembly = GetType().Assembly;
         var projectFolder = ProgramAssemblyUtility.GetPathFromAssembly(assembly, "../../../");
         var projectFolderInfo = new DirectoryInfo(projectFolder);
 
@@ -82,8 +83,8 @@ public partial class ProgramFileUtilityTests
     [Fact]
     public void GetParentDirectory_Test()
     {
-        var expected = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
-        var actual = ProgramFileUtility.GetParentDirectory(this.GetType().Assembly.Location, 4);
+        var expected = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
+        var actual = ProgramFileUtility.GetParentDirectory(GetType().Assembly.Location, 4);
 
         Assert.Equal(expected, actual);
     }
@@ -91,10 +92,10 @@ public partial class ProgramFileUtilityTests
     [Fact]
     public void GetParentDirectoryInfo_Test()
     {
-        var expected = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, "../../../");
-        var actual = ProgramFileUtility.GetParentDirectoryInfo(this.GetType().Assembly.Location, 4);
+        var expected = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
+        var actual = ProgramFileUtility.GetParentDirectoryInfo(GetType().Assembly.Location, 4);
 
-        Assert.Equal(expected, actual.FullName);
+        Assert.Equal(expected, actual.ToReferenceTypeValueOrThrow().FullName);
     }
 
     [Theory]

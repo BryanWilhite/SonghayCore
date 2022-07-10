@@ -4,9 +4,9 @@ using Xunit.Abstractions;
 
 namespace Songhay.Tests.Orderers;
 
-static class MyTestCaseData
+internal static class MyTestCaseData
 {
-    public static int MyNumber = 0;
+    public static int MyNumber;
 }
 
 public class TestCaseOrdererTest
@@ -18,7 +18,7 @@ public class TestCaseOrdererTest
     [Fact, TestOrder(ordinal: 4, reason: "This test is last and depends on the other ordered tests to complete.")]
     public void LastTest()
     {
-        Log.AppendLine(nameof(this.LastTest));
+        Log.AppendLine(nameof(LastTest));
         _output.WriteLine(Log.ToString());
 
         var expected = 1;
@@ -28,7 +28,7 @@ public class TestCaseOrdererTest
     [Fact, TestOrder(ordinal: 3)]
     public void TestOne()
     {
-        Log.AppendLine(nameof(this.TestOne));
+        Log.AppendLine(nameof(TestOne));
 
         MyTestCaseData.MyNumber = 1;
     }
@@ -36,7 +36,7 @@ public class TestCaseOrdererTest
     [Fact, TestOrder(ordinal: 2)]
     public void TestTwo()
     {
-        Log.AppendLine(nameof(this.TestTwo));
+        Log.AppendLine(nameof(TestTwo));
 
         MyTestCaseData.MyNumber = 2;
     }
@@ -44,12 +44,12 @@ public class TestCaseOrdererTest
     [Fact, TestOrder(ordinal: 1)]
     public void TestThree()
     {
-        Log.AppendLine(nameof(this.TestThree));
+        Log.AppendLine(nameof(TestThree));
 
         MyTestCaseData.MyNumber = 3;
     }
 
-    private static readonly StringBuilder Log;
+    static readonly StringBuilder Log;
 
-    private readonly ITestOutputHelper _output;
+    readonly ITestOutputHelper _output;
 }

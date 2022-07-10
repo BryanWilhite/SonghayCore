@@ -10,15 +10,15 @@ public partial class StringExtensionsTests
 {
     public StringExtensionsTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Theory]
     [InlineData(@"{ ""my"": ""json"" }")]
     public void EscapeInterpolation_Test(string input)
     {
-        Assert.Throws<FormatException>(() => this._testOutputHelper.WriteLine(input, 0));
-        this._testOutputHelper.WriteLine(input.EscapeInterpolation(), 0);
+        Assert.Throws<FormatException>(() => _testOutputHelper.WriteLine(input, 0));
+        _testOutputHelper.WriteLine(input.EscapeInterpolation(), 0);
     }
 
     [Theory]
@@ -34,9 +34,9 @@ public partial class StringExtensionsTests
     public void FromSnakeToCaps_Test(string input, string expected)
     {
         var actual = input.FromSnakeToCaps();
-        this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 
@@ -46,9 +46,9 @@ public partial class StringExtensionsTests
     public void InDoubleQuotesOrDefault_Test(string input, string defaultValue, string expected)
     {
         var actual = input.InDoubleQuotesOrDefault(defaultValue);
-        this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 
@@ -87,9 +87,9 @@ public partial class StringExtensionsTests
     public void Reverse_Test(string input, string expected)
     {
         var actual = input.Reverse();
-        this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 
@@ -112,9 +112,9 @@ public partial class StringExtensionsTests
     public void ToIntString_Test(string input, string defaultValue, string expected)
     {
         var actual = input.ToIntString(defaultValue);
-        this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 
@@ -123,9 +123,9 @@ public partial class StringExtensionsTests
     public void ToPascalCase_Test(string input, string expected)
     {
         var actual = input.ToPascalCase();
-        this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 
@@ -134,9 +134,9 @@ public partial class StringExtensionsTests
     public void ToSnakeCase_Test(string input, string expected)
     {
         var actual = input.ToSnakeCase();
-        this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 
@@ -144,13 +144,13 @@ public partial class StringExtensionsTests
     [InlineData(10, "Lorem ipsum dolor", "ipsum")]
     public void ToSubstringInContext_Test(int contextLength, string input, string searchText)
     {
-        var actual = input.ToSubstringInContext(searchText, contextLength);
+        var actual = input.ToSubstringInContext(searchText, contextLength).ToReferenceTypeValueOrThrow();
 
         Assert.True(actual.Contains(searchText), "The expected search text is not here.");
         Assert.True(actual.Length >= contextLength, "The expected text length is not here.");
 
         contextLength = (contextLength / 2);
-        actual = input.ToSubstringInContext(searchText, contextLength);
+        actual = input.ToSubstringInContext(searchText, contextLength).ToReferenceTypeValueOrThrow();
 
         Assert.True(actual.Contains(searchText), "The expected search text is not here.");
         Assert.True(actual.Length == contextLength, "The expected text length is not here.");
@@ -165,7 +165,7 @@ public partial class StringExtensionsTests
     public void TransformToBlogSlug_Test(string input, string expectedOutput)
     {
         var slug = input.ToBlogSlug();
-        this._testOutputHelper.WriteLine("slug: {0}", slug);
+        _testOutputHelper.WriteLine("slug: {0}", slug);
         Assert.True(slug.EqualsInvariant(expectedOutput));
     }
 
@@ -175,9 +175,9 @@ public partial class StringExtensionsTests
     public void Truncate_Test(string input, int length, string expected)
     {
         var actual = input.Truncate(length);
-        this._testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        this._testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        this._testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
+        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 

@@ -8,7 +8,7 @@ public class ProgramAssemblyUtilityTests
 {
     public ProgramAssemblyUtilityTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Theory]
@@ -18,15 +18,15 @@ public class ProgramAssemblyUtilityTests
     [InlineData("../../../../SonghayCore/SonghayCore.nuspec")]
     public void GetPathFromAssembly_Test(string fileSegment)
     {
-        var actualPath = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, fileSegment);
-        this._testOutputHelper.WriteLine(actualPath);
+        var actualPath = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, fileSegment);
+        _testOutputHelper.WriteLine(actualPath);
         Assert.True(File.Exists(actualPath));
     }
 
     [Fact]
     public void ProposedLocationTest()
     {
-        var assembly = this.GetType().Assembly;
+        var assembly = GetType().Assembly;
 
 // ⚠ https://docs.microsoft.com/en-us/dotnet/core/compatibility/syslib-warnings/syslib0012
 #pragma warning disable SYSLIB0012
@@ -36,9 +36,9 @@ public class ProgramAssemblyUtilityTests
             assembly.CodeBase.Replace("file:///", string.Empty) :
             assembly.Location;
 
-        this._testOutputHelper.WriteLine($"{nameof(assembly.Location)}: {assembly.Location}");
-        this._testOutputHelper.WriteLine($"{nameof(assembly.CodeBase)}: {assembly.CodeBase}");
-        this._testOutputHelper.WriteLine($"{nameof(proposedLocation)}: {proposedLocation}");
+        _testOutputHelper.WriteLine($"{nameof(assembly.Location)}: {assembly.Location}");
+        _testOutputHelper.WriteLine($"{nameof(assembly.CodeBase)}: {assembly.CodeBase}");
+        _testOutputHelper.WriteLine($"{nameof(proposedLocation)}: {proposedLocation}");
 
 #pragma warning restore SYSLIB0012
 

@@ -1,16 +1,16 @@
-﻿using Songhay.Xml;
-using System.Linq;
+﻿using System.Linq;
 using System.Xml.Linq;
+using Songhay.Xml;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Songhay.Tests;
+namespace Songhay.Tests.Xml;
 
 public class XObjectUtilityTest
 {
     public XObjectUtilityTest(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Theory]
@@ -29,10 +29,10 @@ public class XObjectUtilityTest
     public void ShouldJoinFlattenedXTextNodes(string expectedValue, string sampleOne)
     {
         var rootElement = XElement.Parse(sampleOne);
-        this._testOutputHelper.WriteLine(rootElement.ToString());
+        _testOutputHelper.WriteLine(rootElement.ToString());
 
         var actual = XObjectUtility.JoinFlattenedXTextNodes(rootElement);
-        this._testOutputHelper.WriteLine($"actual: {actual}");
+        _testOutputHelper.WriteLine($"actual: {actual}");
         Assert.Equal(expectedValue, actual);
     }
 
@@ -62,10 +62,10 @@ public class XObjectUtilityTest
 
         Assert.Equal(expected, actual);
 
-        var c = xd.Elements("root");
+        var c = xd.Elements("root").ToArray();
         Assert.NotNull(c);
 
-        var attr = c.FirstOrDefault().Attribute("foo");
+        var attr = c.FirstOrDefault()?.Attribute("foo");
         Assert.Null(attr);
     }
 

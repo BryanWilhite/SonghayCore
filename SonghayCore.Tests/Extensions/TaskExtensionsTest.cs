@@ -7,13 +7,17 @@ namespace Songhay.Tests.Extensions;
 
 public class TaskExtensionsTest
 {
+    [Fact]
     public void ShouldDelayByOneSecond()
     {
         var thePast = DateTime.Now;
 
-        Task delayTask = null;
-        delayTask = delayTask.Delay(TimeSpan.FromSeconds(1), i =>
+        Task delayTask = Task.FromResult(() => {});
+
+        delayTask.Delay(TimeSpan.FromSeconds(1), task =>
         {
+            Assert.Equal(TaskStatus.RanToCompletion, task.Status);
+
             var test = DateTime.Now.Second - thePast.Second >= 1;
             Assert.True(test, "The expected delay did not occur.");
         });

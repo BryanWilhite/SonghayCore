@@ -2,7 +2,7 @@
 using Songhay.Globalization;
 using Xunit;
 
-namespace Songhay.Tests;
+namespace Songhay.Tests.Globalization;
 
 public class TextTests
 {

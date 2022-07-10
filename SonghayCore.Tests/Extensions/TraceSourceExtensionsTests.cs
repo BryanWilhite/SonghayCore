@@ -19,14 +19,14 @@ public class TraceSourceExtensionsTests
         var configuration = ProgramUtility.LoadConfiguration(Directory.GetCurrentDirectory());
         TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
 
-        traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
+        TraceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels().ToReferenceTypeValueOrThrow();
     }
 
-    static TraceSource traceSource;
+    static readonly TraceSource TraceSource;
 
     public TraceSourceExtensionsTests(ITestOutputHelper testOutputHelper)
     {
-        this._testOutputHelper = testOutputHelper;
+        _testOutputHelper = testOutputHelper;
     }
 
     [Fact]
@@ -43,21 +43,21 @@ public class TraceSourceExtensionsTests
 
             var tasks = new[]
             {
-                Task.Run(() => traceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
+                Task.Run(() => TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
                 Task.Run(() =>
                 {
-                    traceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]");
-                    traceSource.TraceError($"Error! [thread: {Thread.CurrentThread.ManagedThreadId}]");
-                    traceSource.TraceVerbose($"Was there an error? [thread: {Thread.CurrentThread.ManagedThreadId}]");
+                    TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]");
+                    TraceSource.TraceError($"Error! [thread: {Thread.CurrentThread.ManagedThreadId}]");
+                    TraceSource.TraceVerbose($"Was there an error? [thread: {Thread.CurrentThread.ManagedThreadId}]");
                 }),
-                Task.Run(() => traceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
-                Task.Run(() => traceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
+                Task.Run(() => TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
+                Task.Run(() => TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
             };
 
             Task.WaitAll(tasks);
 
             listener.Flush();
-            this._testOutputHelper.WriteLine(writer.ToString());
+            _testOutputHelper.WriteLine(writer.ToString());
         }
     }
 

@@ -11,6 +11,7 @@ using Xunit.Abstractions;
 
 namespace Songhay.Tests.Extensions;
 
+// ReSharper disable once InconsistentNaming
 public class IActivityExtensionsTests
 {
     static IActivityExtensionsTests()
@@ -18,14 +19,14 @@ public class IActivityExtensionsTests
         var configuration = ProgramUtility.LoadConfiguration(Directory.GetCurrentDirectory());
         TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
 
-        traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
+        TraceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels().ToReferenceTypeValueOrThrow();
     }
 
-    static TraceSource traceSource;
+    static readonly TraceSource TraceSource;
 
     public IActivityExtensionsTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Fact]
@@ -33,12 +34,12 @@ public class IActivityExtensionsTests
     {
         var args = new[] { nameof(MyActivity) };
         var activitiesGetter = new MyActivitiesGetter(args);
-        var activity = activitiesGetter?.GetActivity();
+        var activity = activitiesGetter.GetActivity();
         Assert.NotNull(activity);
 
-        var log = activity.StartActivity(new ProgramArgs(args), traceSource);
+        var log = activity.StartActivity(new ProgramArgs(args), TraceSource);
         Assert.False(string.IsNullOrWhiteSpace(log));
-        this._testOutputHelper.WriteLine(log);
+        _testOutputHelper.WriteLine(log);
     }
 
     [Fact]
@@ -46,14 +47,15 @@ public class IActivityExtensionsTests
     {
         var args = new[] { nameof(MyActivityWithOutput) };
         var activitiesGetter = new MyActivitiesGetter(args);
-        var activity = activitiesGetter?.GetActivity(nameof(MyActivityWithOutput));
+        var activity = activitiesGetter.GetActivity(nameof(MyActivityWithOutput));
         Assert.NotNull(activity);
 
-        var output = activity.StartActivityForOutput<ProgramArgs, string>(new ProgramArgs(args), traceSource);
+        var output = activity
+            .StartActivityForOutput<ProgramArgs, string>(new ProgramArgs(args), TraceSource);
         Assert.NotNull(output);
         Assert.False(string.IsNullOrWhiteSpace(output.Log));
-        Assert.EndsWith(output.Output, output.Log.TrimEnd());
-        this._testOutputHelper.WriteLine(output.Log);
+        Assert.EndsWith(output.Output!, output.Log!.TrimEnd());
+        _testOutputHelper.WriteLine(output.Log);
     }
 
     [Theory]
@@ -63,14 +65,14 @@ public class IActivityExtensionsTests
     {
         var args = new[] { nameof(MyActivity) };
         var activitiesGetter = new MyActivitiesGetter(args);
-        var activity = activitiesGetter?.GetActivity();
+        var activity = activitiesGetter.GetActivity();
         Assert.NotNull(activity);
 
         var disposable = new StreamWriter(outputInfo.FullName);
 
         var log = activity.StartActivity(
             new ProgramArgs(args),
-            traceSource,
+            TraceSource,
             () => disposable,
             flushLog: false);
 
@@ -79,25 +81,25 @@ public class IActivityExtensionsTests
 
         log = File.ReadAllText(outputInfo.FullName);
         Assert.False(string.IsNullOrWhiteSpace(log));
-        this._testOutputHelper.WriteLine(log);
+        _testOutputHelper.WriteLine(log);
     }
 
-    ITestOutputHelper _testOutputHelper;
+    readonly ITestOutputHelper _testOutputHelper;
 }
 
-class MyActivitiesGetter : ActivitiesGetter
+sealed class MyActivitiesGetter : ActivitiesGetter
 {
     public MyActivitiesGetter(string[] args) : base(args)
     {
-        this.LoadActivities(new Dictionary<string, Lazy<IActivity>>
+        LoadActivities(new Dictionary<string, Lazy<IActivity?>>
         {
             {
                 nameof(MyActivity),
-                new Lazy<IActivity>(() => new MyActivity())
+                new Lazy<IActivity?>(() => new MyActivity())
             },
             {
                 nameof(MyActivityWithOutput),
-                new Lazy<IActivity>(() => new MyActivityWithOutput())
+                new Lazy<IActivity?>(() => new MyActivityWithOutput())
             },
         });
     }
@@ -105,40 +107,42 @@ class MyActivitiesGetter : ActivitiesGetter
 
 class MyActivity : IActivity
 {
-    static MyActivity() => traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
-    static TraceSource traceSource;
+    static MyActivity() => TraceSource =
+        TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels().ToReferenceTypeValueOrThrow();
+    static readonly TraceSource TraceSource;
 
-    public string DisplayHelp(ProgramArgs args) => "There is no help.";
+    public string DisplayHelp(ProgramArgs? args) => "There is no help.";
 
-    public void Start(ProgramArgs args) =>
-        traceSource?.WriteLine(this.DoMyOtherRoutine(this.DoMyRoutine()));
+    public void Start(ProgramArgs? args) =>
+        TraceSource.WriteLine(DoMyOtherRoutine(DoMyRoutine()));
 
     internal string DoMyOtherRoutine(string input) =>
-        $"The other routine is done. [{nameof(input)}: {input ?? "[null]"}]";
+        $"The other routine is done. [{nameof(input)}: {input}]";
 
     internal string DoMyRoutine() => "The routine is done.";
 }
 
 class MyActivityWithOutput : IActivityWithOutput<ProgramArgs, string>
 {
-    static MyActivityWithOutput() => traceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
-    static TraceSource traceSource;
+    static MyActivityWithOutput() => TraceSource =
+        TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels().ToReferenceTypeValueOrThrow();
+    static readonly TraceSource TraceSource;
 
-    public string DisplayHelp(ProgramArgs args) => "There is no help.";
+    public string DisplayHelp(ProgramArgs? args) => "There is no help.";
 
-    public void Start(ProgramArgs args) =>
-        traceSource?.WriteLine(this.StartForOutput(args));
+    public void Start(ProgramArgs? args) =>
+        TraceSource.WriteLine(StartForOutput(args));
 
-    public string StartForOutput(ProgramArgs args)
+    public string StartForOutput(ProgramArgs? args)
     {
-        var output = $"output: {this.DoMyOtherRoutine(this.DoMyRoutine())}";
+        var output = $"output: {DoMyOtherRoutine(DoMyRoutine())}";
 
-        traceSource?.WriteLine(output);
+        TraceSource.WriteLine(output);
 
         return output;
     }
     internal string DoMyOtherRoutine(string input) =>
-        $"The other routine is done. [{nameof(input)}: {input ?? "[null]"}]";
+        $"The other routine is done. [{nameof(input)}: {input}]";
 
     internal string DoMyRoutine() => "The routine is done.";
 }

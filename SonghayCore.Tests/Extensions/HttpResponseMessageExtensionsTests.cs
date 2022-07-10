@@ -13,14 +13,14 @@ public class HttpResponseMessageExtensionsTests
 {
     public HttpResponseMessageExtensionsTests(ITestOutputHelper helper)
     {
-        this._testOutputHelper = helper;
+        _testOutputHelper = helper;
     }
 
     [Theory]
     [InlineData("https://songhaystorage.blob.core.windows.net/studio-public/songhay_icon.png", "../../../content")]
     public async Task DownloadByteArrayToFile_Test(string location, string target)
     {
-        var root = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, target);
+        var root = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, target);
         var rootInfo = new DirectoryInfo(root);
         Assert.True(rootInfo.Exists);
 
@@ -29,7 +29,7 @@ public class HttpResponseMessageExtensionsTests
         using var response = await request.SendAsync();
 
         var targetInfo = new FileInfo(rootInfo.ToCombinedPath(uri.ToFileName()));
-        this._testOutputHelper.WriteLine($"Downloading to {targetInfo.FullName}...");
+        _testOutputHelper.WriteLine($"Downloading to {targetInfo.FullName}...");
 
         await response.DownloadByteArrayToFileAsync(targetInfo);
     }
@@ -38,7 +38,7 @@ public class HttpResponseMessageExtensionsTests
     [InlineData("https://songhaystorage.blob.core.windows.net/studio-dash/app.json", "../../../json")]
     public async Task DownloadStringToFile_Test(string location, string target)
     {
-        var root = ProgramAssemblyUtility.GetPathFromAssembly(this.GetType().Assembly, target);
+        var root = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, target);
         var rootInfo = new DirectoryInfo(root);
         Assert.True(rootInfo.Exists);
 
@@ -47,7 +47,7 @@ public class HttpResponseMessageExtensionsTests
         using var response = await request.SendAsync();
 
         var targetInfo = new FileInfo(rootInfo.ToCombinedPath(uri.ToFileName()));
-        this._testOutputHelper.WriteLine($"Downloading to {targetInfo.FullName}...");
+        _testOutputHelper.WriteLine($"Downloading to {targetInfo.FullName}...");
 
         await response.DownloadStringToFileAsync(targetInfo);
     }

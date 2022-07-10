@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
+using Songhay.Extensions;
 using Xunit;
 
-namespace Songhay.Extensions.Tests;
+namespace Songhay.Tests.Extensions;
 
 public class TimeSpanExtensionsTest
 {
@@ -16,9 +17,9 @@ public class TimeSpanExtensionsTest
         Assert.True(setOfDates.Count == 60,
             "The expected number of days is not here.");
 
-        var fridays = setOfDates.Where(i => i.DayOfWeek == DayOfWeek.Friday);
+        var fridays = setOfDates.Where(i => i.DayOfWeek == DayOfWeek.Friday).ToArray();
 
-        Assert.True(fridays.Count() > 0,
+        Assert.True(fridays.Any(),
             "The expected Friday days are not here.");
         Assert.True(fridays.First() == setOfDates.First(i => i.DayOfWeek == DayOfWeek.Friday),
             "The expected first Friday day is not here.");
