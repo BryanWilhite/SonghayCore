@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -60,11 +61,10 @@ public static class NullableExtensions
     {
         if (enumerable != null && enumerable.Any()) return;
 
-        var message = string.IsNullOrWhiteSpace(paramName)
-            ? "The expected collection is not here."
-            : $"The expected `{paramName}` is not here.";
+        if (string.IsNullOrWhiteSpace(paramName))
+            paramName = $"[variable of type `{nameof(IEnumerable)}` of `{typeof(T).Name}`]";
 
-        throw new ArgumentNullException(message);
+        throw new ArgumentNullException(paramName);
     }
 
     /// <summary>
@@ -91,11 +91,9 @@ public static class NullableExtensions
     {
         if (!string.IsNullOrWhiteSpace(nullable)) return;
 
-        var message = string.IsNullOrWhiteSpace(paramName)
-            ? "The expected `string` is not here."
-            : $"The expected `{paramName}` is not here.";
+        if (string.IsNullOrWhiteSpace(paramName)) paramName = $"[variable of type `{nameof(String)}`]";
 
-        throw new ArgumentNullException(message);
+        throw new ArgumentNullException(paramName);
     }
 
     /// <summary>
@@ -106,8 +104,9 @@ public static class NullableExtensions
     public static object ToObjectOrDbNull<T>(this T? nullable) => nullable as object ?? DBNull.Value;
 
     /// <summary>
-    /// Returns the non-null type
-    /// or throws an <see cref="ArgumentNullException"/>.
+    /// Returns the non-null value of the specified, nullable reference type
+    /// or throws an <see cref="ArgumentNullException"/>
+    /// when the value is null.
     /// </summary>
     /// <param name="nullable">the nullable</param>
     /// <param name="paramName">the name of the variable holding the nullable</param>
@@ -125,12 +124,44 @@ public static class NullableExtensions
     ///
     /// [ see https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/attributes/nullable-analysis#postconditions-maybenull-and-notnull ]
     /// </remarks>
-    public static T ToValueOrThrow<T>( [NotNull] this T? nullable, [CallerArgumentExpression("nullable")] string? paramName = null)
+    public static T ToReferenceTypeValueOrThrow<T>( [NotNull] this T? nullable,
+        [CallerArgumentExpression("nullable")] string? paramName = null) where T: class?
     {
-        var message = string.IsNullOrWhiteSpace(paramName)
-            ? $"The expected `{typeof(T).Name}` is not here."
-            : $"The expected `{paramName}` is not here.";
+        if (nullable != null) return nullable;
 
-        return nullable == null ? throw new ArgumentNullException(message) : nullable;
+        if (string.IsNullOrWhiteSpace(paramName)) paramName = $"[variable of type `{typeof(T).Name}`]";
+
+        throw new ArgumentNullException(paramName);
+    }
+
+    /// <summary>
+    /// Returns the non-null value of the specified value type
+    /// or throws an <see cref="ArgumentNullException"/>
+    /// when the value is null.
+    /// </summary>
+    /// <param name="nullable">the nullable</param>
+    /// <param name="paramName">the name of the variable holding the nullable</param>
+    /// <typeparam name="T">the type</typeparam>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <remarks>
+    /// This member borrows heavily from <see cref="System.ArgumentNullException.ThrowIfNull"/>.
+    ///
+    /// The <see cref="NotNullAttribute"/> is applied to this member based
+    /// on the following statement from Microsoft:
+    ///
+    /// “Callers can pass a variable with the null nullable,
+    /// but the argument is guaranteed to never be null
+    /// if the method returns without throwing an exception.”
+    ///
+    /// [ see https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/attributes/nullable-analysis#postconditions-maybenull-and-notnull ]
+    /// </remarks>
+    public static T ToValueOrThrow<T>( [NotNull] this T? nullable,
+        [CallerArgumentExpression("nullable")] string? paramName = null) where T: struct
+    {
+        if (nullable.HasValue) return nullable.Value;
+
+        if (string.IsNullOrWhiteSpace(paramName)) paramName = $"[variable of type `{typeof(T).Name}`]";
+
+        throw new ArgumentNullException(paramName);
     }
 }

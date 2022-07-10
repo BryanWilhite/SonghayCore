@@ -51,7 +51,7 @@ public static partial class XmlUtility
         XslCompiledTransform xslt = new XslCompiledTransform(false);
         xslt.Load(navigableXsl);
 
-        var navigator = navigableXml.CreateNavigator().ToValueOrThrow();
+        var navigator = navigableXml.CreateNavigator().ToReferenceTypeValueOrThrow();
 
         using MemoryStream ms = new MemoryStream();
         using (StringReader sr = new StringReader(navigator.OuterXml))

@@ -8,7 +8,7 @@ public class MyClass
 {
     static MyClass()
     {
-        TraceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels().ToValueOrThrow();
+        TraceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels().ToReferenceTypeValueOrThrow();
         TraceSource.WriteLine($"static constructor: {nameof(MyClass)}");
     }
 

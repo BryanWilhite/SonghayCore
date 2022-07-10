@@ -33,7 +33,7 @@ public static class UriTemplateExtensions
     {
         ArgumentNullException.ThrowIfNull(template);
 
-        var keys = template.GetParameterNames().ToValueOrThrow().ToArray();
+        var keys = template.GetParameterNames().ToReferenceTypeValueOrThrow().ToArray();
 
         for (int i = 0; i < keys.Length; i++)
         {

@@ -41,7 +41,7 @@ public static class HttpWebRequestExtensions
         var response = request
             .WithProxy(proxyLocation, bypassProxy)
             .ToHttpWebResponse()
-            .ToValueOrThrow();
+            .ToReferenceTypeValueOrThrow();
 
         var stream = response.GetResponseStream();
         try
@@ -83,7 +83,7 @@ public static class HttpWebRequestExtensions
         var response = request
             .WithProxy(proxyLocation, bypassProxy)
             .ToHttpWebResponse()
-            .ToValueOrThrow();
+            .ToReferenceTypeValueOrThrow();
         try
         {
             using var sr = new StreamReader(response.GetResponseStream());

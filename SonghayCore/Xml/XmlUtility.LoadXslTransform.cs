@@ -127,7 +127,7 @@ public static partial class XmlUtility
     {
         ArgumentNullException.ThrowIfNull(navigableXml);
 
-        var navigator = navigableXml.CreateNavigator().ToValueOrThrow();
+        var navigator = navigableXml.CreateNavigator().ToReferenceTypeValueOrThrow();
         var xmlFragment = navigator.OuterXml;
         var xslArgs = GetXsltArgumentList(commandName);
 

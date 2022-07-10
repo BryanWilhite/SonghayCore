@@ -53,7 +53,7 @@ public static partial class XmlUtility
         ArgumentNullException.ThrowIfNull(navigableXsl);
         ArgumentNullException.ThrowIfNull(navigableXml);
 
-        var navigator = navigableXml.CreateNavigator().ToValueOrThrow();
+        var navigator = navigableXml.CreateNavigator().ToReferenceTypeValueOrThrow();
         XslCompiledTransform xslt = new XslCompiledTransform(false);
         xslt.Load(navigableXsl);
 

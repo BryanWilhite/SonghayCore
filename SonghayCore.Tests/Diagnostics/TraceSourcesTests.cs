@@ -36,7 +36,7 @@ public class TraceSourcesTests
         using (var writer = new StringWriter())
         using (var listener = new TextWriterTraceListener(writer))
         {
-            traceSource.ToValueOrThrow().Listeners.Add(listener);
+            traceSource.ToReferenceTypeValueOrThrow().Listeners.Add(listener);
 
             _testOutputHelper.WriteLine($"instantiating {nameof(MyClass)}...");
             var mine = new MyClass();

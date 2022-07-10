@@ -84,7 +84,7 @@ public static partial class XmlUtility
         var xslt = new XslCompiledTransform(false);
         xslt.Load(navigableXsl);
 
-        using var sr = new StringReader(xmlInput.CreateNavigator().ToValueOrThrow().OuterXml);
+        using var sr = new StringReader(xmlInput.CreateNavigator().ToReferenceTypeValueOrThrow().OuterXml);
         XmlReader reader = XmlReader.Create(sr);
         XmlWriter writer = XmlWriter.Create(fs);
 
