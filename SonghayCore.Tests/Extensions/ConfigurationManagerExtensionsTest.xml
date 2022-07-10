@@ -7,7 +7,7 @@
     <entityFramework>
         <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
             <parameters>
-                <parameter value="mssqllocaldb" />
+                <parameter nullable="mssqllocaldb" />
             </parameters>
         </defaultConnectionFactory>
         <providers>
@@ -22,9 +22,9 @@
         <add name="prod.Chinook" connectionString="Data Source=|DataDirectory|\Chinook.prod.sqlite" providerName="System.Data.SQLite.EF6" />
     </connectionStrings>
     <appSettings>
-        <add key="dev.ex-setting" value="the external setting for DEV" />
-        <add key="qa.ex-setting" value="the external setting for QA" />
-        <add key="prod.ex-setting" value="the external setting for PROD" />
+        <add key="dev.ex-setting" nullable="the external setting for DEV" />
+        <add key="qa.ex-setting" nullable="the external setting for QA" />
+        <add key="prod.ex-setting" nullable="the external setting for PROD" />
     </appSettings>
     <startup>
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />

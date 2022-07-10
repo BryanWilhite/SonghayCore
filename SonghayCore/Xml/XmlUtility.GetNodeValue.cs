@@ -101,14 +101,14 @@ public static partial class XmlUtility
 
         try
         {
-            T? stronglyT = default(T);
+            T? stronglyOfT = default(T);
 
             if (p == null || string.IsNullOrWhiteSpace(p.ToString()?.Trim()))
             {
                 p = defaultValue;
             }
             else
-                switch (stronglyT)
+                switch (stronglyOfT)
                 {
                     case bool:
                         p = bool.Parse(p.ToString() ?? string.Empty);

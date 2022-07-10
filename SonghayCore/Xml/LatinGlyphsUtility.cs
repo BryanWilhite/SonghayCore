@@ -500,7 +500,7 @@ public static class LatinGlyphsUtility
                 },
                 new()
                 {
-                    UnicodePoint = "5f", UnicodeGroup = "Basic Latin", UnicodeName = "Low Line", Character = "_",
+                    UnicodePoint = "5f", UnicodeGroup = "Basic Latin", UnicodeName = "Low Line", Character = "nullable",
                     Windows1252UrlEncoding = "%5F", Utf8UrlEncoding = "%5F", HtmlEntityName = "",
                     XmlEntityNumber = "&#95;"
                 },

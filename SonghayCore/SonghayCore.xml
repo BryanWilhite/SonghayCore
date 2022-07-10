@@ -128,15 +128,15 @@
         </member>
         <member name="P:Songhay.Abstractions.IColorable.BackgroundHex">
             <summary>
-            Gets or sets the background hexadecimal value.
+            Gets or sets the background hexadecimal nullable.
             </summary>
-            <value>The background hexadecimal value.</value>
+            <nullable>The background hexadecimal nullable.</nullable>
         </member>
         <member name="P:Songhay.Abstractions.IColorable.ForegroundHex">
             <summary>
-            Gets or sets the foreground hexadecimal value.
+            Gets or sets the foreground hexadecimal nullable.
             </summary>
-            <value>The foreground hexadecimal value.</value>
+            <nullable>The foreground hexadecimal nullable.</nullable>
         </member>
         <member name="T:Songhay.Abstractions.IGroupable">
             <summary>
@@ -167,43 +167,43 @@
             <summary>
             Gets the assembly company.
             </summary>
-            <value>The assembly company.</value>
+            <nullable>The assembly company.</nullable>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyCopyright">
             <summary>
             Gets the assembly copyright.
             </summary>
-            <value>The assembly copyright.</value>
+            <nullable>The assembly copyright.</nullable>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyDescription">
             <summary>
             Gets the assembly description.
             </summary>
-            <value>The assembly description.</value>
+            <nullable>The assembly description.</nullable>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyProduct">
             <summary>
             Gets the assembly product.
             </summary>
-            <value>The assembly product.</value>
+            <nullable>The assembly product.</nullable>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyTitle">
             <summary>
             Gets the assembly title.
             </summary>
-            <value>The assembly title.</value>
+            <nullable>The assembly title.</nullable>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyVersion">
             <summary>
             Gets the assembly version.
             </summary>
-            <value>The assembly version.</value>
+            <nullable>The assembly version.</nullable>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyVersionDetail">
             <summary>
             Gets the assembly version detail.
             </summary>
-            <value>The assembly version detail.</value>
+            <nullable>The assembly version detail.</nullable>
         </member>
         <member name="T:Songhay.Abstractions.IRepository">
             <summary>
@@ -257,25 +257,25 @@
             <summary>
             Gets or sets whether this is default selection.
             </summary>
-            <value>
+            <nullable>
             This is default selection.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Abstractions.ISelectable.IsEnabled">
             <summary>
             Gets or sets whether this is enabled.
             </summary>
-            <value>
+            <nullable>
             This is enabled.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Abstractions.ISelectable.IsSelected">
             <summary>
             Gets or sets whether this is selected.
             </summary>
-            <value>
+            <nullable>
             <c>true</c> when this is selected.
-            </value>
+            </nullable>
         </member>
         <member name="T:Songhay.Abstractions.ISortable">
             <summary>
@@ -286,7 +286,7 @@
             <summary>
             Gets or sets the sort ordinal.
             </summary>
-            <value>The sort ordinal.</value>
+            <nullable>The sort ordinal.</nullable>
         </member>
         <member name="T:Songhay.Abstractions.ISyndicatable">
             <summary>
@@ -373,9 +373,9 @@
             <summary>
             Gets the <see cref="T:System.Diagnostics.TraceSource"/> with the specified name.
             </summary>
-            <value>
+            <nullable>
             The <see cref="T:System.Diagnostics.TraceSource"/>.
-            </value>
+            </nullable>
             <param name="name">The name.</param>
             <returns></returns>
         </member>
@@ -383,9 +383,9 @@
             <summary>
             Gets the instance.
             </summary>
-            <value>
+            <nullable>
             The instance.
-            </value>
+            </nullable>
         </member>
         <member name="T:Songhay.Exceptions.CsvParseException">
             <summary>
@@ -705,7 +705,7 @@
             Converts the <see cref="T:System.Data.DataSet"/> into a first table rows.
             </summary>
             <typeparam name="TKey">The type of the key.</typeparam>
-            <typeparam name="TValue">The type of the value.</typeparam>
+            <typeparam name="TValue">The type of the nullable.</typeparam>
             <param name="dataSet">The data set.</param>
         </member>
         <member name="T:Songhay.Extensions.DateTimeExtensions">
@@ -851,7 +851,7 @@
         </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath(System.IO.DirectoryInfo,System.String)">
             <summary>Combines path and root based
-            on the current value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
+            on the current nullable of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
             of the current OS or passes through a drive-letter rooted path.</summary>
             <param name="directoryInfo">The directory information.</param>
             <param name="path">The path.</param>
@@ -910,13 +910,13 @@
             <summary>
             Gets the enum description.
             </summary>
-            <param name="value">The value.</param>
+            <param name="nullable">The nullable.</param>
         </member>
         <member name="M:Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)">
             <summary>
             Gets the enum values.
             </summary>
-            <param name="value">The value.</param>
+            <param name="nullable">The nullable.</param>
         </member>
         <member name="T:Songhay.Extensions.EnvironmentExtensions">
             <summary>
@@ -925,10 +925,10 @@
         </member>
         <member name="M:Songhay.Extensions.EnvironmentExtensions.GetConventionalValue(System.String)">
             <summary>
-            Gets the conventional value.
+            Gets the conventional nullable.
             </summary>
             <param name="conventionalName">Name of the conventional.</param>
-            <returns>Returns the value of named data.</returns>
+            <returns>Returns the nullable of named data.</returns>
         </member>
         <member name="T:Songhay.Extensions.FileInfoExtensions">
             <summary>
@@ -1271,7 +1271,7 @@
              See also: https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
             
              Provide the md5 and it will check and make sure it matches the requested blob's md5.
-             If it doesn't match, it won't return a value.
+             If it doesn't match, it won't return a nullable.
             
              Provide an eTag, and it will only make changes to a blob if the current eTag matches,
              to ensure you don't overwrite someone else's changes.
@@ -1355,7 +1355,7 @@
             
              See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
             
-             Provide the md5 and it will check and make sure it matches the requested blob's md5. If it doesn't match, it won't return a value.
+             Provide the md5 and it will check and make sure it matches the requested blob's md5. If it doesn't match, it won't return a nullable.
              
              Provide an eTag, and it will only make changes to a blob if the current eTag matches, to ensure you don't overwrite someone else's changes.
              </remarks>
@@ -1972,7 +1972,7 @@
             to the <see cref="T:System.Collections.Specialized.NameValueCollection"/>.
             </summary>
             <typeparam name="TKey">The type of the key.</typeparam>
-            <typeparam name="TValue">The type of the value.</typeparam>
+            <typeparam name="TValue">The type of the nullable.</typeparam>
             <param name="dictionary">The set.</param>
             <remarks>
             For detail, see https://stackoverflow.com/a/7230446/22944
@@ -1981,10 +1981,10 @@
         </member>
         <member name="M:Songhay.Extensions.IDictionaryExtensions.TryGetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
             <summary>
-            Tries to get value with the specified key.
+            Tries to get nullable with the specified key.
             </summary>
             <typeparam name="TKey">The type of the key.</typeparam>
-            <typeparam name="TValue">The type of the value.</typeparam>
+            <typeparam name="TValue">The type of the nullable.</typeparam>
             <param name="dictionary">The dictionary.</param>
             <param name="key">The key.</param>
             <returns></returns>
@@ -1993,10 +1993,10 @@
         </member>
         <member name="M:Songhay.Extensions.IDictionaryExtensions.TryGetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Boolean)">
             <summary>
-            Tries to get value with the specified key.
+            Tries to get nullable with the specified key.
             </summary>
             <typeparam name="TKey">The type of the key.</typeparam>
-            <typeparam name="TValue">The type of the value.</typeparam>
+            <typeparam name="TValue">The type of the nullable.</typeparam>
             <param name="dictionary">The dictionary.</param>
             <param name="key">The key.</param>
             <param name="throwException">if set to <c>true</c> [throw exception].</param>
@@ -2193,7 +2193,7 @@
             <summary>
             Rounds the specified decimal.
             </summary>
-            <param name="decimalValue">The decimal value.</param>
+            <param name="nullable">The decimal nullable.</param>
             <param name="decimals">The decimals.</param>
             <returns></returns>
             <remarks>
@@ -2215,7 +2215,7 @@
              Throws an <see cref="T:System.ArgumentNullException"/>
              when <see cref="M:System.String.IsNullOrWhiteSpace(System.String)"/> is <c>true</c>.
              </summary>
-             <param name="value">the <see cref="T:System.String"/> value</param>
+             <param name="nullable">the <see cref="T:System.String"/> nullable</param>
              <param name="paramName">the name of the variable holding the <see cref="T:System.String"/></param>
              <exception cref="T:System.ArgumentNullException"></exception>
              <remarks>
@@ -2224,7 +2224,7 @@
              The <see cref="T:System.Diagnostics.CodeAnalysis.NotNullAttribute"/> is applied to this member based
              on the following statement from Microsoft:
             
-             “Callers can pass a variable with the null value,
+             “Callers can pass a variable with the null nullable,
              but the argument is guaranteed to never be null
              if the method returns without throwing an exception.”
             
@@ -2246,7 +2246,7 @@
              The <see cref="T:System.Diagnostics.CodeAnalysis.NotNullAttribute"/> is applied to this member based
              on the following statement from Microsoft:
             
-             “Callers can pass a variable with the null value,
+             “Callers can pass a variable with the null nullable,
              but the argument is guaranteed to never be null
              if the method returns without throwing an exception.”
             
@@ -2264,7 +2264,7 @@
             can be assigned to <see cref="T:System.Runtime.Serialization.ISerializable" />.
             </summary>
             <typeparam name="T">the specified type</typeparam>
-            <param name="objectOfDomain">The object of domain.</param>
+            <param name="nullable">The object of domain.</param>
             <returns>
               <c>true</c> if the specified throw exception is serializable; otherwise, <c>false</c>.
             </returns>
@@ -2280,13 +2280,13 @@
             Determines whether this instance is type.
             </summary>
             <typeparam name="TClass">The type of the class.</typeparam>
-            <param name="objectOfDomain">The object of domain.</param>
+            <param name="nullable">The object of domain.</param>
         </member>
         <member name="M:Songhay.Extensions.ObjectExtensions.ToObjectOrDbNull(System.Object)">
             <summary>
-            Boxes the value in object or returns <see cref="T:System.DBNull"/>.
+            Boxes the nullable in object or returns <see cref="T:System.DBNull"/>.
             </summary>
-            <param name="objectOfDomain">The object of domain.</param>
+            <param name="nullable">The object of domain.</param>
         </member>
         <member name="T:Songhay.Extensions.ObservableCollectionExtensions">
             <summary>
@@ -2347,7 +2347,7 @@
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetBasePathValue(Songhay.Models.ProgramArgs)">
             <summary>
-            Gets the conventional base-path value.
+            Gets the conventional base-path nullable.
             </summary>
             <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
             <returns></returns>
@@ -2425,7 +2425,7 @@
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetArgValue(Songhay.Models.ProgramArgs,System.String)">
             <summary>
-            Gets the argument value.
+            Gets the argument nullable.
             </summary>
             <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
             <param name="arg">The argument.</param>
@@ -2438,7 +2438,7 @@
             </summary>
             <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
             <param name="arg">The argument.</param>
-            <param name="requiresValue">if set to <c>true</c> [requires value].</param>
+            <param name="requiresValue">if set to <c>true</c> [requires nullable].</param>
             <returns>
               <c>true</c> if the specified argument has argument; otherwise, <c>false</c>.
             </returns>
@@ -2495,32 +2495,32 @@
         </member>
         <member name="M:Songhay.Extensions.StringBuilderExtensions.AppendLabelWithValue(System.Text.StringBuilder,System.String,System.Object)">
             <summary>
-            Appends the label with value.
+            Appends the label with nullable.
             </summary>
             <param name="builder">The builder.</param>
             <param name="name">The name.</param>
-            <param name="value">The value.</param>
+            <param name="nullable">The nullable.</param>
         </member>
         <member name="M:Songhay.Extensions.StringBuilderExtensions.AppendLabelWithValue(System.Text.StringBuilder,System.String,System.Object,System.String)">
             <summary>
-            Appends the label with value.
+            Appends the label with nullable.
             </summary>
             <param name="builder">The builder.</param>
             <param name="name">The name.</param>
-            <param name="value">The value.</param>
-            <param name="defaultValue">The default value.</param>
+            <param name="nullable">The nullable.</param>
+            <param name="defaultValue">The default nullable.</param>
         </member>
         <member name="M:Songhay.Extensions.StringBuilderExtensions.AppendLabelWithValue(System.Text.StringBuilder,System.String,System.Object,System.String,System.Boolean)">
             <summary>
-            Appends the label with value.
+            Appends the label with nullable.
             </summary>
             <param name="builder">The builder.</param>
             <param name="name">The name.</param>
-            <param name="value">The value.</param>
-            <param name="defaultValue">The default value.</param>
-            <param name="hasLineBreak">When <c>true</c> add <see cref="P:System.Environment.NewLine" /> between label and value.</param>
+            <param name="nullable">The nullable.</param>
+            <param name="defaultValue">The default nullable.</param>
+            <param name="hasLineBreak">When <c>true</c> add <see cref="P:System.Environment.NewLine" /> between label and nullable.</param>
             <remarks>
-            This method will append <c>name: value</c> to the appending <see cref="T:System.Text.StringBuilder"/>.
+            This method will append <c>name: nullable</c> to the appending <see cref="T:System.Text.StringBuilder"/>.
             This is useful when overriding <see cref="M:System.Object.ToString"/>.
             </remarks>
         </member>
@@ -2602,7 +2602,7 @@
             Prepares a string to be converted to <c>int</c>.
             </summary>
             <param name="input">The input.</param>
-            <param name="defaultValue">The default value ("0" by default).</param>
+            <param name="defaultValue">The default nullable ("0" by default).</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToNumberOfDirectoryLevels(System.String)">
@@ -2627,7 +2627,7 @@
             Converts the <see cref="T:System.String"/> into a numeric format for parsing.
             </summary>
             <param name="input">The input.</param>
-            <param name="defaultValue">The default value ("0" by default).</param>
+            <param name="defaultValue">The default nullable ("0" by default).</param>
             <returns>
             Returns a numeric string ready for integer or float parsing.
             </returns>
@@ -2743,7 +2743,7 @@
             Returns <see cref="T:System.String"/> in double quotes or default.
             </summary>
             <param name="input">The input.</param>
-            <param name="defaultValue">The default value.</param>
+            <param name="defaultValue">The default nullable.</param>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.InsertSpacesBeforeCaps(System.String)">
             <summary>
@@ -3314,7 +3314,7 @@
             </summary>
             <param name="objectToValidate">The object to validate.</param>
             <param name="propertyName">Name of the property.</param>
-            <param name="propertyValue">The property value.</param>
+            <param name="propertyValue">The property nullable.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">propertyName</exception>
         </member>
@@ -3324,7 +3324,7 @@
             </summary>
             <param name="objectToValidate">The object to validate.</param>
             <param name="propertyName">Name of the property.</param>
-            <param name="propertyValue">The property value.</param>
+            <param name="propertyValue">The property nullable.</param>
             <param name="validationContext">the <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">propertyName</exception>
@@ -3382,35 +3382,35 @@
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.ToAttributeValueOrDefault(System.Xml.Linq.XElement,System.String,System.String)">
             <summary>
-            Converts the <see cref="T:System.Xml.Linq.XElement" /> into a attribute value or default.
+            Converts the <see cref="T:System.Xml.Linq.XElement" /> into a attribute nullable or default.
             </summary>
             <param name="element">The element.</param>
             <param name="attributeName">Name of the attribute.</param>
-            <param name="defaultValue">The default value.</param>
+            <param name="defaultValue">The default nullable.</param>
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.ToAttributeValueOrNull(System.Xml.Linq.XElement,System.String)">
             <summary>
-            Returns the attribute value or null.
+            Returns the attribute nullable or null.
             </summary>
             <param name="element">The element.</param>
             <param name="attributeName">Name of the attribute.</param>
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.ToElementValueOrDefault(System.Xml.Linq.XElement,System.String)">
             <summary>
-            Converts the <see cref="T:System.Xml.Linq.XElement" /> into a element value or default.
+            Converts the <see cref="T:System.Xml.Linq.XElement" /> into a element nullable or default.
             </summary>
             <param name="element">The element.</param>
-            <param name="defaultValue">The default value.</param>
+            <param name="defaultValue">The default nullable.</param>
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Xml.Linq.XElement)">
             <summary>
-            Converts the <see cref="T:System.Xml.Linq.XElement" /> into a element value or null.
+            Converts the <see cref="T:System.Xml.Linq.XElement" /> into a element nullable or null.
             </summary>
             <param name="element">The element.</param>
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement})">
             <summary>
-            Returns the element value or null.
+            Returns the element nullable or null.
             </summary>
             <param name="elements">The elements.</param>
         </member>
@@ -3544,9 +3544,9 @@
             <summary>
             Gets the arguments.
             </summary>
-            <value>
+            <nullable>
             The arguments.
-            </value>
+            </nullable>
         </member>
         <member name="M:Songhay.Models.ActivitiesGetter.GetActivity">
             <summary>
@@ -3578,17 +3578,17 @@
             <summary>
             Gets or sets the output.
             </summary>
-            <value>
+            <nullable>
             The output.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ActivityOutput`1.Log">
             <summary>
             Gets or sets the log.
             </summary>
-            <value>
+            <nullable>
             The log.
-            </value>
+            </nullable>
         </member>
         <member name="T:Songhay.Models.ColorDisplayItemModel">
             <summary>
@@ -3597,15 +3597,15 @@
         </member>
         <member name="P:Songhay.Models.ColorDisplayItemModel.BackgroundHex">
             <summary>
-            Gets or sets the background hexadecimal value.
+            Gets or sets the background hexadecimal nullable.
             </summary>
-            <value>The background hexadecimal value.</value>
+            <nullable>The background hexadecimal nullable.</nullable>
         </member>
         <member name="P:Songhay.Models.ColorDisplayItemModel.ForegroundHex">
             <summary>
-            Gets or sets the foreground hexadecimal value.
+            Gets or sets the foreground hexadecimal nullable.
             </summary>
-            <value>The foreground hexadecimal value.</value>
+            <nullable>The foreground hexadecimal nullable.</nullable>
         </member>
         <member name="T:Songhay.Models.CorsOrigins">
             <summary>
@@ -3686,49 +3686,49 @@
             <summary>
             Gets or sets the data row version.
             </summary>
-            <value>
+            <nullable>
             The data row version.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.DataParameterMetadata.DbType">
             <summary>
             Gets or sets the type of the database.
             </summary>
-            <value>
+            <nullable>
             The type of the database.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.DataParameterMetadata.ParameterDirection">
             <summary>
             Gets or sets the parameter direction.
             </summary>
-            <value>
+            <nullable>
             The parameter direction.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.DataParameterMetadata.ParameterName">
             <summary>
             Gets or sets the name of the parameter.
             </summary>
-            <value>
+            <nullable>
             The name of the parameter.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.DataParameterMetadata.ParameterValue">
             <summary>
-            Gets or sets the parameter value.
+            Gets or sets the parameter nullable.
             </summary>
-            <value>
-            The parameter value.
-            </value>
+            <nullable>
+            The parameter nullable.
+            </nullable>
         </member>
         <member name="P:Songhay.Models.DataParameterMetadata.SourceColumn">
             <summary>
             Gets or sets the source column.
             </summary>
-            <value>
+            <nullable>
             The source column.
-            </value>
+            </nullable>
         </member>
         <member name="T:Songhay.Models.DbmsMetadata">
             <summary>
@@ -3739,33 +3739,33 @@
             <summary>
             Gets or sets the connection string.
             </summary>
-            <value>
+            <nullable>
             The connection string.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.DbmsMetadata.ConnectionStringKey">
             <summary>
             Gets or sets the connection string key.
             </summary>
-            <value>
+            <nullable>
             The connection string key.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.DbmsMetadata.EncryptionMetadata">
             <summary>
             Gets or sets the encryption metadata.
             </summary>
-            <value>
+            <nullable>
             The encryption metadata.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.DbmsMetadata.ProviderName">
             <summary>
             Gets or sets the name of the provider.
             </summary>
-            <value>
+            <nullable>
             The name of the provider.
-            </value>
+            </nullable>
         </member>
         <member name="M:Songhay.Models.DbmsMetadata.ToString">
             <summary>
@@ -3825,47 +3825,47 @@
             <summary>
             Gets or sets the description.
             </summary>
-            <value>The description.</value>
+            <nullable>The description.</nullable>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.DisplayText">
             <summary>
             Gets or sets the display text.
             </summary>
-            <value>The display text.</value>
+            <nullable>The display text.</nullable>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.Id">
             <summary>
             Gets or sets the id.
             </summary>
-            <value>The id.</value>
+            <nullable>The id.</nullable>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.ItemName">
             <summary>
             Gets or sets the item name.
             </summary>
-            <value>The item name.</value>
+            <nullable>The item name.</nullable>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.ResourceIndicator">
             <summary>
             Gets or sets the resource indicator.
             </summary>
-            <value>
+            <nullable>
             The resource indicator.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.Tag">
             <summary>
             Gets or sets the tag.
             </summary>
-            <value>
+            <nullable>
             The tag.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.SortOrdinal">
             <summary>
             Gets or sets the sort ordinal.
             </summary>
-            <value>The sort ordinal.</value>
+            <nullable>The sort ordinal.</nullable>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.EndDate">
             <summary>
@@ -3896,28 +3896,28 @@
             <summary>
             Gets or sets the initial vector.
             </summary>
-            <value>
+            <nullable>
             The initial vector.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.EncryptionMetadata.Key">
             <summary>
             Gets or sets the key.
             </summary>
-            <value>
+            <nullable>
             The key.
-            </value>
+            </nullable>
         </member>
         <member name="T:Songhay.Models.HierarchicalNameValuePair">
             <summary>
-            Defines hierarchical name-value pairs.
+            Defines hierarchical name-nullable pairs.
             </summary>
         </member>
         <member name="P:Songhay.Models.HierarchicalNameValuePair.NameValuePairs">
             <summary>
-            Gets or sets the name value pairs.
+            Gets or sets the name nullable pairs.
             </summary>
-            <value>The name value pairs.</value>
+            <nullable>The name nullable pairs.</nullable>
         </member>
         <member name="T:Songhay.Models.HttpMethods">
             <summary>
@@ -3973,19 +3973,19 @@
             <summary>
             Gets or sets the targetValues name.
             </summary>
-            <value>The targetValues name.</value>
+            <nullable>The targetValues name.</nullable>
         </member>
         <member name="P:Songhay.Models.LazyDisplayItem`1.LazyItem">
             <summary>
             Gets or sets the lazy item.
             </summary>
-            <value>The lazy item.</value>
+            <nullable>The lazy item.</nullable>
         </member>
         <member name="P:Songhay.Models.LazyDisplayItem`1.Name">
             <summary>
             Gets or sets the name.
             </summary>
-            <value>The name.</value>
+            <nullable>The name.</nullable>
         </member>
         <member name="T:Songhay.Models.MenuDisplayItemModel">
             <summary>
@@ -3996,9 +3996,9 @@
             <summary>
             Gets or sets the child items.
             </summary>
-            <value>
+            <nullable>
             The child items.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.MenuDisplayItemModel.GroupDisplayText">
             <summary>
@@ -4019,25 +4019,25 @@
             <summary>
             Gets or sets whether this is default selection.
             </summary>
-            <value>
+            <nullable>
             This is default selection.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.MenuDisplayItemModel.IsEnabled">
             <summary>
             Gets or sets whether this is enabled.
             </summary>
-            <value>
+            <nullable>
             This is enabled.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.MenuDisplayItemModel.IsSelected">
             <summary>
             Gets or sets whether this is selected.
             </summary>
-            <value>
+            <nullable>
             <c>true</c> when this is selected.
-            </value>
+            </nullable>
         </member>
         <member name="T:Songhay.Models.MimeTypes">
             <summary>
@@ -4150,7 +4150,7 @@
         </member>
         <member name="T:Songhay.Models.NameValuePair">
             <summary>
-            Defines name-value pair.
+            Defines name-nullable pair.
             </summary>
             <remarks>
             Consider using the <see cref="T:System.Collections.Generic.KeyValuePair`2"/> structure
@@ -4161,13 +4161,13 @@
             <summary>
             Gets or sets the name.
             </summary>
-            <value>The name.</value>
+            <nullable>The name.</nullable>
         </member>
         <member name="P:Songhay.Models.NameValuePair.Value">
             <summary>
-            Gets or sets the value.
+            Gets or sets the nullable.
             </summary>
-            <value>The value.</value>
+            <nullable>The nullable.</nullable>
         </member>
         <member name="M:Songhay.Models.NameValuePair.ToString">
             <summary>
@@ -4210,65 +4210,65 @@
             <summary>
             Gets or sets the consumer key.
             </summary>
-            <value>
+            <nullable>
             The consumer key.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.ConsumerSecret">
             <summary>
             Gets or sets the consumer secret.
             </summary>
-            <value>
+            <nullable>
             The consumer secret.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.Nonce">
             <summary>
             Gets the nonce.
             </summary>
-            <value>
+            <nullable>
             The nonce.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.TimeStamp">
             <summary>
             Gets or sets the time stamp.
             </summary>
-            <value>
+            <nullable>
             The time stamp.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.Token">
             <summary>
             Gets or sets the token.
             </summary>
-            <value>
+            <nullable>
             The token.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.TokenSecret">
             <summary>
             Gets or sets the token secret.
             </summary>
-            <value>
+            <nullable>
             The token secret.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.SignatureMethod">
             <summary>
             Gets the signature method.
             </summary>
-            <value>
+            <nullable>
             The signature method.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.Version">
             <summary>
             Gets or sets the version.
             </summary>
-            <value>
+            <nullable>
             The version.
-            </value>
+            </nullable>
         </member>
         <member name="T:Songhay.Models.OpmlBody">
             <summary>
@@ -4279,7 +4279,7 @@
             <summary>
             Gets or sets the outlines.
             </summary>
-            <value>The outlines.</value>
+            <nullable>The outlines.</nullable>
         </member>
         <member name="T:Songhay.Models.OpmlDocument">
             <summary>
@@ -4305,25 +4305,25 @@
             <summary>
             Gets or sets the schema location.
             </summary>
-            <value>The schema location.</value>
+            <nullable>The schema location.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlDocument.Version">
             <summary>
             Gets the version.
             </summary>
-            <value>The version.</value>
+            <nullable>The version.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlDocument.OpmlHead">
             <summary>
             Gets the OPML head element.
             </summary>
-            <value>The OPML head element.</value>
+            <nullable>The OPML head element.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlDocument.OpmlBody">
             <summary>
             Gets the OPML body element.
             </summary>
-            <value>The OPML body element.</value>
+            <nullable>The OPML body element.</nullable>
         </member>
         <member name="T:Songhay.Models.OpmlHead">
             <summary>
@@ -4339,43 +4339,43 @@
             <summary>
             Gets or sets the title.
             </summary>
-            <value>The title.</value>
+            <nullable>The title.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlHead.DateCreated">
             <summary>
             Gets or sets the date created.
             </summary>
-            <value>The date created.</value>
+            <nullable>The date created.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlHead.DateCreatedString">
             <summary>
             Gets the date created string.
             </summary>
-            <value>The date created string.</value>
+            <nullable>The date created string.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlHead.DateModified">
             <summary>
             Gets or sets the date modified.
             </summary>
-            <value>The date modified.</value>
+            <nullable>The date modified.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlHead.DateModifiedString">
             <summary>
             Gets the date created string.
             </summary>
-            <value>The date created string.</value>
+            <nullable>The date created string.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlHead.OwnerName">
             <summary>
             Gets or sets the name of the owner.
             </summary>
-            <value>The name of the owner.</value>
+            <nullable>The name of the owner.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlHead.OwnerEmail">
             <summary>
             Gets or sets the owner email.
             </summary>
-            <value>The owner email.</value>
+            <nullable>The owner email.</nullable>
         </member>
         <member name="T:Songhay.Models.OpmlOutline">
             <summary>
@@ -4386,49 +4386,49 @@
             <summary>
             Gets or sets the Category.
             </summary>
-            <value>The ID.</value>
+            <nullable>The ID.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.Id">
             <summary>
             Gets or sets the ID.
             </summary>
-            <value>The ID.</value>
+            <nullable>The ID.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.Outlines">
             <summary>
             Gets or sets the outlines.
             </summary>
-            <value>The outlines.</value>
+            <nullable>The outlines.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.Text">
             <summary>
             Gets or sets the text.
             </summary>
-            <value>The text.</value>
+            <nullable>The text.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.Title">
             <summary>
             Gets or sets the title.
             </summary>
-            <value>The title.</value>
+            <nullable>The title.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.OutlineType">
             <summary>
             Gets or sets the type.
             </summary>
-            <value>The type.</value>
+            <nullable>The type.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.Url">
             <summary>
             Gets or sets the URL.
             </summary>
-            <value>The URL.</value>
+            <nullable>The URL.</nullable>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.XmlUrl">
             <summary>
             Gets or sets the XML URL.
             </summary>
-            <value>The XML URL.</value>
+            <nullable>The XML URL.</nullable>
         </member>
         <member name="T:Songhay.Models.PackedResource">
             <summary>
@@ -4439,19 +4439,19 @@
             <summary>
             Gets or sets the display name.
             </summary>
-            <value>The display name.</value>
+            <nullable>The display name.</nullable>
         </member>
         <member name="P:Songhay.Models.PackedResource.Key">
             <summary>
             Gets or sets the key.
             </summary>
-            <value>The key.</value>
+            <nullable>The key.</nullable>
         </member>
         <member name="P:Songhay.Models.PackedResource.Name">
             <summary>
             Gets or sets the name.
             </summary>
-            <value>The name.</value>
+            <nullable>The name.</nullable>
         </member>
         <member name="T:Songhay.Models.PackedResource`1">
             <summary>
@@ -4463,13 +4463,13 @@
             <summary>
             Gets or sets the XAML string.
             </summary>
-            <value>The XAML string.</value>
+            <nullable>The XAML string.</nullable>
         </member>
         <member name="P:Songhay.Models.PackedResource`1.XamlObject">
             <summary>
             Gets or sets the XAML object.
             </summary>
-            <value>The XAML object.</value>
+            <nullable>The XAML object.</nullable>
         </member>
         <member name="T:Songhay.Models.PagedResult">
             <summary>
@@ -4480,15 +4480,15 @@
             <summary>
             Gets or sets the metadata.
             </summary>
-            <value>
+            <nullable>
             The metadata.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.PagedResult.PagedResultSet">
             <summary>
             Gets or sets the paged result set.
             </summary>
-            <value>The paged result set.</value>
+            <nullable>The paged result set.</nullable>
         </member>
         <member name="T:Songhay.Models.PagedResultMeta">
             <summary>
@@ -4499,25 +4499,25 @@
             <summary>
             Gets or sets the index of the page.
             </summary>
-            <value>The index of the page.</value>
+            <nullable>The index of the page.</nullable>
         </member>
         <member name="P:Songhay.Models.PagedResultMeta.PageCount">
             <summary>
             Gets the page count.
             </summary>
-            <value>The page count.</value>
+            <nullable>The page count.</nullable>
         </member>
         <member name="P:Songhay.Models.PagedResultMeta.PageSize">
             <summary>
             Gets or sets the size of the page.
             </summary>
-            <value>The size of the page.</value>
+            <nullable>The size of the page.</nullable>
         </member>
         <member name="P:Songhay.Models.PagedResultMeta.TotalCount">
             <summary>
             Gets or sets the total count.
             </summary>
-            <value>The total count.</value>
+            <nullable>The total count.</nullable>
         </member>
         <member name="T:Songhay.Models.ProgramArgs">
             <summary>
@@ -4574,17 +4574,17 @@
             <summary>
             Gets the arguments.
             </summary>
-            <value>
+            <nullable>
             The arguments.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ProgramArgs.HelpSet">
             <summary>
             Gets the help set.
             </summary>
-            <value>
+            <nullable>
             The help set.
-            </value>
+            </nullable>
         </member>
         <member name="T:Songhay.Models.ProgramAssemblyInfo">
             <summary>
@@ -4650,73 +4650,73 @@
             <summary>
             Gets or sets the unicode point.
             </summary>
-            <value>
+            <nullable>
             The unicode point.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.UnicodeInteger">
             <summary>
             Gets or sets the unicode integer.
             </summary>
-            <value>
+            <nullable>
             The unicode integer.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.UnicodeGroup">
             <summary>
             Gets or sets the unicode group.
             </summary>
-            <value>
+            <nullable>
             The unicode group.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.UnicodeName">
             <summary>
             Gets or sets the name of the unicode.
             </summary>
-            <value>
+            <nullable>
             The name of the unicode.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.Character">
             <summary>
             Gets or sets the character, usually the Unicode Point.
             </summary>
-            <value>
+            <nullable>
             The character.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.Windows1252UrlEncoding">
             <summary>
             Gets or sets the windows1252 URL encoding.
             </summary>
-            <value>
+            <nullable>
             The windows1252 URL encoding.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.Utf8UrlEncoding">
             <summary>
             Gets or sets the UTF8 URL encoding.
             </summary>
-            <value>
+            <nullable>
             The UTF8 URL encoding.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.HtmlEntityName">
             <summary>
             Gets or sets the name of the HTML entity.
             </summary>
-            <value>
+            <nullable>
             The name of the HTML entity.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.XmlEntityNumber">
             <summary>
             Gets or sets the XML entity number.
             </summary>
-            <value>
+            <nullable>
             The XML entity number.
-            </value>
+            </nullable>
         </member>
         <member name="T:Songhay.Models.ProgramMetadata">
             <summary>
@@ -4727,17 +4727,17 @@
             <summary>
             Gets or sets the cloud storage set.
             </summary>
-            <value>
+            <nullable>
             The cloud storage set.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ProgramMetadata.DbmsSet">
             <summary>
             Gets or sets the DBMS set.
             </summary>
-            <value>
+            <nullable>
             The DBMS set.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet">
             <summary>
@@ -4749,9 +4749,9 @@
             <summary>
             Gets or sets the REST API metadata set.
             </summary>
-            <value>
+            <nullable>
             The API metadata set.
-            </value>
+            </nullable>
         </member>
         <member name="M:Songhay.Models.ProgramMetadata.ToString">
             <summary>
@@ -4798,33 +4798,33 @@
             <summary>
             Gets or sets the API base.
             </summary>
-            <value>
+            <nullable>
             The API base.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.RestApiMetadata.ApiKey">
             <summary>
             Gets or sets the API key.
             </summary>
-            <value>
+            <nullable>
             The API key.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.RestApiMetadata.ClaimsSet">
             <summary>
             Gets or sets the claims set.
             </summary>
-            <value>
+            <nullable>
             The claims set.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.RestApiMetadata.UriTemplates">
             <summary>
             Gets or sets the URI templates.
             </summary>
-            <value>
+            <nullable>
             The URI templates.
-            </value>
+            </nullable>
         </member>
         <member name="M:Songhay.Models.RestApiMetadata.ToString">
             <summary>
@@ -4841,65 +4841,65 @@
             <summary>
             Gets or sets the size of the result set.
             </summary>
-            <value>
+            <nullable>
             The size of the result set.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.TotalSetSize">
             <summary>
             Gets or sets the total size of the set.
             </summary>
-            <value>
+            <nullable>
             The total size of the set.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.StartPosition">
             <summary>
             Gets or sets the start position.
             </summary>
-            <value>
+            <nullable>
             The start position.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.EndPosition">
             <summary>
             Gets or sets the end position.
             </summary>
-            <value>
+            <nullable>
             The end position.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.FromDate">
             <summary>
             Gets or sets from date.
             </summary>
-            <value>
+            <nullable>
             From date.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.ToDate">
             <summary>
             Gets or sets to date.
             </summary>
-            <value>
+            <nullable>
             To date.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.NextUri">
             <summary>
             Gets or sets the next URI.
             </summary>
-            <value>
+            <nullable>
             The next URI.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.PreviousUri">
             <summary>
             Gets or sets the previous URI.
             </summary>
-            <value>
+            <nullable>
             The previous URI.
-            </value>
+            </nullable>
         </member>
         <member name="M:Songhay.Models.RestPagingMetadata.ToShallowCopy">
             <summary>
@@ -6028,19 +6028,19 @@
             <summary>
             Gets or sets the name of the variable.
             </summary>
-            <value>The name of the variable.</value>
+            <nullable>The name of the variable.</nullable>
         </member>
         <member name="P:Songhay.Models.SystemVariable.VariableDescription">
             <summary>
             Gets or sets the variable description.
             </summary>
-            <value>The variable description.</value>
+            <nullable>The variable description.</nullable>
         </member>
         <member name="P:Songhay.Models.SystemVariable.VariableValue">
             <summary>
-            Gets or sets the variable value.
+            Gets or sets the variable nullable.
             </summary>
-            <value>The variable value.</value>
+            <nullable>The variable nullable.</nullable>
         </member>
         <member name="T:Songhay.Models.SystemVariable`1">
             <summary>
@@ -6051,19 +6051,19 @@
             <summary>
             Gets or sets the name of the variable.
             </summary>
-            <value>The name of the variable.</value>
+            <nullable>The name of the variable.</nullable>
         </member>
         <member name="P:Songhay.Models.SystemVariable`1.VariableDescription">
             <summary>
             Gets or sets the variable description.
             </summary>
-            <value>The variable description.</value>
+            <nullable>The variable description.</nullable>
         </member>
         <member name="P:Songhay.Models.SystemVariable`1.VariableValue">
             <summary>
-            Gets or sets the variable value.
+            Gets or sets the variable nullable.
             </summary>
-            <value>The variable value.</value>
+            <nullable>The variable nullable.</nullable>
         </member>
         <member name="T:Songhay.Models.XEncoding">
             <summary>
@@ -6099,19 +6099,19 @@
             <summary>
             Gets or sets the location.
             </summary>
-            <value>The location.</value>
+            <nullable>The location.</nullable>
         </member>
         <member name="P:Songhay.Models.XhtmlDocument.Header">
             <summary>
             Gets or sets the header.
             </summary>
-            <value>The header.</value>
+            <nullable>The header.</nullable>
         </member>
         <member name="P:Songhay.Models.XhtmlDocument.Title">
             <summary>
             Gets or sets the title.
             </summary>
-            <value>The title.</value>
+            <nullable>The title.</nullable>
         </member>
         <member name="T:Songhay.Models.XhtmlDocuments">
             <summary>
@@ -6122,13 +6122,13 @@
             <summary>
             Gets or sets the documents.
             </summary>
-            <value>The documents.</value>
+            <nullable>The documents.</nullable>
         </member>
         <member name="P:Songhay.Models.XhtmlDocuments.Title">
             <summary>
             Gets or sets the title.
             </summary>
-            <value>The title.</value>
+            <nullable>The title.</nullable>
         </member>
         <member name="T:Songhay.Models.XhtmlImage">
             <summary>
@@ -6139,41 +6139,41 @@
             <summary>
             Gets or sets the location.
             </summary>
-            <value>
+            <nullable>
             The location.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.XhtmlImage.Height">
             <summary>
             Gets or sets the height.
             </summary>
-            <value>
+            <nullable>
             The height.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.XhtmlImage.HeightInPixels">
             <summary>
             Gets or sets the height in pixels.
             </summary>
-            <value>
+            <nullable>
             The height in pixels.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.XhtmlImage.Width">
             <summary>
             Gets or sets the width.
             </summary>
-            <value>
+            <nullable>
             The width.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Models.XhtmlImage.WidthInPixels">
             <summary>
             Gets or sets the width in pixels.
             </summary>
-            <value>
+            <nullable>
             The width in pixels.
-            </value>
+            </nullable>
         </member>
         <member name="T:Songhay.Models.XObjectMetadata">
             <summary>
@@ -6274,17 +6274,17 @@
             <summary>
             Gets or sets the default timeout.
             </summary>
-            <value>
+            <nullable>
             The default timeout.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Net.TimeoutHandler.RequestTimeout">
             <summary>
             Gets or sets the request timeout.
             </summary>
-            <value>
+            <nullable>
             The request timeout.
-            </value>
+            </nullable>
         </member>
         <member name="M:Songhay.Net.TimeoutHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
             <summary>
@@ -6448,14 +6448,14 @@
             <summary>
             Gets the UTF-8 encoded string from.
             </summary>
-            <param name="utf16Value">The raw value.</param>
+            <param name="utf16Value">The raw nullable.</param>
         </member>
         <member name="M:Songhay.ProgramFileUtility.GetEncodedString(System.String,System.Text.Encoding)">
             <summary>
             Gets the encoded <see cref="T:System.String"/>
             from its default <see cref="P:System.Text.Encoding.Unicode"/> encoding.
             </summary>
-            <param name="utf16Value">The raw value.</param>
+            <param name="utf16Value">The raw nullable.</param>
             <param name="outputEncoding">The output encoding.</param>
             <remarks>
             <see cref="P:System.Text.Encoding.Unicode"/> encoding is the UTF-16
@@ -6498,7 +6498,7 @@
         </member>
         <member name="M:Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)">
             <summary>Combines path and root based
-            on the ambient value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
+            on the ambient nullable of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
             of the current OS.</summary>
             <param name="root">The root.</param>
             <param name="path">The path.</param>
@@ -6515,7 +6515,7 @@
         </member>
         <member name="M:Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String,System.Boolean)">
             <summary>Combines path and root based
-            on the ambient value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
+            on the ambient nullable of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
             of the current OS.</summary>
             <param name="root">The root.</param>
             <param name="path">The path.</param>
@@ -6586,7 +6586,7 @@
         <member name="M:Songhay.ProgramFileUtility.NormalizePath(System.String)">
             <summary>
             Normalizes the specified path with respect
-            to the ambient value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
+            to the ambient nullable of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
             </summary>
             <param name="path"></param>
             <returns></returns>
@@ -6602,7 +6602,7 @@
         <member name="M:Songhay.ProgramFileUtility.RemoveConventionalPrefixes(System.String)">
             <summary>
             Removes conventional Directory prefixes
-            for relative paths based on the ambient value\
+            for relative paths based on the ambient nullable\
             of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
             </summary>
             <param name="path"></param>
@@ -6641,10 +6641,10 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseBoolean(System.Object)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"></see> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"></see> box.
             </param>
             <returns>
@@ -6655,10 +6655,10 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseBoolean(System.Object,System.Boolean)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <param name="supportBitStrings">
@@ -6673,10 +6673,10 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseBoolean(System.Object,System.Boolean,System.Boolean)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <param name="supportBitStrings">
@@ -6684,7 +6684,7 @@
             as Boolean strings.
             </param>
             <param name="defaultValue">
-            The default value to return when <c>Nullable.HasValue == false</c>.
+            The default nullable to return when <c>Nullable.HasValue == false</c>.
             </param>
             <returns>
             Always returns a <see cref="T:System.Nullable"/>
@@ -6694,10 +6694,10 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseByte(System.Object)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <returns>
@@ -6708,14 +6708,14 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseByte(System.Object,System.Byte)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <param name="defaultValue">
-            The default value to return when <c>Nullable.HasValue == false</c>.
+            The default nullable to return when <c>Nullable.HasValue == false</c>.
             </param>
             <returns>
             Always returns a <see cref="T:System.Nullable"/>
@@ -6725,10 +6725,10 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseDateTime(System.Object)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <returns>
@@ -6739,14 +6739,14 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseDateTime(System.Object,System.DateTime)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <param name="defaultValue">
-            The default value to return when <c>Nullable.HasValue == false</c>.
+            The default nullable to return when <c>Nullable.HasValue == false</c>.
             </param>
             <returns>
             Always returns a <see cref="T:System.Nullable"/>
@@ -6756,10 +6756,10 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(System.Object,System.String)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <param name="formatExpression">
@@ -6773,17 +6773,17 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(System.Object,System.String,System.String)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <param name="formatExpression">
             The string format expression.
             </param>
             <param name="defaultValue">
-            The default value to return when <c>Nullable.HasValue == false</c>.
+            The default nullable to return when <c>Nullable.HasValue == false</c>.
             </param>
             <returns>
             Always returns a <see cref="T:System.Nullable"/>
@@ -6793,10 +6793,10 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseDecimal(System.Object)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <returns>
@@ -6807,14 +6807,14 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseDecimal(System.Object,System.Decimal)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <param name="defaultValue">
-            The default value to return when <c>Nullable.HasValue == false</c>.
+            The default nullable to return when <c>Nullable.HasValue == false</c>.
             </param>
             <returns>
             Always returns a <see cref="T:System.Nullable"/>
@@ -6824,10 +6824,10 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseDouble(System.Object)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <returns>
@@ -6838,14 +6838,14 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseDouble(System.Object,System.Double)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <param name="defaultValue">
-            The default value to return when <c>Nullable.HasValue == false</c>.
+            The default nullable to return when <c>Nullable.HasValue == false</c>.
             </param>
             <returns>
             Always returns a <see cref="T:System.Nullable"/>
@@ -6855,12 +6855,12 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseEnum``1(System.String,``0)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Enum"/> return type.
             </summary>
             <typeparam name="TEnum">The type of the enum.</typeparam>
-            <param name="value">The value.</param>
-            <param name="defaultValue">The default value.</param>
+            <param name="nullable">The nullable.</param>
+            <param name="defaultValue">The default nullable.</param>
             <returns></returns>
             <remarks>
             For background, see http://stackoverflow.com/a/15017429/22944
@@ -6868,10 +6868,10 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseInt16(System.Object)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <returns>
@@ -6882,14 +6882,14 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseInt16(System.Object,System.Int16)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <param name="defaultValue">
-            The default value to return when <c>Nullable.HasValue == false</c>.
+            The default nullable to return when <c>Nullable.HasValue == false</c>.
             </param>
             <returns>
             Always returns a <see cref="T:System.Nullable"/>
@@ -6899,10 +6899,10 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseInt32(System.Object)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <returns>
@@ -6913,14 +6913,14 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseInt32(System.Object,System.Int32)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <param name="defaultValue">
-            The default value to return when <c>Nullable.HasValue == false</c>.
+            The default nullable to return when <c>Nullable.HasValue == false</c>.
             </param>
             <returns>
             Always returns a <see cref="T:System.Nullable"/>
@@ -6930,10 +6930,10 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseInt64(System.Object)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <returns>
@@ -6944,14 +6944,14 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseInt64(System.Object,System.Int64)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to the <see cref="T:System.Nullable"/> return type.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
             <param name="defaultValue">
-            The default value to return when <c>Nullable.HasValue == false</c>.
+            The default nullable to return when <c>Nullable.HasValue == false</c>.
             </param>
             <returns>
             Always returns a <see cref="T:System.Nullable"/>
@@ -6963,7 +6963,7 @@
             <summary>
             Parses the RFC3339 date and time.
             </summary>
-            <param name="value">The value.</param>
+            <param name="nullable">The nullable.</param>
             <remarks>
                 This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
             </remarks>
@@ -6972,33 +6972,33 @@
             <summary>
             Parses the RFC822 date and time.
             </summary>
-            <param name="value">The value.</param>
+            <param name="nullable">The nullable.</param>
             <remarks>
                 This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
             </remarks>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseString(System.Object)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to a <see cref="T:System.String"/>.
             </summary>
-            <param name="value">
+            <param name="nullable">
             The specified <see cref="T:System.Object"/> box.
             </param>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseString(System.Object,System.String)">
             <summary>
-            Tries to convert the specified value
+            Tries to convert the specified nullable
             to a <see cref="T:System.String"/>.
             </summary>
-            <param name="value">The value.</param>
-            <param name="defaultValue">The default value.</param>
+            <param name="nullable">The nullable.</param>
+            <param name="defaultValue">The default nullable.</param>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)">
             <summary>
             Tries the parse RFC3339 date and time.
             </summary>
-            <param name="value">The value.</param>
+            <param name="nullable">The nullable.</param>
             <param name="result">The result.</param>
             <remarks>
                 This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
@@ -7008,7 +7008,7 @@
             <summary>
             Tries the parse RFC822 date and time.
             </summary>
-            <param name="value">The value.</param>
+            <param name="nullable">The nullable.</param>
             <param name="result">The result.</param>
             <remarks>
                 This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
@@ -7099,17 +7099,17 @@
         </member>
         <member name="M:Songhay.ProgramTypeUtility.IsNullOrEmptyString(System.Object)">
             <summary>
-            Returns <c>true</c> when the specified value
+            Returns <c>true</c> when the specified nullable
             is <c>null</c> or <see cref="F:System.String.Empty"/>.
             </summary>
-            <param name="boxedString">The framework value.</param>
+            <param name="boxedString">The framework nullable.</param>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.IsNullOrEmptyOrNotArray(System.Object)">
             <summary>
-            Returns <c>true</c> when the specified value
+            Returns <c>true</c> when the specified nullable
             is an empty array, not an array or null.
             </summary>
-            <param name="boxedArray">The specified value.</param>
+            <param name="boxedArray">The specified nullable.</param>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.SqlDatabaseNull">
             <summary>
@@ -7226,17 +7226,17 @@
             <summary>
             Gets the columns.
             </summary>
-            <value>
+            <nullable>
             The columns.
-            </value>
+            </nullable>
         </member>
         <member name="P:Songhay.Text.CsvExporter`1.Rows">
             <summary>
             Gets the rows.
             </summary>
-            <value>
+            <nullable>
             The rows.
-            </value>
+            </nullable>
         </member>
         <member name="M:Songhay.Text.CsvExporter`1.Export">
             <summary>
@@ -7614,7 +7614,7 @@
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/>.
             </param>
             <param name="nodeQuery">
-            The value to be compiled
+            The nullable to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
         </member>
@@ -7626,7 +7626,7 @@
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/>.
             </param>
             <param name="nodeQuery">
-            The value to be compiled
+            The nullable to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
             <param name="nsMan">
@@ -7784,7 +7784,7 @@
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="nodeQuery">
-            The value to be compiled
+            The nullable to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
         </member>
@@ -7797,7 +7797,7 @@
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="nodeQuery">
-            The value to be compiled
+            The nullable to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
             <param name="nsMan">
@@ -7814,7 +7814,7 @@
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="nodeQuery">
-            The value to be compiled
+            The nullable to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
         </member>
@@ -7827,7 +7827,7 @@
             The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
             </param>
             <param name="nodeQuery">
-            The value to be compiled
+            The nullable to be compiled
             into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
             </param>
             <param name="nsMan">
@@ -7852,7 +7852,7 @@
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
             <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
+            <param name="defaultValue">Return the specified default nullable for “zero-length” text nodes</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.Object,System.Xml.XmlNamespaceManager)">
             <summary>
@@ -7862,7 +7862,7 @@
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
             <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
+            <param name="defaultValue">Return the specified default nullable for “zero-length” text nodes</param>
             <param name="nsMan">
             The <see cref="T:System.Xml.XmlNamespaceManager"/>
             to use to resolve prefixes.
@@ -7877,7 +7877,7 @@
             <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
-            <typeparam name="T">The type to parse from the node value.</typeparam>
+            <typeparam name="T">The type to parse from the node nullable.</typeparam>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetNodeValueAndParse``1(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,``0,System.Xml.XmlNamespaceManager)">
             <summary>
@@ -7892,7 +7892,7 @@
             The <see cref="T:System.Xml.XmlNamespaceManager"/>
             to use to resolve prefixes.
             </param>
-            <typeparam name="T">The type to parse from the node value.</typeparam>
+            <typeparam name="T">The type to parse from the node nullable.</typeparam>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetText(System.IO.MemoryStream)">
             <summary>
@@ -7977,31 +7977,31 @@
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.String)">
             <summary>
-            Returns true when the node has the specified value.
+            Returns true when the node has the specified nullable.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
             <param name="nodeQuery">The query <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="testValue">The specified value to test with the node value.</param>
+            <param name="testValue">The specified nullable to test with the node nullable.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.String,System.StringComparison)">
             <summary>
-            Returns true when the node has the specified value.
+            Returns true when the node has the specified nullable.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
             <param name="nodeQuery">The query <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="testValue">The specified value to test with the node value.</param>
+            <param name="testValue">The specified nullable to test with the node nullable.</param>
             <param name="comparisonType">The <see cref="T:System.StringComparison"/> type.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.String,System.Xml.XmlNamespaceManager)">
             <summary>
-            Returns true when the node has the specified value.
+            Returns true when the node has the specified nullable.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
             <param name="nodeQuery">The query <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="testValue">The specified value to test with the node value.</param>
+            <param name="testValue">The specified nullable to test with the node nullable.</param>
             <param name="nsMan">
             The <see cref="T:System.Xml.XmlNamespaceManager"/>
             to use to resolve prefixes.
@@ -8009,12 +8009,12 @@
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.String,System.Xml.XmlNamespaceManager,System.StringComparison)">
             <summary>
-            Returns true when the node has the specified value.
+            Returns true when the node has the specified nullable.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
             <param name="nodeQuery">The query <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="testValue">The specified value to test with the node value.</param>
+            <param name="testValue">The specified nullable to test with the node nullable.</param>
             <param name="nsMan">
             The <see cref="T:System.Xml.XmlNamespaceManager"/>
             to use to resolve prefixes.
@@ -8023,7 +8023,7 @@
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsNoNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean)">
             <summary>
-            Returns true when the node has the value “no”.
+            Returns true when the node has the nullable “no”.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
             <param name="nodeQuery">The query <see cref="T:System.String"/></param>
@@ -8031,7 +8031,7 @@
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsYesNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean)">
             <summary>
-            Returns true when the node has the value “yes”.
+            Returns true when the node has the nullable “yes”.
             </summary>
             <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
             <param name="nodeQuery">The query <see cref="T:System.String"/></param>
@@ -8066,7 +8066,7 @@
             output path to the XSLT file.
             </param>
             <param name="commandName">
-            The value for the <code>cmd</code>-parameter convention.
+            The nullable for the <code>cmd</code>-parameter convention.
             </param>
             <param name="xmlPath">
             output path to the XML file.
@@ -8098,7 +8098,7 @@
             output path to the XSLT file.
             </param>
             <param name="commandName">
-            The value for the <code>cmd</code>-parameter convention.
+            The nullable for the <code>cmd</code>-parameter convention.
             </param>
             <param name="xmlFragment">
             A well-formed XML <see cref="T:System.String"/>.
@@ -8117,7 +8117,7 @@
             output path to the XSLT file.
             </param>
             <param name="commandName">
-            The value for the <code>cmd</code>-parameter convention.
+            The nullable for the <code>cmd</code>-parameter convention.
             </param>
             <param name="navigableXml">
             The <see cref="T:System.Xml.XPath.IXPathNavigable"/> in memory.
@@ -8313,13 +8313,13 @@
             <summary>
             XMLs the encode.
             </summary>
-            <param name="value">The value.</param>
+            <param name="nullable">The nullable.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.XmlDecode(System.String)">
             <summary>
             XMLs the decode.
             </summary>
-            <param name="value">The value.</param>
+            <param name="nullable">The nullable.</param>
         </member>
         <member name="T:Songhay.Xml.XObjectUtility">
             <summary>
@@ -8352,13 +8352,13 @@
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XElement)">
             <summary>
-            Get the CDATA value from the specified <see cref="T:System.Xml.Linq.XElement"/>.
+            Get the CDATA nullable from the specified <see cref="T:System.Xml.Linq.XElement"/>.
             </summary>
             <param name="element">The <see cref="T:System.Xml.Linq.XElement"/></param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XNode)">
             <summary>
-            Get the CDATA value from the specified <see cref="T:System.Xml.Linq.XNode"/>.
+            Get the CDATA nullable from the specified <see cref="T:System.Xml.Linq.XNode"/>.
             </summary>
             <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
         </member>
@@ -8391,14 +8391,14 @@
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String)">
             <summary>
-            Gets the element or attribute value of the specified element.
+            Gets the element or attribute nullable of the specified element.
             </summary>
             <param name="currentNode">The current element.</param>
             <param name="query">The xpath query.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>
-            Gets the element or attribute value of the specified element.
+            Gets the element or attribute nullable of the specified element.
             </summary>
             <param name="currentNode">The current </param>
             <param name="query">The xpath query.</param>
@@ -8421,7 +8421,7 @@
             <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
             <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
+            <param name="defaultValue">Return the specified default nullable for “zero-length” text nodes</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String,System.Xml.IXmlNamespaceResolver)">
             <summary>
@@ -8431,7 +8431,7 @@
             <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
             <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
+            <param name="defaultValue">Return the specified default nullable for “zero-length” text nodes</param>
             <param name="resolver">
             The <see cref="T:System.Xml.IXmlNamespaceResolver"/>
             to use to resolve prefixes.
@@ -8446,14 +8446,14 @@
             <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
-            <typeparam name="T">The type to parse from the node value.</typeparam>
+            <typeparam name="T">The type to parse from the node nullable.</typeparam>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse``1(System.Xml.Linq.XNode,System.String,System.Boolean,``0,System.Xml.IXmlNamespaceResolver)">
             <summary>
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <typeparam name="T">The type to parse from the node value.</typeparam>
+            <typeparam name="T">The type to parse from the node nullable.</typeparam>
             <param name="node">The <see cref="T:System.Xml.Linq.XNode"/>.</param>
             <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>

@@ -107,8 +107,8 @@ public static partial class XObjectUtility
                 return defaultValue;
             }
 
-            T? stronglyTest = default(T);
-            switch (stronglyTest)
+            T? stronglyOfT = default(T);
+            switch (stronglyOfT)
             {
                 case bool:
                     o = bool.Parse(s);

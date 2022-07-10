@@ -114,7 +114,7 @@ public static partial class ProgramTypeUtility
     /// </remarks>
     public static string GenerateRandomPassword(int passwordLength)
     {
-        var allowedChars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789!@$?_-";
+        var allowedChars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789!@$?nullable-";
         var chars = new char[passwordLength];
         var r = new Random();
 
