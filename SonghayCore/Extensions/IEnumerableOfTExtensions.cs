@@ -1,10 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/>.

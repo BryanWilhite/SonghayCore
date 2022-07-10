@@ -1,7 +1,4 @@
-﻿using System;
-using System.Reflection;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>Extensions of <see cref="Assembly"/>.</summary>
 public static class AssemblyExtensions

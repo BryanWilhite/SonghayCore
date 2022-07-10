@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
-using Songhay.Abstractions;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines Assembly information.

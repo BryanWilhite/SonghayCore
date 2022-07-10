@@ -1,9 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Songhay.Net;
+﻿namespace Songhay.Net;
 
 /// <summary>
 /// Defines timeout and cancellation support

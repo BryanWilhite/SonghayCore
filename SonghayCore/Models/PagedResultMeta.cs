@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines the metadata for a paged set of data.
@@ -17,10 +15,7 @@ public class PagedResultMeta
     /// Gets the page count.
     /// </summary>
     /// <value>The page count.</value>
-    public int PageCount
-    {
-        get { return (PageSize > 0) ? Convert.ToInt32(Math.Ceiling((TotalCount / PageSize) * 1d)) + 1 : 0; }
-    }
+    public int PageCount => PageSize > 0 ? Convert.ToInt32(Math.Ceiling((TotalCount / PageSize) * 1d)) + 1 : 0;
 
     /// <summary>
     /// Gets or sets the size of the page.

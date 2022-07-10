@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Text.RegularExpressions;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="string"/>.

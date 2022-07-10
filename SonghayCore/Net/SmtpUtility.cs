@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
-using Songhay.Extensions;
+﻿using System.Net.Mail;
 
 namespace Songhay.Net;
 
@@ -90,7 +84,7 @@ public static class SmtpUtility
 
         var msg = new MailMessage
         {
-            From = new MailAddress(from!),
+            From = new MailAddress(from),
             Subject = subject,
             SubjectEncoding = Encoding.UTF8,
             Body = message,

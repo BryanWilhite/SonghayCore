@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Songhay.Abstractions;
+﻿namespace Songhay.Abstractions;
 
 /// <summary>
 /// Extends <see cref="IActivity" /> with <see cref="Task"/> support.

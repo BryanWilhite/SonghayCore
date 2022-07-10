@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-
-namespace Songhay.Text;
+﻿namespace Songhay.Text;
 
 /// <summary>
 /// Transforms and exports the specified class to CSV format.

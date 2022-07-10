@@ -1,8 +1,4 @@
-﻿using Songhay.Models;
-using System;
-using System.Collections.Generic;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="ProgramMetadata"/>.

@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// <see cref="XObject"/> metadata

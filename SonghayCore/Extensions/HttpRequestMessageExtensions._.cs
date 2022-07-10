@@ -1,11 +1,4 @@
-﻿using Songhay.Models;
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="HttpRequestMessage"/>

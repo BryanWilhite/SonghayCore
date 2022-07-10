@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// REST Paging Metadata

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Text;
-using Songhay.Extensions;
-
-namespace Songhay;
+﻿namespace Songhay;
 
 /// <summary>
 /// A few static helper members

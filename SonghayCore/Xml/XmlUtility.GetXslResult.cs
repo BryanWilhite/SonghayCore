@@ -1,12 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using System.Xml;
-using System.Xml.XPath;
-using System.Xml.Xsl;
-using Songhay.Extensions;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 public static partial class XmlUtility
 {

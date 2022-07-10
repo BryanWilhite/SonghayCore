@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="System.DateTime"/>.

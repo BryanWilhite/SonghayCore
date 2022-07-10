@@ -1,9 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
-using System.Xml.Serialization;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Dave Winer, his Outline Processor Markup Language document format

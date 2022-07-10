@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-
-namespace Songhay.Abstractions;
+﻿namespace Songhay.Abstractions;
 
 /// <summary>
 /// Defines <see cref="IConfigurationRoot"/> support

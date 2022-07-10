@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>Extensions of <see cref="DirectoryInfo"/>.</summary>
 public static class DirectoryInfoExtensions

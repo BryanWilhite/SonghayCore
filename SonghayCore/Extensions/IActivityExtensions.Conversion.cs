@@ -1,7 +1,4 @@
-﻿using System;
-using Songhay.Abstractions;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="IActivity"/>

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Xml;
-using System.Xml.XPath;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 public static partial class XmlUtility
 {

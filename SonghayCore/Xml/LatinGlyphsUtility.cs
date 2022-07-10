@@ -1,9 +1,4 @@
-﻿using Songhay.Models;
-using System;
-using System.Linq;
-using System.Text.RegularExpressions;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 /// <summary>
 /// Condenses and expands Latin glyphs.

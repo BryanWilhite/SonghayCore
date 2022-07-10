@@ -1,10 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Xml;
-using System.Xml.Schema;
-using System.Xml.XPath;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 /// <summary>
 /// Static helper members for XML-related routines.

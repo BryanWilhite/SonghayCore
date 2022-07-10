@@ -1,7 +1,4 @@
-﻿using System;
-using Songhay.Abstractions;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Model for display item

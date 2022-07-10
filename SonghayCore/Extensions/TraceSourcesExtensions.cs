@@ -1,9 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Songhay.Diagnostics;
-using Songhay.Models;
-using System.Diagnostics;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="TraceSources"/>

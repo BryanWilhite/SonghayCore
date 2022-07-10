@@ -1,11 +1,4 @@
-﻿using Songhay.Models;
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
-using Songhay.Abstractions;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="IActivity"/>

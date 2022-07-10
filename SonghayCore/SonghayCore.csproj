@@ -15,10 +15,10 @@
 
         <IncludeSource>false</IncludeSource>
         <IncludeSymbols>false</IncludeSymbols>
-        <ImplicitUsings>disable</ImplicitUsings>
+        <ImplicitUsings>enable</ImplicitUsings>
         <IsPackable>true</IsPackable>
         <Nullable>enable</Nullable>
-        <PackageIcon>..\songhay_icon.png</PackageIcon>
+        <PackageIcon>songhay_icon.png</PackageIcon>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <PackageProjectUrl>https://github.com/BryanWilhite/SonghayCore</PackageProjectUrl>
         <PackageReleaseNotes>see https://github.com/users/BryanWilhite/projects/1</PackageReleaseNotes>
@@ -27,6 +27,7 @@
         <PackageVersion>$(AssemblyVersion)</PackageVersion>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <Version>$(AssemblyVersion)</Version>
+        <PackageLicenseUrl>https://github.com/BryanWilhite/SonghayCore/blob/master/LICENSE.md</PackageLicenseUrl>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
@@ -35,6 +36,10 @@
 
     <ItemGroup>
         <None Include="..\LICENSE.md" Link="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
+        <None Include="..\songhay_icon.png">
+          <Pack>True</Pack>
+          <Link>songhay_icon.png</Link>
+        </None>
     </ItemGroup>
 
     <ItemGroup>

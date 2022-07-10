@@ -1,8 +1,4 @@
-﻿#nullable disable // FUNKYKB: this is disabled because netstandard2.1 does not support `T?`
-
-using System;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="System.Array"/>
@@ -15,7 +11,7 @@ public static class ArrayExtensions
     /// <typeparam name="T"></typeparam>
     /// <param name="array">The array.</param>
     /// <param name="item">The item.</param>
-    public static T Next<T>(this Array array, T item)
+    public static T? Next<T>(this Array? array, T? item)
     {
         if (array == null) return default;
 
@@ -34,7 +30,7 @@ public static class ArrayExtensions
     /// <typeparam name="T"></typeparam>
     /// <param name="array">The array.</param>
     /// <param name="item">The item.</param>
-    public static T Previous<T>(this Array array, T item)
+    public static T? Previous<T>(this Array? array, T? item)
     {
         if (array == null) return default;
 

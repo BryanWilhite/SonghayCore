@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines a Unicode glyphic character

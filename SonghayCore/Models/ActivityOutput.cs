@@ -1,6 +1,4 @@
-﻿using Songhay.Abstractions;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines the conventional output

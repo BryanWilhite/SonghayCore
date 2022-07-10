@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Songhay.Abstractions;
+﻿namespace Songhay.Abstractions;
 
 /// <summary>
 /// Adds temporal properties to an item

@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Runtime.CompilerServices;
-
-namespace Songhay;
+﻿namespace Songhay;
 
 /// <summary>
 /// Static members for framework-level procedures.

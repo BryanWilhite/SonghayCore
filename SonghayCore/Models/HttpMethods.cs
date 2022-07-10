@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Centralizes <see cref="HttpMethod"/> members as strings.

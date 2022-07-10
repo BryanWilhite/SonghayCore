@@ -1,9 +1,6 @@
-﻿using System;
+﻿namespace Songhay.Models;
 
 // ReSharper disable InconsistentNaming
-
-namespace Songhay.Models;
-
 /// <summary>
 /// Defines the error codes of Windows
 /// </summary>

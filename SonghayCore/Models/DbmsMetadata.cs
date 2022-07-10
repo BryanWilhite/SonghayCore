@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines DBMS metadata

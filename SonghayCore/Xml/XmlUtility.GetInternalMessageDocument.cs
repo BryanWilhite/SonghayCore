@@ -1,7 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Xml.XPath;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 /// <summary>
 /// Static helper members for XML-related routines.

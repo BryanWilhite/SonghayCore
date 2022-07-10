@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Specialized;
-using System.Text;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines Authorization Information for OAuth 1.0.

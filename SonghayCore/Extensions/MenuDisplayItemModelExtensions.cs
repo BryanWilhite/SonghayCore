@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 using Models;
 

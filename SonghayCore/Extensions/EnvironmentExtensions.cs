@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Security;
-using System.Threading;
+﻿using System.Security;
 
 namespace Songhay.Extensions;
-
-using Models;
 
 /// <summary>
 /// Extensions of <see cref="System.Environment"/>.
@@ -31,8 +23,11 @@ public static class EnvironmentExtensions
     {
         var list = new List<SystemVariable>();
 
+        // ReSharper disable once RedundantAssignment
         var variableName = "";
+        // ReSharper disable once RedundantAssignment
         var variableDescription = "";
+        // ReSharper disable once RedundantAssignment
         var variableValue = "";
 
         #region Insert data into list:

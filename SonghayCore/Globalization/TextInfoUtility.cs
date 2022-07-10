@@ -1,11 +1,4 @@
-﻿using Songhay.Extensions;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Threading;
-
-namespace Songhay.Globalization;
+﻿namespace Songhay.Globalization;
 
 /// <summary>
 /// Helper members for <see cref="System.Globalization.TextInfo" />.

@@ -1,13 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
-using System.Xml.XPath;
-using System.Xml.Xsl;
-using Songhay.Extensions;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 /// <summary>
 /// Static helper members for XML-related routines.

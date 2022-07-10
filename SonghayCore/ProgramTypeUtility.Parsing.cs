@@ -1,8 +1,4 @@
-﻿using System;
-using System.Globalization;
-using Songhay.Extensions;
-
-namespace Songhay;
+﻿namespace Songhay;
 
 /// <summary>
 /// Static members for type handling.

@@ -1,6 +1,4 @@
-﻿using Songhay.Models;
-
-namespace Songhay.Abstractions;
+﻿namespace Songhay.Abstractions;
 
 /// <summary>
 /// Defines an Activity in a shell environment.

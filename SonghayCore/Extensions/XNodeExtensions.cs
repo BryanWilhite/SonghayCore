@@ -1,9 +1,4 @@
-﻿using Songhay.Xml;
-using System.Xml;
-using System.Xml.Linq;
-using System.Xml.XPath;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="XNode"/>.

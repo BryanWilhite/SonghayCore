@@ -1,7 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
-
-namespace Songhay.Exceptions;
+﻿namespace Songhay.Exceptions;
 
 /// <summary>
 /// Exception for CSV parsing

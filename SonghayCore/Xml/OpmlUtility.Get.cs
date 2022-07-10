@@ -1,11 +1,4 @@
-﻿using Songhay.Extensions;
-using Songhay.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 /// <summary>
 /// Static helpers for OPML.

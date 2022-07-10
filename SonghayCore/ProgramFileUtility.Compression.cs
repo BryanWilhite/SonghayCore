@@ -1,12 +1,4 @@
-﻿using Songhay.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
-
-namespace Songhay;
+﻿namespace Songhay;
 
 /// <summary>
 /// A few static helper members

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines an image used by XHTML(5) clients

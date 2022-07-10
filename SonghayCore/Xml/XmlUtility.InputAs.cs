@@ -1,8 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Xml;
-using System.Xml.XPath;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 public partial class XmlUtility
 {

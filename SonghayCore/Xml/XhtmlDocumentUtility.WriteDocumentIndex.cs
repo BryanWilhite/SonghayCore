@@ -1,13 +1,4 @@
-﻿using Songhay.Extensions;
-using Songhay.Models;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 /// <summary>
 /// Static members for XHTML Documents.

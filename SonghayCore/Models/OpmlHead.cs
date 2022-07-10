@@ -1,9 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
-using System.Xml.Serialization;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines a managed representation of the OPML head element.

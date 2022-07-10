@@ -1,10 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Songhay.Diagnostics;
-using Songhay.Extensions;
-using System;
-using System.Diagnostics;
-
-namespace Songhay;
+﻿namespace Songhay;
 
 /// <summary>
 /// Defines shared routines for Studio programs

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Wraps a lazy-initialized object

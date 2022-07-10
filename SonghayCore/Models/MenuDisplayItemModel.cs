@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using Songhay.Abstractions;
-
-namespace Songhay.Models;
+﻿namespace Songhay.Models;
 
 /// <summary>
 /// Defines a colorable, selectable menu item

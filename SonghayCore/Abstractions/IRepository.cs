@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Songhay.Abstractions;
+﻿namespace Songhay.Abstractions;
 
 /// <summary>
 /// Defines the repository pattern for an Entity.

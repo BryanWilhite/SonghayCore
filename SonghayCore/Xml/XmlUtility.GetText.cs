@@ -1,7 +1,4 @@
-﻿using System.IO;
-using System.Text;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 public static partial class XmlUtility
 {

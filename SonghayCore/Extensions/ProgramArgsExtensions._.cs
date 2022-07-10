@@ -1,8 +1,4 @@
-﻿using Songhay.Models;
-using System;
-using System.Linq;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="ProgramArgs"/>

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Text.RegularExpressions;
-using Songhay.Diagnostics;
-using Songhay.Extensions;
-
-namespace Songhay;
+﻿namespace Songhay;
 
 /// <summary>
 /// A few static helper members

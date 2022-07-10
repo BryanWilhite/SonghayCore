@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 public static partial class XmlUtility
 {

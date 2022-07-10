@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace Songhay.Extensions;
+﻿namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="XNamespace"/>

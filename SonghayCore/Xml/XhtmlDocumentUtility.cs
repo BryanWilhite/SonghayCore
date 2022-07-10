@@ -1,9 +1,4 @@
-﻿using System;
-using Songhay.Models;
-using System.Linq;
-using System.Xml.Linq;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 /// <summary>
 /// Static members for XHTML Documents.

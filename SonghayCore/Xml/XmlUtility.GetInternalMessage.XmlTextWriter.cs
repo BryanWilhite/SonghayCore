@@ -1,7 +1,4 @@
-﻿using System;
-using System.Xml;
-
-namespace Songhay.Xml;
+﻿namespace Songhay.Xml;
 
 /// <summary>
 /// Static helper members for XML-related routines.

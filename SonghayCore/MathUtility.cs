@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Songhay;
+﻿namespace Songhay;
 
 /// <summary>
 /// Static helpers for Math.
