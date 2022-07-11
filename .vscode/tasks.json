@@ -83,9 +83,21 @@
                 "--logger:trx",
                 "--results-directory:${workspaceFolder}/TestResults",
                 "--verbosity:normal",
-                "/p:CollectCoverage=true"
+                "--collect:\"XPlat Code Coverage\""
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "reportgenerator [SonghayCore.Tests]",
+            "command": "reportgenerator",
+            "type": "shell",
+            "args": [
+                "-reports:\"${workspaceFolder}/TestResults/*/coverage.cobertura.xml\"",
+                "-reporttypes:Html",
+                "-targetdir:\"${workspaceFolder}/docs/coverlet\"",
+                "-title:SonghayCore"
+            ],
+            "problemMatcher": []
         },
         {
             "label": "dotnet build [SonghayCore.Tests, Release]",
