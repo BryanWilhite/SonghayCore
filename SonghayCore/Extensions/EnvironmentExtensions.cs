@@ -94,7 +94,7 @@ public static class EnvironmentExtensions
 
         variableName = "Version.Major";
         variableDescription = "CLR Major Version";
-        variableValue = Environment.Version.Major.ToString(CultureInfo.CurrentCulture);
+        variableValue = Environment.Version.Major.ToString(CultureInfo.InvariantCulture);
         list.Add(new SystemVariable
         {
             VariableName = variableName,
@@ -104,7 +104,7 @@ public static class EnvironmentExtensions
 
         variableName = "Version.MajorRevision";
         variableDescription = "CLR Major Revision";
-        variableValue = Environment.Version.MajorRevision.ToString(CultureInfo.CurrentCulture);
+        variableValue = Environment.Version.MajorRevision.ToString(CultureInfo.InvariantCulture);
         list.Add(new SystemVariable
         {
             VariableName = variableName,
@@ -114,7 +114,7 @@ public static class EnvironmentExtensions
 
         variableName = "Version.Minor";
         variableDescription = "CLR Minor Version";
-        variableValue = Environment.Version.Minor.ToString(CultureInfo.CurrentCulture);
+        variableValue = Environment.Version.Minor.ToString(CultureInfo.InvariantCulture);
         list.Add(new SystemVariable
         {
             VariableName = variableName,
@@ -124,7 +124,7 @@ public static class EnvironmentExtensions
 
         variableName = "Version.MinorRevision";
         variableDescription = "CLR Minor Revision";
-        variableValue = Environment.Version.MinorRevision.ToString(CultureInfo.CurrentCulture);
+        variableValue = Environment.Version.MinorRevision.ToString(CultureInfo.InvariantCulture);
         list.Add(new SystemVariable
         {
             VariableName = variableName,
@@ -134,7 +134,7 @@ public static class EnvironmentExtensions
 
         variableName = "Version.Revision";
         variableDescription = "CLR Revision";
-        variableValue = Environment.Version.Revision.ToString(CultureInfo.CurrentCulture);
+        variableValue = Environment.Version.Revision.ToString(CultureInfo.InvariantCulture);
         list.Add(new SystemVariable
         {
             VariableName = variableName,
@@ -147,8 +147,7 @@ public static class EnvironmentExtensions
             foreach (DictionaryEntry environment in Environment.GetEnvironmentVariables(
                          EnvironmentVariableTarget.Machine))
             {
-                variableName = string.Format(CultureInfo.CurrentCulture,
-                    "EnvironmentVariableTarget.Machine [key: {0}]", environment.Key);
+                variableName = $"EnvironmentVariableTarget.Machine [key: {environment.Key}]";
                 variableDescription = "Machine Environment Variables";
                 variableValue = environment.Value?.ToString();
 
@@ -166,9 +165,8 @@ public static class EnvironmentExtensions
         {
             variableName = "EXCEPTION for EnvironmentVariableTarget.Machine";
             variableDescription = string.Empty;
-            variableValue = string.Format(CultureInfo.CurrentCulture,
-                "Message: {0}\nGranted Set: {1}\nPermission State: {2}\nRefused State: {3}", ex.Message,
-                ex.GrantedSet, ex.PermissionState, ex.RefusedSet);
+            variableValue =
+                $"Message: {ex.Message}\nGranted Set: {ex.GrantedSet}\nPermission State: {ex.PermissionState}\nRefused State: {ex.RefusedSet}";
             list.Add(new SystemVariable
             {
                 VariableName = variableName,
@@ -182,8 +180,7 @@ public static class EnvironmentExtensions
             foreach (DictionaryEntry environment in Environment.GetEnvironmentVariables(
                          EnvironmentVariableTarget.Process))
             {
-                variableName = string.Format(CultureInfo.CurrentCulture,
-                    "EnvironmentVariableTarget.Process [key: {0}]", environment.Key);
+                variableName = $"EnvironmentVariableTarget.Process [key: {environment.Key}]";
                 variableDescription = "Process Environment Variables";
                 variableValue = environment.Value?.ToString();
 
@@ -201,9 +198,8 @@ public static class EnvironmentExtensions
         {
             variableName = "EXCEPTION for EnvironmentVariableTarget.Process";
             variableDescription = string.Empty;
-            variableValue = string.Format(CultureInfo.CurrentCulture,
-                "Message: {0}\nGranted Set: {1}\nPermission State: {2}\nRefused State: {3}", ex.Message,
-                ex.GrantedSet, ex.PermissionState, ex.RefusedSet);
+            variableValue =
+                $"Message: {ex.Message}\nGranted Set: {ex.GrantedSet}\nPermission State: {ex.PermissionState}\nRefused State: {ex.RefusedSet}";
             list.Add(new SystemVariable
             {
                 VariableName = variableName,
@@ -217,8 +213,7 @@ public static class EnvironmentExtensions
             foreach (DictionaryEntry environment in Environment.GetEnvironmentVariables(
                          EnvironmentVariableTarget.User))
             {
-                variableName = string.Format(CultureInfo.CurrentCulture,
-                    "EnvironmentVariableTarget.User [key: {0}]", environment.Key);
+                variableName = $"EnvironmentVariableTarget.User [key: {environment.Key}]";
                 variableDescription = "User Environment Variables";
                 variableValue = environment.Value?.ToString();
 
@@ -236,9 +231,8 @@ public static class EnvironmentExtensions
         {
             variableName = "EXCEPTION!";
             variableDescription = "EXCEPTION for EnvironmentVariableTarget.User";
-            variableValue = string.Format(CultureInfo.CurrentCulture,
-                "Message: {0}\nGranted Set: {1}\nPermission State: {2}\nRefused State: {3}", ex.Message,
-                ex.GrantedSet, ex.PermissionState, ex.RefusedSet);
+            variableValue =
+                $"Message: {ex.Message}\nGranted Set: {ex.GrantedSet}\nPermission State: {ex.PermissionState}\nRefused State: {ex.RefusedSet}";
             list.Add(new SystemVariable
             {
                 VariableName = variableName,

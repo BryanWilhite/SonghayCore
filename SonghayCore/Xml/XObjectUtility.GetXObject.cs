@@ -88,8 +88,7 @@ public static partial class XObjectUtility
         return result switch
         {
             null when throwException =>
-                throw new XmlException(string.Format(CultureInfo.CurrentCulture, "Element at “{0}” was not found.",
-                    nodeQuery)),
+                throw new XmlException($"Element at “{nodeQuery}” was not found."),
             null => Enumerable.Empty<XObject>(),
             _ => result
         };

@@ -57,8 +57,7 @@ public static partial class XmlUtility
         }
         else if (throwException)
         {
-            throw new XmlException(string.Format(CultureInfo.CurrentCulture, "Element at “{0}” was not found.",
-                nodeQuery));
+            throw new XmlException($"Element at “{nodeQuery}” was not found.");
         }
 
         return p;
@@ -149,9 +148,8 @@ public static partial class XmlUtility
         catch (Exception ex)
         {
             Type t = typeof(T);
-            var errMsg = string.Format(CultureInfo.CurrentCulture,
-                "Parse for “{0}” fails for element in “{1}.” Value to parse: “{2}.” Default Message: “{3}.”",
-                t.FullName, nodeQuery, (p == null) ? "Null" : p.ToString(), ex.Message);
+            var errMsg =
+                $"Parse for “{t.FullName}” fails for element in “{nodeQuery}.” Value to parse: “{((p == null) ? "Null" : p.ToString())}.” Default Message: “{ex.Message}.”";
             throw new XmlException(errMsg);
         }
 

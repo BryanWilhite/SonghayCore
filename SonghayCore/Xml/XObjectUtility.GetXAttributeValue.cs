@@ -52,8 +52,7 @@ public static partial class XObjectUtility
 
         return a switch
         {
-            null when throwException => throw new XmlException(string.Format(CultureInfo.CurrentCulture,
-                "Element at “{0}” was not found.", nodeQuery)),
+            null when throwException => throw new XmlException($"Element at “{nodeQuery}” was not found."),
             null => defaultValue,
             _ => a.Value
         };
@@ -134,8 +133,7 @@ public static partial class XObjectUtility
                     else
                     {
                         Type t = typeof(T);
-                        throw new NotSupportedException(string.Format(CultureInfo.CurrentCulture,
-                            "The specified type, “{0},” is not supported.", t.FullName));
+                        throw new NotSupportedException($"The specified type, “{t.FullName},” is not supported.");
                     }
 
                     break;
@@ -145,9 +143,8 @@ public static partial class XObjectUtility
         catch (Exception ex)
         {
             Type t = typeof(T);
-            var errMsg = string.Format(CultureInfo.CurrentCulture,
-                "Parse for “{0}” fails for element in “{1}.” Value to parse: “{2}.” Default Message: “{3}.”",
-                t.FullName, nodeQuery, s ?? "Null", ex.Message);
+            var errMsg =
+                $"Parse for “{t.FullName}” fails for element in “{nodeQuery}.” Value to parse: “{s ?? "Null"}.” Default Message: “{ex.Message}.”";
             throw new XmlException(errMsg);
         }
 
