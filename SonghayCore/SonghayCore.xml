@@ -2347,6 +2347,17 @@
             <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
             <param name="output">the output to write</param>
         </member>
+        <member name="M:Songhay.Extensions.ProgramArgsExtensions.WriteOutputToFile(Songhay.Models.ProgramArgs,System.IO.Stream)">
+            <summary>
+            Writes the <see cref="T:System.IO.Stream"/> output
+            to the file specified by <see cref="F:Songhay.Models.ProgramArgs.OutputFile"/>.
+            </summary>
+            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
+            <param name="stream">the <see cref="T:System.IO.Stream"/> to write</param>
+            <remarks>
+            [ see https://stackoverflow.com/a/5515894/22944 ]
+            </remarks>
+        </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetArgValue(Songhay.Models.ProgramArgs,System.String)">
             <summary>
             Gets the argument value.

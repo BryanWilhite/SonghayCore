@@ -197,4 +197,23 @@ public static partial class ProgramArgsExtensions
 
         File.WriteAllBytes(outputFile!, output);
     }
+
+    /// <summary>
+    /// Writes the <see cref="Stream"/> output
+    /// to the file specified by <see cref="ProgramArgs.OutputFile"/>.
+    /// </summary>
+    /// <param name="args">The <see cref="ProgramArgs"/>.</param>
+    /// <param name="stream">the <see cref="Stream"/> to write</param>
+    /// <remarks>
+    /// [ see https://stackoverflow.com/a/5515894/22944 ]
+    /// </remarks>
+    public static void WriteOutputToFile(this ProgramArgs? args, Stream stream)
+    {
+        var outputFile = args.GetOutputPath().ToReferenceTypeValueOrThrow();
+
+        using var fileStream = File.Create(outputFile);
+
+        stream.Seek(0, SeekOrigin.Begin);
+        stream.CopyTo(fileStream);
+    }
 }

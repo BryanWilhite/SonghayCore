@@ -3,7 +3,7 @@ using System.Configuration;
 namespace Songhay.Extensions;
 
 /// <summary>
-/// Extensions of <see cref="ConfigurationManager"/>
+/// Extensions of <see cref="Microsoft.Extensions.Configuration.ConfigurationManager"/>
 /// </summary>
 /// <remarks>
 /// Several members in this class depend on <see cref="DeploymentEnvironment"/> constants.
