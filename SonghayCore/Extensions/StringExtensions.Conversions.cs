@@ -167,6 +167,9 @@ public static partial class StringExtensions
     /// <returns>
     /// Returns a numeric string ready for integer or float parsing.
     /// </returns>
+    /// <remarks>
+    /// This member does not support parenthesis as indicators of negative numbers.
+    /// </remarks>
     public static string? ToNumericString(this string? input) => input.ToNumericString("0");
 
     /// <summary>
@@ -177,13 +180,21 @@ public static partial class StringExtensions
     /// <returns>
     /// Returns a numeric string ready for integer or float parsing.
     /// </returns>
+    /// <remarks>
+    /// This member does not support parenthesis as indicators of negative numbers.
+    /// </remarks>
     public static string? ToNumericString(this string? input, string? defaultValue)
     {
         if (string.IsNullOrWhiteSpace(input)) return defaultValue;
 
+        bool IsNumericChar(char i) => char.IsDigit(i)
+            || i.Equals('.')
+            || i.Equals('-')
+            ;
+
         return string.IsNullOrWhiteSpace(input)
             ? defaultValue
-            : new string(input.Trim().Where(i => char.IsDigit(i) || i.Equals('.')).ToArray());
+            : new string(input.Trim().Where(IsNumericChar).ToArray());
     }
 
     /// <summary>
