@@ -5,7 +5,7 @@
 /// </summary>
 /// <seealso cref="IActivity" />
 /// <remarks>
-/// For detail aound why this definition exists,
+/// For detail around why this definition exists,
 /// see https://github.com/BryanWilhite/SonghayCore/issues/83
 /// </remarks>
 public interface IActivityWithTask : IActivity
@@ -23,7 +23,7 @@ public interface IActivityWithTask : IActivity
 /// <typeparam name="TInput">The type of the input.</typeparam>
 /// <seealso cref="IActivity" />
 /// <remarks>
-/// For detail aound why this definition exists,
+/// For detail around why this definition exists,
 /// see https://github.com/BryanWilhite/SonghayCore/issues/83
 /// </remarks>
 public interface IActivityWithTask<in TInput> : IActivity
