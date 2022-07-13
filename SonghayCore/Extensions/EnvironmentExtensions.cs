@@ -21,157 +21,100 @@ public static class EnvironmentExtensions
 
     static ICollection<SystemVariable> ListEnvironmentVariables()
     {
-        var list = new List<SystemVariable>();
-
-        // ReSharper disable once RedundantAssignment
-        var variableName = "";
-        // ReSharper disable once RedundantAssignment
-        var variableDescription = "";
-        // ReSharper disable once RedundantAssignment
-        var variableValue = "";
+        var list = new List<SystemVariable>
+        {
+            new()
+            {
+                VariableName = nameof(Environment.MachineName),
+                VariableDescription = "Network Identification",
+                VariableValue = Environment.MachineName
+            },
+            new()
+            {
+                VariableName = $"{nameof(Environment.OSVersion)}.{nameof(Environment.OSVersion.Platform)}",
+                VariableDescription = "Operating System Platform",
+                VariableValue = Environment.OSVersion.Platform.ToString()
+            },
+            new()
+            {
+                VariableName = $"{nameof(Environment.OSVersion)}.{nameof(Environment.OSVersion.ServicePack)}",
+                VariableDescription = "Operating System Service Pack",
+                VariableValue = Environment.OSVersion.ServicePack
+            },
+            new()
+            {
+                VariableName = $"{nameof(Environment.OSVersion)}.{nameof(Environment.OSVersion.VersionString)}",
+                VariableDescription = "Operating System Version Summary",
+                VariableValue = Environment.OSVersion.VersionString
+            },
+            new()
+            {
+                VariableName = nameof(Environment.UserDomainName),
+                VariableDescription = "User Domain Name",
+                VariableValue = Environment.UserDomainName
+            },
+            new()
+            {
+                VariableName = nameof(Environment.UserName),
+                VariableDescription = "User Name",
+                VariableValue = Environment.UserName
+            },
+            new()
+            {
+                VariableName = nameof(Environment.Version.Major),
+                VariableDescription = "CLR Major Version",
+                VariableValue = Environment.Version.Major.ToString(CultureInfo.InvariantCulture)
+            },
+            new()
+            {
+                VariableName = $"{nameof(Environment.Version)}.{nameof(Environment.Version.MajorRevision)}",
+                VariableDescription = "CLR Major Revision",
+                VariableValue = Environment.Version.MajorRevision.ToString(CultureInfo.InvariantCulture)
+            },
+            new()
+            {
+                VariableName = $"{nameof(Environment.Version)}.{nameof(Environment.Version.Minor)}",
+                VariableDescription = "CLR Minor Version",
+                VariableValue = Environment.Version.Minor.ToString(CultureInfo.InvariantCulture)
+            },
+            new()
+            {
+                VariableName = $"{nameof(Environment.Version)}.{nameof(Environment.Version.MinorRevision)}",
+                VariableDescription = "CLR Minor Revision",
+                VariableValue = Environment.Version.MinorRevision.ToString(CultureInfo.InvariantCulture)
+            },
+            new()
+            {
+                VariableName = $"{nameof(Environment.Version)}.{nameof(Environment.Version.Revision)}",
+                VariableDescription = "CLR Revision",
+                VariableValue = Environment.Version.Revision.ToString(CultureInfo.InvariantCulture)
+            }
+        };
 
         #region Insert data into list:
-
-        variableName = "MachineName";
-        variableDescription = "Network Identification";
-        variableValue = Environment.MachineName;
-        list.Add(new SystemVariable
-        {
-            VariableName = variableName,
-            VariableDescription = variableDescription,
-            VariableValue = variableValue
-        });
-
-        variableName = "OSVersion.Platform";
-        variableDescription = "Operating System Platform";
-        variableValue = Environment.OSVersion.Platform.ToString();
-        list.Add(new SystemVariable
-        {
-            VariableName = variableName,
-            VariableDescription = variableDescription,
-            VariableValue = variableValue
-        });
-
-        variableName = "OSVersion.ServicePack";
-        variableDescription = "Operating System Service Pack";
-        variableValue = Environment.OSVersion.ServicePack;
-        list.Add(new SystemVariable
-        {
-            VariableName = variableName,
-            VariableDescription = variableDescription,
-            VariableValue = variableValue
-        });
-
-        variableName = "OSVersion.VersionString";
-        variableDescription = "Operating System Version Summary";
-        variableValue = Environment.OSVersion.VersionString;
-        list.Add(new SystemVariable
-        {
-            VariableName = variableName,
-            VariableDescription = variableDescription,
-            VariableValue = variableValue
-        });
-
-        variableName = "UserDomainName";
-        variableDescription = "User Domain Name";
-        variableValue = Environment.UserDomainName;
-        list.Add(new SystemVariable
-        {
-            VariableName = variableName,
-            VariableDescription = variableDescription,
-            VariableValue = variableValue
-        });
-
-        variableName = "UserName";
-        variableDescription = "User Name";
-        variableValue = Environment.UserName;
-        list.Add(new SystemVariable
-        {
-            VariableName = variableName,
-            VariableDescription = variableDescription,
-            VariableValue = variableValue
-        });
-
-        variableName = "Version.Major";
-        variableDescription = "CLR Major Version";
-        variableValue = Environment.Version.Major.ToString(CultureInfo.InvariantCulture);
-        list.Add(new SystemVariable
-        {
-            VariableName = variableName,
-            VariableDescription = variableDescription,
-            VariableValue = variableValue
-        });
-
-        variableName = "Version.MajorRevision";
-        variableDescription = "CLR Major Revision";
-        variableValue = Environment.Version.MajorRevision.ToString(CultureInfo.InvariantCulture);
-        list.Add(new SystemVariable
-        {
-            VariableName = variableName,
-            VariableDescription = variableDescription,
-            VariableValue = variableValue
-        });
-
-        variableName = "Version.Minor";
-        variableDescription = "CLR Minor Version";
-        variableValue = Environment.Version.Minor.ToString(CultureInfo.InvariantCulture);
-        list.Add(new SystemVariable
-        {
-            VariableName = variableName,
-            VariableDescription = variableDescription,
-            VariableValue = variableValue
-        });
-
-        variableName = "Version.MinorRevision";
-        variableDescription = "CLR Minor Revision";
-        variableValue = Environment.Version.MinorRevision.ToString(CultureInfo.InvariantCulture);
-        list.Add(new SystemVariable
-        {
-            VariableName = variableName,
-            VariableDescription = variableDescription,
-            VariableValue = variableValue
-        });
-
-        variableName = "Version.Revision";
-        variableDescription = "CLR Revision";
-        variableValue = Environment.Version.Revision.ToString(CultureInfo.InvariantCulture);
-        list.Add(new SystemVariable
-        {
-            VariableName = variableName,
-            VariableDescription = variableDescription,
-            VariableValue = variableValue
-        });
 
         try
         {
             foreach (DictionaryEntry environment in Environment.GetEnvironmentVariables(
                          EnvironmentVariableTarget.Machine))
             {
-                variableName = $"EnvironmentVariableTarget.Machine [key: {environment.Key}]";
-                variableDescription = "Machine Environment Variables";
-                variableValue = environment.Value?.ToString();
-
-                if (string.IsNullOrWhiteSpace(variableValue)) continue;
+                if (string.IsNullOrWhiteSpace(environment.Value?.ToString())) continue;
 
                 list.Add(new SystemVariable
                 {
-                    VariableName = variableName,
-                    VariableDescription = variableDescription,
-                    VariableValue = variableValue
+                    VariableName = $"{nameof(EnvironmentVariableTarget)}.{nameof(EnvironmentVariableTarget.Machine)} [key: {environment.Key}]",
+                    VariableDescription = "Machine Environment Variables",
+                    VariableValue = environment.Value?.ToString()
                 });
             }
         }
         catch (SecurityException ex)
         {
-            variableName = "EXCEPTION for EnvironmentVariableTarget.Machine";
-            variableDescription = string.Empty;
-            variableValue =
-                $"Message: {ex.Message}\nGranted Set: {ex.GrantedSet}\nPermission State: {ex.PermissionState}\nRefused State: {ex.RefusedSet}";
             list.Add(new SystemVariable
             {
-                VariableName = variableName,
-                VariableDescription = variableDescription,
-                VariableValue = variableValue
+                VariableName = $"EXCEPTION! {nameof(EnvironmentVariableTarget)}.{nameof(EnvironmentVariableTarget.Machine)}]",
+                VariableDescription = $"EXCEPTION for {nameof(EnvironmentVariableTarget)}.{nameof(EnvironmentVariableTarget.Machine)}",
+                VariableValue = $"Message: {ex.Message}\nGranted Set: {ex.GrantedSet}\nPermission State: {ex.PermissionState}\nRefused State: {ex.RefusedSet}"
             });
         }
 
@@ -180,31 +123,23 @@ public static class EnvironmentExtensions
             foreach (DictionaryEntry environment in Environment.GetEnvironmentVariables(
                          EnvironmentVariableTarget.Process))
             {
-                variableName = $"EnvironmentVariableTarget.Process [key: {environment.Key}]";
-                variableDescription = "Process Environment Variables";
-                variableValue = environment.Value?.ToString();
-
-                if (string.IsNullOrWhiteSpace(variableValue)) continue;
+                if (string.IsNullOrWhiteSpace(environment.Value?.ToString())) continue;
 
                 list.Add(new SystemVariable
                 {
-                    VariableName = variableName,
-                    VariableDescription = variableDescription,
-                    VariableValue = variableValue
+                    VariableName = $"{nameof(EnvironmentVariableTarget)}.{nameof(EnvironmentVariableTarget.Process)} [key: {environment.Key}]",
+                    VariableDescription = "Process Environment Variables",
+                    VariableValue = environment.Value?.ToString()
                 });
             }
         }
         catch (SecurityException ex)
         {
-            variableName = "EXCEPTION for EnvironmentVariableTarget.Process";
-            variableDescription = string.Empty;
-            variableValue =
-                $"Message: {ex.Message}\nGranted Set: {ex.GrantedSet}\nPermission State: {ex.PermissionState}\nRefused State: {ex.RefusedSet}";
             list.Add(new SystemVariable
             {
-                VariableName = variableName,
-                VariableDescription = variableDescription,
-                VariableValue = variableValue
+                VariableName = $"EXCEPTION! {nameof(EnvironmentVariableTarget)}.{nameof(EnvironmentVariableTarget.Process)}]",
+                VariableDescription = $"EXCEPTION for {nameof(EnvironmentVariableTarget)}.{nameof(EnvironmentVariableTarget.Process)}",
+                VariableValue = $"Message: {ex.Message}\nGranted Set: {ex.GrantedSet}\nPermission State: {ex.PermissionState}\nRefused State: {ex.RefusedSet}"
             });
         }
 
@@ -213,31 +148,23 @@ public static class EnvironmentExtensions
             foreach (DictionaryEntry environment in Environment.GetEnvironmentVariables(
                          EnvironmentVariableTarget.User))
             {
-                variableName = $"EnvironmentVariableTarget.User [key: {environment.Key}]";
-                variableDescription = "User Environment Variables";
-                variableValue = environment.Value?.ToString();
-
-                if (string.IsNullOrWhiteSpace(variableValue)) continue;
+                if (string.IsNullOrWhiteSpace(environment.Value?.ToString())) continue;
 
                 list.Add(new SystemVariable
                 {
-                    VariableName = variableName,
-                    VariableDescription = variableDescription,
-                    VariableValue = variableValue
+                    VariableName = $"{nameof(EnvironmentVariableTarget)}.{nameof(EnvironmentVariableTarget.User)} [key: {environment.Key}]",
+                    VariableDescription = "User Environment Variables",
+                    VariableValue = environment.Value?.ToString()
                 });
             }
         }
         catch (SecurityException ex)
         {
-            variableName = "EXCEPTION!";
-            variableDescription = "EXCEPTION for EnvironmentVariableTarget.User";
-            variableValue =
-                $"Message: {ex.Message}\nGranted Set: {ex.GrantedSet}\nPermission State: {ex.PermissionState}\nRefused State: {ex.RefusedSet}";
             list.Add(new SystemVariable
             {
-                VariableName = variableName,
-                VariableDescription = variableDescription,
-                VariableValue = variableValue
+                VariableName = $"EXCEPTION! {nameof(EnvironmentVariableTarget)}.{nameof(EnvironmentVariableTarget.User)}]",
+                VariableDescription = $"EXCEPTION for {nameof(EnvironmentVariableTarget)}.{nameof(EnvironmentVariableTarget.User)}",
+                VariableValue = $"Message: {ex.Message}\nGranted Set: {ex.GrantedSet}\nPermission State: {ex.PermissionState}\nRefused State: {ex.RefusedSet}"
             });
         }
 
