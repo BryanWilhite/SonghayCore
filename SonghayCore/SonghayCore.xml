@@ -9,20 +9,21 @@
             Defines an Activity in a shell environment.
             </summary>
             <remarks>
-            For more detail, see “Songhay Shell Activities”
+            For more detail, see “Songhay System Activities example”
             [https://github.com/BryanWilhite/Songhay.HelloWorlds.Activities]
             </remarks>
         </member>
         <member name="M:Songhay.Abstractions.IActivity.DisplayHelp(Songhay.Models.ProgramArgs)">
             <summary>
-            Displays the help.
+            Displays the conventional help text
+            of the Activity.
             </summary>
             <param name="args">The arguments.</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Abstractions.IActivity.Start(Songhay.Models.ProgramArgs)">
             <summary>
-            Starts with the specified arguments.
+            Start the Activity with the specified arguments.
             </summary>
             <param name="args">The arguments.</param>
         </member>
@@ -40,7 +41,8 @@
         </member>
         <member name="T:Songhay.Abstractions.IActivityWithOutput`2">
             <summary>
-            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with output support.
+            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with output support
+            and input support beyond <see cref="T:Songhay.Models.ProgramArgs"/>.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -52,7 +54,6 @@
             and synchronously returns <c>TOutput</c>.
             </summary>
             <param name="input">The input.</param>
-            <returns></returns>
             <remarks>
             This member is called <c>StartForOutput</c>
             instead of <c>Start</c> to prevent compile-time,
@@ -65,7 +66,7 @@
             </summary>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
-            For detail aound why this definition exists,
+            For detail around why this definition exists,
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
@@ -82,7 +83,7 @@
             <typeparam name="TInput">The type of the input.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
-            For detail aound why this definition exists,
+            For detail around why this definition exists,
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
@@ -7193,19 +7194,13 @@
             with browsers that do not support XHTML
             (loosely towards HTML 4.x W3C standard).
             </summary>
-            <param name="inputValue">
-            A string of marked up text.
-            </param>
+            <param name="input">A <see cref="T:System.String"/> of markup.</param>
         </member>
         <member name="M:Songhay.Xml.HtmlUtility.ConvertToXml(System.String)">
             <summary>
             Attempts to convert HTML to well-formed XML.
             </summary>
-            <param name="html">
-            An HTML 
-            <see cref="T:System.String"/>.
-            </param>
-            <returns><see cref="T:System.String"/></returns>
+            <param name="html">An HTML <see cref="T:System.String"/>.</param>
             <remarks>This task is simpler than converting to XHTML.</remarks>
         </member>
         <member name="M:Songhay.Xml.HtmlUtility.FormatXhtmlElements(System.String)">
@@ -7254,59 +7249,68 @@
             Condenses and expands Latin glyphs.
             </summary>
         </member>
-        <member name="M:Songhay.Xml.LatinGlyphsUtility.Condense(System.String)">
+        <member name="M:Songhay.Xml.LatinGlyphsUtility.Condense(System.String,System.Boolean)">
             <summary>
             Condenses selected decimal entities
             into their Latin glyph equivalent.
             </summary>
-            <param name="entityText">
-            The <see cref="T:System.String"/>
-            containing the decimal entities.
+            <param name="input">
+            The input <see cref="T:System.String"/> containing the decimal entities.
+            </param>
+            <param name="basicLatinOnly">
+            When <c>true</c>, process input for <see cref="T:Songhay.Models.ProgramGlyph"/> array
+            where <c>UnicodeInteger &lt; 128</c>.
             </param>
             <returns>
-            Returns a <see cref="T:System.String"/>
-            with Latin glyphs.
+            Returns a <see cref="T:System.String"/> with Latin glyphs.
             </returns>
         </member>
-        <member name="M:Songhay.Xml.LatinGlyphsUtility.Expand(System.String)">
+        <member name="M:Songhay.Xml.LatinGlyphsUtility.Expand(System.String,System.Boolean)">
             <summary>
             Expands selected Latin glyphs
             into their decimal entity equivalent.
             </summary>
-            <param name="glyphText">
-            The <see cref="T:System.String"/>
-            containing the glyphs.
+            <param name="input">
+            The input <see cref="T:System.String"/> containing the glyphs.
+            </param>
+            <param name="basicLatinOnly">
+            When <c>true</c>, process input for array of <see cref="T:Songhay.Models.ProgramGlyph"/>
+            where <c>UnicodeInteger &lt; 128</c>.
             </param>
             <returns>
-            Returns a <see cref="T:System.String"/>
-            with decimal entities.
+            Returns a <see cref="T:System.String"/> with decimal entities.
             </returns>
         </member>
-        <member name="M:Songhay.Xml.LatinGlyphsUtility.GetGlyphs">
+        <member name="M:Songhay.Xml.LatinGlyphsUtility.GetGlyphs(System.Boolean)">
             <summary>
-            Gets the glyphs.
+            Gets the array of <see cref="T:Songhay.Models.ProgramGlyph"/>.
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Xml.LatinGlyphsUtility.GetGlyphsForCondenseOrExpand">
-            <summary>
-            Gets the glyphs for <see cref="M:Songhay.Xml.LatinGlyphsUtility.Condense(System.String)"/> or <see cref="M:Songhay.Xml.LatinGlyphsUtility.Expand(System.String)"/>.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Songhay.Xml.LatinGlyphsUtility.RemoveUrlEncodings(System.String)">
-            <summary>
-            Removes the URL encodings.
-            </summary>
-            <param name="input">The input.</param>
         </member>
         <member name="M:Songhay.Xml.LatinGlyphsUtility.RemoveUrlEncodings(System.String,System.Boolean)">
             <summary>
-            Removes the URL encodings.
+            Replaces any <see cref="P:Songhay.Models.ProgramGlyph.Utf8UrlEncoding"/>
+            found in the input with <see cref="F:System.String.Empty"/>.
             </summary>
             <param name="input">The input.</param>
-            <param name="includeWindows1252UrlEncoding">if set to <c>true</c> [include windows1252 URL encoding].</param>
-            <returns></returns>
+            <param name="basicLatinOnly">
+            When <c>true</c>, process input for array of <see cref="T:Songhay.Models.ProgramGlyph"/>
+            where <c>UnicodeInteger &lt; 128</c>.
+            </param>
+        </member>
+        <member name="M:Songhay.Xml.LatinGlyphsUtility.RemoveUrlEncodings(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Replaces any <see cref="P:Songhay.Models.ProgramGlyph.Utf8UrlEncoding"/>
+            found in the input with <see cref="F:System.String.Empty"/>.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="includeWindows1252UrlEncoding">
+            When <c>true</c>, search for <see cref="P:Songhay.Models.ProgramGlyph.Windows1252UrlEncoding"/> strings
+            in the input.
+            </param>
+            <param name="basicLatinOnly">
+            When <c>true</c>, process input for array of <see cref="T:Songhay.Models.ProgramGlyph"/>
+            where <c>UnicodeInteger &lt; 128</c>.
+            </param>
         </member>
         <member name="T:Songhay.Xml.OpmlUtility">
             <summary>
@@ -7896,6 +7900,10 @@
             <typeparam name="TIn">The <see cref="T:System.Type"/> of the input.</typeparam>
             <param name="input">The input.</param>
             <returns>Returns an <see cref="T:System.Xml.XPath.XPathDocument"/>.</returns>
+            <remarks>
+            This member only supports <c>TIn</c> as
+            <see cref="T:System.String"/>, <see cref="T:System.Xml.XmlDocument"/> or <see cref="T:System.Xml.XPath.XPathDocument"/>.
+            </remarks>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.String)">
             <summary>

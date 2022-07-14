@@ -10,30 +10,28 @@ public static class HtmlUtility
     /// with browsers that do not support XHTML
     /// (loosely towards HTML 4.x W3C standard).
     /// </summary>
-    /// <param name="inputValue">
-    /// A string of marked up text.
-    /// </param>
-    public static string? ConvertToHtml(string? inputValue)
+    /// <param name="input">A <see cref="string"/> of markup.</param>
+    public static string? ConvertToHtml(string? input)
     {
-        if (string.IsNullOrWhiteSpace(inputValue)) return null;
+        if (string.IsNullOrWhiteSpace(input)) return null;
 
         //Minimize selected XHTML block elements.
-        inputValue
-            = Regex.Replace(inputValue, @"</(base|isindex|link|meta)>",
+        input
+            = Regex.Replace(input, @"</(base|isindex|link|meta)>",
                 string.Empty, RegexOptions.IgnoreCase);
 
         //Remove XHTML html element attributes.
-        inputValue
-            = Regex.Replace(inputValue, @"<html*>",
+        input
+            = Regex.Replace(input, @"<html*>",
                 "<html>", RegexOptions.IgnoreCase);
 
         //Remove XHTML element minimization.
-        inputValue = Regex.Replace(inputValue, @"\s*/>", ">");
+        input = Regex.Replace(input, @"\s*/>", ">");
 
         //Remove XHTML attribute minimization.
-        foreach (Match mTag in Regex.Matches(inputValue, @"<[^/][^>]*>"))
+        foreach (Match mTag in Regex.Matches(input, @"<[^/][^>]*>"))
         {
-            //An opening inputValue element has been found.
+            //An opening input element has been found.
             string strReplace = mTag.Value;
             foreach (Match mAttr in Regex.Matches(strReplace, @"\s+(.+)\s*=\s*""\1"""))
             {
@@ -43,20 +41,16 @@ public static class HtmlUtility
                         string.Concat(" ", mAttr.Groups[1].Value));
             }
 
-            inputValue = inputValue.Replace(mTag.Value, strReplace);
+            input = input.Replace(mTag.Value, strReplace);
         }
 
-        return inputValue;
+        return input;
     }
 
     /// <summary>
     /// Attempts to convert HTML to well-formed XML.
     /// </summary>
-    /// <param name="html">
-    /// An HTML 
-    /// <see cref="System.String"/>.
-    /// </param>
-    /// <returns><see cref="System.String"/></returns>
+    /// <param name="html">An HTML <see cref="string"/>.</param>
     /// <remarks>This task is simpler than converting to XHTML.</remarks>
     public static string? ConvertToXml(string? html)
     {
@@ -108,7 +102,7 @@ public static class HtmlUtility
     /// Returns an XHTML string derived from a .NET procedure.
     /// </summary>
     /// <param name="xmlFragment">
-    /// A well-formed <see cref="System.String"/> of XML.
+    /// A well-formed <see cref="string"/> of XML.
     /// </param>
     /// <remarks>
     /// This member addresses certain quirks
@@ -119,13 +113,12 @@ public static class HtmlUtility
         if (string.IsNullOrWhiteSpace(xmlFragment)) return null;
 
         //Maximize selected empty minimized block elements.
-        string newValue;
         foreach (Match m in Regex.Matches(xmlFragment, @"<(a|iframe|td|th|script)\s+[^>]*\s*(\/>)",
                      RegexOptions.IgnoreCase))
         {
             if (m.Groups.Count == 2)
             {
-                newValue = m.Value.Replace(m.Groups[1].Value,
+                var newValue = m.Value.Replace(m.Groups[1].Value,
                     string.Concat("></", m.Groups[0].Value, ">"));
                 xmlFragment = xmlFragment.Replace(m.Value, newValue);
             }
@@ -139,12 +132,12 @@ public static class HtmlUtility
     /// from the specified unique element.
     /// </summary>
     /// <param name="xmlFragment">
-    /// A well-formed <see cref="System.String"/> of XML.
+    /// A well-formed <see cref="string"/> of XML.
     /// </param>
     /// <param name="elementName">
     /// The local name of the element in the XML string.
     /// </param>
-    public static string? GetInnerXml(string? xmlFragment, string elementName)
+    public static string? GetInnerXml(string? xmlFragment, string? elementName)
     {
         if (string.IsNullOrWhiteSpace(xmlFragment)) return null;
 

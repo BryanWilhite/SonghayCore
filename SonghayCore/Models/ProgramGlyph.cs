@@ -3,7 +3,7 @@
 /// <summary>
 /// Defines a Unicode glyphic character
 /// </summary>
-public class ProgramGlyph
+public readonly struct ProgramGlyph
 {
     /// <summary>
     /// Gets or sets the unicode point.
@@ -11,7 +11,7 @@ public class ProgramGlyph
     /// <value>
     /// The unicode point.
     /// </value>
-    public string? UnicodePoint { get; set; }
+    public string UnicodePoint { get; init; }
 
     /// <summary>
     /// Gets or sets the unicode integer.
@@ -27,7 +27,7 @@ public class ProgramGlyph
     /// <value>
     /// The unicode group.
     /// </value>
-    public string? UnicodeGroup { get; set; }
+    public string UnicodeGroup { get; init; }
 
     /// <summary>
     /// Gets or sets the name of the unicode.
@@ -35,7 +35,7 @@ public class ProgramGlyph
     /// <value>
     /// The name of the unicode.
     /// </value>
-    public string? UnicodeName { get; set; }
+    public string UnicodeName { get; init; }
 
     /// <summary>
     /// Gets or sets the character, usually the Unicode Point.
@@ -43,7 +43,7 @@ public class ProgramGlyph
     /// <value>
     /// The character.
     /// </value>
-    public string? Character { get; set; }
+    public string Character { get; init; }
 
     /// <summary>
     /// Gets or sets the windows1252 URL encoding.
@@ -51,7 +51,7 @@ public class ProgramGlyph
     /// <value>
     /// The windows1252 URL encoding.
     /// </value>
-    public string? Windows1252UrlEncoding { get; set; }
+    public string Windows1252UrlEncoding { get; init; }
 
     /// <summary>
     /// Gets or sets the UTF8 URL encoding.
@@ -59,7 +59,7 @@ public class ProgramGlyph
     /// <value>
     /// The UTF8 URL encoding.
     /// </value>
-    public string? Utf8UrlEncoding { get; set; }
+    public string Utf8UrlEncoding { get; init; }
 
     /// <summary>
     /// Gets or sets the name of the HTML entity.
@@ -67,7 +67,7 @@ public class ProgramGlyph
     /// <value>
     /// The name of the HTML entity.
     /// </value>
-    public string? HtmlEntityName { get; set; }
+    public string HtmlEntityName { get; init; }
 
     /// <summary>
     /// Gets or sets the XML entity number.
@@ -75,5 +75,5 @@ public class ProgramGlyph
     /// <value>
     /// The XML entity number.
     /// </value>
-    public string? XmlEntityNumber { get; set; }
+    public string XmlEntityNumber { get; init; }
 }

@@ -3,15 +3,19 @@
 public partial class XmlUtility
 {
     /// <summary>
-    /// Returns an <see cref="System.Xml.XPath.XPathDocument"/>,
+    /// Returns an <see cref="XPathDocument"/>,
     /// converted from the specified input.
     /// </summary>
-    /// <typeparam name="TIn">The <see cref="System.Type"/> of the input.</typeparam>
+    /// <typeparam name="TIn">The <see cref="Type"/> of the input.</typeparam>
     /// <param name="input">The input.</param>
-    /// <returns>Returns an <see cref="System.Xml.XPath.XPathDocument"/>.</returns>
+    /// <returns>Returns an <see cref="XPathDocument"/>.</returns>
+    /// <remarks>
+    /// This member only supports <c>TIn</c> as
+    /// <see cref="string"/>, <see cref="XmlDocument"/> or <see cref="XPathDocument"/>.
+    /// </remarks>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
-    public static XPathDocument? InputAs<TIn>(TIn? input)
+    public static XPathDocument? InputAs<TIn>(TIn? input) where TIn: class
     {
         if (input == null) return null;
 
@@ -27,7 +31,7 @@ public partial class XmlUtility
 
                 string? s = input as string;
                 s = HtmlUtility.ConvertToXml(s);
-                s = LatinGlyphsUtility.Condense(s);
+                s = LatinGlyphsUtility.Condense(s, basicLatinOnly: false);
 
                 return GetNavigableDocument(s);
         }

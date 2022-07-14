@@ -4,8 +4,6 @@ using HtmlAgilityPack;
 using Songhay.Extensions;
 using Songhay.Models;
 using Songhay.Xml;
-using System.IO;
-using System.Linq;
 using System.Text;
 using Xunit;
 using Xunit.Abstractions;
@@ -25,7 +23,7 @@ public class LatinGlyphsUtilityTests
     {
         _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
 
-        var actual = LatinGlyphsUtility.Condense(input);
+        var actual = LatinGlyphsUtility.Condense(input, basicLatinOnly: true);
 
         _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
 
@@ -33,12 +31,13 @@ public class LatinGlyphsUtilityTests
     }
 
     [Theory]
+    [InlineData(" ", " ")]
     [InlineData("1 & 2; 3 & 4; it's done", "1 &#38; 2; 3 &#38; 4; it&#39;s done")]
     public void Expand_Test(string input, string expectedOutput)
     {
         _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
 
-        var actual = LatinGlyphsUtility.Expand(input);
+        var actual = LatinGlyphsUtility.Expand(input, basicLatinOnly: true);
 
         _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
 
@@ -46,12 +45,13 @@ public class LatinGlyphsUtilityTests
     }
 
     [Theory]
-    [InlineData("%e2%80%a6,%e2%80%98,%e2%80%99,%e2%80%9c,%e2%80%9d,%e2%80%a2,%c2%a9,%c2%ae", ",,,,,,,")]
-    public void RemoveUrlEncodings_Test(string input, string expectedOutput)
+    [InlineData("%20", "", true)]
+    [InlineData("%e2%80%a6,%e2%80%98,%e2%80%99,%e2%80%9c,%e2%80%9d,%e2%80%a2,%c2%a9,%c2%ae", ",,,,,,,", false)]
+    public void RemoveUrlEncodings_Test(string input, string expectedOutput, bool basicLatinOnly)
     {
         _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
 
-        var actual = LatinGlyphsUtility.RemoveUrlEncodings(input);
+        var actual = LatinGlyphsUtility.RemoveUrlEncodings(input, basicLatinOnly);
 
         _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
 
@@ -86,7 +86,7 @@ public class LatinGlyphsUtilityTests
     [Fact]
     public void ShouldVerifyPoints()
     {
-        var glyphs = LatinGlyphsUtility.GetGlyphs();
+        var glyphs = LatinGlyphsUtility.GetGlyphs(basicLatinOnly: false);
         foreach (var glyph in glyphs)
         {
             Assert.Equal(glyph.XmlEntityNumber, $"&#{glyph.UnicodeInteger};");
@@ -139,14 +139,14 @@ public class LatinGlyphsUtilityTests
         {
             var glyph = new ProgramGlyph
             {
-                UnicodePoint = GetUnicodePoint(reader),
+                UnicodePoint = GetUnicodePoint(reader) ?? string.Empty,
                 UnicodeGroup = reader.GetString(1),
                 UnicodeName = reader.GetString(2),
-                Character = GetCharacter(reader),
-                Windows1252UrlEncoding = reader.GetValue(4) as string,
-                Utf8UrlEncoding = reader.GetValue(5) as string,
-                HtmlEntityName = reader.GetValue(6) as string,
-                XmlEntityNumber = reader.GetValue(7) as string,
+                Character = GetCharacter(reader) ?? string.Empty,
+                Windows1252UrlEncoding = reader.GetValue(4) as string ?? string.Empty,
+                Utf8UrlEncoding = reader.GetValue(5) as string ?? string.Empty,
+                HtmlEntityName = reader.GetValue(6) as string ?? string.Empty,
+                XmlEntityNumber = reader.GetValue(7) as string ?? string.Empty,
             };
 
             var properties = new[]
