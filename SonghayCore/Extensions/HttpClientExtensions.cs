@@ -12,7 +12,6 @@ public static class HttpClientExtensions
     /// <param name="client">The client.</param>
     /// <param name="uri">The URI.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
     public static async Task<HttpResponseMessage?> DeleteAsync(this HttpClient? client, Uri? uri,
         Action<HttpRequestMessage>? requestMessageAction) =>
         await client.SendAsync(uri, HttpMethod.Delete, requestMessageAction);
@@ -24,7 +23,6 @@ public static class HttpClientExtensions
     /// <param name="uri">The URI.</param>
     /// <param name="path">The path.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
     public static async Task DownloadToFileAsync(this HttpClient? client, Uri? uri, string path,
         Action<HttpRequestMessage>? requestMessageAction)
     {
@@ -67,7 +65,6 @@ public static class HttpClientExtensions
     /// </summary>
     /// <param name="client">The request.</param>
     /// <param name="uri">The URI.</param>
-    /// <returns></returns>
     public static async Task<string?> DownloadToStringAsync(this HttpClient? client, Uri? uri)
     {
         if (client == null) return null;
@@ -85,7 +82,6 @@ public static class HttpClientExtensions
     /// <param name="client">The request.</param>
     /// <param name="uri">The URI.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
     public static async Task<string?> DownloadToStringAsync(this HttpClient? client, Uri? uri,
         Action<HttpRequestMessage>? requestMessageAction)
     {
@@ -115,7 +111,6 @@ public static class HttpClientExtensions
     /// <param name="client">The client.</param>
     /// <param name="uri">The URI.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
     public static async Task<HttpResponseMessage?> GetAsync(this HttpClient? client, Uri? uri,
         Action<HttpRequestMessage>? requestMessageAction) =>
         await client.SendAsync(uri, HttpMethod.Get, requestMessageAction);
@@ -129,8 +124,6 @@ public static class HttpClientExtensions
     /// <param name="client">The client.</param>
     /// <param name="uri">The URI.</param>
     /// <param name="formData">The form data.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
     public static async Task<HttpResponseMessage?> PostFormAsync(this HttpClient? client, Uri? uri,
         Hashtable formData) => await client.PostFormAsync(uri, formData, requestMessageAction: null);
 
@@ -144,8 +137,6 @@ public static class HttpClientExtensions
     /// <param name="uri">The URI.</param>
     /// <param name="formData">The form data.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
     public static async Task<HttpResponseMessage?> PostFormAsync(this HttpClient? client, Uri? uri,
         Hashtable formData, Action<HttpRequestMessage>? requestMessageAction)
     {
@@ -180,8 +171,6 @@ public static class HttpClientExtensions
     /// <param name="client">The client.</param>
     /// <param name="uri">The URI.</param>
     /// <param name="requestBody">The request body.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
     public static async Task<HttpResponseMessage?>
         PostJsonAsync(this HttpClient? client, Uri? uri, string requestBody) => await client.SendBodyAsync(uri,
         HttpMethod.Post, requestBody, Encoding.UTF8, MimeTypes.ApplicationJson, requestMessageAction: null);
@@ -196,8 +185,6 @@ public static class HttpClientExtensions
     /// <param name="uri">The URI.</param>
     /// <param name="requestBody">The request body.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
     public static async Task<HttpResponseMessage?> PostJsonAsync(this HttpClient? client, Uri? uri,
         string requestBody, Action<HttpRequestMessage>? requestMessageAction) => await client.SendBodyAsync(uri,
         HttpMethod.Post, requestBody, Encoding.UTF8, MimeTypes.ApplicationJson, requestMessageAction);
@@ -211,8 +198,6 @@ public static class HttpClientExtensions
     /// <param name="client">The client.</param>
     /// <param name="uri">The URI.</param>
     /// <param name="requestBody">The request body.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
     public static async Task<HttpResponseMessage?>
         PostXmlAsync(this HttpClient? client, Uri? uri, string requestBody) => await client.SendBodyAsync(uri,
         HttpMethod.Post, requestBody, Encoding.UTF8, MimeTypes.ApplicationXml, requestMessageAction: null);
@@ -227,8 +212,6 @@ public static class HttpClientExtensions
     /// <param name="uri">The URI.</param>
     /// <param name="requestBody">The request body.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
     public static async Task<HttpResponseMessage?> PostXmlAsync(this HttpClient? client, Uri? uri,
         string requestBody, Action<HttpRequestMessage>? requestMessageAction) => await client.SendBodyAsync(uri,
         HttpMethod.Post, requestBody, Encoding.UTF8, MimeTypes.ApplicationXml, requestMessageAction);
@@ -242,8 +225,6 @@ public static class HttpClientExtensions
     /// <param name="client">The client.</param>
     /// <param name="uri">The URI.</param>
     /// <param name="requestBody">The request body.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
     public static async Task<HttpResponseMessage?>
         PutJsonAsync(this HttpClient? client, Uri? uri, string requestBody) => await client.SendBodyAsync(uri,
         HttpMethod.Put, requestBody, Encoding.UTF8, MimeTypes.ApplicationJson, requestMessageAction: null);
@@ -258,8 +239,6 @@ public static class HttpClientExtensions
     /// <param name="uri">The URI.</param>
     /// <param name="requestBody">The request body.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
     public static async Task<HttpResponseMessage?> PutJsonAsync(this HttpClient? client, Uri? uri,
         string requestBody, Action<HttpRequestMessage>? requestMessageAction) => await client.SendBodyAsync(uri,
         HttpMethod.Put, requestBody, Encoding.UTF8, MimeTypes.ApplicationJson, requestMessageAction);
@@ -273,8 +252,6 @@ public static class HttpClientExtensions
     /// <param name="client">The client.</param>
     /// <param name="uri">The URI.</param>
     /// <param name="requestBody">The request body.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
     public static async Task<HttpResponseMessage?>
         PutXmlAsync(this HttpClient? client, Uri? uri, string requestBody) => await client.SendBodyAsync(uri,
         HttpMethod.Put, requestBody, Encoding.UTF8, MimeTypes.ApplicationXml, requestMessageAction: null);
@@ -289,8 +266,6 @@ public static class HttpClientExtensions
     /// <param name="uri">The URI.</param>
     /// <param name="requestBody">The request body.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">requestBody - The expected request body is not here.</exception>
     public static async Task<HttpResponseMessage?> PutXmlAsync(this HttpClient? client, Uri? uri,
         string requestBody, Action<HttpRequestMessage>? requestMessageAction) => await client.SendBodyAsync(uri,
         HttpMethod.Put, requestBody, Encoding.UTF8, MimeTypes.ApplicationXml, requestMessageAction);
@@ -302,11 +277,6 @@ public static class HttpClientExtensions
     /// <param name="uri">The URI.</param>
     /// <param name="method">The method.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">uri
-    /// or
-    /// mediaType
-    /// </exception>
     public static async Task<HttpResponseMessage?> SendAsync(this HttpClient? client, Uri? uri, HttpMethod method,
         Action<HttpRequestMessage>? requestMessageAction)
     {
@@ -335,12 +305,6 @@ public static class HttpClientExtensions
     /// <param name="encoding">The encoding.</param>
     /// <param name="mediaType">Type of the media.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">
-    /// requestBody
-    /// or
-    /// mediaType
-    /// </exception>
     public static async Task<HttpResponseMessage?> SendBodyAsync(this HttpClient? client, Uri? uri, HttpMethod method,
         string? requestBody, Encoding encoding, string? mediaType, Action<HttpRequestMessage>? requestMessageAction)
     {

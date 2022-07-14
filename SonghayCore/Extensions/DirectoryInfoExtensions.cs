@@ -7,9 +7,20 @@ public static class DirectoryInfoExtensions
     /// Finds the specified target <see cref="DirectoryInfo"/>
     /// under the specified root <see cref="DirectoryInfo"/>.
     /// </summary>
-    /// <param name="directoryInfo">the specified root <see cref="DirectoryInfo"/></param>
-    /// <param name="expectedDirectoryName">the specified target <see cref="DirectoryInfo.Name"/></param>
-    public static DirectoryInfo FindDirectory(this DirectoryInfo? directoryInfo, string? expectedDirectoryName)
+    /// <param name="directoryInfo">The specified root <see cref="DirectoryInfo"/>.</param>
+    /// <param name="expectedDirectoryName">The specified target <see cref="DirectoryInfo.Name"/>.</param>
+    public static DirectoryInfo FindDirectory(this DirectoryInfo? directoryInfo, string? expectedDirectoryName) =>
+        directoryInfo.FindDirectory(expectedDirectoryName, throwException: true)
+            .ToReferenceTypeValueOrThrow();
+
+    /// <summary>
+    /// Finds the specified target <see cref="DirectoryInfo"/>
+    /// under the specified root <see cref="DirectoryInfo"/>.
+    /// </summary>
+    /// <param name="directoryInfo">The specified root <see cref="DirectoryInfo"/>.</param>
+    /// <param name="expectedDirectoryName">The specified target <see cref="DirectoryInfo.Name"/>.</param>
+    /// <param name="throwException">When <c>true</c> throw a <see cref="DirectoryNotFoundException"/> for find failure.</param>
+    public static DirectoryInfo? FindDirectory(this DirectoryInfo? directoryInfo, string? expectedDirectoryName, bool throwException)
     {
         expectedDirectoryName.ThrowWhenNullOrWhiteSpace();
 
@@ -21,7 +32,7 @@ public static class DirectoryInfoExtensions
 
         var subDirectoryInfo = directoryInfo.GetDirectories(expectedDirectoryName).FirstOrDefault();
 
-        if (subDirectoryInfo == null)
+        if (throwException && subDirectoryInfo == null)
             throw new DirectoryNotFoundException("The expected target directory is not here.");
 
         return subDirectoryInfo;
@@ -31,10 +42,20 @@ public static class DirectoryInfoExtensions
     /// Finds the specified <see cref="FileInfo"/>
     /// under the specified <see cref="DirectoryInfo"/>.
     /// </summary>
-    /// <param name="directoryInfo">the specified <see cref="DirectoryInfo"/></param>
-    /// <param name="expectedFileName">the specified <see cref="FileInfo.Name"/></param>
-    /// <returns></returns>
-    public static FileInfo FindFile(this DirectoryInfo? directoryInfo, string? expectedFileName)
+    /// <param name="directoryInfo">The specified <see cref="DirectoryInfo"/>.</param>
+    /// <param name="expectedFileName">The specified <see cref="FileInfo.Name"/>.</param>
+    public static FileInfo FindFile(this DirectoryInfo? directoryInfo, string? expectedFileName) =>
+        directoryInfo.FindFile(expectedFileName, throwException: true)
+            .ToReferenceTypeValueOrThrow();
+
+    /// <summary>
+    /// Finds the specified <see cref="FileInfo"/>
+    /// under the specified <see cref="DirectoryInfo"/>.
+    /// </summary>
+    /// <param name="directoryInfo">The specified <see cref="DirectoryInfo"/>.</param>
+    /// <param name="expectedFileName">The specified <see cref="FileInfo.Name"/>.</param>
+    /// <param name="throwException">When <c>true</c> throw a <see cref="FileNotFoundException"/> for find failure.</param>
+    public static FileInfo? FindFile(this DirectoryInfo? directoryInfo, string? expectedFileName, bool throwException)
     {
         expectedFileName.ThrowWhenNullOrWhiteSpace();
 
@@ -46,27 +67,22 @@ public static class DirectoryInfoExtensions
 
         var fileInfo = directoryInfo.GetFiles(expectedFileName).FirstOrDefault();
 
-        if (fileInfo == null)
+        if (throwException && fileInfo == null)
             throw new FileNotFoundException("The expected file is not here.");
 
         return fileInfo;
     }
 
     /// <summary>Gets the parent directory.</summary>
-    /// <param name="directoryInfo">The directory information.</param>
+    /// <param name="directoryInfo">The specified <see cref="DirectoryInfo"/>.</param>
     /// <param name="levels">The levels.</param>
     /// <returns>Returns a <see cref="string"/> representing the directory.</returns>
-    public static string? GetParentDirectory(this DirectoryInfo? directoryInfo, int levels)
-    {
-        var info = directoryInfo.GetParentDirectoryInfo(levels);
-
-        return info?.FullName;
-    }
+    public static string? GetParentDirectory(this DirectoryInfo? directoryInfo, int levels) =>
+        directoryInfo.GetParentDirectoryInfo(levels)?.FullName;
 
     /// <summary>Gets the parent <see cref="DirectoryInfo"/>.</summary>
-    /// <param name="directoryInfo">The directory information.</param>
+    /// <param name="directoryInfo">The specified <see cref="DirectoryInfo"/>.</param>
     /// <param name="levels">The levels.</param>
-    /// <returns></returns>
     public static DirectoryInfo? GetParentDirectoryInfo(this DirectoryInfo? directoryInfo, int levels)
     {
         ArgumentNullException.ThrowIfNull(directoryInfo);
@@ -82,10 +98,11 @@ public static class DirectoryInfoExtensions
         return levels >= 1 ? parentDirectoryInfo.GetParentDirectoryInfo(levels) : parentDirectoryInfo;
     }
 
-    /// <summary>Combines path and root based
+    /// <summary>
+    /// Combines path and root based
     /// on the current value of <see cref="Path.DirectorySeparatorChar"/>
     /// of the current OS or passes through a drive-letter rooted path.</summary>
-    /// <param name="directoryInfo">The directory information.</param>
+    /// <param name="directoryInfo">The specified <see cref="DirectoryInfo"/>.</param>
     /// <param name="path">The path.</param>
     /// <remarks>
     /// For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14
@@ -102,9 +119,8 @@ public static class DirectoryInfoExtensions
     /// Verifies the specified <see cref="DirectoryInfo"/>
     /// with conventional error handling.
     /// </summary>
-    /// <param name="directoryInfo">the specified <see cref="DirectoryInfo"/></param>
-    /// <param name="expectedDirectoryName">the expected directory name</param>
-    /// <returns></returns>
+    /// <param name="directoryInfo">The specified <see cref="DirectoryInfo"/>.</param>
+    /// <param name="expectedDirectoryName">The expected directory name.</param>
     public static void VerifyDirectory(this DirectoryInfo? directoryInfo, string? expectedDirectoryName)
     {
         if (directoryInfo == null)

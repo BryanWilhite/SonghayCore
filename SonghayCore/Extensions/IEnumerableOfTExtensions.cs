@@ -1,7 +1,7 @@
 ﻿namespace Songhay.Extensions;
 
 /// <summary>
-/// Extensions of <see cref="Collections.Generic.IEnumerable&lt;T&gt;"/>.
+/// Extensions of <see cref="IEnumerable{T}"/>.
 /// </summary>
 /// <remarks>
 /// When this ‘greatest hits collection’ is found to be limited,

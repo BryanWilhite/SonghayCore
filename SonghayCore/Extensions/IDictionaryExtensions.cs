@@ -1,7 +1,7 @@
 ﻿namespace Songhay.Extensions;
 
 /// <summary>
-/// Extensions of <see cref="IDictionary{TKey, TValue}"/>
+/// Extensions of <see cref="IDictionary{TKey, TValue}"/>.
 /// </summary>
 // ReSharper disable once InconsistentNaming
 public static class IDictionaryExtensions
@@ -16,7 +16,6 @@ public static class IDictionaryExtensions
     /// <remarks>
     /// For detail, see https://stackoverflow.com/a/7230446/22944
     /// </remarks>
-    /// <returns></returns>
     public static NameValueCollection ToNameValueCollection<TKey, TValue>(this IDictionary<TKey, TValue> dictionary)
     {
         var nameValueCollection = new NameValueCollection();

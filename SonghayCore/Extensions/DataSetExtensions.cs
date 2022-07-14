@@ -3,7 +3,7 @@
 namespace Songhay.Extensions;
 
 /// <summary>
-/// Extensions of <see cref="Data.DataSet"/>
+/// Extensions of <see cref="DataSet"/>.
 /// </summary>
 public static class DataSetExtensions
 {

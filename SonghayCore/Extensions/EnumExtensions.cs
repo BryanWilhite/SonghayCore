@@ -8,9 +8,10 @@ namespace Songhay.Extensions;
 public static class EnumExtensions
 {
     /// <summary>
-    /// Gets the enum description.
+    /// Gets any conventional <see cref="DescriptionAttribute.Description"/>
+    /// applied to an <see cref="Enum"/>.
     /// </summary>
-    /// <param name="value">The value.</param>
+    /// <param name="value">The <see cref="Enum"/>.</param>
     public static string? GetEnumDescription(this Enum value)
     {
         var enumType = value.GetType();
@@ -26,9 +27,10 @@ public static class EnumExtensions
     }
 
     /// <summary>
-    /// Gets the enum values.
+    /// Gets the result of <see cref="Enum.GetValues"/>
+    /// based on the specified <see cref="Enum"/>.
     /// </summary>
-    /// <param name="value">The value.</param>
+    /// <param name="value">The <see cref="Enum"/>.</param>
     public static IEnumerable<Enum> GetEnumValues(this Enum value)
     {
         var enumType = value.GetType();

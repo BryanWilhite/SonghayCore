@@ -16,7 +16,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="collection">The collection.</param>
     /// <param name="unqualifiedKey">The unqualified key.</param>
     /// <param name="environmentName">Name of the environment.</param>
-    /// <returns></returns>
     public static string? GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection? collection,
         string? unqualifiedKey, string? environmentName) =>
         collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName,
@@ -29,7 +28,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="unqualifiedKey">The unqualified key.</param>
     /// <param name="environmentName">Name of the environment.</param>
     /// <param name="delimiter">The delimiter.</param>
-    /// <returns></returns>
     /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
     /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection? collection,
@@ -44,7 +42,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="unqualifiedKey">The unqualified key.</param>
     /// <param name="environmentName">Name of the environment.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-    /// <returns></returns>
     public static string? GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection? collection,
         string? unqualifiedKey, string? environmentName, bool throwConfigurationErrorsException)
     {
@@ -60,7 +57,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="environmentName">Name of the environment.</param>
     /// <param name="delimiter">The delimiter.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-    /// <returns></returns>
     /// <exception cref="ArgumentNullException">unqualifiedKey</exception>
     /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection? collection,
@@ -88,7 +84,6 @@ public static class ConfigurationManagerExtensions
     /// </summary>
     /// <param name="collection">The collection.</param>
     /// <param name="connectionName">Name of the connection.</param>
-    /// <returns></returns>
     public static ConnectionStringSettings? GetConnectionStringSettings(
         this ConnectionStringSettingsCollection? collection, string? connectionName) =>
         collection.GetConnectionStringSettings(connectionName, throwConfigurationErrorsException: false);
@@ -99,7 +94,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="collection">The collection.</param>
     /// <param name="connectionName">Name of the connection.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-    /// <returns></returns>
     /// <exception cref="ConfigurationErrorsException"></exception>
     public static ConnectionStringSettings? GetConnectionStringSettings(
         this ConnectionStringSettingsCollection? collection, string? connectionName,
@@ -143,7 +137,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="settings">The settings.</param>
     /// <param name="environmentKey">The environment key.</param>
     /// <param name="defaultEnvironmentName">Default name of the environment.</param>
-    /// <returns></returns>
     /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string? environmentKey,
         string defaultEnvironmentName)
@@ -159,7 +152,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="environmentKey">The environment key.</param>
     /// <param name="defaultEnvironmentName">Default name of the environment.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-    /// <returns></returns>
     /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string? environmentKey,
         string defaultEnvironmentName, bool throwConfigurationErrorsException)
@@ -187,7 +179,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="settings">The settings.</param>
     /// <param name="unqualifiedKey">The unqualified key.</param>
     /// <param name="environmentName">Name of the environment.</param>
-    /// <returns></returns>
     public static string? GetKeyWithEnvironmentName(this KeyValueConfigurationCollection? settings,
         string? unqualifiedKey, string? environmentName)
     {
@@ -202,7 +193,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="unqualifiedKey">The unqualified key.</param>
     /// <param name="environmentName">Name of the environment.</param>
     /// <param name="delimiter">The delimiter.</param>
-    /// <returns></returns>
     /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
     /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetKeyWithEnvironmentName(this KeyValueConfigurationCollection? settings,
@@ -219,7 +209,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="unqualifiedKey">The unqualified key.</param>
     /// <param name="environmentName">Name of the environment.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
-    /// <returns></returns>
     public static string? GetKeyWithEnvironmentName(this KeyValueConfigurationCollection? settings,
         string? unqualifiedKey, string? environmentName, bool throwConfigurationErrorsException)
     {
@@ -235,7 +224,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="environmentName">Name of the environment.</param>
     /// <param name="delimiter">The delimiter.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-    /// <returns></returns>
     /// <exception cref="ArgumentNullException">unqualifiedKey</exception>
     /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetKeyWithEnvironmentName(this KeyValueConfigurationCollection? settings,
@@ -271,7 +259,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="settings">The settings.</param>
     /// <param name="key">The key.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-    /// <returns></returns>
     /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetSetting(this KeyValueConfigurationCollection? settings, string? key,
         bool throwConfigurationErrorsException)
@@ -294,7 +281,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="key">The key.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
     /// <param name="settingModifier">The setting modifier.</param>
-    /// <returns></returns>
     public static string? GetSetting(this KeyValueConfigurationCollection? settings, string? key,
         bool throwConfigurationErrorsException, Func<string?, string>? settingModifier)
     {
@@ -304,10 +290,10 @@ public static class ConfigurationManagerExtensions
     }
 
     /// <summary>
-    /// Converts the external configuration file to the application settings <see cref="KeyValueConfigurationCollection"/>.
+    /// Converts the external configuration file
+    /// to the application settings <see cref="KeyValueConfigurationCollection"/>.
     /// </summary>
     /// <param name="externalConfigurationDoc">The external configuration document.</param>
-    /// <returns></returns>
     public static KeyValueConfigurationCollection? ToAppSettings(this XDocument? externalConfigurationDoc)
     {
         if (externalConfigurationDoc == null) return null;
@@ -323,10 +309,10 @@ public static class ConfigurationManagerExtensions
     }
 
     /// <summary>
-    /// Converts the external configuration file to the application settings <see cref="ConnectionStringSettingsCollection"/>.
+    /// Converts the external configuration file
+    /// to the application settings <see cref="ConnectionStringSettingsCollection"/>.
     /// </summary>
     /// <param name="externalConfigurationDoc">The external configuration document.</param>
-    /// <returns></returns>
     public static ConnectionStringSettingsCollection? ToConnectionStringSettingsCollection(
         this XDocument? externalConfigurationDoc)
     {
@@ -355,7 +341,6 @@ public static class ConfigurationManagerExtensions
     /// </summary>
     /// <param name="settings">The settings.</param>
     /// <param name="externalConfigurationDoc">The external configuration document.</param>
-    /// <returns></returns>
     public static KeyValueConfigurationCollection? WithAppSettings(this KeyValueConfigurationCollection? settings,
         XDocument? externalConfigurationDoc)
     {
@@ -375,7 +360,6 @@ public static class ConfigurationManagerExtensions
     /// </summary>
     /// <param name="collection">The collection.</param>
     /// <param name="externalConfigurationDoc">The external configuration document.</param>
-    /// <returns></returns>
     public static ConnectionStringSettingsCollection? WithConnectionStringSettingsCollection(
         this ConnectionStringSettingsCollection? collection, XDocument? externalConfigurationDoc)
     {

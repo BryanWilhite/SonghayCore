@@ -12,7 +12,7 @@ public static partial class DateTimeExtensions
     /// <param name="day">The day.</param>
     /// <remarks>
     /// by Jon Skeet
-    /// 
+    ///
     /// For more detail, see:
     /// http://stackoverflow.com/questions/6346119/asp-net-get-the-next-tuesday
     /// </remarks>

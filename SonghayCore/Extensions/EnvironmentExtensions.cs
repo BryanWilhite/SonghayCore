@@ -8,10 +8,18 @@ namespace Songhay.Extensions;
 public static class EnvironmentExtensions
 {
     /// <summary>
-    /// Gets the conventional value.
+    /// The conventional <see cref="ICollection{T}"/>
+    /// of <see cref="SystemVariable"/>.
     /// </summary>
-    /// <param name="conventionalName">Name of the conventional.</param>
-    /// <returns>Returns the value of named data.</returns>
+    public static readonly Lazy<ICollection<SystemVariable>> EnvironmentVariables =
+        new(ListEnvironmentVariables, LazyThreadSafetyMode.PublicationOnly);
+
+    /// <summary>
+    /// Gets the value from the conventional <see cref="ICollection{T}"/>
+    /// of <see cref="SystemVariable"/> based on the specified variable name.
+    /// </summary>
+    /// <param name="conventionalName">The <see cref="SystemVariable.VariableName"/>.</param>
+    /// <returns>Returns <see cref="SystemVariable.VariableValue"/>.</returns>
     public static string? GetConventionalValue(string? conventionalName)
     {
         return EnvironmentVariables.Value
@@ -172,7 +180,4 @@ public static class EnvironmentExtensions
 
         return list;
     }
-
-    static readonly Lazy<ICollection<SystemVariable>> EnvironmentVariables =
-        new(ListEnvironmentVariables, LazyThreadSafetyMode.PublicationOnly);
 }

@@ -416,22 +416,22 @@
         </member>
         <member name="T:Songhay.Extensions.ArrayExtensions">
             <summary>
-            Extensions of <see cref="T:System.Array"/>
+            Extensions of <see cref="T:System.Array"/>.
             </summary>
         </member>
         <member name="M:Songhay.Extensions.ArrayExtensions.Next``1(System.Array,``0)">
             <summary>
-            Gets the next item in the specified array.
+            Gets the next item in the specified <see cref="T:System.Array"/>.
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">The array <see cref="T:System.Type"/>.</typeparam>
             <param name="array">The array.</param>
             <param name="item">The item.</param>
         </member>
         <member name="M:Songhay.Extensions.ArrayExtensions.Previous``1(System.Array,``0)">
             <summary>
-            Gets the previous item in the specified array.
+            Gets the previous item in the specified <see cref="T:System.Array"/>.
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">The array <see cref="T:System.Type"/>.</typeparam>
             <param name="array">The array.</param>
             <param name="item">The item.</param>
         </member>
@@ -457,10 +457,9 @@
         <member name="M:Songhay.Extensions.CharExtensions.FromCharsToString(System.Collections.Generic.IEnumerable{System.Char})">
             <summary>
             Converts an enumeration of <see cref="T:System.Char"/>
-            to <see cref="T:System.String"/>
+            to <see cref="T:System.String"/>.
             </summary>
-            <param name="chars"></param>
-            <returns></returns>
+            <param name="chars">The <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:System.Char"/>.</param>
         </member>
         <member name="T:Songhay.Extensions.ConfigurationManagerExtensions">
             <summary>
@@ -477,7 +476,6 @@
             <param name="collection">The collection.</param>
             <param name="unqualifiedKey">The unqualified key.</param>
             <param name="environmentName">Name of the environment.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionNameFromEnvironment(System.Configuration.ConnectionStringSettingsCollection,System.String,System.String,System.String)">
             <summary>
@@ -487,7 +485,6 @@
             <param name="unqualifiedKey">The unqualified key.</param>
             <param name="environmentName">Name of the environment.</param>
             <param name="delimiter">The delimiter.</param>
-            <returns></returns>
             <exception cref="T:System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
             <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
@@ -499,7 +496,6 @@
             <param name="unqualifiedKey">The unqualified key.</param>
             <param name="environmentName">Name of the environment.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionNameFromEnvironment(System.Configuration.ConnectionStringSettingsCollection,System.String,System.String,System.String,System.Boolean)">
             <summary>
@@ -510,7 +506,6 @@
             <param name="environmentName">Name of the environment.</param>
             <param name="delimiter">The delimiter.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-            <returns></returns>
             <exception cref="T:System.ArgumentNullException">unqualifiedKey</exception>
             <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
@@ -520,7 +515,6 @@
             </summary>
             <param name="collection">The collection.</param>
             <param name="connectionName">Name of the connection.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionStringSettings(System.Configuration.ConnectionStringSettingsCollection,System.String,System.Boolean)">
             <summary>
@@ -529,7 +523,6 @@
             <param name="collection">The collection.</param>
             <param name="connectionName">Name of the connection.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-            <returns></returns>
             <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetEnvironmentName(System.Configuration.KeyValueConfigurationCollection)">
@@ -552,7 +545,6 @@
             <param name="settings">The settings.</param>
             <param name="environmentKey">The environment key.</param>
             <param name="defaultEnvironmentName">Default name of the environment.</param>
-            <returns></returns>
             <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String,System.Boolean)">
@@ -563,7 +555,6 @@
             <param name="environmentKey">The environment key.</param>
             <param name="defaultEnvironmentName">Default name of the environment.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-            <returns></returns>
             <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetKeyWithEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String)">
@@ -573,7 +564,6 @@
             <param name="settings">The settings.</param>
             <param name="unqualifiedKey">The unqualified key.</param>
             <param name="environmentName">Name of the environment.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetKeyWithEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String,System.String)">
             <summary>
@@ -583,7 +573,6 @@
             <param name="unqualifiedKey">The unqualified key.</param>
             <param name="environmentName">Name of the environment.</param>
             <param name="delimiter">The delimiter.</param>
-            <returns></returns>
             <exception cref="T:System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
             <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
@@ -595,7 +584,6 @@
             <param name="unqualifiedKey">The unqualified key.</param>
             <param name="environmentName">Name of the environment.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> [throw configuration errors exception].</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetKeyWithEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String,System.String,System.Boolean)">
             <summary>
@@ -606,7 +594,6 @@
             <param name="environmentName">Name of the environment.</param>
             <param name="delimiter">The delimiter.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-            <returns></returns>
             <exception cref="T:System.ArgumentNullException">unqualifiedKey</exception>
             <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
@@ -624,7 +611,6 @@
             <param name="settings">The settings.</param>
             <param name="key">The key.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-            <returns></returns>
             <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetSetting(System.Configuration.KeyValueConfigurationCollection,System.String,System.Boolean,System.Func{System.String,System.String})">
@@ -635,21 +621,20 @@
             <param name="key">The key.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
             <param name="settingModifier">The setting modifier.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.ToAppSettings(System.Xml.Linq.XDocument)">
             <summary>
-            Converts the external configuration file to the application settings <see cref="T:System.Configuration.KeyValueConfigurationCollection"/>.
+            Converts the external configuration file
+            to the application settings <see cref="T:System.Configuration.KeyValueConfigurationCollection"/>.
             </summary>
             <param name="externalConfigurationDoc">The external configuration document.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.ToConnectionStringSettingsCollection(System.Xml.Linq.XDocument)">
             <summary>
-            Converts the external configuration file to the application settings <see cref="T:System.Configuration.ConnectionStringSettingsCollection"/>.
+            Converts the external configuration file
+            to the application settings <see cref="T:System.Configuration.ConnectionStringSettingsCollection"/>.
             </summary>
             <param name="externalConfigurationDoc">The external configuration document.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.WithAppSettings(System.Configuration.KeyValueConfigurationCollection,System.Xml.Linq.XDocument)">
             <summary>
@@ -659,7 +644,6 @@
             </summary>
             <param name="settings">The settings.</param>
             <param name="externalConfigurationDoc">The external configuration document.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.WithConnectionStringSettingsCollection(System.Configuration.ConnectionStringSettingsCollection,System.Xml.Linq.XDocument)">
             <summary>
@@ -669,11 +653,10 @@
             </summary>
             <param name="collection">The collection.</param>
             <param name="externalConfigurationDoc">The external configuration document.</param>
-            <returns></returns>
         </member>
         <member name="T:Songhay.Extensions.DataSetExtensions">
             <summary>
-            Extensions of <see cref="!:Data.DataSet"/>
+            Extensions of <see cref="T:System.Data.DataSet"/>.
             </summary>
         </member>
         <member name="M:Songhay.Extensions.DataSetExtensions.ToFirstTableDataRows(System.Data.DataSet)">
@@ -724,17 +707,17 @@
             </remarks>
         </member>
         <member name="M:Songhay.Extensions.DateTimeExtensions.GetNextWeekday(System.DateTime,System.DayOfWeek)">
-            <summary>
-            Gets the next weekday.
-            </summary>
-            <param name="start">The start.</param>
-            <param name="day">The day.</param>
-            <remarks>
-            by Jon Skeet
+             <summary>
+             Gets the next weekday.
+             </summary>
+             <param name="start">The start.</param>
+             <param name="day">The day.</param>
+             <remarks>
+             by Jon Skeet
             
-            For more detail, see:
-            http://stackoverflow.com/questions/6346119/asp-net-get-the-next-tuesday
-            </remarks>
+             For more detail, see:
+             http://stackoverflow.com/questions/6346119/asp-net-get-the-next-tuesday
+             </remarks>
         </member>
         <member name="M:Songhay.Extensions.DateTimeExtensions.ToPrettyDate(System.DateTime)">
             <summary>
@@ -826,35 +809,51 @@
             Finds the specified target <see cref="T:System.IO.DirectoryInfo"/>
             under the specified root <see cref="T:System.IO.DirectoryInfo"/>.
             </summary>
-            <param name="directoryInfo">the specified root <see cref="T:System.IO.DirectoryInfo"/></param>
-            <param name="expectedDirectoryName">the specified target <see cref="P:System.IO.DirectoryInfo.Name"/></param>
+            <param name="directoryInfo">The specified root <see cref="T:System.IO.DirectoryInfo"/>.</param>
+            <param name="expectedDirectoryName">The specified target <see cref="P:System.IO.DirectoryInfo.Name"/>.</param>
+        </member>
+        <member name="M:Songhay.Extensions.DirectoryInfoExtensions.FindDirectory(System.IO.DirectoryInfo,System.String,System.Boolean)">
+            <summary>
+            Finds the specified target <see cref="T:System.IO.DirectoryInfo"/>
+            under the specified root <see cref="T:System.IO.DirectoryInfo"/>.
+            </summary>
+            <param name="directoryInfo">The specified root <see cref="T:System.IO.DirectoryInfo"/>.</param>
+            <param name="expectedDirectoryName">The specified target <see cref="P:System.IO.DirectoryInfo.Name"/>.</param>
+            <param name="throwException">When <c>true</c> throw a <see cref="T:System.IO.DirectoryNotFoundException"/> for find failure.</param>
         </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.FindFile(System.IO.DirectoryInfo,System.String)">
             <summary>
             Finds the specified <see cref="T:System.IO.FileInfo"/>
             under the specified <see cref="T:System.IO.DirectoryInfo"/>.
             </summary>
-            <param name="directoryInfo">the specified <see cref="T:System.IO.DirectoryInfo"/></param>
-            <param name="expectedFileName">the specified <see cref="P:System.IO.FileInfo.Name"/></param>
-            <returns></returns>
+            <param name="directoryInfo">The specified <see cref="T:System.IO.DirectoryInfo"/>.</param>
+            <param name="expectedFileName">The specified <see cref="P:System.IO.FileInfo.Name"/>.</param>
+        </member>
+        <member name="M:Songhay.Extensions.DirectoryInfoExtensions.FindFile(System.IO.DirectoryInfo,System.String,System.Boolean)">
+            <summary>
+            Finds the specified <see cref="T:System.IO.FileInfo"/>
+            under the specified <see cref="T:System.IO.DirectoryInfo"/>.
+            </summary>
+            <param name="directoryInfo">The specified <see cref="T:System.IO.DirectoryInfo"/>.</param>
+            <param name="expectedFileName">The specified <see cref="P:System.IO.FileInfo.Name"/>.</param>
+            <param name="throwException">When <c>true</c> throw a <see cref="T:System.IO.FileNotFoundException"/> for find failure.</param>
         </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory(System.IO.DirectoryInfo,System.Int32)">
             <summary>Gets the parent directory.</summary>
-            <param name="directoryInfo">The directory information.</param>
+            <param name="directoryInfo">The specified <see cref="T:System.IO.DirectoryInfo"/>.</param>
             <param name="levels">The levels.</param>
             <returns>Returns a <see cref="T:System.String"/> representing the directory.</returns>
         </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectoryInfo(System.IO.DirectoryInfo,System.Int32)">
             <summary>Gets the parent <see cref="T:System.IO.DirectoryInfo"/>.</summary>
-            <param name="directoryInfo">The directory information.</param>
+            <param name="directoryInfo">The specified <see cref="T:System.IO.DirectoryInfo"/>.</param>
             <param name="levels">The levels.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath(System.IO.DirectoryInfo,System.String)">
             <summary>Combines path and root based
             on the current value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
             of the current OS or passes through a drive-letter rooted path.</summary>
-            <param name="directoryInfo">The directory information.</param>
+            <param name="directoryInfo">The specified <see cref="T:System.IO.DirectoryInfo"/>.</param>
             <param name="path">The path.</param>
             <remarks>
             For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14
@@ -866,9 +865,8 @@
             Verifies the specified <see cref="T:System.IO.DirectoryInfo"/>
             with conventional error handling.
             </summary>
-            <param name="directoryInfo">the specified <see cref="T:System.IO.DirectoryInfo"/></param>
-            <param name="expectedDirectoryName">the expected directory name</param>
-            <returns></returns>
+            <param name="directoryInfo">The specified <see cref="T:System.IO.DirectoryInfo"/>.</param>
+            <param name="expectedDirectoryName">The expected directory name.</param>
         </member>
         <member name="T:Songhay.Extensions.DisplayItemModelExtensions">
             <summary>
@@ -1951,7 +1949,7 @@
         </member>
         <member name="T:Songhay.Extensions.IEnumerableOfTExtensions">
             <summary>
-            Extensions of <see cref="!:Collections.Generic.IEnumerable&lt;T&gt;"/>.
+            Extensions of <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
             </summary>
             <remarks>
             When this ‘greatest hits collection’ is found to be limited,
@@ -3272,7 +3270,7 @@
         </member>
         <member name="T:Songhay.Extensions.XElementExtensions">
             <summary>
-            Extensions of <see cref="!:Linq.XElement"/>.
+            Extensions of <see cref="T:System.Xml.Linq.XElement"/>.
             </summary>
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.AddOnce(System.Xml.Linq.XElement,System.Xml.Linq.XAttribute)">
@@ -3285,15 +3283,15 @@
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.GetElement(System.Xml.Linq.XNode,System.Xml.Linq.XName)">
             <summary>
-            Gets the <see cref="!:Linq.XElement"/>.
+            Gets the <see cref="T:System.Xml.Linq.XElement"/>.
             </summary>
             <param name="node">The node.</param>
             <param name="name">The name.</param>
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XElement,System.Xml.Linq.XName)">
             <summary>
-            Determines whether the <see cref="!:Linq.XElement"/>
-            has the specified <see cref="!:Linq.XName"/>.
+            Determines whether the <see cref="T:System.Xml.Linq.XElement"/>
+            has the specified <see cref="T:System.Xml.Linq.XName"/>.
             </summary>
             <param name="element">The element.</param>
             <param name="name">The name.</param>
@@ -3303,8 +3301,8 @@
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XNode,System.Xml.Linq.XName)">
             <summary>
-            Determines whether the <see cref="!:Linq.XNode"/>
-            has the specified <see cref="!:Linq.XName"/>.
+            Determines whether the <see cref="T:System.Xml.Linq.XNode"/>
+            has the specified <see cref="T:System.Xml.Linq.XName"/>.
             </summary>
             <param name="node">The node.</param>
             <param name="name">The name.</param>
@@ -3314,7 +3312,7 @@
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.IsElement(System.Xml.Linq.XNode)">
             <summary>
-            Determines whether the specified node is <see cref="!:Linq.XElement"/>.
+            Determines whether the specified node is <see cref="T:System.Xml.Linq.XElement"/>.
             </summary>
             <param name="node">The node.</param>
             <returns>
@@ -7376,9 +7374,6 @@
             <summary>
             Static members for XHTML Documents.
             </summary>
-            <summary>
-            Static members for XHTML Documents.
-            </summary>
         </member>
         <member name="P:Songhay.Xml.XhtmlDocumentUtility.Xhtml">
             <summary>
@@ -8156,49 +8151,28 @@
             <summary>
             Static helper members for XML-related routines.
             </summary>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
             <remarks>
-            These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
-            However, many accept any input implementing the
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
+            These definitions are biased toward emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
+            However, many accept any input implementing the <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XElement)">
             <summary>
             Get the CDATA value from the specified <see cref="T:System.Xml.Linq.XElement"/>.
             </summary>
-            <param name="element">The <see cref="T:System.Xml.Linq.XElement"/></param>
+            <param name="element">The <see cref="T:System.Xml.Linq.XElement"/>.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XNode)">
             <summary>
             Get the CDATA value from the specified <see cref="T:System.Xml.Linq.XNode"/>.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/>.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String)">
             <summary>
             Gets the <see cref="T:System.Xml.Linq.XNode" /> into a <c>local-name()</c>, XPath-predicate query.
             </summary>
             <param name="childElementName">Name of the child element.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String)">
             <summary>
@@ -8206,7 +8180,6 @@
             </summary>
             <param name="namespacePrefixOrUri">The namespace prefix or URI.</param>
             <param name="childElementName">Name of the child element.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String,System.String)">
             <summary>
@@ -8215,7 +8188,6 @@
             <param name="namespacePrefixOrUri">The namespace prefix or URI.</param>
             <param name="childElementName">Name of the child element.</param>
             <param name="childAttributeName">Name of the child attribute.</param>
-            <returns></returns>
             <remarks>
             This routine is useful when namespace-resolving is not desirable or available.
             </remarks>
@@ -8229,9 +8201,9 @@
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>
-            Gets the element or attribute value of the specified element.
+            Gets the element or attribute value of the current element.
             </summary>
-            <param name="currentNode">The current </param>
+            <param name="currentNode">The current <see cref="T:System.Xml.Linq.XNode"/>.</param>
             <param name="query">The xpath query.</param>
             <param name="throwException">if set to <c>true</c> throw exception.</param>
         </member>
@@ -8240,8 +8212,8 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="!:Linq.XNode"/></param>
-            <param name="nodeQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/>.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String)">
@@ -8249,33 +8221,33 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="!:Linq.XNode"/></param>
-            <param name="nodeQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/>.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
+            <param name="defaultValue">Return the specified default value for “zero-length” text nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String,System.Xml.IXmlNamespaceResolver)">
             <summary>
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="!:Linq.XNode"/></param>
-            <param name="nodeQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/>.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
-            <param name="resolver">
-            The <see cref="T:System.Xml.IXmlNamespaceResolver"/>
-            to use to resolve prefixes.
-            </param>
+            <param name="defaultValue">Return the specified default value for “zero-length” text nodes.</param>
+            <param name="resolver">The <see cref="T:System.Xml.IXmlNamespaceResolver"/> to use to resolve prefixes.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse``1(System.Xml.Linq.XNode,System.String,System.Boolean,``0)">
             <summary>
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="!:Linq.XNode"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/>.</param>
             <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
-            <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
+            <param name="throwException">
+            When <code>true</code>, throw an exception for null nodes
+            and nodes that do not parse into the specified type.
+            </param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
             <typeparam name="T">The type to parse from the node value.</typeparam>
         </member>
@@ -8285,44 +8257,44 @@
             and adding to a list of parameters for data access.
             </summary>
             <typeparam name="T">The type to parse from the node value.</typeparam>
-            <param name="node">The <see cref="!:Linq.XNode"/>.</param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/>.</param>
             <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
-            <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
+            <param name="throwException">
+            When <code>true</code>, throw an exception for null nodes
+            and nodes that do not parse into the specified type.
+            </param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
-            <param name="resolver">The <see cref="T:System.Xml.IXmlNamespaceResolver"/>
-            to use to resolve prefixes.</param>
-            <returns></returns>
+            <param name="resolver">The <see cref="T:System.Xml.IXmlNamespaceResolver"/> to use to resolve prefixes.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXDeclaration">
             <summary>
-            Gets the <see cref="!:Linq.XDeclaration"/>.
+            Gets the <see cref="T:System.Xml.Linq.XDeclaration"/>.
             </summary>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXDeclaration(System.String,System.Boolean)">
             <summary>
-            Gets the <see cref="!:Linq.XDeclaration"/>.
+            Gets the <see cref="T:System.Xml.Linq.XDeclaration"/>.
             </summary>
             <param name="encoding">The encoding (<see cref="F:Songhay.Models.XEncoding.Utf08"/> by default).</param>
             <param name="isStandAlone">When <c>true</c> document is stand-alone (<c>true</c> by default).</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXElement(System.String,System.Object)">
             <summary>
-            Gets the element.
+            Gets the <see cref="T:System.Xml.Linq.XElement" />.
             </summary>
-            <param name="rootElement">The root element.</param>
+            <param name="rootElement">The root element name.</param>
             <param name="innerXml">The inner XML.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXElement(System.Xml.Linq.XNode,System.String)">
             <summary>
-            Gets the element.
+            Gets the <see cref="T:System.Xml.Linq.XElement" />.
             </summary>
-            <param name="root">The root.</param>
+            <param name="root">The root <see cref="T:System.Xml.Linq.XNode"/>.</param>
             <param name="pathToElement">The XPath to element.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXElements(System.Xml.Linq.XNode,System.String)">
             <summary>
-            Gets the elements.
+            Gets the <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
             </summary>
             <param name="currentElement">The current element.</param>
             <param name="query">The xpath query.</param>
@@ -8333,7 +8305,6 @@
             </summary>
             <param name="node">The node.</param>
             <param name="nodeQuery">The node query.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>
@@ -8341,8 +8312,7 @@
             </summary>
             <param name="node">The node.</param>
             <param name="nodeQuery">The node query.</param>
-            <param name="throwException">if node to <c>true</c> [throw exception].</param>
-            <returns></returns>
+            <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)">
             <summary>
@@ -8350,9 +8320,8 @@
             </summary>
             <param name="node">The node.</param>
             <param name="nodeQuery">The node query.</param>
-            <param name="throwException">if node to <c>true</c> [throw exception].</param>
+            <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="resolver">The resolver.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String)">
             <summary>
@@ -8360,7 +8329,6 @@
             </summary>
             <param name="node">The node.</param>
             <param name="nodeQuery">The node query.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>
@@ -8368,8 +8336,7 @@
             </summary>
             <param name="node">The node.</param>
             <param name="nodeQuery">The node query.</param>
-            <param name="throwException">if node to <c>true</c> [throw exception].</param>
-            <returns></returns>
+            <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)">
             <summary>
@@ -8377,31 +8344,30 @@
             </summary>
             <param name="node">The node.</param>
             <param name="nodeQuery">The node query.</param>
-            <param name="throwException">if node to <c>true</c> [throw exception].</param>
+            <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="resolver">The resolver.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String)">
             <summary>
-            Gets the <see cref="T:System.Xml.Linq.XObject"/> from the specified XPath query..
+            Gets the <see cref="T:System.Xml.Linq.XObject"/> from the specified XPath query.
             </summary>
-            <param name="node">The <see cref="!:Linq.XNode"/> node.</param>
-            <param name="nodeQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>
-            Gets the <see cref="T:System.Xml.Linq.XObject"/> from the specified XPath query..
+            Gets the <see cref="T:System.Xml.Linq.XObject"/> from the specified XPath query.
             </summary>
-            <param name="node">The <see cref="!:Linq.XNode"/> node.</param>
-            <param name="nodeQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)">
             <summary>
-            Gets the XObject.
+            Gets the <see cref="T:System.Xml.Linq.XObject"/>.
             </summary>
-            <param name="node">The <see cref="!:Linq.XNode"/> node.</param>
-            <param name="nodeQuery">The <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="resolver">
             The <see cref="T:System.Xml.IXmlNamespaceResolver"/>
@@ -8422,8 +8388,7 @@
             </summary>
             <param name="node">The node.</param>
             <param name="nodeQuery">The node query.</param>
-            <param name="throwException">if node to <c>true</c> [throw exception].</param>
-            <returns></returns>
+            <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)">
             <summary>
@@ -8431,10 +8396,8 @@
             </summary>
             <param name="node">The node.</param>
             <param name="nodeQuery">The node query.</param>
-            <param name="throwException">if node to <c>true</c> [throw exception].</param>
+            <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="resolver">The resolver.</param>
-            <returns></returns>
-            <exception cref="T:System.Xml.XmlException"></exception>
         </member>
         <member name="F:Songhay.Xml.XObjectUtility.GlyphNonBreakingSpace">
             <summary>
@@ -8443,7 +8406,7 @@
         </member>
         <member name="P:Songhay.Xml.XObjectUtility.XTextNonBreakingSpace">
             <summary>
-            <see cref="!:Linq.XText"/>: Non-Breaking Space
+            <see cref="T:System.Xml.Linq.XText"/>: Non-Breaking Space
             </summary>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement)">
@@ -8457,16 +8420,15 @@
             Joins the flattened <see cref="T:System.Xml.Linq.XText"/> nodes.
             </summary>
             <param name="rootElement">The root element.</param>
-            <param name="includeRootElement">if set to <c>true</c> [include root element].</param>
+            <param name="includeRootElement">When <c>true</c> include root element.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean,System.String)">
             <summary>
             Joins the flattened <see cref="T:System.Xml.Linq.XText"/> nodes.
             </summary>
             <param name="rootElement">The root element.</param>
-            <param name="includeRootElement">if set to <c>true</c> [include root element].</param>
+            <param name="includeRootElement">When <c>true</c> include root element.</param>
             <param name="joinDelimiter">The join delimiter.</param>
-            <returns></returns>
         </member>
     </members>
 </doc>

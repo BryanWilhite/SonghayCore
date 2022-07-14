@@ -1,8 +1,5 @@
 ﻿namespace Songhay.Extensions;
 
-/// <summary>
-/// Extensions of <see cref="IActivity"/>
-/// </summary>
 // ReSharper disable once InconsistentNaming
 public static partial class IActivityExtensions
 {
@@ -12,8 +9,8 @@ public static partial class IActivityExtensions
     /// </summary>
     /// <param name="activity">The activity.</param>
     /// <param name="args">The arguments.</param>
-    /// <param name="traceSource">The the <see cref="TraceSource"/>.</param>
-    /// <returns>The the <see cref="TraceSource"/> log.</returns>
+    /// <param name="traceSource">The <see cref="TraceSource"/>.</param>
+    /// <returns>The <see cref="TraceSource"/> log.</returns>
     public static void StartConsoleActivity(this IActivity? activity, ProgramArgs args, TraceSource? traceSource)
     {
         using var listener = new ConsoleTraceListener();
@@ -37,8 +34,8 @@ public static partial class IActivityExtensions
     /// <typeparam name="TInput">The type of the input.</typeparam>
     /// <param name="activity">The activity.</param>
     /// <param name="input">The input.</param>
-    /// <param name="traceSource">The the <see cref="TraceSource"/>.</param>
-    /// <returns>The the <see cref="TraceSource"/> log.</returns>
+    /// <param name="traceSource">The <see cref="TraceSource"/>.</param>
+    /// <returns>The <see cref="TraceSource"/> log.</returns>
     public static async Task StartConsoleActivityAsync<TInput>(this IActivity? activity, TInput? input,
         TraceSource? traceSource)
     {
@@ -69,8 +66,8 @@ public static partial class IActivityExtensions
     /// <typeparam name="TOutput">The type of the output.</typeparam>
     /// <param name="activity">The activity.</param>
     /// <param name="input">The input.</param>
-    /// <param name="traceSource">The the <see cref="TraceSource"/>.</param>
-    /// <returns>The the <see cref="TraceSource"/> log.</returns>
+    /// <param name="traceSource">The <see cref="TraceSource"/>.</param>
+    /// <returns>The <see cref="TraceSource"/> log.</returns>
     public static async Task<TOutput?> StartConsoleActivityAsync<TInput, TOutput>(this IActivity? activity,
         TInput? input, TraceSource? traceSource)
     {
@@ -105,8 +102,8 @@ public static partial class IActivityExtensions
     /// <typeparam name="TOutput">The type of the output.</typeparam>
     /// <param name="activity">The activity.</param>
     /// <param name="input">The input.</param>
-    /// <param name="traceSource">The the <see cref="TraceSource"/>.</param>
-    /// <returns>The the <see cref="TraceSource"/> log.</returns>
+    /// <param name="traceSource">The <see cref="TraceSource"/>.</param>
+    /// <returns>The <see cref="TraceSource"/> log.</returns>
     public static TOutput? StartConsoleActivityForOutput<TInput, TOutput>(this IActivity? activity, TInput? input,
         TraceSource? traceSource)
     {

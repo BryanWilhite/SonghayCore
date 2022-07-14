@@ -7,10 +7,9 @@ public static class CharExtensions
 {
     /// <summary>
     /// Converts an enumeration of <see cref="char"/>
-    /// to <see cref="string"/>
+    /// to <see cref="string"/>.
     /// </summary>
-    /// <param name="chars"></param>
-    /// <returns></returns>
+    /// <param name="chars">The <see cref="IEnumerable{T}"/> of <see cref="char"/>.</param>
     public static string? FromCharsToString(this IEnumerable<char>? chars)
     {
         if (chars == null) return null;

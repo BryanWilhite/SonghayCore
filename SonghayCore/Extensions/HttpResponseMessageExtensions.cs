@@ -82,7 +82,6 @@ public static class HttpResponseMessageExtensions
     /// </summary>
     /// <param name="response">The response.</param>
     /// <typeparam name="TInstance">The type of the instance.</typeparam>
-    /// <returns></returns>
     /// <remarks>
     /// This method uses the Microsoft API to deserialize.
     /// </remarks>
@@ -96,7 +95,6 @@ public static class HttpResponseMessageExtensions
     /// <param name="response">The response.</param>
     /// <param name="options">The <see cref="JsonSerializerOptions"/></param>
     /// <typeparam name="TInstance">The type of the instance.</typeparam>
-    /// <returns></returns>
     /// <remarks>
     /// This method uses the Microsoft API to deserialize.
     /// </remarks>

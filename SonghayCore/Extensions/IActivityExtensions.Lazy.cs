@@ -1,13 +1,10 @@
 ﻿namespace Songhay.Extensions;
 
-/// <summary>
-/// Extensions of <see cref="IActivity"/>
-/// </summary>
 // ReSharper disable once InconsistentNaming
 public static partial class IActivityExtensions
 {
     /// <summary>
-    /// Gets the activity.
+    /// Gets the <see cref="IActivity"/>.
     /// </summary>
     /// <param name="activities">The activities.</param>
     /// <param name="activityName">Name of the activity.</param>

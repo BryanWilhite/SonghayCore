@@ -17,7 +17,6 @@ public static partial class HttpRequestMessageExtensions
     /// </summary>
     /// <param name="request">The request.</param>
     /// <param name="responseMessageAction">The response message action.</param>
-    /// <returns></returns>
     public static async Task<string> GetContentAsync(this HttpRequestMessage? request,
         Action<HttpResponseMessage>? responseMessageAction) =>
         await request.GetContentAsync(responseMessageAction, optionalClientGetter: null);
@@ -28,8 +27,6 @@ public static partial class HttpRequestMessageExtensions
     /// <param name="request">The request.</param>
     /// <param name="responseMessageAction">The response message action.</param>
     /// <param name="optionalClientGetter">The optional client getter.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">request</exception>
     public static async Task<string> GetContentAsync(this HttpRequestMessage? request,
         Action<HttpResponseMessage>? responseMessageAction,
         Func<HttpClient>? optionalClientGetter)
@@ -55,12 +52,10 @@ public static partial class HttpRequestMessageExtensions
     /// Calls <see cref="HttpClient.SendAsync(HttpRequestMessage)" />
     /// </summary>
     /// <param name="request"></param>
-    public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request)
-    {
-        return await request.SendAsync(requestMessageAction: null,
+    public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request) =>
+        await request.SendAsync(requestMessageAction: null,
             optionalClientGetter: null,
             HttpCompletionOption.ResponseContentRead);
-    }
 
     /// <summary>
     /// Calls <see cref="HttpClient.SendAsync(HttpRequestMessage)" />
@@ -80,12 +75,6 @@ public static partial class HttpRequestMessageExtensions
     /// <param name="requestMessageAction">The request message action.</param>
     /// <param name="optionalClientGetter">The optional client getter.</param>
     /// <param name="completionOption"> the <see cref="HttpCompletionOption"/>.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">
-    /// uri
-    /// or
-    /// mediaType
-    /// </exception>
     public static async Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request,
         Action<HttpRequestMessage>? requestMessageAction,
         Func<HttpClient>? optionalClientGetter,
@@ -135,7 +124,6 @@ public static partial class HttpRequestMessageExtensions
     /// <param name="encoding">The encoding.</param>
     /// <param name="mediaType">Type of the media.</param>
     /// <param name="requestMessageAction">The request message action.</param>
-    /// <returns></returns>
     public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request,
         string? requestBody, Encoding encoding, string mediaType,
         Action<HttpRequestMessage> requestMessageAction) => await request.SendBodyAsync(requestBody, encoding,
@@ -151,12 +139,6 @@ public static partial class HttpRequestMessageExtensions
     /// <param name="mediaType">Type of the media.</param>
     /// <param name="requestMessageAction">The request message action.</param>
     /// <param name="optionalClientGetter">The optional client getter.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">
-    /// requestBody
-    /// or
-    /// mediaType
-    /// </exception>
     public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request,
         string? requestBody, Encoding? encoding, string? mediaType,
         Action<HttpRequestMessage>? requestMessageAction,

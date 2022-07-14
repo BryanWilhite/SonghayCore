@@ -1,8 +1,5 @@
 ﻿namespace Songhay.Extensions;
 
-/// <summary>
-/// Extensions of <see cref="IActivity"/>
-/// </summary>
 // ReSharper disable once InconsistentNaming
 public static partial class IActivityExtensions
 {
@@ -11,8 +8,6 @@ public static partial class IActivityExtensions
     /// </summary>
     /// <param name="activity">The activity.</param>
     /// <param name="configuration">The configuration.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">activity</exception>
     public static IActivity WithConfiguration(this IActivity? activity, IConfigurationRoot? configuration)
     {
         ArgumentNullException.ThrowIfNull(activity);

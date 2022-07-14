@@ -1,8 +1,5 @@
 ﻿namespace Songhay.Extensions;
 
-/// <summary>
-/// Extensions of <see cref="IActivity"/>
-/// </summary>
 // ReSharper disable once InconsistentNaming
 public static partial class IActivityExtensions
 {
@@ -13,9 +10,6 @@ public static partial class IActivityExtensions
     /// <typeparam name="TInput">The type of the input.</typeparam>
     /// <typeparam name="TOutput">The type of the output.</typeparam>
     /// <param name="activity">The activity.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">The expected Activity name is not here.
-    /// or</exception>
     public static IActivityWithOutput<TInput?, TOutput?>?
         ToActivityWithOutput<TInput, TOutput>(this IActivity? activity) =>
         activity.ToActivityWithOutput<TInput?, TOutput?>(throwException: true);

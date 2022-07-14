@@ -57,7 +57,6 @@ public static class HttpWebRequestExtensions
     /// Downloads to string.
     /// </summary>
     /// <param name="request">The request.</param>
-    /// <returns></returns>
     public static string? DownloadToString(this HttpWebRequest? request) =>
         request.DownloadToString(null, bypassProxy: true);
 
@@ -127,7 +126,6 @@ public static class HttpWebRequestExtensions
     /// </summary>
     /// <param name="request">The request.</param>
     /// <param name="xmlFragment">The XML fragment.</param>
-    /// <returns></returns>
     public static string? PostXml(this HttpWebRequest? request, string? xmlFragment) =>
         request.PostXml(xmlFragment, null, bypassProxy: true);
 
@@ -138,7 +136,6 @@ public static class HttpWebRequestExtensions
     /// <param name="xmlFragment">The XML fragment.</param>
     /// <param name="proxyLocation">The proxy location.</param>
     /// <param name="bypassProxy">if set to <c>true</c> [bypass proxy].</param>
-    /// <returns></returns>
     public static string? PostXml(this HttpWebRequest? request, string? xmlFragment, Uri? proxyLocation,
         bool bypassProxy)
     {
@@ -192,7 +189,6 @@ public static class HttpWebRequestExtensions
     /// <param name="request">The request.</param>
     /// <param name="proxyLocation">The proxy location.</param>
     /// <param name="bypassProxy">if set to <c>true</c> [bypass proxy].</param>
-    /// <returns></returns>
     public static HttpWebRequest? WithProxy(this HttpWebRequest? request, Uri? proxyLocation, bool bypassProxy)
     {
         if (request == null) return null;
@@ -221,7 +217,6 @@ public static class HttpWebRequestExtensions
     /// <param name="requestBody">The request body.</param>
     /// <param name="requestMethod">The request method.</param>
     /// <param name="contentType">The request content type.</param>
-    /// <returns></returns>
     public static HttpWebRequest? WithRequestBody(this HttpWebRequest? request, string? requestBody,
         string? requestMethod, string? contentType)
     {
