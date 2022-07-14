@@ -5,25 +5,25 @@
 /// </summary>
 /// <remarks>
 /// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
+/// emitting <see cref="XPathDocument"/> documents.
 /// However, many accept any input implementing the
-/// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
+/// <see cref="IXPathNavigable"/> interface.
 /// </remarks>
 public static partial class XObjectUtility
 {
     /// <summary>
     /// Gets the <see cref="XObject"/> from the specified XPath query..
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.Linq.XNode"/> node.</param>
-    /// <param name="nodeQuery">The <see cref="System.String"/></param>
+    /// <param name="node">The <see cref="Linq.XNode"/> node.</param>
+    /// <param name="nodeQuery">The <see cref="string"/></param>
     public static XObject? GetXObject(XNode? node, string? nodeQuery) =>
         GetXObject(node, nodeQuery, throwException: false, resolver: null);
 
     /// <summary>
     /// Gets the <see cref="XObject"/> from the specified XPath query..
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.Linq.XNode"/> node.</param>
-    /// <param name="nodeQuery">The <see cref="System.String"/></param>
+    /// <param name="node">The <see cref="Linq.XNode"/> node.</param>
+    /// <param name="nodeQuery">The <see cref="string"/></param>
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     public static XObject? GetXObject(XNode? node, string? nodeQuery, bool throwException) =>
         GetXObject(node, nodeQuery, throwException, resolver: null);
@@ -31,11 +31,11 @@ public static partial class XObjectUtility
     /// <summary>
     /// Gets the XObject.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.Linq.XNode"/> node.</param>
-    /// <param name="nodeQuery">The <see cref="System.String"/></param>
+    /// <param name="node">The <see cref="Linq.XNode"/> node.</param>
+    /// <param name="nodeQuery">The <see cref="string"/></param>
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     /// <param name="resolver">
-    /// The <see cref="System.Xml.IXmlNamespaceResolver"/>
+    /// The <see cref="IXmlNamespaceResolver"/>
     /// to use to resolve prefixes.
     /// </param>
     public static XObject? GetXObject(XNode? node, string? nodeQuery, bool throwException,

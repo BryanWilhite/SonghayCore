@@ -3,41 +3,41 @@
 public static partial class XmlUtility
 {
     /// <summary>
-    /// Returns a <see cref="System.String"/>
+    /// Returns a <see cref="string"/>
     /// for the transformation of the XSLT document
     /// and the XML document.
     /// </summary>
-    /// <param name="navigableXsl">The source <see cref="System.Xml.XPath.IXPathNavigable"/> XSL document.</param>
-    /// <param name="navigableSet">The source <see cref="System.Xml.XPath.IXPathNavigable"/> XML document.</param>
+    /// <param name="navigableXsl">The source <see cref="IXPathNavigable"/> XSL document.</param>
+    /// <param name="navigableSet">The source <see cref="IXPathNavigable"/> XML document.</param>
     public static string? GetXslString(IXPathNavigable? navigableXsl, IXPathNavigable? navigableSet) =>
         GetXslString(navigableXsl, null, navigableSet, null);
 
     /// <summary>
-    /// Returns a <see cref="System.String"/>
+    /// Returns a <see cref="string"/>
     /// for the transformation of the XSLT document
     /// and the XML document.
     /// </summary>
     /// <param name="navigableXsl">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> XSL document.
+    /// The source <see cref="IXPathNavigable"/> XSL document.
     /// </param>
     /// <param name="xslArgs">
-    /// The <see cref="System.Xml.Xsl.XsltArgumentList"/>.
+    /// The <see cref="XsltArgumentList"/>.
     /// </param>
     /// <param name="navigableXml">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> XML document.
+    /// The source <see cref="IXPathNavigable"/> XML document.
     /// </param>
     public static string?
         GetXslString(IXPathNavigable? navigableXsl, XsltArgumentList? xslArgs, IXPathNavigable? navigableXml) =>
         GetXslString(navigableXsl, xslArgs, navigableXml, null);
 
     /// <summary>
-    /// Returns a <see cref="System.String"/>
+    /// Returns a <see cref="string"/>
     /// for the transformation of the XSLT document
     /// and the XML document.
     /// </summary>
-    /// <param name="navigableXsl">The source <see cref="System.Xml.XPath.IXPathNavigable"/> XSL document.</param>
-    /// <param name="xslArgs">The <see cref="System.Xml.Xsl.XsltArgumentList"/>.</param>
-    /// <param name="navigableXml">The source <see cref="System.Xml.XPath.IXPathNavigable"/> XML document.</param>
+    /// <param name="navigableXsl">The source <see cref="IXPathNavigable"/> XSL document.</param>
+    /// <param name="xslArgs">The <see cref="XsltArgumentList"/>.</param>
+    /// <param name="navigableXml">The source <see cref="IXPathNavigable"/> XML document.</param>
     /// <param name="settings">The settings.</param>
     public static string? GetXslString(IXPathNavigable? navigableXsl, XsltArgumentList? xslArgs,
         IXPathNavigable? navigableXml,

@@ -37,7 +37,7 @@ public static partial class StringExtensions
         string.IsNullOrWhiteSpace(input) ? input : input.Replace("{", "{{").Replace("}", "}}");
 
     /// <summary>
-    /// Converts camel-case <see cref="System.String"/> to <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/>.
+    /// Converts camel-case <see cref="string"/> to <see cref="Collections.Generic.IEnumerable&lt;T&gt;"/>.
     /// </summary>
     /// <param name="input">The input.</param>
     public static IEnumerable<string> FromCamelCaseToEnumerable(this string? input) =>

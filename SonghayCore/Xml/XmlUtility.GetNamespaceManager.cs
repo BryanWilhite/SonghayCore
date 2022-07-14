@@ -3,12 +3,12 @@
 public static partial class XmlUtility
 {
     /// <summary>
-    /// Returns a <see cref="System.Xml.XmlNamespaceManager"/>
+    /// Returns a <see cref="XmlNamespaceManager"/>
     /// with respect to the document element of the specified
-    /// <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// <see cref="IXPathNavigable"/> document.
     /// </summary>
     /// <param name="navigable">
-    /// The <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The <see cref="IXPathNavigable"/> document.
     /// </param>
     public static XmlNamespaceManager? GetNamespaceManager(IXPathNavigable? navigable)
     {

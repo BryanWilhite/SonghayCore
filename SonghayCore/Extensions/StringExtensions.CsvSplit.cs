@@ -3,12 +3,12 @@
 namespace Songhay.Extensions;
 
 /// <summary>
-/// Extensions of <see cref="System.String"/>.
+/// Extensions of <see cref="string"/>.
 /// </summary>
 public static partial class StringExtensions
 {
     /// <summary>
-    /// Splits CSV text format into an array of <see cref="System.String"/>.
+    /// Splits CSV text format into an array of <see cref="string"/>.
     /// </summary>
     /// <param name="source">The source.</param>
     /// <remarks>

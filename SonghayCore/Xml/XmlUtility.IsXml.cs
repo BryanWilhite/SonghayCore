@@ -13,6 +13,6 @@ public static partial class XmlUtility
         Match xmlMatch = Regex.Match(fragment, @"<([^>]+)>(.*?</(\1)>|[^>]*/>)");
         Match xmlMatchMinimized = Regex.Match(fragment, @"<([^>]+)/>");
 
-        return (xmlMatch.Success || xmlMatchMinimized.Success);
+        return xmlMatch.Success || xmlMatchMinimized.Success;
     }
 }

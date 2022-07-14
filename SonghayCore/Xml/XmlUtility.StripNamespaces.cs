@@ -3,10 +3,10 @@
 public static partial class XmlUtility
 {
     /// <summary>
-    /// Strip the namespaces from specified <see cref="System.String"/>.
+    /// Strip the namespaces from specified <see cref="string"/>.
     /// </summary>
     /// <param name="xml">
-    /// The source <see cref="System.String"/>.
+    /// The source <see cref="string"/>.
     /// </param>
     /// <remarks>
     /// WARNING: Stripping namespaces “flattens” the document
@@ -18,10 +18,10 @@ public static partial class XmlUtility
     public static string? StripNamespaces(string xml) => StripNamespaces(xml, false);
 
     /// <summary>
-    /// Strip the namespaces from specified <see cref="System.String"/>.
+    /// Strip the namespaces from specified <see cref="string"/>.
     /// </summary>
     /// <param name="xml">
-    /// The source <see cref="System.String"/>.
+    /// The source <see cref="string"/>.
     /// </param>
     /// <param name="removeDocType">
     /// When <c>true</c>, removes any DOCTYPE preambles.

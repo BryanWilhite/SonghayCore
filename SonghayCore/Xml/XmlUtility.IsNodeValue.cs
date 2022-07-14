@@ -5,8 +5,8 @@ public static partial class XmlUtility
     /// <summary>
     /// Returns true when the node has the specified value.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.XPath.IXPathNavigable"/></param>
-    /// <param name="nodeQuery">The query <see cref="System.String"/></param>
+    /// <param name="node">The <see cref="IXPathNavigable"/> node.</param>
+    /// <param name="nodeQuery">The node query <see cref="string"/>.</param>
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     /// <param name="testValue">The specified value to test with the node value.</param>
     public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue)
@@ -19,11 +19,11 @@ public static partial class XmlUtility
     /// <summary>
     /// Returns true when the node has the specified value.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.XPath.IXPathNavigable"/></param>
-    /// <param name="nodeQuery">The query <see cref="System.String"/></param>
+    /// <param name="node">The <see cref="IXPathNavigable"/> node.</param>
+    /// <param name="nodeQuery">The node query <see cref="string"/>.</param>
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     /// <param name="testValue">The specified value to test with the node value.</param>
-    /// <param name="comparisonType">The <see cref="System.StringComparison"/> type.</param>
+    /// <param name="comparisonType">The <see cref="StringComparison"/> type.</param>
     public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue,
         StringComparison comparisonType)
     {
@@ -35,12 +35,12 @@ public static partial class XmlUtility
     /// <summary>
     /// Returns true when the node has the specified value.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.XPath.IXPathNavigable"/></param>
-    /// <param name="nodeQuery">The query <see cref="System.String"/></param>
+    /// <param name="node">The <see cref="IXPathNavigable"/> node.</param>
+    /// <param name="nodeQuery">The node query <see cref="string"/>.</param>
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     /// <param name="testValue">The specified value to test with the node value.</param>
     /// <param name="nsMan">
-    /// The <see cref="System.Xml.XmlNamespaceManager"/>
+    /// The <see cref="XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
     public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue,
@@ -54,15 +54,15 @@ public static partial class XmlUtility
     /// <summary>
     /// Returns true when the node has the specified value.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.XPath.IXPathNavigable"/></param>
-    /// <param name="nodeQuery">The query <see cref="System.String"/></param>
+    /// <param name="node">The <see cref="IXPathNavigable"/> node.</param>
+    /// <param name="nodeQuery">The node query <see cref="string"/>.</param>
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     /// <param name="testValue">The specified value to test with the node value.</param>
     /// <param name="nsMan">
-    /// The <see cref="System.Xml.XmlNamespaceManager"/>
+    /// The <see cref="XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
-    /// <param name="comparisonType">The <see cref="System.StringComparison"/> type.</param>
+    /// <param name="comparisonType">The <see cref="StringComparison"/> type.</param>
     public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue,
         XmlNamespaceManager nsMan, StringComparison comparisonType)
     {
@@ -74,8 +74,8 @@ public static partial class XmlUtility
     /// <summary>
     /// Returns true when the node has the value “no”.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.XPath.IXPathNavigable"/></param>
-    /// <param name="nodeQuery">The query <see cref="System.String"/></param>
+    /// <param name="node">The <see cref="IXPathNavigable"/> node.</param>
+    /// <param name="nodeQuery">The node query <see cref="string"/>.</param>
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     public static bool IsNoNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException) =>
         IsNodeValue(node, nodeQuery, throwException, "no", StringComparison.OrdinalIgnoreCase);
@@ -83,8 +83,8 @@ public static partial class XmlUtility
     /// <summary>
     /// Returns true when the node has the value “yes”.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.XPath.IXPathNavigable"/></param>
-    /// <param name="nodeQuery">The query <see cref="System.String"/></param>
+    /// <param name="node">The <see cref="IXPathNavigable"/> node.</param>
+    /// <param name="nodeQuery">The node query <see cref="string"/>.</param>
     /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     public static bool IsYesNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException) =>
         IsNodeValue(node, nodeQuery, throwException, "yes", StringComparison.OrdinalIgnoreCase);

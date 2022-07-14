@@ -1,30 +1,34 @@
 ﻿namespace Songhay.Xml;
 
-/// <summary>
-/// Static helper members for XML-related routines.
-/// </summary>
-/// <remarks>
-/// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
-/// However, many accept any input implementing the
-/// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
-/// </remarks>
 public static partial class XmlUtility
 {
     /// <summary>
-    /// XMLs the encode.
+    /// The conventional HTML entities mapped to their respective glyphs.
+    /// </summary>
+    public static readonly Dictionary<string, string> ConventionalHtmlEntities = new()
+    {
+        { "&amp;", "&" },
+        { "&lt;", "<" },
+        { "&gt;", ">" },
+        { "&quot;", "\"" },
+        { "&apos;", "'" },
+    };
+
+    /// <summary>
+    /// Transforms selected XML glyphs
+    /// into their respective HTML entities.
     /// </summary>
     /// <param name="value">The value.</param>
     public static string? XmlEncode(string? value)
     {
-        if (string.IsNullOrWhiteSpace(value)) return null;
+        if (string.IsNullOrWhiteSpace(value)) return value;
 
-        return value
-            .Replace("<", "&lt;")
-            .Replace(">", "&gt;")
-            .Replace("\"", "&quot;")
-            .Replace("'", "&apos;")
-            .Replace("&", "&amp;");
+        foreach (var pair in ConventionalHtmlEntities)
+        {
+            value = value.Replace(pair.Value, pair.Key);
+        }
+
+        return value;
     }
 
     /// <summary>
@@ -33,13 +37,13 @@ public static partial class XmlUtility
     /// <param name="value">The value.</param>
     public static string? XmlDecode(string? value)
     {
-        if (string.IsNullOrWhiteSpace(value)) return null;
+        if (string.IsNullOrWhiteSpace(value)) return value;
 
-        return value
-            .Replace("&lt;", "<")
-            .Replace("&gt;", ">")
-            .Replace("&quot;", "\"")
-            .Replace("&apos;", "'")
-            .Replace("&amp;", "&");
+        foreach (var pair in ConventionalHtmlEntities)
+        {
+            value = value.Replace(pair.Key, pair.Value);
+        }
+
+        return value;
     }
 }

@@ -1,12 +1,12 @@
 ﻿namespace Songhay.Globalization;
 
 /// <summary>
-/// Helper members for <see cref="System.Globalization.TextInfo" />.
+/// Helper members for <see cref="Globalization.TextInfo" />.
 /// </summary>
 public static class TextInfoUtility
 {
     /// <summary>
-    /// Wraps <see cref="System.Globalization.TextInfo.ToTitleCase"/>
+    /// Wraps <see cref="Globalization.TextInfo.ToTitleCase"/>
     /// to add support for articles, conjunctions and prepositions.
     /// </summary>
     /// <param name="input">The input.</param>

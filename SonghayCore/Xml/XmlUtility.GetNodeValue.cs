@@ -1,23 +1,14 @@
 ﻿namespace Songhay.Xml;
 
-/// <summary>
-/// Static helper members for XML-related routines.
-/// </summary>
-/// <remarks>
-/// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
-/// However, many accept any input implementing the
-/// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
-/// </remarks>
 public static partial class XmlUtility
 {
     /// <summary>
     /// Returns an object for parsing
     /// and adding to a list of parameters for data access.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.XPath.IXPathNavigable"/></param>
-    /// <param name="nodeQuery">The <see cref="System.String"/></param>
-    /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
+    /// <param name="node">The <see cref="IXPathNavigable"/> node.</param>
+    /// <param name="nodeQuery">The node query <see cref="string"/>.</param>
+    /// <param name="throwException">When <c>true</c>, throw an exception for null nodes.</param>
     public static object? GetNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException) =>
         GetNodeValue(node, nodeQuery, throwException, null);
 
@@ -25,10 +16,10 @@ public static partial class XmlUtility
     /// Returns an object for parsing
     /// and adding to a list of parameters for data access.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.XPath.IXPathNavigable"/></param>
-    /// <param name="nodeQuery">The <see cref="System.String"/></param>
-    /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-    /// <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
+    /// <param name="node">The <see cref="IXPathNavigable"/> node.</param>
+    /// <param name="nodeQuery">The node query <see cref="string"/>.</param>
+    /// <param name="throwException">When <c>true</c>, throw an exception for null nodes.</param>
+    /// <param name="defaultValue">Return the specified default value for “zero-length” text nodes.</param>
     public static object? GetNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException,
         object? defaultValue) => GetNodeValue(node, nodeQuery, throwException, defaultValue, null);
 
@@ -36,12 +27,12 @@ public static partial class XmlUtility
     /// Returns an object for parsing
     /// and adding to a list of parameters for data access.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.XPath.IXPathNavigable"/></param>
-    /// <param name="nodeQuery">The <see cref="System.String"/></param>
-    /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-    /// <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
+    /// <param name="node">The <see cref="IXPathNavigable"/> node.</param>
+    /// <param name="nodeQuery">The node query <see cref="string"/>.</param>
+    /// <param name="throwException">When <c>true</c>, throw an exception for null nodes.</param>
+    /// <param name="defaultValue">Return the specified default value for “zero-length” text nodes.</param>
     /// <param name="nsMan">
-    /// The <see cref="System.Xml.XmlNamespaceManager"/>
+    /// The <see cref="XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
     public static object? GetNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException,
@@ -67,10 +58,10 @@ public static partial class XmlUtility
     /// Returns an object for parsing
     /// and adding to a list of parameters for data access.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.XPath.IXPathNavigable"/> to query.</param>
-    /// <param name="nodeQuery">The XPath <see cref="System.String"/>.</param>
-    /// <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
-    /// <param name="defaultValue">Return a boxing <see cref="System.Object"/> for “zero-length” text nodes.</param>
+    /// <param name="node">The <see cref="IXPathNavigable"/> node.</param>
+    /// <param name="nodeQuery">The XPath <see cref="string"/>.</param>
+    /// <param name="throwException">When <c>true</c>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
+    /// <param name="defaultValue">Return a boxing <see cref="Object"/> for “zero-length” text nodes.</param>
     /// <typeparam name="T">The type to parse from the node value.</typeparam>
     public static object? GetNodeValueAndParse<T>(IXPathNavigable? node, string? nodeQuery, bool throwException,
         T defaultValue) => GetNodeValueAndParse(node, nodeQuery, throwException, defaultValue, null);
@@ -79,12 +70,12 @@ public static partial class XmlUtility
     /// Returns an object for parsing
     /// and adding to a list of parameters for data access.
     /// </summary>
-    /// <param name="node">The <see cref="System.Xml.XPath.IXPathNavigable"/> to query.</param>
-    /// <param name="nodeQuery">The XPath <see cref="System.String"/>.</param>
-    /// <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
-    /// <param name="defaultValue">Return a boxing <see cref="System.Object"/> for “zero-length” text nodes.</param>
+    /// <param name="node">The <see cref="IXPathNavigable"/> node.</param>
+    /// <param name="nodeQuery">The XPath <see cref="string"/>.</param>
+    /// <param name="throwException">When <c>true</c>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
+    /// <param name="defaultValue">Return a boxing <see cref="Object"/> for “zero-length” text nodes.</param>
     /// <param name="nsMan">
-    /// The <see cref="System.Xml.XmlNamespaceManager"/>
+    /// The <see cref="XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
     /// <typeparam name="T">The type to parse from the node value.</typeparam>

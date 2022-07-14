@@ -3,7 +3,7 @@
 namespace Songhay.Extensions;
 
 /// <summary>
-/// Extensions of <see cref="System.Uri"/>
+/// Extensions of <see cref="Uri"/>
 /// </summary>
 public static class UriExtensions
 {
@@ -15,7 +15,7 @@ public static class UriExtensions
     /// <remarks>
     /// Recall that <see cref="Uri.IsFile" /> is another way
     /// of stating that <c>Uri.Schema == Uri.UriSchemeFile</c>
-    /// and that <see cref="System.IO"/> members can process URIs.
+    /// and that <see cref="IO"/> members can process URIs.
     /// 
     /// Also note that the only way to truly define a directory
     /// or folder is with a trailing forward/back slash.

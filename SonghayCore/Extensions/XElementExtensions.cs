@@ -1,7 +1,7 @@
 ﻿namespace Songhay.Extensions;
 
 /// <summary>
-/// Extensions of <see cref="System.Xml.Linq.XElement"/>.
+/// Extensions of <see cref="Linq.XElement"/>.
 /// </summary>
 public static class XElementExtensions
 {
@@ -22,7 +22,7 @@ public static class XElementExtensions
     }
 
     /// <summary>
-    /// Gets the <see cref="System.Xml.Linq.XElement"/>.
+    /// Gets the <see cref="Linq.XElement"/>.
     /// </summary>
     /// <param name="node">The node.</param>
     /// <param name="name">The name.</param>
@@ -30,8 +30,8 @@ public static class XElementExtensions
         node is XElement element && element.Name == name ? element : null;
 
     /// <summary>
-    /// Determines whether the <see cref="System.Xml.Linq.XElement"/>
-    /// has the specified <see cref="System.Xml.Linq.XName"/>.
+    /// Determines whether the <see cref="Linq.XElement"/>
+    /// has the specified <see cref="Linq.XName"/>.
     /// </summary>
     /// <param name="element">The element.</param>
     /// <param name="name">The name.</param>
@@ -41,8 +41,8 @@ public static class XElementExtensions
     public static bool HasElementName(this XElement? element, XName? name) => element != null && element.Name == name;
 
     /// <summary>
-    /// Determines whether the <see cref="System.Xml.Linq.XNode"/>
-    /// has the specified <see cref="System.Xml.Linq.XName"/>.
+    /// Determines whether the <see cref="Linq.XNode"/>
+    /// has the specified <see cref="Linq.XName"/>.
     /// </summary>
     /// <param name="node">The node.</param>
     /// <param name="name">The name.</param>
@@ -53,7 +53,7 @@ public static class XElementExtensions
         node is XElement element && (element.Name == name);
 
     /// <summary>
-    /// Determines whether the specified node is <see cref="System.Xml.Linq.XElement"/>.
+    /// Determines whether the specified node is <see cref="Linq.XElement"/>.
     /// </summary>
     /// <param name="node">The node.</param>
     /// <returns>

@@ -1,14 +1,5 @@
 ﻿namespace Songhay.Xml;
 
-/// <summary>
-/// Static helper members for XML-related routines.
-/// </summary>
-/// <remarks>
-/// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
-/// However, many accept any input implementing the
-/// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
-/// </remarks>
 public static partial class XmlUtility
 {
     /// <summary>
@@ -42,8 +33,8 @@ public static partial class XmlUtility
     /// <summary>
     /// Transfers the data in the Source to the Destination.
     /// </summary>
-    /// <param name="readerSource"><see cref="System.Xml.XmlReader"/></param>
-    /// <param name="writerDestination"><see cref="System.Xml.XmlWriter"/></param>
+    /// <param name="readerSource">The <see cref="XmlReader"/>.</param>
+    /// <param name="writerDestination">The <see cref="XmlWriter"/>.</param>
     public static void WriteReader(XmlReader? readerSource, XmlWriter? writerDestination)
     {
         ArgumentNullException.ThrowIfNull(readerSource);
@@ -58,7 +49,7 @@ public static partial class XmlUtility
     /// </summary>
     /// <param name="xmlInput">The specified input.</param>
     /// <param name="navigableXsl">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The source <see cref="IXPathNavigable"/> document.
     /// </param>
     /// <param name="outputPath">
     /// The file-system, target path.
@@ -87,7 +78,7 @@ public static partial class XmlUtility
     /// </summary>
     /// <param name="xmlInput">The specified input.</param>
     /// <param name="navigableXsl">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The source <see cref="IXPathNavigable"/> document.
     /// </param>
     /// <param name="outputPath">
     /// The file-system, target path.

@@ -12,7 +12,7 @@ public static class OpmlUtility
     public static XNamespace rx => "http://songhaysystem.com/schemas/opml.xsd";
 
     /// <summary>
-    /// Gets the body.
+    /// Gets the <see cref="OpmlBody"/>.
     /// </summary>
     /// <param name="root">The root.</param>
     /// <param name="ns">The namespace.</param>
@@ -29,7 +29,7 @@ public static class OpmlUtility
     }
 
     /// <summary>
-    /// Gets the document.
+    /// Gets the <see cref="OpmlDocument"/>.
     /// </summary>
     /// <param name="path">The path.</param>
     /// <returns></returns>
@@ -47,7 +47,7 @@ public static class OpmlUtility
     }
 
     /// <summary>
-    /// Gets the document.
+    /// Gets the <see cref="OpmlDocument"/>.
     /// </summary>
     /// <param name="xml">The XML.</param>
     /// <param name="ns">The ns.</param>
@@ -61,7 +61,7 @@ public static class OpmlUtility
     }
 
     /// <summary>
-    /// Gets the document.
+    /// Gets the <see cref="OpmlDocument"/>.
     /// </summary>
     /// <param name="root">The root.</param>
     /// <param name="ns">The conventional namespace.</param>
@@ -79,7 +79,7 @@ public static class OpmlUtility
     }
 
     /// <summary>
-    /// Gets the head.
+    /// Gets the <see cref="OpmlHead"/>.
     /// </summary>
     /// <param name="root">The root.</param>
     /// <param name="ns">The namespace.</param>
@@ -97,7 +97,7 @@ public static class OpmlUtility
     }
 
     /// <summary>
-    /// Gets the outline.
+    /// Gets the <see cref="OpmlOutline"/>.
     /// </summary>
     /// <param name="root">The root.</param>
     /// <param name="ns">The namespace.</param>
@@ -112,7 +112,7 @@ public static class OpmlUtility
     }
 
     /// <summary>
-    /// Gets the outlines.
+    /// Gets the array of <see cref="OpmlOutline"/>.
     /// </summary>
     /// <param name="root">The root.</param>
     /// <param name="ns">The namespace.</param>

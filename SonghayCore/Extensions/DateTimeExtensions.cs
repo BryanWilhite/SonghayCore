@@ -1,7 +1,7 @@
 ﻿namespace Songhay.Extensions;
 
 /// <summary>
-/// Extensions of <see cref="System.DateTime"/>.
+/// Extensions of <see cref="DateTime"/>.
 /// </summary>
 public static partial class DateTimeExtensions
 {

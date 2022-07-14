@@ -6,7 +6,7 @@ public static partial class XmlUtility
     /// Strip the namespaces from specified document.
     /// </summary>
     /// <param name="navigable">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The source <see cref="IXPathNavigable"/> document.
     /// </param>
     /// <remarks>
     /// WARNING: Stripping namespaces “flattens” the document
@@ -23,7 +23,7 @@ public static partial class XmlUtility
     /// Strip the namespaces from specified document.
     /// </summary>
     /// <param name="navigable">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The source <see cref="IXPathNavigable"/> document.
     /// </param>
     /// <param name="removeDocType">
     /// When <c>true</c>, removes any DOCTYPE preambles.

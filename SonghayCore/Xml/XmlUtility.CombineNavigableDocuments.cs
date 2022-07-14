@@ -1,31 +1,22 @@
 ﻿namespace Songhay.Xml;
 
-/// <summary>
-/// Static helper members for XML-related routines.
-/// </summary>
-/// <remarks>
-/// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
-/// However, many accept any input implementing the
-/// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
-/// </remarks>
 public static partial class XmlUtility
 {
     /// <summary>
-    /// Combines two <see cref="System.Xml.XPath.IXPathNavigable"/> documents.
+    /// Combines two <see cref="IXPathNavigable"/> documents.
     /// </summary>
-    /// <param name="parentDocument">The <see cref="System.Xml.XPath.IXPathNavigable"/> “hosting” document.</param>
-    /// <param name="childDocument">The <see cref="System.Xml.XPath.IXPathNavigable"/> child document.</param>
+    /// <param name="parentDocument">The <see cref="IXPathNavigable"/> “hosting” document.</param>
+    /// <param name="childDocument">The <see cref="IXPathNavigable"/> child document.</param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
     public static XPathDocument? CombineNavigableDocuments(IXPathNavigable? parentDocument,
         IXPathNavigable? childDocument) => CombineNavigableDocuments(parentDocument, childDocument, null);
 
     /// <summary>
-    /// Combines two <see cref="System.Xml.XPath.IXPathNavigable"/> documents.
+    /// Combines two <see cref="IXPathNavigable"/> documents.
     /// </summary>
-    /// <param name="parentDocument">The <see cref="System.Xml.XPath.IXPathNavigable"/> “hosting” document.</param>
-    /// <param name="childDocument">The <see cref="System.Xml.XPath.IXPathNavigable"/> child document.</param>
+    /// <param name="parentDocument">The <see cref="IXPathNavigable"/> “hosting” document.</param>
+    /// <param name="childDocument">The <see cref="IXPathNavigable"/> child document.</param>
     /// <param name="nodeQuery">The XPath query to the child document location in the “hosting” document. </param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]

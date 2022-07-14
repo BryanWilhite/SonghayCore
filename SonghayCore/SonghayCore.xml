@@ -673,7 +673,7 @@
         </member>
         <member name="T:Songhay.Extensions.DataSetExtensions">
             <summary>
-            Extensions of <see cref="T:System.Data.DataSet"/>
+            Extensions of <see cref="!:Data.DataSet"/>
             </summary>
         </member>
         <member name="M:Songhay.Extensions.DataSetExtensions.ToFirstTableDataRows(System.Data.DataSet)">
@@ -1951,7 +1951,7 @@
         </member>
         <member name="T:Songhay.Extensions.IEnumerableOfTExtensions">
             <summary>
-            Extensions of <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            Extensions of <see cref="!:Collections.Generic.IEnumerable&lt;T&gt;"/>.
             </summary>
             <remarks>
             When this ‘greatest hits collection’ is found to be limited,
@@ -2402,7 +2402,7 @@
         <member name="M:Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(Songhay.Models.ProgramMetadata,System.String)">
             <summary>
             Converts <see cref="T:Songhay.Models.ProgramMetadata" />
-            to the conventional <see cref="T:System.Net.Http.Headers.HttpRequestHeaders"/>.
+            to the conventional <see cref="!:Net.Http.Headers.HttpRequestHeaders"/>.
             </summary>
             <param name="meta">The <see cref="T:Songhay.Models.ProgramMetadata"/>.</param>
             <param name="restApiMetadataSetKey">The key for <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/>.</param>
@@ -2655,7 +2655,7 @@
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.FromCamelCaseToEnumerable(System.String)">
             <summary>
-            Converts camel-case <see cref="T:System.String"/> to <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            Converts camel-case <see cref="T:System.String"/> to <see cref="!:Collections.Generic.IEnumerable&lt;T&gt;"/>.
             </summary>
             <param name="input">The input.</param>
         </member>
@@ -3065,7 +3065,7 @@
             <remarks>
             Recall that <see cref="P:System.Uri.IsFile" /> is another way
             of stating that <c>Uri.Schema == Uri.UriSchemeFile</c>
-            and that <see cref="N:System.IO"/> members can process URIs.
+            and that <see cref="!:IO"/> members can process URIs.
             
             Also note that the only way to truly define a directory
             or folder is with a trailing forward/back slash.
@@ -3272,7 +3272,7 @@
         </member>
         <member name="T:Songhay.Extensions.XElementExtensions">
             <summary>
-            Extensions of <see cref="T:System.Xml.Linq.XElement"/>.
+            Extensions of <see cref="!:Linq.XElement"/>.
             </summary>
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.AddOnce(System.Xml.Linq.XElement,System.Xml.Linq.XAttribute)">
@@ -3285,15 +3285,15 @@
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.GetElement(System.Xml.Linq.XNode,System.Xml.Linq.XName)">
             <summary>
-            Gets the <see cref="T:System.Xml.Linq.XElement"/>.
+            Gets the <see cref="!:Linq.XElement"/>.
             </summary>
             <param name="node">The node.</param>
             <param name="name">The name.</param>
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XElement,System.Xml.Linq.XName)">
             <summary>
-            Determines whether the <see cref="T:System.Xml.Linq.XElement"/>
-            has the specified <see cref="T:System.Xml.Linq.XName"/>.
+            Determines whether the <see cref="!:Linq.XElement"/>
+            has the specified <see cref="!:Linq.XName"/>.
             </summary>
             <param name="element">The element.</param>
             <param name="name">The name.</param>
@@ -3303,8 +3303,8 @@
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XNode,System.Xml.Linq.XName)">
             <summary>
-            Determines whether the <see cref="T:System.Xml.Linq.XNode"/>
-            has the specified <see cref="T:System.Xml.Linq.XName"/>.
+            Determines whether the <see cref="!:Linq.XNode"/>
+            has the specified <see cref="!:Linq.XName"/>.
             </summary>
             <param name="node">The node.</param>
             <param name="name">The name.</param>
@@ -3314,7 +3314,7 @@
         </member>
         <member name="M:Songhay.Extensions.XElementExtensions.IsElement(System.Xml.Linq.XNode)">
             <summary>
-            Determines whether the specified node is <see cref="T:System.Xml.Linq.XElement"/>.
+            Determines whether the specified node is <see cref="!:Linq.XElement"/>.
             </summary>
             <param name="node">The node.</param>
             <returns>
@@ -3425,12 +3425,12 @@
         </member>
         <member name="T:Songhay.Globalization.TextInfoUtility">
             <summary>
-            Helper members for <see cref="T:System.Globalization.TextInfo" />.
+            Helper members for <see cref="!:Globalization.TextInfo" />.
             </summary>
         </member>
         <member name="M:Songhay.Globalization.TextInfoUtility.ToTitleCase(System.String)">
             <summary>
-            Wraps <see cref="M:System.Globalization.TextInfo.ToTitleCase(System.String)"/>
+            Wraps <see cref="!:Globalization.TextInfo.ToTitleCase"/>
             to add support for articles, conjunctions and prepositions.
             </summary>
             <param name="input">The input.</param>
@@ -4094,7 +4094,7 @@
             Defines name-value pair.
             </summary>
             <remarks>
-            Consider using the <see cref="T:System.Collections.Generic.KeyValuePair`2"/> structure
+            Consider using the <see cref="!:Collections.Generic.KeyValuePair&lt;TKey, TValue&gt;"/> structure
             (from .NET 2.0 onwards) before using this type.
             </remarks>
         </member>
@@ -4540,7 +4540,7 @@
             <summary>
             Constructor of this class.
             </summary>
-            <param name="targetAssembly">The target <see cref="T:System.Reflection.Assembly"/></param>
+            <param name="targetAssembly">The target <see cref="!:Reflection.Assembly"/></param>
         </member>
         <member name="P:Songhay.Models.ProgramAssemblyInfo.AssemblyTitle">
             <summary>
@@ -6232,7 +6232,7 @@
         </member>
         <member name="T:Songhay.ProgramAssemblyUtility">
             <summary>
-            Static members related to <see cref="N:System.Reflection"/>.
+            Static members related to <see cref="!:Reflection"/>.
             </summary>
         </member>
         <member name="M:Songhay.ProgramAssemblyUtility.GetAssemblyInfo(System.Reflection.Assembly)">
@@ -6241,7 +6241,7 @@
             about the executing assembly.
             </summary>
             <param name="targetAssembly">
-            The executing <see cref="T:System.Reflection.Assembly"/>.
+            The executing <see cref="!:Reflection.Assembly"/>.
             </param>
             <returns>Returns <see cref="T:System.String"/></returns>
         </member>
@@ -6251,7 +6251,7 @@
             about the executing assembly.
             </summary>
             <param name="targetAssembly">
-            The executing <see cref="T:System.Reflection.Assembly"/>.
+            The executing <see cref="!:Reflection.Assembly"/>.
             </param>
             <param name="useConsoleChars">
             When <c>true</c> selected “special” characters are formatted for the Windows Console.
@@ -6276,15 +6276,15 @@
         <member name="T:Songhay.ProgramFileUtility">
             <summary>
             A few static helper members
-            for <see cref="N:System.IO"/>.
+            for <see cref="!:IO"/>.
             </summary>
             <summary>
             A few static helper members
-            for <see cref="N:System.IO"/>.
+            for <see cref="!:IO"/>.
             </summary>
             <summary>
             A few static helper members
-            for <see cref="N:System.IO"/>.
+            for <see cref="!:IO"/>.
             </summary>
         </member>
         <member name="M:Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})">
@@ -7324,21 +7324,21 @@
         </member>
         <member name="M:Songhay.Xml.OpmlUtility.GetBody(System.Xml.Linq.XContainer,System.Xml.Linq.XNamespace)">
             <summary>
-            Gets the body.
+            Gets the <see cref="T:Songhay.Models.OpmlBody"/>.
             </summary>
             <param name="root">The root.</param>
             <param name="ns">The namespace.</param>
         </member>
         <member name="M:Songhay.Xml.OpmlUtility.GetDocument(System.String)">
             <summary>
-            Gets the document.
+            Gets the <see cref="T:Songhay.Models.OpmlDocument"/>.
             </summary>
             <param name="path">The path.</param>
             <returns></returns>
         </member>
         <member name="M:Songhay.Xml.OpmlUtility.GetDocument(System.String,System.Xml.Linq.XNamespace)">
             <summary>
-            Gets the document.
+            Gets the <see cref="T:Songhay.Models.OpmlDocument"/>.
             </summary>
             <param name="xml">The XML.</param>
             <param name="ns">The ns.</param>
@@ -7346,28 +7346,28 @@
         </member>
         <member name="M:Songhay.Xml.OpmlUtility.GetDocument(System.Xml.Linq.XContainer,System.Xml.Linq.XNamespace)">
             <summary>
-            Gets the document.
+            Gets the <see cref="T:Songhay.Models.OpmlDocument"/>.
             </summary>
             <param name="root">The root.</param>
             <param name="ns">The conventional namespace.</param>
         </member>
         <member name="M:Songhay.Xml.OpmlUtility.GetHead(System.Xml.Linq.XContainer,System.Xml.Linq.XNamespace)">
             <summary>
-            Gets the head.
+            Gets the <see cref="T:Songhay.Models.OpmlHead"/>.
             </summary>
             <param name="root">The root.</param>
             <param name="ns">The namespace.</param>
         </member>
         <member name="M:Songhay.Xml.OpmlUtility.GetOutline(System.Xml.Linq.XElement,System.Xml.Linq.XNamespace)">
             <summary>
-            Gets the outline.
+            Gets the <see cref="T:Songhay.Models.OpmlOutline"/>.
             </summary>
             <param name="root">The root.</param>
             <param name="ns">The namespace.</param>
         </member>
         <member name="M:Songhay.Xml.OpmlUtility.GetOutlines(System.Xml.Linq.XContainer,System.Xml.Linq.XNamespace)">
             <summary>
-            Gets the outlines.
+            Gets the array of <see cref="T:Songhay.Models.OpmlOutline"/>.
             </summary>
             <param name="root">The root.</param>
             <param name="ns">The namespace.</param>
@@ -7387,14 +7387,14 @@
         </member>
         <member name="M:Songhay.Xml.XhtmlDocumentUtility.GetDocument(System.Xml.Linq.XDocument,System.String)">
             <summary>
-            Loads the document.
+            Loads the <see cref="T:Songhay.Models.XhtmlDocument"/>.
             </summary>
             <param name="document">The XML document.</param>
             <param name="webPath">The public web path.</param>
         </member>
         <member name="M:Songhay.Xml.XhtmlDocumentUtility.GetDocument(System.Xml.Linq.XDocument,System.String,System.Boolean)">
             <summary>
-            Loads the document.
+            Loads the <see cref="T:Songhay.Models.XhtmlDocument"/>.
             </summary>
             <param name="document">The XML document.</param>
             <param name="webPath">The public web path.</param>
@@ -7402,7 +7402,7 @@
         </member>
         <member name="M:Songhay.Xml.XhtmlDocumentUtility.LoadDocument(System.String,System.String)">
             <summary>
-            Loads the document.
+            Loads the <see cref="T:Songhay.Models.XhtmlDocument"/>.
             </summary>
             <param name="pathToDocument">The path to document.</param>
             <param name="webPath">The public web path.</param>
@@ -7418,87 +7418,6 @@
             <param name="pathToOutput">The path to output.</param>
         </member>
         <member name="T:Songhay.Xml.XmlUtility">
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <remarks>
-            These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
-            However, many accept any input implementing the
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
-            </remarks>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <remarks>
-            These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
-            However, many accept any input implementing the
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
-            </remarks>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <remarks>
-            These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
-            However, many accept any input implementing the
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
-            </remarks>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <remarks>
-            These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
-            However, many accept any input implementing the
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
-            </remarks>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <remarks>
-            These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
-            However, many accept any input implementing the
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
-            </remarks>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <remarks>
-            These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
-            However, many accept any input implementing the
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
-            </remarks>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <remarks>
-            These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
-            However, many accept any input implementing the
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
-            </remarks>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <remarks>
-            These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
-            However, many accept any input implementing the
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
-            </remarks>
-            <summary>
-            Static helper members for XML-related routines.
-            </summary>
-            <remarks>
-            These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
-            However, many accept any input implementing the
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
-            </remarks>
             <summary>
             Static helper members for XML-related routines.
             </summary>
@@ -7530,7 +7449,7 @@
             in the specified <see cref="T:System.String"/>
             into the standard XML entities.
             </summary>
-            <param name="rawValue">The raw <see cref="T:System.String"/></param>
+            <param name="rawValue">The raw <see cref="T:System.String"/>.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetAttributeValue(System.Xml.XPath.IXPathNavigable,System.String)">
             <summary>
@@ -7567,7 +7486,7 @@
             <typeparam name="T">
             The specified type to deserialize.
             </typeparam>
-            <param name="xmlPath">the XML file path</param>
+            <param name="xmlPath">The XML file path.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInstanceRaw``1(System.String)">
             <summary>
@@ -7576,74 +7495,74 @@
             <typeparam name="T">
             The specified type to deserialize.
             </typeparam>
-            <param name="xmlFragment">the raw XML</param>
+            <param name="xmlFragment">The raw XML.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String)">
             <summary>
             Returns an XML <see cref="T:System.String"/>
             based on the specified header and lines.
             </summary>
-            <param name="messageHeader">Message header</param>
+            <param name="messageHeader">Message header.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String[])">
             <summary>
             Returns an XML <see cref="T:System.String"/>
             based on the specified header and lines.
             </summary>
-            <param name="messageHeader">Message header</param>
-            <param name="messageLines">Message lines</param>
+            <param name="messageHeader">Message header.</param>
+            <param name="messageLines">Message lines.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.Collections.ObjectModel.ReadOnlyCollection{System.String})">
             <summary>
             Returns an XML <see cref="T:System.String"/>
             based on the specified header and lines.
             </summary>
-            <param name="messageHeader">Message header</param>
-            <param name="messageLines">Message lines</param>
+            <param name="messageHeader">Message header.</param>
+            <param name="messageLines">Message lines.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
             <summary>
             Returns an XML <see cref="T:System.String"/>
             based on the specified header and lines.
             </summary>
-            <param name="messageHeader">Message header</param>
-            <param name="messageCode">Message code for errors, exceptions or faults</param>
-            <param name="messageLines">Message lines</param>
+            <param name="messageHeader">Message header.</param>
+            <param name="messageCode">Message code for errors, exceptions or faults.</param>
+            <param name="messageLines">Message lines.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String[],System.Xml.XmlWriter)">
             <summary>
-            Write a message to the specified
+            Gets the conventional, XML <c>&lt;InternalMessage&gt;</c>.
             </summary>
-            <param name="messageHeader">Message header</param>
-            <param name="messageLines">Message lines</param>
-            <param name="xmlDataWriter">The <see cref="T:System.Xml.XmlWriter"/></param>
+            <param name="messageHeader">Message header.</param>
+            <param name="messageLines">Message lines.</param>
+            <param name="xmlDataWriter">The <see cref="T:System.Xml.XmlWriter"/>.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String,System.String[],System.Xml.XmlWriter)">
             <summary>
-            Write a message to the specified
+            Gets the conventional, XML <c>&lt;InternalMessage&gt;</c>.
             </summary>
-            <param name="messageHeader">Message header</param>
-            <param name="messageCode">Message code for errors, exceptions or faults</param>
-            <param name="messageLines">Message lines</param>
-            <param name="xmlDataWriter">The <see cref="T:System.Xml.XmlTextWriter"/></param>
+            <param name="messageHeader">Message header.</param>
+            <param name="messageCode">Message code for errors, exceptions or faults.</param>
+            <param name="messageLines">Message lines.</param>
+            <param name="xmlDataWriter">The <see cref="T:System.Xml.XmlTextWriter"/>.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String[],System.Xml.XmlWriter,System.Boolean)">
             <summary>
-            Write a message to the specified
+            Gets the conventional, XML <c>&lt;InternalMessage&gt;</c>.
             </summary>
-            <param name="messageHeader">Message header</param>
-            <param name="messageLines">Message lines</param>
-            <param name="xmlDataWriter">The <see cref="T:System.Xml.XmlWriter"/></param>
+            <param name="messageHeader">Message header.</param>
+            <param name="messageLines">Message lines.</param>
+            <param name="xmlDataWriter">The <see cref="T:System.Xml.XmlWriter"/>.</param>
             <param name="isFragment">When <c>false</c> a new document is started.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String,System.String[],System.Xml.XmlWriter,System.Boolean)">
             <summary>
-            Write a message to the specified
+            Gets the conventional, XML <c>&lt;InternalMessage&gt;</c>.
             </summary>
-            <param name="messageHeader">Message header</param>
-            <param name="messageCode">Message code for errors, exceptions or faults</param>
-            <param name="messageLines">Message lines</param>
-            <param name="xmlDataWriter">The <see cref="T:System.Xml.XmlWriter"/></param>
+            <param name="messageHeader">Message header.</param>
+            <param name="messageCode">Message code for errors, exceptions or faults.</param>
+            <param name="messageLines">Message lines.</param>
+            <param name="xmlDataWriter">The <see cref="T:System.Xml.XmlWriter"/>.</param>
             <param name="isFragment">When <c>false</c> a new document is started.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessageDocument(System.String,System.String[])">
@@ -7651,17 +7570,17 @@
             Returns an <see cref="T:System.Xml.XPath.XPathDocument"/>
             based on the specified header and lines.
             </summary>
-            <param name="messageHeader">Message header</param>
-            <param name="messageLines">Message lines</param>
+            <param name="messageHeader">Message header.</param>
+            <param name="messageLines">Message lines.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessageDocument(System.String,System.String,System.String[])">
             <summary>
             Returns an <see cref="T:System.Xml.XPath.XPathDocument"/>
             based on the specified header and lines.
             </summary>
-            <param name="messageHeader">Message header</param>
+            <param name="messageHeader">Message header.</param>
             <param name="messageCode">Message code for errors, exceptions or faults</param>
-            <param name="messageLines">Message lines</param>
+            <param name="messageLines">Message lines.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetNamespaceManager(System.Xml.XPath.IXPathNavigable)">
             <summary>
@@ -7766,29 +7685,29 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="nodeQuery">The <see cref="T:System.String"/></param>
-            <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
+            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
+            <param name="throwException">When <c>true</c>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.Object)">
             <summary>
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="nodeQuery">The <see cref="T:System.String"/></param>
-            <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
+            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
+            <param name="throwException">When <c>true</c>, throw an exception for null nodes.</param>
+            <param name="defaultValue">Return the specified default value for “zero-length” text nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.Object,System.Xml.XmlNamespaceManager)">
             <summary>
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="nodeQuery">The <see cref="T:System.String"/></param>
-            <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
-            <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
+            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
+            <param name="throwException">When <c>true</c>, throw an exception for null nodes.</param>
+            <param name="defaultValue">Return the specified default value for “zero-length” text nodes.</param>
             <param name="nsMan">
             The <see cref="T:System.Xml.XmlNamespaceManager"/>
             to use to resolve prefixes.
@@ -7799,9 +7718,9 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> to query.</param>
+            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> node.</param>
             <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
-            <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
+            <param name="throwException">When <c>true</c>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
             <typeparam name="T">The type to parse from the node value.</typeparam>
         </member>
@@ -7810,9 +7729,9 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> to query.</param>
+            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> node.</param>
             <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
-            <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
+            <param name="throwException">When <c>true</c>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
             <param name="nsMan">
             The <see cref="T:System.Xml.XmlNamespaceManager"/>
@@ -7909,8 +7828,8 @@
             <summary>
             Returns true when the node has the specified value.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="testValue">The specified value to test with the node value.</param>
         </member>
@@ -7918,8 +7837,8 @@
             <summary>
             Returns true when the node has the specified value.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="testValue">The specified value to test with the node value.</param>
             <param name="comparisonType">The <see cref="T:System.StringComparison"/> type.</param>
@@ -7928,8 +7847,8 @@
             <summary>
             Returns true when the node has the specified value.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="testValue">The specified value to test with the node value.</param>
             <param name="nsMan">
@@ -7941,8 +7860,8 @@
             <summary>
             Returns true when the node has the specified value.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="testValue">The specified value to test with the node value.</param>
             <param name="nsMan">
@@ -7955,16 +7874,16 @@
             <summary>
             Returns true when the node has the value “no”.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsYesNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean)">
             <summary>
             Returns true when the node has the value “yes”.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/></param>
-            <param name="nodeQuery">The query <see cref="T:System.String"/></param>
+            <param name="node">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> node.</param>
+            <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsXml(System.String)">
@@ -7980,10 +7899,10 @@
             and the XML file.
             </summary>
             <param name="xslPath">
-            output path to the XSLT file.
+            Output path to the XSLT file.
             </param>
             <param name="xmlPath">
-            output path to the XML file.
+            Output path to the XML file.
             </param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.LoadXslTransform(System.String,System.String,System.String)">
@@ -7993,13 +7912,13 @@
             and the XML file.
             </summary>
             <param name="xslPath">
-            output path to the XSLT file.
+            Output path to the XSLT file.
             </param>
             <param name="commandName">
             The value for the <code>cmd</code>-parameter convention.
             </param>
             <param name="xmlPath">
-            output path to the XML file.
+            Output path to the XML file.
             </param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.LoadXslTransform(System.String,System.Xml.Xsl.XsltArgumentList,System.String)">
@@ -8009,13 +7928,13 @@
             and the XML file.
             </summary>
             <param name="xslPath">
-            output path to the XSLT file.
+            Output path to the XSLT file.
             </param>
             <param name="xslArgs">
             The <see cref="T:System.Xml.Xsl.XsltArgumentList"/>.
             </param>
             <param name="xmlPath">
-            output path to the XML file.
+            Output path to the XML file.
             </param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.LoadXslTransformForMemoryInput(System.String,System.String,System.String)">
@@ -8025,7 +7944,7 @@
             and the specified <see cref="T:System.Xml.XPath.IXPathNavigable"/> in memory.
             </summary>
             <param name="xslPath">
-            output path to the XSLT file.
+            Output path to the XSLT file.
             </param>
             <param name="commandName">
             The value for the <code>cmd</code>-parameter convention.
@@ -8044,7 +7963,7 @@
             and the specified <see cref="T:System.Xml.XPath.IXPathNavigable"/> in memory.
             </summary>
             <param name="xslPath">
-            output path to the XSLT file.
+            Output path to the XSLT file.
             </param>
             <param name="commandName">
             The value for the <code>cmd</code>-parameter convention.
@@ -8063,7 +7982,7 @@
             and the XML in-memory fragment.
             </summary>
             <param name="xslPath">
-            output path to the XSLT file.
+            Output path to the XSLT file.
             </param>
             <param name="xslArgs">
             The <see cref="T:System.Xml.Xsl.XsltArgumentList"/>.
@@ -8082,6 +8001,10 @@
             <typeparam name="TOut">The <see cref="T:System.Type"/> of output to return (constrained to <c>class</c>).</typeparam>
             <param name="xmlFragment">An XML fragment or document as a well-formed <see cref="T:System.String"/>.</param>
             <returns>Returns the specified <see cref="T:System.Type"/>.</returns>
+            <remarks>
+            This member only supports <c>TIn</c> as
+            <see cref="T:System.String"/>, <see cref="T:System.Xml.XmlDocument"/> or <see cref="T:System.Xml.XPath.XPathDocument"/>.
+            </remarks>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.OutputAs``1(System.Xml.XPath.IXPathNavigable)">
             <summary>
@@ -8090,6 +8013,10 @@
             <typeparam name="TOut">The <see cref="T:System.Type"/> of output to return (constrained to <c>class</c>).</typeparam>
             <param name="navigableDocument">An <see cref="T:System.Xml.XPath.IXPathNavigable"/>.</param>
             <returns>Returns the specified <see cref="T:System.Type"/>.</returns>
+            <remarks>
+            This member only supports <c>TIn</c> as
+            <see cref="T:System.String"/>, <see cref="T:System.Xml.XmlDocument"/> or <see cref="T:System.Xml.XPath.XPathDocument"/>.
+            </remarks>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.StripNamespaces(System.String)">
             <summary>
@@ -8211,8 +8138,8 @@
             <summary>
             Transfers the data in the Source to the Destination.
             </summary>
-            <param name="readerSource"><see cref="T:System.Xml.XmlReader"/></param>
-            <param name="writerDestination"><see cref="T:System.Xml.XmlWriter"/></param>
+            <param name="readerSource">The <see cref="T:System.Xml.XmlReader"/>.</param>
+            <param name="writerDestination">The <see cref="T:System.Xml.XmlWriter"/>.</param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.WriteXslTransform(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable,System.String)">
             <summary>
@@ -8239,9 +8166,15 @@
             The file-system, target path.
             </param>
         </member>
+        <member name="F:Songhay.Xml.XmlUtility.ConventionalHtmlEntities">
+            <summary>
+            The conventional HTML entities mapped to their respective glyphs.
+            </summary>
+        </member>
         <member name="M:Songhay.Xml.XmlUtility.XmlEncode(System.String)">
             <summary>
-            XMLs the encode.
+            Transforms selected XML glyphs
+            into their respective HTML entities.
             </summary>
             <param name="value">The value.</param>
         </member>
@@ -8339,7 +8272,7 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
+            <param name="node">The <see cref="!:Linq.XNode"/></param>
             <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
@@ -8348,7 +8281,7 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
+            <param name="node">The <see cref="!:Linq.XNode"/></param>
             <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
@@ -8358,7 +8291,7 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
+            <param name="node">The <see cref="!:Linq.XNode"/></param>
             <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="defaultValue">Return the specified default value for “zero-length” text nodes</param>
@@ -8372,7 +8305,7 @@
             Returns an object for parsing
             and adding to a list of parameters for data access.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/></param>
+            <param name="node">The <see cref="!:Linq.XNode"/></param>
             <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
@@ -8384,7 +8317,7 @@
             and adding to a list of parameters for data access.
             </summary>
             <typeparam name="T">The type to parse from the node value.</typeparam>
-            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/>.</param>
+            <param name="node">The <see cref="!:Linq.XNode"/>.</param>
             <param name="nodeQuery">The XPath <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</param>
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
@@ -8394,12 +8327,12 @@
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXDeclaration">
             <summary>
-            Gets the <see cref="T:System.Xml.Linq.XDeclaration"/>.
+            Gets the <see cref="!:Linq.XDeclaration"/>.
             </summary>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXDeclaration(System.String,System.Boolean)">
             <summary>
-            Gets the <see cref="T:System.Xml.Linq.XDeclaration"/>.
+            Gets the <see cref="!:Linq.XDeclaration"/>.
             </summary>
             <param name="encoding">The encoding (<see cref="F:Songhay.Models.XEncoding.Utf08"/> by default).</param>
             <param name="isStandAlone">When <c>true</c> document is stand-alone (<c>true</c> by default).</param>
@@ -8484,14 +8417,14 @@
             <summary>
             Gets the <see cref="T:System.Xml.Linq.XObject"/> from the specified XPath query..
             </summary>
-            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/> node.</param>
+            <param name="node">The <see cref="!:Linq.XNode"/> node.</param>
             <param name="nodeQuery">The <see cref="T:System.String"/></param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>
             Gets the <see cref="T:System.Xml.Linq.XObject"/> from the specified XPath query..
             </summary>
-            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/> node.</param>
+            <param name="node">The <see cref="!:Linq.XNode"/> node.</param>
             <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
@@ -8499,7 +8432,7 @@
             <summary>
             Gets the XObject.
             </summary>
-            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/> node.</param>
+            <param name="node">The <see cref="!:Linq.XNode"/> node.</param>
             <param name="nodeQuery">The <see cref="T:System.String"/></param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="resolver">
@@ -8542,7 +8475,7 @@
         </member>
         <member name="P:Songhay.Xml.XObjectUtility.XTextNonBreakingSpace">
             <summary>
-            <see cref="T:System.Xml.Linq.XText"/>: Non-Breaking Space
+            <see cref="!:Linq.XText"/>: Non-Breaking Space
             </summary>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement)">

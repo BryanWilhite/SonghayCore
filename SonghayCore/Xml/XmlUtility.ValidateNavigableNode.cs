@@ -5,14 +5,14 @@ namespace Songhay.Xml;
 public static partial class XmlUtility
 {
     /// <summary>
-    /// Returns an <see cref="System.Xml.Schema.XmlSchema"/> based
+    /// Returns an <see cref="XmlSchema"/> based
     /// on the specified navigable set and validation event handler.
     /// </summary>
     /// <param name="navigable">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The source <see cref="IXPathNavigable"/> document.
     /// </param>
     /// <param name="eventHandler">
-    /// The <see cref="System.Xml.Schema.ValidationEventHandler"/>
+    /// The <see cref="ValidationEventHandler"/>
     /// with signature MyHandler(object sender, ValidationEventArgs args).
     /// </param>
     public static XmlSchema? GetXmlSchema(IXPathNavigable navigable, ValidationEventHandler eventHandler)
@@ -30,14 +30,14 @@ public static partial class XmlUtility
     }
 
     /// <summary>
-    /// Loads an <see cref="System.Xml.Schema.XmlSchema"/> based
+    /// Loads an <see cref="XmlSchema"/> based
     /// on the specified navigable set and validation event handler.
     /// </summary>
     /// <param name="pathToSchema">
     /// The valid path to an XML Schema file.
     /// </param>
     /// <param name="eventHandler">
-    /// The <see cref="System.Xml.Schema.ValidationEventHandler"/>
+    /// The <see cref="ValidationEventHandler"/>
     /// with signature MyHandler(object sender, ValidationEventArgs args).
     /// </param>
     public static XmlSchema? LoadXmlSchema(string? pathToSchema, ValidationEventHandler? eventHandler)
@@ -59,13 +59,13 @@ public static partial class XmlUtility
     /// with the specified schema and validation event handler.
     /// </summary>
     /// <param name="navigable">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The source <see cref="IXPathNavigable"/> document.
     /// </param>
     /// <param name="schema">
-    /// The <see cref="System.Xml.Schema.XmlSchema"/>.
+    /// The <see cref="XmlSchema"/>.
     /// </param>
     /// <param name="eventHandler">
-    /// The <see cref="System.Xml.Schema.ValidationEventHandler"/>
+    /// The <see cref="ValidationEventHandler"/>
     /// with signature MyHandler(object sender, ValidationEventArgs args).
     /// </param>
     public static void ValidateNavigableNode(IXPathNavigable? navigable, XmlSchema? schema,

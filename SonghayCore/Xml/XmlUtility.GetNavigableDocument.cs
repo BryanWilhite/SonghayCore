@@ -1,22 +1,13 @@
 ﻿namespace Songhay.Xml;
 
-/// <summary>
-/// Static helper members for XML-related routines.
-/// </summary>
-/// <remarks>
-/// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
-/// However, many accept any input implementing the
-/// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
-/// </remarks>
 public static partial class XmlUtility
 {
     /// <summary>
-    /// Returns an <see cref="System.Xml.XPath.XPathDocument"/>
-    /// based on the specified <see cref="System.String"/>.
+    /// Returns an <see cref="XPathDocument"/>
+    /// based on the specified <see cref="string"/>.
     /// </summary>
     /// <param name="xmlFragment">
-    /// A well-formed XML <see cref="System.String"/>.
+    /// A well-formed XML <see cref="string"/>.
     /// </param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
@@ -31,14 +22,14 @@ public static partial class XmlUtility
     }
 
     /// <summary>
-    /// Returns an <see cref="System.Xml.XPath.XPathDocument"/>
-    /// based on the specified <see cref="System.Xml.XmlNode"/>.
+    /// Returns an <see cref="XPathDocument"/>
+    /// based on the specified <see cref="XmlNode"/>.
     /// </summary>
     /// <param name="navigable">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The source <see cref="IXPathNavigable"/> document.
     /// </param>
     /// <remarks>
-    /// Use this member to convert <see cref="System.Xml.XmlDocument"/> documents.
+    /// Use this member to convert <see cref="XmlDocument"/> documents.
     /// </remarks>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
@@ -54,8 +45,8 @@ public static partial class XmlUtility
     }
 
     /// <summary>
-    /// Returns an <see cref="System.Xml.XPath.XPathDocument"/>
-    /// based on the specified <see cref="System.IO.Stream"/>.
+    /// Returns an <see cref="XPathDocument"/>
+    /// based on the specified <see cref="Stream"/>.
     /// </summary>
     /// <param name="stream">The stream.</param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
@@ -64,6 +55,7 @@ public static partial class XmlUtility
     {
         if (stream == null) return null;
         if (stream.Position != 0) stream.Position = 0;
+
         XPathDocument d = new XPathDocument(stream);
 
         return d;

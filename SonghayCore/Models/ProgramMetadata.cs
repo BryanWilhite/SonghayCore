@@ -22,10 +22,10 @@ public class ProgramMetadata
     public Dictionary<string, DbmsMetadata> DbmsSet { get; set; } = new();
 
     /// <summary>
-    /// Returns a <see cref="System.String" /> that represents this instance.
+    /// Returns a <see cref="String" /> that represents this instance.
     /// </summary>
     /// <returns>
-    /// A <see cref="System.String" /> that represents this instance.
+    /// A <see cref="String" /> that represents this instance.
     /// </returns>
     /// <summary>
     /// Gets or sets the REST API metadata set.

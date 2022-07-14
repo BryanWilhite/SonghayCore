@@ -8,7 +8,7 @@ public static partial class XmlUtility
     /// <typeparam name="T">
     /// The specified type to deserialize.
     /// </typeparam>
-    /// <param name="xmlPath">the XML file path</param>
+    /// <param name="xmlPath">The XML file path.</param>
     public static T? GetInstance<T>(string? xmlPath) where T : class
     {
         var serializer = new XmlSerializer(typeof(T));
@@ -25,13 +25,14 @@ public static partial class XmlUtility
     /// <typeparam name="T">
     /// The specified type to deserialize.
     /// </typeparam>
-    /// <param name="xmlFragment">the raw XML</param>
+    /// <param name="xmlFragment">The raw XML.</param>
     public static T? GetInstanceRaw<T>(string? xmlFragment) where T : class
     {
         xmlFragment.ThrowWhenNullOrWhiteSpace();
 
         var serializer = new XmlSerializer(typeof(T));
-        using StringReader reader = new StringReader(xmlFragment);
+
+        using var reader = new StringReader(xmlFragment);
         var instance = serializer.Deserialize(reader) as T;
 
         return instance;

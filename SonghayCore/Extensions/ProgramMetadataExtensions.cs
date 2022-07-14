@@ -7,7 +7,7 @@ public static class ProgramMetadataExtensions
 {
     /// <summary>
     /// Converts <see cref="ProgramMetadata" />
-    /// to the conventional <see cref="System.Net.Http.Headers.HttpRequestHeaders"/>.
+    /// to the conventional <see cref="Net.Http.Headers.HttpRequestHeaders"/>.
     /// </summary>
     /// <param name="meta">The <see cref="ProgramMetadata"/>.</param>
     /// <param name="restApiMetadataSetKey">The key for <see cref="ProgramMetadata.RestApiMetadataSet"/>.</param>

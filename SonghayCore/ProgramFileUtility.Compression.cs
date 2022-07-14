@@ -2,7 +2,7 @@
 
 /// <summary>
 /// A few static helper members
-/// for <see cref="System.IO"/>.
+/// for <see cref="IO"/>.
 /// </summary>
 public static partial class ProgramFileUtility
 {

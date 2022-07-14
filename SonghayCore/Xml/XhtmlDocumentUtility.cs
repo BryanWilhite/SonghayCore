@@ -11,7 +11,7 @@ public static partial class XhtmlDocumentUtility
     public static XNamespace Xhtml => "http://www.w3.org/1999/xhtml";
 
     /// <summary>
-    /// Loads the document.
+    /// Loads the <see cref="XhtmlDocument"/>.
     /// </summary>
     /// <param name="document">The XML document.</param>
     /// <param name="webPath">The public web path.</param>
@@ -19,7 +19,7 @@ public static partial class XhtmlDocumentUtility
         GetDocument(document, webPath, true);
 
     /// <summary>
-    /// Loads the document.
+    /// Loads the <see cref="XhtmlDocument"/>.
     /// </summary>
     /// <param name="document">The XML document.</param>
     /// <param name="webPath">The public web path.</param>
@@ -57,7 +57,7 @@ public static partial class XhtmlDocumentUtility
     }
 
     /// <summary>
-    /// Loads the document.
+    /// Loads the <see cref="XhtmlDocument"/>.
     /// </summary>
     /// <param name="pathToDocument">The path to document.</param>
     /// <param name="webPath">The public web path.</param>

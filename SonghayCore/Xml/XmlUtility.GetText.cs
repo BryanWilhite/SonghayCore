@@ -4,9 +4,9 @@ public static partial class XmlUtility
 {
     /// <summary>
     /// “Cleans” XML data returning
-    /// in a <see cref="System.IO.MemoryStream"/>.
+    /// in a <see cref="MemoryStream"/>.
     /// </summary>
-    /// <param name="ramStream"><see cref="System.IO.MemoryStream"/></param>
+    /// <param name="ramStream"><see cref="MemoryStream"/></param>
     public static string? GetText(MemoryStream? ramStream)
     {
         if (ramStream == null) return null;

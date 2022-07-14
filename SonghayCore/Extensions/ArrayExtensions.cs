@@ -1,7 +1,7 @@
 ﻿namespace Songhay.Extensions;
 
 /// <summary>
-/// Extensions of <see cref="System.Array"/>
+/// Extensions of <see cref="Array"/>
 /// </summary>
 public static class ArrayExtensions
 {

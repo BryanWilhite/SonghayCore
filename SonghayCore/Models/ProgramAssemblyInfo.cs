@@ -12,7 +12,7 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
     /// <summary>
     /// Constructor of this class.
     /// </summary>
-    /// <param name="targetAssembly">The target <see cref="System.Reflection.Assembly"/></param>
+    /// <param name="targetAssembly">The target <see cref="Reflection.Assembly"/></param>
     public ProgramAssemblyInfo(Assembly? targetAssembly)
     {
         ArgumentNullException.ThrowIfNull(targetAssembly);

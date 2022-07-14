@@ -1,7 +1,7 @@
 ﻿namespace Songhay.Extensions;
 
 /// <summary>
-/// Extensions of <see cref="System.Collections.Generic.IEnumerable&lt;T&gt;"/>.
+/// Extensions of <see cref="Collections.Generic.IEnumerable&lt;T&gt;"/>.
 /// </summary>
 /// <remarks>
 /// When this ‘greatest hits collection’ is found to be limited,
@@ -51,7 +51,7 @@ public static class IEnumerableOfTExtensions
         new[] {flattenedHead}.Concat(source.Flatten(childGetter));
 
     /// <summary>
-    /// Performs the <see cref="System.Action"/>
+    /// Performs the <see cref="Action"/>
     /// on each item in the enumerable object.
     /// </summary>
     /// <typeparam name="TEnumerable">The type of the enumerable.</typeparam>
@@ -77,7 +77,7 @@ public static class IEnumerableOfTExtensions
     }
 
     /// <summary>
-    /// Performs the <see cref="System.Action"/>
+    /// Performs the <see cref="Action"/>
     /// on each item in the enumerable object.
     /// </summary>
     /// <typeparam name="TEnumerable">The type of the enumerable.</typeparam>

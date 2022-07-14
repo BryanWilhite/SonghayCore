@@ -1,52 +1,43 @@
 ﻿namespace Songhay.Xml;
 
-/// <summary>
-/// Static helper members for XML-related routines.
-/// </summary>
-/// <remarks>
-/// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
-/// However, many accept any input implementing the
-/// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
-/// </remarks>
 public static partial class XmlUtility
 {
     /// <summary>
-    /// Write a message to the specified
+    /// Gets the conventional, XML <c>&lt;InternalMessage&gt;</c>.
     /// </summary>
-    /// <param name="messageHeader">Message header</param>
-    /// <param name="messageLines">Message lines</param>
-    /// <param name="xmlDataWriter">The <see cref="System.Xml.XmlWriter"/></param>
+    /// <param name="messageHeader">Message header.</param>
+    /// <param name="messageLines">Message lines.</param>
+    /// <param name="xmlDataWriter">The <see cref="XmlWriter"/>.</param>
     public static void GetInternalMessage(string? messageHeader, string[]? messageLines, XmlWriter? xmlDataWriter) =>
         GetInternalMessage(messageHeader, string.Empty, messageLines, xmlDataWriter, false);
 
     /// <summary>
-    /// Write a message to the specified
+    /// Gets the conventional, XML <c>&lt;InternalMessage&gt;</c>.
     /// </summary>
-    /// <param name="messageHeader">Message header</param>
-    /// <param name="messageCode">Message code for errors, exceptions or faults</param>
-    /// <param name="messageLines">Message lines</param>
-    /// <param name="xmlDataWriter">The <see cref="System.Xml.XmlTextWriter"/></param>
+    /// <param name="messageHeader">Message header.</param>
+    /// <param name="messageCode">Message code for errors, exceptions or faults.</param>
+    /// <param name="messageLines">Message lines.</param>
+    /// <param name="xmlDataWriter">The <see cref="XmlTextWriter"/>.</param>
     public static void GetInternalMessage(string? messageHeader, string? messageCode, string[]? messageLines,
         XmlWriter xmlDataWriter) => GetInternalMessage(messageHeader, messageCode, messageLines, xmlDataWriter, false);
 
     /// <summary>
-    /// Write a message to the specified
+    /// Gets the conventional, XML <c>&lt;InternalMessage&gt;</c>.
     /// </summary>
-    /// <param name="messageHeader">Message header</param>
-    /// <param name="messageLines">Message lines</param>
-    /// <param name="xmlDataWriter">The <see cref="System.Xml.XmlWriter"/></param>
+    /// <param name="messageHeader">Message header.</param>
+    /// <param name="messageLines">Message lines.</param>
+    /// <param name="xmlDataWriter">The <see cref="XmlWriter"/>.</param>
     /// <param name="isFragment">When <c>false</c> a new document is started.</param>
     public static void GetInternalMessage(string? messageHeader, string[]? messageLines, XmlWriter? xmlDataWriter,
         bool isFragment) => GetInternalMessage(messageHeader, string.Empty, messageLines, xmlDataWriter, isFragment);
 
     /// <summary>
-    /// Write a message to the specified
+    /// Gets the conventional, XML <c>&lt;InternalMessage&gt;</c>.
     /// </summary>
-    /// <param name="messageHeader">Message header</param>
-    /// <param name="messageCode">Message code for errors, exceptions or faults</param>
-    /// <param name="messageLines">Message lines</param>
-    /// <param name="xmlDataWriter">The <see cref="System.Xml.XmlWriter"/></param>
+    /// <param name="messageHeader">Message header.</param>
+    /// <param name="messageCode">Message code for errors, exceptions or faults.</param>
+    /// <param name="messageLines">Message lines.</param>
+    /// <param name="xmlDataWriter">The <see cref="XmlWriter"/>.</param>
     /// <param name="isFragment">When <c>false</c> a new document is started.</param>
     public static void GetInternalMessage(string? messageHeader, string? messageCode, string[]? messageLines,
         XmlWriter? xmlDataWriter, bool isFragment)

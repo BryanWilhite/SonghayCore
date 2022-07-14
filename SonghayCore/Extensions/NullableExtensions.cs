@@ -67,7 +67,7 @@ public static class NullableExtensions
     /// <param name="paramName">the name of the variable holding the <see cref="string"/></param>
     /// <exception cref="ArgumentNullException"></exception>
     /// <remarks>
-    /// This member borrows heavily from <see cref="System.ArgumentNullException.ThrowIfNull"/>.
+    /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull"/>.
     ///
     /// The <see cref="NotNullAttribute"/> is applied to this member based
     /// on the following statement from Microsoft:
@@ -105,7 +105,7 @@ public static class NullableExtensions
     /// <typeparam name="T">the type</typeparam>
     /// <exception cref="ArgumentNullException"></exception>
     /// <remarks>
-    /// This member borrows heavily from <see cref="System.ArgumentNullException.ThrowIfNull"/>.
+    /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull"/>.
     ///
     /// The <see cref="NotNullAttribute"/> is applied to this member based
     /// on the following statement from Microsoft:
@@ -136,7 +136,7 @@ public static class NullableExtensions
     /// <typeparam name="T">the type</typeparam>
     /// <exception cref="ArgumentNullException"></exception>
     /// <remarks>
-    /// This member borrows heavily from <see cref="System.ArgumentNullException.ThrowIfNull"/>.
+    /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull"/>.
     ///
     /// The <see cref="NotNullAttribute"/> is applied to this member based
     /// on the following statement from Microsoft:

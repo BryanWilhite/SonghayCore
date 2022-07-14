@@ -11,7 +11,7 @@ public static partial class XObjectUtility
     public static readonly string GlyphNonBreakingSpace = " ";
 
     /// <summary>
-    /// <see cref="System.Xml.Linq.XText"/>: Non-Breaking Space
+    /// <see cref="Linq.XText"/>: Non-Breaking Space
     /// </summary>
     public static XText XTextNonBreakingSpace => new(GlyphNonBreakingSpace);
 

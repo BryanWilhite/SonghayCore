@@ -1,26 +1,17 @@
 ﻿namespace Songhay.Xml;
 
-/// <summary>
-/// Static helper members for XML-related routines.
-/// </summary>
-/// <remarks>
-/// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
-/// However, many accept any input implementing the
-/// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
-/// </remarks>
 public static partial class XmlUtility
 {
     /// <summary>
-    /// Returns an <see cref="System.Xml.XPath.XPathNavigator"/>
+    /// Returns an <see cref="XPathNavigator"/>
     /// based on the nodeQuery Expression toward the source document.
     /// </summary>
     /// <param name="navigable">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The source <see cref="IXPathNavigable"/> document.
     /// </param>
     /// <param name="nodeQuery">
     /// The value to be compiled
-    /// into an <see cref="System.Xml.XPath.XPathExpression"/>.
+    /// into an <see cref="XPathExpression"/>.
     /// </param>
     public static XPathNavigator? GetNavigableNode(IXPathNavigable? navigable, string? nodeQuery)
     {
@@ -35,18 +26,18 @@ public static partial class XmlUtility
     }
 
     /// <summary>
-    /// Returns an <see cref="System.Xml.XPath.XPathNavigator"/>
+    /// Returns an <see cref="XPathNavigator"/>
     /// based on the nodeQuery Expression toward the source document.
     /// </summary>
     /// <param name="navigable">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The source <see cref="IXPathNavigable"/> document.
     /// </param>
     /// <param name="nodeQuery">
     /// The value to be compiled
-    /// into an <see cref="System.Xml.XPath.XPathExpression"/>.
+    /// into an <see cref="XPathExpression"/>.
     /// </param>
     /// <param name="nsMan">
-    /// The <see cref="System.Xml.XmlNamespaceManager"/>
+    /// The <see cref="XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
     public static XPathNavigator? GetNavigableNode(IXPathNavigable? navigable, string? nodeQuery,
@@ -63,15 +54,15 @@ public static partial class XmlUtility
     }
 
     /// <summary>
-    /// Returns an <see cref="System.Xml.XPath.XPathNodeIterator"/>
+    /// Returns an <see cref="XPathNodeIterator"/>
     /// based on the nodeQuery Expression toward the source document.
     /// </summary>
     /// <param name="navigable">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The source <see cref="IXPathNavigable"/> document.
     /// </param>
     /// <param name="nodeQuery">
     /// The value to be compiled
-    /// into an <see cref="System.Xml.XPath.XPathExpression"/>.
+    /// into an <see cref="XPathExpression"/>.
     /// </param>
     public static XPathNodeIterator? GetNavigableNodes(IXPathNavigable? navigable, string? nodeQuery)
     {
@@ -87,18 +78,18 @@ public static partial class XmlUtility
     }
 
     /// <summary>
-    /// Returns an <see cref="System.Xml.XPath.XPathNodeIterator"/>
+    /// Returns an <see cref="XPathNodeIterator"/>
     /// based on the nodeQuery Expression toward the source document.
     /// </summary>
     /// <param name="navigable">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> document.
+    /// The source <see cref="IXPathNavigable"/> document.
     /// </param>
     /// <param name="nodeQuery">
     /// The value to be compiled
-    /// into an <see cref="System.Xml.XPath.XPathExpression"/>.
+    /// into an <see cref="XPathExpression"/>.
     /// </param>
     /// <param name="nsMan">
-    /// The <see cref="System.Xml.XmlNamespaceManager"/>
+    /// The <see cref="XmlNamespaceManager"/>
     /// to use to resolve prefixes.
     /// </param>
     public static XPathNodeIterator? GetNavigableNodes(IXPathNavigable? navigable, string? nodeQuery,

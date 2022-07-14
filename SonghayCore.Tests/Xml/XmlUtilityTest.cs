@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Text;
+﻿using System.Text;
 using System.Xml;
 using Songhay.Xml;
 using Xunit;
@@ -37,5 +36,27 @@ public class XmlUtilityTest
         {
             ms.Dispose();
         }
+    }
+
+    [Theory]
+    [InlineData("", "")]
+    [InlineData(null, null)]
+    [InlineData("&lt;one/&gt;", "<one/>")]
+    public void XmlDecode_Test(string? input, string? expected)
+    {
+        var actual = XmlUtility.XmlDecode(input);
+
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
+    [InlineData("", "")]
+    [InlineData(null, null)]
+    [InlineData("<one/>", "&lt;one/&gt;")]
+    public void XmlEncode_Test(string? input, string? expected)
+    {
+        var actual = XmlUtility.XmlEncode(input);
+
+        Assert.Equal(expected, actual);
     }
 }

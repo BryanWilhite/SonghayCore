@@ -3,15 +3,15 @@
 public static partial class XmlUtility
 {
     /// <summary>
-    /// Returns a <see cref="System.Xml.XPath.XPathDocument"/>
+    /// Returns a <see cref="XPathDocument"/>
     /// for the transformation of the XSLT document
     /// and the XML document.
     /// </summary>
     /// <param name="navigableXsl">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> XSL document.
+    /// The source <see cref="IXPathNavigable"/> XSL document.
     /// </param>
     /// <param name="navigableSet">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> XML document.
+    /// The source <see cref="IXPathNavigable"/> XML document.
     /// </param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
@@ -19,18 +19,18 @@ public static partial class XmlUtility
         GetXslResult(navigableXsl, null, navigableSet);
 
     /// <summary>
-    /// Returns a <see cref="System.Xml.XPath.XPathDocument"/>
+    /// Returns a <see cref="XPathDocument"/>
     /// for the transformation of the XSLT document
     /// and the XML document.
     /// </summary>
     /// <param name="navigableXsl">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> XSL document.
+    /// The source <see cref="IXPathNavigable"/> XSL document.
     /// </param>
     /// <param name="xslArgs">
-    /// The <see cref="System.Xml.Xsl.XsltArgumentList"/>.
+    /// The <see cref="XsltArgumentList"/>.
     /// </param>
     /// <param name="navigableXml">
-    /// The source <see cref="System.Xml.XPath.IXPathNavigable"/> XML document.
+    /// The source <see cref="IXPathNavigable"/> XML document.
     /// </param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]

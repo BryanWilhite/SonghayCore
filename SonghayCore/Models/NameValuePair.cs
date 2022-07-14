@@ -4,7 +4,7 @@
 /// Defines name-value pair.
 /// </summary>
 /// <remarks>
-/// Consider using the <see cref="System.Collections.Generic.KeyValuePair&lt;TKey, TValue&gt;"/> structure
+/// Consider using the <see cref="Collections.Generic.KeyValuePair&lt;TKey, TValue&gt;"/> structure
 /// (from .NET 2.0 onwards) before using this type.
 /// </remarks>
 public class NameValuePair
@@ -22,10 +22,10 @@ public class NameValuePair
     public string? Value { get; set; }
 
     /// <summary>
-    /// Returns a <see cref="System.String" /> that represents this instance.
+    /// Returns a <see cref="String" /> that represents this instance.
     /// </summary>
     /// <returns>
-    /// A <see cref="System.String" /> that represents this instance.
+    /// A <see cref="String" /> that represents this instance.
     /// </returns>
     public override string ToString()
     {

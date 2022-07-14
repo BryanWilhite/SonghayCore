@@ -3,7 +3,7 @@
 namespace Songhay.Extensions;
 
 /// <summary>
-/// Extensions of <see cref="System.Environment"/>.
+/// Extensions of <see cref="Environment"/>.
 /// </summary>
 public static class EnvironmentExtensions
 {

@@ -1,22 +1,13 @@
 ﻿namespace Songhay.Xml;
 
-/// <summary>
-/// Static helper members for XML-related routines.
-/// </summary>
-/// <remarks>
-/// These definitions are biased toward
-/// emitting <see cref="System.Xml.XPath.XPathDocument"/> documents.
-/// However, many accept any input implementing the
-/// <see cref="System.Xml.XPath.IXPathNavigable"/> interface.
-/// </remarks>
 public static partial class XmlUtility
 {
     /// <summary>
-    /// Returns an <see cref="System.Xml.XPath.XPathDocument"/>
+    /// Returns an <see cref="XPathDocument"/>
     /// based on the specified header and lines.
     /// </summary>
-    /// <param name="messageHeader">Message header</param>
-    /// <param name="messageLines">Message lines</param>
+    /// <param name="messageHeader">Message header.</param>
+    /// <param name="messageLines">Message lines.</param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
     public static XPathDocument? GetInternalMessageDocument(string? messageHeader, string[]? messageLines) =>
@@ -24,12 +15,12 @@ public static partial class XmlUtility
 
 
     /// <summary>
-    /// Returns an <see cref="System.Xml.XPath.XPathDocument"/>
+    /// Returns an <see cref="XPathDocument"/>
     /// based on the specified header and lines.
     /// </summary>
-    /// <param name="messageHeader">Message header</param>
+    /// <param name="messageHeader">Message header.</param>
     /// <param name="messageCode">Message code for errors, exceptions or faults</param>
-    /// <param name="messageLines">Message lines</param>
+    /// <param name="messageLines">Message lines.</param>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
     public static XPathDocument? GetInternalMessageDocument(string? messageHeader, string? messageCode,

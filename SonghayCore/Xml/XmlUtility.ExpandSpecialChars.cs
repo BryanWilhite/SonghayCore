@@ -4,10 +4,10 @@ public static partial class XmlUtility
 {
     /// <summary>
     /// Expands selected characters
-    /// in the specified <see cref="System.String"/>
+    /// in the specified <see cref="string"/>
     /// into the standard XML entities.
     /// </summary>
-    /// <param name="rawValue">The raw <see cref="System.String"/></param>
+    /// <param name="rawValue">The raw <see cref="string"/>.</param>
     public static string ExpandSpecialChars(string rawValue)
     {
         string s = rawValue;
