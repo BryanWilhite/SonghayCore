@@ -1,28 +1,24 @@
 ﻿namespace Songhay.Xml;
 
-/// <summary>
-/// Static helper members for XML-related routines.
-/// </summary>
 public static partial class XObjectUtility
 {
     /// <summary>
-    /// Gets the element.
+    /// Gets the <see cref="XElement" />.
     /// </summary>
-    /// <param name="rootElement">The root element.</param>
+    /// <param name="rootElement">The root element name.</param>
     /// <param name="innerXml">The inner XML.</param>
     public static XElement GetXElement(string? rootElement, object? innerXml)
     {
         rootElement.ThrowWhenNullOrWhiteSpace();
 
-        return XElement.Parse(string.Format("<{0}>{1}</{0}>", rootElement, innerXml));
+        return XElement.Parse($"<{rootElement}>{innerXml}</{rootElement}>");
     }
 
     /// <summary>
-    /// Gets the element.
+    /// Gets the <see cref="XElement" />.
     /// </summary>
-    /// <param name="root">The root.</param>
+    /// <param name="root">The root <see cref="XNode"/>.</param>
     /// <param name="pathToElement">The XPath to element.</param>
-    /// <returns></returns>
     public static XElement? GetXElement(XNode? root, string? pathToElement)
     {
         ArgumentNullException.ThrowIfNull(root);
@@ -32,14 +28,10 @@ public static partial class XObjectUtility
     }
 
     /// <summary>
-    /// Gets the elements.
+    /// Gets the <see cref="IEnumerable{XElement}"/>.
     /// </summary>
     /// <param name="currentElement">The current element.</param>
     /// <param name="query">The xpath query.</param>
-    public static IEnumerable<XElement> GetXElements(XNode? currentElement, string? query)
-    {
-        var nodes = GetXNodes(currentElement, query);
-
-        return nodes.OfType<XElement>();
-    }
+    public static IEnumerable<XElement> GetXElements(XNode? currentElement, string? query) =>
+        GetXNodes(currentElement, query).OfType<XElement>();
 }

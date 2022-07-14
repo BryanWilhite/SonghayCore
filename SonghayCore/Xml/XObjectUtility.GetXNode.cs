@@ -1,8 +1,5 @@
 ﻿namespace Songhay.Xml;
 
-/// <summary>
-/// Static helper members for XML-related routines.
-/// </summary>
 public static partial class XObjectUtility
 {
     /// <summary>
@@ -10,7 +7,6 @@ public static partial class XObjectUtility
     /// </summary>
     /// <param name="node">The node.</param>
     /// <param name="nodeQuery">The node query.</param>
-    /// <returns></returns>
     public static XNode? GetXNode(XNode? node, string? nodeQuery) => GetXObject(node, nodeQuery) as XNode;
 
     /// <summary>
@@ -18,8 +14,7 @@ public static partial class XObjectUtility
     /// </summary>
     /// <param name="node">The node.</param>
     /// <param name="nodeQuery">The node query.</param>
-    /// <param name="throwException">if node to <c>true</c> [throw exception].</param>
-    /// <returns></returns>
+    /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     public static XNode? GetXNode(XNode? node, string? nodeQuery, bool throwException) =>
         GetXObject(node, nodeQuery, throwException) as XNode;
 
@@ -28,9 +23,8 @@ public static partial class XObjectUtility
     /// </summary>
     /// <param name="node">The node.</param>
     /// <param name="nodeQuery">The node query.</param>
-    /// <param name="throwException">if node to <c>true</c> [throw exception].</param>
+    /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     /// <param name="resolver">The resolver.</param>
-    /// <returns></returns>
     public static XNode? GetXNode(XNode? node, string? nodeQuery, bool throwException,
         IXmlNamespaceResolver resolver) =>
         GetXObject(node, nodeQuery, throwException, resolver) as XNode;
@@ -40,41 +34,26 @@ public static partial class XObjectUtility
     /// </summary>
     /// <param name="node">The node.</param>
     /// <param name="nodeQuery">The node query.</param>
-    /// <returns></returns>
-    public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery)
-    {
-        var nodes = GetXObjects(node, nodeQuery);
-
-        return nodes.OfType<XNode>();
-    }
+    public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery) =>
+        GetXObjects(node, nodeQuery).OfType<XNode>();
 
     /// <summary>
     /// Gets <see cref="IEnumerable{XNode}"/> from the specified XPath query.
     /// </summary>
     /// <param name="node">The node.</param>
     /// <param name="nodeQuery">The node query.</param>
-    /// <param name="throwException">if node to <c>true</c> [throw exception].</param>
-    /// <returns></returns>
-    public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery, bool throwException)
-    {
-        var nodes = GetXObjects(node, nodeQuery, throwException);
-
-        return nodes.OfType<XNode>();
-    }
+    /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
+    public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery, bool throwException) =>
+        GetXObjects(node, nodeQuery, throwException).OfType<XNode>();
 
     /// <summary>
     /// Gets <see cref="IEnumerable{XNode}"/> from the specified XPath query.
     /// </summary>
     /// <param name="node">The node.</param>
     /// <param name="nodeQuery">The node query.</param>
-    /// <param name="throwException">if node to <c>true</c> [throw exception].</param>
+    /// <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
     /// <param name="resolver">The resolver.</param>
-    /// <returns></returns>
     public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery, bool throwException,
-        IXmlNamespaceResolver? resolver)
-    {
-        var nodes = GetXObjects(node, nodeQuery, throwException, resolver);
-
-        return nodes.OfType<XNode>();
-    }
+        IXmlNamespaceResolver? resolver) =>
+        GetXObjects(node, nodeQuery, throwException, resolver).OfType<XNode>();
 }

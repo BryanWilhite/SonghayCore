@@ -1,8 +1,5 @@
 ﻿namespace Songhay.Xml;
 
-/// <summary>
-/// Static helper members for XML-related routines.
-/// </summary>
 public static partial class XObjectUtility
 {
     /// <summary>
@@ -11,7 +8,7 @@ public static partial class XObjectUtility
     public static readonly string GlyphNonBreakingSpace = " ";
 
     /// <summary>
-    /// <see cref="Linq.XText"/>: Non-Breaking Space
+    /// <see cref="XText"/>: Non-Breaking Space
     /// </summary>
     public static XText XTextNonBreakingSpace => new(GlyphNonBreakingSpace);
 
@@ -26,7 +23,7 @@ public static partial class XObjectUtility
     /// Joins the flattened <see cref="XText"/> nodes.
     /// </summary>
     /// <param name="rootElement">The root element.</param>
-    /// <param name="includeRootElement">if set to <c>true</c> [include root element].</param>
+    /// <param name="includeRootElement">When <c>true</c> include root element.</param>
     public static string? JoinFlattenedXTextNodes(XElement? rootElement, bool includeRootElement) =>
         JoinFlattenedXTextNodes(rootElement, includeRootElement, joinDelimiter: string.Empty);
 
@@ -34,9 +31,8 @@ public static partial class XObjectUtility
     /// Joins the flattened <see cref="XText"/> nodes.
     /// </summary>
     /// <param name="rootElement">The root element.</param>
-    /// <param name="includeRootElement">if set to <c>true</c> [include root element].</param>
+    /// <param name="includeRootElement">When <c>true</c> include root element.</param>
     /// <param name="joinDelimiter">The join delimiter.</param>
-    /// <returns></returns>
     public static string? JoinFlattenedXTextNodes(XElement? rootElement, bool includeRootElement, string? joinDelimiter)
     {
         if (rootElement == null) return null;
