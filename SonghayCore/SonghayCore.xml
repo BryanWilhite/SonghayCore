@@ -7443,42 +7443,6 @@
             <param name="childDocument">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> child document.</param>
             <param name="nodeQuery">The XPath query to the child document location in the “hosting” document. </param>
         </member>
-        <member name="M:Songhay.Xml.XmlUtility.ExpandSpecialChars(System.String)">
-            <summary>
-            Expands selected characters
-            in the specified <see cref="T:System.String"/>
-            into the standard XML entities.
-            </summary>
-            <param name="rawValue">The raw <see cref="T:System.String"/>.</param>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.GetAttributeValue(System.Xml.XPath.IXPathNavigable,System.String)">
-            <summary>
-            An alternative to <see cref="M:System.Xml.XPath.XPathNavigator.GetAttribute(System.String,System.String)"/>.
-            </summary>
-            <param name="navigable">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/>.
-            </param>
-            <param name="nodeQuery">
-            The value to be compiled
-            into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
-            </param>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.GetAttributeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Xml.XmlNamespaceManager)">
-            <summary>
-            An alternative to <see cref="M:System.Xml.XPath.XPathNavigator.GetAttribute(System.String,System.String)"/>.
-            </summary>
-            <param name="navigable">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/>.
-            </param>
-            <param name="nodeQuery">
-            The value to be compiled
-            into an <see cref="T:System.Xml.XPath.XPathExpression"/>.
-            </param>
-            <param name="nsMan">
-            The <see cref="T:System.Xml.XmlNamespaceManager"/>
-            to use to resolve prefixes.
-            </param>
-        </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInstance``1(System.String)">
             <summary>
             Deserializes based on the specified XML file.
@@ -8177,12 +8141,16 @@
             into their respective HTML entities.
             </summary>
             <param name="value">The value.</param>
+            <seealso cref="M:Songhay.Xml.LatinGlyphsUtility.Expand(System.String,System.Boolean)"/>
+            <remarks>This member will preserve HTML comments.</remarks>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.XmlDecode(System.String)">
             <summary>
-            XMLs the decode.
+            Transforms selected HTML entities
+            into their respective glyphs.
             </summary>
             <param name="value">The value.</param>
+            <seealso cref="M:Songhay.Xml.LatinGlyphsUtility.Condense(System.String,System.Boolean)"/>
         </member>
         <member name="T:Songhay.Xml.XObjectUtility">
             <summary>

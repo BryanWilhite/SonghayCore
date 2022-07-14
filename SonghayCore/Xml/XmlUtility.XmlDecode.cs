@@ -19,6 +19,8 @@ public static partial class XmlUtility
     /// into their respective HTML entities.
     /// </summary>
     /// <param name="value">The value.</param>
+    /// <seealso cref="LatinGlyphsUtility.Expand"/>
+    /// <remarks>This member will preserve HTML comments.</remarks>
     public static string? XmlEncode(string? value)
     {
         if (string.IsNullOrWhiteSpace(value)) return value;
@@ -28,13 +30,20 @@ public static partial class XmlUtility
             value = value.Replace(pair.Value, pair.Key);
         }
 
+        //Preserve comments:
+        value = value
+            .Replace("--&gt;", "-->")
+            .Replace("&lt;!--", "<!--");
+
         return value;
     }
 
     /// <summary>
-    /// XMLs the decode.
+    /// Transforms selected HTML entities
+    /// into their respective glyphs.
     /// </summary>
     /// <param name="value">The value.</param>
+    /// <seealso cref="LatinGlyphsUtility.Condense"/>
     public static string? XmlDecode(string? value)
     {
         if (string.IsNullOrWhiteSpace(value)) return value;
