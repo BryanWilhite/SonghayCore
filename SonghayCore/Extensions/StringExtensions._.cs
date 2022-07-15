@@ -9,18 +9,17 @@ public static partial class StringExtensions
     /// Returns <c>true</c> when the strings are equal without regard to cultural locales
     /// or casing.
     /// </summary>
-    /// <param name="input"></param>
-    /// <param name="otherString"></param>
+    /// <param name="input">The input.</param>
+    /// <param name="otherString">The other <see cref="string"/>.</param>
     public static bool EqualsInvariant(this string? input, string? otherString) =>
         input.EqualsInvariant(otherString, ignoreCase: true);
 
     /// <summary>
     /// Returns <c>true</c> when the strings are equal without regard to cultural locales.
     /// </summary>
-    /// <param name="input"></param>
-    /// <param name="otherString"></param>
+    /// <param name="input">The input.</param>
+    /// <param name="otherString">The other <see cref="string"/>.</param>
     /// <param name="ignoreCase"></param>
-    /// <returns></returns>
     public static bool EqualsInvariant(this string? input, string? otherString, bool ignoreCase)
     {
         return ignoreCase
@@ -32,12 +31,11 @@ public static partial class StringExtensions
     /// Escapes the interpolation tokens of <see cref="string.Format(string, object[])"/>.
     /// </summary>
     /// <param name="input">The input.</param>
-    /// <returns></returns>
     public static string? EscapeInterpolation(this string? input) =>
         string.IsNullOrWhiteSpace(input) ? input : input.Replace("{", "{{").Replace("}", "}}");
 
     /// <summary>
-    /// Converts camel-case <see cref="string"/> to <see cref="Collections.Generic.IEnumerable&lt;T&gt;"/>.
+    /// Converts camel-case <see cref="string"/> to <see cref="IEnumerable{T}"/>.
     /// </summary>
     /// <param name="input">The input.</param>
     public static IEnumerable<string> FromCamelCaseToEnumerable(this string? input) =>
@@ -249,15 +247,15 @@ public static partial class StringExtensions
     ///  input:  "Příliš žluťoučký kůň úpěl ďábelské ódy."
     ///  result: "Prilis zlutoucky kun upel dabelske ody."
     /// </example>
-    /// <param name="s"></param>
+    /// <param name="input">The input.</param>
     /// <remarks>
     /// From Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
     /// Also, see http://stackoverflow.com/questions/249087/how-do-i-remove-diacritics-accents-from-a-string-in-net
     /// </remarks>
-    /// <returns>string without accents</returns>
-    public static string RemoveDiacritics(this string s)
+    /// <returns><see cref="string"/> without accents</returns>
+    public static string RemoveDiacritics(this string input)
     {
-        string stFormD = s.Normalize(NormalizationForm.FormD);
+        string stFormD = input.Normalize(NormalizationForm.FormD);
         StringBuilder sb = new StringBuilder();
 
         foreach (var t in stFormD)

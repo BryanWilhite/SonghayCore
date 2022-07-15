@@ -1,7 +1,7 @@
 ﻿namespace Songhay;
 
 /// <summary>
-/// Static members related to <see cref="Reflection"/>.
+/// Static members related to <see cref="System.Reflection"/>.
 /// </summary>
 public static class ProgramAssemblyUtility
 {
@@ -10,7 +10,7 @@ public static class ProgramAssemblyUtility
     /// about the executing assembly.
     /// </summary>
     /// <param name="targetAssembly">
-    /// The executing <see cref="Reflection.Assembly"/>.
+    /// The executing <see cref="Assembly"/>.
     /// </param>
     /// <returns>Returns <see cref="string"/></returns>
     public static string? GetAssemblyInfo(Assembly targetAssembly) => GetAssemblyInfo(targetAssembly, false);
@@ -20,7 +20,7 @@ public static class ProgramAssemblyUtility
     /// about the executing assembly.
     /// </summary>
     /// <param name="targetAssembly">
-    /// The executing <see cref="Reflection.Assembly"/>.
+    /// The executing <see cref="Assembly"/>.
     /// </param>
     /// <param name="useConsoleChars">
     /// When <c>true</c> selected “special” characters are formatted for the Windows Console.

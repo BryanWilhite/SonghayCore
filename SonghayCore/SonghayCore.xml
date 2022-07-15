@@ -850,7 +850,8 @@
             <param name="levels">The levels.</param>
         </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath(System.IO.DirectoryInfo,System.String)">
-            <summary>Combines path and root based
+            <summary>
+            Combines path and root based
             on the current value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>
             of the current OS or passes through a drive-letter rooted path.</summary>
             <param name="directoryInfo">The specified <see cref="T:System.IO.DirectoryInfo"/>.</param>
@@ -878,23 +879,21 @@
             Returns <c>true</c> when the item has the <see cref="P:Songhay.Models.DisplayItemModel.Tag"/>
             based on the specified evaluator.
             </summary>
-            <param name="data"></param>
-            <param name="evaluator"></param>
-            <returns></returns>
+            <param name="data">The <see cref="T:Songhay.Models.DisplayItemModel"/>.</param>
+            <param name="evaluator">The predicate for evaluating <see cref="P:Songhay.Models.DisplayItemModel.Tag"/>.</param>
         </member>
         <member name="M:Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel(Songhay.Models.DisplayItemModel)">
             <summary>
             Converts the <see cref="T:Songhay.Models.DisplayItemModel"/> into a menu display item model.
             </summary>
-            <param name="data">The data.</param>
+            <param name="data">The <see cref="T:Songhay.Models.DisplayItemModel"/>.</param>
         </member>
         <member name="M:Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel,System.Object)">
             <summary>
             Fluently sets <see cref="P:Songhay.Models.DisplayItemModel.Tag"/>.
             </summary>
-            <param name="data">The data.</param>
-            <param name="tag">The tag.</param>
-            <returns></returns>
+            <param name="data">The <see cref="T:Songhay.Models.DisplayItemModel"/>.</param>
+            <param name="tag">The value of <see cref="P:Songhay.Models.DisplayItemModel.Tag"/>.</param>
         </member>
         <member name="T:Songhay.Extensions.EnumExtensions">
             <summary>
@@ -903,27 +902,36 @@
         </member>
         <member name="M:Songhay.Extensions.EnumExtensions.GetEnumDescription(System.Enum)">
             <summary>
-            Gets the enum description.
+            Gets any conventional <see cref="P:System.ComponentModel.DescriptionAttribute.Description"/>
+            applied to an <see cref="T:System.Enum"/>.
             </summary>
-            <param name="value">The value.</param>
+            <param name="value">The <see cref="T:System.Enum"/>.</param>
         </member>
         <member name="M:Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)">
             <summary>
-            Gets the enum values.
+            Gets the result of <see cref="M:System.Enum.GetValues(System.Type)"/>
+            based on the specified <see cref="T:System.Enum"/>.
             </summary>
-            <param name="value">The value.</param>
+            <param name="value">The <see cref="T:System.Enum"/>.</param>
         </member>
         <member name="T:Songhay.Extensions.EnvironmentExtensions">
             <summary>
             Extensions of <see cref="T:System.Environment"/>.
             </summary>
         </member>
+        <member name="F:Songhay.Extensions.EnvironmentExtensions.EnvironmentVariables">
+            <summary>
+            The conventional <see cref="T:System.Collections.Generic.ICollection`1"/>
+            of <see cref="T:Songhay.Models.SystemVariable"/>.
+            </summary>
+        </member>
         <member name="M:Songhay.Extensions.EnvironmentExtensions.GetConventionalValue(System.String)">
             <summary>
-            Gets the conventional value.
+            Gets the value from the conventional <see cref="T:System.Collections.Generic.ICollection`1"/>
+            of <see cref="T:Songhay.Models.SystemVariable"/> based on the specified variable name.
             </summary>
-            <param name="conventionalName">Name of the conventional.</param>
-            <returns>Returns the value of named data.</returns>
+            <param name="conventionalName">The <see cref="P:Songhay.Models.SystemVariable.VariableName"/>.</param>
+            <returns>Returns <see cref="P:Songhay.Models.SystemVariable.VariableValue"/>.</returns>
         </member>
         <member name="T:Songhay.Extensions.FileInfoExtensions">
             <summary>
@@ -1024,7 +1032,6 @@
             <param name="client">The client.</param>
             <param name="uri">The URI.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.DownloadToFileAsync(System.Net.Http.HttpClient,System.Uri,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
@@ -1034,7 +1041,6 @@
             <param name="uri">The URI.</param>
             <param name="path">The path.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.DownloadToFileAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
             <summary>
@@ -1050,7 +1056,6 @@
             </summary>
             <param name="client">The request.</param>
             <param name="uri">The URI.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.DownloadToStringAsync(System.Net.Http.HttpClient,System.Uri,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
@@ -1059,7 +1064,6 @@
             <param name="client">The request.</param>
             <param name="uri">The URI.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.GetAsync(System.Net.Http.HttpClient,System.Uri,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
@@ -1069,7 +1073,6 @@
             <param name="client">The client.</param>
             <param name="uri">The URI.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.PostFormAsync(System.Net.Http.HttpClient,System.Uri,System.Collections.Hashtable)">
             <summary>
@@ -1081,8 +1084,6 @@
             <param name="client">The client.</param>
             <param name="uri">The URI.</param>
             <param name="formData">The form data.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.PostFormAsync(System.Net.Http.HttpClient,System.Uri,System.Collections.Hashtable,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
@@ -1095,8 +1096,6 @@
             <param name="uri">The URI.</param>
             <param name="formData">The form data.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.PostJsonAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
             <summary>
@@ -1108,8 +1107,6 @@
             <param name="client">The client.</param>
             <param name="uri">The URI.</param>
             <param name="requestBody">The request body.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.PostJsonAsync(System.Net.Http.HttpClient,System.Uri,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
@@ -1122,8 +1119,6 @@
             <param name="uri">The URI.</param>
             <param name="requestBody">The request body.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.PostXmlAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
             <summary>
@@ -1135,8 +1130,6 @@
             <param name="client">The client.</param>
             <param name="uri">The URI.</param>
             <param name="requestBody">The request body.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.PostXmlAsync(System.Net.Http.HttpClient,System.Uri,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
@@ -1149,8 +1142,6 @@
             <param name="uri">The URI.</param>
             <param name="requestBody">The request body.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.PutJsonAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
             <summary>
@@ -1162,8 +1153,6 @@
             <param name="client">The client.</param>
             <param name="uri">The URI.</param>
             <param name="requestBody">The request body.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.PutJsonAsync(System.Net.Http.HttpClient,System.Uri,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
@@ -1176,8 +1165,6 @@
             <param name="uri">The URI.</param>
             <param name="requestBody">The request body.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.PutXmlAsync(System.Net.Http.HttpClient,System.Uri,System.String)">
             <summary>
@@ -1189,8 +1176,6 @@
             <param name="client">The client.</param>
             <param name="uri">The URI.</param>
             <param name="requestBody">The request body.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.PutXmlAsync(System.Net.Http.HttpClient,System.Uri,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
@@ -1203,8 +1188,6 @@
             <param name="uri">The URI.</param>
             <param name="requestBody">The request body.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">requestBody - The expected request body is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.SendAsync(System.Net.Http.HttpClient,System.Uri,System.Net.Http.HttpMethod,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
@@ -1214,11 +1197,6 @@
             <param name="uri">The URI.</param>
             <param name="method">The method.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">uri
-            or
-            mediaType
-            </exception>
         </member>
         <member name="M:Songhay.Extensions.HttpClientExtensions.SendBodyAsync(System.Net.Http.HttpClient,System.Uri,System.Net.Http.HttpMethod,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
@@ -1232,12 +1210,6 @@
             <param name="encoding">The encoding.</param>
             <param name="mediaType">Type of the media.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">
-            requestBody
-            or
-            mediaType
-            </exception>
         </member>
         <member name="T:Songhay.Extensions.HttpRequestMessageExtensions">
             <summary>
@@ -1367,7 +1339,6 @@
             </summary>
             <param name="request">The request.</param>
             <param name="responseMessageAction">The response message action.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})">
             <summary>
@@ -1376,8 +1347,6 @@
             <param name="request">The request.</param>
             <param name="responseMessageAction">The response message action.</param>
             <param name="optionalClientGetter">The optional client getter.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">request</exception>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)">
             <summary>
@@ -1400,12 +1369,6 @@
             <param name="requestMessageAction">The request message action.</param>
             <param name="optionalClientGetter">The optional client getter.</param>
             <param name="completionOption"> the <see cref="T:System.Net.Http.HttpCompletionOption"/>.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">
-            uri
-            or
-            mediaType
-            </exception>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)">
             <summary>
@@ -1436,7 +1399,6 @@
             <param name="encoding">The encoding.</param>
             <param name="mediaType">Type of the media.</param>
             <param name="requestMessageAction">The request message action.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})">
             <summary>
@@ -1449,12 +1411,6 @@
             <param name="mediaType">Type of the media.</param>
             <param name="requestMessageAction">The request message action.</param>
             <param name="optionalClientGetter">The optional client getter.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">
-            requestBody
-            or
-            mediaType
-            </exception>
         </member>
         <member name="T:Songhay.Extensions.HttpResponseMessageExtensions">
             <summary>
@@ -1508,7 +1464,6 @@
             </summary>
             <param name="response">The response.</param>
             <typeparam name="TInstance">The type of the instance.</typeparam>
-            <returns></returns>
             <remarks>
             This method uses the Microsoft API to deserialize.
             </remarks>
@@ -1521,7 +1476,6 @@
             <param name="response">The response.</param>
             <param name="options">The <see cref="T:System.Text.Json.JsonSerializerOptions"/></param>
             <typeparam name="TInstance">The type of the instance.</typeparam>
-            <returns></returns>
             <remarks>
             This method uses the Microsoft API to deserialize.
             </remarks>
@@ -1552,7 +1506,6 @@
             Downloads to string.
             </summary>
             <param name="request">The request.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpWebRequestExtensions.DownloadToString(System.Net.HttpWebRequest,System.Uri,System.Boolean)">
             <summary>
@@ -1584,7 +1537,6 @@
             </summary>
             <param name="request">The request.</param>
             <param name="xmlFragment">The XML fragment.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpWebRequestExtensions.PostXml(System.Net.HttpWebRequest,System.String,System.Uri,System.Boolean)">
             <summary>
@@ -1594,7 +1546,6 @@
             <param name="xmlFragment">The XML fragment.</param>
             <param name="proxyLocation">The proxy location.</param>
             <param name="bypassProxy">if set to <c>true</c> [bypass proxy].</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpWebRequestExtensions.ToHttpStatusCode(System.Net.HttpWebRequest)">
             <summary>
@@ -1616,7 +1567,6 @@
             <param name="request">The request.</param>
             <param name="proxyLocation">The proxy location.</param>
             <param name="bypassProxy">if set to <c>true</c> [bypass proxy].</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest,System.String,System.String)">
             <summary>
@@ -1634,21 +1584,8 @@
             <param name="requestBody">The request body.</param>
             <param name="requestMethod">The request method.</param>
             <param name="contentType">The request content type.</param>
-            <returns></returns>
         </member>
         <member name="T:Songhay.Extensions.IActivityExtensions">
-            <summary>
-            Extensions of <see cref="T:Songhay.Abstractions.IActivity"/>
-            </summary>
-            <summary>
-            Extensions of <see cref="T:Songhay.Abstractions.IActivity"/>
-            </summary>
-            <summary>
-            Extensions of <see cref="T:Songhay.Abstractions.IActivity"/>
-            </summary>
-            <summary>
-            Extensions of <see cref="T:Songhay.Abstractions.IActivity"/>
-            </summary>
             <summary>
             Extensions of <see cref="T:Songhay.Abstractions.IActivity"/>
             </summary>
@@ -1659,8 +1596,6 @@
             </summary>
             <param name="activity">The activity.</param>
             <param name="configuration">The configuration.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">activity</exception>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivity(Songhay.Abstractions.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource)">
             <summary>
@@ -1669,8 +1604,8 @@
             </summary>
             <param name="activity">The activity.</param>
             <param name="args">The arguments.</param>
-            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
+            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityAsync``1(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
@@ -1680,8 +1615,8 @@
             <typeparam name="TInput">The type of the input.</typeparam>
             <param name="activity">The activity.</param>
             <param name="input">The input.</param>
-            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
+            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityAsync``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
@@ -1692,8 +1627,8 @@
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
             <param name="input">The input.</param>
-            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
+            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityForOutput``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
@@ -1704,8 +1639,8 @@
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
             <param name="input">The input.</param>
-            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
+            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithOutput``2(Songhay.Abstractions.IActivity)">
             <summary>
@@ -1715,9 +1650,6 @@
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">The expected Activity name is not here.
-            or</exception>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithOutput``2(Songhay.Abstractions.IActivity,System.Boolean)">
             <summary>
@@ -1799,7 +1731,7 @@
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.GetActivity(System.Collections.Generic.Dictionary{System.String,System.Lazy{Songhay.Abstractions.IActivity}},System.String)">
             <summary>
-            Gets the activity.
+            Gets the <see cref="T:Songhay.Abstractions.IActivity"/>.
             </summary>
             <param name="activities">The activities.</param>
             <param name="activityName">Name of the activity.</param>
@@ -1811,7 +1743,7 @@
             <param name="activity">The activity.</param>
             <param name="args">The arguments.</param>
             <param name="traceSource">The trace source.</param>
-            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
+            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartActivity(Songhay.Abstractions.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
             <summary>
@@ -1822,7 +1754,7 @@
             <param name="traceSource">The trace source.</param>
             <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
-            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
+            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityForOutput``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
@@ -1844,7 +1776,7 @@
             <param name="traceSource">The trace source.</param>
             <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
-            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
+            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
             <summary>
@@ -1854,7 +1786,7 @@
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
             <param name="input">The input.</param>
-            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter})">
@@ -1865,7 +1797,7 @@
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
             <param name="input">The input.</param>
-            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
         </member>
@@ -1876,7 +1808,7 @@
             <typeparam name="TInput">The type of the input.</typeparam>
             <param name="activity">The activity.</param>
             <param name="input">The input.</param>
-            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``1(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
@@ -1886,33 +1818,32 @@
             <typeparam name="TInput">The type of the input.</typeparam>
             <param name="activity">The activity.</param>
             <param name="input">The input.</param>
-            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
             <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
-            <exception cref="T:System.NullReferenceException">The expected {nameof(IActivity)} is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync(Songhay.Abstractions.IActivity,System.Diagnostics.TraceSource)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
             </summary>
             <param name="activity">The activity.</param>
-            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
+            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync(Songhay.Abstractions.IActivity,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
             </summary>
             <param name="activity">The activity.</param>
-            <param name="traceSource">The the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
+            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
             <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
-            <returns>The the <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>; otherwise, <c>null</c>.</returns>
+            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>; otherwise, <c>null</c>.</returns>
         </member>
         <member name="T:Songhay.Extensions.IDictionaryExtensions">
             <summary>
-            Extensions of <see cref="T:System.Collections.Generic.IDictionary`2"/>
+            Extensions of <see cref="T:System.Collections.Generic.IDictionary`2"/>.
             </summary>
         </member>
         <member name="M:Songhay.Extensions.IDictionaryExtensions.ToNameValueCollection``2(System.Collections.Generic.IDictionary{``0,``1})">
@@ -1926,7 +1857,6 @@
             <remarks>
             For detail, see https://stackoverflow.com/a/7230446/22944
             </remarks>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.IDictionaryExtensions.TryGetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
             <summary>
@@ -2082,15 +2012,15 @@
             Sets conventional default values
             for <see cref="T:Songhay.Abstractions.ITemporal"/> data.
             </summary>
-            <param name="data">the <see cref="T:Songhay.Abstractions.ITemporal"/> data</param>
+            <param name="data">The <see cref="T:Songhay.Abstractions.ITemporal"/> data.</param>
         </member>
         <member name="M:Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal,System.Nullable{System.DateTime})">
             <summary>
             Sets conventional default values
             for <see cref="T:Songhay.Abstractions.ITemporal"/> data.
             </summary>
-            <param name="data">the <see cref="T:Songhay.Abstractions.ITemporal"/> data</param>
-            <param name="endDate">sets <see cref="P:Songhay.Abstractions.ITemporal.EndDate"/></param>
+            <param name="data">The <see cref="T:Songhay.Abstractions.ITemporal"/> data.</param>
+            <param name="endDate">Sets <see cref="P:Songhay.Abstractions.ITemporal.EndDate"/>.</param>
         </member>
         <member name="T:Songhay.Extensions.MenuDisplayItemModelExtensions">
             <summary>
@@ -2400,11 +2330,10 @@
         <member name="M:Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(Songhay.Models.ProgramMetadata,System.String)">
             <summary>
             Converts <see cref="T:Songhay.Models.ProgramMetadata" />
-            to the conventional <see cref="!:Net.Http.Headers.HttpRequestHeaders"/>.
+            to the conventional <see cref="T:System.Net.Http.Headers.HttpRequestHeaders"/>.
             </summary>
             <param name="meta">The <see cref="T:Songhay.Models.ProgramMetadata"/>.</param>
             <param name="restApiMetadataSetKey">The key for <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/>.</param>
-            <returns></returns>
         </member>
         <member name="T:Songhay.Extensions.RestApiMetadataExtensions">
             <summary>
@@ -2632,28 +2561,26 @@
             Returns <c>true</c> when the strings are equal without regard to cultural locales
             or casing.
             </summary>
-            <param name="input"></param>
-            <param name="otherString"></param>
+            <param name="input">The input.</param>
+            <param name="otherString">The other <see cref="T:System.String"/>.</param>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.EqualsInvariant(System.String,System.String,System.Boolean)">
             <summary>
             Returns <c>true</c> when the strings are equal without regard to cultural locales.
             </summary>
-            <param name="input"></param>
-            <param name="otherString"></param>
+            <param name="input">The input.</param>
+            <param name="otherString">The other <see cref="T:System.String"/>.</param>
             <param name="ignoreCase"></param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.EscapeInterpolation(System.String)">
             <summary>
             Escapes the interpolation tokens of <see cref="M:System.String.Format(System.String,System.Object[])"/>.
             </summary>
             <param name="input">The input.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.FromCamelCaseToEnumerable(System.String)">
             <summary>
-            Converts camel-case <see cref="T:System.String"/> to <see cref="!:Collections.Generic.IEnumerable&lt;T&gt;"/>.
+            Converts camel-case <see cref="T:System.String"/> to <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
             </summary>
             <param name="input">The input.</param>
         </member>
@@ -2812,12 +2739,12 @@
              input:  "Příliš žluťoučký kůň úpěl ďábelské ódy."
              result: "Prilis zlutoucky kun upel dabelske ody."
             </example>
-            <param name="s"></param>
+            <param name="input">The input.</param>
             <remarks>
             From Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
             Also, see http://stackoverflow.com/questions/249087/how-do-i-remove-diacritics-accents-from-a-string-in-net
             </remarks>
-            <returns>string without accents</returns>
+            <returns><see cref="T:System.String"/> without accents</returns>
         </member>
         <member name="T:Songhay.Extensions.TaskExtensions">
             <summary>
@@ -3063,7 +2990,7 @@
             <remarks>
             Recall that <see cref="P:System.Uri.IsFile" /> is another way
             of stating that <c>Uri.Schema == Uri.UriSchemeFile</c>
-            and that <see cref="!:IO"/> members can process URIs.
+            and that <see cref="N:System.IO"/> members can process URIs.
             
             Also note that the only way to truly define a directory
             or folder is with a trailing forward/back slash.
@@ -3423,12 +3350,12 @@
         </member>
         <member name="T:Songhay.Globalization.TextInfoUtility">
             <summary>
-            Helper members for <see cref="!:Globalization.TextInfo" />.
+            Helper members for <see cref="T:System.Globalization.TextInfo" />.
             </summary>
         </member>
         <member name="M:Songhay.Globalization.TextInfoUtility.ToTitleCase(System.String)">
             <summary>
-            Wraps <see cref="!:Globalization.TextInfo.ToTitleCase"/>
+            Wraps <see cref="M:System.Globalization.TextInfo.ToTitleCase(System.String)"/>
             to add support for articles, conjunctions and prepositions.
             </summary>
             <param name="input">The input.</param>
@@ -3847,17 +3774,6 @@
             The key.
             </value>
         </member>
-        <member name="T:Songhay.Models.HierarchicalNameValuePair">
-            <summary>
-            Defines hierarchical name-value pairs.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.HierarchicalNameValuePair.NameValuePairs">
-            <summary>
-            Gets or sets the name value pairs.
-            </summary>
-            <value>The name value pairs.</value>
-        </member>
         <member name="T:Songhay.Models.HttpMethods">
             <summary>
             Centralizes <see cref="T:System.Net.Http.HttpMethod"/> members as strings.
@@ -4086,35 +4002,6 @@
             <summary>
             The text HTML
             </summary>
-        </member>
-        <member name="T:Songhay.Models.NameValuePair">
-            <summary>
-            Defines name-value pair.
-            </summary>
-            <remarks>
-            Consider using the <see cref="!:Collections.Generic.KeyValuePair&lt;TKey, TValue&gt;"/> structure
-            (from .NET 2.0 onwards) before using this type.
-            </remarks>
-        </member>
-        <member name="P:Songhay.Models.NameValuePair.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-            <value>The name.</value>
-        </member>
-        <member name="P:Songhay.Models.NameValuePair.Value">
-            <summary>
-            Gets or sets the value.
-            </summary>
-            <value>The value.</value>
-        </member>
-        <member name="M:Songhay.Models.NameValuePair.ToString">
-            <summary>
-            Returns a <see cref="T:System.String" /> that represents this instance.
-            </summary>
-            <returns>
-            A <see cref="T:System.String" /> that represents this instance.
-            </returns>
         </member>
         <member name="T:Songhay.Models.OpenAuthorizationData">
             <summary>
@@ -4538,7 +4425,7 @@
             <summary>
             Constructor of this class.
             </summary>
-            <param name="targetAssembly">The target <see cref="!:Reflection.Assembly"/></param>
+            <param name="targetAssembly">The target <see cref="T:System.Reflection.Assembly"/></param>
         </member>
         <member name="P:Songhay.Models.ProgramAssemblyInfo.AssemblyTitle">
             <summary>
@@ -6230,7 +6117,7 @@
         </member>
         <member name="T:Songhay.ProgramAssemblyUtility">
             <summary>
-            Static members related to <see cref="!:Reflection"/>.
+            Static members related to <see cref="N:System.Reflection"/>.
             </summary>
         </member>
         <member name="M:Songhay.ProgramAssemblyUtility.GetAssemblyInfo(System.Reflection.Assembly)">
@@ -6239,7 +6126,7 @@
             about the executing assembly.
             </summary>
             <param name="targetAssembly">
-            The executing <see cref="!:Reflection.Assembly"/>.
+            The executing <see cref="T:System.Reflection.Assembly"/>.
             </param>
             <returns>Returns <see cref="T:System.String"/></returns>
         </member>
@@ -6249,7 +6136,7 @@
             about the executing assembly.
             </summary>
             <param name="targetAssembly">
-            The executing <see cref="!:Reflection.Assembly"/>.
+            The executing <see cref="T:System.Reflection.Assembly"/>.
             </param>
             <param name="useConsoleChars">
             When <c>true</c> selected “special” characters are formatted for the Windows Console.
@@ -6274,15 +6161,15 @@
         <member name="T:Songhay.ProgramFileUtility">
             <summary>
             A few static helper members
-            for <see cref="!:IO"/>.
+            for <see cref="N:System.IO"/>.
             </summary>
             <summary>
             A few static helper members
-            for <see cref="!:IO"/>.
+            for <see cref="N:System.IO"/>.
             </summary>
             <summary>
             A few static helper members
-            for <see cref="!:IO"/>.
+            for <see cref="N:System.IO"/>.
             </summary>
         </member>
         <member name="M:Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})">

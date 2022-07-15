@@ -1,4 +1,6 @@
-﻿namespace Songhay.Extensions;
+﻿using System.Net.Http.Headers;
+
+namespace Songhay.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="ProgramMetadata"/>.
@@ -7,11 +9,10 @@ public static class ProgramMetadataExtensions
 {
     /// <summary>
     /// Converts <see cref="ProgramMetadata" />
-    /// to the conventional <see cref="Net.Http.Headers.HttpRequestHeaders"/>.
+    /// to the conventional <see cref="HttpRequestHeaders"/>.
     /// </summary>
     /// <param name="meta">The <see cref="ProgramMetadata"/>.</param>
     /// <param name="restApiMetadataSetKey">The key for <see cref="ProgramMetadata.RestApiMetadataSet"/>.</param>
-    /// <returns></returns>
     public static Dictionary<string, string> ToConventionalHeaders(this ProgramMetadata? meta,
         string restApiMetadataSetKey)
     {
