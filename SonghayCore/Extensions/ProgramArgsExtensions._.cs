@@ -10,14 +10,12 @@ public static partial class ProgramArgsExtensions
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
     /// <param name="arg">The argument.</param>
-    /// <returns></returns>
-    /// <exception cref="System.ArgumentException"></exception>
     public static string? GetArgValue(this ProgramArgs? args, string? arg)
     {
         if (args?.Args == null) return null;
 
         var index = Array.IndexOf(args.Args, arg);
-        var @value = args.Args.ElementAtOrDefault(index + 1);
+        var value = args.Args.ElementAtOrDefault(index + 1);
         if (string.IsNullOrWhiteSpace(@value)) throw new ArgumentException($"Argument {arg} is not here.");
 
         return value;
@@ -32,8 +30,6 @@ public static partial class ProgramArgsExtensions
     /// <returns>
     ///   <c>true</c> if the specified argument has argument; otherwise, <c>false</c>.
     /// </returns>
-    /// <exception cref="System.ArgumentException">
-    /// </exception>
     public static bool HasArg(this ProgramArgs? args, string? arg, bool requiresValue)
     {
         if (args?.Args == null) return false;

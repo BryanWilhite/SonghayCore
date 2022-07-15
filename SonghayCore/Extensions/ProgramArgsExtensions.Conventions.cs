@@ -1,16 +1,11 @@
 ﻿namespace Songhay.Extensions;
 
-/// <summary>
-/// Extensions of <see cref="ProgramArgs"/>
-/// </summary>
 public static partial class ProgramArgsExtensions
 {
     /// <summary>
     /// Gets the conventional base-path value.
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentException"></exception>
     public static string? GetBasePathValue(this ProgramArgs? args)
     {
         var isBasePathRequired = args.HasArg(ProgramArgs.BasePathRequired, requiresValue: false);
@@ -49,7 +44,6 @@ public static partial class ProgramArgsExtensions
     /// Gets the conventional settings file <see cref="string"/> content.
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
-    /// <returns></returns>
     public static string GetSettings(this ProgramArgs? args)
     {
         var path = args.GetSettingsFilePath();
@@ -67,7 +61,6 @@ public static partial class ProgramArgsExtensions
     /// Gets the conventional settings file path.
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
-    /// <returns></returns>
     public static string? GetSettingsFilePath(this ProgramArgs? args)
     {
         var settingsFileName = args.GetArgValue(ProgramArgs.SettingsFile);
@@ -81,7 +74,6 @@ public static partial class ProgramArgsExtensions
     /// or <see cref="ProgramArgs.InputFile"/>.
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
-    /// <returns></returns>
     public static string GetStringInput(this ProgramArgs? args)
     {
         string? input = null;
@@ -193,9 +185,9 @@ public static partial class ProgramArgsExtensions
     /// <param name="output">the output to write</param>
     public static void WriteOutputToFile(this ProgramArgs? args, byte[] output)
     {
-        var outputFile = args.GetOutputPath();
+        var outputFile = args.GetOutputPath().ToReferenceTypeValueOrThrow();
 
-        File.WriteAllBytes(outputFile!, output);
+        File.WriteAllBytes(outputFile, output);
     }
 
     /// <summary>

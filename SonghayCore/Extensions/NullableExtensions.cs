@@ -14,7 +14,6 @@ public static class NullableExtensions
     /// <returns>
     ///   <c>true</c> if the specified throw exception is serializable; otherwise, <c>false</c>.
     /// </returns>
-    /// <exception cref="InvalidOperationException">The expected serializable Type is not here.</exception>
     /// <remarks>
     /// For detail, see https://stackoverflow.com/a/945528/22944.
     /// For background, see https://manski.net/2014/10/net-serializers-comparison-chart/
@@ -47,7 +46,6 @@ public static class NullableExtensions
     /// <param name="enumerable">the <see cref="IEnumerable{T}"/></param>
     /// <param name="paramName">the name of the variable holding the <see cref="IEnumerable{T}"/></param>
     /// <typeparam name="T">the type of the <see cref="IEnumerable{T}"/></typeparam>
-    /// <exception cref="ArgumentNullException"></exception>
     public static void ThrowWhenNullOrEmpty<T>( [NotNull] this IEnumerable<T>? enumerable,
         [CallerArgumentExpression("enumerable")] string? paramName = null)
     {
@@ -65,7 +63,6 @@ public static class NullableExtensions
     /// </summary>
     /// <param name="nullable">the nullable <see cref="string"/></param>
     /// <param name="paramName">the name of the variable holding the <see cref="string"/></param>
-    /// <exception cref="ArgumentNullException"></exception>
     /// <remarks>
     /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull"/>.
     ///
@@ -103,7 +100,6 @@ public static class NullableExtensions
     /// <param name="nullable">the nullable</param>
     /// <param name="paramName">the name of the variable holding the nullable</param>
     /// <typeparam name="T">the type</typeparam>
-    /// <exception cref="ArgumentNullException"></exception>
     /// <remarks>
     /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull"/>.
     ///
@@ -134,7 +130,6 @@ public static class NullableExtensions
     /// <param name="nullable">the nullable</param>
     /// <param name="paramName">the name of the variable holding the nullable</param>
     /// <typeparam name="T">the type</typeparam>
-    /// <exception cref="ArgumentNullException"></exception>
     /// <remarks>
     /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull"/>.
     ///

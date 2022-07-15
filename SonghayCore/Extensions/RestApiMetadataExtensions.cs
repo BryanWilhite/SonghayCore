@@ -11,9 +11,6 @@ public static class RestApiMetadataExtensions
     /// <param name="meta">The meta.</param>
     /// <param name="uriTemplateKey">The URI template key.</param>
     /// <param name="bindByPositionValues">The bind by position values.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">bindByPositionValues</exception>
-    /// <exception cref="FormatException">The expected REST API metadata URI template key is not here.</exception>
     public static Uri? ToUri(this RestApiMetadata? meta, string? uriTemplateKey, params string?[] bindByPositionValues)
     {
         if (meta == null || meta.ApiBase == null) return null;

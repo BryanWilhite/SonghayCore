@@ -2072,7 +2072,6 @@
             <returns>
               <c>true</c> if the specified throw exception is serializable; otherwise, <c>false</c>.
             </returns>
-            <exception cref="T:System.InvalidOperationException">The expected serializable Type is not here.</exception>
             <remarks>
             For detail, see https://stackoverflow.com/a/945528/22944.
             For background, see https://manski.net/2014/10/net-serializers-comparison-chart/
@@ -2097,7 +2096,6 @@
             <param name="enumerable">the <see cref="T:System.Collections.Generic.IEnumerable`1"/></param>
             <param name="paramName">the name of the variable holding the <see cref="T:System.Collections.Generic.IEnumerable`1"/></param>
             <typeparam name="T">the type of the <see cref="T:System.Collections.Generic.IEnumerable`1"/></typeparam>
-            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:Songhay.Extensions.NullableExtensions.ThrowWhenNullOrWhiteSpace(System.String,System.String)">
              <summary>
@@ -2106,7 +2104,6 @@
              </summary>
              <param name="nullable">the nullable <see cref="T:System.String"/></param>
              <param name="paramName">the name of the variable holding the <see cref="T:System.String"/></param>
-             <exception cref="T:System.ArgumentNullException"></exception>
              <remarks>
              This member borrows heavily from <see cref="M:System.ArgumentNullException.ThrowIfNull(System.Object,System.String)"/>.
             
@@ -2136,7 +2133,6 @@
              <param name="nullable">the nullable</param>
              <param name="paramName">the name of the variable holding the nullable</param>
              <typeparam name="T">the type</typeparam>
-             <exception cref="T:System.ArgumentNullException"></exception>
              <remarks>
              This member borrows heavily from <see cref="M:System.ArgumentNullException.ThrowIfNull(System.Object,System.String)"/>.
             
@@ -2159,7 +2155,6 @@
              <param name="nullable">the nullable</param>
              <param name="paramName">the name of the variable holding the nullable</param>
              <typeparam name="T">the type</typeparam>
-             <exception cref="T:System.ArgumentNullException"></exception>
              <remarks>
              This member borrows heavily from <see cref="M:System.ArgumentNullException.ThrowIfNull(System.Object,System.String)"/>.
             
@@ -2197,17 +2192,12 @@
             <summary>
             Extensions of <see cref="T:Songhay.Models.ProgramArgs"/>
             </summary>
-            <summary>
-            Extensions of <see cref="T:Songhay.Models.ProgramArgs"/>
-            </summary>
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetBasePathValue(Songhay.Models.ProgramArgs)">
             <summary>
             Gets the conventional base-path value.
             </summary>
             <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetOutputPath(Songhay.Models.ProgramArgs)">
             <summary>
@@ -2223,14 +2213,12 @@
             Gets the conventional settings file <see cref="T:System.String"/> content.
             </summary>
             <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetSettingsFilePath(Songhay.Models.ProgramArgs)">
             <summary>
             Gets the conventional settings file path.
             </summary>
             <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetStringInput(Songhay.Models.ProgramArgs)">
             <summary>
@@ -2239,7 +2227,6 @@
             or <see cref="F:Songhay.Models.ProgramArgs.InputFile"/>.
             </summary>
             <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.IsHelpRequest(Songhay.Models.ProgramArgs)">
             <summary>
@@ -2293,8 +2280,6 @@
             </summary>
             <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
             <param name="arg">The argument.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.HasArg(Songhay.Models.ProgramArgs,System.String,System.Boolean)">
             <summary>
@@ -2306,8 +2291,6 @@
             <returns>
               <c>true</c> if the specified argument has argument; otherwise, <c>false</c>.
             </returns>
-            <exception cref="T:System.ArgumentException">
-            </exception>
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.ToHelpDisplayText(Songhay.Models.ProgramArgs)">
             <summary>
@@ -2347,9 +2330,6 @@
             <param name="meta">The meta.</param>
             <param name="uriTemplateKey">The URI template key.</param>
             <param name="bindByPositionValues">The bind by position values.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">bindByPositionValues</exception>
-            <exception cref="T:System.FormatException">The expected REST API metadata URI template key is not here.</exception>
         </member>
         <member name="T:Songhay.Extensions.StringBuilderExtensions">
             <summary>
