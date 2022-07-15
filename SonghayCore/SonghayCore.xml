@@ -2371,12 +2371,6 @@
             <summary>
             Extensions of <see cref="T:System.String"/>.
             </summary>
-            <summary>
-            Extensions of <see cref="T:System.String"/>.
-            </summary>
-            <summary>
-            Extensions of <see cref="T:System.String"/>.
-            </summary>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.FromSnakeToCaps(System.String)">
             <summary>
@@ -2384,7 +2378,6 @@
             after the underscore.
             </summary>
             <param name="input"></param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.Reverse(System.String)">
             <summary>
@@ -2431,14 +2424,12 @@
             Converts the <see cref="T:System.String"/> into digits only.
             </summary>
             <param name="input">The input.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToIntString(System.String)">
             <summary>
             Prepares a string to be converted to <c>int</c>.
             </summary>
             <param name="input">The input.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToIntString(System.String,System.String)">
             <summary>
@@ -2446,7 +2437,6 @@
             </summary>
             <param name="input">The input.</param>
             <param name="defaultValue">The default value ("0" by default).</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToNumberOfDirectoryLevels(System.String)">
             <summary>
@@ -2454,7 +2444,6 @@
             based on the conventions <c>../</c> or <c>..\</c>.
             </summary>
             <param name="path">The path.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToNumericString(System.String)">
             <summary>
@@ -2735,18 +2724,18 @@
             <summary>
             Delays with a <see cref="T:System.Threading.Timer"/> task for the specified <see cref="T:System.TimeSpan"/>.
             </summary>
-            <param name="task">NestedTraceSources of </param>
-            <param name="timeSpan">The specified timespan</param>
-            <param name="actionAfterDelay">The continuation action</param>
+            <param name="task">The <see cref="T:System.Threading.Tasks.Task"/>.</param>
+            <param name="timeSpan">The specified <see cref="T:System.TimeSpan"/>.</param>
+            <param name="actionAfterDelay">The continuation action.</param>
         </member>
         <member name="M:Songhay.Extensions.TaskExtensions.Delay(System.Threading.Tasks.Task,System.TimeSpan,System.Action{System.Threading.Tasks.Task},System.Threading.Tasks.TaskScheduler)">
              <summary>
              Delays with a <see cref="T:System.Threading.Timer"/> task for the specified <see cref="T:System.TimeSpan"/>.
              </summary>
-             <param name="task">NestedTraceSources of </param>
-             <param name="timeSpan">The specified timespan</param>
-             <param name="actionAfterDelay">The continuation action</param>
-             <param name="schedulerAfterDelay">Work-queue scheduler</param>
+             <param name="task">The <see cref="T:System.Threading.Tasks.Task"/>.</param>
+             <param name="timeSpan">The specified <see cref="T:System.TimeSpan"/>.</param>
+             <param name="actionAfterDelay">The continuation action.</param>
+             <param name="schedulerAfterDelay">The work-queue scheduler.</param>
              <remarks>
              The syntax to get this running may seem a bit strange:
             
@@ -2768,14 +2757,14 @@
             <summary>
             Lists the days for the specified <see cref="T:System.TimeSpan"/>.
             </summary>
-            <param name="span">The span.</param>
+            <param name="span">The <see cref="T:System.TimeSpan" />.</param>
         </member>
         <member name="M:Songhay.Extensions.TimeSpanExtensions.ListDays(System.TimeSpan,System.DateTime)">
             <summary>
             Lists the days for the specified <see cref="T:System.TimeSpan"/>
             from the specified start <see cref="T:System.DateTime"/>.
             </summary>
-            <param name="span">The span.</param>
+            <param name="span">The <see cref="T:System.TimeSpan" />.</param>
             <param name="startDate">The start date.</param>
         </member>
         <member name="T:Songhay.Extensions.TraceSourceExtensions">
@@ -2815,7 +2804,7 @@
             </summary>
             <param name="traceSource">The trace source.</param>
             <param name="ex">The exception.</param>
-            <param name="includeStackTrace">When <c>true</c>, include <see cref="P:System.Exception.StackTrace"/> info</param>
+            <param name="includeStackTrace">When <c>true</c>, include <see cref="P:System.Exception.StackTrace"/> info.</param>
         </member>
         <member name="M:Songhay.Extensions.TraceSourceExtensions.TraceWarning(System.Diagnostics.TraceSource,System.String)">
             <summary>
@@ -2853,7 +2842,6 @@
             with Switch Level <see cref="F:System.Diagnostics.SourceLevels.All"/>.
             </summary>
             <param name="traceSource">The trace source.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.TraceSourceExtensions.WithSourceLevels(System.Diagnostics.TraceSource,System.Diagnostics.SourceLevels)">
             <summary>
@@ -2862,7 +2850,6 @@
             </summary>
             <param name="traceSource">The trace source.</param>
             <param name="levels">The levels.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.TraceSourceExtensions.WriteLine(System.Diagnostics.TraceSource,System.String)">
             <summary>
@@ -2897,7 +2884,6 @@
              Gets the configured trace source.
              </summary>
              <param name="instance">The instance.</param>
-             <returns></returns>
              <remarks>
              For .NET Standard, this member makes sense after lines like these:
              <code>
@@ -2914,7 +2900,6 @@
              </summary>
              <param name="instance">The instance.</param>
              <param name="configuration">The configuration.</param>
-             <returns></returns>
              <remarks>
              For .NET Standard, this member makes sense after lines like these:
              <code>
@@ -2932,7 +2917,6 @@
              <param name="instance">The instance.</param>
              <param name="configuration">The configuration.</param>
              <param name="key">The key.</param>
-             <returns></returns>
              <remarks>
              For .NET Standard, this member makes sense after lines like these:
              <code>
@@ -2966,7 +2950,6 @@
             Determines whether the <see cref="T:System.Uri" /> is a file.
             </summary>
             <param name="input">The input.</param>
-            <returns></returns>
             <remarks>
             Recall that <see cref="P:System.Uri.IsFile" /> is another way
             of stating that <c>Uri.Schema == Uri.UriSchemeFile</c>
@@ -2993,7 +2976,7 @@
             
              See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
              
-             see “Shared Key format for 2009-09-19 and later”
+             See “Shared Key format for 2009-09-19 and later”
              [ https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key#shared-key-format-for-2009-09-19-and-later ]
              </remarks>
         </member>
@@ -3003,7 +2986,7 @@
             </summary>
             <param name="input">The input.</param>
             <returns>
-            Returns <see cref="T:System.String"/> like: <c>https://MyServer:8080/</c>
+            Returns a <see cref="T:System.String"/> like: <c>https://MyServer:8080/</c>
             </returns>
         </member>
         <member name="M:Songhay.Extensions.UriExtensions.ToFileName(System.Uri)">
@@ -3011,24 +2994,25 @@
             Converts the <see cref="T:System.Uri" /> into its file name.
             </summary>
             <param name="input">The input.</param>
-            <returns>
-            </returns>
         </member>
         <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)">
             <summary>
             Converts the specified <see cref="T:System.Uri" />
             to its ‘expanded’ version.
             </summary>
-            <param name="expandableUri"></param>
-            <returns></returns>
+            <param name="expandableUri">The expandable <see cref="T:System.Uri"/>.</param>
+            <remarks>
+            This member will call itself recursively
+            until <see cref="M:Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)"/> returns <c>true</c>
+            or <see cref="P:System.Net.Http.Headers.HttpResponseHeaders.Location"/> is null.
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)">
             <summary>
             Converts the specified <see cref="T:System.Uri" />
             to its ‘expanded’ version.
             </summary>
-            <param name="expandableUri"></param>
-            <returns></returns>
+            <param name="expandableUri">The expandable <see cref="T:System.Uri"/>.</param>
         </member>
         <member name="M:Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)">
             <summary>
@@ -3048,7 +3032,6 @@
             </summary>
             <param name="template">The template.</param>
             <param name="values">The values.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.UriTemplateExtensions.BindByPosition(Tavis.UriTemplates.UriTemplate,System.Uri,System.String[])">
             <summary>
@@ -3058,9 +3041,6 @@
             <param name="template">The template.</param>
             <param name="baseUri">The base URI.</param>
             <param name="values">The values.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">template</exception>
-            <exception cref="T:System.FormatException"></exception>
         </member>
         <member name="T:Songhay.Extensions.Utf8JsonWriterExtensions">
             <summary>
@@ -3075,7 +3055,6 @@
             </summary>
             <param name="writer">the <see cref="T:System.Text.Json.Utf8JsonWriter"/></param>
             <param name="writerAction"></param>
-            <returns></returns>
             <remarks>
             This method is for building a JSON object.
             </remarks>
@@ -3090,7 +3069,6 @@
             <param name="writer">the <see cref="T:System.Text.Json.Utf8JsonWriter"/></param>
             <param name="propertyName"></param>
             <param name="writerAction"></param>
-            <returns></returns>
             <remarks>
             This method is for building a JSON object for a JSON property.
             </remarks>
@@ -3122,7 +3100,6 @@
             Converts the <see cref="T:System.Object"/> into a validation context.
             </summary>
             <param name="objectToValidate">The object to validate.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.ComponentModel.DataAnnotations.IValidatableObject)">
             <summary>
@@ -3132,7 +3109,6 @@
             <remarks>
             This member will validate all properties;<c>validateAllProperties == true</c>.
             </remarks>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.ComponentModel.DataAnnotations.IValidatableObject,System.ComponentModel.DataAnnotations.ValidationContext)">
             <summary>
@@ -3143,7 +3119,6 @@
             <remarks>
             This member will validate all properties;<c>validateAllProperties == true</c>.
             </remarks>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.ComponentModel.DataAnnotations.IValidatableObject,System.Boolean,System.ComponentModel.DataAnnotations.ValidationContext)">
             <summary>
@@ -3152,7 +3127,6 @@
             <param name="objectToValidate">The object to validate.</param>
             <param name="validateAllProperties"><c>true</c> to validate all properties;if <c>false</c>, only required attributes are validated.</param>
             <param name="validationContext">the <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/></param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.ComponentModel.DataAnnotations.IValidatableObject,System.String,System.Object)">
             <summary>
@@ -3161,8 +3135,6 @@
             <param name="objectToValidate">The object to validate.</param>
             <param name="propertyName">Name of the property.</param>
             <param name="propertyValue">The property value.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">propertyName</exception>
         </member>
         <member name="M:Songhay.Extensions.ValidationContextExtensions.ToValidationResults(System.ComponentModel.DataAnnotations.IValidatableObject,System.String,System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
             <summary>
@@ -3172,8 +3144,6 @@
             <param name="propertyName">Name of the property.</param>
             <param name="propertyValue">The property value.</param>
             <param name="validationContext">the <see cref="T:System.ComponentModel.DataAnnotations.ValidationContext"/></param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">propertyName</exception>
         </member>
         <member name="T:Songhay.Extensions.XElementExtensions">
             <summary>

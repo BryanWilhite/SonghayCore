@@ -9,7 +9,6 @@ public static class TraceSourcesExtensions
     /// Gets the configured trace source.
     /// </summary>
     /// <param name="instance">The instance.</param>
-    /// <returns></returns>
     /// <remarks>
     /// For .NET Standard, this member makes sense after lines like these:
     /// <code>
@@ -27,7 +26,6 @@ public static class TraceSourcesExtensions
     /// </summary>
     /// <param name="instance">The instance.</param>
     /// <param name="configuration">The configuration.</param>
-    /// <returns></returns>
     /// <remarks>
     /// For .NET Standard, this member makes sense after lines like these:
     /// <code>
@@ -46,7 +44,6 @@ public static class TraceSourcesExtensions
     /// <param name="instance">The instance.</param>
     /// <param name="configuration">The configuration.</param>
     /// <param name="key">The key.</param>
-    /// <returns></returns>
     /// <remarks>
     /// For .NET Standard, this member makes sense after lines like these:
     /// <code>

@@ -11,7 +11,6 @@ public static class UriTemplateExtensions
     /// </summary>
     /// <param name="template">The template.</param>
     /// <param name="values">The values.</param>
-    /// <returns></returns>
     public static Uri? BindByPosition(this UriTemplate? template, params string[] values) =>
         template.BindByPosition(baseUri: null, values: values);
 
@@ -22,9 +21,6 @@ public static class UriTemplateExtensions
     /// <param name="template">The template.</param>
     /// <param name="baseUri">The base URI.</param>
     /// <param name="values">The values.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">template</exception>
-    /// <exception cref="FormatException"></exception>
     public static Uri? BindByPosition(this UriTemplate? template, Uri? baseUri, params string[] values)
     {
         ArgumentNullException.ThrowIfNull(template);

@@ -11,7 +11,6 @@ public static class UriExtensions
     /// Determines whether the <see cref="Uri" /> is a file.
     /// </summary>
     /// <param name="input">The input.</param>
-    /// <returns></returns>
     /// <remarks>
     /// Recall that <see cref="Uri.IsFile" /> is another way
     /// of stating that <c>Uri.Schema == Uri.UriSchemeFile</c>
@@ -20,12 +19,8 @@ public static class UriExtensions
     /// Also note that the only way to truly define a directory
     /// or folder is with a trailing forward/back slash.
     /// </remarks>
-    public static bool IsProbablyAFile(this Uri? input)
-    {
-        if (input == null) return false;
-
-        return input.IsFile || Path.HasExtension(input.OriginalString);
-    }
+    public static bool IsProbablyAFile(this Uri? input) =>
+        input != null && (input.IsFile || Path.HasExtension(input.OriginalString));
 
     /// <summary>
     /// This part of the signature string represents the storage account 
@@ -43,7 +38,7 @@ public static class UriExtensions
     ///
     /// See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
     /// 
-    /// see “Shared Key format for 2009-09-19 and later”
+    /// See “Shared Key format for 2009-09-19 and later”
     /// [ https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key#shared-key-format-for-2009-09-19-and-later ]
     /// </remarks>
     public static string ToAzureStorageCanonicalizedResourceLocation(this Uri? uri, string? accountName)
@@ -74,7 +69,7 @@ public static class UriExtensions
     /// </summary>
     /// <param name="input">The input.</param>
     /// <returns>
-    /// Returns <see cref="string"/> like: <c>https://MyServer:8080/</c>
+    /// Returns a <see cref="string"/> like: <c>https://MyServer:8080/</c>
     /// </returns>
     public static string? ToBaseUri(this Uri? input)
     {
@@ -89,16 +84,18 @@ public static class UriExtensions
     /// Converts the <see cref="Uri" /> into its file name.
     /// </summary>
     /// <param name="input">The input.</param>
-    /// <returns>
-    /// </returns>
     public static string? ToFileName(this Uri? input) => Path.GetFileName(input?.LocalPath);
 
     /// <summary>
     /// Converts the specified <see cref="Uri" />
     /// to its ‘expanded’ version.
     /// </summary>
-    /// <param name="expandableUri"></param>
-    /// <returns></returns>
+    /// <param name="expandableUri">The expandable <see cref="Uri"/>.</param>
+    /// <remarks>
+    /// This member will call itself recursively
+    /// until <see cref="HttpResponseMessageExtensions.IsMovedOrRedirected"/> returns <c>true</c>
+    /// or <see cref="System.Net.Http.Headers.HttpResponseHeaders.Location"/> is null.
+    /// </remarks>
     public static async Task<Uri?> ToExpandedUriAsync(this Uri? expandableUri)
     {
         ArgumentNullException.ThrowIfNull(expandableUri);
@@ -128,8 +125,7 @@ public static class UriExtensions
     /// Converts the specified <see cref="Uri" />
     /// to its ‘expanded’ version.
     /// </summary>
-    /// <param name="expandableUri"></param>
-    /// <returns></returns>
+    /// <param name="expandableUri">The expandable <see cref="Uri"/>.</param>
     public static async Task<KeyValuePair<Uri?, Uri?>> ToExpandedUriPairAsync(this Uri? expandableUri)
     {
         var expandedUri = await expandableUri

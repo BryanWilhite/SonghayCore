@@ -51,7 +51,6 @@ public static class ValidationContextExtensions
     /// Converts the <see cref="Object"/> into a validation context.
     /// </summary>
     /// <param name="objectToValidate">The object to validate.</param>
-    /// <returns></returns>
     public static ValidationContext ToValidationContext(this IValidatableObject objectToValidate)
     {
         ArgumentNullException.ThrowIfNull(objectToValidate);
@@ -66,7 +65,6 @@ public static class ValidationContextExtensions
     /// <remarks>
     /// This member will validate all properties;<c>validateAllProperties == true</c>.
     /// </remarks>
-    /// <returns></returns>
     public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject? objectToValidate) =>
         objectToValidate.ToValidationResults(validateAllProperties: true, validationContext: null);
 
@@ -78,7 +76,6 @@ public static class ValidationContextExtensions
     /// <remarks>
     /// This member will validate all properties;<c>validateAllProperties == true</c>.
     /// </remarks>
-    /// <returns></returns>
     public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject? objectToValidate,
         ValidationContext? validationContext) =>
         objectToValidate.ToValidationResults(validateAllProperties: true, validationContext: validationContext);
@@ -89,7 +86,6 @@ public static class ValidationContextExtensions
     /// <param name="objectToValidate">The object to validate.</param>
     /// <param name="validateAllProperties"><c>true</c> to validate all properties;if <c>false</c>, only required attributes are validated.</param>
     /// <param name="validationContext">the <see cref="ValidationContext"/></param>
-    /// <returns></returns>
     public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject? objectToValidate,
         bool validateAllProperties, ValidationContext? validationContext)
     {
@@ -109,8 +105,6 @@ public static class ValidationContextExtensions
     /// <param name="objectToValidate">The object to validate.</param>
     /// <param name="propertyName">Name of the property.</param>
     /// <param name="propertyValue">The property value.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">propertyName</exception>
     public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject? objectToValidate,
         string? propertyName, object? propertyValue) =>
         objectToValidate.ToValidationResults(propertyName, propertyValue, validationContext: null);
@@ -122,8 +116,6 @@ public static class ValidationContextExtensions
     /// <param name="propertyName">Name of the property.</param>
     /// <param name="propertyValue">The property value.</param>
     /// <param name="validationContext">the <see cref="ValidationContext"/></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">propertyName</exception>
     public static IEnumerable<ValidationResult> ToValidationResults(this IValidatableObject? objectToValidate,
         string? propertyName, object? propertyValue, ValidationContext? validationContext)
     {

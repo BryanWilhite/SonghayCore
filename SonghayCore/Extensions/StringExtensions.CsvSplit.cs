@@ -2,9 +2,6 @@
 
 namespace Songhay.Extensions;
 
-/// <summary>
-/// Extensions of <see cref="string"/>.
-/// </summary>
 public static partial class StringExtensions
 {
     /// <summary>

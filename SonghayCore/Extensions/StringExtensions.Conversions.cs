@@ -1,8 +1,5 @@
 ﻿namespace Songhay.Extensions;
 
-/// <summary>
-/// Extensions of <see cref="string"/>.
-/// </summary>
 public static partial class StringExtensions
 {
     /// <summary>
@@ -10,7 +7,6 @@ public static partial class StringExtensions
     /// after the underscore.
     /// </summary>
     /// <param name="input"></param>
-    /// <returns></returns>
     public static string? FromSnakeToCaps(this string? input) => string.IsNullOrWhiteSpace(input)
         ? input
         : input.Split('_').Aggregate((a, i) => $"{a}{i.ToPascalCase()}");
@@ -106,7 +102,6 @@ public static partial class StringExtensions
     /// Converts the <see cref="String"/> into digits only.
     /// </summary>
     /// <param name="input">The input.</param>
-    /// <returns></returns>
     public static string? ToDigitsOnly(this string? input)
     {
         if (string.IsNullOrWhiteSpace(input)) return null;
@@ -120,7 +115,6 @@ public static partial class StringExtensions
     /// Prepares a string to be converted to <c>int</c>.
     /// </summary>
     /// <param name="input">The input.</param>
-    /// <returns></returns>
     public static string? ToIntString(this string? input) => input.ToIntString("0");
 
     /// <summary>
@@ -128,7 +122,6 @@ public static partial class StringExtensions
     /// </summary>
     /// <param name="input">The input.</param>
     /// <param name="defaultValue">The default value ("0" by default).</param>
-    /// <returns></returns>
     public static string? ToIntString(this string? input, string defaultValue)
     {
         if (input == null) return null;
@@ -150,7 +143,6 @@ public static partial class StringExtensions
     /// based on the conventions <c>../</c> or <c>..\</c>.
     /// </summary>
     /// <param name="path">The path.</param>
-    /// <returns></returns>
     public static int ToNumberOfDirectoryLevels(this string? path)
     {
         if (string.IsNullOrWhiteSpace(path)) return 0;

@@ -12,7 +12,6 @@ public static class Utf8JsonWriterExtensions
     /// </summary>
     /// <param name="writer">the <see cref="Utf8JsonWriter"/></param>
     /// <param name="writerAction"></param>
-    /// <returns></returns>
     /// <remarks>
     /// This method is for building a JSON object.
     /// </remarks>
@@ -36,7 +35,6 @@ public static class Utf8JsonWriterExtensions
     /// <param name="writer">the <see cref="Utf8JsonWriter"/></param>
     /// <param name="propertyName"></param>
     /// <param name="writerAction"></param>
-    /// <returns></returns>
     /// <remarks>
     /// This method is for building a JSON object for a JSON property.
     /// </remarks>

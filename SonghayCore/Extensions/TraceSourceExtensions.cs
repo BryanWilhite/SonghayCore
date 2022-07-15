@@ -39,7 +39,7 @@ public static class TraceSourceExtensions
     /// </summary>
     /// <param name="traceSource">The trace source.</param>
     /// <param name="ex">The exception.</param>
-    /// <param name="includeStackTrace">When <c>true</c>, include <see cref="Exception.StackTrace"/> info</param>
+    /// <param name="includeStackTrace">When <c>true</c>, include <see cref="Exception.StackTrace"/> info.</param>
     public static void TraceError(this TraceSource? traceSource, Exception? ex, bool includeStackTrace)
     {
         if (traceSource == null) return;
@@ -97,7 +97,6 @@ public static class TraceSourceExtensions
     /// with Switch Level <see cref="SourceLevels.All"/>.
     /// </summary>
     /// <param name="traceSource">The trace source.</param>
-    /// <returns></returns>
     public static TraceSource? WithSourceLevels(this TraceSource? traceSource) =>
         traceSource?.WithSourceLevels(SourceLevels.All);
 
@@ -107,7 +106,6 @@ public static class TraceSourceExtensions
     /// </summary>
     /// <param name="traceSource">The trace source.</param>
     /// <param name="levels">The levels.</param>
-    /// <returns></returns>
     public static TraceSource? WithSourceLevels(this TraceSource? traceSource, SourceLevels levels)
     {
         if (traceSource == null) return null;
