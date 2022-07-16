@@ -31,7 +31,6 @@ public class OpmlDocument
     /// <summary>
     /// Gets or sets the schema location.
     /// </summary>
-    /// <value>The schema location.</value>
     [XmlAttribute("schemaLocation", Namespace = RxOpmlSchema)]
     [JsonPropertyName("schemaLocation")]
     public string? XsiSchemaLocation { get; set; }
@@ -39,7 +38,6 @@ public class OpmlDocument
     /// <summary>
     /// Gets the version.
     /// </summary>
-    /// <value>The version.</value>
     [XmlAttribute(AttributeName = "version")]
     [JsonPropertyName("version")]
     public string? Version { get; set; }
@@ -47,7 +45,6 @@ public class OpmlDocument
     /// <summary>
     /// Gets the OPML head element.
     /// </summary>
-    /// <value>The OPML head element.</value>
     [XmlElement(ElementName = "head")]
     [JsonPropertyName("head")]
     public OpmlHead? OpmlHead { get; set; }
@@ -55,7 +52,6 @@ public class OpmlDocument
     /// <summary>
     /// Gets the OPML body element.
     /// </summary>
-    /// <value>The OPML body element.</value>
     [XmlElement(ElementName = "body")]
     [JsonPropertyName("body")]
     public OpmlBody? OpmlBody { get; set; }

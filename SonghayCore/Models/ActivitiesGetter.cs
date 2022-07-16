@@ -2,7 +2,7 @@
 
 /// <summary>
 /// Defines the in-memory storage
-/// and getting of <see cref="IActivity"/> types.
+/// and Program access to <see cref="IActivity"/> types.
 /// </summary>
 public abstract class ActivitiesGetter
 {
@@ -17,28 +17,23 @@ public abstract class ActivitiesGetter
     }
 
     /// <summary>
-    /// Gets the arguments.
+    /// Gets the <see cref="ProgramArgs"/>.
     /// </summary>
-    /// <value>
-    /// The arguments.
-    /// </value>
     public ProgramArgs Args { get; }
 
     /// <summary>
     /// Gets the <see cref="IActivity"/>.
     /// </summary>
-    /// <returns></returns>
     public virtual IActivity? GetActivity() => _activities.GetActivity(_defaultActivityName);
 
     /// <summary>
     /// Gets the <see cref="IActivity"/>.
     /// </summary>
     /// <param name="activityName">Name of the <see cref="IActivity"/>.</param>
-    /// <returns></returns>
     public virtual IActivity? GetActivity(string activityName) => _activities.GetActivity(activityName);
 
     /// <summary>
-    /// Loads the activities.
+    /// Loads the activities into memory, lazily.
     /// </summary>
     /// <param name="activities">The activities.</param>
     public virtual void LoadActivities(Dictionary<string, Lazy<IActivity?>>? activities) => _activities = activities;

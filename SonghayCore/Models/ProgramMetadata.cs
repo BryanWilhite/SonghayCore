@@ -8,31 +8,16 @@ public class ProgramMetadata
     /// <summary>
     /// Gets or sets the cloud storage set.
     /// </summary>
-    /// <value>
-    /// The cloud storage set.
-    /// </value>
     public Dictionary<string, Dictionary<string, string>> CloudStorageSet { get; set; } = new();
 
     /// <summary>
     /// Gets or sets the DBMS set.
     /// </summary>
-    /// <value>
-    /// The DBMS set.
-    /// </value>
     public Dictionary<string, DbmsMetadata> DbmsSet { get; set; } = new();
 
     /// <summary>
-    /// Returns a <see cref="String" /> that represents this instance.
-    /// </summary>
-    /// <returns>
-    /// A <see cref="String" /> that represents this instance.
-    /// </returns>
-    /// <summary>
     /// Gets or sets the REST API metadata set.
     /// </summary>
-    /// <value>
-    /// The API metadata set.
-    /// </value>
     public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; set; } = new();
 
     /// <summary>

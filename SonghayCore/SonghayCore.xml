@@ -3347,7 +3347,7 @@
         <member name="T:Songhay.Models.ActivitiesGetter">
             <summary>
             Defines the in-memory storage
-            and getting of <see cref="T:Songhay.Abstractions.IActivity"/> types.
+            and Program access to <see cref="T:Songhay.Abstractions.IActivity"/> types.
             </summary>
         </member>
         <member name="M:Songhay.Models.ActivitiesGetter.#ctor(System.String[])">
@@ -3358,35 +3358,30 @@
         </member>
         <member name="P:Songhay.Models.ActivitiesGetter.Args">
             <summary>
-            Gets the arguments.
+            Gets the <see cref="T:Songhay.Models.ProgramArgs"/>.
             </summary>
-            <value>
-            The arguments.
-            </value>
         </member>
         <member name="M:Songhay.Models.ActivitiesGetter.GetActivity">
             <summary>
             Gets the <see cref="T:Songhay.Abstractions.IActivity"/>.
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Models.ActivitiesGetter.GetActivity(System.String)">
             <summary>
             Gets the <see cref="T:Songhay.Abstractions.IActivity"/>.
             </summary>
             <param name="activityName">Name of the <see cref="T:Songhay.Abstractions.IActivity"/>.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Models.ActivitiesGetter.LoadActivities(System.Collections.Generic.Dictionary{System.String,System.Lazy{Songhay.Abstractions.IActivity}})">
             <summary>
-            Loads the activities.
+            Loads the activities into memory, lazily.
             </summary>
             <param name="activities">The activities.</param>
         </member>
         <member name="T:Songhay.Models.ActivityOutput`1">
             <summary>
             Defines the conventional output
-            of <see cref="T:Songhay.Abstractions.IActivityWithTask`2"/>
+            of <see cref="T:Songhay.Abstractions.IActivityWithTask`2"/>.
             </summary>
             <typeparam name="TOutput">The type of the output.</typeparam>
         </member>
@@ -3394,17 +3389,11 @@
             <summary>
             Gets or sets the output.
             </summary>
-            <value>
-            The output.
-            </value>
         </member>
         <member name="P:Songhay.Models.ActivityOutput`1.Log">
             <summary>
             Gets or sets the log.
             </summary>
-            <value>
-            The log.
-            </value>
         </member>
         <member name="T:Songhay.Models.ColorDisplayItemModel">
             <summary>
@@ -3415,13 +3404,11 @@
             <summary>
             Gets or sets the background hexadecimal value.
             </summary>
-            <value>The background hexadecimal value.</value>
         </member>
         <member name="P:Songhay.Models.ColorDisplayItemModel.ForegroundHex">
             <summary>
             Gets or sets the foreground hexadecimal value.
             </summary>
-            <value>The foreground hexadecimal value.</value>
         </member>
         <member name="T:Songhay.Models.CorsOrigins">
             <summary>
@@ -3502,49 +3489,31 @@
             <summary>
             Gets or sets the data row version.
             </summary>
-            <value>
-            The data row version.
-            </value>
         </member>
         <member name="P:Songhay.Models.DataParameterMetadata.DbType">
             <summary>
             Gets or sets the type of the database.
             </summary>
-            <value>
-            The type of the database.
-            </value>
         </member>
         <member name="P:Songhay.Models.DataParameterMetadata.ParameterDirection">
             <summary>
             Gets or sets the parameter direction.
             </summary>
-            <value>
-            The parameter direction.
-            </value>
         </member>
         <member name="P:Songhay.Models.DataParameterMetadata.ParameterName">
             <summary>
             Gets or sets the name of the parameter.
             </summary>
-            <value>
-            The name of the parameter.
-            </value>
         </member>
         <member name="P:Songhay.Models.DataParameterMetadata.ParameterValue">
             <summary>
             Gets or sets the parameter value.
             </summary>
-            <value>
-            The parameter value.
-            </value>
         </member>
         <member name="P:Songhay.Models.DataParameterMetadata.SourceColumn">
             <summary>
             Gets or sets the source column.
             </summary>
-            <value>
-            The source column.
-            </value>
         </member>
         <member name="T:Songhay.Models.DbmsMetadata">
             <summary>
@@ -3593,42 +3562,42 @@
         </member>
         <member name="T:Songhay.Models.DeploymentEnvironment">
             <summary>
-            Defines the deployment environment
+            Defines the deployment environment.
             </summary>
         </member>
         <member name="F:Songhay.Models.DeploymentEnvironment.ConfigurationKey">
             <summary>
-            The configuration key
+            The configuration key.
             </summary>
         </member>
         <member name="F:Songhay.Models.DeploymentEnvironment.ConfigurationKeyDelimiter">
             <summary>
-            The configuration key delimiter
+            The configuration key delimiter.
             </summary>
         </member>
         <member name="F:Songhay.Models.DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey">
             <summary>
-            The default trace source name configuration key
+            The default trace source name configuration key.
             </summary>
         </member>
         <member name="F:Songhay.Models.DeploymentEnvironment.DevelopmentEnvironmentName">
             <summary>
-            The development environment name
+            The development environment name.
             </summary>
         </member>
         <member name="F:Songhay.Models.DeploymentEnvironment.StagingEnvironmentName">
             <summary>
-            The staging environment name
+            The staging environment name.
             </summary>
         </member>
         <member name="F:Songhay.Models.DeploymentEnvironment.ProductionEnvironmentName">
             <summary>
-            The production environment name
+            The production environment name.
             </summary>
         </member>
         <member name="T:Songhay.Models.DisplayItemModel">
             <summary>
-            Model for display item
+            Model for display item.
             </summary>
             <remarks>
             This class was originally developed
@@ -3641,47 +3610,36 @@
             <summary>
             Gets or sets the description.
             </summary>
-            <value>The description.</value>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.DisplayText">
             <summary>
             Gets or sets the display text.
             </summary>
-            <value>The display text.</value>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.Id">
             <summary>
-            Gets or sets the id.
+            Gets or sets the identifier.
             </summary>
-            <value>The id.</value>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.ItemName">
             <summary>
             Gets or sets the item name.
             </summary>
-            <value>The item name.</value>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.ResourceIndicator">
             <summary>
             Gets or sets the resource indicator.
             </summary>
-            <value>
-            The resource indicator.
-            </value>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.Tag">
             <summary>
             Gets or sets the tag.
             </summary>
-            <value>
-            The tag.
-            </value>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.SortOrdinal">
             <summary>
             Gets or sets the sort ordinal.
             </summary>
-            <value>The sort ordinal.</value>
         </member>
         <member name="P:Songhay.Models.DisplayItemModel.EndDate">
             <summary>
@@ -3734,37 +3692,37 @@
         </member>
         <member name="F:Songhay.Models.HttpMethods.Delete">
             <summary>
-            HTTP Method <c>DELETE</c>
+            HTTP Method <c>DELETE</c>.
             </summary>
         </member>
         <member name="F:Songhay.Models.HttpMethods.Get">
             <summary>
-            HTTP Method <c>GET</c>
+            HTTP Method <c>GET</c>.
             </summary>
         </member>
         <member name="F:Songhay.Models.HttpMethods.Head">
             <summary>
-            HTTP Method <c>HEAD</c>
+            HTTP Method <c>HEAD</c>.
             </summary>
         </member>
         <member name="F:Songhay.Models.HttpMethods.Options">
             <summary>
-            HTTP Method <c>OPTIONS</c>
+            HTTP Method <c>OPTIONS</c>.
             </summary>
         </member>
         <member name="F:Songhay.Models.HttpMethods.Post">
             <summary>
-            HTTP Method <c>POST</c>
+            HTTP Method <c>POST</c>.
             </summary>
         </member>
         <member name="F:Songhay.Models.HttpMethods.Put">
             <summary>
-            HTTP Method <c>PUT</c>
+            HTTP Method <c>PUT</c>.
             </summary>
         </member>
         <member name="F:Songhay.Models.HttpMethods.Trace">
             <summary>
-            HTTP Method <c>TRACE</c>
+            HTTP Method <c>TRACE</c>.
             </summary>
         </member>
         <member name="T:Songhay.Models.LazyDisplayItem`1">
@@ -3778,19 +3736,16 @@
             <summary>
             Gets or sets the targetValues name.
             </summary>
-            <value>The targetValues name.</value>
         </member>
         <member name="P:Songhay.Models.LazyDisplayItem`1.LazyItem">
             <summary>
             Gets or sets the lazy item.
             </summary>
-            <value>The lazy item.</value>
         </member>
         <member name="P:Songhay.Models.LazyDisplayItem`1.Name">
             <summary>
             Gets or sets the name.
             </summary>
-            <value>The name.</value>
         </member>
         <member name="T:Songhay.Models.MenuDisplayItemModel">
             <summary>
@@ -3801,48 +3756,36 @@
             <summary>
             Gets or sets the child items.
             </summary>
-            <value>
-            The child items.
-            </value>
         </member>
         <member name="P:Songhay.Models.MenuDisplayItemModel.GroupDisplayText">
             <summary>
-            Display text of the Group
+            Display text of the Group.
             </summary>
         </member>
         <member name="P:Songhay.Models.MenuDisplayItemModel.GroupId">
             <summary>
-            Identifier of the Group
+            Identifier of the Group.
             </summary>
         </member>
         <member name="P:Songhay.Models.MenuDisplayItemModel.IsCollapsed">
             <summary>
-            Returns `true` when group is visually collapsed
+            Returns `true` when group is visually collapsed.
             </summary>
         </member>
         <member name="P:Songhay.Models.MenuDisplayItemModel.IsDefaultSelection">
             <summary>
             Gets or sets whether this is default selection.
             </summary>
-            <value>
-            This is default selection.
-            </value>
         </member>
         <member name="P:Songhay.Models.MenuDisplayItemModel.IsEnabled">
             <summary>
             Gets or sets whether this is enabled.
             </summary>
-            <value>
-            This is enabled.
-            </value>
         </member>
         <member name="P:Songhay.Models.MenuDisplayItemModel.IsSelected">
             <summary>
             Gets or sets whether this is selected.
             </summary>
-            <value>
-            <c>true</c> when this is selected.
-            </value>
         </member>
         <member name="T:Songhay.Models.MimeTypes">
             <summary>
@@ -3855,102 +3798,176 @@
         </member>
         <member name="F:Songhay.Models.MimeTypes.ApplicationAtomXml">
             <summary>
-            The application atom XML
+            MIME media type name: application
+            MIME subtype name: atom+xml
+            [ https://www.iana.org/assignments/media-types/application/atom+xml ]
             </summary>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ApplicationFormUrlEncoded">
             <summary>
-            The application form URL encoded
+            MIME media type name: application
+            Media subtype name: x-www-form-urlencoded
+            [ https://www.iana.org/assignments/media-types/application/x-www-form-urlencoded ]
             </summary>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ApplicationJson">
             <summary>
-            The application json
+            MIME media type name: application
+            Subtype name: json
+            [ https://www.iana.org/assignments/media-types/application/json ]
             </summary>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ApplicationOctetStream">
             <summary>
-            The application octet stream
+            MIME media type name: application
+            The <c>octet-stream</c> subtype is used to indicate that a body contains arbitrary binary data.
+            [ https://www.iana.org/assignments/media-types/application/octet-stream ]
             </summary>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ApplicationRssXml">
             <summary>
-            The application RSS XML
+            MIME media type name: application
             </summary>
+            <remarks>
+            This MIME type is not documented by www.iana.org.
+            What did Dave Winer do to those people?
+            </remarks>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ApplicationVndMsFontObject">
             <summary>
-            The application VND ms font object
+            MIME media type name: application
+            MIME subtype name: vnd.ms-fontobject
+            [ https://www.iana.org/assignments/media-types/application/vnd.ms-fontobject ]
             </summary>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ApplicationXFontOtf">
             <summary>
-            The application x font otf
+            MIME media type name: application
             </summary>
+            <remarks>
+            This MIME type is not documented by www.iana.org.
+            [ https://www.iana.org/assignments/media-types/font/otf ]
+            </remarks>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ApplicationXFontTtf">
             <summary>
-            The application x font TTF
+            MIME media type name: application
             </summary>
+            <remarks>
+            This MIME type is not documented by www.iana.org.
+            [ https://www.iana.org/assignments/media-types/font/ttf ]
+            </remarks>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ApplicationXFontWoff">
             <summary>
-            The application x font woff
+            MIME media type name: application
             </summary>
+            <remarks>
+            This MIME type is not documented by www.iana.org.
+            [ https://www.iana.org/assignments/media-types/font/woff ]
+            </remarks>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ApplicationXml">
             <summary>
-            The application XML
+            MIME media type name: application
+            Subtype name:  xml
+            [ https://www.iana.org/assignments/media-types/application/xml ]
             </summary>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ImageGif">
-            <summary>
-            The image GIF
-            </summary>
+             <summary>
+             The image GIF format.
+             </summary>
+             <remarks>
+             This MIME type is not documented by www.iana.org.
+            
+             [ https://www.iana.org/go/rfc2046 ]
+             [ https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types#gif_graphics_interchange_format ]
+             </remarks>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ImageJpeg">
-            <summary>
-            The image JPEG
-            </summary>
+             <summary>
+             The image JPEG format.
+             </summary>
+             <remarks>
+             This MIME type is not documented by www.iana.org.
+            
+             [ https://www.iana.org/go/rfc2046 ]
+             [ https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types#jpeg_joint_photographic_experts_group_image ]
+             </remarks>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ImagePng">
             <summary>
-            The image PNG
+            Media type name: image
+            Media subtype name: png
+            [ https://www.iana.org/assignments/media-types/image/png ]
+            [ https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types#png_portable_network_graphics ]
             </summary>
         </member>
         <member name="F:Songhay.Models.MimeTypes.ImageSvgXml">
             <summary>
-            The image SVG XML
+            Media type name: image
+            Subtype name: svg+xml
+            [ https://www.iana.org/assignments/media-types/image/svg+xml ]
+            [ https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types#svg_scalable_vector_graphics ]
             </summary>
         </member>
+        <member name="F:Songhay.Models.MimeTypes.ImageWebP">
+             <summary>
+             The Web Picture format.
+             </summary>
+             <remarks>
+             This MIME type is not documented by www.iana.org.
+            
+             [ https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types#webp_image ]
+             </remarks>
+        </member>
         <member name="F:Songhay.Models.MimeTypes.ImageXIcon">
-            <summary>
-            The image x icon
-            </summary>
+             <summary>
+             Microsoft Icon.
+             </summary>
+             <remarks>
+             This MIME type is not documented by www.iana.org.
+            
+             [ https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types#ico_microsoft_windows_icon ]
+             </remarks>
         </member>
         <member name="F:Songhay.Models.MimeTypes.TextCss">
             <summary>
-            The text CSS
+            Type name: text
+            Subtype name: css
+            [ https://www.iana.org/assignments/media-types/text/css ]
             </summary>
         </member>
         <member name="F:Songhay.Models.MimeTypes.TextHtml">
             <summary>
-            The text HTML
+            Type name: text
+            Subtype name: Standards Tree - html
+            [ https://www.iana.org/assignments/media-types/text/html ]
             </summary>
         </member>
         <member name="F:Songhay.Models.MimeTypes.TextJavascript">
             <summary>
-            The text javascript
+            Type name: text
+            Subtype name: javascript
+            [ https://www.iana.org/assignments/media-types/text/javascript ]
             </summary>
         </member>
         <member name="F:Songhay.Models.MimeTypes.TextPlain">
-            <summary>
-            The text plain
-            </summary>
+             <summary>
+             Text, (generally ASCII or ISO 8859-n).
+             </summary>
+             <remarks>
+             This MIME type is not documented by www.iana.org.
+            
+             [ https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types ]
+             </remarks>
         </member>
         <member name="F:Songhay.Models.MimeTypes.TextXml">
             <summary>
-            The text HTML
+            Type name: text
+            Subtype name: xml
+            [ https://www.iana.org/assignments/media-types/text/xml ]
             </summary>
         </member>
         <member name="T:Songhay.Models.OpenAuthorizationData">
@@ -3986,65 +4003,41 @@
             <summary>
             Gets or sets the consumer key.
             </summary>
-            <value>
-            The consumer key.
-            </value>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.ConsumerSecret">
             <summary>
             Gets or sets the consumer secret.
             </summary>
-            <value>
-            The consumer secret.
-            </value>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.Nonce">
             <summary>
             Gets the nonce.
             </summary>
-            <value>
-            The nonce.
-            </value>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.TimeStamp">
             <summary>
             Gets or sets the time stamp.
             </summary>
-            <value>
-            The time stamp.
-            </value>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.Token">
             <summary>
             Gets or sets the token.
             </summary>
-            <value>
-            The token.
-            </value>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.TokenSecret">
             <summary>
             Gets or sets the token secret.
             </summary>
-            <value>
-            The token secret.
-            </value>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.SignatureMethod">
             <summary>
             Gets the signature method.
             </summary>
-            <value>
-            The signature method.
-            </value>
         </member>
         <member name="P:Songhay.Models.OpenAuthorizationData.Version">
             <summary>
             Gets or sets the version.
             </summary>
-            <value>
-            The version.
-            </value>
         </member>
         <member name="T:Songhay.Models.OpmlBody">
             <summary>
@@ -4055,7 +4048,6 @@
             <summary>
             Gets or sets the outlines.
             </summary>
-            <value>The outlines.</value>
         </member>
         <member name="T:Songhay.Models.OpmlDocument">
             <summary>
@@ -4081,25 +4073,21 @@
             <summary>
             Gets or sets the schema location.
             </summary>
-            <value>The schema location.</value>
         </member>
         <member name="P:Songhay.Models.OpmlDocument.Version">
             <summary>
             Gets the version.
             </summary>
-            <value>The version.</value>
         </member>
         <member name="P:Songhay.Models.OpmlDocument.OpmlHead">
             <summary>
             Gets the OPML head element.
             </summary>
-            <value>The OPML head element.</value>
         </member>
         <member name="P:Songhay.Models.OpmlDocument.OpmlBody">
             <summary>
             Gets the OPML body element.
             </summary>
-            <value>The OPML body element.</value>
         </member>
         <member name="T:Songhay.Models.OpmlHead">
             <summary>
@@ -4115,43 +4103,36 @@
             <summary>
             Gets or sets the title.
             </summary>
-            <value>The title.</value>
         </member>
         <member name="P:Songhay.Models.OpmlHead.DateCreated">
             <summary>
             Gets or sets the date created.
             </summary>
-            <value>The date created.</value>
         </member>
         <member name="P:Songhay.Models.OpmlHead.DateCreatedString">
             <summary>
             Gets the date created string.
             </summary>
-            <value>The date created string.</value>
         </member>
         <member name="P:Songhay.Models.OpmlHead.DateModified">
             <summary>
             Gets or sets the date modified.
             </summary>
-            <value>The date modified.</value>
         </member>
         <member name="P:Songhay.Models.OpmlHead.DateModifiedString">
             <summary>
             Gets the date created string.
             </summary>
-            <value>The date created string.</value>
         </member>
         <member name="P:Songhay.Models.OpmlHead.OwnerName">
             <summary>
             Gets or sets the name of the owner.
             </summary>
-            <value>The name of the owner.</value>
         </member>
         <member name="P:Songhay.Models.OpmlHead.OwnerEmail">
             <summary>
             Gets or sets the owner email.
             </summary>
-            <value>The owner email.</value>
         </member>
         <member name="T:Songhay.Models.OpmlOutline">
             <summary>
@@ -4162,49 +4143,41 @@
             <summary>
             Gets or sets the Category.
             </summary>
-            <value>The ID.</value>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.Id">
             <summary>
             Gets or sets the ID.
             </summary>
-            <value>The ID.</value>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.Outlines">
             <summary>
             Gets or sets the outlines.
             </summary>
-            <value>The outlines.</value>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.Text">
             <summary>
             Gets or sets the text.
             </summary>
-            <value>The text.</value>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.Title">
             <summary>
             Gets or sets the title.
             </summary>
-            <value>The title.</value>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.OutlineType">
             <summary>
             Gets or sets the type.
             </summary>
-            <value>The type.</value>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.Url">
             <summary>
             Gets or sets the URL.
             </summary>
-            <value>The URL.</value>
         </member>
         <member name="P:Songhay.Models.OpmlOutline.XmlUrl">
             <summary>
             Gets or sets the XML URL.
             </summary>
-            <value>The XML URL.</value>
         </member>
         <member name="T:Songhay.Models.PackedResource">
             <summary>
@@ -4215,19 +4188,16 @@
             <summary>
             Gets or sets the display name.
             </summary>
-            <value>The display name.</value>
         </member>
         <member name="P:Songhay.Models.PackedResource.Key">
             <summary>
             Gets or sets the key.
             </summary>
-            <value>The key.</value>
         </member>
         <member name="P:Songhay.Models.PackedResource.Name">
             <summary>
             Gets or sets the name.
             </summary>
-            <value>The name.</value>
         </member>
         <member name="T:Songhay.Models.PackedResource`1">
             <summary>
@@ -4239,13 +4209,11 @@
             <summary>
             Gets or sets the XAML string.
             </summary>
-            <value>The XAML string.</value>
         </member>
         <member name="P:Songhay.Models.PackedResource`1.XamlObject">
             <summary>
             Gets or sets the XAML object.
             </summary>
-            <value>The XAML object.</value>
         </member>
         <member name="T:Songhay.Models.PagedResult">
             <summary>
@@ -4256,15 +4224,11 @@
             <summary>
             Gets or sets the metadata.
             </summary>
-            <value>
-            The metadata.
-            </value>
         </member>
         <member name="P:Songhay.Models.PagedResult.PagedResultSet">
             <summary>
             Gets or sets the paged result set.
             </summary>
-            <value>The paged result set.</value>
         </member>
         <member name="T:Songhay.Models.PagedResultMeta">
             <summary>
@@ -4275,25 +4239,21 @@
             <summary>
             Gets or sets the index of the page.
             </summary>
-            <value>The index of the page.</value>
         </member>
         <member name="P:Songhay.Models.PagedResultMeta.PageCount">
             <summary>
             Gets the page count.
             </summary>
-            <value>The page count.</value>
         </member>
         <member name="P:Songhay.Models.PagedResultMeta.PageSize">
             <summary>
             Gets or sets the size of the page.
             </summary>
-            <value>The size of the page.</value>
         </member>
         <member name="P:Songhay.Models.PagedResultMeta.TotalCount">
             <summary>
             Gets or sets the total count.
             </summary>
-            <value>The total count.</value>
         </member>
         <member name="T:Songhay.Models.ProgramArgs">
             <summary>
@@ -4350,17 +4310,11 @@
             <summary>
             Gets the arguments.
             </summary>
-            <value>
-            The arguments.
-            </value>
         </member>
         <member name="P:Songhay.Models.ProgramArgs.HelpSet">
             <summary>
             Gets the help set.
             </summary>
-            <value>
-            The help set.
-            </value>
         </member>
         <member name="T:Songhay.Models.ProgramAssemblyInfo">
             <summary>
@@ -4426,73 +4380,46 @@
             <summary>
             Gets or sets the unicode point.
             </summary>
-            <value>
-            The unicode point.
-            </value>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.UnicodeInteger">
             <summary>
             Gets or sets the unicode integer.
             </summary>
-            <value>
-            The unicode integer.
-            </value>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.UnicodeGroup">
             <summary>
             Gets or sets the unicode group.
             </summary>
-            <value>
-            The unicode group.
-            </value>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.UnicodeName">
             <summary>
             Gets or sets the name of the unicode.
             </summary>
-            <value>
-            The name of the unicode.
-            </value>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.Character">
             <summary>
             Gets or sets the character, usually the Unicode Point.
             </summary>
-            <value>
-            The character.
-            </value>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.Windows1252UrlEncoding">
             <summary>
             Gets or sets the windows1252 URL encoding.
             </summary>
-            <value>
-            The windows1252 URL encoding.
-            </value>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.Utf8UrlEncoding">
             <summary>
             Gets or sets the UTF8 URL encoding.
             </summary>
-            <value>
-            The UTF8 URL encoding.
-            </value>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.HtmlEntityName">
             <summary>
             Gets or sets the name of the HTML entity.
             </summary>
-            <value>
-            The name of the HTML entity.
-            </value>
         </member>
         <member name="P:Songhay.Models.ProgramGlyph.XmlEntityNumber">
             <summary>
             Gets or sets the XML entity number.
             </summary>
-            <value>
-            The XML entity number.
-            </value>
         </member>
         <member name="T:Songhay.Models.ProgramMetadata">
             <summary>
@@ -4503,31 +4430,16 @@
             <summary>
             Gets or sets the cloud storage set.
             </summary>
-            <value>
-            The cloud storage set.
-            </value>
         </member>
         <member name="P:Songhay.Models.ProgramMetadata.DbmsSet">
             <summary>
             Gets or sets the DBMS set.
             </summary>
-            <value>
-            The DBMS set.
-            </value>
         </member>
         <member name="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet">
             <summary>
-            Returns a <see cref="T:System.String" /> that represents this instance.
-            </summary>
-            <returns>
-            A <see cref="T:System.String" /> that represents this instance.
-            </returns>
-            <summary>
             Gets or sets the REST API metadata set.
             </summary>
-            <value>
-            The API metadata set.
-            </value>
         </member>
         <member name="M:Songhay.Models.ProgramMetadata.ToString">
             <summary>
@@ -4574,39 +4486,26 @@
             <summary>
             Gets or sets the API base.
             </summary>
-            <value>
-            The API base.
-            </value>
         </member>
         <member name="P:Songhay.Models.RestApiMetadata.ApiKey">
             <summary>
             Gets or sets the API key.
             </summary>
-            <value>
-            The API key.
-            </value>
         </member>
         <member name="P:Songhay.Models.RestApiMetadata.ClaimsSet">
             <summary>
             Gets or sets the claims set.
             </summary>
-            <value>
-            The claims set.
-            </value>
         </member>
         <member name="P:Songhay.Models.RestApiMetadata.UriTemplates">
             <summary>
             Gets or sets the URI templates.
             </summary>
-            <value>
-            The URI templates.
-            </value>
         </member>
         <member name="M:Songhay.Models.RestApiMetadata.ToString">
             <summary>
             Converts this instance into a <see cref="T:System.String"/> representation.
             </summary>
-            <returns></returns>
         </member>
         <member name="T:Songhay.Models.RestPagingMetadata">
             <summary>
@@ -4617,71 +4516,46 @@
             <summary>
             Gets or sets the size of the result set.
             </summary>
-            <value>
-            The size of the result set.
-            </value>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.TotalSetSize">
             <summary>
             Gets or sets the total size of the set.
             </summary>
-            <value>
-            The total size of the set.
-            </value>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.StartPosition">
             <summary>
             Gets or sets the start position.
             </summary>
-            <value>
-            The start position.
-            </value>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.EndPosition">
             <summary>
             Gets or sets the end position.
             </summary>
-            <value>
-            The end position.
-            </value>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.FromDate">
             <summary>
             Gets or sets from date.
             </summary>
-            <value>
-            From date.
-            </value>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.ToDate">
             <summary>
             Gets or sets to date.
             </summary>
-            <value>
-            To date.
-            </value>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.NextUri">
             <summary>
             Gets or sets the next URI.
             </summary>
-            <value>
-            The next URI.
-            </value>
         </member>
         <member name="P:Songhay.Models.RestPagingMetadata.PreviousUri">
             <summary>
             Gets or sets the previous URI.
             </summary>
-            <value>
-            The previous URI.
-            </value>
         </member>
         <member name="M:Songhay.Models.RestPagingMetadata.ToShallowCopy">
             <summary>
             Returns the shallow copy from <see cref="M:System.Object.MemberwiseClone"/>.
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Models.RestPagingMetadata.ToString">
             <summary>
@@ -5804,19 +5678,16 @@
             <summary>
             Gets or sets the name of the variable.
             </summary>
-            <value>The name of the variable.</value>
         </member>
         <member name="P:Songhay.Models.SystemVariable.VariableDescription">
             <summary>
             Gets or sets the variable description.
             </summary>
-            <value>The variable description.</value>
         </member>
         <member name="P:Songhay.Models.SystemVariable.VariableValue">
             <summary>
             Gets or sets the variable value.
             </summary>
-            <value>The variable value.</value>
         </member>
         <member name="T:Songhay.Models.SystemVariable`1">
             <summary>
@@ -5827,19 +5698,16 @@
             <summary>
             Gets or sets the name of the variable.
             </summary>
-            <value>The name of the variable.</value>
         </member>
         <member name="P:Songhay.Models.SystemVariable`1.VariableDescription">
             <summary>
             Gets or sets the variable description.
             </summary>
-            <value>The variable description.</value>
         </member>
         <member name="P:Songhay.Models.SystemVariable`1.VariableValue">
             <summary>
             Gets or sets the variable value.
             </summary>
-            <value>The variable value.</value>
         </member>
         <member name="T:Songhay.Models.XEncoding">
             <summary>
@@ -5848,63 +5716,58 @@
         </member>
         <member name="F:Songhay.Models.XEncoding.Windows1252">
             <summary>
-            Text encoding
+            Text encoding.
             </summary>
         </member>
         <member name="F:Songhay.Models.XEncoding.Iso88591">
             <summary>
-            Text encoding
+            Text encoding.
             </summary>
         </member>
         <member name="F:Songhay.Models.XEncoding.Utf08">
             <summary>
-            Text encoding
+            Text encoding.
             </summary>
         </member>
         <member name="F:Songhay.Models.XEncoding.Utf16">
             <summary>
-            Text encoding
+            Text encoding.
             </summary>
         </member>
         <member name="T:Songhay.Models.XhtmlDocument">
             <summary>
-            Defines an XHTML Document.
+            Defines the conventional XHTML Document.
             </summary>
         </member>
         <member name="P:Songhay.Models.XhtmlDocument.Location">
             <summary>
             Gets or sets the location.
             </summary>
-            <value>The location.</value>
         </member>
         <member name="P:Songhay.Models.XhtmlDocument.Header">
             <summary>
             Gets or sets the header.
             </summary>
-            <value>The header.</value>
         </member>
         <member name="P:Songhay.Models.XhtmlDocument.Title">
             <summary>
             Gets or sets the title.
             </summary>
-            <value>The title.</value>
         </member>
         <member name="T:Songhay.Models.XhtmlDocuments">
             <summary>
-            XHTML Documents
+            Collects <see cref="T:Songhay.Models.XhtmlDocument"/>.
             </summary>
         </member>
         <member name="P:Songhay.Models.XhtmlDocuments.Documents">
             <summary>
             Gets or sets the documents.
             </summary>
-            <value>The documents.</value>
         </member>
         <member name="P:Songhay.Models.XhtmlDocuments.Title">
             <summary>
             Gets or sets the title.
             </summary>
-            <value>The title.</value>
         </member>
         <member name="T:Songhay.Models.XhtmlImage">
             <summary>
@@ -5915,55 +5778,40 @@
             <summary>
             Gets or sets the location.
             </summary>
-            <value>
-            The location.
-            </value>
         </member>
         <member name="P:Songhay.Models.XhtmlImage.Height">
             <summary>
             Gets or sets the height.
             </summary>
-            <value>
-            The height.
-            </value>
         </member>
         <member name="P:Songhay.Models.XhtmlImage.HeightInPixels">
             <summary>
             Gets or sets the height in pixels.
             </summary>
-            <value>
-            The height in pixels.
-            </value>
         </member>
         <member name="P:Songhay.Models.XhtmlImage.Width">
             <summary>
             Gets or sets the width.
             </summary>
-            <value>
-            The width.
-            </value>
         </member>
         <member name="P:Songhay.Models.XhtmlImage.WidthInPixels">
             <summary>
             Gets or sets the width in pixels.
             </summary>
-            <value>
-            The width in pixels.
-            </value>
         </member>
         <member name="T:Songhay.Models.XObjectMetadata">
             <summary>
-            <see cref="T:System.Xml.Linq.XObject"/> metadata
+            The conventional <see cref="T:System.Xml.Linq.XObject"/> metadata.
             </summary>
         </member>
         <member name="F:Songhay.Models.XObjectMetadata.SiteMapNamespace">
             <summary>
-            The sitemaps.org namespace
+            The sitemaps.org namespace.
             </summary>
         </member>
         <member name="P:Songhay.Models.XObjectMetadata.XhtmlDocTypeTransitional">
             <summary>
-            DOCTYPE XHTML Transitional
+            DOCTYPE XHTML Transitional declaration.
             </summary>
         </member>
         <member name="T:Songhay.Net.SmtpUtility">

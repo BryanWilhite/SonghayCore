@@ -1,7 +1,7 @@
 ﻿namespace Songhay.Models;
 
 /// <summary>
-/// Model for display item
+/// Model for display item.
 /// </summary>
 /// <remarks>
 /// This class was originally developed
@@ -14,41 +14,31 @@ public class DisplayItemModel : ISortable, ITemporal
     /// <summary>
     /// Gets or sets the description.
     /// </summary>
-    /// <value>The description.</value>
     public string? Description { get; set; }
 
     /// <summary>
     /// Gets or sets the display text.
     /// </summary>
-    /// <value>The display text.</value>
     public string? DisplayText { get; set; }
 
     /// <summary>
-    /// Gets or sets the id.
+    /// Gets or sets the identifier.
     /// </summary>
-    /// <value>The id.</value>
     public int Id { get; set; }
 
     /// <summary>
     /// Gets or sets the item name.
     /// </summary>
-    /// <value>The item name.</value>
     public string? ItemName { get; set; }
 
     /// <summary>
     /// Gets or sets the resource indicator.
     /// </summary>
-    /// <value>
-    /// The resource indicator.
-    /// </value>
     public Uri? ResourceIndicator { get; set; }
 
     /// <summary>
     /// Gets or sets the tag.
     /// </summary>
-    /// <value>
-    /// The tag.
-    /// </value>
     public object? Tag { get; set; }
 
     #region ISortable members:
@@ -56,7 +46,6 @@ public class DisplayItemModel : ISortable, ITemporal
     /// <summary>
     /// Gets or sets the sort ordinal.
     /// </summary>
-    /// <value>The sort ordinal.</value>
     public byte SortOrdinal { get; set; }
 
     #endregion

@@ -10,18 +10,15 @@ public class LazyDisplayItem<T>
     /// <summary>
     /// Gets or sets the targetValues name.
     /// </summary>
-    /// <value>The targetValues name.</value>
     public string? DisplayName { get; set; }
 
     /// <summary>
     /// Gets or sets the lazy item.
     /// </summary>
-    /// <value>The lazy item.</value>
     public Lazy<T?>? LazyItem { get; set; }
 
     /// <summary>
     /// Gets or sets the name.
     /// </summary>
-    /// <value>The name.</value>
     public string? Name { get; set; }
 }

@@ -58,16 +58,10 @@ public class ProgramArgs
     /// <summary>
     /// Gets the arguments.
     /// </summary>
-    /// <value>
-    /// The arguments.
-    /// </value>
     public string[] Args { get; }
 
     /// <summary>
     /// Gets the help set.
     /// </summary>
-    /// <value>
-    /// The help set.
-    /// </value>
     public Dictionary<string, string> HelpSet { get; } = new();
 }

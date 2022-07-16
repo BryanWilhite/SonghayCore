@@ -20,7 +20,6 @@ public class OpmlHead
     /// <summary>
     /// Gets or sets the title.
     /// </summary>
-    /// <value>The title.</value>
     [XmlElement(ElementName = "title")]
     [JsonPropertyName("title")]
     public string? Title { get; set; }
@@ -28,7 +27,6 @@ public class OpmlHead
     /// <summary>
     /// Gets or sets the date created.
     /// </summary>
-    /// <value>The date created.</value>
     [XmlIgnore]
     [JsonIgnore]
     public DateTime? DateCreated
@@ -44,7 +42,6 @@ public class OpmlHead
     /// <summary>
     /// Gets the date created string.
     /// </summary>
-    /// <value>The date created string.</value>
     [XmlElement(ElementName = "dateCreated")]
     [JsonPropertyName("dateCreated")]
     public string? DateCreatedString { get; set; }
@@ -52,7 +49,6 @@ public class OpmlHead
     /// <summary>
     /// Gets or sets the date modified.
     /// </summary>
-    /// <value>The date modified.</value>
     [XmlIgnore]
     [JsonIgnore]
     public DateTime? DateModified
@@ -69,7 +65,6 @@ public class OpmlHead
     /// <summary>
     /// Gets the date created string.
     /// </summary>
-    /// <value>The date created string.</value>
     [XmlElement(ElementName = "dateModified")]
     [JsonPropertyName("dateModified")]
     public string? DateModifiedString { get; set; }
@@ -77,7 +72,6 @@ public class OpmlHead
     /// <summary>
     /// Gets or sets the name of the owner.
     /// </summary>
-    /// <value>The name of the owner.</value>
     [XmlElement(ElementName = "ownerName")]
     [JsonPropertyName("ownerName")]
     public string? OwnerName { get; set; }
@@ -85,7 +79,6 @@ public class OpmlHead
     /// <summary>
     /// Gets or sets the owner email.
     /// </summary>
-    /// <value>The owner email.</value>
     [XmlElement(ElementName = "ownerEmail")]
     [JsonPropertyName("ownerEmail")]
     public string? OwnerEmail { get; set; }

@@ -56,64 +56,40 @@ public class OpenAuthorizationData
     /// <summary>
     /// Gets or sets the consumer key.
     /// </summary>
-    /// <value>
-    /// The consumer key.
-    /// </value>
     public string? ConsumerKey { get; set; }
 
     /// <summary>
     /// Gets or sets the consumer secret.
     /// </summary>
-    /// <value>
-    /// The consumer secret.
-    /// </value>
     public string? ConsumerSecret { get; set; }
 
     /// <summary>
     /// Gets the nonce.
     /// </summary>
-    /// <value>
-    /// The nonce.
-    /// </value>
     public string? Nonce { get; set; }
 
     /// <summary>
     /// Gets or sets the time stamp.
     /// </summary>
-    /// <value>
-    /// The time stamp.
-    /// </value>
     public string? TimeStamp { get; set; }
 
     /// <summary>
     /// Gets or sets the token.
     /// </summary>
-    /// <value>
-    /// The token.
-    /// </value>
     public string? Token { get; set; }
 
     /// <summary>
     /// Gets or sets the token secret.
     /// </summary>
-    /// <value>
-    /// The token secret.
-    /// </value>
     public string? TokenSecret { get; set; }
 
     /// <summary>
     /// Gets the signature method.
     /// </summary>
-    /// <value>
-    /// The signature method.
-    /// </value>
     public string? SignatureMethod { get; set; }
 
     /// <summary>
     /// Gets or sets the version.
     /// </summary>
-    /// <value>
-    /// The version.
-    /// </value>
     public string? Version { get; set; }
 }

@@ -10,7 +10,6 @@ public class OpmlBody
     /// <summary>
     /// Gets or sets the outlines.
     /// </summary>
-    /// <value>The outlines.</value>
     [XmlElement(ElementName = "outline")]
     [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays",
         Justification = "Used for XML serialization.")]

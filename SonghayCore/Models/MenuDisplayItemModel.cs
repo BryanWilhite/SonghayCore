@@ -8,25 +8,22 @@ public class MenuDisplayItemModel : ColorDisplayItemModel, IGroupable, ISelectab
     /// <summary>
     /// Gets or sets the child items.
     /// </summary>
-    /// <value>
-    /// The child items.
-    /// </value>
     public MenuDisplayItemModel[] ChildItems { get; set; } = Enumerable.Empty<MenuDisplayItemModel>().ToArray();
 
     #region IGroupable members:
 
     /// <summary>
-    /// Display text of the Group
+    /// Display text of the Group.
     /// </summary>
     public string? GroupDisplayText { get; set; }
 
     /// <summary>
-    /// Identifier of the Group
+    /// Identifier of the Group.
     /// </summary>
     public string? GroupId { get; set; }
 
     /// <summary>
-    /// Returns `true` when group is visually collapsed
+    /// Returns `true` when group is visually collapsed.
     /// </summary>
     public bool IsCollapsed { get; set; }
 
@@ -37,25 +34,16 @@ public class MenuDisplayItemModel : ColorDisplayItemModel, IGroupable, ISelectab
     /// <summary>
     /// Gets or sets whether this is default selection.
     /// </summary>
-    /// <value>
-    /// This is default selection.
-    /// </value>
     public bool? IsDefaultSelection { get; set; }
 
     /// <summary>
     /// Gets or sets whether this is enabled.
     /// </summary>
-    /// <value>
-    /// This is enabled.
-    /// </value>
     public bool? IsEnabled { get; set; }
 
     /// <summary>
     /// Gets or sets whether this is selected.
     /// </summary>
-    /// <value>
-    /// <c>true</c> when this is selected.
-    /// </value>
     public bool? IsSelected { get; set; }
 
     #endregion

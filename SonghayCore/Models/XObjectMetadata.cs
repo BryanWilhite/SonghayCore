@@ -1,17 +1,17 @@
 ﻿namespace Songhay.Models;
 
 /// <summary>
-/// <see cref="XObject"/> metadata
+/// The conventional <see cref="XObject"/> metadata.
 /// </summary>
 public static class XObjectMetadata
 {
     /// <summary>
-    /// The sitemaps.org namespace
+    /// The sitemaps.org namespace.
     /// </summary>
     public static readonly XNamespace SiteMapNamespace = "http://www.sitemaps.org/schemas/sitemap/0.9";
 
     /// <summary>
-    /// DOCTYPE XHTML Transitional
+    /// DOCTYPE XHTML Transitional declaration.
     /// </summary>
     public static XDocumentType XhtmlDocTypeTransitional =>
         new("xhtml",

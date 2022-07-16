@@ -1,7 +1,7 @@
 ﻿namespace Songhay.Models;
 
 /// <summary>
-/// XHTML Documents
+/// Collects <see cref="XhtmlDocument"/>.
 /// </summary>
 [Serializable]
 public class XhtmlDocuments
@@ -9,7 +9,6 @@ public class XhtmlDocuments
     /// <summary>
     /// Gets or sets the documents.
     /// </summary>
-    /// <value>The documents.</value>
     [XmlElement("XhtmlDocument")]
     [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays",
         Justification = "Used for XML serialization.")]
@@ -18,7 +17,6 @@ public class XhtmlDocuments
     /// <summary>
     /// Gets or sets the title.
     /// </summary>
-    /// <value>The title.</value>
     [XmlAttribute]
     public string? Title { get; set; }
 }

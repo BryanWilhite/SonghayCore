@@ -8,71 +8,46 @@ public class RestPagingMetadata
     /// <summary>
     /// Gets or sets the size of the result set.
     /// </summary>
-    /// <value>
-    /// The size of the result set.
-    /// </value>
     public int ResultSetSize { get; set; }
 
     /// <summary>
     /// Gets or sets the total size of the set.
     /// </summary>
-    /// <value>
-    /// The total size of the set.
-    /// </value>
     public int TotalSetSize { get; set; }
 
     /// <summary>
     /// Gets or sets the start position.
     /// </summary>
-    /// <value>
-    /// The start position.
-    /// </value>
     public int StartPosition { get; set; }
 
     /// <summary>
     /// Gets or sets the end position.
     /// </summary>
-    /// <value>
-    /// The end position.
-    /// </value>
     public int EndPosition { get; set; }
 
     /// <summary>
     /// Gets or sets from date.
     /// </summary>
-    /// <value>
-    /// From date.
-    /// </value>
     public DateTime? FromDate { get; set; }
 
     /// <summary>
     /// Gets or sets to date.
     /// </summary>
-    /// <value>
-    /// To date.
-    /// </value>
     public DateTime? ToDate { get; set; }
 
     /// <summary>
     /// Gets or sets the next URI.
     /// </summary>
-    /// <value>
-    /// The next URI.
-    /// </value>
     public string? NextUri { get; set; }
 
     /// <summary>
     /// Gets or sets the previous URI.
     /// </summary>
-    /// <value>
-    /// The previous URI.
-    /// </value>
     public string? PreviousUri { get; set; }
 
     /// <summary>
     /// Returns the shallow copy from <see cref="object.MemberwiseClone"/>.
     /// </summary>
-    /// <returns></returns>
     public RestPagingMetadata? ToShallowCopy()
     {
         return MemberwiseClone() as RestPagingMetadata;
