@@ -1,7 +1,7 @@
 ﻿namespace Songhay;
 
 /// <summary>
-/// Defines shared routines for Studio programs
+/// Defines shared routines for Studio programs.
 /// </summary>
 public static partial class ProgramUtility
 {
@@ -25,7 +25,6 @@ public static partial class ProgramUtility
     /// Loads the configuration.
     /// </summary>
     /// <param name="basePath">The base path.</param>
-    /// <returns></returns>
     public static IConfigurationRoot LoadConfiguration(string? basePath) =>
         LoadConfiguration(basePath, builderModifier: null);
 
@@ -73,7 +72,7 @@ public static partial class ProgramUtility
     }
 
     /// <summary>
-    /// Handles the debug.
+    /// Pauses the shell Program in <c>DEBUG</c> mode.
     /// </summary>
     public static void HandleDebug()
     {

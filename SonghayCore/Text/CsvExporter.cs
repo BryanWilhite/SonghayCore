@@ -32,17 +32,11 @@ public class CsvExporter<T> where T : class
     /// <summary>
     /// Gets the columns.
     /// </summary>
-    /// <value>
-    /// The columns.
-    /// </value>
     public IEnumerable<string> Columns { get; private set; }
 
     /// <summary>
     /// Gets the rows.
     /// </summary>
-    /// <value>
-    /// The rows.
-    /// </value>
     public IEnumerable<T> Rows { get; private set; }
 
     /// <summary>
@@ -89,14 +83,14 @@ public class CsvExporter<T> where T : class
                 foreach (var propertyName in Columns)
                 {
                     var propertyInfo = propertyInfoList.FirstOrDefault(i => i.Name == propertyName);
-                    if (propertyInfo != null) sb.Append(MakeCsvText(propertyInfo.GetValue(obj, null))).Append(",");
+                    if (propertyInfo != null) sb.Append(MakeCsvText(propertyInfo.GetValue(obj, null))).Append(',');
                 }
             }
             else
             {
                 foreach (var propertyInfo in propertyInfoList)
                 {
-                    sb.Append(MakeCsvText(propertyInfo.GetValue(obj, null))).Append(",");
+                    sb.Append(MakeCsvText(propertyInfo.GetValue(obj, null))).Append(',');
                 }
             }
 
@@ -110,7 +104,7 @@ public class CsvExporter<T> where T : class
     /// Exports to file.
     /// </summary>
     /// <param name="path">The path.</param>
-    public void ExportToFile(string? path) => File.WriteAllText(path!, Export());
+    public void ExportToFile(string? path) => File.WriteAllText(path.ToReferenceTypeValueOrThrow(), Export());
 
     /// <summary>
     /// Exports to bytes.
@@ -129,7 +123,7 @@ public class CsvExporter<T> where T : class
         string output = value.ToString()!;
 
         if (output.Contains(',') || output.Contains('"'))
-            output = '"' + output.Replace("\"", "\"\"") + '"';
+            output = $"\"{output.Replace("\"", "\"\"")}\"";
 
         return output;
     }

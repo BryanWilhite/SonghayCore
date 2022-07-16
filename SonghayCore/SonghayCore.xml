@@ -5946,8 +5946,6 @@
             Gets the directory name from assembly.
             </summary>
             <param name="assembly">The assembly.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">assembly</exception>
         </member>
         <member name="M:Songhay.ProgramAssemblyUtility.GetPathFromAssembly(System.Reflection.Assembly,System.String)">
             <summary>
@@ -5958,16 +5956,7 @@
         </member>
         <member name="T:Songhay.ProgramFileUtility">
             <summary>
-            A few static helper members
-            for <see cref="N:System.IO"/>.
-            </summary>
-            <summary>
-            A few static helper members
-            for <see cref="N:System.IO"/>.
-            </summary>
-            <summary>
-            A few static helper members
-            for <see cref="N:System.IO"/>.
+            A few static helper members for <see cref="N:System.IO"/>.
             </summary>
         </member>
         <member name="M:Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})">
@@ -6028,7 +6017,7 @@
             </summary>
             <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
             <param name="archiveAction">The action to take for the ZIP archive in use.</param>
-            <param name="zipArchiveMode">The <see cref="T:System.IO.Compression.ZipArchiveMode"/></param>
+            <param name="zipArchiveMode">The <see cref="T:System.IO.Compression.ZipArchiveMode"/>.</param>
         </member>
         <member name="M:Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
             <summary>
@@ -6058,7 +6047,7 @@
             </summary>
             <param name="archiveInfo">The ZIP archive <see cref="T:System.IO.FileInfo"/>.</param>
             <param name="fileInfo">The file information for writing the entry.</param>
-            <param name="compressionLevel">The <see cref="T:System.IO.Compression.CompressionLevel"/></param>
+            <param name="compressionLevel">The <see cref="T:System.IO.Compression.CompressionLevel"/>.</param>
         </member>
         <member name="M:Songhay.ProgramFileUtility.GetEncodedString(System.String)">
             <summary>
@@ -6084,7 +6073,6 @@
             Counts the parent directory chars.
             </summary>
             <param name="path">The path.</param>
-            <returns></returns>
             <remarks>
             This method is useful when running <see cref="M:Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)"/>.
             
@@ -6099,8 +6087,6 @@
             <param name="path">The path.</param>
             <param name="parentName">Name of the parent.</param>
             <param name="levels">The levels.</param>
-            <returns></returns>
-            <exception cref="T:System.IO.DirectoryNotFoundException">The expected directory is not here.</exception>
         </member>
         <member name="M:Songhay.ProgramFileUtility.FindParentDirectoryInfo(System.String,System.String,System.Int32)">
             <summary>
@@ -6109,8 +6095,6 @@
             <param name="path">The path.</param>
             <param name="parentName">Name of the parent.</param>
             <param name="levels">The levels.</param>
-            <returns></returns>
-            <exception cref="T:System.IO.DirectoryNotFoundException">The expected directory is not here.</exception>
         </member>
         <member name="M:Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)">
             <summary>Combines path and root based
@@ -6150,7 +6134,6 @@
             </summary>
             <param name="path">The path.</param>
             <param name="levels">The levels.</param>
-            <returns></returns>
             <remarks>
             A recursive wrapper for <see cref="M:System.IO.Directory.GetParent(System.String)"/>.
             </remarks>
@@ -6161,7 +6144,6 @@
             </summary>
             <param name="path">The path.</param>
             <param name="levels">The levels.</param>
-            <returns></returns>
             <remarks>
             A recursive wrapper for <see cref="M:System.IO.Directory.GetParent(System.String)"/>.
             </remarks>
@@ -6172,8 +6154,6 @@
             without leading dots (<c>.</c>) or <see cref="F:System.IO.Path.DirectorySeparatorChar" /> chars.
             </summary>
             <param name="fileSegment">The file segment.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">fileSegment</exception>
             <remarks>
             This method is the equivalent of calling:
              * <see cref="M:Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)"/>
@@ -6187,23 +6167,20 @@
             Returns <c>true</c> when the current OS
             uses forward-slash (<c>/</c>) paths or not.
             </summary>
-            <returns></returns>
         </member>
         <member name="M:Songhay.ProgramFileUtility.NormalizePath(System.String)">
             <summary>
             Normalizes the specified path with respect
             to the ambient value of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
             </summary>
-            <param name="path"></param>
-            <returns></returns>
+            <param name="path">The path.</param>
         </member>
         <member name="M:Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)">
             <summary>
             Removes conventional Directory prefixes
             for relative paths, e.g. <c>..\</c> or <c>.\</c>
             </summary>
-            <param name="path"></param>
-            <returns></returns>
+            <param name="path">The path.</param>
         </member>
         <member name="M:Songhay.ProgramFileUtility.RemoveConventionalPrefixes(System.String)">
             <summary>
@@ -6211,23 +6188,20 @@
             for relative paths based on the ambient value\
             of <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
             </summary>
-            <param name="path"></param>
-            <returns></returns>
+            <param name="path">The path.</param>
         </member>
         <member name="M:Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)">
             <summary>
             Removes conventional Directory prefixes
             for relative paths, e.g. <c>../</c> or <c>./</c>.
             </summary>
-            <param name="path"></param>
-            <returns></returns>
+            <param name="path">The path.</param>
         </member>
         <member name="M:Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)">
             <summary>
             Trims the leading directory separator chars.
             </summary>
             <param name="path">The path.</param>
-            <returns></returns>
             <remarks>
             Trims leading <see cref="F:System.IO.Path.AltDirectorySeparatorChar"/> and/or <see cref="F:System.IO.Path.DirectorySeparatorChar"/>,
             formatting relative paths for <see cref="M:System.IO.Path.Combine(System.String,System.String)"/>.
@@ -6241,9 +6215,6 @@
             Most of the Parse methods were originally meant
             for unboxing values from XML documents.
             </remarks>
-            <summary>
-            Static members for type handling.
-            </summary>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseBoolean(System.Object)">
             <summary>
@@ -6467,7 +6438,6 @@
             <typeparam name="TEnum">The type of the enum.</typeparam>
             <param name="value">The value.</param>
             <param name="defaultValue">The default value.</param>
-            <returns></returns>
             <remarks>
             For background, see http://stackoverflow.com/a/15017429/22944
             </remarks>
@@ -6669,9 +6639,8 @@
             </summary>
             <param name="dateValue">The <see cref="T:System.DateTime"/>.</param>
             <remarks>
-            For detail, see https://stackoverflow.com/a/1728437/22944
+            For detail, see https://stackoverflow.com/a/1728437/22944.
             </remarks>
-            <returns></returns>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ConvertInchesToPoints(System.Single)">
             <summary>
@@ -6727,16 +6696,7 @@
         </member>
         <member name="T:Songhay.ProgramUtility">
             <summary>
-            Defines shared routines for Studio programs
-            </summary>
-            <summary>
-            Static members for framework-level procedures.
-            </summary>
-            <summary>
-            Static members for framework-level procedures.
-            </summary>
-            <summary>
-            Defines shared routines for Studio programs
+            Defines shared routines for Studio programs.
             </summary>
         </member>
         <member name="M:Songhay.ProgramUtility.GetConsoleCharacters(System.String)">
@@ -6782,7 +6742,6 @@
             Loads the configuration.
             </summary>
             <param name="basePath">The base path.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.ProgramUtility.LoadConfiguration(System.String,System.String[])">
             <summary>
@@ -6803,7 +6762,7 @@
         </member>
         <member name="M:Songhay.ProgramUtility.HandleDebug">
             <summary>
-            Handles the debug.
+            Pauses the shell Program in <c>DEBUG</c> mode.
             </summary>
         </member>
         <member name="T:Songhay.Text.CsvExporter`1">
@@ -6832,17 +6791,11 @@
             <summary>
             Gets the columns.
             </summary>
-            <value>
-            The columns.
-            </value>
         </member>
         <member name="P:Songhay.Text.CsvExporter`1.Rows">
             <summary>
             Gets the rows.
             </summary>
-            <value>
-            The rows.
-            </value>
         </member>
         <member name="M:Songhay.Text.CsvExporter`1.Export">
             <summary>

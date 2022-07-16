@@ -45,8 +45,6 @@ public static class ProgramAssemblyUtility
     /// Gets the directory name from assembly.
     /// </summary>
     /// <param name="assembly">The assembly.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">assembly</exception>
     public static string? GetPathFromAssembly(Assembly? assembly)
     {
         ArgumentNullException.ThrowIfNull(assembly);

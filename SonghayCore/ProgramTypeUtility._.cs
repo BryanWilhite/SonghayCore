@@ -3,6 +3,10 @@ namespace Songhay;
 /// <summary>
 /// Static members for type handling.
 /// </summary>
+/// <remarks>
+/// Most of the Parse methods were originally meant
+/// for unboxing values from XML documents.
+/// </remarks>
 public static partial class ProgramTypeUtility
 {
     /// <summary>
@@ -73,9 +77,8 @@ public static partial class ProgramTypeUtility
     /// </summary>
     /// <param name="dateValue">The <see cref="DateTime"/>.</param>
     /// <remarks>
-    /// For detail, see https://stackoverflow.com/a/1728437/22944
+    /// For detail, see https://stackoverflow.com/a/1728437/22944.
     /// </remarks>
-    /// <returns></returns>
     public static string ConvertDateTimeToUtc(DateTime dateValue) =>
         dateValue
             .ToUniversalTime()

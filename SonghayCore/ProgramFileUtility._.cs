@@ -1,8 +1,7 @@
 ﻿namespace Songhay;
 
 /// <summary>
-/// A few static helper members
-/// for <see cref="System.IO"/>.
+/// A few static helper members for <see cref="System.IO"/>.
 /// </summary>
 public static partial class ProgramFileUtility
 {
@@ -20,7 +19,6 @@ public static partial class ProgramFileUtility
     /// Counts the parent directory chars.
     /// </summary>
     /// <param name="path">The path.</param>
-    /// <returns></returns>
     /// <remarks>
     /// This method is useful when running <see cref="GetParentDirectory(string, int)"/>.
     /// 
@@ -43,8 +41,6 @@ public static partial class ProgramFileUtility
     /// <param name="path">The path.</param>
     /// <param name="parentName">Name of the parent.</param>
     /// <param name="levels">The levels.</param>
-    /// <returns></returns>
-    /// <exception cref="DirectoryNotFoundException">The expected directory is not here.</exception>
     public static string? FindParentDirectory(string? path, string? parentName, int levels) =>
         FindParentDirectoryInfo(path, parentName, levels)?.FullName;
 
@@ -54,8 +50,6 @@ public static partial class ProgramFileUtility
     /// <param name="path">The path.</param>
     /// <param name="parentName">Name of the parent.</param>
     /// <param name="levels">The levels.</param>
-    /// <returns></returns>
-    /// <exception cref="DirectoryNotFoundException">The expected directory is not here.</exception>
     public static DirectoryInfo? FindParentDirectoryInfo(string? path, string? parentName, int levels)
     {
         if (string.IsNullOrWhiteSpace(path))
@@ -143,7 +137,6 @@ public static partial class ProgramFileUtility
     /// </summary>
     /// <param name="path">The path.</param>
     /// <param name="levels">The levels.</param>
-    /// <returns></returns>
     /// <remarks>
     /// A recursive wrapper for <see cref="Directory.GetParent(string)"/>.
     /// </remarks>
@@ -168,7 +161,6 @@ public static partial class ProgramFileUtility
     /// </summary>
     /// <param name="path">The path.</param>
     /// <param name="levels">The levels.</param>
-    /// <returns></returns>
     /// <remarks>
     /// A recursive wrapper for <see cref="Directory.GetParent(string)"/>.
     /// </remarks>
@@ -194,8 +186,6 @@ public static partial class ProgramFileUtility
     /// without leading dots (<c>.</c>) or <see cref="Path.DirectorySeparatorChar" /> chars.
     /// </summary>
     /// <param name="fileSegment">The file segment.</param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException">fileSegment</exception>
     /// <remarks>
     /// This method is the equivalent of calling:
     ///  * <see cref="TrimLeadingDirectorySeparatorChars(string)"/>
@@ -219,15 +209,13 @@ public static partial class ProgramFileUtility
     /// Returns <c>true</c> when the current OS
     /// uses forward-slash (<c>/</c>) paths or not.
     /// </summary>
-    /// <returns></returns>
     public static bool IsForwardSlashSystem() => IsForwardSlashSystemField;
 
     /// <summary>
     /// Normalizes the specified path with respect
     /// to the ambient value of <see cref="Path.DirectorySeparatorChar"/>.
     /// </summary>
-    /// <param name="path"></param>
-    /// <returns></returns>
+    /// <param name="path">The path.</param>
     public static string? NormalizePath(string? path)
     {
         if (string.IsNullOrWhiteSpace(path)) return null;
@@ -241,8 +229,7 @@ public static partial class ProgramFileUtility
     /// Removes conventional Directory prefixes
     /// for relative paths, e.g. <c>..\</c> or <c>.\</c>
     /// </summary>
-    /// <param name="path"></param>
-    /// <returns></returns>
+    /// <param name="path">The path.</param>
     public static string? RemoveBackslashPrefixes(string? path) =>
         path?
             .TrimStart(Backslash)
@@ -254,8 +241,7 @@ public static partial class ProgramFileUtility
     /// for relative paths based on the ambient value\
     /// of <see cref="Path.DirectorySeparatorChar"/>.
     /// </summary>
-    /// <param name="path"></param>
-    /// <returns></returns>
+    /// <param name="path">The path.</param>
     public static string? RemoveConventionalPrefixes(string? path) =>
         IsForwardSlashSystemField
             ? RemoveForwardslashPrefixes(path)
@@ -265,8 +251,7 @@ public static partial class ProgramFileUtility
     /// Removes conventional Directory prefixes
     /// for relative paths, e.g. <c>../</c> or <c>./</c>.
     /// </summary>
-    /// <param name="path"></param>
-    /// <returns></returns>
+    /// <param name="path">The path.</param>
     public static string? RemoveForwardslashPrefixes(string? path) =>
         path?
             .TrimStart(ForwardSlash)
@@ -277,7 +262,6 @@ public static partial class ProgramFileUtility
     /// Trims the leading directory separator chars.
     /// </summary>
     /// <param name="path">The path.</param>
-    /// <returns></returns>
     /// <remarks>
     /// Trims leading <see cref="Path.AltDirectorySeparatorChar"/> and/or <see cref="Path.DirectorySeparatorChar"/>,
     /// formatting relative paths for <see cref="Path.Combine(string, string)"/>.

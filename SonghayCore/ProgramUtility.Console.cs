@@ -1,8 +1,5 @@
 namespace Songhay;
 
-/// <summary>
-/// Defines shared routines for Studio programs
-/// </summary>
 public static partial class ProgramUtility
 {
     /// <summary>

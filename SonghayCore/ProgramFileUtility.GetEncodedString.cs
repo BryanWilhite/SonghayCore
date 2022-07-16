@@ -1,9 +1,5 @@
 ﻿namespace Songhay;
 
-/// <summary>
-/// A few static helper members
-/// for <see cref="System.IO"/>.
-/// </summary>
 public static partial class ProgramFileUtility
 {
     /// <summary>

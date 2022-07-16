@@ -1,12 +1,5 @@
 ﻿namespace Songhay;
 
-/// <summary>
-/// Static members for type handling.
-/// </summary>
-/// <remarks>
-/// Most of the Parse methods were originally meant
-/// for unboxing values from XML documents.
-/// </remarks>
 public static partial class ProgramTypeUtility
 {
     /// <summary>
@@ -301,7 +294,6 @@ public static partial class ProgramTypeUtility
     /// <typeparam name="TEnum">The type of the enum.</typeparam>
     /// <param name="value">The value.</param>
     /// <param name="defaultValue">The default value.</param>
-    /// <returns></returns>
     /// <remarks>
     /// For background, see http://stackoverflow.com/a/15017429/22944
     /// </remarks>

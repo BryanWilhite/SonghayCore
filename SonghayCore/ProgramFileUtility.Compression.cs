@@ -1,9 +1,5 @@
 ﻿namespace Songhay;
 
-/// <summary>
-/// A few static helper members
-/// for <see cref="System.IO"/>.
-/// </summary>
 public static partial class ProgramFileUtility
 {
     /// <summary>
@@ -93,7 +89,7 @@ public static partial class ProgramFileUtility
     /// </summary>
     /// <param name="archiveInfo">The ZIP archive <see cref="FileInfo"/>.</param>
     /// <param name="archiveAction">The action to take for the ZIP archive in use.</param>
-    /// <param name="zipArchiveMode">The <see cref="ZipArchiveMode"/></param>
+    /// <param name="zipArchiveMode">The <see cref="ZipArchiveMode"/>.</param>
     public static void UseZipArchive(FileInfo? archiveInfo, Action<ZipArchive?>? archiveAction,
         ZipArchiveMode zipArchiveMode)
     {
@@ -152,7 +148,7 @@ public static partial class ProgramFileUtility
     /// </summary>
     /// <param name="archiveInfo">The ZIP archive <see cref="FileInfo"/>.</param>
     /// <param name="fileInfo">The file information for writing the entry.</param>
-    /// <param name="compressionLevel">The <see cref="CompressionLevel"/></param>
+    /// <param name="compressionLevel">The <see cref="CompressionLevel"/>.</param>
     public static void WriteZipArchiveEntry(FileInfo? archiveInfo, FileInfo fileInfo,
         CompressionLevel compressionLevel) =>
         UseZipArchive(archiveInfo, archive =>
