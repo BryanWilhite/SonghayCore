@@ -12,9 +12,10 @@
         <license type="file">LICENSE.md</license>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <summary>Core reusable definitions for .NET Core and .NET Framework</summary>
+        <readme>README.md</readme>
         <releaseNotes>see https://github.com/users/BryanWilhite/projects/1</releaseNotes>
         <copyright>(c) 2022 Bryan D. Wilhite</copyright>
-        <tags>Core Songhay Configuration Cryptography LINQ</tags>
+        <tags>Core Songhay Configuration IO Extension Methods JSON XML XPath XObject LINQ</tags>
         <repository type="git" url="https://github.com/BryanWilhite/SonghayCore"></repository>
         <dependencies>
             <group targetFramework=".NET6.0">
@@ -23,10 +24,8 @@
                 <dependency id="Microsoft.Extensions.Configuration.EnvironmentVariables" version="6.0.0"/>
                 <dependency id="Microsoft.Extensions.Configuration.FileExtensions" version="6.0.0"/>
                 <dependency id="Microsoft.Extensions.Configuration.Json" version="6.0.0"/>
-                <dependency id="Microsoft.Extensions.Logging.TraceSource" version="6.0.0"/>
                 <dependency id="System.ComponentModel.Annotations" version="5.0.0"/>
-                <dependency id="System.ObjectModel" version="4.3.0"/>
-                <dependency id="System.ServiceModel.Primitives" version="4.9.0"/>
+                <dependency id="System.Configuration.ConfigurationManager" version="6.0.0"/>
                 <dependency id="System.ServiceModel.Syndication" version="6.0.0"/>
                 <dependency id="Tavis.UriTemplates" version="1.1.1"/>
             </group>
@@ -37,6 +36,7 @@
         <file src="bin\Debug\net6.0\Songhay*.json" target="lib\net6.0"/>
         <file src="**\*.cs" exclude="**\obj\**" target="src"/>
         <file src="..\LICENSE.md" target=""/>
+        <file src="..\README.md" target=""/>
         <file src="..\songhay_icon.png" target="images\"/>
     </files>
 </package>

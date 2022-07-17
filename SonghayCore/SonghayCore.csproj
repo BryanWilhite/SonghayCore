@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-        <AssemblyVersion>6.0.0</AssemblyVersion>
         <RootNamespace>Songhay</RootNamespace>
+        <AssemblyVersion>6.0.0</AssemblyVersion>
+        <TargetFramework>net6.0</TargetFramework>
 
         <Title>Songhay Core</Title>
         <Description>Core reusable definitions for .NET Core and .NET Framework</Description>
@@ -21,9 +21,10 @@
         <PackageIcon>songhay_icon.png</PackageIcon>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
         <PackageProjectUrl>https://github.com/BryanWilhite/SonghayCore</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageReleaseNotes>see https://github.com/users/BryanWilhite/projects/1</PackageReleaseNotes>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <PackageTags>Core;Songhay;Configuration;Cryptography;LINQ</PackageTags>
+        <PackageTags>Core;Songhay;Configuration;IO;Extension Methods;JSON;XML;XPath;XObject;LINQ</PackageTags>
         <PackageVersion>$(AssemblyVersion)</PackageVersion>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <Version>$(AssemblyVersion)</Version>
@@ -36,6 +37,7 @@
 
     <ItemGroup>
         <None Include="..\LICENSE.md" Link="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
+        <None Include="README.md" Pack="true" PackagePath="\"/>
         <None Include="..\songhay_icon.png">
           <Pack>True</Pack>
           <Link>songhay_icon.png</Link>
@@ -50,8 +52,6 @@
         <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
         <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
-        <PackageReference Include="System.ObjectModel" Version="4.3.0" />
-        <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
         <PackageReference Include="System.ServiceModel.Syndication" Version="6.0.0" />
         <PackageReference Include="Tavis.UriTemplates" Version="1.1.1" />
     </ItemGroup>

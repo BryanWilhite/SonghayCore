@@ -117,15 +117,13 @@
 		<div class="sidebar-nav-item sidebar-header">Namespaces</div>
 <div class="sidebar-nav-children">
 			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay">Songhay</a></div>
-			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Collections">Songhay<wbr>.Collections</a></div>
-			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.ComponentModel">Songhay<wbr>.ComponentModel</a></div>
+			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Abstractions">Songhay<wbr>.Abstractions</a></div>
 			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Diagnostics">Songhay<wbr>.Diagnostics</a></div>
+			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Exceptions">Songhay<wbr>.Exceptions</a></div>
 			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions">Songhay<wbr>.Extensions</a></div>
 			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Globalization">Songhay<wbr>.Globalization</a></div>
 			<div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Models">Songhay<wbr>.Models</a></div>
 			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Net">Songhay<wbr>.Net</a></div>
-			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Security">Songhay<wbr>.Security</a></div>
-			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Security.Cryptography">Songhay<wbr>.Security<wbr>.Cryptography</a></div>
 			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests">Songhay<wbr>.Tests</a></div>
 			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Extensions">Songhay<wbr>.Tests<wbr>.Extensions</a></div>
 			<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Orderers">Songhay<wbr>.Tests<wbr>.Orderers</a></div>
@@ -159,21 +157,14 @@
                                 <td><a href="/SonghayCore/latest/Songhay.Models/ActivitiesGetter">ActivitiesGetter</a></td>
                                     <td>
     Defines the in-memory storage
-    and getting of <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/IActivity">IActivity</a></code> types.
+    and Program access to <code class="cs"><a href="/SonghayCore/latest/Songhay.Abstractions/IActivity">IActivity</a></code> types.
     </td>
                             </tr>
                             <tr>
                                 <td><a href="/SonghayCore/latest/Songhay.Models/ActivityOutput_1">ActivityOutput</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Models/ActivityOutput_1#typeparam-TOutput">TOutput</a>&gt;<wbr></td>
                                     <td>
     Defines the conventional output
-    of <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/IActivityWithTask_2">IActivityWithTask&lt;TInput, TOutput&gt;</a></code>
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/BackgroundWorkerUtilityData">Background<wbr>Worker<wbr>Utility<wbr>Data</a></td>
-                                    <td>
-    Defines the meta-data
-    for <code class="cs"><a href="/SonghayCore/latest/Songhay.ComponentModel/BackgroundWorkerUtility">BackgroundWorkerUtility</a></code>.
+    of <code class="cs"><a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask_2">IActivityWithTask&lt;TInput, TOutput&gt;</a></code>.
     </td>
                             </tr>
                             <tr>
@@ -203,19 +194,13 @@
                             <tr>
                                 <td><a href="/SonghayCore/latest/Songhay.Models/DeploymentEnvironment">Deployment<wbr>Environment</a></td>
                                     <td>
-    Defines the deployment environment
+    Defines the deployment environment.
     </td>
                             </tr>
                             <tr>
                                 <td><a href="/SonghayCore/latest/Songhay.Models/DisplayItemModel">DisplayItemModel</a></td>
                                     <td>
-    Model for display item
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/EditableObjectCache">EditableObjectCache</a></td>
-                                    <td>
-    Defines an undo pattern for MVVM.
+    Model for display item.
     </td>
                             </tr>
                             <tr>
@@ -225,29 +210,9 @@
     </td>
                             </tr>
                             <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/HierarchicalNameValuePair">Hierarchical<wbr>Name<wbr>Value<wbr>Pair</a></td>
-                                    <td>
-    Defines hierarchical name-value pairs.
-    </td>
-                            </tr>
-                            <tr>
                                 <td><a href="/SonghayCore/latest/Songhay.Models/HttpMethods">HttpMethods</a></td>
                                     <td>
     Centralizes <code class="cs">HttpMethod</code> members as strings.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/InterfaceContractResolver_1">Interface<wbr>Contract<wbr>Resolver</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Models/InterfaceContractResolver_1#typeparam-TInterface">TInterface</a>&gt;<wbr></td>
-                                    <td>
-    JSON.NET Contract Resolver to serialize a type through another type
-    (usually an interface).
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/InterfaceContractResolverWithCamelCasing_1">Interface<wbr>Contract<wbr>Resolver<wbr>With<wbr>Camel<wbr>Casing</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Models/InterfaceContractResolverWithCamelCasing_1#typeparam-TInterface">TInterface</a>&gt;<wbr></td>
-                                    <td>
-    JSON.NET Contract Resolver to serialize a type through another type
-    (usually an interface).
     </td>
                             </tr>
                             <tr>
@@ -267,12 +232,6 @@
                                 <td><a href="/SonghayCore/latest/Songhay.Models/MimeTypes">MimeTypes</a></td>
                                     <td>
     Selected MIME types for this Studio
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/NameValuePair">NameValuePair</a></td>
-                                    <td>
-    Defines name-value pair.
     </td>
                             </tr>
                             <tr>
@@ -342,12 +301,6 @@
     </td>
                             </tr>
                             <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/ProgramGlyph">ProgramGlyph</a></td>
-                                    <td>
-    Defines a Unicode glyphic character
-    </td>
-                            </tr>
-                            <tr>
                                 <td><a href="/SonghayCore/latest/Songhay.Models/ProgramMetadata">ProgramMetadata</a></td>
                                     <td>
     Defines the conventional Program metadata.
@@ -392,13 +345,13 @@
                             <tr>
                                 <td><a href="/SonghayCore/latest/Songhay.Models/XhtmlDocument">XhtmlDocument</a></td>
                                     <td>
-    Defines an XHTML Document.
+    Defines the conventional XHTML Document.
     </td>
                             </tr>
                             <tr>
                                 <td><a href="/SonghayCore/latest/Songhay.Models/XhtmlDocuments">XhtmlDocuments</a></td>
                                     <td>
-    XHTML Documents
+    Collects <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/XhtmlDocument">XhtmlDocument</a></code>.
     </td>
                             </tr>
                             <tr>
@@ -410,7 +363,7 @@
                             <tr>
                                 <td><a href="/SonghayCore/latest/Songhay.Models/XObjectMetadata">XObjectMetadata</a></td>
                                     <td>
-    <code class="cs">XObject</code> metadata
+    The conventional <code class="cs">XObject</code> metadata.
     </td>
                             </tr>
                     </tbody>
@@ -418,112 +371,20 @@
             </div>
         
 
-            <h1 id="InterfaceTypes">Interface Types</h1>
+            <h1 id="StructureTypes">Structure Types</h1>
             <div class="table-responsive">
                 <table class="table table-api table-striped table-hover two-cols">
                     <thead>
                         <tr>
-                            <th>Interface</th>
+                            <th>Structure</th>
                                 <th>Summary</th>
                         </tr>
                     </thead>
                     <tbody>
                             <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IActivity">IActivity</a></td>
+                                <td><a href="/SonghayCore/latest/Songhay.Models/ProgramGlyph">ProgramGlyph</a></td>
                                     <td>
-    Defines an Activity in a shell environment.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IActivityConfigurationSupport">I<wbr>Activity<wbr>Configuration<wbr>Support</a></td>
-                                    <td>
-    Defines <code class="cs">IConfigurationRoot</code> support
-    for an <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/IActivity">IActivity</a></code>.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Models/IActivityWithOutput_2#typeparam-TInput">TInput</a>, <wbr><a href="/SonghayCore/latest/Songhay.Models/IActivityWithOutput_2#typeparam-TOutput">TOutput</a>&gt;<wbr></td>
-                                    <td>
-    Extends <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/IActivity">IActivity</a></code> with output support.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IActivityWithTask">IActivityWithTask</a></td>
-                                    <td>
-    Extends <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/IActivity">IActivity</a></code> with <code class="cs">System.Threading.Tasks.Task</code> support.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IActivityWithTask_2">IActivityWithTask</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Models/IActivityWithTask_2#typeparam-TInput">TInput</a>, <wbr><a href="/SonghayCore/latest/Songhay.Models/IActivityWithTask_2#typeparam-TOutput">TOutput</a>&gt;<wbr></td>
-                                    <td>
-    Extends <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/IActivity">IActivity</a></code> with <code class="cs"><a href="">Task</a></code> support.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IActivityWithTask_1">IActivityWithTask</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Models/IActivityWithTask_1#typeparam-TInput">TInput</a>&gt;<wbr></td>
-                                    <td>
-    Extends <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/IActivity">IActivity</a></code> with <code class="cs"><a href="">Task</a></code> support.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IActivityWithTaskOutput_1">I<wbr>Activity<wbr>With<wbr>Task<wbr>Output</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Models/IActivityWithTaskOutput_1#typeparam-TOutput">TOutput</a>&gt;<wbr></td>
-                                    <td>
-    Extends <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/IActivity">IActivity</a></code> with <code class="cs"><a href="">Task</a></code> output support.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IColorable">IColorable</a></td>
-                                    <td>
-    Defines a colorable visual.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IControlInteractionMessage">I<wbr>Control<wbr>Interaction<wbr>Message</a></td>
-                                    <td>
-    Defines a Composition Message
-    for a Control interaction event.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IGroupable">IGroupable</a></td>
-                                    <td>
-    Defines a group-able visual
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IProgramAssemblyInfo">IProgramAssemblyInfo</a></td>
-                                    <td>
-    Contract for <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/ProgramAssemblyInfo">ProgramAssemblyInfo</a></code>
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/IRepository">IRepository</a></td>
-                                    <td>
-    Defines the repository pattern for an Entity.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/ISelectable">ISelectable</a></td>
-                                    <td>
-    Defines a selectable visual.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/ISortable">ISortable</a></td>
-                                    <td>
-    Defines a sortable visual.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/ISyndicatable">ISyndicatable</a></td>
-                                    <td>
-    Specifies that a Model supports syndication.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Models/ITemporal">ITemporal</a></td>
-                                    <td>
-    Adds temporal properties to an item
+    Defines a Unicode glyphic character
     </td>
                             </tr>
                     </tbody>
@@ -545,7 +406,7 @@
             <div class="sidebar-nav-item sidebar-header">On This Page</div>
             <div class="sidebar-nav-children">
                     <div class="sidebar-nav-item"><a href="#ClassTypes">Class Types</a></div>
-                    <div class="sidebar-nav-item"><a href="#InterfaceTypes">Interface Types</a></div>
+                    <div class="sidebar-nav-item"><a href="#StructureTypes">Structure Types</a></div>
             </div>
         </div>
 

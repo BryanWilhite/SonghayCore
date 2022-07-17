@@ -120,20 +120,12 @@
 		</div>
 			<div class="sidebar-nav-item sidebar-header">Class Types</div>
 			<div class="sidebar-nav-children">
-					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/CsvParseException">CsvParseException</a></div>
-					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/ExpressionSeed">ExpressionSeed</a></div>
-					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/FuncSeed">FuncSeed</a></div>
-					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/JsonSerializationUtility">Json<wbr>Serialization<wbr>Utility</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/MathUtility">MathUtility</a></div>
-					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/OpcUtility">OpcUtility</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/ProgramAssemblyUtility">Program<wbr>Assembly<wbr>Utility</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/ProgramFileUtility">ProgramFileUtility</a></div>
 					<div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility">ProgramTypeUtility</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/ProgramUtility">ProgramUtility</a></div>
-			</div>
-			<div class="sidebar-nav-item sidebar-header">Enum Types</div>
-			<div class="sidebar-nav-children">
-					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/OpcReferencedTypeStrategy">Opc<wbr>Referenced<wbr>Type<wbr>Strategy</a></div>
+					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/TaskUtility">TaskUtility</a></div>
 			</div>
 
 	</div>
@@ -193,6 +185,11 @@ class Type type-node
 		<pre class="language-csharp"><code class="language-csharp">public static class ProgramTypeUtility</code></pre>
 
 
+		<h1 id="Remarks">Remarks</h1>
+		<div>
+    Most of the Parse methods were originally meant
+    for unboxing values from XML documents.
+    </div>
 
 
 
@@ -220,27 +217,27 @@ class Type type-node
 							<td>
 								<div>
     Converts Unix time stamps
-    to <code class="cs"><a href="">DateTime</a></code>.
+    to <code class="cs">DateTime</code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/7B560C5E">Convert<wbr>Date<wbr>Time<wbr>To<wbr>Rfc3339<wbr>Date<wbr>Time<wbr>(DateTime)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/9C5641CC">Convert<wbr>Date<wbr>Time<wbr>To<wbr>Rfc3339<wbr>Date<wbr>Time<wbr>(DateTime)<wbr></a></td>
 							<td>string</td>
 							<td>
 								<div>
-    Converts the specified <code class="cs"><a href="">DateTime</a></code> to RFC3339.
+    Converts the specified <code class="cs">DateTime</code> to RFC3339.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/2E46EAC0">Convert<wbr>Date<wbr>Time<wbr>To<wbr>Rfc822<wbr>Date<wbr>Time<wbr>(DateTime)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/83F71153">Convert<wbr>Date<wbr>Time<wbr>To<wbr>Rfc822<wbr>Date<wbr>Time<wbr>(DateTime)<wbr></a></td>
 							<td>string</td>
 							<td>
 								<div>
-    /// Converts the specified <code class="cs"><a href="">DateTime</a></code> to RFC822.
+    /// Converts the specified <code class="cs">DateTime</code> to RFC822.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -257,22 +254,22 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/659867C7">Convert<wbr>Date<wbr>Time<wbr>To<wbr>Unix<wbr>Time<wbr>(DateTime)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/9A139EB4">Convert<wbr>Date<wbr>Time<wbr>To<wbr>Unix<wbr>Time<wbr>(DateTime)<wbr></a></td>
 							<td>double</td>
 							<td>
 								<div>
-    Converts a <code class="cs"><a href="">DateTime</a></code>
+    Converts a <code class="cs">DateTime</code>
     to a Unix time stamp.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/ADC6CBE0">ConvertDateTimeToUtc<wbr>(DateTime)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/B8EAEFF7">ConvertDateTimeToUtc<wbr>(DateTime)<wbr></a></td>
 							<td>string</td>
 							<td>
 								<div>
-    Converts a <code class="cs"><a href="">DateTime</a></code>
+    Converts a <code class="cs">DateTime</code>
     to UTC (ISO 8601).
     </div>
 										<div><small><em>static</em></small></div>
@@ -283,7 +280,7 @@ class Type type-node
 							<td>float</td>
 							<td>
 								<div>
-    Converts inches as a <code class="cs"><a href="">float</a></code>
+    Converts inches as a <code class="cs">Single</code>
     to points.
     </div>
 										<div><small><em>static</em></small></div>
@@ -294,7 +291,7 @@ class Type type-node
 							<td>float</td>
 							<td>
 								<div>
-    Converts points as a <code class="cs"><a href="">float</a></code>
+    Converts points as a <code class="cs">Single</code>
     to inches.
     </div>
 										<div><small><em>static</em></small></div>
@@ -306,16 +303,6 @@ class Type type-node
 							<td>
 								<div>
     Generates the random password.
-    </div>
-										<div><small><em>static</em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/5AD84F16">GetDeepClone<wbr>&lt;T&gt;<wbr><wbr>(T)<wbr></a></td>
-							<td>T</td>
-							<td>
-								<div>
-    Gets the deep clone.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -337,7 +324,7 @@ class Type type-node
 							<td>
 								<div>
     Returns <code class="cs">true</code> when the specified value
-    is <code class="cs">null</code> or <code class="cs">System.String.Empty</code>.
+    is <code class="cs">null</code> or <code class="cs">String.Empty</code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -348,7 +335,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -359,7 +346,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -370,7 +357,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -381,7 +368,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -392,18 +379,18 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/C4C62E77">ParseDateTime<wbr>(object, <wbr>DateTime)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/EF94761B">ParseDateTime<wbr>(object, <wbr>DateTime)<wbr></a></td>
 							<td>DateTime?</td>
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -414,7 +401,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -425,7 +412,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -436,7 +423,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -447,7 +434,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -458,7 +445,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -469,7 +456,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -480,7 +467,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -491,73 +478,73 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs"><a href="">Enum</a></code> return type.
+    to the <code class="cs">Enum</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/A3578927">ParseInt16<wbr>(object, <wbr>short)<wbr></a></td>
-							<td>short?</td>
+							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/EF11AC11">ParseInt16<wbr>(object, <wbr>Int16)<wbr></a></td>
+							<td>Int16?</td>
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
 							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/CA7607E6">ParseInt16<wbr>(object)<wbr></a></td>
-							<td>short?</td>
+							<td>Int16?</td>
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/08E2CE6F">ParseInt32<wbr>(object, <wbr>int)<wbr></a></td>
-							<td>int?</td>
+							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/6C4073C7">ParseInt32<wbr>(object, <wbr>Int32)<wbr></a></td>
+							<td>Int32?</td>
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
 							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/8AAA0AE6">ParseInt32<wbr>(object)<wbr></a></td>
-							<td>int?</td>
+							<td>Int32?</td>
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/D438DD63">ParseInt64<wbr>(object, <wbr>long)<wbr></a></td>
-							<td>long?</td>
+							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/C6343C7E">ParseInt64<wbr>(object, <wbr>Int64)<wbr></a></td>
+							<td>Int64?</td>
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
 							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/E22F3541">ParseInt64<wbr>(object)<wbr></a></td>
-							<td>long?</td>
+							<td>Int64?</td>
 							<td>
 								<div>
     Tries to convert the specified value
-    to the <code class="cs">System.Nullable</code> return type.
+    to the <code class="cs">Nullable</code> return type.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -588,7 +575,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to a <code class="cs"><a href="">string</a></code>.
+    to a <code class="cs">String</code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -599,37 +586,7 @@ class Type type-node
 							<td>
 								<div>
     Tries to convert the specified value
-    to a <code class="cs"><a href="">string</a></code>.
-    </div>
-										<div><small><em>static</em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/A7FF23FB">SetProperties<wbr>&lt;TIn, <wbr>TOut&gt;<wbr><wbr>(TIn, <wbr>TOut, <wbr>ICollection<wbr>&lt;string&gt;<wbr>)<wbr></a></td>
-							<td>void</td>
-							<td>
-								<div>
-    Sets the properties of the output <code class="cs">System.Type</code>.
-    </div>
-										<div><small><em>static</em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/C0927F20">SetProperties<wbr>&lt;TIn, <wbr>TOut&gt;<wbr><wbr>(TIn, <wbr>TOut)<wbr></a></td>
-							<td>void</td>
-							<td>
-								<div>
-    Sets the properties of the output <code class="cs">System.Type</code>.
-    </div>
-										<div><small><em>static</em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/C4A203BC">Set<wbr>Properties<wbr>Excluding<wbr>&lt;TIn, <wbr>TOut&gt;<wbr><wbr>(TIn, <wbr>TOut, <wbr>ICollection<wbr>&lt;string&gt;<wbr>)<wbr></a></td>
-							<td>void</td>
-							<td>
-								<div>
-    Sets the properties, excluding the specified property names.
+    to a <code class="cs">String</code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -640,14 +597,14 @@ class Type type-node
 							<td>
 								<div>
     Returns the conventional database null
-    (<code class="cs"><a href="">DBNull</a></code>)
+    (<code class="cs">DBNull</code>)
     for Microsoft SQL Server systems.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/4E32C8AC">Try<wbr>Parse<wbr>Rfc3339<wbr>Date<wbr>Time<wbr>(string, <wbr>DateTime)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/76310EEF">Try<wbr>Parse<wbr>Rfc3339<wbr>Date<wbr>Time<wbr>(string, <wbr>DateTime)<wbr></a></td>
 							<td>bool</td>
 							<td>
 								<div>
@@ -657,7 +614,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/4EC01B98">Try<wbr>Parse<wbr>Rfc822<wbr>Date<wbr>Time<wbr>(string, <wbr>DateTime)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility/BC8EAD58">Try<wbr>Parse<wbr>Rfc822<wbr>Date<wbr>Time<wbr>(string, <wbr>DateTime)<wbr></a></td>
 							<td>bool</td>
 							<td>
 								<div>
@@ -672,80 +629,6 @@ class Type type-node
 
 
 
-		<h1 id="ExtensionMethods">Extension Methods</h1>
-		<div class="box-body no-padding table-responsive">
-			<table class="table table-api table-striped table-hover three-cols">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Value</th>
-						<th>Summary</th>
-					</tr>
-				</thead>
-				<tbody>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions/12A8F2F7">GetProperties<wbr>()<wbr></a></td>
-							<td>PropertyInfo[]</td>
-							<td>
-								<div>
-    Gets the properties.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions/902A9690">GetProperty<wbr>(string)<wbr></a></td>
-							<td>PropertyInfo</td>
-							<td>
-								<div>
-    Gets the property.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions/5F8F2990">GetPropertyValue<wbr>(string)<wbr></a></td>
-							<td>object</td>
-							<td>
-								<div>
-     Gets the property value.
-     </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/IEnumerableOfTExtensions/BD86D709">IsEnumerableType<wbr>&lt;TEnumerable&gt;<wbr><wbr>()<wbr></a></td>
-							<td>bool</td>
-							<td>
-								<div>
-    Determines whether this instance is enumerable.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions/C312663C">IsType<wbr>&lt;TClass&gt;<wbr><wbr>()<wbr></a></td>
-							<td>bool</td>
-							<td>
-								<div>
-    Determines whether this instance is type.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions/690EAD14">ToObjectOrDBNull<wbr>()<wbr></a></td>
-							<td>object</td>
-							<td>
-								<div>
-    Boxes the value in object or returns <code class="cs">System.DBNull</code>.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-							</td>
-						</tr>
-				</tbody>
-			</table>
-		</div>
 
 
 
@@ -762,8 +645,8 @@ class Type type-node
             <div class="sidebar-nav-item sidebar-header">On This Page</div>
             <div class="sidebar-nav-children">
                     <div class="sidebar-nav-item"><a href="#Syntax">Syntax</a></div>
+                    <div class="sidebar-nav-item"><a href="#Remarks">Remarks</a></div>
                     <div class="sidebar-nav-item"><a href="#Methods">Methods</a></div>
-                    <div class="sidebar-nav-item"><a href="#ExtensionMethods">Extension Methods</a></div>
             </div>
         </div>
 

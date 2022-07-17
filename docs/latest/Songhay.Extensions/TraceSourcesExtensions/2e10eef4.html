@@ -124,8 +124,8 @@
             <div class="sidebar-nav-item sidebar-header">Method Members</div>
             <div class="sidebar-nav-children">
                     <div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Extensions/TraceSourcesExtensions/2E10EEF4">Get<wbr>Configured<wbr>Trace<wbr>Source<wbr>(TraceSources)<wbr></a></div>
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/TraceSourcesExtensions/DA5D8E95">Get<wbr>Configured<wbr>Trace<wbr>Source<wbr>(TraceSources, <wbr>IConfiguration)<wbr></a></div>
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/TraceSourcesExtensions/4E88AC9B">Get<wbr>Configured<wbr>Trace<wbr>Source<wbr>(TraceSources, <wbr>IConfiguration, <wbr>string)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/TraceSourcesExtensions/C06FB089">Get<wbr>Configured<wbr>Trace<wbr>Source<wbr>(TraceSources, <wbr>IConfiguration?)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/TraceSourcesExtensions/CB85F811">Get<wbr>Configured<wbr>Trace<wbr>Source<wbr>(TraceSources, <wbr>IConfiguration?, <wbr>string)<wbr></a></div>
             </div>
 
 	</div>
@@ -161,7 +161,7 @@
 
     </div>
 		<h1 id="Syntax">Syntax</h1>
-		<pre class="language-csharp"><code class="language-csharp">public static TraceSource GetConfiguredTraceSource(this TraceSources instance)</code></pre>
+		<pre class="language-csharp"><code class="language-csharp">public static TraceSource? GetConfiguredTraceSource(this TraceSources instance)</code></pre>
 
 
 		<h1 id="Remarks">Remarks</h1>
@@ -208,7 +208,7 @@ TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.Def
 				</thead>
 				<tbody>
 					<tr>
-						<td>TraceSource</td>
+						<td>TraceSource?</td>
 						<td></td>
 					</tr>
 				</tbody>
