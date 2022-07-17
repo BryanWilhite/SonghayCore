@@ -1,47 +1,48 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <AssemblyVersion>6.0.0</AssemblyVersion>
-    <RootNamespace>Songhay.Tests</RootNamespace>
-    <TargetFramework>net6.0</TargetFramework>
+    <PropertyGroup>
+        <AssemblyVersion>6.0.0</AssemblyVersion>
+        <RootNamespace>Songhay.Tests</RootNamespace>
+        <TargetFramework>net6.0</TargetFramework>
 
-    <Title>Songhay Core Testing for xUnit</Title>
-    <Description>Extensions and Orderers for Songhay xUnit projects</Description>
-    <Authors>Bryan D. Wilhite @BryanWilhite</Authors>
-    <Copyright>(c) 2022 Bryan D. Wilhite</Copyright>
-    <Company>Songhay System</Company>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/BryanWilhite/SonghayCore</RepositoryUrl>
+        <Title>Songhay Core Testing for xUnit</Title>
+        <Description>Extensions and Orderers for Songhay xUnit projects</Description>
+        <Authors>Bryan D. Wilhite @BryanWilhite</Authors>
+        <Copyright>(c) 2022 Bryan D. Wilhite</Copyright>
+        <Company>Songhay System</Company>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/BryanWilhite/SonghayCore</RepositoryUrl>
 
-    <ImplicitUsings>enable</ImplicitUsings>
-    <IncludeSource>false</IncludeSource>
-    <IncludeSymbols>false</IncludeSymbols>
-    <IsPackable>true</IsPackable>
-    <PackageIcon>..\songhay_icon.png</PackageIcon>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/BryanWilhite/SonghayCore/projects</PackageProjectUrl>
-    <PackageReleaseNotes>📦⬆ updated core dependencies</PackageReleaseNotes>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>Core;Songhay;xUnit;VisualStudio</PackageTags>
-    <PackageVersion>$(AssemblyVersion)</PackageVersion>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Version>$(AssemblyVersion)</Version>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <IncludeSource>false</IncludeSource>
+        <IncludeSymbols>false</IncludeSymbols>
+        <IsPackable>true</IsPackable>
+        <PackageIcon>..\songhay_icon.png</PackageIcon>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <PackageProjectUrl>https://github.com/BryanWilhite/SonghayCore/projects</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageReleaseNotes>📦⬆ updated core dependencies</PackageReleaseNotes>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageTags>Core;Songhay;xUnit;VisualStudio</PackageTags>
+        <PackageVersion>$(AssemblyVersion)</PackageVersion>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Version>$(AssemblyVersion)</Version>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\LICENSE.md" Link="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
-    <None Include="..\README.md" Pack="true" PackagePath="\" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="..\LICENSE.md" Link="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
-    <PackageReference Include="SonghayCore" Version="6.0.0" />
-    <PackageReference Include="xunit" Version="2.4.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+        <PackageReference Include="SonghayCore" Version="6.0.0" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
 
 </Project>
