@@ -1,43 +1,28 @@
-﻿namespace Songhay.Extensions;
+﻿namespace Songhay;
 
 /// <summary>
-/// Extensions of <see cref="Task"/>
+/// Members for <see cref="Task"/>.
 /// </summary>
-public static class TaskExtensions
+public static class TaskUtility
 {
     /// <summary>
     /// Delays with a <see cref="Timer"/> task for the specified <see cref="TimeSpan"/>.
     /// </summary>
-    /// <param name="task">The <see cref="Task"/>.</param>
     /// <param name="timeSpan">The specified <see cref="TimeSpan"/>.</param>
     /// <param name="actionAfterDelay">The continuation action.</param>
-    public static Task Delay(this Task? task, TimeSpan timeSpan, Action<Task>? actionAfterDelay) =>
-        task.Delay(timeSpan, actionAfterDelay, null);
+    public static Task Delay(TimeSpan timeSpan, Action<Task>? actionAfterDelay) =>
+        Delay(timeSpan, actionAfterDelay, null);
 
     /// <summary>
     /// Delays with a <see cref="Timer"/> task for the specified <see cref="TimeSpan"/>.
     /// </summary>
-    /// <param name="task">The <see cref="Task"/>.</param>
     /// <param name="timeSpan">The specified <see cref="TimeSpan"/>.</param>
     /// <param name="actionAfterDelay">The continuation action.</param>
     /// <param name="schedulerAfterDelay">The work-queue scheduler.</param>
-    /// <remarks>
-    /// The syntax to get this running may seem a bit strange:
-    ///
-    ///     this._delayTask = this._delayTask.Delay(TimeSpan.FromSeconds(1), i =>
-    ///     {
-    ///         //do stuff after one second…
-    ///     });
-    /// 
-    /// This is done to both initialize the Task and then return its reference until the Task is completed.
-    ///
-    /// </remarks>
-    public static Task Delay(this Task? task, TimeSpan timeSpan, Action<Task>? actionAfterDelay,
+    public static Task Delay(TimeSpan timeSpan, Action<Task>? actionAfterDelay,
         TaskScheduler? schedulerAfterDelay)
     {
-        if (task is {IsCompleted: false}) return task;
-
-        task = Delay(timeSpan);
+        var task = Delay(timeSpan);
 
         if (actionAfterDelay != null && schedulerAfterDelay != null)
         {

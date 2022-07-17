@@ -1,20 +1,15 @@
-﻿using Songhay.Extensions;
-using System;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
-namespace Songhay.Tests.Extensions;
+namespace Songhay.Tests;
 
-public class TaskExtensionsTest
+public class TaskUtilityTests
 {
     [Fact]
     public void ShouldDelayByOneSecond()
     {
         var thePast = DateTime.Now;
 
-        Task delayTask = Task.FromResult(() => {});
-
-        delayTask.Delay(TimeSpan.FromSeconds(1), task =>
+        TaskUtility.Delay(TimeSpan.FromSeconds(1), task =>
         {
             Assert.Equal(TaskStatus.RanToCompletion, task.Status);
 

@@ -2596,39 +2596,6 @@
             </remarks>
             <returns><see cref="T:System.String"/> without accents</returns>
         </member>
-        <member name="T:Songhay.Extensions.TaskExtensions">
-            <summary>
-            Extensions of <see cref="T:System.Threading.Tasks.Task"/>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.TaskExtensions.Delay(System.Threading.Tasks.Task,System.TimeSpan,System.Action{System.Threading.Tasks.Task})">
-            <summary>
-            Delays with a <see cref="T:System.Threading.Timer"/> task for the specified <see cref="T:System.TimeSpan"/>.
-            </summary>
-            <param name="task">The <see cref="T:System.Threading.Tasks.Task"/>.</param>
-            <param name="timeSpan">The specified <see cref="T:System.TimeSpan"/>.</param>
-            <param name="actionAfterDelay">The continuation action.</param>
-        </member>
-        <member name="M:Songhay.Extensions.TaskExtensions.Delay(System.Threading.Tasks.Task,System.TimeSpan,System.Action{System.Threading.Tasks.Task},System.Threading.Tasks.TaskScheduler)">
-             <summary>
-             Delays with a <see cref="T:System.Threading.Timer"/> task for the specified <see cref="T:System.TimeSpan"/>.
-             </summary>
-             <param name="task">The <see cref="T:System.Threading.Tasks.Task"/>.</param>
-             <param name="timeSpan">The specified <see cref="T:System.TimeSpan"/>.</param>
-             <param name="actionAfterDelay">The continuation action.</param>
-             <param name="schedulerAfterDelay">The work-queue scheduler.</param>
-             <remarks>
-             The syntax to get this running may seem a bit strange:
-            
-                 this._delayTask = this._delayTask.Delay(TimeSpan.FromSeconds(1), i =>
-                 {
-                     //do stuff after one second…
-                 });
-             
-             This is done to both initialize the Task and then return its reference until the Task is completed.
-            
-             </remarks>
-        </member>
         <member name="T:Songhay.Extensions.TimeSpanExtensions">
             <summary>
             Extensions of <see cref="T:System.TimeSpan"/>.
@@ -6620,6 +6587,26 @@
             <summary>
             Pauses the shell Program in <c>DEBUG</c> mode.
             </summary>
+        </member>
+        <member name="T:Songhay.TaskUtility">
+            <summary>
+            Extensions of <see cref="T:System.Threading.Tasks.Task"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.TaskUtility.Delay(System.TimeSpan,System.Action{System.Threading.Tasks.Task})">
+            <summary>
+            Delays with a <see cref="T:System.Threading.Timer"/> task for the specified <see cref="T:System.TimeSpan"/>.
+            </summary>
+            <param name="timeSpan">The specified <see cref="T:System.TimeSpan"/>.</param>
+            <param name="actionAfterDelay">The continuation action.</param>
+        </member>
+        <member name="M:Songhay.TaskUtility.Delay(System.TimeSpan,System.Action{System.Threading.Tasks.Task},System.Threading.Tasks.TaskScheduler)">
+            <summary>
+            Delays with a <see cref="T:System.Threading.Timer"/> task for the specified <see cref="T:System.TimeSpan"/>.
+            </summary>
+            <param name="timeSpan">The specified <see cref="T:System.TimeSpan"/>.</param>
+            <param name="actionAfterDelay">The continuation action.</param>
+            <param name="schedulerAfterDelay">The work-queue scheduler.</param>
         </member>
         <member name="T:Songhay.Text.CsvExporter`1">
             <summary>
