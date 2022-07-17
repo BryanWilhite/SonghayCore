@@ -98,13 +98,15 @@ graph BT
     net6[.NET 6.0]
 
     1[`SonghayCore`]
+    2[`SonghayCore.Newtonsoft`]
 
     net6-->1
+    net6-->2
+    2-->1
 
-    1-->2[`SonghayCore.xUnit`]
-    1-->3[`Songhay.DataAccess`]
-    1-->4[`Songhay.Publications`]
-
+    1-->3[`SonghayCore.xUnit`]
+    1-->4[`Songhay.DataAccess`]
+    1-->5[`Songhay.Publications`]
 ```
 
 @[BryanWilhite](https://twitter.com/BryanWilhite)
