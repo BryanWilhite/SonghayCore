@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Songhay.Tests.Orderers;
+﻿namespace Songhay.Tests.Orderers;
 
 /// <summary>
 /// Defines the attribute used to order tests

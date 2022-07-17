@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using Xunit;
-
-namespace Songhay.Tests;
+﻿namespace Songhay.Tests;
 
 /// <summary>
 /// Extends <see cref="TheoryAttribute"/> to skip

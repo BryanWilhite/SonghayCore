@@ -215,38 +215,6 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "command": "nuget",
-            "label": "NuGet pack SonghayCore",
-            "isBackground": false,
-            "type": "shell",
-            "args": [
-                "pack",
-                "SonghayCore.nuspec",
-                "-Verbosity",
-                "detailed"
-            ],
-            "options": {
-                "cwd": "${workspaceRoot}/SonghayCore"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "command": "nuget",
-            "label": "NuGet pack SonghayCore.xUnit",
-            "isBackground": false,
-            "type": "shell",
-            "args": [
-                "pack",
-                "SonghayCore.xUnit.nuspec",
-                "-Verbosity",
-                "detailed"
-            ],
-            "options": {
-                "cwd": "${workspaceRoot}/SonghayCore.xUnit"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
             "label": "Statiq: add .nojekyll file for GitHub",
             "type": "shell",
             "options": {

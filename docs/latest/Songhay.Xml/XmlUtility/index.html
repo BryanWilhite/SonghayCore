@@ -188,9 +188,9 @@ class Type type-node
 		<h1 id="Remarks">Remarks</h1>
 		<div>
     These definitions are biased toward
-    emitting <code class="cs">System.Xml.XPath.XPathDocument</code> sets.
+    emitting <code class="cs">XPathDocument</code> documents.
     However, many accept any input implementing the
-    <code class="cs">System.Xml.XPath.IXPathNavigable</code> interface.
+    <code class="cs">IXPathNavigable</code> interface.
     </div>
 
 
@@ -200,6 +200,32 @@ class Type type-node
 
 
 
+		<h1 id="fields">Fields</h1>
+		<div class="table-responsive">
+			<table class="table table-api table-striped table-hover three-cols">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Field Type</th>
+						<th>Constant Value</th>
+						<th>Summary</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/CFA256DA">Conventional<wbr>Html<wbr>Entities</a></td>
+							<td>Dictionary<wbr>&lt;string, <wbr>string&gt;<wbr></td>
+							<td></td>
+							<td>
+								<div>
+    The conventional HTML entities mapped to their respective glyphs.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
 
 
 		<h1 id="Methods">Methods</h1>
@@ -214,53 +240,21 @@ class Type type-node
 				</thead>
 				<tbody>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/74E63B07">Combine<wbr>Navigable<wbr>Documents<wbr>(IXPathNavigable, <wbr>IXPathNavigable, <wbr>string)<wbr></a></td>
-							<td>XPathDocument</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/485F11EE">Combine<wbr>Navigable<wbr>Documents<wbr>(IXPathNavigable?, <wbr>IXPathNavigable?, <wbr>string)<wbr></a></td>
+							<td>XPathDocument?</td>
 							<td>
 								<div>
-    Combines two <code class="cs">System.Xml.XPath.IXPathNavigable</code> documents.
+    Combines two <code class="cs">IXPathNavigable</code> documents.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/9A211F99">Combine<wbr>Navigable<wbr>Documents<wbr>(IXPathNavigable, <wbr>IXPathNavigable)<wbr></a></td>
-							<td>XPathDocument</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/5D8C0D02">Combine<wbr>Navigable<wbr>Documents<wbr>(IXPathNavigable?, <wbr>IXPathNavigable?)<wbr></a></td>
+							<td>XPathDocument?</td>
 							<td>
 								<div>
-    Combines two <code class="cs">System.Xml.XPath.IXPathNavigable</code> documents.
-    </div>
-										<div><small><em>static</em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/07F81BCF">ExpandSpecialChars<wbr>(string)<wbr></a></td>
-							<td>string</td>
-							<td>
-								<div>
-    Expands selected characters
-    in the specified <code class="cs"><a href="">string</a></code>
-    into the standard XML entities.
-    </div>
-										<div><small><em>static</em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/F14331CC">GetAttributeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></td>
-							<td>string</td>
-							<td>
-								<div>
-    An alternative to <code class="cs">System.Xml.XPath.XPathNavigator.GetAttribute</code>.
-    </div>
-										<div><small><em>static</em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/21FA3A81">GetAttributeValue<wbr>(IXPathNavigable, <wbr>string)<wbr></a></td>
-							<td>string</td>
-							<td>
-								<div>
-    An alternative to <code class="cs">System.Xml.XPath.XPathNavigator.GetAttribute</code>.
+    Combines two <code class="cs">IXPathNavigable</code> documents.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -297,7 +291,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/622BF1FA">GetInternalMessage<wbr>(string, <wbr>string, <wbr>ReadOnlyCollection<wbr>&lt;string&gt;<wbr>)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/6AC1CC26">GetInternalMessage<wbr>(string, <wbr>string, <wbr>IEnumerable<wbr>&lt;string&gt;<wbr>?)<wbr></a></td>
 							<td>string</td>
 							<td>
 								<div>
@@ -308,11 +302,11 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/1E714A4A">GetInternalMessage<wbr>(string, <wbr>string, <wbr>string[], <wbr>XmlWriter, <wbr>bool)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/2C2C12D7">GetInternalMessage<wbr>(string, <wbr>string, <wbr>string[], <wbr>XmlWriter?, <wbr>bool)<wbr></a></td>
 							<td>void</td>
 							<td>
 								<div>
-    Write a message to the specified
+    Gets the conventional, XML <code class="cs">&lt;InternalMessage&gt;</code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -322,38 +316,27 @@ class Type type-node
 							<td>void</td>
 							<td>
 								<div>
-    Write a message to the specified
+    Gets the conventional, XML <code class="cs">&lt;InternalMessage&gt;</code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/E4B2B4D4">GetInternalMessage<wbr>(string, <wbr>string, <wbr>string[])<wbr></a></td>
-							<td>string</td>
-							<td>
-								<div>
-    Returns an XML <code class="cs"><a href="">string</a></code>
-    based on the specified header and lines.
-    </div>
-										<div><small><em>static</em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/7F6E5BB0">GetInternalMessage<wbr>(string, <wbr>string[], <wbr>XmlWriter, <wbr>bool)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/5E2B2E0D">GetInternalMessage<wbr>(string, <wbr>string[], <wbr>XmlWriter?, <wbr>bool)<wbr></a></td>
 							<td>void</td>
 							<td>
 								<div>
-    Write a message to the specified
+    Gets the conventional, XML <code class="cs">&lt;InternalMessage&gt;</code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/07ADBCCE">GetInternalMessage<wbr>(string, <wbr>string[], <wbr>XmlWriter)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/BD0DDB42">GetInternalMessage<wbr>(string, <wbr>string[], <wbr>XmlWriter?)<wbr></a></td>
 							<td>void</td>
 							<td>
 								<div>
-    Write a message to the specified
+    Gets the conventional, XML <code class="cs">&lt;InternalMessage&gt;</code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -382,10 +365,10 @@ class Type type-node
 						</tr>
 						<tr>
 							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/166EFFF1">Get<wbr>Internal<wbr>Message<wbr>Document<wbr>(string, <wbr>string, <wbr>string[])<wbr></a></td>
-							<td>XPathDocument</td>
+							<td>XPathDocument?</td>
 							<td>
 								<div>
-    Returns an <code class="cs">System.Xml.XPath.XPathDocument</code>
+    Returns an <code class="cs">XPathDocument</code>
     based on the specified header and lines.
     </div>
 										<div><small><em>static</em></small></div>
@@ -393,116 +376,106 @@ class Type type-node
 						</tr>
 						<tr>
 							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/B65372CD">Get<wbr>Internal<wbr>Message<wbr>Document<wbr>(string, <wbr>string[])<wbr></a></td>
-							<td>XPathDocument</td>
+							<td>XPathDocument?</td>
 							<td>
 								<div>
-    Returns an <code class="cs">System.Xml.XPath.XPathDocument</code>
+    Returns an <code class="cs">XPathDocument</code>
     based on the specified header and lines.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/6615EFCF">GetNamespaceManager<wbr>(IXPathNavigable)<wbr></a></td>
-							<td>XmlNamespaceManager</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/342BF700">GetNamespaceManager<wbr>(IXPathNavigable?)<wbr></a></td>
+							<td>XmlNamespaceManager?</td>
 							<td>
 								<div>
-    Returns a <code class="cs">System.Xml.XmlNamespaceManager</code>
+    Returns a <code class="cs">XmlNamespaceManager</code>
     with respect to the document element of the specified
-    <code class="cs">System.Xml.XPath.IXPathNavigable</code> set.
+    <code class="cs">IXPathNavigable</code> document.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/7C02482C">GetNavigableDocument<wbr>(IXPathNavigable)<wbr></a></td>
-							<td>XPathDocument</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/D42FD810">GetNavigableDocument<wbr>(IXPathNavigable?)<wbr></a></td>
+							<td>XPathDocument?</td>
 							<td>
 								<div>
-    Returns an <code class="cs">System.Xml.XPath.XPathDocument</code>
-    based on the specified <code class="cs">System.Xml.XmlNode</code>.
+    Returns an <code class="cs">XPathDocument</code>
+    based on the specified <code class="cs">XmlNode</code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/D11CCD56">GetNavigableDocument<wbr>(object)<wbr></a></td>
-							<td>object</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/FB4C8106">GetNavigableDocument<wbr>(Stream?)<wbr></a></td>
+							<td>XPathDocument?</td>
 							<td>
 								<div>
-    Gets the navigable document.
-    </div>
-										<div><small><em>static</em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/4820C9F3">GetNavigableDocument<wbr>(Stream)<wbr></a></td>
-							<td>XPathDocument</td>
-							<td>
-								<div>
-    Returns an <code class="cs">System.Xml.XPath.XPathDocument</code>
-    based on the specified <code class="cs">System.IO.Stream</code>.
+    Returns an <code class="cs">XPathDocument</code>
+    based on the specified <code class="cs">Stream</code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
 							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/D7BA4D50">GetNavigableDocument<wbr>(string)<wbr></a></td>
-							<td>XPathDocument</td>
+							<td>XPathDocument?</td>
 							<td>
 								<div>
-    Returns an <code class="cs">System.Xml.XPath.XPathDocument</code>
+    Returns an <code class="cs">XPathDocument</code>
     based on the specified <code class="cs"><a href="">string</a></code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/3BC75D91">GetNavigableNode<wbr>(IXPathNavigable, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></td>
-							<td>XPathNavigator</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/98FF798A">GetNavigableNode<wbr>(IXPathNavigable?, <wbr>string, <wbr>Xml<wbr>Namespace<wbr>Manager?)<wbr></a></td>
+							<td>XPathNavigator?</td>
 							<td>
 								<div>
-    Returns an <code class="cs">System.Xml.XPath.XPathNavigator</code>
-    based on the setQuery Expression toward the source document.
+    Returns an <code class="cs">XPathNavigator</code>
+    based on the nodeQuery Expression toward the source document.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/4BE54B82">GetNavigableNode<wbr>(IXPathNavigable, <wbr>string)<wbr></a></td>
-							<td>XPathNavigator</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/9830B5EF">GetNavigableNode<wbr>(IXPathNavigable?, <wbr>string)<wbr></a></td>
+							<td>XPathNavigator?</td>
 							<td>
 								<div>
-    Returns an <code class="cs">System.Xml.XPath.XPathNavigator</code>
-    based on the setQuery Expression toward the source document.
+    Returns an <code class="cs">XPathNavigator</code>
+    based on the nodeQuery Expression toward the source document.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/B85C9F8F">GetNavigableNodes<wbr>(IXPathNavigable, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></td>
-							<td>XPathNodeIterator</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/7AEC5BED">GetNavigableNodes<wbr>(IXPathNavigable?, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></td>
+							<td>XPathNodeIterator?</td>
 							<td>
 								<div>
-    Returns an <code class="cs">System.Xml.XPath.XPathNodeIterator</code>
-    based on the setQuery Expression toward the source document.
+    Returns an <code class="cs">XPathNodeIterator</code>
+    based on the nodeQuery Expression toward the source document.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/563AB55C">GetNavigableNodes<wbr>(IXPathNavigable, <wbr>string)<wbr></a></td>
-							<td>XPathNodeIterator</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/C00B5F3A">GetNavigableNodes<wbr>(IXPathNavigable?, <wbr>string)<wbr></a></td>
+							<td>XPathNodeIterator?</td>
 							<td>
 								<div>
-    Returns an <code class="cs">System.Xml.XPath.XPathNodeIterator</code>
-    based on the setQuery Expression toward the source document.
+    Returns an <code class="cs">XPathNodeIterator</code>
+    based on the nodeQuery Expression toward the source document.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/C3B8947C">GetNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>object, <wbr>XmlNamespaceManager)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/4D361DE9">GetNodeValue<wbr>(IXPathNavigable?, <wbr>string, <wbr>bool, <wbr>object, <wbr>Xml<wbr>Namespace<wbr>Manager?)<wbr></a></td>
 							<td>object</td>
 							<td>
 								<div>
@@ -513,7 +486,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/3ABFAE62">GetNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>object)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/2A520D8A">GetNodeValue<wbr>(IXPathNavigable?, <wbr>string, <wbr>bool, <wbr>object)<wbr></a></td>
 							<td>object</td>
 							<td>
 								<div>
@@ -524,7 +497,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/58FE9ABD">GetNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/C3C4119B">GetNodeValue<wbr>(IXPathNavigable?, <wbr>string, <wbr>bool)<wbr></a></td>
 							<td>object</td>
 							<td>
 								<div>
@@ -535,7 +508,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/F4108D92">GetNodeValueAndParse<wbr>&lt;T&gt;<wbr><wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>T, <wbr>XmlNamespaceManager)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/5FF5677B">GetNodeValueAndParse<wbr>&lt;T&gt;<wbr><wbr>(IXPathNavigable?, <wbr>string, <wbr>bool, <wbr>T, <wbr>Xml<wbr>Namespace<wbr>Manager?)<wbr></a></td>
 							<td>object</td>
 							<td>
 								<div>
@@ -546,7 +519,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/DF6A6425">GetNodeValueAndParse<wbr>&lt;T&gt;<wbr><wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>T)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/27540659">GetNodeValueAndParse<wbr>&lt;T&gt;<wbr><wbr>(IXPathNavigable?, <wbr>string, <wbr>bool, <wbr>T)<wbr></a></td>
 							<td>object</td>
 							<td>
 								<div>
@@ -557,33 +530,33 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/5C7D0218">GetText<wbr>(MemoryStream)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/D20C763D">GetText<wbr>(MemoryStream?)<wbr></a></td>
 							<td>string</td>
 							<td>
 								<div>
     “Cleans” XML data returning
-    in a <code class="cs">System.IO.MemoryStream</code>.
+    in a <code class="cs">MemoryStream</code>.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
 							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/92800462">GetXmlSchema<wbr>(IXPathNavigable, <wbr>Validation<wbr>Event<wbr>Handler)<wbr></a></td>
-							<td>XmlSchema</td>
+							<td>XmlSchema?</td>
 							<td>
 								<div>
-    Returns an <code class="cs">System.Xml.Schema.XmlSchema</code> based
+    Returns an <code class="cs">XmlSchema</code> based
     on the specified navigable set and validation event handler.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/D1DFCB8F">GetXslResult<wbr>(IXPathNavigable, <wbr>IXPathNavigable)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/5830A6FF">GetXslResult<wbr>(IXPathNavigable?, <wbr>IXPathNavigable?)<wbr></a></td>
 							<td>XPathDocument</td>
 							<td>
 								<div>
-    Returns a <code class="cs">System.Xml.XPath.XPathDocument</code>
+    Returns a <code class="cs">XPathDocument</code>
     for the transformation of the XSLT document
     and the XML document.
     </div>
@@ -591,11 +564,11 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/6F9A959C">GetXslResult<wbr>(IXPathNavigable, <wbr>XsltArgumentList, <wbr>IXPathNavigable)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/0539FE28">GetXslResult<wbr>(IXPathNavigable?, <wbr>XsltArgumentList?, <wbr>IXPathNavigable?)<wbr></a></td>
 							<td>XPathDocument</td>
 							<td>
 								<div>
-    Returns a <code class="cs">System.Xml.XPath.XPathDocument</code>
+    Returns a <code class="cs">XPathDocument</code>
     for the transformation of the XSLT document
     and the XML document.
     </div>
@@ -603,7 +576,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/258544DC">GetXslString<wbr>(IXPathNavigable, <wbr>IXPathNavigable)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/5F8F6D29">GetXslString<wbr>(IXPathNavigable?, <wbr>IXPathNavigable?)<wbr></a></td>
 							<td>string</td>
 							<td>
 								<div>
@@ -615,7 +588,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/05169DC6">GetXslString<wbr>(IXPathNavigable, <wbr>XsltArgumentList, <wbr>IXPathNavigable, <wbr>XmlWriterSettings)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/C8AD3BFF">GetXslString<wbr>(IXPathNavigable?, <wbr>XsltArgumentList?, <wbr>IXPathNavigable?, <wbr>XmlWriterSettings?)<wbr></a></td>
 							<td>string</td>
 							<td>
 								<div>
@@ -627,7 +600,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/13172A4C">GetXslString<wbr>(IXPathNavigable, <wbr>XsltArgumentList, <wbr>IXPathNavigable)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/72BB2B9E">GetXslString<wbr>(IXPathNavigable?, <wbr>XsltArgumentList?, <wbr>IXPathNavigable?)<wbr></a></td>
 							<td>string</td>
 							<td>
 								<div>
@@ -640,17 +613,17 @@ class Type type-node
 						</tr>
 						<tr>
 							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/2D9F2E24">InputAs<wbr>&lt;TIn&gt;<wbr><wbr>(TIn)<wbr></a></td>
-							<td>XPathDocument</td>
+							<td>XPathDocument?</td>
 							<td>
 								<div>
-    Returns an <code class="cs">System.Xml.XPath.XPathDocument</code>,
+    Returns an <code class="cs">XPathDocument</code>,
     converted from the specified input.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/D9DF7C77">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string, <wbr>StringComparison)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/48AEC243">IsNodeValue<wbr>(IXPathNavigable?, <wbr>string, <wbr>bool, <wbr>string, <wbr>StringComparison)<wbr></a></td>
 							<td>bool</td>
 							<td>
 								<div>
@@ -660,7 +633,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/04D4392F">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string, <wbr>Xml<wbr>Namespace<wbr>Manager, <wbr>StringComparison)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/237DFA09">IsNodeValue<wbr>(IXPathNavigable?, <wbr>string, <wbr>bool, <wbr>string, <wbr>Xml<wbr>Namespace<wbr>Manager, <wbr>StringComparison)<wbr></a></td>
 							<td>bool</td>
 							<td>
 								<div>
@@ -670,7 +643,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/0E8B9793">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/4034926F">IsNodeValue<wbr>(IXPathNavigable?, <wbr>string, <wbr>bool, <wbr>string, <wbr>XmlNamespaceManager)<wbr></a></td>
 							<td>bool</td>
 							<td>
 								<div>
@@ -680,7 +653,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/9E82ABD9">IsNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool, <wbr>string)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/13F0C0CE">IsNodeValue<wbr>(IXPathNavigable?, <wbr>string, <wbr>bool, <wbr>string)<wbr></a></td>
 							<td>bool</td>
 							<td>
 								<div>
@@ -690,7 +663,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/C8D60423">IsNoNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/EB832C9B">IsNoNodeValue<wbr>(IXPathNavigable?, <wbr>string, <wbr>bool)<wbr></a></td>
 							<td>bool</td>
 							<td>
 								<div>
@@ -710,7 +683,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/8C67B1A3">IsYesNodeValue<wbr>(IXPathNavigable, <wbr>string, <wbr>bool)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/55F83B84">IsYesNodeValue<wbr>(IXPathNavigable?, <wbr>string, <wbr>bool)<wbr></a></td>
 							<td>bool</td>
 							<td>
 								<div>
@@ -720,24 +693,12 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/CDDBACC1">LoadXmlSchema<wbr>(string, <wbr>Validation<wbr>Event<wbr>Handler)<wbr></a></td>
-							<td>XmlSchema</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/DF574A30">LoadXmlSchema<wbr>(string, <wbr>Validation<wbr>Event<wbr>Handler?)<wbr></a></td>
+							<td>XmlSchema?</td>
 							<td>
 								<div>
-    Loads an <code class="cs">System.Xml.Schema.XmlSchema</code> based
+    Loads an <code class="cs">XmlSchema</code> based
     on the specified navigable set and validation event handler.
-    </div>
-										<div><small><em>static</em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/503637B8">LoadXslTransform<wbr>(string, <wbr>string, <wbr>IXPathNavigable)<wbr></a></td>
-							<td>string</td>
-							<td>
-								<div>
-    Returns a <code class="cs"><a href="">string</a></code>
-    for the transformation of the XSLT file
-    and the XML file.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -767,7 +728,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/488370A5">LoadXslTransform<wbr>(string, <wbr>XsltArgumentList, <wbr>string)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/9676AF5F">LoadXslTransform<wbr>(string, <wbr>XsltArgumentList?, <wbr>string)<wbr></a></td>
 							<td>string</td>
 							<td>
 								<div>
@@ -779,7 +740,43 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/5D5FBB72">OutputAs<wbr>&lt;TOut&gt;<wbr><wbr>(IXPathNavigable)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/FA0DA00F">Load<wbr>Xsl<wbr>Transform<wbr>For<wbr>Memory<wbr>Input<wbr>(string, <wbr>string, <wbr>IXPathNavigable)<wbr></a></td>
+							<td>string</td>
+							<td>
+								<div>
+    Returns a <code class="cs"><a href="">string</a></code>
+    for the transformation of the XSLT file
+    and the specified <code class="cs">IXPathNavigable</code> in memory.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/79A2FA56">Load<wbr>Xsl<wbr>Transform<wbr>For<wbr>Memory<wbr>Input<wbr>(string, <wbr>string, <wbr>string)<wbr></a></td>
+							<td>string</td>
+							<td>
+								<div>
+    Returns a <code class="cs"><a href="">string</a></code>
+    for the transformation of the XSLT file
+    and the specified <code class="cs">IXPathNavigable</code> in memory.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/5A277D6C">Load<wbr>Xsl<wbr>Transform<wbr>For<wbr>Memory<wbr>Input<wbr>(string, <wbr>XsltArgumentList?, <wbr>string)<wbr></a></td>
+							<td>string</td>
+							<td>
+								<div>
+    Returns a <code class="cs"><a href="">string</a></code>
+    for the transformation of the XSLT file
+    and the XML in-memory fragment.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/2382F8CD">OutputAs<wbr>&lt;TOut&gt;<wbr><wbr>(IXPathNavigable?)<wbr></a></td>
 							<td>TOut</td>
 							<td>
 								<div>
@@ -799,8 +796,8 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/8CE130A7">StripNamespaces<wbr>(IXPathNavigable, <wbr>bool)<wbr></a></td>
-							<td>XPathDocument</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/33769A44">StripNamespaces<wbr>(IXPathNavigable?, <wbr>bool)<wbr></a></td>
+							<td>XPathDocument?</td>
 							<td>
 								<div>
     Strip the namespaces from specified document.
@@ -809,8 +806,8 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/256AA925">StripNamespaces<wbr>(IXPathNavigable)<wbr></a></td>
-							<td>XPathDocument</td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/B8D43F6A">StripNamespaces<wbr>(IXPathNavigable?)<wbr></a></td>
+							<td>XPathDocument?</td>
 							<td>
 								<div>
     Strip the namespaces from specified document.
@@ -839,7 +836,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/8E871339">Validate<wbr>Navigable<wbr>Node<wbr>(IXPathNavigable, <wbr>XmlSchema, <wbr>Validation<wbr>Event<wbr>Handler)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/9FB39060">Validate<wbr>Navigable<wbr>Node<wbr>(IXPathNavigable?, <wbr>XmlSchema?, <wbr>Validation<wbr>Event<wbr>Handler?)<wbr></a></td>
 							<td>void</td>
 							<td>
 								<div>
@@ -860,7 +857,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/4B927B08">WriteReader<wbr>(XmlReader, <wbr>XmlWriter)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/70DA75CC">WriteReader<wbr>(XmlReader?, <wbr>XmlWriter?)<wbr></a></td>
 							<td>void</td>
 							<td>
 								<div>
@@ -870,7 +867,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/095093A9">WriteXslTransform<wbr>(IXPathNavigable, <wbr>IXPathNavigable, <wbr>string)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/132CAB5B">WriteXslTransform<wbr>(IXPathNavigable?, <wbr>IXPathNavigable?, <wbr>string)<wbr></a></td>
 							<td>void</td>
 							<td>
 								<div>
@@ -881,7 +878,7 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/3F282C7B">WriteXslTransform<wbr>(XmlReader, <wbr>IXPathNavigable, <wbr>string)<wbr></a></td>
+							<td><a href="/SonghayCore/latest/Songhay.Xml/XmlUtility/B3DE3BD2">WriteXslTransform<wbr>(XmlReader?, <wbr>IXPathNavigable?, <wbr>string)<wbr></a></td>
 							<td>void</td>
 							<td>
 								<div>
@@ -895,7 +892,8 @@ class Type type-node
 							<td>string</td>
 							<td>
 								<div>
-    XMLs the decode.
+    Transforms selected HTML entities
+    into their respective glyphs.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -905,7 +903,8 @@ class Type type-node
 							<td>string</td>
 							<td>
 								<div>
-    XMLs the encode.
+    Transforms selected XML glyphs
+    into their respective HTML entities.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
@@ -916,80 +915,6 @@ class Type type-node
 
 
 
-		<h1 id="ExtensionMethods">Extension Methods</h1>
-		<div class="box-body no-padding table-responsive">
-			<table class="table table-api table-striped table-hover three-cols">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Value</th>
-						<th>Summary</th>
-					</tr>
-				</thead>
-				<tbody>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions/12A8F2F7">GetProperties<wbr>()<wbr></a></td>
-							<td>PropertyInfo[]</td>
-							<td>
-								<div>
-    Gets the properties.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions/902A9690">GetProperty<wbr>(string)<wbr></a></td>
-							<td>PropertyInfo</td>
-							<td>
-								<div>
-    Gets the property.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions/5F8F2990">GetPropertyValue<wbr>(string)<wbr></a></td>
-							<td>object</td>
-							<td>
-								<div>
-     Gets the property value.
-     </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/IEnumerableOfTExtensions/BD86D709">IsEnumerableType<wbr>&lt;TEnumerable&gt;<wbr><wbr>()<wbr></a></td>
-							<td>bool</td>
-							<td>
-								<div>
-    Determines whether this instance is enumerable.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions/C312663C">IsType<wbr>&lt;TClass&gt;<wbr><wbr>()<wbr></a></td>
-							<td>bool</td>
-							<td>
-								<div>
-    Determines whether this instance is type.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions/690EAD14">ToObjectOrDBNull<wbr>()<wbr></a></td>
-							<td>object</td>
-							<td>
-								<div>
-    Boxes the value in object or returns <code class="cs">System.DBNull</code>.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/ObjectExtensions">ObjectExtensions</a></em></small></div>
-							</td>
-						</tr>
-				</tbody>
-			</table>
-		</div>
 
 
 
@@ -1007,8 +932,8 @@ class Type type-node
             <div class="sidebar-nav-children">
                     <div class="sidebar-nav-item"><a href="#Syntax">Syntax</a></div>
                     <div class="sidebar-nav-item"><a href="#Remarks">Remarks</a></div>
+                    <div class="sidebar-nav-item"><a href="#Fields">Fields</a></div>
                     <div class="sidebar-nav-item"><a href="#Methods">Methods</a></div>
-                    <div class="sidebar-nav-item"><a href="#ExtensionMethods">Extension Methods</a></div>
             </div>
         </div>
 

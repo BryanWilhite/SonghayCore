@@ -161,7 +161,7 @@
 
     </div>
 		<h1 id="Syntax">Syntax</h1>
-		<pre class="language-csharp"><code class="language-csharp">[XmlElement(ElementName = &quot;outline&quot;)]&#xA;[JsonProperty(&quot;outline&quot;)]&#xA;[SuppressMessage(&quot;Microsoft.Performance&quot;, &quot;CA1819:PropertiesShouldNotReturnArrays&quot;, Justification = &quot;Used for XML serialization.&quot;)]&#xA;public OpmlOutline[] Outlines { get; set; }</code></pre>
+		<pre class="language-csharp"><code class="language-csharp">[XmlElement(ElementName = &quot;outline&quot;)]&#xA;[SuppressMessage(&quot;Microsoft.Performance&quot;, &quot;CA1819:PropertiesShouldNotReturnArrays&quot;, Justification = &quot;Used for XML serialization.&quot;)]&#xA;[JsonPropertyName(&quot;outline&quot;)]&#xA;public OpmlOutline[] Outlines { get; set; }</code></pre>
 
 
 
@@ -180,11 +180,11 @@
 							<td></td>
 						</tr>
 						<tr>
-							<td>JsonProperty</td>
+							<td>Suppress<wbr>Message<wbr>Attribute</td>
 							<td></td>
 						</tr>
 						<tr>
-							<td>Suppress<wbr>Message<wbr>Attribute</td>
+							<td>JsonPropertyName</td>
 							<td></td>
 						</tr>
 				</tbody>
@@ -204,7 +204,7 @@
 				<tbody>
 					<tr>
 						<td>OpmlOutline[]</td>
-						<td>The outlines.</td>
+						<td></td>
 					</tr>
 				</tbody>
 			</table>

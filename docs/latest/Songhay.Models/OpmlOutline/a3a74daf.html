@@ -168,7 +168,7 @@
 
     </div>
 		<h1 id="Syntax">Syntax</h1>
-		<pre class="language-csharp"><code class="language-csharp">[XmlAttribute(AttributeName = &quot;url&quot;)]&#xA;[JsonProperty(&quot;url&quot;)]&#xA;[SuppressMessage(&quot;Microsoft.Design&quot;, &quot;CA1056:UriPropertiesShouldNotBeStrings&quot;, Justification = &quot;OPML does not recognize the concept of the System.Uri.&quot;)]&#xA;public string Url { get; set; }</code></pre>
+		<pre class="language-csharp"><code class="language-csharp">[XmlAttribute(AttributeName = &quot;url&quot;)]&#xA;[JsonPropertyName(&quot;url&quot;)]&#xA;[SuppressMessage(&quot;Microsoft.Design&quot;, &quot;CA1056:UriPropertiesShouldNotBeStrings&quot;, Justification = &quot;OPML does not recognize the concept of the System.Uri.&quot;)]&#xA;public string Url { get; set; }</code></pre>
 
 
 
@@ -187,7 +187,7 @@
 							<td></td>
 						</tr>
 						<tr>
-							<td>JsonProperty</td>
+							<td>JsonPropertyName</td>
 							<td></td>
 						</tr>
 						<tr>
@@ -211,7 +211,7 @@
 				<tbody>
 					<tr>
 						<td>string</td>
-						<td>The URL.</td>
+						<td></td>
 					</tr>
 				</tbody>
 			</table>

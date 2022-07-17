@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyVersion>5.0.7</AssemblyVersion>
+    <AssemblyVersion>6.0.0</AssemblyVersion>
     <RootNamespace>Songhay.Tests</RootNamespace>
     <TargetFramework>net6.0</TargetFramework>
 
@@ -13,6 +13,7 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/BryanWilhite/SonghayCore</RepositoryUrl>
 
+    <ImplicitUsings>enable</ImplicitUsings>
     <IncludeSource>false</IncludeSource>
     <IncludeSymbols>false</IncludeSymbols>
     <IsPackable>true</IsPackable>
@@ -30,11 +31,12 @@
 
   <ItemGroup>
     <None Include="..\LICENSE.md" Link="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SonghayCore" Version="5.2.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageReference Include="SonghayCore" Version="6.0.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

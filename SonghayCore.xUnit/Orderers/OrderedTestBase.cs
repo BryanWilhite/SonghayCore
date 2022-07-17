@@ -1,6 +1,4 @@
-﻿using Xunit;
-
-namespace Songhay.Tests.Orderers
+﻿namespace Songhay.Tests.Orderers
 {
     /// <summary>
     /// Provides ordered test assertions.

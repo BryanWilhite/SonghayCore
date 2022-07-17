@@ -123,12 +123,11 @@
         </div>
             <div class="sidebar-nav-item sidebar-header">Method Members</div>
             <div class="sidebar-nav-children">
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Xml/LatinGlyphsUtility/C417B41F">Condense<wbr>(string)<wbr></a></div>
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Xml/LatinGlyphsUtility/98A4747D">Expand<wbr>(string)<wbr></a></div>
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Xml/LatinGlyphsUtility/88F3C6D8">GetGlyphs<wbr>()<wbr></a></div>
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Xml/LatinGlyphsUtility/5DE4BFBD">Get<wbr>Glyphs<wbr>For<wbr>Condense<wbr>Or<wbr>Expand<wbr>()<wbr></a></div>
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Xml/LatinGlyphsUtility/AB587DA7">RemoveUrlEncodings<wbr>(string)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Xml/LatinGlyphsUtility/E354D242">Condense<wbr>(string, <wbr>bool)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Xml/LatinGlyphsUtility/93D1F404">Expand<wbr>(string, <wbr>bool)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Xml/LatinGlyphsUtility/242D35CC">GetGlyphs<wbr>(bool)<wbr></a></div>
                     <div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Xml/LatinGlyphsUtility/D400D9AB">RemoveUrlEncodings<wbr>(string, <wbr>bool)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Xml/LatinGlyphsUtility/BB85F83B">RemoveUrlEncodings<wbr>(string, <wbr>bool, <wbr>bool)<wbr></a></div>
             </div>
 
 	</div>
@@ -142,7 +141,8 @@
 
 
         <div class="lead mb-3">
-    Removes the URL encodings.
+    Replaces any <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/ProgramGlyph/201A61D7">Utf8UrlEncoding</a></code>
+    found in the input with <code class="cs">System.String.Empty</code>.
     </div>
 
     <div class="p-3 bg-light page-box container small">
@@ -164,7 +164,7 @@
 
     </div>
 		<h1 id="Syntax">Syntax</h1>
-		<pre class="language-csharp"><code class="language-csharp">public static string RemoveUrlEncodings(string input, bool includeWindows1252UrlEncoding)</code></pre>
+		<pre class="language-csharp"><code class="language-csharp">public static string RemoveUrlEncodings(string input, bool basicLatinOnly)</code></pre>
 
 
 
@@ -188,9 +188,12 @@
 							<td>The input.</td>
 						</tr>
 						<tr>
-							<td>includeWindows1252UrlEncoding</td>
+							<td>basicLatinOnly</td>
 							<td>bool</td>
-							<td>if set to <code class="cs">true</code> [include windows1252 URL encoding].</td>
+							<td>
+    When <code class="cs">true</code>, process input for array of <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/ProgramGlyph">ProgramGlyph</a></code>
+    where <code class="cs">UnicodeInteger &lt; 128</code>.
+    </td>
 						</tr>
 				</tbody>
 			</table>

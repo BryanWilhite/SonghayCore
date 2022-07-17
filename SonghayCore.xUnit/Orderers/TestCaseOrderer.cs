@@ -1,9 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using Xunit.Abstractions;
-using Xunit.Sdk;
 
 namespace Songhay.Tests.Orderers;
 
@@ -13,8 +8,8 @@ namespace Songhay.Tests.Orderers;
 /// </summary>
 /// <seealso cref="ITestCaseOrderer" />
 /// <remarks>
-/// For more detail, see “How to Order xUnit Tests and Collections” by Tom DuPont
-/// [http://www.tomdupont.net/2016/04/how-to-order-xunit-tests-and-collections.html]
+/// For more detail, see “How to Order xUnit Tests and Collections” by Tom DuPont.
+/// [ see http://www.tomdupont.net/2016/04/how-to-order-xunit-tests-and-collections.html ]
 /// </remarks>
 public class TestCaseOrderer : ITestCaseOrderer
 {

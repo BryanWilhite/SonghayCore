@@ -1,12 +1,8 @@
-﻿using Songhay.Extensions;
-using System;
-using System.IO;
-using Xunit;
-using Xunit.Sdk;
+﻿namespace Songhay.Tests.Extensions;
 
-namespace Songhay.Tests.Extensions;
-
-/// <summary>Extensions for <see cref="DataAttribute"/></summary>
+/// <summary>
+/// Extensions for <see cref="DataAttribute"/>.
+/// </summary>
 public static class DataAttributeExtensions
 {
     /// <summary>
@@ -14,17 +10,14 @@ public static class DataAttributeExtensions
     /// </summary>
     /// <param name="attribute">The attribute.</param>
     /// <param name="path">The path.</param>
-    public static void FindDirectory(this DataAttribute? attribute, string? path)
-    {
+    public static void FindDirectory(this DataAttribute? attribute, string? path) =>
         Assert.True(Directory.Exists(path), $"The expected directory, {path}, is not here.");
-    }
 
     /// <summary>
     /// Test attribute extensions: should get  <see cref="DirectoryInfo"/>.
     /// </summary>
     /// <param name="attribute">The attribute.</param>
     /// <param name="typeInAssembly">The type in assembly.</param>
-    /// <returns></returns>
     public static DirectoryInfo GetAssemblyDirectoryInfo(this DataAttribute? attribute, Type? typeInAssembly)
     {
         Assert.NotNull(typeInAssembly);
@@ -41,7 +34,6 @@ public static class DataAttributeExtensions
     /// <param name="attribute">The attribute.</param>
     /// <param name="typeInAssembly">The type in assembly.</param>
     /// <param name="levels">The levels of directories above the assembly.</param>
-    /// <returns></returns>
     public static string? GetAssemblyParentDirectory(this DataAttribute? attribute, Type? typeInAssembly, int levels)
     {
         var pathInfo = attribute.GetAssemblyDirectoryInfo(typeInAssembly);
@@ -55,7 +47,6 @@ public static class DataAttributeExtensions
     /// <param name="attribute">The attribute.</param>
     /// <param name="typeInAssembly">The type in assembly.</param>
     /// <param name="expectedLevels">The expected levels of directories above the assembly.</param>
-    /// <returns></returns>
     public static DirectoryInfo GetAssemblyParentDirectoryInfo(this DataAttribute? attribute, Type? typeInAssembly, int expectedLevels)
     {
         var path = attribute
