@@ -77,7 +77,7 @@ The “core” of the _Core_ is concern for XML. The Songhay System started out 
 
 **Documentation 📚:** [`Songhay.Xml`](https://bryanwilhite.github.io/SonghayCore/api/Songhay.Xml/)
 
-## satellite packages in this repo
+## satellite packages
 
 ### `SonghayCore.xUnit`
 
@@ -89,6 +89,28 @@ Defines reusable class definitions for [xUnit](https://xunit.net/). Featured is 
 
 The diagram below shows all of the packages depending on `SonghayCore` in my Studio:
 
-![Studio packages depending on `SonghayCore`](./SonghayCore/images/image-2020-12-26-11-51-11.png)
+## Studio packages dependent on `SonghayCore`
+
+```mermaid
+graph BT
+	net5[.NET 5.0]
+
+    subgraph fw[Framework]
+        st20[.NET Standard 2.0]
+        fw471[.NET Framework 4.7.1]
+    end
+
+    1[`SonghayCore`]
+
+    net5-->1
+    st20-->1
+    fw471-->st20
+
+    1-->2[`SonghayCore.xUnit`]
+    1-->3[`Songhay.Cloud.BlobStorage`]
+    1-->4[`Songhay.DataAccess`]
+    1-->5[`Songhay.Publications`]
+
+```
 
 @[BryanWilhite](https://twitter.com/BryanWilhite)
