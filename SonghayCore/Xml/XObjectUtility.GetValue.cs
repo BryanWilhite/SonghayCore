@@ -79,8 +79,8 @@ public static partial class XObjectUtility
             null => null,
             _ => node.NodeType switch
             {
-                System.Xml.XmlNodeType.Element => (node as XElement)?.Value,
-                System.Xml.XmlNodeType.Attribute => GetXAttributeValue(currentNode, query, throwException),
+                XmlNodeType.Element => (node as XElement)?.Value,
+                XmlNodeType.Attribute => GetXAttributeValue(currentNode, query, throwException),
                 _ => null
             }
         };

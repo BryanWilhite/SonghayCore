@@ -19,7 +19,6 @@
             of the Activity.
             </summary>
             <param name="args">The arguments.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Abstractions.IActivity.Start(Songhay.Models.ProgramArgs)">
             <summary>
@@ -74,7 +73,6 @@
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
-            <returns></returns>
         </member>
         <member name="T:Songhay.Abstractions.IActivityWithTask`1">
             <summary>
@@ -92,7 +90,6 @@
             Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
             </summary>
             <param name="input">The input.</param>
-            <returns></returns>
         </member>
         <member name="T:Songhay.Abstractions.IActivityWithTaskOutput`1">
             <summary>
@@ -103,7 +100,6 @@
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
             </summary>
-            <returns></returns>
         </member>
         <member name="T:Songhay.Abstractions.IActivityWithTask`2">
             <summary>
@@ -131,13 +127,11 @@
             <summary>
             Gets or sets the background hexadecimal value.
             </summary>
-            <value>The background hexadecimal value.</value>
         </member>
         <member name="P:Songhay.Abstractions.IColorable.ForegroundHex">
             <summary>
             Gets or sets the foreground hexadecimal value.
             </summary>
-            <value>The foreground hexadecimal value.</value>
         </member>
         <member name="T:Songhay.Abstractions.IGroupable">
             <summary>
@@ -168,43 +162,36 @@
             <summary>
             Gets the assembly company.
             </summary>
-            <value>The assembly company.</value>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyCopyright">
             <summary>
             Gets the assembly copyright.
             </summary>
-            <value>The assembly copyright.</value>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyDescription">
             <summary>
             Gets the assembly description.
             </summary>
-            <value>The assembly description.</value>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyProduct">
             <summary>
             Gets the assembly product.
             </summary>
-            <value>The assembly product.</value>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyTitle">
             <summary>
             Gets the assembly title.
             </summary>
-            <value>The assembly title.</value>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyVersion">
             <summary>
             Gets the assembly version.
             </summary>
-            <value>The assembly version.</value>
         </member>
         <member name="P:Songhay.Abstractions.IProgramAssemblyInfo.AssemblyVersionDetail">
             <summary>
             Gets the assembly version detail.
             </summary>
-            <value>The assembly version detail.</value>
         </member>
         <member name="T:Songhay.Abstractions.IRepository">
             <summary>
@@ -258,25 +245,16 @@
             <summary>
             Gets or sets whether this is default selection.
             </summary>
-            <value>
-            This is default selection.
-            </value>
         </member>
         <member name="P:Songhay.Abstractions.ISelectable.IsEnabled">
             <summary>
             Gets or sets whether this is enabled.
             </summary>
-            <value>
-            This is enabled.
-            </value>
         </member>
         <member name="P:Songhay.Abstractions.ISelectable.IsSelected">
             <summary>
             Gets or sets whether this is selected.
             </summary>
-            <value>
-            <c>true</c> when this is selected.
-            </value>
         </member>
         <member name="T:Songhay.Abstractions.ISortable">
             <summary>
@@ -287,7 +265,6 @@
             <summary>
             Gets or sets the sort ordinal.
             </summary>
-            <value>The sort ordinal.</value>
         </member>
         <member name="T:Songhay.Abstractions.ISyndicatable">
             <summary>
@@ -357,7 +334,6 @@
             <summary>
             Gets the name of the trace source from configuration.
             </summary>
-            <returns></returns>
             <remarks>
             When the trace source name is not configured
             then <see cref="F:Songhay.Diagnostics.TraceSources.DefaultTraceSourceName"/> is used.
@@ -368,25 +344,17 @@
             Gets the trace source.
             </summary>
             <param name="name">The name.</param>
-            <returns></returns>
         </member>
         <member name="P:Songhay.Diagnostics.TraceSources.Item(System.String)">
             <summary>
             Gets the <see cref="T:System.Diagnostics.TraceSource"/> with the specified name.
             </summary>
-            <value>
-            The <see cref="T:System.Diagnostics.TraceSource"/>.
-            </value>
             <param name="name">The name.</param>
-            <returns></returns>
         </member>
         <member name="P:Songhay.Diagnostics.TraceSources.Instance">
             <summary>
             Gets the instance.
             </summary>
-            <value>
-            The instance.
-            </value>
         </member>
         <member name="T:Songhay.Exceptions.CsvParseException">
             <summary>
@@ -441,13 +409,11 @@
         <member name="M:Songhay.Extensions.AssemblyExtensions.GetPathFromAssembly(System.Reflection.Assembly)">
             <summary>Gets the path from assembly.</summary>
             <param name="assembly">The assembly.</param>
-            <exception cref="T:System.ArgumentNullException">assembly - The expected assembly is not here.</exception>
         </member>
         <member name="M:Songhay.Extensions.AssemblyExtensions.GetPathFromAssembly(System.Reflection.Assembly,System.String)">
             <summary>Gets the path from assembly.</summary>
             <param name="assembly">The assembly.</param>
             <param name="fileSegment">The file segment.</param>
-            <exception cref="T:System.ArgumentNullException">assembly - The expected assembly is not here.</exception>
         </member>
         <member name="T:Songhay.Extensions.CharExtensions">
             <summary>
@@ -485,8 +451,6 @@
             <param name="unqualifiedKey">The unqualified key.</param>
             <param name="environmentName">Name of the environment.</param>
             <param name="delimiter">The delimiter.</param>
-            <exception cref="T:System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
-            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionNameFromEnvironment(System.Configuration.ConnectionStringSettingsCollection,System.String,System.String,System.Boolean)">
             <summary>
@@ -506,8 +470,6 @@
             <param name="environmentName">Name of the environment.</param>
             <param name="delimiter">The delimiter.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-            <exception cref="T:System.ArgumentNullException">unqualifiedKey</exception>
-            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetConnectionStringSettings(System.Configuration.ConnectionStringSettingsCollection,System.String)">
             <summary>
@@ -523,7 +485,6 @@
             <param name="collection">The collection.</param>
             <param name="connectionName">Name of the connection.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetEnvironmentName(System.Configuration.KeyValueConfigurationCollection)">
             <summary>
@@ -545,7 +506,6 @@
             <param name="settings">The settings.</param>
             <param name="environmentKey">The environment key.</param>
             <param name="defaultEnvironmentName">Default name of the environment.</param>
-            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String,System.Boolean)">
             <summary>
@@ -555,7 +515,6 @@
             <param name="environmentKey">The environment key.</param>
             <param name="defaultEnvironmentName">Default name of the environment.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetKeyWithEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String)">
             <summary>
@@ -573,8 +532,6 @@
             <param name="unqualifiedKey">The unqualified key.</param>
             <param name="environmentName">Name of the environment.</param>
             <param name="delimiter">The delimiter.</param>
-            <exception cref="T:System.ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
-            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetKeyWithEnvironmentName(System.Configuration.KeyValueConfigurationCollection,System.String,System.String,System.Boolean)">
             <summary>
@@ -594,8 +551,6 @@
             <param name="environmentName">Name of the environment.</param>
             <param name="delimiter">The delimiter.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-            <exception cref="T:System.ArgumentNullException">unqualifiedKey</exception>
-            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetSetting(System.Configuration.KeyValueConfigurationCollection,System.String)">
             <summary>
@@ -611,7 +566,6 @@
             <param name="settings">The settings.</param>
             <param name="key">The key.</param>
             <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ConfigurationManagerExtensions.GetSetting(System.Configuration.KeyValueConfigurationCollection,System.String,System.Boolean,System.Func{System.String,System.String})">
             <summary>
@@ -812,15 +766,6 @@
             <param name="directoryInfo">The specified root <see cref="T:System.IO.DirectoryInfo"/>.</param>
             <param name="expectedDirectoryName">The specified target <see cref="P:System.IO.DirectoryInfo.Name"/>.</param>
         </member>
-        <member name="M:Songhay.Extensions.DirectoryInfoExtensions.FindDirectory(System.IO.DirectoryInfo,System.String,System.Boolean)">
-            <summary>
-            Finds the specified target <see cref="T:System.IO.DirectoryInfo"/>
-            under the specified root <see cref="T:System.IO.DirectoryInfo"/>.
-            </summary>
-            <param name="directoryInfo">The specified root <see cref="T:System.IO.DirectoryInfo"/>.</param>
-            <param name="expectedDirectoryName">The specified target <see cref="P:System.IO.DirectoryInfo.Name"/>.</param>
-            <param name="throwException">When <c>true</c> throw a <see cref="T:System.IO.DirectoryNotFoundException"/> for find failure.</param>
-        </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.FindFile(System.IO.DirectoryInfo,System.String)">
             <summary>
             Finds the specified <see cref="T:System.IO.FileInfo"/>
@@ -828,15 +773,6 @@
             </summary>
             <param name="directoryInfo">The specified <see cref="T:System.IO.DirectoryInfo"/>.</param>
             <param name="expectedFileName">The specified <see cref="P:System.IO.FileInfo.Name"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.DirectoryInfoExtensions.FindFile(System.IO.DirectoryInfo,System.String,System.Boolean)">
-            <summary>
-            Finds the specified <see cref="T:System.IO.FileInfo"/>
-            under the specified <see cref="T:System.IO.DirectoryInfo"/>.
-            </summary>
-            <param name="directoryInfo">The specified <see cref="T:System.IO.DirectoryInfo"/>.</param>
-            <param name="expectedFileName">The specified <see cref="P:System.IO.FileInfo.Name"/>.</param>
-            <param name="throwException">When <c>true</c> throw a <see cref="T:System.IO.FileNotFoundException"/> for find failure.</param>
         </member>
         <member name="M:Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory(System.IO.DirectoryInfo,System.Int32)">
             <summary>Gets the parent directory.</summary>
@@ -1226,7 +1162,6 @@
              <param name="storageAccountKey">the Azure Storage account shared key</param>
              <param name="eTag">entity tag for Web cache validation</param>
              <param name="md5">The MD5 (message-digest algorithm) hash</param>
-             <returns></returns>
              <remarks>
              There are two Authorization Header schemes supported: SharedKey and SharedKeyLite. This member supports only one of them: SharedKey.
              For more detail, see “Specifying the Authorization header”
@@ -1250,7 +1185,6 @@
              in a canonical format.
              </summary>
              <param name="request">the <see cref="T:System.Net.Http.HttpRequestMessage"/></param>
-             <returns></returns>
              <remarks>
              See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
             
@@ -1270,7 +1204,6 @@
              <param name="storageAccountName">The name of the storage account to use.</param>
              <param name="eTag">entity tag for Web cache validation</param>
              <param name="md5">The MD5 (message-digest algorithm) hash</param>
-             <returns></returns>
              <remarks>
              See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
             
@@ -1288,7 +1221,6 @@
             <param name="request">the <see cref="T:System.Net.Http.HttpRequestMessage"/></param>
             <param name="blobName">the Azure Storage Blob name</param>
             <param name="content">the Azure Storage Blob content</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String)">
             <summary>
@@ -1300,7 +1232,6 @@
             <param name="serviceVersion"></param>
             <param name="storageAccountName"></param>
             <param name="storageAccountKey"></param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String,System.String,System.String)">
              <summary>
@@ -1314,7 +1245,6 @@
              <param name="storageAccountKey">the Azure Storage account shared key</param>
              <param name="eTag">entity tag for Web cache validation</param>
              <param name="md5">The MD5 (message-digest algorithm) hash</param>
-             <returns></returns>
              <remarks>
              See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
             
@@ -1651,16 +1581,6 @@
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithOutput``2(Songhay.Abstractions.IActivity,System.Boolean)">
-            <summary>
-            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
-            to <see cref="T:Songhay.Abstractions.IActivityWithOutput`2" />.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <param name="activity">The activity.</param>
-            <param name="throwException">if set to <c>true</c> throw exception.</param>
-        </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``2(Songhay.Abstractions.IActivity)">
             <summary>
             Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
@@ -1670,16 +1590,6 @@
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``2(Songhay.Abstractions.IActivity,System.Boolean)">
-            <summary>
-            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
-            to <see cref="T:Songhay.Abstractions.IActivityWithTask`2" />.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <param name="activity">The activity.</param>
-            <param name="throwException">if set to <c>true</c> throw exception.</param>
-        </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``1(Songhay.Abstractions.IActivity)">
             <summary>
             Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
@@ -1688,29 +1598,12 @@
             <typeparam name="TInput">The type of the input.</typeparam>
             <param name="activity">The activity.</param>
         </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``1(Songhay.Abstractions.IActivity,System.Boolean)">
-            <summary>
-            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
-            to <see cref="T:Songhay.Abstractions.IActivityWithTask`1" />.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <param name="activity">The activity.</param>
-            <param name="throwException">if set to <c>true</c> throw exception.</param>
-        </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask(Songhay.Abstractions.IActivity)">
             <summary>
             Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
             to <see cref="T:Songhay.Abstractions.IActivityWithTask" />.
             </summary>
             <param name="activity">The activity.</param>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask(Songhay.Abstractions.IActivity,System.Boolean)">
-            <summary>
-            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
-            to <see cref="T:Songhay.Abstractions.IActivityWithTask" />.
-            </summary>
-            <param name="activity">The activity.</param>
-            <param name="throwException">if set to <c>true</c> throw exception.</param>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTaskOutput``1(Songhay.Abstractions.IActivity)">
             <summary>
@@ -1719,15 +1612,6 @@
             </summary>
             <typeparam name="TOutput">The type of the output.</typeparam>
             <param name="activity">The activity.</param>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTaskOutput``1(Songhay.Abstractions.IActivity,System.Boolean)">
-            <summary>
-            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
-            to <see cref="T:Songhay.Abstractions.IActivityWithTaskOutput`1" />.
-            </summary>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <param name="activity">The activity.</param>
-            <param name="throwException">if set to <c>true</c> throw exception.</param>
         </member>
         <member name="M:Songhay.Extensions.IActivityExtensions.GetActivity(System.Collections.Generic.Dictionary{System.String,System.Lazy{Songhay.Abstractions.IActivity}},System.String)">
             <summary>
@@ -1958,7 +1842,6 @@
             <typeparam name="TResult">The type of the result.</typeparam>
             <param name="source">The source.</param>
             <param name="projection">The projection.</param>
-            <returns></returns>
             <remarks>
             “This enables you to perform your projection using only a single pass of the source sequence,
             which is always a bonus (imagine running it over a large log file).
@@ -1981,7 +1864,6 @@
             </summary>
             <typeparam name="TEnumerable"></typeparam>
             <param name="enumerable"></param>
-            <returns></returns>
             <remarks>
             For details, see “When To Use IEnumerable, ICollection, IList And List”
             [http://www.claudiobernasconi.ch/2013/07/22/when-to-use-ienumerable-icollection-ilist-and-list/]
@@ -2033,7 +1915,6 @@
             </summary>
             <param name="data"></param>
             <param name="groupId"></param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.MenuDisplayItemModelExtensions.DefaultOrFirst(System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel})">
             <summary>
@@ -3524,33 +3405,21 @@
             <summary>
             Gets or sets the connection string.
             </summary>
-            <value>
-            The connection string.
-            </value>
         </member>
         <member name="P:Songhay.Models.DbmsMetadata.ConnectionStringKey">
             <summary>
             Gets or sets the connection string key.
             </summary>
-            <value>
-            The connection string key.
-            </value>
         </member>
         <member name="P:Songhay.Models.DbmsMetadata.EncryptionMetadata">
             <summary>
             Gets or sets the encryption metadata.
             </summary>
-            <value>
-            The encryption metadata.
-            </value>
         </member>
         <member name="P:Songhay.Models.DbmsMetadata.ProviderName">
             <summary>
             Gets or sets the name of the provider.
             </summary>
-            <value>
-            The name of the provider.
-            </value>
         </member>
         <member name="M:Songhay.Models.DbmsMetadata.ToString">
             <summary>
@@ -3670,17 +3539,11 @@
             <summary>
             Gets or sets the initial vector.
             </summary>
-            <value>
-            The initial vector.
-            </value>
         </member>
         <member name="P:Songhay.Models.EncryptionMetadata.Key">
             <summary>
             Gets or sets the key.
             </summary>
-            <value>
-            The key.
-            </value>
         </member>
         <member name="T:Songhay.Models.HttpMethods">
             <summary>
@@ -5890,17 +5753,11 @@
             <summary>
             Gets or sets the default timeout.
             </summary>
-            <value>
-            The default timeout.
-            </value>
         </member>
         <member name="P:Songhay.Net.TimeoutHandler.RequestTimeout">
             <summary>
             Gets or sets the request timeout.
             </summary>
-            <value>
-            The request timeout.
-            </value>
         </member>
         <member name="M:Songhay.Net.TimeoutHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
             <summary>
@@ -5911,7 +5768,6 @@
             <returns>
             The task object representing the asynchronous operation.
             </returns>
-            <exception cref="T:System.TimeoutException"></exception>
         </member>
         <member name="T:Songhay.ProgramAssemblyUtility">
             <summary>
@@ -6970,7 +6826,6 @@
             Gets the <see cref="T:Songhay.Models.OpmlDocument"/>.
             </summary>
             <param name="path">The path.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Xml.OpmlUtility.GetDocument(System.String,System.Xml.Linq.XNamespace)">
             <summary>
@@ -6978,7 +6833,6 @@
             </summary>
             <param name="xml">The XML.</param>
             <param name="ns">The ns.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Xml.OpmlUtility.GetDocument(System.Xml.Linq.XContainer,System.Xml.Linq.XNamespace)">
             <summary>
@@ -8018,7 +7872,6 @@
             </summary>
             <param name="node">The node.</param>
             <param name="nodeQuery">The node query.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>

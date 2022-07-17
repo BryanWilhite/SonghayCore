@@ -24,8 +24,7 @@ public static class ProgramMetadataExtensions
         var headers = new Dictionary<string, string>
         {
             {
-                genWebApiMeta.ClaimsSet.TryGetValueWithKey(RestApiMetadata.ClaimsSetHeaderApiKey,
-                    throwException: true)!,
+                genWebApiMeta.ClaimsSet.TryGetValueWithKey(RestApiMetadata.ClaimsSetHeaderApiKey).ToReferenceTypeValueOrThrow(),
                 genWebApiMeta.ApiKey ??
                 throw new NullReferenceException(
                     $"The expected {nameof(RestApiMetadata.ClaimsSetHeaderApiKey)} is not here.")

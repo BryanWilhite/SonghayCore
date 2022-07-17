@@ -9,18 +9,7 @@ public static class DirectoryInfoExtensions
     /// </summary>
     /// <param name="directoryInfo">The specified root <see cref="DirectoryInfo"/>.</param>
     /// <param name="expectedDirectoryName">The specified target <see cref="DirectoryInfo.Name"/>.</param>
-    public static DirectoryInfo FindDirectory(this DirectoryInfo? directoryInfo, string? expectedDirectoryName) =>
-        directoryInfo.FindDirectory(expectedDirectoryName, throwException: true)
-            .ToReferenceTypeValueOrThrow();
-
-    /// <summary>
-    /// Finds the specified target <see cref="DirectoryInfo"/>
-    /// under the specified root <see cref="DirectoryInfo"/>.
-    /// </summary>
-    /// <param name="directoryInfo">The specified root <see cref="DirectoryInfo"/>.</param>
-    /// <param name="expectedDirectoryName">The specified target <see cref="DirectoryInfo.Name"/>.</param>
-    /// <param name="throwException">When <c>true</c> throw a <see cref="DirectoryNotFoundException"/> for find failure.</param>
-    public static DirectoryInfo? FindDirectory(this DirectoryInfo? directoryInfo, string? expectedDirectoryName, bool throwException)
+    public static DirectoryInfo? FindDirectory(this DirectoryInfo? directoryInfo, string? expectedDirectoryName)
     {
         expectedDirectoryName.ThrowWhenNullOrWhiteSpace();
 
@@ -30,12 +19,7 @@ public static class DirectoryInfoExtensions
         if (!directoryInfo.Exists)
             throw new DirectoryNotFoundException("The expected root directory does not exist.");
 
-        var subDirectoryInfo = directoryInfo.GetDirectories(expectedDirectoryName).FirstOrDefault();
-
-        if (throwException && subDirectoryInfo == null)
-            throw new DirectoryNotFoundException("The expected target directory is not here.");
-
-        return subDirectoryInfo;
+        return directoryInfo.GetDirectories(expectedDirectoryName).FirstOrDefault();
     }
 
     /// <summary>
@@ -44,18 +28,7 @@ public static class DirectoryInfoExtensions
     /// </summary>
     /// <param name="directoryInfo">The specified <see cref="DirectoryInfo"/>.</param>
     /// <param name="expectedFileName">The specified <see cref="FileInfo.Name"/>.</param>
-    public static FileInfo FindFile(this DirectoryInfo? directoryInfo, string? expectedFileName) =>
-        directoryInfo.FindFile(expectedFileName, throwException: true)
-            .ToReferenceTypeValueOrThrow();
-
-    /// <summary>
-    /// Finds the specified <see cref="FileInfo"/>
-    /// under the specified <see cref="DirectoryInfo"/>.
-    /// </summary>
-    /// <param name="directoryInfo">The specified <see cref="DirectoryInfo"/>.</param>
-    /// <param name="expectedFileName">The specified <see cref="FileInfo.Name"/>.</param>
-    /// <param name="throwException">When <c>true</c> throw a <see cref="FileNotFoundException"/> for find failure.</param>
-    public static FileInfo? FindFile(this DirectoryInfo? directoryInfo, string? expectedFileName, bool throwException)
+    public static FileInfo? FindFile(this DirectoryInfo? directoryInfo, string? expectedFileName)
     {
         expectedFileName.ThrowWhenNullOrWhiteSpace();
 
@@ -65,12 +38,7 @@ public static class DirectoryInfoExtensions
         if (!directoryInfo.Exists)
             throw new DirectoryNotFoundException("The expected directory does not exist.");
 
-        var fileInfo = directoryInfo.GetFiles(expectedFileName).FirstOrDefault();
-
-        if (throwException && fileInfo == null)
-            throw new FileNotFoundException("The expected file is not here.");
-
-        return fileInfo;
+        return directoryInfo.GetFiles(expectedFileName).FirstOrDefault();
     }
 
     /// <summary>Gets the parent directory.</summary>
