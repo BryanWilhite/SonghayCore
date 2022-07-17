@@ -10,7 +10,6 @@ public static class MenuDisplayItemModelExtensions
     /// </summary>
     /// <param name="data"></param>
     /// <param name="groupId"></param>
-    /// <returns></returns>
     public static bool HasGroupId(this MenuDisplayItemModel? data, string groupId) => data != null &&
         (!string.IsNullOrWhiteSpace(groupId) && data.GroupId.EqualsInvariant(groupId));
 

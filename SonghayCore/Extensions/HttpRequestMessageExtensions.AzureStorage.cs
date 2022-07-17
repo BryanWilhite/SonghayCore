@@ -14,7 +14,6 @@ public static partial class HttpRequestMessageExtensions
     /// <param name="storageAccountKey">the Azure Storage account shared key</param>
     /// <param name="eTag">entity tag for Web cache validation</param>
     /// <param name="md5">The MD5 (message-digest algorithm) hash</param>
-    /// <returns></returns>
     /// <remarks>
     /// There are two Authorization Header schemes supported: SharedKey and SharedKeyLite. This member supports only one of them: SharedKey.
     /// For more detail, see “Specifying the Authorization header”
@@ -54,7 +53,6 @@ public static partial class HttpRequestMessageExtensions
     /// in a canonical format.
     /// </summary>
     /// <param name="request">the <see cref="HttpRequestMessage"/></param>
-    /// <returns></returns>
     /// <remarks>
     /// See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
     ///
@@ -104,7 +102,6 @@ public static partial class HttpRequestMessageExtensions
     /// <param name="storageAccountName">The name of the storage account to use.</param>
     /// <param name="eTag">entity tag for Web cache validation</param>
     /// <param name="md5">The MD5 (message-digest algorithm) hash</param>
-    /// <returns></returns>
     /// <remarks>
     /// See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
     ///
@@ -158,7 +155,6 @@ public static partial class HttpRequestMessageExtensions
     /// <param name="request">the <see cref="HttpRequestMessage"/></param>
     /// <param name="blobName">the Azure Storage Blob name</param>
     /// <param name="content">the Azure Storage Blob content</param>
-    /// <returns></returns>
     public static HttpRequestMessage WithAzureStorageBlockBlobContent(this HttpRequestMessage? request,
         string? blobName, string? content)
     {
@@ -187,7 +183,6 @@ public static partial class HttpRequestMessageExtensions
     /// <param name="serviceVersion"></param>
     /// <param name="storageAccountName"></param>
     /// <param name="storageAccountKey"></param>
-    /// <returns></returns>
     public static HttpRequestMessage WithAzureStorageHeaders(this HttpRequestMessage? request,
         DateTime requestMoment, string? serviceVersion, string? storageAccountName, string? storageAccountKey)
     {
@@ -212,7 +207,6 @@ public static partial class HttpRequestMessageExtensions
     /// <param name="storageAccountKey">the Azure Storage account shared key</param>
     /// <param name="eTag">entity tag for Web cache validation</param>
     /// <param name="md5">The MD5 (message-digest algorithm) hash</param>
-    /// <returns></returns>
     /// <remarks>
     /// See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
     ///

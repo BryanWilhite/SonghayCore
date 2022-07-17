@@ -42,7 +42,6 @@ public static partial class XObjectUtility
     /// </summary>
     /// <param name="node">The node.</param>
     /// <param name="nodeQuery">The node query.</param>
-    /// <returns></returns>
     public static IEnumerable<XObject> GetXObjects(XNode? node, string? nodeQuery) =>
         GetXObjects(node, nodeQuery, throwException: false, resolver: null);
 

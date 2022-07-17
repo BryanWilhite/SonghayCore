@@ -14,7 +14,6 @@ public interface IActivity
     /// of the Activity.
     /// </summary>
     /// <param name="args">The arguments.</param>
-    /// <returns></returns>
     string DisplayHelp(ProgramArgs? args);
 
     /// <summary>

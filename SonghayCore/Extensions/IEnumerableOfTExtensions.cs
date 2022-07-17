@@ -145,7 +145,6 @@ public static class IEnumerableOfTExtensions
     /// <typeparam name="TResult">The type of the result.</typeparam>
     /// <param name="source">The source.</param>
     /// <param name="projection">The projection.</param>
-    /// <returns></returns>
     /// <remarks>
     /// “This enables you to perform your projection using only a single pass of the source sequence,
     /// which is always a bonus (imagine running it over a large log file).
@@ -184,7 +183,6 @@ public static class IEnumerableOfTExtensions
     /// </summary>
     /// <typeparam name="TEnumerable"></typeparam>
     /// <param name="enumerable"></param>
-    /// <returns></returns>
     /// <remarks>
     /// For details, see “When To Use IEnumerable, ICollection, IList And List”
     /// [http://www.claudiobernasconi.ch/2013/07/22/when-to-use-ienumerable-icollection-ilist-and-list/]

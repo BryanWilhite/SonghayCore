@@ -32,7 +32,6 @@ public static class OpmlUtility
     /// Gets the <see cref="OpmlDocument"/>.
     /// </summary>
     /// <param name="path">The path.</param>
-    /// <returns></returns>
     public static OpmlDocument? GetDocument(string? path)
     {
         var xd = XDocument.Load(path!);
@@ -51,7 +50,6 @@ public static class OpmlUtility
     /// </summary>
     /// <param name="xml">The XML.</param>
     /// <param name="ns">The ns.</param>
-    /// <returns></returns>
     public static OpmlDocument? GetDocument(string? xml, XNamespace? ns)
     {
         var xd = XDocument.Parse(xml!);

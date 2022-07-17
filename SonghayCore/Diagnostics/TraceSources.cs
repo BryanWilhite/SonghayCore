@@ -42,7 +42,6 @@ public class TraceSources
     /// <summary>
     /// Gets the name of the trace source from configuration.
     /// </summary>
-    /// <returns></returns>
     /// <remarks>
     /// When the trace source name is not configured
     /// then <see cref="DefaultTraceSourceName"/> is used.
@@ -53,7 +52,6 @@ public class TraceSources
     /// Gets the trace source.
     /// </summary>
     /// <param name="name">The name.</param>
-    /// <returns></returns>
     public TraceSource? GetTraceSource(string? name)
     {
         if (string.IsNullOrWhiteSpace(name)) return null;
@@ -67,19 +65,12 @@ public class TraceSources
     /// <summary>
     /// Gets the <see cref="TraceSource"/> with the specified name.
     /// </summary>
-    /// <value>
-    /// The <see cref="TraceSource"/>.
-    /// </value>
     /// <param name="name">The name.</param>
-    /// <returns></returns>
     public TraceSource? this[string? name] => GetTraceSource(name);
 
     /// <summary>
     /// Gets the instance.
     /// </summary>
-    /// <value>
-    /// The instance.
-    /// </value>
     public static TraceSources Instance => Nested.NestedInstance;
 
     readonly ConcurrentDictionary<string, TraceSource> _traceSources;

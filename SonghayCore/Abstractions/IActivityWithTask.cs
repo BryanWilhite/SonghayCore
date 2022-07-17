@@ -13,7 +13,6 @@ public interface IActivityWithTask : IActivity
     /// <summary>
     /// Starts the <see cref="IActivity"/> asynchronously.
     /// </summary>
-    /// <returns></returns>
     Task StartAsync();
 }
 
@@ -32,7 +31,6 @@ public interface IActivityWithTask<in TInput> : IActivity
     /// Starts the <see cref="IActivity" /> asynchronously.
     /// </summary>
     /// <param name="input">The input.</param>
-    /// <returns></returns>
     Task StartAsync(TInput? input);
 }
 
@@ -44,7 +42,6 @@ public interface IActivityWithTaskOutput<TOutput> : IActivity
     /// <summary>
     /// Starts the <see cref="IActivity" /> asynchronously.
     /// </summary>
-    /// <returns></returns>
     Task<TOutput?> StartAsync();
 }
 

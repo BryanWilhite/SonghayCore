@@ -16,17 +16,11 @@ public class TimeoutHandler : DelegatingHandler
     /// <summary>
     /// Gets or sets the default timeout.
     /// </summary>
-    /// <value>
-    /// The default timeout.
-    /// </value>
     public static TimeSpan DefaultTimeout { get; } = TimeSpan.FromSeconds(100);
 
     /// <summary>
     /// Gets or sets the request timeout.
     /// </summary>
-    /// <value>
-    /// The request timeout.
-    /// </value>
     public TimeSpan RequestTimeout { get; init; } = DefaultTimeout;
 
     /// <summary>
@@ -37,7 +31,6 @@ public class TimeoutHandler : DelegatingHandler
     /// <returns>
     /// The task object representing the asynchronous operation.
     /// </returns>
-    /// <exception cref="TimeoutException"></exception>
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
         CancellationToken cancellationToken)
     {

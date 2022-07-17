@@ -28,8 +28,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="unqualifiedKey">The unqualified key.</param>
     /// <param name="environmentName">Name of the environment.</param>
     /// <param name="delimiter">The delimiter.</param>
-    /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
-    /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection? collection,
         string? unqualifiedKey, string? environmentName, string? delimiter) =>
         collection.GetConnectionNameFromEnvironment(unqualifiedKey, environmentName, delimiter,
@@ -57,8 +55,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="environmentName">Name of the environment.</param>
     /// <param name="delimiter">The delimiter.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-    /// <exception cref="ArgumentNullException">unqualifiedKey</exception>
-    /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetConnectionNameFromEnvironment(this ConnectionStringSettingsCollection? collection,
         string? unqualifiedKey, string? environmentName, string? delimiter, bool throwConfigurationErrorsException)
     {
@@ -94,7 +90,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="collection">The collection.</param>
     /// <param name="connectionName">Name of the connection.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-    /// <exception cref="ConfigurationErrorsException"></exception>
     public static ConnectionStringSettings? GetConnectionStringSettings(
         this ConnectionStringSettingsCollection? collection, string? connectionName,
         bool throwConfigurationErrorsException)
@@ -137,7 +132,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="settings">The settings.</param>
     /// <param name="environmentKey">The environment key.</param>
     /// <param name="defaultEnvironmentName">Default name of the environment.</param>
-    /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string? environmentKey,
         string defaultEnvironmentName)
     {
@@ -152,7 +146,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="environmentKey">The environment key.</param>
     /// <param name="defaultEnvironmentName">Default name of the environment.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-    /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetEnvironmentName(this KeyValueConfigurationCollection? settings, string? environmentKey,
         string defaultEnvironmentName, bool throwConfigurationErrorsException)
     {
@@ -193,8 +186,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="unqualifiedKey">The unqualified key.</param>
     /// <param name="environmentName">Name of the environment.</param>
     /// <param name="delimiter">The delimiter.</param>
-    /// <exception cref="ArgumentNullException">unqualifiedKey - The expected App Settings key is not here.</exception>
-    /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetKeyWithEnvironmentName(this KeyValueConfigurationCollection? settings,
         string? unqualifiedKey, string? environmentName, string? delimiter)
     {
@@ -224,8 +215,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="environmentName">Name of the environment.</param>
     /// <param name="delimiter">The delimiter.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-    /// <exception cref="ArgumentNullException">unqualifiedKey</exception>
-    /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetKeyWithEnvironmentName(this KeyValueConfigurationCollection? settings,
         string? unqualifiedKey, string? environmentName, string? delimiter, bool throwConfigurationErrorsException)
     {
@@ -259,7 +248,6 @@ public static class ConfigurationManagerExtensions
     /// <param name="settings">The settings.</param>
     /// <param name="key">The key.</param>
     /// <param name="throwConfigurationErrorsException">if set to <c>true</c> throw configuration errors exception.</param>
-    /// <exception cref="ConfigurationErrorsException"></exception>
     public static string? GetSetting(this KeyValueConfigurationCollection? settings, string? key,
         bool throwConfigurationErrorsException)
     {

@@ -8,33 +8,21 @@ public class DbmsMetadata
     /// <summary>
     /// Gets or sets the connection string.
     /// </summary>
-    /// <value>
-    /// The connection string.
-    /// </value>
     public string? ConnectionString { get; set; }
 
     /// <summary>
     /// Gets or sets the connection string key.
     /// </summary>
-    /// <value>
-    /// The connection string key.
-    /// </value>
     public string? ConnectionStringKey { get; set; }
 
     /// <summary>
     /// Gets or sets the encryption metadata.
     /// </summary>
-    /// <value>
-    /// The encryption metadata.
-    /// </value>
     public EncryptionMetadata? EncryptionMetadata { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the provider.
     /// </summary>
-    /// <value>
-    /// The name of the provider.
-    /// </value>
     public string? ProviderName { get; set; }
 
     /// <summary>
