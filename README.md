@@ -106,7 +106,9 @@ graph BT
 
     1-->3[`SonghayCore.xUnit`]
     1-->4[`Songhay.DataAccess`]
-    1-->5[`Songhay.Publications`]
+    1-->5[`Songhay.Feeds`]
+    1-->6[`Songhay.Publications`]
+    1-->7[`Songhay.Social`]
 ```
 
 @[BryanWilhite](https://twitter.com/BryanWilhite)
