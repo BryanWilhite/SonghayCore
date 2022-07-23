@@ -49,9 +49,9 @@ public static class IDictionaryExtensions
     /// <typeparam name="TValue">The type of the value.</typeparam>
     /// <param name="dictionary">The dictionary.</param>
     /// <param name="key">The key.</param>
-    /// <param name="throwException">if set to <c>true</c> [throw exception].</param>
-    public static TValue? TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue>? dictionary, TKey? key,
-        bool throwException)
+    /// <param name="throwException">When <c>true</c>, throw an exception when retrieval fails.</param>
+    public static TValue? TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue>? dictionary,
+        TKey? key, bool throwException)
     {
         ArgumentNullException.ThrowIfNull(dictionary);
         ArgumentNullException.ThrowIfNull(key);
@@ -60,9 +60,8 @@ public static class IDictionaryExtensions
 
         return value switch
         {
-            null when !test && throwException => throw new NullReferenceException(
+            _ when !test && throwException => throw new NullReferenceException(
                 $"The expected value from key, {key}, is not here."),
-            null when !test => default,
             _ => value
         };
     }
