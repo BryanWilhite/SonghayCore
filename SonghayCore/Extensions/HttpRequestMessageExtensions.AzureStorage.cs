@@ -113,8 +113,6 @@ public static partial class HttpRequestMessageExtensions
         string? eTag, string? md5)
     {
         ArgumentNullException.ThrowIfNull(request);
-        if (request.Content == null)
-            throw new NullReferenceException($"{nameof(request)}.{nameof(request.Content)}");
         if (string.IsNullOrWhiteSpace(eTag)) eTag = string.Empty;
         if (string.IsNullOrWhiteSpace(md5)) md5 = string.Empty;
 
@@ -122,8 +120,11 @@ public static partial class HttpRequestMessageExtensions
 
         HttpMethod method = request.Method;
 
-        if (method == HttpMethod.Put)
+        if (method != HttpMethod.Get && method != HttpMethod.Head)
         {
+            if (request.Content == null)
+                throw new NullReferenceException($"{nameof(request)}.{nameof(request.Content)}");
+
             try
             {
                 contentLength = request.Content.Headers.ContentLength.ToString();
