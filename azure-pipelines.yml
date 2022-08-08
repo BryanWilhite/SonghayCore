@@ -1,5 +1,8 @@
 name: $(System.TeamProject)_$(Build.DefinitionName)_$(Build.SourceBranchName)_$(Build.BuildId)
 
+pool:
+  vmImage: ubuntu-latest # This is the default when you don’t specify a `pool` or `vmImage`.
+
 variables:
   BuildConfiguration: 'Release'
   RepoName: 'SonghayCore'
@@ -46,3 +49,5 @@ steps:
     command: test
     projects: '**/$(RepoName).Tests/*.csproj'
     arguments: '--configuration $(BuildConfiguration)'
+
+# reference: [ https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/?view=azure-pipelines ]
