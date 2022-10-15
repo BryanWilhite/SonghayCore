@@ -5,7 +5,7 @@ using Tavis.UriTemplates;
 
 namespace Songhay.Tests.Extensions;
 
-public class HttpRequestMessageExtensionsTests
+public partial class HttpRequestMessageExtensionsTests
 {
     public HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
     {
@@ -50,7 +50,7 @@ public class HttpRequestMessageExtensionsTests
     [InlineData(@"photos/{photoId}", 1)]
     public async Task ShouldDeletePhoto(string input, int id)
     {
-        var template = new UriTemplate($"{LIVE_API_BASE_URI}/{input}");
+        var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
         var uri = template.BindByPosition($"{id}");
         var message = new HttpRequestMessage(HttpMethod.Delete, uri);
         var response = await message.SendAsync();
@@ -63,7 +63,7 @@ public class HttpRequestMessageExtensionsTests
     [InlineData(@"photos/{photoId}", 1)]
     public async Task ShouldGetPhoto(string input, int id)
     {
-        var template = new UriTemplate($"{LIVE_API_BASE_URI}/{input}");
+        var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
         var uri = template.BindByPosition($"{id}");
         var content = await new HttpRequestMessage(HttpMethod.Get, uri)
             .GetContentAsync(response => Assert.Equal(HttpStatusCode.OK, response.StatusCode));
@@ -77,7 +77,7 @@ public class HttpRequestMessageExtensionsTests
     {
         var body = JObject.FromObject(new { albumId }).ToString();
 
-        var template = new UriTemplate($"{LIVE_API_BASE_URI}/{input}");
+        var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
         var uri = template.BindByPosition($"{id}");
         var message = new HttpRequestMessage(HttpMethod.Patch, uri);
         var response = await message.SendBodyAsync(body);
@@ -104,7 +104,7 @@ public class HttpRequestMessageExtensionsTests
             url = "https://via.placeholder.com/600/92c952"
         }).ToString();
 
-        var template = new UriTemplate($"{LIVE_API_BASE_URI}/{input}");
+        var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
         var uri = template.BindByPosition($"{id}");
         var message = new HttpRequestMessage(HttpMethod.Put, uri);
         var response = await message.SendBodyAsync(body);
@@ -122,7 +122,7 @@ public class HttpRequestMessageExtensionsTests
     [InlineData(@"photos/wrong/{photoId}", 1)]
     public async Task ShouldThrowNotFoundPhoto(string input, int id)
     {
-        var template = new UriTemplate($"{LIVE_API_BASE_URI}/{input}");
+        var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
         var uri = template.BindByPosition($"{id}");
         var message = new HttpRequestMessage(HttpMethod.Get, uri);
         var response = await message.SendAsync();
@@ -161,7 +161,7 @@ public class HttpRequestMessageExtensionsTests
         }
     }
 
-    const string LIVE_API_BASE_URI = "http://jsonplaceholder.typicode.com";
+    const string LiveApiBaseUri = "http://jsonplaceholder.typicode.com";
 
     readonly ITestOutputHelper _testOutputHelper;
 }
