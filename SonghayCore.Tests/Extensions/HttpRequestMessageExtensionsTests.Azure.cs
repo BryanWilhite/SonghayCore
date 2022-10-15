@@ -26,8 +26,8 @@ public partial class HttpRequestMessageExtensionsTests
         return actual!;
     }
 
-    static string GetLocation(string accountName, string containerName, string blobName) =>
-        $"https://{accountName}.blob.core.windows.net/{containerName}/{blobName}";
+    static UriBuilder GetStorageUriBuilder(string accountName, string containerName) =>
+        new($"https://{accountName}.blob.core.windows.net/{containerName}");
 
     static (string accountName, string accountKey, string apiVersion) GetCloudStorageMetadata(string connectionString)
     {
@@ -65,10 +65,12 @@ public partial class HttpRequestMessageExtensionsTests
         return storageMetadata;
     }
 
-    static async Task DeleteFileAsync(string connectionString, string containerName, string fileName)
+    static async Task DeleteBlobAsync(string connectionString, string containerName, string fileName)
     {
         var metadata = GetCloudStorageMetadata(connectionString);
-        var location = GetLocation(metadata.accountName, containerName, fileName);
+        var uriBuilder = GetStorageUriBuilder(metadata.accountName, containerName);
+        uriBuilder.Path = $"{uriBuilder.Path}/{fileName}";
+        var location = uriBuilder.Uri.OriginalString;
 
         using var request =
             new HttpRequestMessage(HttpMethod.Delete, location)
@@ -85,10 +87,12 @@ public partial class HttpRequestMessageExtensionsTests
         throw new HttpRequestException(message);
     }
 
-    static async Task<string> DownloadFileToStringAsync(string connectionString, string containerName, string fileName)
+    static async Task<string> DownloadBlobToStringAsync(string connectionString, string containerName, string fileName)
     {
         var metadata = GetCloudStorageMetadata(connectionString);
-        var location = GetLocation(metadata.accountName, containerName, fileName);
+        var uriBuilder = GetStorageUriBuilder(metadata.accountName, containerName);
+        uriBuilder.Path = $"{uriBuilder.Path}/{fileName}";
+        var location = uriBuilder.Uri.OriginalString;
 
         using var request =
             new HttpRequestMessage(HttpMethod.Get, location)
@@ -106,10 +110,35 @@ public partial class HttpRequestMessageExtensionsTests
         throw new HttpRequestException(message);
     }
 
-    static async Task UploadFileAsync(string connectionString, string containerName, string fileName, string content)
+    static async Task<string> ListContainerAsync(string connectionString, string containerName)
     {
         var metadata = GetCloudStorageMetadata(connectionString);
-        var location = GetLocation(metadata.accountName, containerName, fileName);
+        var uriBuilder = GetStorageUriBuilder(metadata.accountName, containerName);
+        uriBuilder.Query = "restype=container&comp=list";
+        var location = uriBuilder.Uri.OriginalString;
+
+        using var request =
+            new HttpRequestMessage(HttpMethod.Get, location)
+                .WithAzureStorageHeaders(
+                    DateTime.UtcNow,
+                    metadata.apiVersion,
+                    metadata.accountName,
+                    metadata.accountKey);
+        using HttpResponseMessage response = await request.SendAsync();
+        var s = await response.Content.ReadAsStringAsync();
+
+        if (response.IsSuccessStatusCode) return s;
+
+        var message = $"Request for `{location}` returned status `{response.StatusCode}`.";
+        throw new HttpRequestException(message);
+    }
+
+    static async Task UploadBlobAsync(string connectionString, string containerName, string fileName, string content)
+    {
+        var metadata = GetCloudStorageMetadata(connectionString);
+        var uriBuilder = GetStorageUriBuilder(metadata.accountName, containerName);
+        uriBuilder.Path = $"{uriBuilder.Path}/{fileName}";
+        var location = uriBuilder.Uri.OriginalString;
 
         using var request =
             new HttpRequestMessage(HttpMethod.Put, location)
@@ -134,28 +163,40 @@ public partial class HttpRequestMessageExtensionsTests
         Assert.False(string.IsNullOrWhiteSpace(actual));
     }
 
-    [Theory]
-    [InlineData("integration-test-container", "hello.json")]
-    public async Task DeleteFileAsync_Test(string containerName, string fileName)
+    [Theory(Skip = "run manually")]
+    [InlineData(ContainerName, "hello.json")]
+    public async Task DeleteBlobAsync_Test(string containerName, string fileName)
     {
         var connectionString = GetConnectionStringFromEnvironmentVariable();
-        await DeleteFileAsync(connectionString, containerName, fileName);
+        await DeleteBlobAsync(connectionString, containerName, fileName);
     }
 
     [Theory]
-    [InlineData("integration-test-container", "foo-two.txt")]
-    public async Task DownloadFileToStringAsync_Test(string containerName, string fileName)
+    [InlineData(ContainerName, "foo-two.txt")]
+    public async Task DownloadBlobToStringAsync_Test(string containerName, string fileName)
     {
         var connectionString = GetConnectionStringFromEnvironmentVariable();
-        var actual = await DownloadFileToStringAsync(connectionString, containerName, fileName);
+        var actual = await DownloadBlobToStringAsync(connectionString, containerName, fileName);
         Assert.False(string.IsNullOrWhiteSpace(actual));
     }
 
     [Theory]
-    [InlineData("integration-test-container", "hello.json", @"{ ""root"": ""hello!"", ""isGreeting"": true }")]
-    public async Task UploadFileAsync_Test(string containerName, string fileName, string content)
+    [InlineData(ContainerName)]
+    public async Task ListContainerAsync_Test(string containerName)
     {
         var connectionString = GetConnectionStringFromEnvironmentVariable();
-        await UploadFileAsync(connectionString, containerName, fileName, content);
+        var actual = await ListContainerAsync(connectionString, containerName);
+        Assert.False(string.IsNullOrWhiteSpace(actual));
+        _testOutputHelper.WriteLine(actual);
     }
+
+    [Theory]
+    [InlineData(ContainerName, "hello.json", @"{ ""root"": ""hello!"", ""isGreeting"": true }")]
+    public async Task UploadBlobAsync_Test(string containerName, string fileName, string content)
+    {
+        var connectionString = GetConnectionStringFromEnvironmentVariable();
+        await UploadBlobAsync(connectionString, containerName, fileName, content);
+    }
+
+    const string ContainerName = "integration-test-container";
 }
