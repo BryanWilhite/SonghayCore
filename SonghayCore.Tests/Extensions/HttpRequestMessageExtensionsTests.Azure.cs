@@ -65,6 +65,26 @@ public partial class HttpRequestMessageExtensionsTests
         return storageMetadata;
     }
 
+    static async Task DeleteFileAsync(string connectionString, string containerName, string fileName)
+    {
+        var metadata = GetCloudStorageMetadata(connectionString);
+        var location = GetLocation(metadata.accountName, containerName, fileName);
+
+        using var request =
+            new HttpRequestMessage(HttpMethod.Delete, location)
+                .WithAzureStorageHeaders(
+                    DateTime.UtcNow,
+                    metadata.apiVersion,
+                    metadata.accountName,
+                    metadata.accountKey);
+        using HttpResponseMessage response = await request.SendAsync();
+
+        if (response.IsSuccessStatusCode) return;
+
+        var message = $"Request for `{location}` returned status `{response.StatusCode}`.";
+        throw new HttpRequestException(message);
+    }
+
     static async Task<string> DownloadFileToStringAsync(string connectionString, string containerName, string fileName)
     {
         var metadata = GetCloudStorageMetadata(connectionString);
@@ -86,11 +106,40 @@ public partial class HttpRequestMessageExtensionsTests
         throw new HttpRequestException(message);
     }
 
+    static async Task UploadFileAsync(string connectionString, string containerName, string fileName, string content)
+    {
+        var metadata = GetCloudStorageMetadata(connectionString);
+        var location = GetLocation(metadata.accountName, containerName, fileName);
+
+        using var request =
+            new HttpRequestMessage(HttpMethod.Put, location)
+                .WithAzureStorageBlockBlobContent(fileName, content)
+                .WithAzureStorageHeaders(
+                    DateTime.UtcNow,
+                    metadata.apiVersion,
+                    metadata.accountName,
+                    metadata.accountKey);
+        using HttpResponseMessage response = await request.SendAsync();
+
+        if (response.IsSuccessStatusCode) return;
+
+        var message = $"Request for `{location}` returned status `{response.StatusCode}`.";
+        throw new HttpRequestException(message);
+    }
+
     [Fact]
     public void ShouldGetConnectionStringFromEnvironmentVariable()
     {
         var actual = GetConnectionStringFromEnvironmentVariable();
         Assert.False(string.IsNullOrWhiteSpace(actual));
+    }
+
+    [Theory]
+    [InlineData("integration-test-container", "hello.json")]
+    public async Task DeleteFileAsync_Test(string containerName, string fileName)
+    {
+        var connectionString = GetConnectionStringFromEnvironmentVariable();
+        await DeleteFileAsync(connectionString, containerName, fileName);
     }
 
     [Theory]
@@ -100,5 +149,13 @@ public partial class HttpRequestMessageExtensionsTests
         var connectionString = GetConnectionStringFromEnvironmentVariable();
         var actual = await DownloadFileToStringAsync(connectionString, containerName, fileName);
         Assert.False(string.IsNullOrWhiteSpace(actual));
+    }
+
+    [Theory]
+    [InlineData("integration-test-container", "hello.json", @"{ ""root"": ""hello!"", ""isGreeting"": true }")]
+    public async Task UploadFileAsync_Test(string containerName, string fileName, string content)
+    {
+        var connectionString = GetConnectionStringFromEnvironmentVariable();
+        await UploadFileAsync(connectionString, containerName, fileName, content);
     }
 }

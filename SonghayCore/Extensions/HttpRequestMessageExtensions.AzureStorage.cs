@@ -120,7 +120,7 @@ public static partial class HttpRequestMessageExtensions
 
         HttpMethod method = request.Method;
 
-        if (method != HttpMethod.Get && method != HttpMethod.Head)
+        if (method == HttpMethod.Put)
         {
             if (request.Content == null)
                 throw new NullReferenceException($"{nameof(request)}.{nameof(request.Content)}");

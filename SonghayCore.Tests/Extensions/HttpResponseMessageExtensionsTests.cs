@@ -67,7 +67,5 @@ public class HttpResponseMessageExtensionsTests
         Assert.NotEmpty(instance);
     }
 
-    const string LIVE_API_BASE_URI = "http://jsonplaceholder.typicode.com";
-
     readonly ITestOutputHelper _testOutputHelper;
 }
