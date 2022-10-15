@@ -1,9 +1,4 @@
-﻿using Songhay.Extensions;
-using System.IO;
-using Xunit;
-using Xunit.Abstractions;
-
-namespace Songhay.Tests.Extensions;
+﻿namespace Songhay.Tests.Extensions;
 
 public class DirectoryInfoExtensionsTests
 {

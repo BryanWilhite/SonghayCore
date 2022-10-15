@@ -1,8 +1,5 @@
-﻿using System.Linq;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 using Songhay.Xml;
-using Xunit;
-using Xunit.Abstractions;
 
 namespace Songhay.Tests.Xml;
 

@@ -1,9 +1,4 @@
-﻿using Songhay.Extensions;
-using System;
-using System.Linq;
-using Xunit;
-
-namespace Songhay.Tests.Extensions;
+﻿namespace Songhay.Tests.Extensions;
 
 public class EnumExtensionsTest
 {

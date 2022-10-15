@@ -1,6 +1,5 @@
 ﻿using System.Text.RegularExpressions;
 using Songhay.Globalization;
-using Xunit;
 
 namespace Songhay.Tests.Globalization;
 

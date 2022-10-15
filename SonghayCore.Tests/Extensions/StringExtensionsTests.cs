@@ -1,10 +1,4 @@
-﻿using Songhay.Extensions;
-using System;
-using System.Linq;
-using Xunit;
-using Xunit.Abstractions;
-
-namespace Songhay.Tests.Extensions;
+﻿namespace Songhay.Tests.Extensions;
 
 public partial class StringExtensionsTests
 {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Songhay.Extensions;
-using Xunit;
-using Xunit.Abstractions;
-
-namespace Songhay.Tests.Extensions;
+﻿namespace Songhay.Tests.Extensions;
 
 // ReSharper disable once InconsistentNaming
 public class IDictionaryExtensionsTest

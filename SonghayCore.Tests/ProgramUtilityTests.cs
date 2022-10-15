@@ -1,10 +1,6 @@
 ﻿using Songhay.Diagnostics;
 using Songhay.Models;
 using Songhay.Tests.Diagnostics;
-using System.Diagnostics;
-using System.IO;
-using Xunit;
-using Xunit.Abstractions;
 
 namespace Songhay.Tests;
 

@@ -1,9 +1,4 @@
-﻿using Songhay.Extensions;
-using Songhay.Models;
-using System;
-using System.Collections.Generic;
-using Xunit;
-using Xunit.Abstractions;
+﻿using Songhay.Models;
 
 namespace Songhay.Tests.Extensions;
 

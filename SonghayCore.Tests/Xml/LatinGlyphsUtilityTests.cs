@@ -1,12 +1,9 @@
 ﻿using System.Globalization;
 using ExcelDataReader;
 using HtmlAgilityPack;
-using Songhay.Extensions;
 using Songhay.Models;
 using Songhay.Xml;
 using System.Text;
-using Xunit;
-using Xunit.Abstractions;
 
 namespace Songhay.Tests.Xml;
 

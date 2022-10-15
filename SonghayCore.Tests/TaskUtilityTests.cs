@@ -1,6 +1,4 @@
-﻿using Xunit;
-
-namespace Songhay.Tests;
+﻿namespace Songhay.Tests;
 
 public class TaskUtilityTests
 {

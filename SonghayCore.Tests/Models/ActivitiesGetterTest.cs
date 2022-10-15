@@ -1,13 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Songhay.Diagnostics;
-using Songhay.Extensions;
 using Songhay.Models;
 using Songhay.Tests.Activities;
-using System;
-using System.Diagnostics;
-using System.IO;
-using Xunit;
-using Xunit.Abstractions;
 
 namespace Songhay.Tests.Models;
 

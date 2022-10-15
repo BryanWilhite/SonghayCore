@@ -1,10 +1,4 @@
-﻿using Songhay.Extensions;
-using System;
-using System.Threading.Tasks;
-using Xunit;
-using Xunit.Abstractions;
-
-namespace Songhay.Tests.Extensions;
+﻿namespace Songhay.Tests.Extensions;
 
 public class UriExtensionsTests
 {

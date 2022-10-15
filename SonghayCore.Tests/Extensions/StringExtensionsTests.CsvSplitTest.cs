@@ -1,6 +1,4 @@
 ﻿using Songhay.Exceptions;
-using Songhay.Extensions;
-using Xunit;
 
 namespace Songhay.Tests.Extensions;
 

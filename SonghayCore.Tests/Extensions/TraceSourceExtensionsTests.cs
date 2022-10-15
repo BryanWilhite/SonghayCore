@@ -1,13 +1,5 @@
 ﻿using Songhay.Diagnostics;
-using Songhay.Extensions;
 using Songhay.Models;
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using Xunit;
-using Xunit.Abstractions;
 
 namespace Songhay.Tests.Extensions;
 

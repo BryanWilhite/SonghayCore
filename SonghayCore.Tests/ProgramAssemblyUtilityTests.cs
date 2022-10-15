@@ -1,8 +1,4 @@
-﻿using System.IO;
-using Xunit;
-using Xunit.Abstractions;
-
-namespace Songhay.Tests;
+﻿namespace Songhay.Tests;
 
 public class ProgramAssemblyUtilityTests
 {

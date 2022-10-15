@@ -1,9 +1,5 @@
-﻿using System;
-using Songhay.Diagnostics;
-using Songhay.Extensions;
+﻿using Songhay.Diagnostics;
 using Songhay.Models;
-using System.Diagnostics;
-using System.Linq;
 using Songhay.Abstractions;
 
 namespace Songhay.Tests.Activities;

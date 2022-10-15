@@ -1,11 +1,4 @@
-﻿using Songhay.Extensions;
-using Songhay.Models;
-using System;
-using System.IO;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Xunit;
-using Xunit.Abstractions;
+﻿using Songhay.Models;
 
 namespace Songhay.Tests.Extensions;
 

@@ -1,6 +1,4 @@
 ﻿using Songhay.Diagnostics;
-using Songhay.Extensions;
-using System.Diagnostics;
 
 namespace Songhay.Tests.Diagnostics;
 

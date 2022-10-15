@@ -1,7 +1,3 @@
-using Songhay.Extensions;
-using System.IO;
-using Xunit;
-
 namespace Songhay.Tests;
 
 public class AssemblyExtensionsTests

@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace Songhay.Tests;
+﻿namespace Songhay.Tests;
 
 /// <summary>
 /// Extends <see cref="FactAttribute"/> to skip

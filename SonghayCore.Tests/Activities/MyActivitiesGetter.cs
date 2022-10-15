@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Songhay.Abstractions;
+﻿using Songhay.Abstractions;
 using Songhay.Models;
 
 namespace Songhay.Tests.Activities;

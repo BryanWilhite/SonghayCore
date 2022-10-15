@@ -1,13 +1,4 @@
-﻿using Songhay.Extensions;
-using System;
-using System.IO;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Xunit;
-using Xunit.Abstractions;
-
-namespace Songhay.Tests.Extensions;
+﻿namespace Songhay.Tests.Extensions;
 
 public class HttpClientExtensionsTest
 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Linq;
-using Songhay.Extensions;
-using Xunit;
-
-namespace Songhay.Tests.Extensions;
+﻿namespace Songhay.Tests.Extensions;
 
 public class TimeSpanExtensionsTest
 {

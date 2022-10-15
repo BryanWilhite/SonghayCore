@@ -1,7 +1,4 @@
-﻿using Songhay.Extensions;
-using Xunit;
-
-namespace Songhay.Tests.Extensions;
+﻿namespace Songhay.Tests.Extensions;
 
 public partial class StringExtensionsTests
 {

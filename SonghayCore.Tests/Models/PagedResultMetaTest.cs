@@ -1,5 +1,4 @@
 ﻿using Songhay.Models;
-using Xunit;
 
 namespace Songhay.Tests.Models;
 
