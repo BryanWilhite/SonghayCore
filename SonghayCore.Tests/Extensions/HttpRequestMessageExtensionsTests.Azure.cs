@@ -156,14 +156,14 @@ public partial class HttpRequestMessageExtensionsTests
         throw new HttpRequestException(message);
     }
 
-    [Fact]
+    [Fact(Skip = "these tests require a local environment variable")]
     public void ShouldGetConnectionStringFromEnvironmentVariable()
     {
         var actual = GetConnectionStringFromEnvironmentVariable();
         Assert.False(string.IsNullOrWhiteSpace(actual));
     }
 
-    [Theory(Skip = "run manually")]
+    [Theory(Skip = "these tests require a local environment variable")]
     [InlineData(ContainerName, "hello.json")]
     public async Task DeleteBlobAsync_Test(string containerName, string fileName)
     {
@@ -171,7 +171,7 @@ public partial class HttpRequestMessageExtensionsTests
         await DeleteBlobAsync(connectionString, containerName, fileName);
     }
 
-    [Theory]
+    [Theory(Skip = "these tests require a local environment variable")]
     [InlineData(ContainerName, "foo-two.txt")]
     public async Task DownloadBlobToStringAsync_Test(string containerName, string fileName)
     {
@@ -180,7 +180,7 @@ public partial class HttpRequestMessageExtensionsTests
         Assert.False(string.IsNullOrWhiteSpace(actual));
     }
 
-    [Theory]
+    [Theory(Skip = "these tests require a local environment variable")]
     [InlineData(ContainerName)]
     public async Task ListContainerAsync_Test(string containerName)
     {
@@ -190,7 +190,7 @@ public partial class HttpRequestMessageExtensionsTests
         _testOutputHelper.WriteLine(actual);
     }
 
-    [Theory]
+    [Theory(Skip = "these tests require a local environment variable")]
     [InlineData(ContainerName, "hello.json", @"{ ""root"": ""hello!"", ""isGreeting"": true }")]
     public async Task UploadBlobAsync_Test(string containerName, string fileName, string content)
     {
