@@ -35,7 +35,7 @@
 
         
 
-        <title>SonghayCore - OrderTestCases&lt;TTestCase&gt;(IEnumerable&lt;TTestCase&gt;)</title>
+        <title>SonghayCore - GetAssemblyParentDirectory(DataAttribute?, Type?, int)</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -77,11 +77,11 @@
                                     <div class="flex-grow-1">
                                         <div class="breadcrumbs d-flex flex-column flex-md-row text-break">
 
-			<span><a href="/SonghayCore/latest/Songhay.Tests.Orderers/TestCaseOrderer">TestCaseOrderer</a>.</span>
+			<span><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions">Data<wbr>Attribute<wbr>Extensions</a>.</span>
                                         </div>
                                         <div class="text-white m-0 text-break title">
 
-    <div>OrderTestCases<wbr>&lt;TTestCase&gt;<wbr><wbr>(IEnumerable<wbr>&lt;TTestCase&gt;<wbr>)<wbr> <small>Method</small></div>
+    <div>Get<wbr>Assembly<wbr>Parent<wbr>Directory<wbr>(DataAttribute?, <wbr>Type?, <wbr>int)<wbr> <small>Method</small></div>
                                         </div>
                                     </div>
                                         <div class="navbar navbar-expand-md navbar-dark p-0">
@@ -117,19 +117,16 @@
 	<div class="sidebar-root">
 		        <div class="sidebar-root bg-white mb-3 page-box font-size-sm">
                 <div class="sidebar-nav-item sidebar-header mb-0 pb-0">Namespace</div>
-                <div class="sidebar-nav-item  font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Tests.Orderers">Songhay<wbr>.Tests<wbr>.Orderers</a></div>
+                <div class="sidebar-nav-item  font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Tests.Extensions">Songhay<wbr>.Tests<wbr>.Extensions</a></div>
                 <div class="sidebar-nav-item sidebar-header mb-0 pb-0">Type</div>
-                <div class="sidebar-nav-item font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Tests.Orderers/TestCaseOrderer">TestCaseOrderer</a></div>
+                <div class="sidebar-nav-item font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions">Data<wbr>Attribute<wbr>Extensions</a></div>
         </div>
-            <div class="sidebar-nav-item sidebar-header">Field Members</div>
-            <div class="sidebar-nav-children">
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Orderers/TestCaseOrderer/6091937D">AssemblyName</a></div>
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Orderers/TestCaseOrderer/3E04CD14">QueuedTests</a></div>
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Orderers/TestCaseOrderer/2F37BB47">TypeName</a></div>
-            </div>
             <div class="sidebar-nav-item sidebar-header">Method Members</div>
             <div class="sidebar-nav-children">
-                    <div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Tests.Orderers/TestCaseOrderer/5B3ADC0B">OrderTestCases<wbr>&lt;TTestCase&gt;<wbr><wbr>(IEnumerable<wbr>&lt;TTestCase&gt;<wbr>)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions/7E64ED8C">FindDirectory<wbr>(DataAttribute?, <wbr>string)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions/55CFCE7D">Get<wbr>Assembly<wbr>Directory<wbr>Info<wbr>(DataAttribute?, <wbr>Type?)<wbr></a></div>
+                    <div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions/7F10338A">Get<wbr>Assembly<wbr>Parent<wbr>Directory<wbr>(DataAttribute?, <wbr>Type?, <wbr>int)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions/9068A038">Get<wbr>Assembly<wbr>Parent<wbr>Directory<wbr>Info<wbr>(DataAttribute?, <wbr>Type?, <wbr>int)<wbr></a></div>
             </div>
 
 	</div>
@@ -142,16 +139,16 @@
 
 
 
-        <div class="lead mb-3">Orders test cases for execution.</div>
+        <div class="lead mb-3">Gets the assembly parent directory path.</div>
 
     <div class="p-3 bg-light page-box container small">
         		<dl class="dl-horizontal">
 
     		    <dt>Namespace</dt>
-    		    <dd><a href="/SonghayCore/latest/Songhay.Tests.Orderers">Songhay<wbr>.Tests<wbr>.Orderers</a></dd>
+    		    <dd><a href="/SonghayCore/latest/Songhay.Tests.Extensions">Songhay<wbr>.Tests<wbr>.Extensions</a></dd>
 
 				<dt>Containing Type</dt>
-				<dd><a href="/SonghayCore/latest/Songhay.Tests.Orderers/TestCaseOrderer">TestCaseOrderer</a></dd>
+				<dd><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions">Data<wbr>Attribute<wbr>Extensions</a></dd>
 
 
 
@@ -163,29 +160,12 @@
 
     </div>
 		<h1 id="Syntax">Syntax</h1>
-		<pre class="language-csharp"><code class="language-csharp">public IEnumerable&lt;TTestCase&gt; OrderTestCases&lt;TTestCase&gt;(IEnumerable&lt;TTestCase&gt; testCases) &#xA;    where TTestCase : ITestCase</code></pre>
+		<pre class="language-csharp"><code class="language-csharp">public static string GetAssemblyParentDirectory(this DataAttribute? attribute, Type? typeInAssembly, int levels)</code></pre>
 
 
 
 
 
-		<h1 id="TypeParameters">Type Parameters</h1>
-		<div class="table-responsive">
-			<table class="table table-api table-striped table-hover two-cols">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-						<tr id="typeparam-TTestCase">
-							<td>TTestCase</td>
-							<td></td>
-						</tr>
-				</tbody>
-			</table>
-		</div>
 
 		<h1 id="Parameters">Parameters</h1>
 		<div class="table-responsive">
@@ -199,9 +179,19 @@
 				</thead>
 				<tbody>
 						<tr>
-							<td>testCases</td>
-							<td>IEnumerable<wbr>&lt;TTestCase&gt;<wbr></td>
-							<td>The test cases to be ordered.</td>
+							<td>attribute</td>
+							<td>DataAttribute?</td>
+							<td>The attribute.</td>
+						</tr>
+						<tr>
+							<td>typeInAssembly</td>
+							<td>Type?</td>
+							<td>The type in assembly.</td>
+						</tr>
+						<tr>
+							<td>levels</td>
+							<td>int</td>
+							<td>The levels of directories above the assembly.</td>
 						</tr>
 				</tbody>
 			</table>
@@ -219,8 +209,8 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>IEnumerable<wbr>&lt;TTestCase&gt;<wbr></td>
-						<td>The test cases in the order to be run.</td>
+						<td>string</td>
+						<td></td>
 					</tr>
 				</tbody>
 			</table>
@@ -241,7 +231,6 @@
             <div class="sidebar-nav-item sidebar-header">On This Page</div>
             <div class="sidebar-nav-children">
                     <div class="sidebar-nav-item"><a href="#Syntax">Syntax</a></div>
-                    <div class="sidebar-nav-item"><a href="#TypeParameters">Type Parameters</a></div>
                     <div class="sidebar-nav-item"><a href="#Parameters">Parameters</a></div>
                     <div class="sidebar-nav-item"><a href="#ReturnValue">Return Value</a></div>
             </div>

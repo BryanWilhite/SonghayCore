@@ -35,7 +35,7 @@
 
         
 
-        <title>SonghayCore - ProjectFileDataAttribute</title>
+        <title>SonghayCore - ProjectFileDataAttribute(Type, string[])</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -77,10 +77,11 @@
                                     <div class="flex-grow-1">
                                         <div class="breadcrumbs d-flex flex-column flex-md-row text-break">
 
+			<span><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute">Project<wbr>File<wbr>Data<wbr>Attribute</a>.</span>
                                         </div>
                                         <div class="text-white m-0 text-break title">
 
-    <div>Project<wbr>File<wbr>Data<wbr>Attribute <small>Class</small></div>
+    <div>Project<wbr>File<wbr>Data<wbr>Attribute<wbr>(Type, <wbr>string[])<wbr> <small>Constructor</small></div>
                                         </div>
                                     </div>
                                         <div class="navbar navbar-expand-md navbar-dark p-0">
@@ -114,16 +115,21 @@
                                             <div id="left-sidebar" class="sidebar collapse px-0 px-md-3 pt-3">
 
 	<div class="sidebar-root">
-				<div class="sidebar-root bg-white mb-3 page-box font-size-sm">
-				<div class="sidebar-nav-item sidebar-header mb-0 pb-0">Namespace</div>
-				<div class="sidebar-nav-item font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Tests">Songhay<wbr>.Tests</a></div>
-		</div>
-			<div class="sidebar-nav-item sidebar-header">Class Types</div>
-			<div class="sidebar-nav-children">
-					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests/DebuggerAttachedFactAttribute">Debugger<wbr>Attached<wbr>Fact<wbr>Attribute</a></div>
-					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests/DebuggerAttachedTheoryAttribute">Debugger<wbr>Attached<wbr>Theory<wbr>Attribute</a></div>
-					<div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute">Project<wbr>File<wbr>Data<wbr>Attribute</a></div>
-			</div>
+		        <div class="sidebar-root bg-white mb-3 page-box font-size-sm">
+                <div class="sidebar-nav-item sidebar-header mb-0 pb-0">Namespace</div>
+                <div class="sidebar-nav-item  font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Tests">Songhay<wbr>.Tests</a></div>
+                <div class="sidebar-nav-item sidebar-header mb-0 pb-0">Type</div>
+                <div class="sidebar-nav-item font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute">Project<wbr>File<wbr>Data<wbr>Attribute</a></div>
+        </div>
+            <div class="sidebar-nav-item sidebar-header">Constructors</div>
+            <div class="sidebar-nav-children">
+                    <div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute/41880DD6">Project<wbr>File<wbr>Data<wbr>Attribute<wbr>(Type, <wbr>string[])<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute/91493F79">Project<wbr>File<wbr>Data<wbr>Attribute<wbr>(Type, <wbr>object[], <wbr>string[])<wbr></a></div>
+            </div>
+            <div class="sidebar-nav-item sidebar-header">Method Members</div>
+            <div class="sidebar-nav-children">
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute/E21700B3">GetData<wbr>(MethodInfo)<wbr></a></div>
+            </div>
 
 	</div>
                                             </div>
@@ -135,159 +141,62 @@
 
 
 
-        <div class="lead mb-3">File-based data source for a data theory.</div>
+        <div class="lead mb-3">
+    Initializes a new instance of the <code class="cs"><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute">ProjectFileDataAttribute</a></code> class.
+    </div>
 
-    <div class="container-md">
-	    <div class="row">
-		    <div class="col-md-6 pt-0 pl-0 pb-0 pr-0 pr-md-4 mb-3 mb-md-0">
-			    <div class="p-3 bg-light page-box small" style="min-height: 100%">
-				    		<dl class="dl-horizontal">
+    <div class="p-3 bg-light page-box container small">
+        		<dl class="dl-horizontal">
 
     		    <dt>Namespace</dt>
     		    <dd><a href="/SonghayCore/latest/Songhay.Tests">Songhay<wbr>.Tests</a></dd>
 
+				<dt>Containing Type</dt>
+				<dd><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute">Project<wbr>File<wbr>Data<wbr>Attribute</a></dd>
 
 
 
-    		    <dt>Base Types</dt>
-    		    <dd>
-    			    <ul class="list-unstyled">
-    					    <li>DataAttribute</li>
-    			    </ul>
-    		    </dd>
 
 
 
 
 	    </dl>
 
-			    </div>
-		    </div>
-		    <div class="col-md-6 p-0">
-			    <div class="bg-light page-box">
-				    <div class="mermaid text-center">
-	graph BT
-	Type-->Base0["DataAttribute"]
-	Type["ProjectFileDataAttribute"]
-class Type type-node
-
-</div>
-			    </div>
-		    </div>
-	    </div>
     </div>
 		<h1 id="Syntax">Syntax</h1>
-		<pre class="language-csharp"><code class="language-csharp">public class ProjectFileDataAttribute : DataAttribute</code></pre>
+		<pre class="language-csharp"><code class="language-csharp">public ProjectFileDataAttribute(Type typeInAssembly, params string[] relativePaths)</code></pre>
 
 
 
 
 
 
-
-
-            <h1 id="Constructors">Constructors</h1>
-            <div class="table-responsive">
-                <table class="table table-api table-striped table-hover two-cols">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                                <th>Summary</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute/91493F79">Project<wbr>File<wbr>Data<wbr>Attribute<wbr>(Type, <wbr>object[], <wbr>string[])<wbr></a></td>
-                                    <td>
-    Initializes a new instance of the <code class="cs"><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute">ProjectFileDataAttribute</a></code> class.
-    </td>
-                            </tr>
-                            <tr>
-                                <td><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute/41880DD6">Project<wbr>File<wbr>Data<wbr>Attribute<wbr>(Type, <wbr>string[])<wbr></a></td>
-                                    <td>
-    Initializes a new instance of the <code class="cs"><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute">ProjectFileDataAttribute</a></code> class.
-    </td>
-                            </tr>
-                    </tbody>
-                </table>
-            </div>
-        
-
-
-
-
-		<h1 id="Methods">Methods</h1>
+		<h1 id="Parameters">Parameters</h1>
 		<div class="table-responsive">
 			<table class="table table-api table-striped table-hover three-cols">
 				<thead>
 					<tr>
 						<th>Name</th>
-						<th>Return Value</th>
-						<th>Summary</th>
+						<th>Type</th>
+						<th>Description</th>
 					</tr>
 				</thead>
 				<tbody>
 						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Tests/ProjectFileDataAttribute/E21700B3">GetData<wbr>(MethodInfo)<wbr></a></td>
-							<td>IEnumerable<wbr>&lt;object[]&gt;<wbr></td>
-							<td>
-								<div>Returns the data to be used to test the theory.</div>
-							</td>
+							<td>typeInAssembly</td>
+							<td>Type</td>
+							<td>The type in assembly.</td>
+						</tr>
+						<tr>
+							<td>relativePaths</td>
+							<td>string[]</td>
+							<td>The relative paths.</td>
 						</tr>
 				</tbody>
 			</table>
 		</div>
 
 
-
-		<h1 id="ExtensionMethods">Extension Methods</h1>
-		<div class="box-body no-padding table-responsive">
-			<table class="table table-api table-striped table-hover three-cols">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Value</th>
-						<th>Summary</th>
-					</tr>
-				</thead>
-				<tbody>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/NullableExtensions/3D3C8E9D">Is<wbr>Assignable<wbr>To<wbr>I<wbr>Serializable<wbr>&lt;<wbr>Project<wbr>File<wbr>Data<wbr>Attribute&gt;<wbr><wbr>()<wbr></a></td>
-							<td>bool</td>
-							<td>
-								<div>
-    Determines whether the specified type
-    can be assigned to <code class="cs">System.Runtime.Serialization.ISerializable</code>.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/NullableExtensions">NullableExtensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/NullableExtensions/EAB5EDF7">ToObjectOrDbNull<wbr>&lt;<wbr>Project<wbr>File<wbr>Data<wbr>Attribute&gt;<wbr><wbr>()<wbr></a></td>
-							<td>object</td>
-							<td>
-								<div>
-    Boxes the nullable in <code class="cs"><a href="">object</a></code>
-    or returns <code class="cs">DBNull</code>.
-    </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/NullableExtensions">NullableExtensions</a></em></small></div>
-							</td>
-						</tr>
-						<tr>
-							<td><a href="/SonghayCore/latest/Songhay.Extensions/NullableExtensions/829A7C7F">To<wbr>Reference<wbr>Type<wbr>Value<wbr>Or<wbr>Throw<wbr>&lt;<wbr>Project<wbr>File<wbr>Data<wbr>Attribute&gt;<wbr><wbr>(string)<wbr></a></td>
-							<td>T</td>
-							<td>
-								<div>
-     Returns the non-null value of the specified, nullable reference type
-     or throws an <code class="cs">ArgumentNullException</code>
-     when the value is null.
-     </div>
-								<div><small><em>From <a href="/SonghayCore/latest/Songhay.Extensions/NullableExtensions">NullableExtensions</a></em></small></div>
-							</td>
-						</tr>
-				</tbody>
-			</table>
-		</div>
 
 
 
@@ -304,9 +213,7 @@ class Type type-node
             <div class="sidebar-nav-item sidebar-header">On This Page</div>
             <div class="sidebar-nav-children">
                     <div class="sidebar-nav-item"><a href="#Syntax">Syntax</a></div>
-                    <div class="sidebar-nav-item"><a href="#Constructors">Constructors</a></div>
-                    <div class="sidebar-nav-item"><a href="#Methods">Methods</a></div>
-                    <div class="sidebar-nav-item"><a href="#ExtensionMethods">Extension Methods</a></div>
+                    <div class="sidebar-nav-item"><a href="#Parameters">Parameters</a></div>
             </div>
         </div>
 

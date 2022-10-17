@@ -169,10 +169,10 @@
     		    <dt>Implementing Types</dt>
     		    <dd>
     			    <ul class="list-unstyled">
-    					    <li><a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithOutput_2#typeparam-TInput">TInput</a>, <wbr><a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithOutput_2#typeparam-TOutput">TOutput</a>&gt;<wbr></li>
-    					    <li><a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithTaskOutput_1">I<wbr>Activity<wbr>With<wbr>Task<wbr>Output</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithTaskOutput_1#typeparam-TOutput">TOutput</a>&gt;<wbr></li>
     					    <li><a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask_2">IActivityWithTask</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask_2#typeparam-TInput">TInput</a>, <wbr><a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask_2#typeparam-TOutput">TOutput</a>&gt;<wbr></li>
     					    <li><a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask_1">IActivityWithTask</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask_1#typeparam-TInput">TInput</a>&gt;<wbr></li>
+    					    <li><a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithOutput_2">IActivityWithOutput</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithOutput_2#typeparam-TInput">TInput</a>, <wbr><a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithOutput_2#typeparam-TOutput">TOutput</a>&gt;<wbr></li>
+    					    <li><a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithTaskOutput_1">I<wbr>Activity<wbr>With<wbr>Task<wbr>Output</a><wbr>&lt;<a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithTaskOutput_1#typeparam-TOutput">TOutput</a>&gt;<wbr></li>
     					    <li><a href="/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask">IActivityWithTask</a></li>
     			    </ul>
     		    </dd>
@@ -187,14 +187,14 @@
 	graph BT
 	Type["IActivity"]
 class Type type-node
-	Implementing0["IActivityWithOutput&lt;TInput, TOutput&gt;"]-.->Type
-	click Implementing0 "/SonghayCore/latest/Songhay.Abstractions/IActivityWithOutput_2"
-	Implementing1["IActivityWithTaskOutput&lt;TOutput&gt;"]-.->Type
-	click Implementing1 "/SonghayCore/latest/Songhay.Abstractions/IActivityWithTaskOutput_1"
-	Implementing2["IActivityWithTask&lt;TInput, TOutput&gt;"]-.->Type
-	click Implementing2 "/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask_2"
-	Implementing3["IActivityWithTask&lt;TInput&gt;"]-.->Type
-	click Implementing3 "/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask_1"
+	Implementing0["IActivityWithTask&lt;TInput, TOutput&gt;"]-.->Type
+	click Implementing0 "/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask_2"
+	Implementing1["IActivityWithTask&lt;TInput&gt;"]-.->Type
+	click Implementing1 "/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask_1"
+	Implementing2["IActivityWithOutput&lt;TInput, TOutput&gt;"]-.->Type
+	click Implementing2 "/SonghayCore/latest/Songhay.Abstractions/IActivityWithOutput_2"
+	Implementing3["IActivityWithTaskOutput&lt;TOutput&gt;"]-.->Type
+	click Implementing3 "/SonghayCore/latest/Songhay.Abstractions/IActivityWithTaskOutput_1"
 	Implementing4["IActivityWithTask"]-.->Type
 	click Implementing4 "/SonghayCore/latest/Songhay.Abstractions/IActivityWithTask"
 

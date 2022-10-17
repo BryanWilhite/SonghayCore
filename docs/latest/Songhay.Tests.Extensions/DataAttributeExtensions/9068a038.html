@@ -35,7 +35,7 @@
 
         
 
-        <title>SonghayCore - GetAssemblyParentDirectory(DataAttribute?, Type, int)</title>
+        <title>SonghayCore - GetAssemblyParentDirectoryInfo(DataAttribute?, Type?, int)</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -81,7 +81,7 @@
                                         </div>
                                         <div class="text-white m-0 text-break title">
 
-    <div>Get<wbr>Assembly<wbr>Parent<wbr>Directory<wbr>(DataAttribute?, <wbr>Type, <wbr>int)<wbr> <small>Method</small></div>
+    <div>Get<wbr>Assembly<wbr>Parent<wbr>Directory<wbr>Info<wbr>(DataAttribute?, <wbr>Type?, <wbr>int)<wbr> <small>Method</small></div>
                                         </div>
                                     </div>
                                         <div class="navbar navbar-expand-md navbar-dark p-0">
@@ -124,9 +124,9 @@
             <div class="sidebar-nav-item sidebar-header">Method Members</div>
             <div class="sidebar-nav-children">
                     <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions/7E64ED8C">FindDirectory<wbr>(DataAttribute?, <wbr>string)<wbr></a></div>
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions/80F41C3D">Get<wbr>Assembly<wbr>Directory<wbr>Info<wbr>(DataAttribute?, <wbr>Type)<wbr></a></div>
-                    <div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions/E9F2F3F4">Get<wbr>Assembly<wbr>Parent<wbr>Directory<wbr>(DataAttribute?, <wbr>Type, <wbr>int)<wbr></a></div>
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions/627D6781">Get<wbr>Assembly<wbr>Parent<wbr>Directory<wbr>Info<wbr>(DataAttribute?, <wbr>Type, <wbr>int)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions/55CFCE7D">Get<wbr>Assembly<wbr>Directory<wbr>Info<wbr>(DataAttribute?, <wbr>Type?)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions/7F10338A">Get<wbr>Assembly<wbr>Parent<wbr>Directory<wbr>(DataAttribute?, <wbr>Type?, <wbr>int)<wbr></a></div>
+                    <div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Tests.Extensions/DataAttributeExtensions/9068A038">Get<wbr>Assembly<wbr>Parent<wbr>Directory<wbr>Info<wbr>(DataAttribute?, <wbr>Type?, <wbr>int)<wbr></a></div>
             </div>
 
 	</div>
@@ -139,7 +139,7 @@
 
 
 
-        <div class="lead mb-3">Gets the assembly parent directory path.</div>
+        <div class="lead mb-3">Gets the assembly parent <code class="cs">DirectoryInfo</code>.</div>
 
     <div class="p-3 bg-light page-box container small">
         		<dl class="dl-horizontal">
@@ -160,7 +160,7 @@
 
     </div>
 		<h1 id="Syntax">Syntax</h1>
-		<pre class="language-csharp"><code class="language-csharp">public static string GetAssemblyParentDirectory(this DataAttribute? attribute, Type typeInAssembly, int levels)</code></pre>
+		<pre class="language-csharp"><code class="language-csharp">public static DirectoryInfo GetAssemblyParentDirectoryInfo(this DataAttribute? attribute, Type? typeInAssembly, int expectedLevels)</code></pre>
 
 
 
@@ -185,13 +185,13 @@
 						</tr>
 						<tr>
 							<td>typeInAssembly</td>
-							<td>Type</td>
+							<td>Type?</td>
 							<td>The type in assembly.</td>
 						</tr>
 						<tr>
-							<td>levels</td>
+							<td>expectedLevels</td>
 							<td>int</td>
-							<td>The levels of directories above the assembly.</td>
+							<td>The expected levels of directories above the assembly.</td>
 						</tr>
 				</tbody>
 			</table>
@@ -209,7 +209,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>string</td>
+						<td>DirectoryInfo</td>
 						<td></td>
 					</tr>
 				</tbody>

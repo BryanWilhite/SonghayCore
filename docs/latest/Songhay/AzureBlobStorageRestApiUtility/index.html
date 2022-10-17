@@ -35,7 +35,7 @@
 
         
 
-        <title>SonghayCore - TryGetValueWithKey&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey)</title>
+        <title>SonghayCore - AzureBlobStorageRestApiUtility</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -77,11 +77,10 @@
                                     <div class="flex-grow-1">
                                         <div class="breadcrumbs d-flex flex-column flex-md-row text-break">
 
-			<span><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a>.</span>
                                         </div>
                                         <div class="text-white m-0 text-break title">
 
-    <div>TryGetValueWithKey<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>, <wbr>TKey)<wbr> <small>Method</small></div>
+    <div>Azure<wbr>Blob<wbr>Storage<wbr>Rest<wbr>Api<wbr>Utility <small>Class</small></div>
                                         </div>
                                     </div>
                                         <div class="navbar navbar-expand-md navbar-dark p-0">
@@ -115,18 +114,20 @@
                                             <div id="left-sidebar" class="sidebar collapse px-0 px-md-3 pt-3">
 
 	<div class="sidebar-root">
-		        <div class="sidebar-root bg-white mb-3 page-box font-size-sm">
-                <div class="sidebar-nav-item sidebar-header mb-0 pb-0">Namespace</div>
-                <div class="sidebar-nav-item  font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Extensions">Songhay<wbr>.Extensions</a></div>
-                <div class="sidebar-nav-item sidebar-header mb-0 pb-0">Type</div>
-                <div class="sidebar-nav-item font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></div>
-        </div>
-            <div class="sidebar-nav-item sidebar-header">Method Members</div>
-            <div class="sidebar-nav-children">
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions/C2D18747">To<wbr>Name<wbr>Value<wbr>Collection<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>)<wbr></a></div>
-                    <div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions/21962F4D">TryGetValueWithKey<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>, <wbr>TKey)<wbr></a></div>
-                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions/59A97440">TryGetValueWithKey<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>, <wbr>TKey, <wbr>bool)<wbr></a></div>
-            </div>
+				<div class="sidebar-root bg-white mb-3 page-box font-size-sm">
+				<div class="sidebar-nav-item sidebar-header mb-0 pb-0">Namespace</div>
+				<div class="sidebar-nav-item font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay">Songhay</a></div>
+		</div>
+			<div class="sidebar-nav-item sidebar-header">Class Types</div>
+			<div class="sidebar-nav-children">
+					<div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay/AzureBlobStorageRestApiUtility">Azure<wbr>Blob<wbr>Storage<wbr>Rest<wbr>Api<wbr>Utility</a></div>
+					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/MathUtility">MathUtility</a></div>
+					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/ProgramAssemblyUtility">Program<wbr>Assembly<wbr>Utility</a></div>
+					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/ProgramFileUtility">ProgramFileUtility</a></div>
+					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/ProgramTypeUtility">ProgramTypeUtility</a></div>
+					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/ProgramUtility">ProgramUtility</a></div>
+					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay/TaskUtility">TaskUtility</a></div>
+			</div>
 
 	</div>
                                             </div>
@@ -139,99 +140,140 @@
 
 
         <div class="lead mb-3">
-    Tries to get value with the specified key.
+    Shared REST routines for Azure BLOB Storage.
     </div>
 
-    <div class="p-3 bg-light page-box container small">
-        		<dl class="dl-horizontal">
+    <div class="container-md">
+	    <div class="row">
+		    <div class="col-md-6 pt-0 pl-0 pb-0 pr-0 pr-md-4 mb-3 mb-md-0">
+			    <div class="p-3 bg-light page-box small" style="min-height: 100%">
+				    		<dl class="dl-horizontal">
 
     		    <dt>Namespace</dt>
-    		    <dd><a href="/SonghayCore/latest/Songhay.Extensions">Songhay<wbr>.Extensions</a></dd>
-
-				<dt>Containing Type</dt>
-				<dd><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></dd>
+    		    <dd><a href="/SonghayCore/latest/Songhay">Songhay</a></dd>
 
 
 
+
+    		    <dt>Base Types</dt>
+    		    <dd>
+    			    <ul class="list-unstyled">
+    					    <li>object</li>
+    			    </ul>
+    		    </dd>
 
 
 
 
 	    </dl>
 
+			    </div>
+		    </div>
+		    <div class="col-md-6 p-0">
+			    <div class="bg-light page-box">
+				    <div class="mermaid text-center">
+	graph BT
+	Type-->Base0["object"]
+	Type["AzureBlobStorageRestApiUtility"]
+class Type type-node
+
+</div>
+			    </div>
+		    </div>
+	    </div>
     </div>
 		<h1 id="Syntax">Syntax</h1>
-		<pre class="language-csharp"><code class="language-csharp">public static TValue TryGetValueWithKey&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; dictionary, TKey key)</code></pre>
+		<pre class="language-csharp"><code class="language-csharp">public static class AzureBlobStorageRestApiUtility</code></pre>
 
 
 
 
 
-		<h1 id="TypeParameters">Type Parameters</h1>
-		<div class="table-responsive">
-			<table class="table table-api table-striped table-hover two-cols">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-						<tr id="typeparam-TKey">
-							<td>TKey</td>
-							<td>The type of the key.</td>
-						</tr>
-						<tr id="typeparam-TValue">
-							<td>TValue</td>
-							<td>The type of the value.</td>
-						</tr>
-				</tbody>
-			</table>
-		</div>
 
-		<h1 id="Parameters">Parameters</h1>
+
+
+
+
+
+
+		<h1 id="Methods">Methods</h1>
 		<div class="table-responsive">
 			<table class="table table-api table-striped table-hover three-cols">
 				<thead>
 					<tr>
 						<th>Name</th>
-						<th>Type</th>
-						<th>Description</th>
+						<th>Return Value</th>
+						<th>Summary</th>
 					</tr>
 				</thead>
 				<tbody>
 						<tr>
-							<td>dictionary</td>
-							<td>IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr></td>
-							<td>The dictionary.</td>
+							<td><a href="/SonghayCore/latest/Songhay/AzureBlobStorageRestApiUtility/5C887BA0">DeleteBlobAsync<wbr>(string, <wbr>string, <wbr>string)<wbr></a></td>
+							<td>Task</td>
+							<td>
+								<div>
+    <code class="cs">DELETE</code>s the BLOB of the specified ‘file’ name.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
 						</tr>
 						<tr>
-							<td>key</td>
-							<td>TKey</td>
-							<td>The key.</td>
+							<td><a href="/SonghayCore/latest/Songhay/AzureBlobStorageRestApiUtility/455BEB27">Download<wbr>Blob<wbr>To<wbr>String<wbr>Async<wbr>(string, <wbr>string, <wbr>string)<wbr></a></td>
+							<td>Task<wbr>&lt;string&gt;<wbr></td>
+							<td>
+								<div>
+    <code class="cs">GET</code>s the BLOB of the specified ‘file’ name.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay/AzureBlobStorageRestApiUtility/A2EB4B36">Get<wbr>Cloud<wbr>Storage<wbr>Metadata<wbr>(string)<wbr></a></td>
+							<td>(string accountName, <wbr>string accountKey, <wbr>string apiVersion)</td>
+							<td>
+								<div>
+    Gets the conventional Azure BLOB Storage metadata
+    from the specified connection string.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay/AzureBlobStorageRestApiUtility/3A6944EB">GetStorageUriBuilder<wbr>(string, <wbr>string)<wbr></a></td>
+							<td>UriBuilder</td>
+							<td>
+								<div>
+    Builds the URI for Azure BLOB Storage.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay/AzureBlobStorageRestApiUtility/A7C9B5A5">ListContainerAsync<wbr>(string, <wbr>string)<wbr></a></td>
+							<td>Task<wbr>&lt;string&gt;<wbr></td>
+							<td>
+								<div>
+    Lists the contents of the specified BLOB container.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay/AzureBlobStorageRestApiUtility/65426878">UploadBlobAsync<wbr>(string, <wbr>string, <wbr>string, <wbr>string)<wbr></a></td>
+							<td>Task</td>
+							<td>
+								<div>
+    <code class="cs">PUT</code>s the BLOB of the specified ‘file’ name.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
 						</tr>
 				</tbody>
 			</table>
 		</div>
 
 
-		<h1 id="ReturnValue">Return Value</h1>
-		<div class="table-responsive">
-			<table class="table table-api table-striped table-hover two-cols">
-				<thead>
-					<tr>
-						<th>Type</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>TValue</td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+
 
 
 
@@ -248,9 +290,7 @@
             <div class="sidebar-nav-item sidebar-header">On This Page</div>
             <div class="sidebar-nav-children">
                     <div class="sidebar-nav-item"><a href="#Syntax">Syntax</a></div>
-                    <div class="sidebar-nav-item"><a href="#TypeParameters">Type Parameters</a></div>
-                    <div class="sidebar-nav-item"><a href="#Parameters">Parameters</a></div>
-                    <div class="sidebar-nav-item"><a href="#ReturnValue">Return Value</a></div>
+                    <div class="sidebar-nav-item"><a href="#Methods">Methods</a></div>
             </div>
         </div>
 
