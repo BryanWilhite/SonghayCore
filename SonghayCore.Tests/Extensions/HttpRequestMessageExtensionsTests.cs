@@ -5,7 +5,7 @@ using Tavis.UriTemplates;
 
 namespace Songhay.Tests.Extensions;
 
-public partial class HttpRequestMessageExtensionsTests
+public class HttpRequestMessageExtensionsTests
 {
     public HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
     {

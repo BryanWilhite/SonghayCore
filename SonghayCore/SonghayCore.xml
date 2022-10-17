@@ -301,6 +301,67 @@
             Modification/editorial <see cref="T:System.DateTime"/> of the item.
             </summary>
         </member>
+        <member name="T:Songhay.AzureBlobStorageRestApiUtility">
+            <summary>
+            Shared REST routines for Azure BLOB Storage.
+            </summary>
+        </member>
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.GetStorageUriBuilder(System.String,System.String)">
+            <summary>
+            Builds the URI for Azure BLOB Storage.
+            </summary>
+            <param name="accountName">Azure BLOB Storage account name</param>
+            <param name="containerName">Azure BLOB Storage container name</param>
+            <returns>Returns the <see cref="T:System.UriBuilder"/></returns>
+        </member>
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.GetCloudStorageMetadata(System.String)">
+            <summary>
+            Gets the conventional Azure BLOB Storage metadata
+            from the specified connection string.
+            </summary>
+            <param name="connectionString">Azure BLOB Storage connection string</param>
+            <returns>Returns conventional named tuple.</returns>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.Data.DataException"></exception>
+        </member>
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(System.String,System.String,System.String)">
+            <summary>
+            <c>DELETE</c>s the BLOB of the specified ‘file’ name.
+            </summary>
+            <param name="connectionString">Azure BLOB Storage connection string</param>
+            <param name="containerName">Azure BLOB Storage container name</param>
+            <param name="fileName">BLOB ‘file’ name</param>
+            <exception cref="T:System.Net.Http.HttpRequestException"></exception>
+        </member>
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(System.String,System.String,System.String)">
+            <summary>
+            <c>GET</c>s the BLOB of the specified ‘file’ name.
+            </summary>
+            <param name="connectionString">Azure BLOB Storage connection string</param>
+            <param name="containerName">Azure BLOB Storage container name</param>
+            <param name="fileName">BLOB ‘file’ name</param>
+            <returns>Returns the <see cref="T:System.String"/> contents of the file.</returns>
+            <exception cref="T:System.Net.Http.HttpRequestException"></exception>
+        </member>
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(System.String,System.String)">
+            <summary>
+            Lists the contents of the specified BLOB container.
+            </summary>
+            <param name="connectionString">Azure BLOB Storage connection string</param>
+            <param name="containerName">Azure BLOB Storage container name</param>
+            <returns>Returns the contents of the container as an XML<see cref="T:System.String"/>.</returns>
+            <exception cref="T:System.Net.Http.HttpRequestException"></exception>
+        </member>
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            <c>PUT</c>s the BLOB of the specified ‘file’ name.
+            </summary>
+            <param name="connectionString">Azure BLOB Storage connection string</param>
+            <param name="containerName">Azure BLOB Storage container name</param>
+            <param name="fileName">BLOB ‘file’ name</param>
+            <param name="content">The <see cref="T:System.String"/> contents of the ‘file.’</param>
+            <exception cref="T:System.Net.Http.HttpRequestException"></exception>
+        </member>
         <member name="T:Songhay.Diagnostics.TraceSources">
             <summary>
             Singleton wrapper for <see cref="T:System.Diagnostics.TraceSource"/>
