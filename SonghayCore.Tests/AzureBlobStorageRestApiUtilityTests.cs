@@ -4,11 +4,11 @@ namespace Songhay.Tests;
 
 public class AzureBlobStorageRestApiUtilityTests
 {
-
     public AzureBlobStorageRestApiUtilityTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
     }
+
     static string GetConnectionStringFromEnvironmentVariable()
     {
         var path = Environment.GetEnvironmentVariable("SONGHAY_APP_SETTINGS_PATH");

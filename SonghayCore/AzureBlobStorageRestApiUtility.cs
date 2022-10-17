@@ -8,7 +8,6 @@ namespace Songhay;
 /// </summary>
 public static class AzureBlobStorageRestApiUtility
 {
-
     /// <summary>
     /// Builds the URI for Azure BLOB Storage.
     /// </summary>
