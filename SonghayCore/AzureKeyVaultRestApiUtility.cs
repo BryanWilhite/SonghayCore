@@ -48,7 +48,7 @@ public static class AzureKeyVaultRestApiUtility
     /// <param name="secretUri">the location of the Azure Key Vault endpoint</param>
     /// <remarks>
     /// The conventional way to generate the <c>secretUri</c> is via <see cref="RestApiMetadata"/>,
-    /// its <see cref="RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(RestApiMetadata?)"/> method.
+    /// its <see cref="RestApiMetadataExtensions.ToAzureKeyVaultSecretUri"/> method.
     /// </remarks>
     public static async Task<string> GetSecretAsync(string accessToken, Uri secretUri)
     {
