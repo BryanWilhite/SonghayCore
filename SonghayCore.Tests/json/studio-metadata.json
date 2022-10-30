@@ -1,0 +1,25 @@
+{
+    "ActiveDirectoryAccess": {
+        "ApiBase": "https://login.microsoftonline.com/",
+        "ClaimsSet": {
+            "grant_type": "client_credentials",
+            "scope": "https://vault.azure.net/.default",
+            "client_id": "active-directory-registration-app-id",
+            "client_secret": "active-directory-registration-app-secret",
+            "tenantOrDirectoryId": "active-directory-registration-app-directory-id"
+        },
+        "UriTemplates": {
+            "UriPathTemplateForToken": "{tenantOrDirectoryId}/oauth2/v2.0/token"
+        }
+    },
+    "AzureKeyVault": {
+        "ApiBase": "https://songhay-key-vault.vault.azure.net/",
+        "ClaimsSet": {
+            "queryPairForApiVersion": "api-version=2016-10-01",
+            "secretNameForProgramMetadata": "program-metadata"
+        },
+        "UriTemplates": {
+            "UriPathTemplateForSecret": "secrets/{secretName}"
+        }
+    }
+}

@@ -371,33 +371,27 @@
             [ https://www.c-sharpcorner.com/article/how-to-access-azure-key-vault-secrets-through-rest-api-using-postman/ ]
             </remarks>
         </member>
-        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessToken(System.String,System.String,System.String)">
-            <summary>
-            Calls REST endpoint under <c>login.microsoftonline.com</c>
-            to use OAuth to authenticate the specified client ID and secret.
-            </summary>
-            <param name="clientId">the value of the <c>appId</c> property in the output of <c>az ad app list</c>.</param>
-            <param name="clientSecret">the secret exposed under the App registration in the Azure Portal</param>
-            <param name="tenantOrDirectoryId">the “Directory (tenant) ID” under the App registration in the Azure Portal</param>
+        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})">
+             <summary>
+             Calls the specified REST endpoint, using OAuth to authenticate the specified access data.
+             </summary>
+             <param name="accessUri">the location of the Azure Active Directory endpoint</param>
+             <param name="accessData">the data required to <c>POST</c> to the specified endpoint</param>
+             <remarks>
+             The conventional way to generate the <c>accessUri</c> is via <see cref="T:Songhay.Models.RestApiMetadata"/>,
+             its <see cref="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)"/> method.
+            
+             The conventional way to generate the <c>accessData</c> is via <see cref="T:Songhay.Models.RestApiMetadata"/>,
+             its <see cref="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)"/> method.
+             </remarks>
         </member>
-        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetSecret(System.String,System.String,System.String)">
+        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)">
             <summary>
             Calls REST endpoint under <c>{vaultName}.vault.azure.net</c>
             to get a secret from the specified vault.
             </summary>
-            <param name="accessToken">the value of the <c>access_token</c> JSON property obtained from <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessToken(System.String,System.String,System.String)" /></param>
-            <param name="vaultName">the name of the Azure Key Vault</param>
-            <param name="secretName">the name of the Vault secret</param>
-        </member>
-        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetSecret(System.String,System.String,System.String,System.String)">
-            <summary>
-            Calls REST endpoint under <c>{vaultName}.vault.azure.net</c>
-            to get a secret from the specified vault.
-            </summary>
-            <param name="accessToken">the value of the <c>access_token</c> JSON property obtained from <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessToken(System.String,System.String,System.String)" /></param>
-            <param name="vaultName">the name of the Azure Key Vault</param>
-            <param name="secretName">the name of the Vault secret</param>
-            <param name="vaultUriQuery">the query-string portion of the REST-endpoint <see cref="T:System.Uri" /></param>
+            <param name="accessToken">the JSON obtained from <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})" /></param>
+            <param name="secretUri">the location of the Azure Key Vault endpoint</param>
         </member>
         <member name="T:Songhay.Diagnostics.TraceSources">
             <summary>
@@ -2302,9 +2296,63 @@
             Extensions of <see cref="T:Songhay.Models.RestApiMetadata"/>.
             </summary>
         </member>
+        <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)">
+             <summary>
+             Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
+             to the data required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})"/>.
+             </summary>
+             <param name="meta">The meta.</param>
+             <remarks>
+             As of this writing, this member should return data of the form:
+            
+             <code>
+             "grant_type": "client_credentials",
+             "scope": "https://vault.azure.net/.default",
+             "client_id": "active-directory-registration-app-id",
+             "client_secret": "active-directory-registration-app-secret"
+             </code>
+            
+             where <c>client_id</c> is the value of the <c>appId</c> property
+             in the output of <c>az ad app list</c>;
+             <c>client_secret</c> is the secret exposed under the App registration in the Azure Portal.
+             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)">
+             <summary>
+             Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
+             to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})"/>.
+             </summary>
+             <remarks>
+             This member should return a <see cref="T:System.Uri"/> of the form:
+            
+             <code>
+             https://login.microsoftonline.com/{tenantOrDirectoryId}/oauth2/v2.0/token
+             </code>
+            
+             where <c>tenantOrDirectoryId</c> is the value of “Directory (tenant) ID”
+             under the App registration in the Azure Portal.
+             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata)">
+             <summary>
+             Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
+             to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)"/>.
+             </summary>
+             <remarks>
+             This member should return a <see cref="T:System.Uri"/> of the form:
+            
+             <code>
+             https://{vaultName}.vault.azure.net/secrets/{secretName}?api-version=2016-10-01
+             </code>
+            
+             where <c>vaultName</c> is the name of the Azure Key Vault;
+             <c>secretName</c> is the name of the secret in the vault.
+             </remarks>
+        </member>
         <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToUri(Songhay.Models.RestApiMetadata,System.String,System.String[])">
             <summary>
-            To the URI.
+            Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" /> to a <see cref="T:System.Uri"/>
+            based on the specified URI Template.
             </summary>
             <param name="meta">The meta.</param>
             <param name="uriTemplateKey">The URI template key.</param>

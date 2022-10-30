@@ -12,35 +12,24 @@ namespace Songhay;
 public static class AzureKeyVaultRestApiUtility
 {
     /// <summary>
-    /// Calls REST endpoint under <c>login.microsoftonline.com</c>,
-    /// using OAuth to authenticate the specified client ID and secret
-    /// of the app registered in the Azure Active Directory of your enterprise.
+    /// Calls the specified REST endpoint, using OAuth to authenticate the specified access data.
     /// </summary>
-    /// <param name="clientId">the value of the <c>appId</c> property in the output of <c>az ad app list</c>.</param>
-    /// <param name="clientSecret">the secret exposed under the App registration in the Azure Portal</param>
-    /// <param name="tenantOrDirectoryId">the “Directory (tenant) ID” under the App registration in the Azure Portal</param>
-    public static async Task<string> GetAccessToken(string? clientId, string? clientSecret, string? tenantOrDirectoryId)
+    /// <param name="accessUri">the location of the Azure Active Directory endpoint</param>
+    /// <param name="accessData">the data required to <c>POST</c> to the specified endpoint</param>
+    /// <remarks>
+    /// The conventional way to generate the <c>accessUri</c> is via <see cref="RestApiMetadata"/>,
+    /// its <see cref="RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri"/> method.
+    ///
+    /// The conventional way to generate the <c>accessData</c> is via <see cref="RestApiMetadata"/>,
+    /// its <see cref="RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData"/> method.
+    /// </remarks>
+    public static async Task<string> GetAccessTokenAsync(Uri? accessUri, Dictionary<string, string>? accessData)
     {
-        clientId.ThrowWhenNullOrWhiteSpace();
-        clientSecret.ThrowWhenNullOrWhiteSpace();
-        tenantOrDirectoryId.ThrowWhenNullOrWhiteSpace();
+        ArgumentNullException.ThrowIfNull(accessUri);
+        ArgumentNullException.ThrowIfNull(accessData);
 
-        const string GrantType = "client_credentials";
-        const string Scope = "https://vault.azure.net/.default";
-
-        var data = new Dictionary<string, string>
-        {
-            { "grant_type", GrantType },
-            { "scope", Scope },
-            { "client_id", clientId },
-            { "client_secret", clientSecret },
-        };
-
-        var uriBuilder = new UriBuilder("https://login.microsoftonline.com/");
-        uriBuilder.Path = $"{tenantOrDirectoryId}/oauth2/v2.0/token";
-
-        var request = new HttpRequestMessage(HttpMethod.Post, uriBuilder.Uri) {
-             Content = new FormUrlEncodedContent(data)
+        var request = new HttpRequestMessage(HttpMethod.Post, accessUri) {
+             Content = new FormUrlEncodedContent(accessData)
         };
         var result = await request.SendAsync();
 
@@ -55,34 +44,24 @@ public static class AzureKeyVaultRestApiUtility
     /// Calls REST endpoint under <c>{vaultName}.vault.azure.net</c>
     /// to get a secret from the specified vault.
     /// </summary>
-    /// <param name="accessToken">the value of the <c>access_token</c> JSON property obtained from <see cref="GetAccessToken" /></param>
-    /// <param name="vaultName">the name of the Azure Key Vault</param>
-    /// <param name="secretName">the name of the Vault secret</param>
-    public static async Task<string> GetSecret(string? accessToken, string? vaultName, string? secretName)
-        => await GetSecret(accessToken, vaultName, secretName, "api-version=2016-10-01");
-
-    /// <summary>
-    /// Calls REST endpoint under <c>{vaultName}.vault.azure.net</c>
-    /// to get a secret from the specified vault.
-    /// </summary>
-    /// <param name="accessToken">the JSON obtained from <see cref="GetAccessToken" /></param>
-    /// <param name="vaultName">the name of the Azure Key Vault</param>
-    /// <param name="secretName">the name of the Vault secret</param>
-    /// <param name="vaultUriQuery">the query-string portion of the REST-endpoint <see cref="Uri" /></param>
-    public static async Task<string> GetSecret(string? accessToken, string? vaultName, string? secretName, string? vaultUriQuery)
+    /// <param name="accessToken">the JSON obtained from <see cref="GetAccessTokenAsync" /></param>
+    /// <param name="secretUri">the location of the Azure Key Vault endpoint</param>
+    /// <remarks>
+    /// The conventional way to generate the <c>secretUri</c> is via <see cref="RestApiMetadata"/>,
+    /// its <see cref="RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(RestApiMetadata?)"/> method.
+    /// </remarks>
+    public static async Task<string> GetSecretAsync(string accessToken, Uri secretUri)
     {
         accessToken.ThrowWhenNullOrWhiteSpace();
-        vaultName.ThrowWhenNullOrWhiteSpace();
-        secretName.ThrowWhenNullOrWhiteSpace();
+        ArgumentNullException.ThrowIfNull(secretUri);
 
-        var secretUriBuilder = new UriBuilder($"https://{vaultName}.vault.azure.net/");
-        secretUriBuilder.Path = $"secrets/{secretName}";
-        if(!string.IsNullOrWhiteSpace(vaultUriQuery))secretUriBuilder.Query = vaultUriQuery;
+        var parameter = JsonDocument
+            .Parse(accessToken)
+            .RootElement
+            .GetProperty("access_token")
+            .GetString();
 
-        var accessTokenDocument = JsonDocument.Parse(accessToken);
-        var parameter = accessTokenDocument.RootElement.GetProperty("access_token").GetString();
-
-        var request = new HttpRequestMessage(HttpMethod.Get, secretUriBuilder.Uri);
+        var request = new HttpRequestMessage(HttpMethod.Get, secretUri);
         request.Headers.Authorization = new AuthenticationHeaderValue(scheme: "Bearer", parameter);
 
         var secretResult = await request.SendAsync();
