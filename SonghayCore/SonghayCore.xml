@@ -362,6 +362,43 @@
             <param name="content">The <see cref="T:System.String"/> contents of the ‘file.’</param>
             <exception cref="T:System.Net.Http.HttpRequestException"></exception>
         </member>
+        <member name="T:Songhay.AzureKeyVaultRestApiUtility">
+            <summary>
+            Shared REST routines for Azure BLOB Storage.
+            </summary>
+            <remarks>
+            See “How To Access Azure Key Vault Secrets Through Rest API Using Postman” by Anupam Maiti
+            [ https://www.c-sharpcorner.com/article/how-to-access-azure-key-vault-secrets-through-rest-api-using-postman/ ]
+            </remarks>
+        </member>
+        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessToken(System.String,System.String,System.String)">
+            <summary>
+            Calls REST endpoint under <c>login.microsoftonline.com</c>
+            to use OAuth to authenticate the specified client ID and secret.
+            </summary>
+            <param name="clientId">the value of the <c>appId</c> property in the output of <c>az ad app list</c>.</param>
+            <param name="clientSecret">the secret exposed under the App registration in the Azure Portal</param>
+            <param name="tenantOrDirectoryId">the “Directory (tenant) ID” under the App registration in the Azure Portal</param>
+        </member>
+        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetSecret(System.String,System.String,System.String)">
+            <summary>
+            Calls REST endpoint under <c>{vaultName}.vault.azure.net</c>
+            to get a secret from the specified vault.
+            </summary>
+            <param name="accessToken">the value of the <c>access_token</c> JSON property obtained from <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessToken(System.String,System.String,System.String)" /></param>
+            <param name="vaultName">the name of the Azure Key Vault</param>
+            <param name="secretName">the name of the Vault secret</param>
+        </member>
+        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetSecret(System.String,System.String,System.String,System.String)">
+            <summary>
+            Calls REST endpoint under <c>{vaultName}.vault.azure.net</c>
+            to get a secret from the specified vault.
+            </summary>
+            <param name="accessToken">the value of the <c>access_token</c> JSON property obtained from <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessToken(System.String,System.String,System.String)" /></param>
+            <param name="vaultName">the name of the Azure Key Vault</param>
+            <param name="secretName">the name of the Vault secret</param>
+            <param name="vaultUriQuery">the query-string portion of the REST-endpoint <see cref="T:System.Uri" /></param>
+        </member>
         <member name="T:Songhay.Diagnostics.TraceSources">
             <summary>
             Singleton wrapper for <see cref="T:System.Diagnostics.TraceSource"/>
@@ -2277,6 +2314,11 @@
             <summary>
             Extensions of <see cref="T:System.IO.StreamReader"/>.
             </summary>
+            <remarks>
+            “StreamReader is designed for character input in a particular encoding,
+            whereas the Stream class is designed for byte input and output.”
+            — https://learn.microsoft.com/en-us/dotnet/api/system.io.streamreader?view=net-5.0#remarks
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.StreamReaderExtensions.ReadLines(System.IO.StreamReader,System.Action{System.String})">
             <summary>
