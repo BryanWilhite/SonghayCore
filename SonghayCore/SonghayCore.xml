@@ -392,6 +392,10 @@
             </summary>
             <param name="accessToken">the JSON obtained from <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})" /></param>
             <param name="secretUri">the location of the Azure Key Vault endpoint</param>
+            <remarks>
+            The conventional way to generate the <c>secretUri</c> is via <see cref="T:Songhay.Models.RestApiMetadata"/>,
+            its <see cref="!:RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(RestApiMetadata?)"/> method.
+            </remarks>
         </member>
         <member name="T:Songhay.Diagnostics.TraceSources">
             <summary>
@@ -2301,7 +2305,7 @@
              Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
              to the data required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})"/>.
              </summary>
-             <param name="meta">The meta.</param>
+             <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
              <remarks>
              As of this writing, this member should return data of the form:
             
@@ -2322,6 +2326,7 @@
              Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
              to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})"/>.
              </summary>
+             <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
              <remarks>
              This member should return a <see cref="T:System.Uri"/> of the form:
             
@@ -2333,11 +2338,13 @@
              under the App registration in the Azure Portal.
              </remarks>
         </member>
-        <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata)">
+        <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)">
              <summary>
              Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
              to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)"/>.
              </summary>
+             <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
+             <param name="secretNameKey">the name of the Claim key that returns the Vault secret</param>
              <remarks>
              This member should return a <see cref="T:System.Uri"/> of the form:
             
@@ -2354,7 +2361,7 @@
             Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" /> to a <see cref="T:System.Uri"/>
             based on the specified URI Template.
             </summary>
-            <param name="meta">The meta.</param>
+            <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
             <param name="uriTemplateKey">The URI template key.</param>
             <param name="bindByPositionValues">The bind by position values.</param>
         </member>

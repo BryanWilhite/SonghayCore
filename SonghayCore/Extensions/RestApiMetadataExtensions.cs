@@ -9,7 +9,7 @@ public static class RestApiMetadataExtensions
     /// Converts the specified <see cref="RestApiMetadata" />
     /// to the data required by <see cref="AzureKeyVaultRestApiUtility.GetAccessTokenAsync"/>.
     /// </summary>
-    /// <param name="meta">The meta.</param>
+    /// <param name="meta">the <see cref="RestApiMetadata" /></param>
     /// <remarks>
     /// As of this writing, this member should return data of the form:
     ///
@@ -28,8 +28,18 @@ public static class RestApiMetadataExtensions
     {
         ArgumentNullException.ThrowIfNull(meta);
 
-        var pairs = meta.ClaimsSet.Where(i => i.Key != "tenantOrDirectoryId");
-        var accessData = new Dictionary<string, string>(pairs);
+        const string GrantType = "grant_type";
+        const string Scope = "scope";
+        const string ClientId = "client_id";
+        const string ClientSecret = "client_secret";
+
+        var accessData = new Dictionary<string, string>
+        {
+            { GrantType, meta.ClaimsSet.TryGetValueWithKey(GrantType).ToReferenceTypeValueOrThrow() },
+            { Scope, meta.ClaimsSet.TryGetValueWithKey(Scope).ToReferenceTypeValueOrThrow() },
+            { ClientId, meta.ClaimsSet.TryGetValueWithKey(ClientId).ToReferenceTypeValueOrThrow() },
+            { ClientSecret, meta.ClaimsSet.TryGetValueWithKey(ClientSecret).ToReferenceTypeValueOrThrow() },
+        };
 
         return accessData;
     }
@@ -38,6 +48,7 @@ public static class RestApiMetadataExtensions
     /// Converts the specified <see cref="RestApiMetadata" />
     /// to the <see cref="Uri"/> required by <see cref="AzureKeyVaultRestApiUtility.GetAccessTokenAsync"/>.
     /// </summary>
+    /// <param name="meta">the <see cref="RestApiMetadata" /></param>
     /// <remarks>
     /// This member should return a <see cref="Uri"/> of the form:
     ///
@@ -62,6 +73,8 @@ public static class RestApiMetadataExtensions
     /// Converts the specified <see cref="RestApiMetadata" />
     /// to the <see cref="Uri"/> required by <see cref="AzureKeyVaultRestApiUtility.GetSecretAsync"/>.
     /// </summary>
+    /// <param name="meta">the <see cref="RestApiMetadata" /></param>
+    /// <param name="secretNameKey">the name of the Claim key that returns the Vault secret</param>
     /// <remarks>
     /// This member should return a <see cref="Uri"/> of the form:
     ///
@@ -72,21 +85,26 @@ public static class RestApiMetadataExtensions
     /// where <c>vaultName</c> is the name of the Azure Key Vault;
     /// <c>secretName</c> is the name of the secret in the vault.
     /// </remarks>
-    public static Uri ToAzureKeyVaultSecretUri(this RestApiMetadata? meta)
+    public static Uri ToAzureKeyVaultSecretUri(this RestApiMetadata? meta, string secretNameKey)
     {
         ArgumentNullException.ThrowIfNull(meta);
 
-        var tenantOrDirectoryId = meta.ClaimsSet.TryGetValueWithKey("tenantOrDirectoryId");
-        var uri = meta.ToUri("UriPathTemplateForToken", tenantOrDirectoryId).ToReferenceTypeValueOrThrow();
+        var secretName = meta.ClaimsSet.TryGetValueWithKey(secretNameKey);
+        var uri = meta
+            .ToUri("UriPathTemplateForSecret", secretName)
+            .ToReferenceTypeValueOrThrow();
 
-        return uri;
+        var uriBuilder = new UriBuilder(uri);
+        uriBuilder.Query = meta.ClaimsSet.TryGetValueWithKey("queryPairForApiVersion");
+
+        return uriBuilder.Uri;
     }
 
     /// <summary>
     /// Converts the specified <see cref="RestApiMetadata" /> to a <see cref="Uri"/>
     /// based on the specified URI Template.
     /// </summary>
-    /// <param name="meta">The meta.</param>
+    /// <param name="meta">the <see cref="RestApiMetadata" /></param>
     /// <param name="uriTemplateKey">The URI template key.</param>
     /// <param name="bindByPositionValues">The bind by position values.</param>
     public static Uri? ToUri(this RestApiMetadata? meta, string? uriTemplateKey, params string?[] bindByPositionValues)
