@@ -179,11 +179,11 @@ public static partial class HttpRequestMessageExtensions
     /// Returns <see cref="HttpRequestMessage"/>
     /// with conventional headers for Azure Storage.
     /// </summary>
-    /// <param name="request"></param>
-    /// <param name="requestMoment"></param>
-    /// <param name="serviceVersion"></param>
-    /// <param name="storageAccountName"></param>
-    /// <param name="storageAccountKey"></param>
+    /// <param name="request">the <see cref="HttpRequestMessage"/></param>
+    /// <param name="requestMoment">the moment of the request</param>
+    /// <param name="serviceVersion">the version of the storage services to use for a request</param>
+    /// <param name="storageAccountName">the Azure Storage account name</param>
+    /// <param name="storageAccountKey">the Azure Storage account shared key</param>
     public static HttpRequestMessage WithAzureStorageHeaders(this HttpRequestMessage? request,
         DateTime requestMoment, string? serviceVersion, string? storageAccountName, string? storageAccountKey)
     {
@@ -203,7 +203,7 @@ public static partial class HttpRequestMessageExtensions
     /// </summary>
     /// <param name="request">the <see cref="HttpRequestMessage"/></param>
     /// <param name="requestMoment">the moment of the request</param>
-    /// <param name="serviceVersion"></param>
+    /// <param name="serviceVersion">the version of the storage services to use for a request</param>
     /// <param name="storageAccountName">the Azure Storage account name</param>
     /// <param name="storageAccountKey">the Azure Storage account shared key</param>
     /// <param name="eTag">entity tag for Web cache validation</param>

@@ -64,11 +64,11 @@ public static class AzureKeyVaultRestApiUtility
         var request = new HttpRequestMessage(HttpMethod.Get, secretUri);
         request.Headers.Authorization = new AuthenticationHeaderValue(scheme: "Bearer", parameter);
 
-        var secretResult = await request.SendAsync();
+        var result = await request.SendAsync();
 
-        secretResult.EnsureSuccessStatusCode();
+        result.EnsureSuccessStatusCode();
 
-        var secret = await secretResult.Content.ReadAsStringAsync();
+        var secret = await result.Content.ReadAsStringAsync();
 
         return secret;
     }
