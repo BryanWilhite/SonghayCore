@@ -145,6 +145,7 @@
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ProgramArgsExtensions">Program<wbr>Args<wbr>Extensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ProgramMetadataExtensions">Program<wbr>Metadata<wbr>Extensions</a></div>
 					<div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Extensions/RestApiMetadataExtensions">Rest<wbr>Api<wbr>Metadata<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/StreamReaderExtensions">Stream<wbr>Reader<wbr>Extensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/StringBuilderExtensions">String<wbr>Builder<wbr>Extensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/StringExtensions">StringExtensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/TimeSpanExtensions">TimeSpanExtensions</a></div>
@@ -239,11 +240,45 @@ class Type type-node
 				</thead>
 				<tbody>
 						<tr>
+							<td><a href="/SonghayCore/latest/Songhay.Extensions/RestApiMetadataExtensions/66075308">To<wbr>Azure<wbr>Active<wbr>Directory<wbr>Access<wbr>Token<wbr>Data<wbr>(RestApiMetadata)<wbr></a></td>
+							<td>Dictionary<wbr>&lt;string, <wbr>string&gt;<wbr></td>
+							<td>
+								<div>
+     Converts the specified <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/RestApiMetadata">RestApiMetadata</a></code>
+     to the data required by <code class="cs">Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Nullable{Uri},System.Nullable{Dictionary{System.String,System.String}})</code>.
+     </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay.Extensions/RestApiMetadataExtensions/B92A99C0">To<wbr>Azure<wbr>Active<wbr>Directory<wbr>Access<wbr>Token<wbr>Uri<wbr>(RestApiMetadata)<wbr></a></td>
+							<td>Uri</td>
+							<td>
+								<div>
+     Converts the specified <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/RestApiMetadata">RestApiMetadata</a></code>
+     to the <code class="cs">Uri</code> required by <code class="cs">Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Nullable{Uri},System.Nullable{Dictionary{System.String,System.String}})</code>.
+     </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay.Extensions/RestApiMetadataExtensions/2E50A3B4">To<wbr>Azure<wbr>Key<wbr>Vault<wbr>Secret<wbr>Uri<wbr>(RestApiMetadata, <wbr>string)<wbr></a></td>
+							<td>Uri</td>
+							<td>
+								<div>
+     Converts the specified <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/RestApiMetadata">RestApiMetadata</a></code>
+     to the <code class="cs">Uri</code> required by <code class="cs">Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,Uri)</code>.
+     </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
 							<td><a href="/SonghayCore/latest/Songhay.Extensions/RestApiMetadataExtensions/D53844C2">ToUri<wbr>(RestApiMetadata, <wbr>string, <wbr>string[])<wbr></a></td>
 							<td>Uri?</td>
 							<td>
 								<div>
-    To the URI.
+    Converts the specified <code class="cs"><a href="/SonghayCore/latest/Songhay.Models/RestApiMetadata">RestApiMetadata</a></code> to a <code class="cs">Uri</code>
+    based on the specified URI Template.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>
