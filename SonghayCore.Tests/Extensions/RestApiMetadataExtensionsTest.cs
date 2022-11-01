@@ -21,7 +21,7 @@ public class RestApiMetadataExtensionsTest
                         { "weather-template", "weather/{state}/{city}?forecast={day}" },
                     }
                 },
-                new string[] { "Washington", "Redmond", "Today" },
+                new[] { "Washington", "Redmond", "Today" },
                 "https://my.api.me/weather/Washington/Redmond?forecast=Today"
             }
         };
@@ -42,8 +42,7 @@ public class RestApiMetadataExtensionsTest
     public void ToAzureActiveDirectoryAccessTokenData_Test(FileInfo metaInfo)
     {
         var json = File.ReadAllText(metaInfo.FullName);
-        var enterpriseMeta = JsonSerializer.Deserialize<Dictionary<string, RestApiMetadata>>(json);
-        var meta = enterpriseMeta.TryGetValueWithKey("ActiveDirectoryAccess");
+        var meta = AzureActiveDirectoryUtility.GetActiveDirectoryAccessMetadata(json);
 
         var actual = meta.ToAzureActiveDirectoryAccessTokenData();
         Assert.NotEmpty(actual);
@@ -59,8 +58,7 @@ public class RestApiMetadataExtensionsTest
     public void ToAzureActiveDirectoryAccessTokenUri_Test(string expected, FileInfo metaInfo)
     {
         var json = File.ReadAllText(metaInfo.FullName);
-        var enterpriseMeta = JsonSerializer.Deserialize<Dictionary<string, RestApiMetadata>>(json);
-        var meta = enterpriseMeta.TryGetValueWithKey("ActiveDirectoryAccess");
+        var meta = AzureActiveDirectoryUtility.GetActiveDirectoryAccessMetadata(json);
 
         var actual = meta.ToAzureActiveDirectoryAccessTokenUri();
         _testOutputHelper.WriteLine($"{nameof(actual)}: {actual.OriginalString}");
@@ -78,8 +76,7 @@ public class RestApiMetadataExtensionsTest
     public void ToAzureKeyVaultSecretUri_Test(string secretNameKey, string expected, FileInfo metaInfo)
     {
         var json = File.ReadAllText(metaInfo.FullName);
-        var enterpriseMeta = JsonSerializer.Deserialize<Dictionary<string, RestApiMetadata>>(json);
-        var meta = enterpriseMeta.TryGetValueWithKey("AzureKeyVault");
+        var meta = AzureActiveDirectoryUtility.GetAzureKeyVaultMetadata(json);
 
         var actual = meta.ToAzureKeyVaultSecretUri(secretNameKey);
         _testOutputHelper.WriteLine($"{nameof(actual)}: {actual.OriginalString}");

@@ -301,6 +301,57 @@
             Modification/editorial <see cref="T:System.DateTime"/> of the item.
             </summary>
         </member>
+        <member name="T:Songhay.AzureActiveDirectoryUtility">
+             <summary>
+             Shared routines for Azure Active Directory conventions.
+             </summary>
+             <remarks>
+             These utilities are expecting a JSON <see cref="T:System.String"/> of the form:
+             <code>
+             {
+                "ActiveDirectoryAccess": {
+                    "ApiBase": "https://login.microsoftonline.com/",
+                    "ClaimsSet": {
+                        "grant_type": "client_credentials",
+                        "scope": "https://vault.azure.net/.default",
+                        "client_id": "active-directory-registration-app-id",
+                        "client_secret": "active-directory-registration-app-secret",
+                        "tenantOrDirectoryId": "active-directory-registration-app-directory-id"
+                    },
+                    "UriTemplates": {
+                        "UriPathTemplateForToken": "{tenantOrDirectoryId}/oauth2/v2.0/token"
+                    }
+                },
+                "AzureKeyVault": {
+                    "ApiBase": "https://your-secrets.vault.azure.net/",
+                    "ClaimsSet": {
+                        "queryPairForApiVersion": "api-version=2016-10-01",
+                        "secretNameForMySecret": "my-secret"
+                    },
+                    "UriTemplates": {
+                        "UriPathTemplateForSecret": "secrets/{secretName}"
+                    }
+                }
+            }
+             </code>
+            
+             For security reasons, a very small precaution, this class will not hold any fields.
+             </remarks>
+        </member>
+        <member name="M:Songhay.AzureActiveDirectoryUtility.GetActiveDirectoryAccessMetadata(System.String)">
+            <summary>
+            Returns the <see cref="T:Songhay.Models.RestApiMetadata"/> corresponding
+            to the conventional property name <c>"ActiveDirectoryAccess"</c>.
+            </summary>
+            <param name="json">JSON of the format shown in the remarks of this class definition.</param>
+        </member>
+        <member name="M:Songhay.AzureActiveDirectoryUtility.GetAzureKeyVaultMetadata(System.String)">
+            <summary>
+            Returns the <see cref="T:Songhay.Models.RestApiMetadata"/> corresponding
+            to the conventional property name <c>"ActiveDirectoryAccess"</c>.
+            </summary>
+            <param name="json">JSON of the format shown in the remarks of this class definition.</param>
+        </member>
         <member name="T:Songhay.AzureBlobStorageRestApiUtility">
             <summary>
             Shared REST routines for Azure BLOB Storage.
@@ -394,7 +445,7 @@
             <param name="secretUri">the location of the Azure Key Vault endpoint</param>
             <remarks>
             The conventional way to generate the <c>secretUri</c> is via <see cref="T:Songhay.Models.RestApiMetadata"/>,
-            its <see cref="!:RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(RestApiMetadata?)"/> method.
+            its <see cref="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)"/> method.
             </remarks>
         </member>
         <member name="T:Songhay.Diagnostics.TraceSources">
@@ -1323,11 +1374,11 @@
             Returns <see cref="T:System.Net.Http.HttpRequestMessage"/>
             with conventional headers for Azure Storage.
             </summary>
-            <param name="request"></param>
-            <param name="requestMoment"></param>
-            <param name="serviceVersion"></param>
-            <param name="storageAccountName"></param>
-            <param name="storageAccountKey"></param>
+            <param name="request">the <see cref="T:System.Net.Http.HttpRequestMessage"/></param>
+            <param name="requestMoment">the moment of the request</param>
+            <param name="serviceVersion">the version of the storage services to use for a request</param>
+            <param name="storageAccountName">the Azure Storage account name</param>
+            <param name="storageAccountKey">the Azure Storage account shared key</param>
         </member>
         <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String,System.String,System.String)">
              <summary>
@@ -1336,7 +1387,7 @@
              </summary>
              <param name="request">the <see cref="T:System.Net.Http.HttpRequestMessage"/></param>
              <param name="requestMoment">the moment of the request</param>
-             <param name="serviceVersion"></param>
+             <param name="serviceVersion">the version of the storage services to use for a request</param>
              <param name="storageAccountName">the Azure Storage account name</param>
              <param name="storageAccountKey">the Azure Storage account shared key</param>
              <param name="eTag">entity tag for Web cache validation</param>
@@ -2319,6 +2370,8 @@
              where <c>client_id</c> is the value of the <c>appId</c> property
              in the output of <c>az ad app list</c>;
              <c>client_secret</c> is the secret exposed under the App registration in the Azure Portal.
+            
+             🔬☔ test coverage of this member further documents how the <see cref="T:Songhay.Models.RestApiMetadata" /> should be formatted
              </remarks>
         </member>
         <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)">
@@ -2336,6 +2389,8 @@
             
              where <c>tenantOrDirectoryId</c> is the value of “Directory (tenant) ID”
              under the App registration in the Azure Portal.
+            
+             🔬☔ test coverage of this member further documents how the <see cref="T:Songhay.Models.RestApiMetadata" /> should be formatted
              </remarks>
         </member>
         <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)">
@@ -2354,6 +2409,8 @@
             
              where <c>vaultName</c> is the name of the Azure Key Vault;
              <c>secretName</c> is the name of the secret in the vault.
+            
+             🔬☔ test coverage of this member further documents how the <see cref="T:Songhay.Models.RestApiMetadata" /> should be formatted
              </remarks>
         </member>
         <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToUri(Songhay.Models.RestApiMetadata,System.String,System.String[])">

@@ -23,22 +23,24 @@ public static class RestApiMetadataExtensions
     /// where <c>client_id</c> is the value of the <c>appId</c> property
     /// in the output of <c>az ad app list</c>;
     /// <c>client_secret</c> is the secret exposed under the App registration in the Azure Portal.
+    ///
+    /// 🔬☔ test coverage of this member further documents how the <see cref="RestApiMetadata" /> should be formatted
     /// </remarks>
     public static Dictionary<string, string> ToAzureActiveDirectoryAccessTokenData(this RestApiMetadata? meta)
     {
         ArgumentNullException.ThrowIfNull(meta);
 
-        const string GrantType = "grant_type";
-        const string Scope = "scope";
-        const string ClientId = "client_id";
-        const string ClientSecret = "client_secret";
+        const string grantType = "grant_type";
+        const string scope = "scope";
+        const string clientId = "client_id";
+        const string clientSecret = "client_secret";
 
         var accessData = new Dictionary<string, string>
         {
-            { GrantType, meta.ClaimsSet.TryGetValueWithKey(GrantType).ToReferenceTypeValueOrThrow() },
-            { Scope, meta.ClaimsSet.TryGetValueWithKey(Scope).ToReferenceTypeValueOrThrow() },
-            { ClientId, meta.ClaimsSet.TryGetValueWithKey(ClientId).ToReferenceTypeValueOrThrow() },
-            { ClientSecret, meta.ClaimsSet.TryGetValueWithKey(ClientSecret).ToReferenceTypeValueOrThrow() },
+            { grantType, meta.ClaimsSet.TryGetValueWithKey(grantType).ToReferenceTypeValueOrThrow() },
+            { scope, meta.ClaimsSet.TryGetValueWithKey(scope).ToReferenceTypeValueOrThrow() },
+            { clientId, meta.ClaimsSet.TryGetValueWithKey(clientId).ToReferenceTypeValueOrThrow() },
+            { clientSecret, meta.ClaimsSet.TryGetValueWithKey(clientSecret).ToReferenceTypeValueOrThrow() },
         };
 
         return accessData;
@@ -58,6 +60,8 @@ public static class RestApiMetadataExtensions
     ///
     /// where <c>tenantOrDirectoryId</c> is the value of “Directory (tenant) ID”
     /// under the App registration in the Azure Portal.
+    ///
+    /// 🔬☔ test coverage of this member further documents how the <see cref="RestApiMetadata" /> should be formatted
     /// </remarks>
     public static Uri ToAzureActiveDirectoryAccessTokenUri(this RestApiMetadata? meta)
     {
@@ -84,6 +88,8 @@ public static class RestApiMetadataExtensions
     ///
     /// where <c>vaultName</c> is the name of the Azure Key Vault;
     /// <c>secretName</c> is the name of the secret in the vault.
+    ///
+    /// 🔬☔ test coverage of this member further documents how the <see cref="RestApiMetadata" /> should be formatted
     /// </remarks>
     public static Uri ToAzureKeyVaultSecretUri(this RestApiMetadata? meta, string secretNameKey)
     {
@@ -94,8 +100,10 @@ public static class RestApiMetadataExtensions
             .ToUri("UriPathTemplateForSecret", secretName)
             .ToReferenceTypeValueOrThrow();
 
-        var uriBuilder = new UriBuilder(uri);
-        uriBuilder.Query = meta.ClaimsSet.TryGetValueWithKey("queryPairForApiVersion");
+        var uriBuilder = new UriBuilder(uri)
+        {
+            Query = meta.ClaimsSet.TryGetValueWithKey("queryPairForApiVersion")
+        };
 
         return uriBuilder.Uri;
     }
