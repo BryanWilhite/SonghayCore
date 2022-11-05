@@ -8,16 +8,20 @@ public class StreamReaderExtensionsTests
     /// </remarks>
     [Theory]
     [ProjectFileData(typeof(StreamReaderExtensionsTests), "../../../csv/sample_10000.csv")]
-    public async Task ShouldReadLines(FileInfo csvFileInfo)
+    public async Task ShouldReadLinesAsync(FileInfo csvFileInfo)
     {
         var lineCount = 0;
         using StreamReader reader = new (csvFileInfo.FullName);
 
-        await reader.ReadLines(line => {
+        await reader.ReadLinesAsync(line => {
+
             var actual = line?.Split(',').Count() ?? 0;
+
             Assert.Equal(8, actual);
 
             lineCount++;
+
+            return true;
         });
 
         Assert.Equal(10000, lineCount);

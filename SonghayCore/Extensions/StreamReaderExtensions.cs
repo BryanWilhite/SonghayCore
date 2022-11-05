@@ -15,15 +15,17 @@ public static class StreamReaderExtensions
     /// Reads the lines from the specified <see cref="StreamReader"/>.
     /// </summary>
     /// <param name="reader">the <see cref="StreamReader"/></param>
-    /// <param name="lineAction">the line action</param>
-    public static async Task ReadLines(this StreamReader? reader, Action<string?> lineAction)
+    /// <param name="lineAction">the line action; return <c>false</c> to stop reading lines</param>
+    public static async Task ReadLinesAsync(this StreamReader? reader, Func<string?, bool> lineAction)
     {
         ArgumentNullException.ThrowIfNull(reader);
 
         while(!reader.EndOfStream)
         {
             var line = await reader.ReadLineAsync();
-            lineAction?.Invoke(line);
+            var shouldContinueReadingLines = lineAction?.Invoke(line) ?? false;
+
+            if(!shouldContinueReadingLines) break;
         }
     }
 }

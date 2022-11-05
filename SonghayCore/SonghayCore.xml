@@ -2432,12 +2432,12 @@
             — https://learn.microsoft.com/en-us/dotnet/api/system.io.streamreader?view=net-5.0#remarks
             </remarks>
         </member>
-        <member name="M:Songhay.Extensions.StreamReaderExtensions.ReadLines(System.IO.StreamReader,System.Action{System.String})">
+        <member name="M:Songhay.Extensions.StreamReaderExtensions.ReadLinesAsync(System.IO.StreamReader,System.Func{System.String,System.Boolean})">
             <summary>
             Reads the lines from the specified <see cref="T:System.IO.StreamReader"/>.
             </summary>
             <param name="reader">the <see cref="T:System.IO.StreamReader"/></param>
-            <param name="lineAction">the line action</param>
+            <param name="lineAction">the line action; return <c>false</c> to stop reading lines</param>
         </member>
         <member name="T:Songhay.Extensions.StringBuilderExtensions">
             <summary>
