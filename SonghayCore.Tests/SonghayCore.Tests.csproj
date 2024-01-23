@@ -1,72 +1,72 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
 
-    <IsPackable>false</IsPackable>
+        <IsPackable>false</IsPackable>
 
-    <AssemblyName>SonghayCore.Tests</AssemblyName>
+        <AssemblyName>SonghayCore.Tests</AssemblyName>
 
-    <RootNamespace>Songhay.Tests</RootNamespace>
+        <RootNamespace>Songhay.Tests</RootNamespace>
 
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
 
-  </PropertyGroup>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="content\FrameworkFileTest-ShouldSortTextFileData.txt" />
-    <None Remove="content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt" />
-    <None Remove="content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Remove="content\FrameworkFileTest-ShouldSortTextFileData.txt"/>
+        <None Remove="content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt"/>
+        <None Remove="content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="content\FrameworkFileTest-ShouldSortTextFileData.txt" />
-    <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt" />
-    <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml" />
-  </ItemGroup>
+    <ItemGroup>
+        <Content Include="content\FrameworkFileTest-ShouldSortTextFileData.txt"/>
+        <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt"/>
+        <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Compile Include="..\SonghayCore.xUnit\Extensions\DataAttributeExtensions.cs" Link="Extensions\DataAttributeExtensions.cs" />
-    <Compile Include="..\SonghayCore.xUnit\Orderers\OrderedTestBase.cs" Link="Orderers\OrderedTestBase.cs" />
-    <Compile Include="..\SonghayCore.xUnit\Orderers\TestCaseOrderer.cs" Link="Orderers\TestCaseOrderer.cs" />
-    <Compile Include="..\SonghayCore.xUnit\Orderers\TestOrderAttribute.cs" zLink="Orderers\TestOrderAttribute.cs" />
-    <Compile Include="..\SonghayCore.xUnit\DebuggerAttachedFactAttribute.cs" Link="DebuggerAttachedFactAttribute.cs" />
-    <Compile Include="..\SonghayCore.xUnit\DebuggerAttachedTheoryAttribute.cs" Link="DebuggerAttachedTheoryAttribute.cs" />
-    <Compile Include="..\SonghayCore.xUnit\ProjectFileDataAttribute.cs" Link="ProjectFileDataAttribute.cs" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Include="..\SonghayCore.xUnit\Extensions\DataAttributeExtensions.cs" Link="Extensions\DataAttributeExtensions.cs"/>
+        <Compile Include="..\SonghayCore.xUnit\Orderers\OrderedTestBase.cs" Link="Orderers\OrderedTestBase.cs"/>
+        <Compile Include="..\SonghayCore.xUnit\Orderers\TestCaseOrderer.cs" Link="Orderers\TestCaseOrderer.cs"/>
+        <Compile Include="..\SonghayCore.xUnit\Orderers\TestOrderAttribute.cs" zLink="Orderers\TestOrderAttribute.cs"/>
+        <Compile Include="..\SonghayCore.xUnit\DebuggerAttachedFactAttribute.cs" Link="DebuggerAttachedFactAttribute.cs"/>
+        <Compile Include="..\SonghayCore.xUnit\DebuggerAttachedTheoryAttribute.cs" Link="DebuggerAttachedTheoryAttribute.cs"/>
+        <Compile Include="..\SonghayCore.xUnit\ProjectFileDataAttribute.cs" Link="ProjectFileDataAttribute.cs"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.57" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="xunit" Version="2.6.6" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.6">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="coverlet.collector" Version="6.0.0">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="6.0.0" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
-    <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="HtmlAgilityPack" Version="1.11.57"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
+        <PackageReference Include="xunit" Version="2.6.6"/>
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.6">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="coverlet.collector" Version="6.0.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="ExcelDataReader" Version="3.6.0"/>
+        <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="6.0.0"/>
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1"/>
+        <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0"/>
+        <PackageReference Include="Xunit.SkippableFact" Version="1.4.13"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SonghayCore\SonghayCore.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\SonghayCore\SonghayCore.csproj"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <None Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="zip\" />
-  </ItemGroup>
+    <ItemGroup>
+        <Folder Include="zip\"/>
+    </ItemGroup>
 
 </Project>
