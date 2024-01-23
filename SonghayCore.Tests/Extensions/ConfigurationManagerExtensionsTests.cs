@@ -4,21 +4,21 @@ using Songhay.Models;
 
 namespace Songhay.Tests.Extensions;
 
-public class ConfigurationManagerExtensionsTest
+public class ConfigurationManagerExtensionsTests
 {
-    public ConfigurationManagerExtensionsTest(ITestOutputHelper testOutputHelper)
+    public ConfigurationManagerExtensionsTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
     }
 
     [Theory]
     [ProjectFileData(
-        typeof(ConfigurationManagerExtensionsTest),
+        typeof(ConfigurationManagerExtensionsTests),
         new object[] {
             @"Data Source=|DataDirectory|\Chinook.dev.sqlite",
             "Chinook"
         },
-        "../../../Extensions/ConfigurationManagerExtensionsTest.xml")]
+        "../../../Extensions/ConfigurationManagerExtensionsTests.xml")]
     public void ShouldGetExternalConnectionStringSettings(string expectedConnectionString, string unqualifiedName, FileInfo externalConfigurationFileInfo)
     {
         /*
@@ -58,12 +58,12 @@ public class ConfigurationManagerExtensionsTest
 
     [Theory]
     [ProjectFileData(
-        typeof(ConfigurationManagerExtensionsTest),
+        typeof(ConfigurationManagerExtensionsTests),
         new object[] {
             "the external setting for DEV",
             "ex-setting"
         },
-        "../../../Extensions/ConfigurationManagerExtensionsTest.xml")]
+        "../../../Extensions/ConfigurationManagerExtensionsTests.xml")]
     public void ShouldGetExternalSetting(string expectedSetting, string unqualifiedKey, FileInfo externalConfigurationFileInfo)
     {
         var configuration = ConfigurationManager

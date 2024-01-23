@@ -1,6 +1,6 @@
 ﻿namespace Songhay.Tests.Extensions;
 
-public class EnumExtensionsTest
+public class EnumExtensionsTests
 {
     [Fact]
     public void ShouldGetEnumValues()

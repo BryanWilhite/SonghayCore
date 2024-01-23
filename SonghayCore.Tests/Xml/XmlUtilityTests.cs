@@ -4,7 +4,7 @@ using Songhay.Xml;
 
 namespace Songhay.Tests.Xml;
 
-public class XmlUtilityTest
+public class XmlUtilityTests
 {
     [Fact]
     public void ShouldGetNavigableDocument()

@@ -2,9 +2,9 @@
 
 namespace Songhay.Tests.Extensions;
 
-public class RestApiMetadataExtensionsTest
+public class RestApiMetadataExtensionsTests
 {
-    public RestApiMetadataExtensionsTest(ITestOutputHelper helper)
+    public RestApiMetadataExtensionsTests(ITestOutputHelper helper)
     {
         _testOutputHelper = helper;
     }
@@ -37,7 +37,7 @@ public class RestApiMetadataExtensionsTest
 
     [Theory]
     [ProjectFileData(
-        typeof(RestApiMetadataExtensionsTest),
+        typeof(RestApiMetadataExtensionsTests),
         "../../../json/studio-metadata.json")]
     public void ToAzureActiveDirectoryAccessTokenData_Test(FileInfo metaInfo)
     {
@@ -50,7 +50,7 @@ public class RestApiMetadataExtensionsTest
 
     [Theory]
     [ProjectFileData(
-        typeof(RestApiMetadataExtensionsTest),
+        typeof(RestApiMetadataExtensionsTests),
         new object[] {
             "https://login.microsoftonline.com/active-directory-registration-app-directory-id/oauth2/v2.0/token"
         },
@@ -67,7 +67,7 @@ public class RestApiMetadataExtensionsTest
 
     [Theory]
     [ProjectFileData(
-        typeof(RestApiMetadataExtensionsTest),
+        typeof(RestApiMetadataExtensionsTests),
         new object[] {
             "secretNameForMySecret",
             "https://your-secrets.vault.azure.net:443/secrets/my-secret?api-version=2016-10-01"

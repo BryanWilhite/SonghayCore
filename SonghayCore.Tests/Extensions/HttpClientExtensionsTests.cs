@@ -1,8 +1,8 @@
 ﻿namespace Songhay.Tests.Extensions;
 
-public class HttpClientExtensionsTest
+public class HttpClientExtensionsTests
 {
-    public HttpClientExtensionsTest(ITestOutputHelper helper)
+    public HttpClientExtensionsTests(ITestOutputHelper helper)
     {
         _testOutputHelper = helper;
         _basePath = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
@@ -10,7 +10,7 @@ public class HttpClientExtensionsTest
 
     [Theory]
     [InlineData(
-        @"Extensions\HttpClientExtensionsTest.ShouldDownloadToFileAsync.txt",
+        @"Extensions\HttpClientExtensionsTests.ShouldDownloadToFileAsync.txt",
         "https://github.com/BryanWilhite/SonghayCore/blob/master/README.md")]
     public async Task DownloadToFileAsync_Test(string file, string uri)
     {
@@ -22,7 +22,7 @@ public class HttpClientExtensionsTest
 
     [Theory]
     [InlineData(
-        @"Extensions\HttpClientExtensionsTest.ShouldDownloadToFileAsync.txt",
+        @"Extensions\HttpClientExtensionsTests.ShouldDownloadToFileAsync.txt",
         "https://github.com/BryanWilhite/SonghayCore/blob/master/README.md")]
     public async Task DownloadToStringAsync_Test(string file, string uri)
     {
@@ -36,7 +36,7 @@ public class HttpClientExtensionsTest
 
     [Theory]
     [InlineData(
-        @"Extensions\HttpClientExtensionsTest.ShouldDownloadToFileAsync.txt",
+        @"Extensions\HttpClientExtensionsTests.ShouldDownloadToFileAsync.txt",
         "https://github.com/BryanWilhite/SonghayCore/blob/master/README.md")]
     public async Task DownloadToStringAsync_HttpRequestMessage_Test(string file, string uri)
     {

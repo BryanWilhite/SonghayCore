@@ -2,7 +2,7 @@
 
 namespace Songhay.Tests.Models;
 
-public class PagedResultMetaTest
+public class PagedResultMetaTests
 {
     [Fact]
     public void ShouldGetPageCount()

@@ -2,7 +2,7 @@
 
 namespace Songhay.Tests.Extensions;
 
-public class ObservableCollectionExtensionsTest
+public class ObservableCollectionExtensionsTests
 {
     [Fact]
     public void ShouldSetCollectionWithDigits()

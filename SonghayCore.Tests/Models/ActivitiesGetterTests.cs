@@ -5,9 +5,9 @@ using Songhay.Tests.Activities;
 
 namespace Songhay.Tests.Models;
 
-public class ActivitiesGetterTest
+public class ActivitiesGetterTests
 {
-    static ActivitiesGetterTest()
+    static ActivitiesGetterTests()
     {
         Console.WriteLine("Loading configuration...");
         var builder = new ConfigurationBuilder()
@@ -22,7 +22,7 @@ public class ActivitiesGetterTest
         TraceSource = TraceSources.Instance.GetConfiguredTraceSource().WithSourceLevels();
     }
 
-    public ActivitiesGetterTest(ITestOutputHelper helper)
+    public ActivitiesGetterTests(ITestOutputHelper helper)
     {
         _testOutputHelper = helper;
     }

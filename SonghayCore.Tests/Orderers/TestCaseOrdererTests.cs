@@ -7,11 +7,11 @@ internal static class MyTestCaseData
     public static int MyNumber;
 }
 
-public class TestCaseOrdererTest
+public class TestCaseOrdererTests
 {
-    static TestCaseOrdererTest() => Log = new StringBuilder();
+    static TestCaseOrdererTests() => Log = new StringBuilder();
 
-    public TestCaseOrdererTest(ITestOutputHelper output) => _output = output;
+    public TestCaseOrdererTests(ITestOutputHelper output) => _output = output;
 
     [Fact, TestOrder(ordinal: 4, reason: "This test is last and depends on the other ordered tests to complete.")]
     public void LastTest()

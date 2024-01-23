@@ -3,9 +3,9 @@ using Songhay.Xml;
 
 namespace Songhay.Tests.Xml;
 
-public class XObjectUtilityTest
+public class XObjectUtilityTests
 {
-    public XObjectUtilityTest(ITestOutputHelper helper)
+    public XObjectUtilityTests(ITestOutputHelper helper)
     {
         _testOutputHelper = helper;
     }

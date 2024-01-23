@@ -2,9 +2,9 @@
 
 namespace Songhay.Tests.Models;
 
-public class OpmlTest
+public class OpmlTests
 {
-    public OpmlTest(ITestOutputHelper helper)
+    public OpmlTests(ITestOutputHelper helper)
     {
         _testOutputHelper = helper;
     }
@@ -29,7 +29,7 @@ public class OpmlTest
     }
 
     [Theory]
-    [InlineData(@"Models\OpmlTest.opml")]
+    [InlineData(@"Models\OpmlTests.opml")]
     public void ShouldLoadCategoriesAndResources(string opmlFile)
     {
         var projectFolder = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
@@ -87,7 +87,7 @@ public class OpmlTest
     }
 
     [Theory]
-    [InlineData(@"Models\OpmlTest.opml")]
+    [InlineData(@"Models\OpmlTests.opml")]
     public void ShouldWriteDateModified(string opmlFile)
     {
         var projectFolder = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
