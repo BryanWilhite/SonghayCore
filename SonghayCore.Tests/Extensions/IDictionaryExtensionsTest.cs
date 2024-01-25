@@ -9,6 +9,21 @@ public class IDictionaryExtensionsTest
     }
 
     [Fact]
+    public void ShouldAddAndOverwrite()
+    {
+        var dictionary = new Dictionary<string, int>
+        {
+            ["one"] = 1,
+            ["two"] = 3,
+        };
+
+        dictionary["two"] = 2;
+        dictionary["three"] = 3;
+
+        Assert.Equal(1+2+3,dictionary.Sum(pair => pair.Value));
+    }
+
+    [Fact]
     public void ShouldConvertToNameValueCollection()
     {
         var dictionary = new Dictionary<int, string>
@@ -101,6 +116,63 @@ public class IDictionaryExtensionsTest
         TestException();
         TestRef();
         TestValue();
+    }
+
+    [Fact]
+    public void ToShallowClone_Test()
+    {
+        var dictionary = new Dictionary<string, int>
+        {
+            ["one"] = 1,
+            ["two"] = 2,
+            ["three"] = 3,
+        };
+
+        var actual = dictionary.ToShallowClone();
+
+        Assert.Equal(dictionary.Sum(pair => pair.Value), actual.Sum(pair => pair.Value));
+        Assert.Equal(
+            dictionary.Select(pair => pair.Key).Aggregate((a,i) => $"{a}{i}"),
+            actual.Select(pair => pair.Key).Aggregate((a,i) => $"{a}{i}")
+        );
+    }
+
+    [Fact]
+    public void WithPair_Test()
+    {
+        var dictionary = new Dictionary<string, int>().WithPair("one", 1);
+
+        Assert.NotEmpty(dictionary);
+        Assert.Equal("one", dictionary.First().Key);
+        Assert.Equal(1, dictionary.First().Value);
+
+        dictionary.WithPair("two", 2);
+
+        Assert.Equal("two", dictionary.Last().Key);
+        Assert.Equal(2, dictionary.Last().Value);
+    }
+
+    [Fact]
+    public void WithPair_KeyValuePair_Test()
+    {
+        var dictionary = new Dictionary<string, int>().WithPair(new KeyValuePair<string, int>("one", 1));
+
+        Assert.NotEmpty(dictionary);
+        Assert.Equal("one", dictionary.First().Key);
+        Assert.Equal(1, dictionary.First().Value);
+    }
+
+    [Fact]
+    public void WithPairs_Test()
+    {
+        var pairs = new[] {("one", 1), ("two", 2)}
+            .Select(t => new KeyValuePair<string, int>(t.Item1, t.Item2));
+
+        var dictionary = new Dictionary<string, int>().WithPairs(pairs);
+
+        Assert.Equal(2, dictionary.Count);
+        Assert.Equal("two", dictionary.Last().Key);
+        Assert.Equal(2, dictionary.Last().Value);
     }
 
     readonly ITestOutputHelper _testOutputHelper;

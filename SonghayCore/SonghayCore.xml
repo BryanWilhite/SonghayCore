@@ -1889,6 +1889,19 @@
             For detail, see https://stackoverflow.com/a/7230446/22944
             </remarks>
         </member>
+        <member name="M:Songhay.Extensions.IDictionaryExtensions.ToShallowClone``2(System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+            Converts the <see cref="T:System.Collections.Generic.IDictionary`2"/>
+            to a shallow clone.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="dictionary">the <see cref="T:System.Collections.Generic.IDictionary`2"/></param>
+            <remarks>
+            For more detail see “Clone a Dictionary in C#”
+            [https://www.techiedelight.com/clone-a-dictionary-in-csharp/]
+            </remarks>
+        </member>
         <member name="M:Songhay.Extensions.IDictionaryExtensions.TryGetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
             <summary>
             Tries to get value with the specified key.
@@ -1907,6 +1920,37 @@
             <param name="dictionary">The dictionary.</param>
             <param name="key">The key.</param>
             <param name="throwException">When <c>true</c>, throw an exception when retrieval fails.</param>
+        </member>
+        <member name="M:Songhay.Extensions.IDictionaryExtensions.WithPair``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
+            <summary>
+            Returns the <see cref="T:System.Collections.Generic.IDictionary`2"/>
+            with the specified pair.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="dictionary">the <see cref="T:System.Collections.Generic.IDictionary`2"/></param>
+            <param name="key">the key</param>
+            <param name="value">the value</param>
+        </member>
+        <member name="M:Songhay.Extensions.IDictionaryExtensions.WithPair``2(System.Collections.Generic.IDictionary{``0,``1},System.Nullable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            Returns the <see cref="T:System.Collections.Generic.IDictionary`2"/>
+            with the specified pair.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="dictionary">the <see cref="T:System.Collections.Generic.IDictionary`2"/></param>
+            <param name="pair">the <see cref="T:System.Collections.Generic.KeyValuePair`2"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IDictionaryExtensions.WithPairs``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            Returns the <see cref="T:System.Collections.Generic.IDictionary`2"/>
+            with the specified pairs.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="dictionary">the <see cref="T:System.Collections.Generic.IDictionary`2"/></param>
+            <param name="pairs">The pairs to add.</param>
         </member>
         <member name="T:Songhay.Extensions.IEnumerableOfTExtensions">
             <summary>
