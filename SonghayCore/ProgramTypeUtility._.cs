@@ -79,6 +79,7 @@ public static partial class ProgramTypeUtility
     /// <remarks>
     /// For detail, see https://stackoverflow.com/a/1728437/22944.
     /// </remarks>
+    [Obsolete("Use `DateTimeExtensions.ToIso8601String` instead.")]
     public static string ConvertDateTimeToUtc(DateTime dateValue) =>
         dateValue
             .ToUniversalTime()
