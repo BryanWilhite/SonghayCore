@@ -23,4 +23,19 @@ public static partial class DateTimeExtensions
 
         return start.AddDays(daysToAdd);
     }
+
+    /// <summary>
+    /// Converts the specified <see cref="DateTime"/>
+    /// to the JSON-friendly ISO_8601 text format.
+    /// </summary>
+    /// <param name="dateTime">the <see cref="DateTime"/></param>
+    /// <remarks>
+    /// 📖 https://en.wikipedia.org/wiki/ISO_8601
+    /// </remarks>
+    public static string ToIso8601String(this DateTime dateTime)
+    {
+        const string template = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'";
+
+        return dateTime.ToString(template);
+    }
 }
