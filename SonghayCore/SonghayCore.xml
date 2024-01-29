@@ -562,6 +562,29 @@
             <param name="assembly">The assembly.</param>
             <param name="fileSegment">The file segment.</param>
         </member>
+        <member name="T:Songhay.Extensions.ByteExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Byte"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.ByteExtensions.ToStreamReader(System.Byte[])">
+            <summary>
+            Converts the specified <see cref="T:System.Byte"/> array to a <see cref="T:System.IO.StreamReader"/>
+            with <see cref="P:System.Text.Encoding.UTF8"/>.
+            </summary>
+            <param name="bytes">the bytes</param>
+        </member>
+        <member name="M:Songhay.Extensions.ByteExtensions.ToStreamReader(System.Byte[],System.Text.Encoding)">
+            <summary>
+            Converts the specified <see cref="T:System.Byte"/> array to a <see cref="T:System.IO.StreamReader"/>.
+            </summary>
+            <param name="bytes">the bytes</param>
+            <param name="encoding">the encoding</param>
+            <remarks>
+            This member is useful in the world of ASP.NET when there is a need
+            to read a <see cref="T:System.String"/> from the bytes of a <c>MultipartSection"</c>.
+            </remarks>
+        </member>
         <member name="T:Songhay.Extensions.CharExtensions">
             <summary>
             Extension of <see cref="T:System.Char"/>.
