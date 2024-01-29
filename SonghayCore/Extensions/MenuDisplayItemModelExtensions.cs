@@ -6,12 +6,33 @@
 public static class MenuDisplayItemModelExtensions
 {
     /// <summary>
+    /// Gets all <see cref="MenuDisplayItemModel"/>
+    /// by the specified predicate.
+    /// </summary>
+    /// <param name="data">the <see cref="MenuDisplayItemModel"/></param>
+    /// <param name="predicate">the predicate</param>
+    public static IEnumerable<MenuDisplayItemModel> GetAllBy(this MenuDisplayItemModel? data,
+        Func<MenuDisplayItemModel, bool> predicate)
+    {
+        var items1 = data != null ?
+            new[] {data}.Where(predicate)
+            :
+             Enumerable.Empty<MenuDisplayItemModel>();
+        var items2 = data?
+            .ChildItems.SelectMany(i => i.GetAllBy(predicate))
+             ??
+             Enumerable.Empty<MenuDisplayItemModel>();
+
+        return items1.Union(items2);
+    }
+
+    /// <summary>
     /// Returns <c>true</c> when the grouping has the specified identifier.
     /// </summary>
-    /// <param name="data"></param>
-    /// <param name="groupId"></param>
+    /// <param name="data">the <see cref="MenuDisplayItemModel"/></param>
+    /// <param name="groupId">the <see cref="MenuDisplayItemModel.GroupId"/></param>
     public static bool HasGroupId(this MenuDisplayItemModel? data, string groupId) => data != null &&
-        (!string.IsNullOrWhiteSpace(groupId) && data.GroupId.EqualsInvariant(groupId));
+        !string.IsNullOrWhiteSpace(groupId) && data.GroupId.EqualsInvariant(groupId);
 
     /// <summary>
     /// Returns the Default Selection
