@@ -122,6 +122,7 @@
 			<div class="sidebar-nav-children">
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ArrayExtensions">ArrayExtensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/AssemblyExtensions">AssemblyExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ByteExtensions">ByteExtensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/CharExtensions">CharExtensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ConfigurationManagerExtensions">Configuration<wbr>Manager<wbr>Extensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/DataSetExtensions">DataSetExtensions</a></div>
@@ -138,6 +139,8 @@
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/IActivityExtensions">IActivityExtensions</a></div>
 					<div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions">I<wbr>Dictionary<wbr>Extensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/IEnumerableOfTExtensions">I<wbr>Enumerable<wbr>Of<wbr>T<wbr>Extensions</a></div>
+					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ILoggerExtensions">ILoggerExtensions</a></div>
+					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/IPrincipalExtensions">IPrincipalExtensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ITemporalExtensions">ITemporalExtensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/MenuDisplayItemModelExtensions">Menu<wbr>Display<wbr>Item<wbr>Model<wbr>Extensions</a></div>
 					<div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/NullableExtensions">NullableExtensions</a></div>
@@ -251,6 +254,17 @@ class Type type-node
 							</td>
 						</tr>
 						<tr>
+							<td><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions/84714BA5">ToShallowClone<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>?)<wbr></a></td>
+							<td>IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr></td>
+							<td>
+								<div>
+    Converts the <code class="cs">IDictionary&lt;TKey, TValue&gt;</code>
+    to a shallow clone.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
 							<td><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions/CB42D5D2">TryGetValueWithKey<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>?, <wbr>TKey, <wbr>bool)<wbr></a></td>
 							<td>TValue</td>
 							<td>
@@ -266,6 +280,39 @@ class Type type-node
 							<td>
 								<div>
     Tries to get value with the specified key.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions/D7EE63BF">WithPair<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>?, <wbr>KeyValuePair<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>?)<wbr></a></td>
+							<td>IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr></td>
+							<td>
+								<div>
+    Returns the <code class="cs">IDictionary&lt;TKey, TValue&gt;</code>
+    with the specified pair.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions/703E666F">WithPair<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>?, <wbr>TKey, <wbr>TValue)<wbr></a></td>
+							<td>IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr></td>
+							<td>
+								<div>
+    Returns the <code class="cs">IDictionary&lt;TKey, TValue&gt;</code>
+    with the specified pair.
+    </div>
+										<div><small><em>static</em></small></div>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="/SonghayCore/latest/Songhay.Extensions/IDictionaryExtensions/A31F9824">WithPairs<wbr>&lt;TKey, <wbr>TValue&gt;<wbr><wbr>(IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>?, <wbr>IEnumerable<wbr>&lt;KeyValuePair<wbr>&lt;TKey, <wbr>TValue&gt;<wbr>&gt;<wbr>?)<wbr></a></td>
+							<td>IDictionary<wbr>&lt;TKey, <wbr>TValue&gt;<wbr></td>
+							<td>
+								<div>
+    Returns the <code class="cs">IDictionary&lt;TKey, TValue&gt;</code>
+    with the specified pairs.
     </div>
 										<div><small><em>static</em></small></div>
 							</td>

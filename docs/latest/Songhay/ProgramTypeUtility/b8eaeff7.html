@@ -197,7 +197,7 @@
 
     </div>
 		<h1 id="Syntax">Syntax</h1>
-		<pre class="language-csharp"><code class="language-csharp">public static string ConvertDateTimeToUtc(DateTime dateValue)</code></pre>
+		<pre class="language-csharp"><code class="language-csharp">[Obsolete(&quot;Use `DateTimeExtensions.ToIso8601String` instead.&quot;)]&#xA;public static string ConvertDateTimeToUtc(DateTime dateValue)</code></pre>
 
 
 		<h1 id="Remarks">Remarks</h1>
@@ -205,6 +205,23 @@
     For detail, see https://stackoverflow.com/a/1728437/22944.
     </div>
 
+		<h1 id="Attributes">Attributes</h1>
+		<div class="table-responsive">
+			<table class="table table-api table-striped table-hover two-cols">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+							<td>Obsolete</td>
+							<td></td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
 
 
 
@@ -263,6 +280,7 @@
             <div class="sidebar-nav-children">
                     <div class="sidebar-nav-item"><a href="#Syntax">Syntax</a></div>
                     <div class="sidebar-nav-item"><a href="#Remarks">Remarks</a></div>
+                    <div class="sidebar-nav-item"><a href="#Attributes">Attributes</a></div>
                     <div class="sidebar-nav-item"><a href="#Parameters">Parameters</a></div>
                     <div class="sidebar-nav-item"><a href="#ReturnValue">Return Value</a></div>
             </div>

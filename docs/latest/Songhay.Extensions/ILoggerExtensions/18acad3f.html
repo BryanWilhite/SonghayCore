@@ -35,7 +35,7 @@
 
         
 
-        <title>SonghayCore - ReadLines(StreamReader?, Action&lt;string&gt;)</title>
+        <title>SonghayCore - LogErrorForMissingData(ILogger?, string)</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -77,11 +77,11 @@
                                     <div class="flex-grow-1">
                                         <div class="breadcrumbs d-flex flex-column flex-md-row text-break">
 
-			<span><a href="/SonghayCore/latest/Songhay.Extensions/StreamReaderExtensions">Stream<wbr>Reader<wbr>Extensions</a>.</span>
+			<span><a href="/SonghayCore/latest/Songhay.Extensions/ILoggerExtensions">ILoggerExtensions</a>.</span>
                                         </div>
                                         <div class="text-white m-0 text-break title">
 
-    <div>ReadLines<wbr>(StreamReader?, <wbr>Action<wbr>&lt;string&gt;<wbr>)<wbr> <small>Method</small></div>
+    <div>Log<wbr>Error<wbr>For<wbr>Missing<wbr>Data<wbr>(ILogger?, <wbr>string)<wbr> <small>Method</small></div>
                                         </div>
                                     </div>
                                         <div class="navbar navbar-expand-md navbar-dark p-0">
@@ -119,11 +119,17 @@
                 <div class="sidebar-nav-item sidebar-header mb-0 pb-0">Namespace</div>
                 <div class="sidebar-nav-item  font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Extensions">Songhay<wbr>.Extensions</a></div>
                 <div class="sidebar-nav-item sidebar-header mb-0 pb-0">Type</div>
-                <div class="sidebar-nav-item font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Extensions/StreamReaderExtensions">Stream<wbr>Reader<wbr>Extensions</a></div>
+                <div class="sidebar-nav-item font-weight-normal mt-0 pt-0"><a href="/SonghayCore/latest/Songhay.Extensions/ILoggerExtensions">ILoggerExtensions</a></div>
         </div>
             <div class="sidebar-nav-item sidebar-header">Method Members</div>
             <div class="sidebar-nav-children">
-                    <div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Extensions/StreamReaderExtensions/091C96EC">ReadLines<wbr>(StreamReader?, <wbr>Action<wbr>&lt;string&gt;<wbr>)<wbr></a></div>
+                    <div class="sidebar-nav-item active"><a href="/SonghayCore/latest/Songhay.Extensions/ILoggerExtensions/18ACAD3F">Log<wbr>Error<wbr>For<wbr>Missing<wbr>Data<wbr>(ILogger?, <wbr>string)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ILoggerExtensions/9B1E9D43">Log<wbr>Error<wbr>For<wbr>Missing<wbr>Data<wbr>&lt;TData&gt;<wbr><wbr>(ILogger?)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ILoggerExtensions/AAE9B559">Log<wbr>Information<wbr>New<wbr>Line<wbr>(ILogger?)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ILoggerExtensions/05CBB8D9">LogNewLine<wbr>(ILogger?, <wbr>LogLevel)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ILoggerExtensions/B85702A1">Log<wbr>Trace<wbr>Data<wbr>Type<wbr>And<wbr>Value<wbr>&lt;TData&gt;<wbr><wbr>(ILogger?, <wbr>TData)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ILoggerExtensions/89DFAABC">LogTraceMethodCall<wbr>(ILogger?, <wbr>string)<wbr></a></div>
+                    <div class="sidebar-nav-item"><a href="/SonghayCore/latest/Songhay.Extensions/ILoggerExtensions/897B8852">LogTraceNewLine<wbr>(ILogger?)<wbr></a></div>
             </div>
 
 	</div>
@@ -137,7 +143,7 @@
 
 
         <div class="lead mb-3">
-    Reads the lines from the specified <code class="cs">StreamReader</code>.
+    Calls <code class="cs">LoggerExtensions.LogError(ILogger, string?, object?[])</code> for missing data.
     </div>
 
     <div class="p-3 bg-light page-box container small">
@@ -147,7 +153,7 @@
     		    <dd><a href="/SonghayCore/latest/Songhay.Extensions">Songhay<wbr>.Extensions</a></dd>
 
 				<dt>Containing Type</dt>
-				<dd><a href="/SonghayCore/latest/Songhay.Extensions/StreamReaderExtensions">Stream<wbr>Reader<wbr>Extensions</a></dd>
+				<dd><a href="/SonghayCore/latest/Songhay.Extensions/ILoggerExtensions">ILoggerExtensions</a></dd>
 
 
 
@@ -159,7 +165,7 @@
 
     </div>
 		<h1 id="Syntax">Syntax</h1>
-		<pre class="language-csharp"><code class="language-csharp">public static Task ReadLines(this StreamReader? reader, Action&lt;string&gt; lineAction)</code></pre>
+		<pre class="language-csharp"><code class="language-csharp">public static void LogErrorForMissingData(this ILogger? logger, string caption)</code></pre>
 
 
 
@@ -178,37 +184,20 @@
 				</thead>
 				<tbody>
 						<tr>
-							<td>reader</td>
-							<td>StreamReader?</td>
-							<td>the <code class="cs">StreamReader</code></td>
+							<td>logger</td>
+							<td>ILogger?</td>
+							<td>The logger.</td>
 						</tr>
 						<tr>
-							<td>lineAction</td>
-							<td>Action<wbr>&lt;string&gt;<wbr></td>
-							<td>the line action</td>
+							<td>caption</td>
+							<td>string</td>
+							<td>The caption.</td>
 						</tr>
 				</tbody>
 			</table>
 		</div>
 
 
-		<h1 id="ReturnValue">Return Value</h1>
-		<div class="table-responsive">
-			<table class="table table-api table-striped table-hover two-cols">
-				<thead>
-					<tr>
-						<th>Type</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Task</td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
 
 
 
@@ -226,7 +215,6 @@
             <div class="sidebar-nav-children">
                     <div class="sidebar-nav-item"><a href="#Syntax">Syntax</a></div>
                     <div class="sidebar-nav-item"><a href="#Parameters">Parameters</a></div>
-                    <div class="sidebar-nav-item"><a href="#ReturnValue">Return Value</a></div>
             </div>
         </div>
 
