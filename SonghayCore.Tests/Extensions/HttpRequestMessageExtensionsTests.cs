@@ -13,7 +13,7 @@ public class HttpRequestMessageExtensionsTests
     }
 
     [Theory(Skip = "slowwly server is down")]
-    [InlineData("http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
+    [InlineData("https://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
     public async Task ShouldCancel(string location, int timeInSeconds)
     {
         var handler = new TimeoutHandler
@@ -87,7 +87,7 @@ public class HttpRequestMessageExtensionsTests
         var content = await response.Content.ReadAsStringAsync();
         _testOutputHelper.WriteLine(content);
         var jO = JObject.Parse(content);
-        Assert.Equal(albumId, jO.GetValue(nameof(albumId)).Value<int>());
+        Assert.Equal(albumId, jO.GetValue(nameof(albumId))?.Value<int>());
     }
 
     [Trait("Category", "Integration")]
@@ -114,7 +114,7 @@ public class HttpRequestMessageExtensionsTests
         var content = await response.Content.ReadAsStringAsync();
         _testOutputHelper.WriteLine(content);
         var jO = JObject.Parse(content);
-        Assert.Equal(albumId, jO.GetValue(nameof(albumId)).Value<int>());
+        Assert.Equal(albumId, jO.GetValue(nameof(albumId))?.Value<int>());
     }
 
     [Trait("Category", "Integration")]
@@ -131,7 +131,7 @@ public class HttpRequestMessageExtensionsTests
     }
 
     [Theory(Skip = "slowwly server is down")]
-    [InlineData("http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
+    [InlineData("https://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
     public async Task ShouldTimeout(string location, int timeInSeconds)
     {
         var handler = new TimeoutHandler
@@ -140,28 +140,26 @@ public class HttpRequestMessageExtensionsTests
             InnerHandler = new HttpClientHandler()
         };
 
-        using (var cts = new CancellationTokenSource())
-        using (var client = new HttpClient(handler))
+        using var cts = new CancellationTokenSource();
+        using var client = new HttpClient(handler);
+        try
         {
-            try
-            {
-                client.Timeout = Timeout.InfiniteTimeSpan;
+            client.Timeout = Timeout.InfiniteTimeSpan;
 
-                _testOutputHelper.WriteLine($"calling `{location}`...");
-                var request = new HttpRequestMessage(HttpMethod.Get, location);
+            _testOutputHelper.WriteLine($"calling `{location}`...");
+            var request = new HttpRequestMessage(HttpMethod.Get, location);
 
-                await request.GetContentAsync(
-                    responseMessageAction: null,
-                    optionalClientGetter: () => client);
-            }
-            catch (Exception ex)
-            {
-                Assert.IsType<TimeoutException>(ex);
-            }
+            await request.GetContentAsync(
+                responseMessageAction: null,
+                optionalClientGetter: () => client);
+        }
+        catch (Exception ex)
+        {
+            Assert.IsType<TimeoutException>(ex);
         }
     }
 
-    const string LiveApiBaseUri = "http://jsonplaceholder.typicode.com";
+    const string LiveApiBaseUri = "https://jsonplaceholder.typicode.com";
 
     readonly ITestOutputHelper _testOutputHelper;
 }

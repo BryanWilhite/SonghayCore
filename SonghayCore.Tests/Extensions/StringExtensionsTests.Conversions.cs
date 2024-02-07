@@ -8,7 +8,7 @@ public partial class StringExtensionsTests
     [InlineData("kinté space", '\0', "kint space")]
     [InlineData("|kinté space|", '|', "kint space")]
     [InlineData("|kinté|space|", '\0', "|kint|space|")]
-    public void ToAsciiLettersWithSpacer_Test(string input, char spacer, string expected)
+    public void ToAsciiLettersWithSpacer_Test(string input, char spacer, string? expected)
     {
         var actual = input.ToAsciiLettersWithSpacer(spacer);
         Assert.Equal(expected, actual);

@@ -22,35 +22,33 @@ public class TraceSourceExtensionsTests
     }
 
     [Fact]
-    public void ShouldTraceFromMultipleThreads()
+    public async Task ShouldTraceFromMultipleThreads()
     {
         var configuration = ProgramUtility.LoadConfiguration(Directory.GetCurrentDirectory());
 
         TraceSources.ConfiguredTraceSourceName = configuration[DeploymentEnvironment.DefaultTraceSourceNameConfigurationKey];
 
-        using (var writer = new StringWriter())
-        using (var listener = new TextWriterTraceListener(writer))
+        using var writer = new StringWriter();
+        using var listener = new TextWriterTraceListener(writer);
+        ProgramUtility.InitializeTraceSource(listener);
+
+        var tasks = new[]
         {
-            ProgramUtility.InitializeTraceSource(listener);
-
-            var tasks = new[]
+            Task.Run(() => TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
+            Task.Run(() =>
             {
-                Task.Run(() => TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
-                Task.Run(() =>
-                {
-                    TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]");
-                    TraceSource.TraceError($"Error! [thread: {Thread.CurrentThread.ManagedThreadId}]");
-                    TraceSource.TraceVerbose($"Was there an error? [thread: {Thread.CurrentThread.ManagedThreadId}]");
-                }),
-                Task.Run(() => TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
-                Task.Run(() => TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
-            };
+                TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]");
+                TraceSource.TraceError($"Error! [thread: {Thread.CurrentThread.ManagedThreadId}]");
+                TraceSource.TraceVerbose($"Was there an error? [thread: {Thread.CurrentThread.ManagedThreadId}]");
+            }),
+            Task.Run(() => TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
+            Task.Run(() => TraceSource.WriteLine($"Hello world! [thread: {Thread.CurrentThread.ManagedThreadId}]")),
+        };
 
-            Task.WaitAll(tasks);
+        await Task.WhenAll(tasks);
 
-            listener.Flush();
-            _testOutputHelper.WriteLine(writer.ToString());
-        }
+        listener.Flush();
+        _testOutputHelper.WriteLine(writer.ToString());
     }
 
     readonly ITestOutputHelper _testOutputHelper;

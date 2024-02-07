@@ -1,5 +1,4 @@
 using Songhay.Models;
-using System.Text.Json;
 
 namespace Songhay.Tests.Extensions;
 
@@ -85,7 +84,7 @@ public class ProgramArgsExtensionsTests
     [Theory]
     [InlineData("../../../json", "output.json")]
     [InlineData(null, "../../../json/output.json")]
-    public void WriteOutputToFile_Test(string basePath, string outputFile)
+    public void WriteOutputToFile_Test(string? basePath, string outputFile)
     {
         if (string.IsNullOrWhiteSpace(basePath))
         {
@@ -124,5 +123,5 @@ public class ProgramArgsExtensionsTests
         _testOutputHelper.WriteLine($"file content: {File.ReadAllText(actual)}");
     }
 
-    ITestOutputHelper _testOutputHelper;
+    readonly ITestOutputHelper _testOutputHelper;
 }

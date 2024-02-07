@@ -19,31 +19,27 @@ public class TimeoutHandlerTests
             InnerHandler = new HttpClientHandler()
         };
 
-        using (var cts = new CancellationTokenSource())
-        using (var client = new HttpClient(handler))
+        using var cts = new CancellationTokenSource();
+        using var client = new HttpClient(handler);
+        try
         {
-            try
-            {
-                client.Timeout = Timeout.InfiniteTimeSpan;
+            client.Timeout = Timeout.InfiniteTimeSpan;
 
-                _testOutputHelper.WriteLine($"calling `{location}`...");
-                var request = new HttpRequestMessage(HttpMethod.Get, location);
+            _testOutputHelper.WriteLine($"calling `{location}`...");
+            var request = new HttpRequestMessage(HttpMethod.Get, location);
 
-                cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
+            cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
 
-                using var response = await client
-                    .SendAsync(request, cts.Token)
-                    .ConfigureAwait(continueOnCapturedContext: false);
-            }
-            catch (Exception ex)
-            {
-                Assert.IsType<TaskCanceledException>(ex);
-            }
+            using var response = await client.SendAsync(request, cts.Token);
+        }
+        catch (Exception ex)
+        {
+            Assert.IsType<TaskCanceledException>(ex);
         }
     }
 
     [Theory(Skip = "slowwly server is down")]
-    [InlineData("http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
+    [InlineData("https://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
     public async Task ShouldTimeout(string location, int timeInSeconds)
     {
         var handler = new TimeoutHandler
@@ -52,24 +48,20 @@ public class TimeoutHandlerTests
             InnerHandler = new HttpClientHandler()
         };
 
-        using (var cts = new CancellationTokenSource())
-        using (var client = new HttpClient(handler))
+        using var cts = new CancellationTokenSource();
+        using var client = new HttpClient(handler);
+        try
         {
-            try
-            {
-                client.Timeout = Timeout.InfiniteTimeSpan;
+            client.Timeout = Timeout.InfiniteTimeSpan;
 
-                _testOutputHelper.WriteLine($"calling `{location}`...");
-                var request = new HttpRequestMessage(HttpMethod.Get, location);
+            _testOutputHelper.WriteLine($"calling `{location}`...");
+            var request = new HttpRequestMessage(HttpMethod.Get, location);
 
-                using var response = await client
-                    .SendAsync(request, cts.Token)
-                    .ConfigureAwait(continueOnCapturedContext: false);
-            }
-            catch (Exception ex)
-            {
-                Assert.IsType<TimeoutException>(ex);
-            }
+            using var response = await client.SendAsync(request, cts.Token);
+        }
+        catch (Exception ex)
+        {
+            Assert.IsType<TimeoutException>(ex);
         }
     }
 

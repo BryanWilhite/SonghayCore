@@ -51,7 +51,7 @@ public partial class StringExtensionsTests
     [InlineData(@"\\\one\two", false)]
     [InlineData(@"", false)]
     [InlineData(null, false)]
-    public void IsUnc_Test(string input, bool isUnc)
+    public void IsUnc_Test(string? input, bool isUnc)
     {
         Assert.Equal(isUnc, input.IsUnc());
     }
@@ -60,7 +60,7 @@ public partial class StringExtensionsTests
     [InlineData("two", "one,two,three", true)]
     [InlineData("", "one,two,three", false)]
     [InlineData(null, "one,two,three", false)]
-    public void In_Test(string search, string input, bool isIn)
+    public void In_Test(string? search, string input, bool isIn)
     {
         Assert.Equal(isIn, search.In(input));
     }
