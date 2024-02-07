@@ -7,14 +7,6 @@
 /// <seealso cref="Attribute" />
 public class TestOrderAttribute : Attribute
 {
-    /// <summary>Gets the ordinal.</summary>
-    /// <value>The ordinal.</value>
-    public int Ordinal { get; }
-
-    /// <summary>Gets the reason for choosing the order.</summary>
-    /// <value>The reason.</value>
-    public string? Reason { get; }
-
     /// <summary>Initializes a new instance of the <see cref="TestOrderAttribute"/> class.</summary>
     /// <param name="ordinal">The ordinal.</param>
     public TestOrderAttribute(int ordinal) => Ordinal = ordinal;
@@ -27,4 +19,12 @@ public class TestOrderAttribute : Attribute
         Ordinal = ordinal;
         Reason = reason;
     }
+
+    /// <summary>Gets the ordinal.</summary>
+    /// <value>The ordinal.</value>
+    public int Ordinal { get; }
+
+    /// <summary>Gets the reason for choosing the order.</summary>
+    /// <value>The reason.</value>
+    public string? Reason { get; }
 }

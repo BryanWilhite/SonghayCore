@@ -20,8 +20,7 @@ public class TestCaseOrderer : ITestCaseOrderer
     public const string TypeName = "Songhay.Tests.Orderers.TestCaseOrderer";
 
     /// <summary>The queued tests</summary>
-    public static readonly ConcurrentDictionary<string, ConcurrentQueue<string>>
-        QueuedTests = new();
+    public static readonly ConcurrentDictionary<string, ConcurrentQueue<string>> QueuedTests = new();
 
     /// <summary>Orders test cases for execution.</summary>
     /// <typeparam name="TTestCase"></typeparam>
@@ -30,7 +29,9 @@ public class TestCaseOrderer : ITestCaseOrderer
     public IEnumerable<TTestCase> OrderTestCases<TTestCase>(IEnumerable<TTestCase> testCases)
         where TTestCase : ITestCase
     {
-        return testCases.OrderBy(GetOrder);
+        TTestCase[] orderedCases = testCases.OrderBy(GetOrder).ToArray();
+
+        return orderedCases;
     }
 
     static int GetOrder<TTestCase>(TTestCase testCase) where TTestCase : ITestCase
@@ -44,6 +45,7 @@ public class TestCaseOrderer : ITestCaseOrderer
         var attr = testCase.TestMethod.Method
             .ToRuntimeMethod()
             .GetCustomAttribute<TestOrderAttribute>();
+
         return attr?.Ordinal ?? 0;
     }
 }
