@@ -7,7 +7,7 @@
 /// For more detail, see “How to Order xUnit Tests and Collections” by Tom DuPont
 /// [http://www.tomdupont.net/2016/04/how-to-order-xunit-tests-and-collections.html]
 /// </remarks>
-[TestCaseOrderer(TestCaseOrderer.TypeName, TestCaseOrderer.AssemblyName)]
+[TestCaseOrderer(TestCaseOrderer.TypeName, ordererAssemblyName: TestCaseOrderer.AssemblyName)]
 public abstract class OrderedTestBase
 {
     /// <summary>
