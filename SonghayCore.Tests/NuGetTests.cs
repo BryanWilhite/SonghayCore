@@ -9,11 +9,14 @@ public class NuGetTests
         _testOutputHelper = helper;
     }
 
-    [DebuggerAttachedTheory]
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
+    [SkippableTheory]
     [ProjectFileData(typeof(NuGetTests), "../../../../SonghayCore/SonghayCore.nuspec")]
     [ProjectFileData(typeof(NuGetTests), "../../../../SonghayCore.xUnit/SonghayCore.xUnit.nuspec")]
     public void ShouldEditNuSpecFiles(FileSystemInfo nuspecInfo)
     {
+        Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
+
         var nuspecDoc = XDocument.Load(nuspecInfo.FullName);
         Assert.NotNull(nuspecDoc);
 

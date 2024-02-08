@@ -22,34 +22,34 @@ public class HttpRequestMessageExtensionsTests
             InnerHandler = new HttpClientHandler()
         };
 
-        using (var cts = new CancellationTokenSource())
-        using (var client = new HttpClient(handler))
+        using var cts = new CancellationTokenSource();
+        using var client = new HttpClient(handler);
+        try
         {
-            try
-            {
-                client.Timeout = Timeout.InfiniteTimeSpan;
+            client.Timeout = Timeout.InfiniteTimeSpan;
 
-                _testOutputHelper.WriteLine($"calling `{location}`...");
-                var request = new HttpRequestMessage(HttpMethod.Get, location);
+            _testOutputHelper.WriteLine($"calling `{location}`...");
+            var request = new HttpRequestMessage(HttpMethod.Get, location);
 
-                cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
+            cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
 
-                await request.GetContentAsync(
-                    responseMessageAction: null,
-                    optionalClientGetter: () => client);
-            }
-            catch (Exception ex)
-            {
-                Assert.IsType<TaskCanceledException>(ex);
-            }
+            await request.GetContentAsync(
+                responseMessageAction: null,
+                optionalClientGetter: () => client);
+        }
+        catch (Exception ex)
+        {
+            Assert.IsType<TaskCanceledException>(ex);
         }
     }
 
-    [Trait("Category", "Integration")]
-    [DebuggerAttachedTheory]
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
+    [SkippableTheory]
     [InlineData(@"photos/{photoId}", 1)]
     public async Task ShouldDeletePhoto(string input, int id)
     {
+        Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
+
         var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
         var uri = template.BindByPosition($"{id}");
         var message = new HttpRequestMessage(HttpMethod.Delete, uri);
@@ -58,7 +58,7 @@ public class HttpRequestMessageExtensionsTests
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
 
-    [Trait("Category", "Integration")]
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationTest)]
     [Theory]
     [InlineData(@"photos/{photoId}", 1)]
     public async Task ShouldGetPhoto(string input, int id)
@@ -70,11 +70,13 @@ public class HttpRequestMessageExtensionsTests
         _testOutputHelper.WriteLine(content);
     }
 
-    [Trait("Category", "Integration")]
-    [DebuggerAttachedTheory]
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
+    [SkippableTheory]
     [InlineData(@"photos/{photoId}", 1, 999)]
     public async Task ShouldPatchPhoto(string input, int id, int albumId)
     {
+        Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
+
         var body = JObject.FromObject(new { albumId }).ToString();
 
         var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
@@ -90,11 +92,13 @@ public class HttpRequestMessageExtensionsTests
         Assert.Equal(albumId, jO.GetValue(nameof(albumId))?.Value<int>());
     }
 
-    [Trait("Category", "Integration")]
-    [DebuggerAttachedTheory]
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
+    [SkippableTheory]
     [InlineData(@"photos/{photoId}", 1, 999)]
     public async Task ShouldPutPhoto(string input, int id, int albumId)
     {
+        Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
+
         var body = JObject.FromObject(new
         {
             id,
@@ -117,7 +121,7 @@ public class HttpRequestMessageExtensionsTests
         Assert.Equal(albumId, jO.GetValue(nameof(albumId))?.Value<int>());
     }
 
-    [Trait("Category", "Integration")]
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationTest)]
     [Theory]
     [InlineData(@"photos/wrong/{photoId}", 1)]
     public async Task ShouldThrowNotFoundPhoto(string input, int id)

@@ -72,12 +72,15 @@ public partial class ProgramFileUtilityTests
         Assert.True(isUsing);
     }
 
-    [DebuggerAttachedTheory,
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
+    [SkippableTheory,
      ProjectFileData(typeof(ProgramFileUtilityTests),
          "../../../json/hello.json",
          "../../../zip/WriteZipArchiveEntry.zip")]
     public void WriteZipArchiveEntry_Test(FileInfo fileInfo, FileInfo archiveInfo)
     {
+        Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
+
         ProgramFileUtility.WriteZipArchiveEntry(archiveInfo, fileInfo);
     }
 }

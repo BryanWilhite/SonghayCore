@@ -9,6 +9,7 @@ public partial class ProgramFileUtilityTests
         _testOutputHelper = helper;
     }
 
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
     [SkippableTheory]
     [InlineData("root1", @"z:\one", "z:|one", true)]
     [InlineData(@"z:\root1", @"one", "z:|root1|one", true)]

@@ -55,10 +55,13 @@ public class LatinGlyphsUtilityTests
         Assert.Equal(expectedOutput, actual);
     }
 
-    [DebuggerAttachedTheory]
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
+    [SkippableTheory]
     [InlineData("https://www.codetable.net/decimal/190")]
     public void ShouldDownloadDecimalPage(string location)
     {
+        Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
+
         var web = new HtmlWeb();
 
         var htmlDoc = web.Load(location);
@@ -90,10 +93,13 @@ public class LatinGlyphsUtilityTests
         }
     }
 
-    [DebuggerAttachedTheory]
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
+    [SkippableTheory]
     [InlineData("./xlsx/latin-glyphs.xlsx", "./txt/latin-glyphs.txt")]
     public void ShouldWriteProgramGlyphData(string input, string output)
     {
+        Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
+
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
         var sb = new StringBuilder();
@@ -173,10 +179,13 @@ public class LatinGlyphsUtilityTests
         File.WriteAllText(output, sb.ToString().Replace("\t", string.Empty));
     }
 
-    [DebuggerAttachedTheory]
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
+    [SkippableTheory]
     [InlineData("./xlsx/latin-glyphs.xlsx", "./txt/latin-glyph-names.txt")]
     public void ShouldWriteUnicodeNames(string input, string output)
     {
+        Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
+
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
         var sb = new StringBuilder();

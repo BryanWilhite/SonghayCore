@@ -7,7 +7,8 @@ public class UriExtensionsTests
         _testOutputHelper = helper;
     }
 
-    [DebuggerAttachedTheory]
+    [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
+    [SkippableTheory]
     [InlineData("http://ow.ly/i/8Tq32")] //does not expand
     [InlineData("https://t.co/bS1b8WklHh")]
     [InlineData("https://t.co/DdK08h4AZh")]
@@ -25,6 +26,8 @@ public class UriExtensionsTests
     [InlineData("https://t.co/vKonTficpv")] //returns null `response.Headers.Location`
     public async Task ToExpandedUriAsync_Test(string location)
     {
+        Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
+
         _testOutputHelper.WriteLine($"expanding `{location}`...");
         var uri = new Uri(location);
 
