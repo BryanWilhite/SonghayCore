@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <RootNamespace>Songhay</RootNamespace>
-        <AssemblyVersion>6.1.0</AssemblyVersion>
+        <AssemblyVersion>6.1.1</AssemblyVersion>
         <TargetFramework>net6.0</TargetFramework>
 
         <Title>Songhay Core</Title>
@@ -36,8 +36,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\LICENSE.md" Link="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)"/>
-        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\LICENSE.md" Link="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
         <None Include="..\songhay_icon.png">
             <Pack>True</Pack>
             <Link>songhay_icon.png</Link>
@@ -45,21 +45,16 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.1"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="6.0.0"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0"/>
-        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"/>
-        <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1"/>
-        <PackageReference Include="System.ServiceModel.Syndication" Version="6.0.0"/>
-        <PackageReference Include="Tavis.UriTemplates" Version="1.1.1"/>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="Microsoft.Extensions.Logging.Abstractions">
-        <HintPath>..\..\..\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\lib\net6.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
-      </Reference>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.4" />
+        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
+        <PackageReference Include="System.ServiceModel.Syndication" Version="6.0.0" />
+        <PackageReference Include="Tavis.UriTemplates" Version="2.0.0" />
     </ItemGroup>
 
 </Project>
