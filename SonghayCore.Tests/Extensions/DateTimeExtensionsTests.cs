@@ -24,7 +24,7 @@ public class DateTimeExtensionsTests
         var expected = DateTime.Parse(dateString).ToUniversalTime();
 
         var json = $"{{ \"one\": {{ \"my-date\": \"{dateString}\" }} }}";
-        var jDoc = JsonDocument.Parse(json);
+        using var jDoc = JsonDocument.Parse(json);
         var actual = jDoc.RootElement.GetProperty("one").GetProperty("my-date").GetDateTime();
 
         Assert.Equal(expected, actual);
