@@ -58,24 +58,18 @@ public partial class StringExtensionsTests
     [InlineData("\"aaabbb\"bbb,ccc,ddd")]
     [InlineData("\"aaabbb\",ccc,\"ddd")]
     [InlineData("aaa,ccc,\"ddd\\")]
-    public void ShouldThrowCsvParseException(string input)
+    public void ShouldThrowCsvParseException(string? input)
     {
-        Assert.Throws<CsvParseException>(() => input.CsvSplit());
+        Assert.Throws<CsvParseException>(() => input?.CsvSplit());
     }
 
-    static bool Validate(string[] results, string[] expectedResults)
+    static bool Validate(IReadOnlyCollection<string> results, IReadOnlyList<string> expectedResults)
     {
-        if (results.Length != expectedResults.Length)
+        if (results.Count != expectedResults.Count)
         {
             return false;
         }
-        for (int i = 0; i < results.Length; i++)
-        {
-            if (results[i] != expectedResults[i])
-            {
-                return false;
-            }
-        }
-        return true;
+
+        return !results.Where((t, i) => t != expectedResults[i]).Any();
     }
 }
