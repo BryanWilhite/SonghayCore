@@ -925,6 +925,23 @@
             in the specified year.
             </summary>
         </member>
+        <member name="T:Songhay.Extensions.DbDataReaderExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Data.Common.DbDataReader"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.DbDataReaderExtensions.GetFieldValueOrDefault``1(System.Data.Common.DbDataReader,System.String)">
+            <summary>
+            Gets the field value or default.
+            </summary>
+            <typeparam name="TRow"></typeparam>
+            <param name="reader">The reader.</param>
+            <param name="fieldName">Name of the field.</param>
+            <remarks>
+            This member is a primitive alternative to using something like Dapper’s
+            <c>QueryAsync{TRow}</c>, suitable for a handful of columns.
+            </remarks>
+        </member>
         <member name="T:Songhay.Extensions.DirectoryInfoExtensions">
             <summary>Extensions of <see cref="T:System.IO.DirectoryInfo"/>.</summary>
         </member>
@@ -6905,6 +6922,13 @@
             </summary>
             <param name="input">The input.</param>
             <returns>Returns formatted input.</returns>
+        </member>
+        <member name="M:Songhay.ProgramUtility.GetConsoleIndentation(System.Int32,System.Int32)">
+            <summary>
+            Gets the indentation spaces for test display.
+            </summary>
+            <param name="numberOfSpaces"></param>
+            <param name="indentationLevel"></param>
         </member>
         <member name="M:Songhay.ProgramUtility.StartProcess(System.String)">
             <summary>

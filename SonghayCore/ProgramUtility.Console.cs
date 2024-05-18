@@ -90,4 +90,18 @@ public static partial class ProgramUtility
 
         return input;
     }
+
+    /// <summary>
+    /// Gets the indentation spaces for test display.
+    /// </summary>
+    /// <param name="numberOfSpaces"></param>
+    /// <param name="indentationLevel"></param>
+    public static string GetConsoleIndentation(int numberOfSpaces, int indentationLevel)
+    {
+        if (indentationLevel == 0) return string.Empty;
+
+        string spaces = Enumerable.Repeat(" ", numberOfSpaces).Aggregate((a,i) => $"{a}{i}");
+
+        return Enumerable.Repeat(spaces, indentationLevel).Aggregate((a,i) => $"{a}{i}");
+    }
 }

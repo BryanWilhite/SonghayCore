@@ -15,7 +15,7 @@ public static class DbDataReaderExtensions
     /// <param name="fieldName">Name of the field.</param>
     /// <remarks>
     /// This member is a primitive alternative to using something like Dapper’s
-    /// <c>QueryAsync<TRow></c>, suitable for a handful of columns.
+    /// <c>QueryAsync{TRow}</c>, suitable for a handful of columns.
     /// </remarks>
     public static TRow? GetFieldValueOrDefault<TRow>(this DbDataReader reader, string fieldName)
     {
