@@ -8,11 +8,11 @@ public static partial class ProgramArgsExtensions
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
     public static string? GetBasePathValue(this ProgramArgs? args)
     {
-        var isBasePathRequired = args.HasArg(ProgramArgs.BasePathRequired, requiresValue: false);
+        var isBasePathRequired = args.HasArg(ProgramArgs.BasePathRequired, required: false);
         if (!args.HasArg(ProgramArgs.BasePath, isBasePathRequired)) return null;
 
         var basePath = args.GetArgValue(ProgramArgs.BasePath);
-        if (!Directory.Exists(basePath)) throw new ArgumentException($"{basePath} does not exist.");
+        if (!Directory.Exists(basePath)) throw new DirectoryNotFoundException($"`{basePath}` does not exist.");
 
         return basePath;
     }
@@ -28,7 +28,7 @@ public static partial class ProgramArgsExtensions
     {
         var outputFile = args.GetArgValue(ProgramArgs.OutputFile);
 
-        if (args.HasArg(ProgramArgs.OutputUnderBasePath, requiresValue: false))
+        if (args.HasArg(ProgramArgs.OutputUnderBasePath, required: false))
         {
             var basePath = args.GetBasePathValue();
 
@@ -78,11 +78,11 @@ public static partial class ProgramArgsExtensions
     {
         string? input = null;
 
-        if (args.HasArg(ProgramArgs.InputString, requiresValue: false))
+        if (args.HasArg(ProgramArgs.InputString, required: false))
         {
             input = args.GetArgValue(ProgramArgs.InputString);
         }
-        else if (args.HasArg(ProgramArgs.InputFile, requiresValue: true))
+        else if (args.HasArg(ProgramArgs.InputFile, required: true))
         {
             var path = args.GetArgValue(ProgramArgs.InputFile);
 
@@ -107,7 +107,7 @@ public static partial class ProgramArgsExtensions
     /// Determines whether args contain the <see cref="ProgramArgs.Help"/> flag.
     /// </summary>
     /// <param name="args">The <see cref="ProgramArgs"/>.</param>
-    public static bool IsHelpRequest(this ProgramArgs? args) => args.HasArg(ProgramArgs.Help, requiresValue: false);
+    public static bool IsHelpRequest(this ProgramArgs? args) => args.HasArg(ProgramArgs.Help, required: false);
 
     /// <summary>
     /// Converts the <c>args</c> key to a conventional Configuration key.
@@ -132,34 +132,21 @@ public static partial class ProgramArgsExtensions
     {
         if (args == null) return null;
 
-        if (!args.HelpSet.ContainsKey(ProgramArgs.BasePath))
-            args.HelpSet.Add(ProgramArgs.BasePath,
-                "The path to the Directory where the Activity will set its context.");
+        args.HelpSet.TryAdd(ProgramArgs.BasePath, "The path to the Directory where the Activity will set its context.");
 
-        if (!args.HelpSet.ContainsKey(ProgramArgs.BasePathRequired))
-            args.HelpSet.Add(ProgramArgs.BasePathRequired, $"Indicates that {ProgramArgs.BasePath} is required.");
+        args.HelpSet.TryAdd(ProgramArgs.BasePathRequired, $"Indicates that {ProgramArgs.BasePath} is required.");
 
-        if (!args.HelpSet.ContainsKey(ProgramArgs.Help))
-            args.HelpSet.Add(ProgramArgs.Help, "Displays this help text.");
+        args.HelpSet.TryAdd(ProgramArgs.Help, "Displays this help text.");
 
-        if (!args.HelpSet.ContainsKey(ProgramArgs.InputFile))
-            args.HelpSet.Add(ProgramArgs.InputFile,
-                $"The path to the file to load as Activity input. {ProgramArgs.InputString} can be used alternatively.");
+        args.HelpSet.TryAdd(ProgramArgs.InputFile, $"The path to the file to load as Activity input. {ProgramArgs.InputString} can be used alternatively.");
 
-        if (!args.HelpSet.ContainsKey(ProgramArgs.InputString))
-            args.HelpSet.Add(ProgramArgs.InputString,
-                $"The string literal used as Activity input. {ProgramArgs.InputFile} can be used alternatively.");
+        args.HelpSet.TryAdd(ProgramArgs.InputString, $"The string literal used as Activity input. {ProgramArgs.InputFile} can be used alternatively.");
 
-        if (!args.HelpSet.ContainsKey(ProgramArgs.OutputFile))
-            args.HelpSet.Add(ProgramArgs.OutputFile,
-                $"The path to the file to write as Activity output. This can be an absolute path or relative to {ProgramArgs.BasePath} when {ProgramArgs.OutputUnderBasePath} is used.");
+        args.HelpSet.TryAdd(ProgramArgs.OutputFile, $"The path to the file to write as Activity output. This can be an absolute path or relative to {ProgramArgs.BasePath} when {ProgramArgs.OutputUnderBasePath} is used.");
 
-        if (!args.HelpSet.ContainsKey(ProgramArgs.OutputUnderBasePath))
-            args.HelpSet.Add(ProgramArgs.OutputUnderBasePath, $"See {ProgramArgs.OutputFile}.");
+        args.HelpSet.TryAdd(ProgramArgs.OutputUnderBasePath, $"See {ProgramArgs.OutputFile}.");
 
-        if (!args.HelpSet.ContainsKey(ProgramArgs.SettingsFile))
-            args.HelpSet.Add(ProgramArgs.SettingsFile,
-                $"The path to the file to load as Activity Settings input. This can be an absolute path or relative to {ProgramArgs.BasePath}.");
+        args.HelpSet.TryAdd(ProgramArgs.SettingsFile, $"The path to the file to load as Activity Settings input. This can be an absolute path or relative to {ProgramArgs.BasePath}.");
 
         return args;
     }

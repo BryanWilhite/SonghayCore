@@ -2210,6 +2210,56 @@
             <param name="data">The <see cref="T:Songhay.Abstractions.ITemporal"/> data.</param>
             <param name="endDate">Sets <see cref="P:Songhay.Abstractions.ITemporal.EndDate"/>.</param>
         </member>
+        <member name="T:Songhay.Extensions.JsonNodeExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyValue``1(System.Text.Json.Nodes.JsonNode,System.String)">
+            <summary>
+            Gets the property value of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="node">The node.</param>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetJsonValueKind(System.Text.Json.Nodes.JsonNode)">
+            <summary>
+            Gets the <see cref="T:System.Text.Json.JsonValueKind"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </summary>
+            <param name="node">The node.</param>
+            <remarks>
+            This member is needed for .NET 6.0 and earlier.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.IsExpectedObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger,System.String[])">
+            <summary>
+            Determines whether the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            is the expected <see cref="T:System.Text.Json.Nodes.JsonObject"/>.
+            </summary>
+            <param name="node">The node.</param>
+            <param name="logger">The logger.</param>
+            <param name="properties">The properties.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.ToJsonArray(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Converts to the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            to <see cref="T:System.Text.Json.Nodes.JsonArray"/> or logs failure and returns <c>null</c>.
+            </summary>
+            <param name="node">The node.</param>
+            <param name="logger">The logger.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.ToJsonObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Converts to the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            to <see cref="T:System.Text.Json.Nodes.JsonObject"/> or logs failure and returns <c>null</c>.
+            </summary>
+            <param name="node">The node.</param>
+            <param name="logger">The logger.</param>
+            <returns></returns>
+        </member>
         <member name="T:Songhay.Extensions.MenuDisplayItemModelExtensions">
             <summary>
             Extensions of <see cref="T:Songhay.Models.MenuDisplayItemModel"/>
@@ -2478,14 +2528,15 @@
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.HasArg(Songhay.Models.ProgramArgs,System.String,System.Boolean)">
             <summary>
-            Determines whether the specified <see cref="T:Songhay.Models.ProgramArgs"/> has argument.
+            Determines whether the specified <see cref="T:Songhay.Models.ProgramArgs" /> has argument.
             </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
+            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs" />.</param>
             <param name="arg">The argument.</param>
-            <param name="requiresValue">if set to <c>true</c> [requires value].</param>
+            <param name="required">if set to <c>true</c> then the argument is required.</param>
             <returns>
               <c>true</c> if the specified argument has argument; otherwise, <c>false</c>.
             </returns>
+            <exception cref="T:System.ArgumentException">Argument {arg} requires a value.</exception>
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.ToHelpDisplayText(Songhay.Models.ProgramArgs)">
             <summary>
