@@ -102,7 +102,7 @@ public static class JsonNodeExtensions
 
         if (node.GetJsonValueKind() != JsonValueKind.Array)
         {
-            logger?.LogError("The expected {Enum}.{Member} of {Node} is not here.", nameof(JsonValueKind), nameof(JsonValueKind.Object), nameof(JsonNode));
+            logger?.LogError("The kind of JSON, {Enum}.{Member}, of the specified {Node} is not expected.", nameof(JsonValueKind), nameof(JsonValueKind.Object), nameof(JsonNode));
 
             return null;
         }
@@ -128,7 +128,7 @@ public static class JsonNodeExtensions
 
         if (node.GetJsonValueKind() != JsonValueKind.Object)
         {
-            logger?.LogError("The expected {Enum}.{Member} of {Node} is not here.", nameof(JsonValueKind), nameof(JsonValueKind.Object), nameof(JsonNode));
+            logger?.LogError("The kind of JSON, {Enum}.{Member}, of the specified {Node} is not expected.", nameof(JsonValueKind), nameof(JsonValueKind.Object), nameof(JsonNode));
 
             return null;
         }
