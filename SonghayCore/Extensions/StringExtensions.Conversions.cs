@@ -99,6 +99,16 @@ public static partial class StringExtensions
         : $"{input[0].ToString().ToLowerInvariant()}{input[1..]}";
 
     /// <summary>
+    /// Convert a command-line <c>args</c> like those defined in <see cref="ConsoleArgsScalars"/>
+    /// to <see cref="IConfiguration"/>-key format.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    public static string? ToConfigurationKey(this string? input) =>
+        input?.TrimStart('-')
+            .Replace("/", string.Empty)
+            .Replace("=", string.Empty);
+
+    /// <summary>
     /// Converts the <see cref="String"/> into digits only.
     /// </summary>
     /// <param name="input">The input.</param>
@@ -279,4 +289,11 @@ public static partial class StringExtensions
 
         return string.Concat(input[..length].TrimEnd(), ellipsis);
     }
+
+    /// <summary>
+    /// Returns the specified <see cref="string"/>
+    /// with the conventional, console <see cref="IConfiguration"/>-key help text suffix.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    public static string WithConfigurationHelpTextSuffix(this string? input) => $"{input}-help";
 }

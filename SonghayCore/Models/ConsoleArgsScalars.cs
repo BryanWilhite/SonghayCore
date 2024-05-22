@@ -1,21 +1,10 @@
-﻿namespace Songhay.Models;
+namespace Songhay.Models;
 
 /// <summary>
-/// Defines conventional command-line arguments.
+/// Centralizes conventional console <c>args</c> passed to <see cref="IConfiguration"/>.
 /// </summary>
-[Obsolete("Use `ConsoleArgsScalars` and the defaults of `IHost` with `IConfiguration` instead.")]
-public class ProgramArgs
+public static class ConsoleArgsScalars
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ProgramArgs"/> class.
-    /// </summary>
-    /// <param name="args">The arguments.</param>
-    public ProgramArgs(string?[] args)
-    {
-        Args = args.OfType<string>().ToArray();
-        if (Args.Any()) HelpSet = new Dictionary<string, string>(capacity: Args.Count);
-    }
-
     /// <summary>
     /// The base-path argument.
     /// </summary>
@@ -55,14 +44,4 @@ public class ProgramArgs
     /// The settings file argument.
     /// </summary>
     public const string SettingsFile = "--settings-file";
-
-    /// <summary>
-    /// Gets the arguments.
-    /// </summary>
-    public IReadOnlyCollection<string> Args { get; }
-
-    /// <summary>
-    /// Gets the help set.
-    /// </summary>
-    public Dictionary<string, string> HelpSet { get; } = new();
 }
