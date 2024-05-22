@@ -6,17 +6,22 @@ namespace Songhay.Models;
 public static class ConsoleArgsScalars
 {
     /// <summary>
-    /// The base-path argument.
+    /// The base-directory argument.
     /// </summary>
-    public const string BasePath = "--base-path";
+    public const string BaseDirectory = "--base-directory";
 
     /// <summary>
-    /// The base path required argument.
+    /// Is <see cref="BaseDirectory"/> required flag.
     /// </summary>
-    public const string BasePathRequired = "--base-path-required";
+    public const string BaseDirectoryRequired = "--base-directory-required";
 
     /// <summary>
-    /// The help argument.
+    /// Ensures the space after a flag is clearly seen.
+    /// </summary>
+    public const string FlagSpacer = " ";
+
+    /// <summary>
+    /// The help argument flag.
     /// </summary>
     public const string Help = "--help";
 
@@ -36,7 +41,7 @@ public static class ConsoleArgsScalars
     public const string OutputFile = "--output-file";
 
     /// <summary>
-    /// Use the output file argument relative to <see cref="ProgramArgs.BasePath"/>.
+    /// Flag: use the output file argument relative to <see cref="ProgramArgs.BasePath"/>.
     /// </summary>
     public const string OutputUnderBasePath = "--output-under-base-path";
 
