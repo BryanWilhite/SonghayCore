@@ -7,6 +7,53 @@ namespace Songhay.Extensions;
 public static class IConfigurationExtensions
 {
     /// <summary>
+    /// Returns the value of the conventional <see cref="ConsoleArgsScalars.BasePath"/> <c>arg</c>
+    /// or throws <see cref="DirectoryNotFoundException"/>
+    /// when the conventional <see cref="ConsoleArgsScalars.BasePathRequired"/> <c>arg</c> is present.
+    /// </summary>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    public static string? GetBasePathValue(this IConfiguration? configuration)
+    {
+        if (configuration == null) return null;
+
+        bool isBasePathRequired = configuration.HasArg(ConsoleArgsScalars.BasePathRequired);
+        string? basePath = configuration[ConsoleArgsScalars.BasePath.ToConfigurationKey()];
+
+        if(string.IsNullOrWhiteSpace(basePath) && isBasePathRequired)
+            throw new DirectoryNotFoundException($"The expected `{ConsoleArgsScalars.BasePath}` is not here.");
+        if(!Directory.Exists(basePath) && isBasePathRequired)
+            throw new DirectoryNotFoundException($"`{ConsoleArgsScalars.BasePath} = {basePath}` does not exist.");
+
+        return basePath;
+    }
+
+    /// <summary>
+    /// Returns the value of the conventional <see cref="ConsoleArgsScalars.OutputFile"/> <c>arg</c>
+    /// and will prefix it with the value of the <see cref="ConsoleArgsScalars.BasePath"/> <c>arg</c>
+    /// when the conventional <see cref="ConsoleArgsScalars.OutputUnderBasePath"/> <c>arg</c> is present.
+    /// </summary>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    public static string? GetOutputPath(this IConfiguration? configuration)
+    {
+        if (configuration == null) return null;
+
+        string outputFile = configuration[ConsoleArgsScalars.OutputFile.ToConfigurationKey()];
+
+        bool outputUnderBasePath = configuration.HasArg(ConsoleArgsScalars.OutputUnderBasePath);
+
+        if (outputUnderBasePath)
+        {
+            string? basePath = configuration.GetBasePathValue();
+
+            outputFile = ProgramFileUtility.GetCombinedPath(basePath, outputFile);
+        }
+
+        if (!File.Exists(outputFile)) File.WriteAllText(outputFile, string.Empty);
+
+        return outputFile;
+    }
+
+    /// <summary>
     /// Returns <c>true</c> when the specified <see cref="IConfiguration"/>
     /// contains the specified key.
     /// </summary>
