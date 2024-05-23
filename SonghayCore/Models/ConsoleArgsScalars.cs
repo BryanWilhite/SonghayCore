@@ -16,6 +16,11 @@ public static class ConsoleArgsScalars
     public const string BaseDirectoryRequired = "--base-directory-required";
 
     /// <summary>
+    /// Dry-run flag.
+    /// </summary>
+    public const string DryRun = "--dry-run";
+
+    /// <summary>
     /// Ensures the space after a flag is clearly seen.
     /// </summary>
     public const string FlagSpacer = " ";

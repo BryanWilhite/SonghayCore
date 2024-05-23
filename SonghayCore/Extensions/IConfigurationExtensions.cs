@@ -85,7 +85,14 @@ public static class IConfigurationExtensions
         configuration.ToKeys().Contains(key.ToConfigurationKey());
 
     /// <summary>
-    /// Determines whether <c>args</c> contain the convnetional <see cref="ProgramArgs.Help"/> flag.
+    /// Determines whether <c>args</c> contain the conventional <see cref="ConsoleArgsScalars.DryRun"/> flag.
+    /// </summary>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    public static bool IsDryRun(this IConfiguration? configuration) =>
+        configuration.HasArg(ConsoleArgsScalars.DryRun.ToConfigurationKey());
+
+    /// <summary>
+    /// Determines whether <c>args</c> contain the conventional <see cref="ConsoleArgsScalars.Help"/> flag.
     /// </summary>
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
     public static bool IsHelpRequest(this IConfiguration? configuration) =>
