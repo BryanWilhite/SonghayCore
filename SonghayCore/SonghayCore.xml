@@ -1952,9 +1952,15 @@
             to convert a console argument to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key format.
             </remarks>
         </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.IsDryRun(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Determines whether <c>args</c> contain the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.DryRun"/> flag.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.IsHelpRequest(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
-            Determines whether <c>args</c> contain the convnetional <see cref="F:Songhay.Models.ProgramArgs.Help"/> flag.
+            Determines whether <c>args</c> contain the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.Help"/> flag.
             </summary>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
         </member>
@@ -1974,6 +1980,21 @@
             </summary>
             <param name="configuration"></param>
             <exception cref="T:System.IO.FileNotFoundException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Converts the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            to any keys ending with <see cref="F:Songhay.Models.ConsoleArgsScalars.HelpTextSuffix"/>.
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)">
+            <summary>
+            Converts the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            to any keys ending with <see cref="F:Songhay.Models.ConsoleArgsScalars.HelpTextSuffix"/>.
+            </summary>
+            <param name="configuration"></param>
+            <param name="padding">the padding between keys and values</param>
         </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.ToKeys(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -2982,7 +3003,7 @@
         <member name="M:Songhay.Extensions.StringExtensions.WithConfigurationHelpTextSuffix(System.String)">
             <summary>
             Returns the specified <see cref="T:System.String"/>
-            with the conventional, console <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key help text suffix.
+            with <see cref="F:Songhay.Models.ConsoleArgsScalars.HelpTextSuffix"/>.
             </summary>
             <param name="input">The input.</param>
         </member>
@@ -3759,6 +3780,25 @@
             Defines the conventional, default Hosted Service
             </summary>
         </member>
+        <member name="M:Songhay.Hosting.DefaultHostedService.#ctor(Microsoft.Extensions.Hosting.IHostApplicationLifetime,Microsoft.Extensions.Logging.ILogger{Songhay.Hosting.DefaultHostedService})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Songhay.Hosting.DefaultHostedService"/> class.
+            </summary>
+            <param name="hostApplicationLifetime">the <see cref="T:Microsoft.Extensions.Hosting.IHostApplicationLifetime"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Hosting.DefaultHostedService.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            Triggered when the application host is ready to start the service.
+            </summary>
+            <param name="cancellationToken">Indicates that the start process has been aborted.</param>
+        </member>
+        <member name="M:Songhay.Hosting.DefaultHostedService.StopAsync(System.Threading.CancellationToken)">
+            <summary>
+            Triggered when the application host is performing a graceful shutdown.
+            </summary>
+            <param name="cancellationToken">Indicates that the shutdown process should no longer be graceful.</param>
+        </member>
         <member name="T:Songhay.MathUtility">
             <summary>
             Static helpers for Math.
@@ -3868,6 +3908,11 @@
             Is <see cref="F:Songhay.Models.ConsoleArgsScalars.BaseDirectory"/> required flag.
             </summary>
         </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.DryRun">
+            <summary>
+            Dry-run flag.
+            </summary>
+        </member>
         <member name="F:Songhay.Models.ConsoleArgsScalars.FlagSpacer">
             <summary>
             Ensures the space after a flag is clearly seen.
@@ -3876,6 +3921,11 @@
         <member name="F:Songhay.Models.ConsoleArgsScalars.Help">
             <summary>
             The help argument flag.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.HelpTextSuffix">
+            <summary>
+            The conventional <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key help text suffix.
             </summary>
         </member>
         <member name="F:Songhay.Models.ConsoleArgsScalars.InputFile">

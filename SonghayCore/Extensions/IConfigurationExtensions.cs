@@ -149,6 +149,56 @@ public static class IConfigurationExtensions
 
     /// <summary>
     /// Converts the specified <see cref="IConfiguration"/>
+    /// to any keys ending with <see cref="ConsoleArgsScalars.HelpTextSuffix"/>.
+    /// </summary>
+    /// <param name="configuration"></param>
+    public static string? ToHelpDisplayText(this IConfiguration? configuration) =>
+        configuration.ToHelpDisplayText(4);
+
+    /// <summary>
+    /// Converts the specified <see cref="IConfiguration"/>
+    /// to any keys ending with <see cref="ConsoleArgsScalars.HelpTextSuffix"/>.
+    /// </summary>
+    /// <param name="configuration"></param>
+    /// <param name="padding">the padding between keys and values</param>
+    public static string? ToHelpDisplayText(this IConfiguration? configuration, int padding)
+    {
+        if (configuration == null) return null;
+
+        string[] helpKeys =
+            configuration.ToKeys()
+                .Where(k =>
+                    !k.EqualsInvariant(ConsoleArgsScalars.Help.ToConfigurationKey()) &&
+                    k.EndsWith(ConsoleArgsScalars.HelpTextSuffix))
+                .ToArray();
+
+        if (!helpKeys.Any()) return null;
+
+        var pairs = helpKeys
+            .Select(k => new KeyValuePair<string, string>(k, configuration[k]))
+            .ToArray();
+
+        int maxLength = helpKeys.Select(k => k.Length).Max();
+
+        return pairs
+            .Where(pair =>
+                !string.IsNullOrWhiteSpace(pair.Key) &&
+                !string.IsNullOrWhiteSpace(pair.Value))
+            .Select(pair =>
+            {
+                int count = maxLength - pair.Key.Length + padding;
+                string[] spaces = Enumerable.Repeat(" ", count).ToArray();
+                string key = pair.Key.Replace(ConsoleArgsScalars.HelpTextSuffix, string.Empty);
+                if (key.EqualsInvariant("-")) key = ConsoleArgsScalars.Help;
+                string newLine = $"{Environment.NewLine}{Environment.NewLine}";
+
+                return $"{key}{string.Join(string.Empty, spaces)}{pair.Value}{newLine}";
+            })
+            .Aggregate((a, i) => $"{a}{i}");
+    }
+
+    /// <summary>
+    /// Converts the specified <see cref="IConfiguration"/>
     /// to a collection of its underlying keys.
     /// </summary>
     /// <param name="configuration">the <see cref="IConfiguration"/></param>

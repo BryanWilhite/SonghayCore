@@ -31,6 +31,11 @@ public static class ConsoleArgsScalars
     public const string Help = "--help";
 
     /// <summary>
+    /// The conventional <see cref="IConfiguration"/>-key help text suffix.
+    /// </summary>
+    public const string HelpTextSuffix = "-help";
+
+    /// <summary>
     /// The input file argument.
     /// </summary>
     public const string InputFile = "--input-file";

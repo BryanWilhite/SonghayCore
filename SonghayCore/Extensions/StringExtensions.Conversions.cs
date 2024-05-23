@@ -292,8 +292,8 @@ public static partial class StringExtensions
 
     /// <summary>
     /// Returns the specified <see cref="string"/>
-    /// with the conventional, console <see cref="IConfiguration"/>-key help text suffix.
+    /// with <see cref="ConsoleArgsScalars.HelpTextSuffix"/>.
     /// </summary>
     /// <param name="input">The input.</param>
-    public static string WithConfigurationHelpTextSuffix(this string? input) => $"{input}-help";
+    public static string WithConfigurationHelpTextSuffix(this string? input) => $"{input}{ConsoleArgsScalars.HelpTextSuffix}";
 }
