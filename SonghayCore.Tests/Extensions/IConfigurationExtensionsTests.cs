@@ -16,17 +16,25 @@ public class IConfigurationExtensionsTests
     [InlineData("../../../json", "configuration.json")]
     public async Task ReadSettings_Test(string baseDirectory, string configFile)
     {
+        #region arrange input:
+
         baseDirectory = ProgramAssemblyUtility
             .GetPathFromAssembly(GetType().Assembly, baseDirectory);
 
         _testOutputHelper.WriteLine($"{nameof(baseDirectory)}: `{baseDirectory}`");
         _testOutputHelper.WriteLine($"{nameof(configFile)}: `{configFile}`");
 
+        #endregion
+
+        #region arrange args:
+
         string[] args = {
             ConsoleArgsScalars.BaseDirectoryRequired, ConsoleArgsScalars.FlagSpacer,
             ConsoleArgsScalars.BaseDirectory, baseDirectory,
             ConsoleArgsScalars.SettingsFile, configFile,
         };
+
+        #endregion
 
         IConfiguration? configuration = null;
         IHostBuilder builder = Host.CreateDefaultBuilder(args);
@@ -36,20 +44,20 @@ public class IConfigurationExtensionsTests
             configuration = hostingContext.Configuration;
 
             string path = configuration.GetSettingsFilePath();
+            Assert.True(File.Exists(path), $"The expected path, `{path}`, does not exist.");
 
             configBuilder.AddJsonFile(path, optional: false);
         });
 
-        IHost host = builder.Build();
+        using IHost host = builder.Build();
         try
         {
             host.Start();
+            // FUNKYKB: `IHost.Run` cannot be called here
+            // because it will await forever
+            // and any JSON files will not load until it is called.
 
-            Assert.NotNull(configuration);
-            IReadOnlyCollection<string> keys = configuration.ToKeys();
-            Assert.NotEmpty(keys);
-            _testOutputHelper.WriteLine($"{nameof(keys)}:");
-            keys.ForEachInEnumerable(k => _testOutputHelper.WriteLine($"    `{k}`"));
+            ReportOnConfigState(configuration);
 
             Assert.Equal(baseDirectory, configuration.GetBasePathValue());
             Assert.Equal(configFile, Path.GetFileName(configuration.GetSettingsFilePath()));
@@ -69,9 +77,9 @@ public class IConfigurationExtensionsTests
     [InlineData("../../../json", "input.json")]
     [InlineData(null, "../../../json/input.json")]
     [InlineData(null, @"{ ""arg1"": 1, ""arg2"": 2, ""arg3"": 3 }")]
-    public void ReadStringInput_Test(string? baseDirectory, string? input)
+    public async Task ReadStringInput_Test(string? baseDirectory, string? input)
     {
-        #region arrange input
+        #region arrange input:
 
         bool isJsonFile = input?.EndsWith(".json") == true;
 
@@ -86,7 +94,7 @@ public class IConfigurationExtensionsTests
 
         #endregion
 
-        #region arrange args
+        #region arrange args:
 
         string?[] args = isJsonFile ?
             new[]
@@ -110,23 +118,27 @@ public class IConfigurationExtensionsTests
 
         builder.ConfigureAppConfiguration((hostingContext, _) => configuration = hostingContext.Configuration);
 
-        IHost _ = builder.Build();
-        // FUNKYKB: `IHost.Run` cannot be called here
-        // because it will await forever
-        // and any JSON files will not load until it is called.
+        using IHost host = builder.Build();
+        try
+        {
+            // FUNKYKB: `IHost.Run` cannot be called here
+            // because it will await forever
+            // and any JSON files will not load until it is called.
 
-        Assert.NotNull(configuration);
-        IReadOnlyCollection<string> keys = configuration.ToKeys();
-        Assert.NotEmpty(keys);
-        _testOutputHelper.WriteLine($"{nameof(keys)}:");
-        keys.ForEachInEnumerable(k => _testOutputHelper.WriteLine($"    `{k}`"));
+            ReportOnConfigState(configuration);
 
-        input = configuration.ReadStringInput();
+            input = configuration.ReadStringInput();
 
-        Assert.False(string.IsNullOrWhiteSpace(input));
+            Assert.False(string.IsNullOrWhiteSpace(input));
 
-        _testOutputHelper.WriteLine($"{nameof(input)}:");
-        _testOutputHelper.WriteLine(input);
+            _testOutputHelper.WriteLine($"{nameof(input)}:");
+            _testOutputHelper.WriteLine(input);
+
+        }
+        finally
+        {
+            await host.StopAsync();
+        }
     }
 
     [Fact]
@@ -164,7 +176,7 @@ public class IConfigurationExtensionsTests
     [InlineData(null, "../../../json/output.json")]
     public void WriteOutputToFile_Test(string? baseDirectory, string outputFile)
     {
-        #region arrange input
+        #region arrange input:
 
         if (string.IsNullOrWhiteSpace(baseDirectory))
         {
@@ -179,7 +191,7 @@ public class IConfigurationExtensionsTests
 
         #endregion
 
-        #region arrange args
+        #region arrange args:
 
         string[] args = string.IsNullOrWhiteSpace(baseDirectory) ?
                 new[]
@@ -203,16 +215,12 @@ public class IConfigurationExtensionsTests
 
         builder.ConfigureAppConfiguration((hostingContext, _) => configuration = hostingContext.Configuration);
 
-        IHost _ = builder.Build();
+        using IHost _ = builder.Build();
         // FUNKYKB: `IHost.Run` cannot be called here
         // because it will await forever
         // and any JSON files will not load until it is called.
 
-        Assert.NotNull(configuration);
-        IReadOnlyCollection<string> keys = configuration.ToKeys();
-        Assert.NotEmpty(keys);
-        _testOutputHelper.WriteLine($"{nameof(keys)}:");
-        keys.ForEachInEnumerable(k => _testOutputHelper.WriteLine($"    `{k}`"));
+        ReportOnConfigState(configuration);
 
         var anon = new { modificationDate = DateTime.Now };
 
@@ -223,6 +231,22 @@ public class IConfigurationExtensionsTests
         _testOutputHelper.WriteLine($"output path: {actual}");
 
         _testOutputHelper.WriteLine($"file content: {File.ReadAllText(actual)}");
+    }
+
+    void ReportOnConfigState(IConfiguration? configuration)
+    {
+        Assert.NotNull(configuration);
+        IReadOnlyCollection<string> keys = configuration.ToKeys();
+        Assert.NotEmpty(keys);
+        _testOutputHelper.WriteLine($"{nameof(IConfiguration)}:");
+        keys.ForEachInEnumerable(k => _testOutputHelper.WriteLine($"    `{k}`: `{configuration[k]}`"));
+
+        _testOutputHelper.WriteLine($"{nameof(Environment)} variables:");
+        Environment
+            .GetEnvironmentVariables()
+            .Keys
+            .OfType<string>()
+            .ForEachInEnumerable(k => _testOutputHelper.WriteLine($"    `{k}`: `{Environment.GetEnvironmentVariable(k)}`"));
     }
 
     readonly ITestOutputHelper _testOutputHelper;
