@@ -5,7 +5,7 @@ public class HttpClientExtensionsTests
     public HttpClientExtensionsTests(ITestOutputHelper helper)
     {
         _testOutputHelper = helper;
-        _basePath = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
+        _basePath = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, TestScalars.NetCoreRelativePathToProjectFolder);
     }
 
     [Theory]
@@ -50,8 +50,7 @@ public class HttpClientExtensionsTests
 
     static HttpClient GetHttpClient() => HttpClientLazy.Value;
 
-    static readonly Lazy<HttpClient> HttpClientLazy =
-        new Lazy<HttpClient>(() => new HttpClient(), LazyThreadSafetyMode.PublicationOnly);
+    static readonly Lazy<HttpClient> HttpClientLazy = new(() => new HttpClient(), LazyThreadSafetyMode.PublicationOnly);
 
     readonly ITestOutputHelper _testOutputHelper;
     readonly string _basePath;

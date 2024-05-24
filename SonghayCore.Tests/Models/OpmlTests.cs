@@ -1,4 +1,5 @@
-﻿using Songhay.Xml;
+﻿using Songhay.Tests.Extensions;
+using Songhay.Xml;
 
 namespace Songhay.Tests.Models;
 
@@ -13,9 +14,8 @@ public class OpmlTests
     [InlineData(@"Models\OpmlFromInfoPath.xml")]
     public void ShouldFilterCategory(string opmlFile)
     {
-        var projectFolder = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
-
-        var path = ProgramFileUtility.GetCombinedPath(projectFolder, opmlFile);
+        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
+        string path = projectDirectoryInfo.ToCombinedPath(opmlFile);
         Assert.True(File.Exists(path));
 
         var data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
@@ -32,9 +32,8 @@ public class OpmlTests
     [InlineData(@"Models\OpmlTests.opml")]
     public void ShouldLoadCategoriesAndResources(string opmlFile)
     {
-        var projectFolder = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
-
-        var path = ProgramFileUtility.GetCombinedPath(projectFolder, opmlFile);
+        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
+        string path = projectDirectoryInfo.ToCombinedPath(opmlFile);
         Assert.True(File.Exists(path));
 
         var data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
@@ -63,9 +62,8 @@ public class OpmlTests
     [InlineData(@"Models\OpmlFromInfoPath.xml")]
     public void ShouldLoadDocument(string opmlFile)
     {
-        var projectFolder = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
-
-        var path = ProgramFileUtility.GetCombinedPath(projectFolder, opmlFile);
+        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
+        string path = projectDirectoryInfo.ToCombinedPath(opmlFile);
         Assert.True(File.Exists(path));
 
         var data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
@@ -90,9 +88,8 @@ public class OpmlTests
     [InlineData(@"Models\OpmlTests.opml")]
     public void ShouldWriteDateModified(string opmlFile)
     {
-        var projectFolder = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
-
-        var path = ProgramFileUtility.GetCombinedPath(projectFolder, opmlFile);
+        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
+        string path = projectDirectoryInfo.ToCombinedPath(opmlFile);
         Assert.True(File.Exists(path));
 
         var data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();

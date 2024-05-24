@@ -4,6 +4,7 @@ using HtmlAgilityPack;
 using Songhay.Models;
 using Songhay.Xml;
 using System.Text;
+using Songhay.Tests.Extensions;
 
 namespace Songhay.Tests.Xml;
 
@@ -102,15 +103,12 @@ public class LatinGlyphsUtilityTests
 
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-        var sb = new StringBuilder();
-        var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
-        var projectInfo = new DirectoryInfo(projectRoot);
-        Assert.True(projectInfo.Exists);
+        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
 
-        input = projectInfo.ToCombinedPath(input);
+        input = projectDirectoryInfo.ToCombinedPath(input);
         Assert.True(File.Exists(input));
 
-        output = projectInfo.ToCombinedPath(output);
+        output = projectDirectoryInfo.ToCombinedPath(output);
         Assert.True(File.Exists(output));
 
         string? GetCharacter(IExcelDataReader reader)
@@ -167,6 +165,8 @@ public class LatinGlyphsUtilityTests
             return $"new {nameof(ProgramGlyph)} {{ {properties.Aggregate((a, i) => $"{a} {i}")} }},";
         }
 
+        var sb = new StringBuilder();
+
         using (var stream = File.Open(input, FileMode.Open, FileAccess.Read))
         {
             using (var reader = ExcelReaderFactory.CreateReader(stream))
@@ -188,15 +188,12 @@ public class LatinGlyphsUtilityTests
 
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-        var sb = new StringBuilder();
-        var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
-        var projectInfo = new DirectoryInfo(projectRoot);
-        Assert.True(projectInfo.Exists);
+        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
 
-        input = projectInfo.ToCombinedPath(input);
+        input = projectDirectoryInfo.ToCombinedPath(input);
         Assert.True(File.Exists(input));
 
-        output = projectInfo.ToCombinedPath(output);
+        output = projectDirectoryInfo.ToCombinedPath(output);
         Assert.True(File.Exists(output));
 
         string ReadLine(IExcelDataReader reader)
@@ -234,6 +231,8 @@ public class LatinGlyphsUtilityTests
 
             return unicodeName;
         }
+
+        var sb = new StringBuilder();
 
         using (var stream = File.Open(input, FileMode.Open, FileAccess.Read))
         {

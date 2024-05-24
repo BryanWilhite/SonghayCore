@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Xml;
+using Songhay.Tests.Extensions;
 
 namespace Songhay.Tests;
 
@@ -13,12 +14,10 @@ public class ProgramFileTests
     [Theory, InlineData(200)]
     public void ShouldFindPathOfGivenLength(int length)
     {
-        var assemblyRoot = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly);
-        var projectsFolder = ProgramFileUtility.GetParentDirectory(assemblyRoot, 3);
+        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
 
-        var directory = new DirectoryInfo(projectsFolder.ToReferenceTypeValueOrThrow());
         var dict = new Dictionary<string, int>();
-        AddPathsToList(directory, dict);
+        AddPathsToList(projectDirectoryInfo, dict);
         dict.ForEachInEnumerable(d =>
         {
             if (d.Value > length)
@@ -57,8 +56,8 @@ public class ProgramFileTests
     [Theory, InlineData(@"content\FrameworkFileTest-ShouldSortTextFileData.txt")]
     public void ShouldSortTextFileData(string outFile)
     {
-        var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
-        outFile = ProgramFileUtility.GetCombinedPath(projectRoot, outFile);
+        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
+        outFile = projectDirectoryInfo.ToCombinedPath(outFile);
         Assert.True(File.Exists(outFile), "The expected output file is not here");
 
         var stream = new FileStream(outFile, FileMode.Open);
@@ -84,8 +83,8 @@ public class ProgramFileTests
     [Theory, InlineData(@"content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt")]
     public void ShouldWriteTextFileWithStreamWriter(string outFile)
     {
-        var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
-        outFile = ProgramFileUtility.GetCombinedPath(projectRoot, outFile);
+        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
+        outFile = projectDirectoryInfo.ToCombinedPath(outFile);
         Assert.True(File.Exists(outFile), "The expected output file is not here");
 
         var fileText = @"
@@ -111,8 +110,8 @@ This is the end of the file.
     [Theory, InlineData(@"content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml")]
     public void ShouldWriteTextFileWithXmlTextWriter(string outFile)
     {
-        var projectRoot = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
-        outFile = ProgramFileUtility.GetCombinedPath(projectRoot, outFile);
+        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
+        outFile = projectDirectoryInfo.ToCombinedPath(outFile);
         Assert.True(File.Exists(outFile), "The expected output file is not here");
 
         var stream = new FileStream(outFile, FileMode.Create);

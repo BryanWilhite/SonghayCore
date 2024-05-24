@@ -14,7 +14,7 @@ public class IConfigurationExtensionsTests
 
     [Theory]
     [InlineData("../../../json", "configuration.json")]
-    public void ReadSettings_Test(string baseDirectory, string configFile)
+    public async Task ReadSettings_Test(string baseDirectory, string configFile)
     {
         baseDirectory = ProgramAssemblyUtility
             .GetPathFromAssembly(GetType().Assembly, baseDirectory);
@@ -40,24 +40,29 @@ public class IConfigurationExtensionsTests
             configBuilder.AddJsonFile(path, optional: false);
         });
 
-        IHost _ = builder.Build();
-        // FUNKYKB: `IHost.Run` cannot be called here
-        // because it will await forever
-        // and any JSON files will not load until it is called.
+        IHost host = builder.Build();
+        try
+        {
+            host.Start();
 
-        Assert.NotNull(configuration);
-        IReadOnlyCollection<string> keys = configuration.ToKeys();
-        Assert.NotEmpty(keys);
-        _testOutputHelper.WriteLine($"{nameof(keys)}:");
-        keys.ForEachInEnumerable(k => _testOutputHelper.WriteLine($"    `{k}`"));
+            Assert.NotNull(configuration);
+            IReadOnlyCollection<string> keys = configuration.ToKeys();
+            Assert.NotEmpty(keys);
+            _testOutputHelper.WriteLine($"{nameof(keys)}:");
+            keys.ForEachInEnumerable(k => _testOutputHelper.WriteLine($"    `{k}`"));
 
-        Assert.Equal(baseDirectory, configuration.GetBasePathValue());
-        Assert.Equal(configFile, Path.GetFileName(configuration.GetSettingsFilePath()));
+            Assert.Equal(baseDirectory, configuration.GetBasePathValue());
+            Assert.Equal(configFile, Path.GetFileName(configuration.GetSettingsFilePath()));
 
-        string json = configuration.ReadSettings();
-        Assert.False(string.IsNullOrWhiteSpace(json));
+            string json = configuration.ReadSettings();
+            Assert.False(string.IsNullOrWhiteSpace(json));
 
-        _testOutputHelper.WriteLine(json);
+            _testOutputHelper.WriteLine(json);
+        }
+        finally
+        {
+            await host.StopAsync();
+        }
     }
 
     [Theory]
