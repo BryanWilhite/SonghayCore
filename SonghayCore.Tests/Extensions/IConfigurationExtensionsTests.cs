@@ -39,6 +39,13 @@ public class IConfigurationExtensionsTests
         IConfiguration? configuration = null;
         IHostBuilder builder = Host.CreateDefaultBuilder(args);
 
+        #region arrange `IHost` builder
+
+        builder.ConfigureHostConfiguration(builder =>
+        {
+            builder.AddCommandLine(new[] {"--ENVIRONMENT", Environments.Development});
+        });
+
         builder.ConfigureAppConfiguration((hostingContext, configBuilder) =>
         {
             configuration = hostingContext.Configuration;
@@ -48,6 +55,8 @@ public class IConfigurationExtensionsTests
 
             configBuilder.AddJsonFile(path, optional: false);
         });
+
+        #endregion
 
         using IHost host = builder.Build();
         try
