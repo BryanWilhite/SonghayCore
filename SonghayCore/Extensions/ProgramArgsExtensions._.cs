@@ -14,37 +14,35 @@ public static partial class ProgramArgsExtensions
     {
         if (args?.Args == null) return null;
 
-        var index = Array.IndexOf(args.Args, arg);
-        var value = args.Args.ElementAtOrDefault(index + 1);
-        if (string.IsNullOrWhiteSpace(@value)) throw new ArgumentException($"Argument {arg} is not here.");
+        int keyIndex = Array.IndexOf(args.Args.ToArray(), arg);
+
+        string? value = args.Args.ElementAtOrDefault(keyIndex + 1);
+
+        if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException($"Argument {arg} is not here.");
 
         return value;
     }
 
     /// <summary>
-    /// Determines whether the specified <see cref="ProgramArgs"/> has argument.
+    /// Determines whether the specified <see cref="ProgramArgs" /> has argument.
     /// </summary>
-    /// <param name="args">The <see cref="ProgramArgs"/>.</param>
+    /// <param name="args">The <see cref="ProgramArgs" />.</param>
     /// <param name="arg">The argument.</param>
-    /// <param name="requiresValue">if set to <c>true</c> [requires value].</param>
+    /// <param name="required">if set to <c>true</c> then the argument is required.</param>
     /// <returns>
     ///   <c>true</c> if the specified argument has argument; otherwise, <c>false</c>.
     /// </returns>
-    public static bool HasArg(this ProgramArgs? args, string? arg, bool requiresValue)
+    /// <exception cref="System.ArgumentException">Argument {arg} requires a value.</exception>
+    public static bool HasArg(this ProgramArgs? args, string? arg, bool required)
     {
         if (args?.Args == null) return false;
+        if(string.IsNullOrWhiteSpace(arg)) return false;
 
-        var index = Array.IndexOf(args.Args, arg);
-        if (index == -1) return false;
+        bool hasArg = args.Args.Contains(arg);
 
-        var lastIndex = Array.LastIndexOf(args.Args, arg);
-        if (index != lastIndex) throw new ArgumentException($"Argument {arg} used more than once.");
+        if (required && !hasArg) throw new ArgumentException($"Argument {arg} requires a value.");
 
-        if (!requiresValue) return true;
-
-        if (args.Args.Length < (index + 1)) throw new ArgumentException($"Argument {arg} requires a value.");
-
-        return true;
+        return hasArg;
     }
 
     /// <summary>

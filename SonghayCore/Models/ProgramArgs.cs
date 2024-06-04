@@ -3,6 +3,7 @@
 /// <summary>
 /// Defines conventional command-line arguments.
 /// </summary>
+[Obsolete("Use `ConsoleArgsScalars` and the defaults of `IHost` with `IConfiguration` instead.")]
 public class ProgramArgs
 {
     /// <summary>
@@ -12,7 +13,7 @@ public class ProgramArgs
     public ProgramArgs(string?[] args)
     {
         Args = args.OfType<string>().ToArray();
-        if (Args.Any()) HelpSet = new Dictionary<string, string>(capacity: Args.Length);
+        if (Args.Any()) HelpSet = new Dictionary<string, string>(capacity: Args.Count);
     }
 
     /// <summary>
@@ -58,7 +59,7 @@ public class ProgramArgs
     /// <summary>
     /// Gets the arguments.
     /// </summary>
-    public string[] Args { get; }
+    public IReadOnlyCollection<string> Args { get; }
 
     /// <summary>
     /// Gets the help set.

@@ -27,6 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Compile Include="..\SonghayCore.xUnit\Extensions\AssemblyExtensions.cs" Link="Extensions\AssemblyExtensions.cs"/>
         <Compile Include="..\SonghayCore.xUnit\Extensions\DataAttributeExtensions.cs" Link="Extensions\DataAttributeExtensions.cs"/>
         <Compile Include="..\SonghayCore.xUnit\Extensions\IServiceProviderExtensions.cs" Link="Extensions\IServiceProviderExtensions.cs"/>
         <Compile Include="..\SonghayCore.xUnit\Models\TestScalars.cs" Link="Models\TestScalars.cs"/>
@@ -34,21 +35,20 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="HtmlAgilityPack" Version="1.11.59" />
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+        <PackageReference Include="HtmlAgilityPack" Version="1.11.61" />
+        <PackageReference Include="Meziantou.Extensions.Logging.Xunit" Version="1.0.7" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-        <PackageReference Include="xunit" Version="2.7.0" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
+        <PackageReference Include="xunit" Version="2.8.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.8.0">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="coverlet.collector" Version="6.0.0">
+        <PackageReference Include="coverlet.collector" Version="6.0.2">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="ExcelDataReader" Version="3.6.0"/>
         <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="6.0.0"/>
-        <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1"/>
         <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0"/>
         <PackageReference Include="Xunit.SkippableFact" Version="1.4.13"/>
     </ItemGroup>

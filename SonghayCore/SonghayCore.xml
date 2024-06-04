@@ -925,6 +925,23 @@
             in the specified year.
             </summary>
         </member>
+        <member name="T:Songhay.Extensions.DbDataReaderExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Data.Common.DbDataReader"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.DbDataReaderExtensions.GetFieldValueOrDefault``1(System.Data.Common.DbDataReader,System.String)">
+            <summary>
+            Gets the field value or default.
+            </summary>
+            <typeparam name="TRow"></typeparam>
+            <param name="reader">The reader.</param>
+            <param name="fieldName">Name of the field.</param>
+            <remarks>
+            This member is a primitive alternative to using something like Dapper’s
+            <c>QueryAsync{TRow}</c>, suitable for a handful of columns.
+            </remarks>
+        </member>
         <member name="T:Songhay.Extensions.DirectoryInfoExtensions">
             <summary>Extensions of <see cref="T:System.IO.DirectoryInfo"/>.</summary>
         </member>
@@ -1895,6 +1912,158 @@
             <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
             <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>; otherwise, <c>null</c>.</returns>
         </member>
+        <member name="T:Songhay.Extensions.IConfigurationExtensions">
+            <summary>
+            Extensions of <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Returns the value of the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.BaseDirectory"/> <c>arg</c>
+            or throws <see cref="T:System.IO.DirectoryNotFoundException"/>
+            when the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.BaseDirectoryRequired"/> <c>arg</c> is present.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Returns the value of the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.OutputFile"/> <c>arg</c>
+            and will prefix it with the value of the <see cref="F:Songhay.Models.ConsoleArgsScalars.BaseDirectory"/> <c>arg</c>
+            when the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.OutputUnderBasePath"/> <c>arg</c> is present.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.GetSettingsFilePath(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Returns the value of the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.SettingsFile"/> <c>arg</c>
+            which should be a path to a text file.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.HasArg(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Returns <c>true</c> when the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            contains the specified key.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="key">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> key</param>
+            <remarks>
+            This member will call <see cref="M:Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)"/>
+            to convert a console argument to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key format.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.IsDryRun(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Determines whether <c>args</c> contain the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.DryRun"/> flag.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.IsHelpRequest(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Determines whether <c>args</c> contain the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.Help"/> flag.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.ReadSettings(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Reads the settings data in the file specified by <see cref="F:Songhay.Models.ConsoleArgsScalars.SettingsFile"/>
+            which could be a relative or absolute path.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.ReadStringInput(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Reads the input data in the inline <see cref="T:System.String"/>
+            specified by <see cref="F:Songhay.Models.ConsoleArgsScalars.InputString"/>
+            or the file specified by <see cref="F:Songhay.Models.ConsoleArgsScalars.InputFile"/>
+            which could be a relative or absolute path.
+            </summary>
+            <param name="configuration"></param>
+            <exception cref="T:System.IO.FileNotFoundException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Converts the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            to any keys ending with <see cref="F:Songhay.Models.ConsoleArgsScalars.HelpTextSuffix"/>.
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)">
+            <summary>
+            Converts the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            to any keys ending with <see cref="F:Songhay.Models.ConsoleArgsScalars.HelpTextSuffix"/>.
+            </summary>
+            <param name="configuration"></param>
+            <param name="padding">the padding between keys and values</param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.ToKeys(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Converts the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            to a collection of its underlying keys.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Returns <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> with the conventional, console, <c>args</c> help text
+            for <see cref="T:Songhay.Models.ConsoleArgsScalars"/>.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Writes the <see cref="T:System.String"/> output
+            to the file specified by <see cref="F:Songhay.Models.ConsoleArgsScalars.OutputFile"/>.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="output">the output to write</param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Writes the <see cref="T:System.String"/> output
+            to the file specified by <see cref="F:Songhay.Models.ConsoleArgsScalars.OutputFile"/>.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="output">the output to write</param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])">
+            <summary>
+            Writes the <see cref="T:System.Byte"/> array output
+            to the file specified by <see cref="F:Songhay.Models.ConsoleArgsScalars.OutputFile"/>.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="output">the output to write</param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])">
+            <summary>
+            Writes the <see cref="T:System.Byte"/> array output
+            to the file specified by <see cref="F:Songhay.Models.ConsoleArgsScalars.OutputFile"/>.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="output">the output to write</param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)">
+            <summary>
+            Writes the <see cref="T:System.IO.Stream"/> output
+            to the file specified by <see cref="F:Songhay.Models.ConsoleArgsScalars.OutputFile"/>.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="output">the output to write</param>
+            <remarks>
+            [ see https://stackoverflow.com/a/5515894/22944 ]
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)">
+            <summary>
+            Writes the <see cref="T:System.IO.Stream"/> output
+            to the file specified by <see cref="F:Songhay.Models.ConsoleArgsScalars.OutputFile"/>.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="output">the output to write</param>
+            <remarks>
+            [ see https://stackoverflow.com/a/5515894/22944 ]
+            </remarks>
+        </member>
         <member name="T:Songhay.Extensions.IDictionaryExtensions">
             <summary>
             Extensions of <see cref="T:System.Collections.Generic.IDictionary`2"/>.
@@ -2193,6 +2362,56 @@
             <param name="data">The <see cref="T:Songhay.Abstractions.ITemporal"/> data.</param>
             <param name="endDate">Sets <see cref="P:Songhay.Abstractions.ITemporal.EndDate"/>.</param>
         </member>
+        <member name="T:Songhay.Extensions.JsonNodeExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyValue``1(System.Text.Json.Nodes.JsonNode,System.String)">
+            <summary>
+            Gets the property value of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="node">The node.</param>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetJsonValueKind(System.Text.Json.Nodes.JsonNode)">
+            <summary>
+            Gets the <see cref="T:System.Text.Json.JsonValueKind"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </summary>
+            <param name="node">The node.</param>
+            <remarks>
+            This member is needed for .NET 6.0 and earlier.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.IsExpectedObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger,System.String[])">
+            <summary>
+            Determines whether the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            is the expected <see cref="T:System.Text.Json.Nodes.JsonObject"/>.
+            </summary>
+            <param name="node">The node.</param>
+            <param name="logger">The logger.</param>
+            <param name="properties">The properties.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.ToJsonArray(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Converts to the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            to <see cref="T:System.Text.Json.Nodes.JsonArray"/> or logs failure and returns <c>null</c>.
+            </summary>
+            <param name="node">The node.</param>
+            <param name="logger">The logger.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.ToJsonObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Converts to the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            to <see cref="T:System.Text.Json.Nodes.JsonObject"/> or logs failure and returns <c>null</c>.
+            </summary>
+            <param name="node">The node.</param>
+            <param name="logger">The logger.</param>
+            <returns></returns>
+        </member>
         <member name="T:Songhay.Extensions.MenuDisplayItemModelExtensions">
             <summary>
             Extensions of <see cref="T:Songhay.Models.MenuDisplayItemModel"/>
@@ -2461,14 +2680,15 @@
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.HasArg(Songhay.Models.ProgramArgs,System.String,System.Boolean)">
             <summary>
-            Determines whether the specified <see cref="T:Songhay.Models.ProgramArgs"/> has argument.
+            Determines whether the specified <see cref="T:Songhay.Models.ProgramArgs" /> has argument.
             </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
+            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs" />.</param>
             <param name="arg">The argument.</param>
-            <param name="requiresValue">if set to <c>true</c> [requires value].</param>
+            <param name="required">if set to <c>true</c> then the argument is required.</param>
             <returns>
               <c>true</c> if the specified argument has argument; otherwise, <c>false</c>.
             </returns>
+            <exception cref="T:System.ArgumentException">Argument {arg} requires a value.</exception>
         </member>
         <member name="M:Songhay.Extensions.ProgramArgsExtensions.ToHelpDisplayText(Songhay.Models.ProgramArgs)">
             <summary>
@@ -2677,6 +2897,13 @@
             </summary>
             <param name="input">The input.</param>
         </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)">
+            <summary>
+            Convert a command-line <c>args</c> like those defined in <see cref="T:Songhay.Models.ConsoleArgsScalars"/>
+            to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key format.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToDigitsOnly(System.String)">
             <summary>
             Converts the <see cref="T:System.String"/> into digits only.
@@ -2772,6 +2999,13 @@
             <param name="input">The input.</param>
             <param name="length">The length.</param>
             <param name="ellipsis"></param>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.WithConfigurationHelpTextSuffix(System.String)">
+            <summary>
+            Returns the specified <see cref="T:System.String"/>
+            with <see cref="F:Songhay.Models.ConsoleArgsScalars.HelpTextSuffix"/>.
+            </summary>
+            <param name="input">The input.</param>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.CsvSplit(System.String)">
             <summary>
@@ -3541,6 +3775,30 @@
             [http://www.cumbrowski.com/CarstenC/articles/20070623_Title_Capitalization_in_the_English_Language.asp]
             </summary>
         </member>
+        <member name="T:Songhay.Hosting.DefaultHostedService">
+            <summary>
+            Defines the conventional, default Hosted Service
+            </summary>
+        </member>
+        <member name="M:Songhay.Hosting.DefaultHostedService.#ctor(Microsoft.Extensions.Hosting.IHostApplicationLifetime,Microsoft.Extensions.Logging.ILogger{Songhay.Hosting.DefaultHostedService})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Songhay.Hosting.DefaultHostedService"/> class.
+            </summary>
+            <param name="hostApplicationLifetime">the <see cref="T:Microsoft.Extensions.Hosting.IHostApplicationLifetime"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Hosting.DefaultHostedService.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            Triggered when the application host is ready to start the service.
+            </summary>
+            <param name="cancellationToken">Indicates that the start process has been aborted.</param>
+        </member>
+        <member name="M:Songhay.Hosting.DefaultHostedService.StopAsync(System.Threading.CancellationToken)">
+            <summary>
+            Triggered when the application host is performing a graceful shutdown.
+            </summary>
+            <param name="cancellationToken">Indicates that the shutdown process should no longer be graceful.</param>
+        </member>
         <member name="T:Songhay.MathUtility">
             <summary>
             Static helpers for Math.
@@ -3633,6 +3891,66 @@
         <member name="P:Songhay.Models.ColorDisplayItemModel.ForegroundHex">
             <summary>
             Gets or sets the foreground hexadecimal value.
+            </summary>
+        </member>
+        <member name="T:Songhay.Models.ConsoleArgsScalars">
+            <summary>
+            Centralizes conventional console <c>args</c> passed to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.BaseDirectory">
+            <summary>
+            The base-directory argument.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.BaseDirectoryRequired">
+            <summary>
+            Is <see cref="F:Songhay.Models.ConsoleArgsScalars.BaseDirectory"/> required flag.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.DryRun">
+            <summary>
+            Dry-run flag.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.FlagSpacer">
+            <summary>
+            Ensures the space after a flag is clearly seen.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.Help">
+            <summary>
+            The help argument flag.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.HelpTextSuffix">
+            <summary>
+            The conventional <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key help text suffix.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.InputFile">
+            <summary>
+            The input file argument.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.InputString">
+            <summary>
+            The input <see cref="T:System.String" /> argument.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.OutputFile">
+            <summary>
+            The output file argument.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.OutputUnderBasePath">
+            <summary>
+            Flag: use the output file argument relative to <see cref="F:Songhay.Models.ProgramArgs.BasePath"/>.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.SettingsFile">
+            <summary>
+            The settings file argument.
             </summary>
         </member>
         <member name="T:Songhay.Models.CorsOrigins">
@@ -6905,6 +7223,13 @@
             </summary>
             <param name="input">The input.</param>
             <returns>Returns formatted input.</returns>
+        </member>
+        <member name="M:Songhay.ProgramUtility.GetConsoleIndentation(System.Int32,System.Int32)">
+            <summary>
+            Gets the indentation spaces for test display.
+            </summary>
+            <param name="numberOfSpaces"></param>
+            <param name="indentationLevel"></param>
         </member>
         <member name="M:Songhay.ProgramUtility.StartProcess(System.String)">
             <summary>

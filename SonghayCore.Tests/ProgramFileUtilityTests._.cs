@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Songhay.Tests.Extensions;
 
 namespace Songhay.Tests;
 
@@ -29,23 +30,21 @@ public partial class ProgramFileUtilityTests
     [InlineData(false)]
     public void GetCombinedPath_fileIsExpected_Test(bool fileIsExpected)
     {
-        var assembly = GetType().Assembly;
-        var projectFolder = ProgramAssemblyUtility.GetPathFromAssembly(assembly, "../../../");
-        var projectFolderInfo = new DirectoryInfo(projectFolder);
+        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
 
         if (fileIsExpected)
         {
             Assert.Throws<FileNotFoundException>(() =>
                 ProgramFileUtility
                     .GetCombinedPath(
-                        projectFolder,
-                        projectFolderInfo.GetDirectories().First().Name,
+                        projectDirectoryInfo.FullName,
+                        projectDirectoryInfo.GetDirectories().First().Name,
                         fileIsExpected));
 
             ProgramFileUtility
                 .GetCombinedPath(
-                    projectFolder,
-                    projectFolderInfo.GetFiles().First().Name,
+                    projectDirectoryInfo.FullName,
+                    projectDirectoryInfo.GetFiles().First().Name,
                     fileIsExpected);
         }
         else
@@ -53,14 +52,14 @@ public partial class ProgramFileUtilityTests
             Assert.Throws<DirectoryNotFoundException>(() =>
                 ProgramFileUtility
                     .GetCombinedPath(
-                        projectFolder,
-                        projectFolderInfo.GetFiles().First().Name,
+                        projectDirectoryInfo.FullName,
+                        projectDirectoryInfo.GetFiles().First().Name,
                         fileIsExpected));
 
             ProgramFileUtility
                 .GetCombinedPath(
-                    projectFolder,
-                    projectFolderInfo.GetDirectories().First().Name,
+                    projectDirectoryInfo.FullName,
+                    projectDirectoryInfo.GetDirectories().First().Name,
                     fileIsExpected);
         }
     }
@@ -79,7 +78,7 @@ public partial class ProgramFileUtilityTests
     [Fact]
     public void GetParentDirectory_Test()
     {
-        var expected = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
+        var expected = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, TestScalars.NetCoreRelativePathToProjectFolder);
         var actual = ProgramFileUtility.GetParentDirectory(GetType().Assembly.Location, 4);
 
         Assert.Equal(expected, actual);
@@ -88,7 +87,7 @@ public partial class ProgramFileUtilityTests
     [Fact]
     public void GetParentDirectoryInfo_Test()
     {
-        var expected = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, "../../../");
+        var expected = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, TestScalars.NetCoreRelativePathToProjectFolder);
         var actual = ProgramFileUtility.GetParentDirectoryInfo(GetType().Assembly.Location, 4);
 
         Assert.Equal(expected, actual.ToReferenceTypeValueOrThrow().FullName);

@@ -4,6 +4,7 @@
 /// Defines the in-memory storage
 /// and Program access to <see cref="IActivity"/> types.
 /// </summary>
+[Obsolete("Use the .NET Generic Host (`IHost`) instead.")]
 public abstract class ActivitiesGetter
 {
     /// <summary>
