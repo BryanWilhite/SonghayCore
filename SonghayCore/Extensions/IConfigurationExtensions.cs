@@ -62,7 +62,7 @@ public static class IConfigurationExtensions
     {
         string? path =  configuration?[ConsoleArgsScalars.SettingsFile.ToConfigurationKey()];
 
-        if (File.Exists(path)) return File.ReadAllText(path);
+        if (File.Exists(path)) return path;
 
         string? basePath = configuration.GetBasePathValue();
 
