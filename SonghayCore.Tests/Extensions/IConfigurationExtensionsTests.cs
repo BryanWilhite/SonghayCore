@@ -13,6 +13,43 @@ public class IConfigurationExtensionsTests
     }
 
     [Theory]
+    [InlineData(ConsoleArgsScalars.DryRun, "true")]
+    [InlineData($"{ConsoleArgsScalars.DryRun}=true")]
+    public async Task ShouldReadCommandLineArgsForDryRunWithHost(params string[] args)
+    {
+        IConfiguration? configuration = null; 
+        IHostBuilder builder = Host.CreateDefaultBuilder(args);
+        
+        builder.ConfigureAppConfiguration((_, configBuilder) =>
+        {
+            configuration = configBuilder.Build();
+        });
+
+        using IHost host = builder.Build();
+        try
+        {
+            host.Start();
+
+            var actual = configuration.IsDryRun();
+            Assert.True(actual);
+        }
+        finally
+        {
+            await host.StopAsync();
+        }
+    }
+
+    [Theory]
+    [InlineData(ConsoleArgsScalars.DryRun, "true")]
+    [InlineData($"{ConsoleArgsScalars.DryRun}=true")]
+    public void ShouldReadCommandLineArgsForDryRunWithoutHost(params string[] args)
+    {
+        IConfiguration configuration = new ConfigurationBuilder().AddCommandLine(args).Build();
+        var actual = configuration.IsDryRun();
+        Assert.True(actual);
+    }
+
+    [Theory]
     [InlineData("../../../json", "configuration.json")]
     public async Task ReadSettings_Test(string baseDirectory, string configFile)
     {
@@ -41,10 +78,7 @@ public class IConfigurationExtensionsTests
 
         #region arrange `IHost` builder
 
-        builder.ConfigureHostConfiguration(builder =>
-        {
-            builder.AddCommandLine(new[] {"--ENVIRONMENT", Environments.Development});
-        });
+        builder.ConfigureHostConfiguration(b => b.AddCommandLine(new[] {"--ENVIRONMENT", Environments.Development}));
 
         builder.ConfigureAppConfiguration((hostingContext, configBuilder) =>
         {
