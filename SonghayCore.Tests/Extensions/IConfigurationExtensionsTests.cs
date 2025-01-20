@@ -5,13 +5,8 @@ using Songhay.Models;
 namespace Songhay.Tests.Extensions;
 
 // ReSharper disable once InconsistentNaming
-public class IConfigurationExtensionsTests
+public class IConfigurationExtensionsTests(ITestOutputHelper helper)
 {
-    public IConfigurationExtensionsTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Theory]
     [InlineData(ConsoleArgsScalars.DryRun, "true")]
     [InlineData($"{ConsoleArgsScalars.DryRun}=true")]
@@ -51,246 +46,117 @@ public class IConfigurationExtensionsTests
 
     [Theory]
     [InlineData("../../../json", "configuration.json")]
-    public async Task ReadSettings_Test(string baseDirectory, string configFile)
+    public void ReadSettings_Test(string basePath, string configFile)
     {
-        #region arrange input:
+        basePath = ProgramAssemblyUtility
+            .GetPathFromAssembly(GetType().Assembly, basePath);
 
-        baseDirectory = ProgramAssemblyUtility
-            .GetPathFromAssembly(GetType().Assembly, baseDirectory);
-
-        _testOutputHelper.WriteLine($"{nameof(baseDirectory)}: `{baseDirectory}`");
-        _testOutputHelper.WriteLine($"{nameof(configFile)}: `{configFile}`");
-
-        #endregion
-
-        #region arrange args:
-
-        string[] args = {
+        string[] args =
+        [
             ConsoleArgsScalars.BaseDirectoryRequired, ConsoleArgsScalars.FlagSpacer,
-            ConsoleArgsScalars.BaseDirectory, baseDirectory,
+            ConsoleArgsScalars.BaseDirectory, basePath,
             ConsoleArgsScalars.SettingsFile, configFile,
-        };
+        ];
 
-        #endregion
+        IConfiguration configuration = new ConfigurationBuilder().AddCommandLine(args).Build();
 
-        IConfiguration? configuration = null;
-        IHostBuilder builder = Host.CreateDefaultBuilder(args);
+        Assert.Equal(configuration.GetCommandLineArgValue(ConsoleArgsScalars.BaseDirectory), basePath);
+        Assert.Equal(configuration.GetCommandLineArgValue(ConsoleArgsScalars.SettingsFile), configFile);
 
-        #region arrange `IHost` builder
+        var json = File.ReadAllText(configuration.GetSettingsFilePath());
+        Assert.False(string.IsNullOrWhiteSpace(json));
 
-        builder.ConfigureHostConfiguration(b => b.AddCommandLine(new[] {"--ENVIRONMENT", Environments.Development}));
-
-        builder.ConfigureAppConfiguration((hostingContext, configBuilder) =>
-        {
-            configuration = hostingContext.Configuration;
-
-            string path = configuration.GetSettingsFilePath();
-            Assert.True(File.Exists(path), $"The expected path, `{path}`, does not exist.");
-
-            configBuilder.AddJsonFile(path, optional: false);
-        });
-
-        #endregion
-
-        using IHost host = builder.Build();
-        try
-        {
-            host.Start();
-            // FUNKYKB: `IHost.Run` cannot be called here
-            // because it will await forever
-            // and any JSON files will not load until it is called.
-
-            ReportOnConfigState(configuration);
-
-            Assert.Equal(baseDirectory, configuration.GetBasePathValue());
-            Assert.Equal(configFile, Path.GetFileName(configuration.GetSettingsFilePath()));
-
-            string json = configuration.ReadSettings();
-            Assert.False(string.IsNullOrWhiteSpace(json));
-
-            _testOutputHelper.WriteLine(json);
-        }
-        finally
-        {
-            await host.StopAsync();
-        }
+        helper.WriteLine(json);
     }
 
     [Theory]
     [InlineData("../../../json", "input.json")]
     [InlineData(null, "../../../json/input.json")]
     [InlineData(null, @"{ ""arg1"": 1, ""arg2"": 2, ""arg3"": 3 }")]
-    public async Task ReadStringInput_Test(string? baseDirectory, string? input)
+    public void ReadStringInput_Test(string? basePath, string input)
     {
-        #region arrange input:
-
-        bool isJsonFile = input?.EndsWith(".json") == true;
-
-        if (isJsonFile && string.IsNullOrWhiteSpace(baseDirectory))
+        if (string.IsNullOrWhiteSpace(basePath))
         {
-            input = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, input);
+            if (input.EndsWith(".json"))
+                input = ProgramAssemblyUtility
+                    .GetPathFromAssembly(GetType().Assembly, input);
         }
-        else if(!string.IsNullOrWhiteSpace(baseDirectory))
+        else
         {
-            baseDirectory = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, baseDirectory);
+            basePath = ProgramAssemblyUtility
+                .GetPathFromAssembly(GetType().Assembly, basePath);
         }
 
-        #endregion
-
-        #region arrange args:
-
-        string?[] args = isJsonFile ?
-            new[]
-            {
+        string[] args = input.EndsWith(".json") ?
+            [
                 ConsoleArgsScalars.BaseDirectoryRequired, ConsoleArgsScalars.FlagSpacer,
-                ConsoleArgsScalars.BaseDirectory, baseDirectory,
+                ConsoleArgsScalars.BaseDirectory, $"{basePath}",
                 ConsoleArgsScalars.InputFile, input,
-            }
+            ]
             :
-            new[]
-            {
+            [
                 ConsoleArgsScalars.BaseDirectoryRequired, ConsoleArgsScalars.FlagSpacer,
-                ConsoleArgsScalars.BaseDirectory, baseDirectory,
+                ConsoleArgsScalars.BaseDirectory, $"{basePath}",
                 ConsoleArgsScalars.InputString, input,
-            };
+            ];
 
-        #endregion
+        IConfiguration configuration = new ConfigurationBuilder().AddCommandLine(args).Build();
 
-        IConfiguration? configuration = null;
-        IHostBuilder builder = Host.CreateDefaultBuilder(args);
+        input = configuration.ReadStringInput().ToReferenceTypeValueOrThrow();
 
-        builder.ConfigureAppConfiguration((hostingContext, _) => configuration = hostingContext.Configuration);
+        Assert.False(string.IsNullOrWhiteSpace(input));
 
-        using IHost host = builder.Build();
-        try
-        {
-            // FUNKYKB: `IHost.Run` cannot be called here
-            // because it will await forever
-            // and any JSON files will not load until it is called.
-
-            ReportOnConfigState(configuration);
-
-            input = configuration.ReadStringInput();
-
-            Assert.False(string.IsNullOrWhiteSpace(input));
-
-            _testOutputHelper.WriteLine($"{nameof(input)}:");
-            _testOutputHelper.WriteLine(input);
-
-        }
-        finally
-        {
-            await host.StopAsync();
-        }
+        helper.WriteLine(input);
     }
 
     [Fact]
     public void WithDefaultHelpText_Test()
     {
-        IConfiguration? configuration = null;
-        IHostBuilder builder = Host.CreateDefaultBuilder([]);
-
-        builder.ConfigureAppConfiguration((hostingContext, _) =>
-        {
-            configuration = hostingContext.Configuration;
-
-            Assert.NotNull(configuration);
-
-            configuration.WithDefaultHelpText();
-        });
-
-        IHost _ = builder.Build();
-        // FUNKYKB: `IHost.Run` cannot be called here
-        // because it will await forever
-        // and any JSON files will not load until it is called.
-
-        IReadOnlyCollection<string> keys = configuration.ToKeys();
-        Assert.NotEmpty(keys);
-        _testOutputHelper.WriteLine($"{nameof(keys)}:");
-        keys.ForEachInEnumerable(k => _testOutputHelper.WriteLine($"    `{k}`"));
-
-        string? helpText = configuration.ToHelpDisplayText();
+        IConfiguration configuration = new ConfigurationBuilder().AddCommandLine([]).Build();
+        var helpText = configuration.WithDefaultHelpText().ToHelpDisplayText();
         Assert.False(string.IsNullOrWhiteSpace(helpText));
-        _testOutputHelper.WriteLine(helpText);
+        helper.WriteLine(helpText);
     }
 
     [Theory]
     [InlineData("../../../json", "output.json")]
     [InlineData(null, "../../../json/output.json")]
-    public void WriteOutputToFile_Test(string? baseDirectory, string outputFile)
+    public void WriteOutputToFile_Test(string? basePath, string outputFile)
     {
-        #region arrange input:
-
-        if (string.IsNullOrWhiteSpace(baseDirectory))
+        if (string.IsNullOrWhiteSpace(basePath))
         {
             outputFile = ProgramAssemblyUtility
                 .GetPathFromAssembly(GetType().Assembly, outputFile);
         }
         else
         {
-            baseDirectory = ProgramAssemblyUtility
-                .GetPathFromAssembly(GetType().Assembly, baseDirectory);
+            basePath = ProgramAssemblyUtility
+                .GetPathFromAssembly(GetType().Assembly, basePath);
         }
 
-        #endregion
-
-        #region arrange args:
-
-        string[] args = string.IsNullOrWhiteSpace(baseDirectory) ?
-                new[]
-                {
+        string[] args = string.IsNullOrWhiteSpace(basePath) ?
+                [
                     ConsoleArgsScalars.OutputFile, outputFile,
-                }
+                ]
                 :
-                new[]
-                {
+                [
                     ConsoleArgsScalars.BaseDirectoryRequired, ConsoleArgsScalars.FlagSpacer,
-                    ConsoleArgsScalars.BaseDirectory, baseDirectory,
+                    ConsoleArgsScalars.BaseDirectory, $"{basePath}",
                     ConsoleArgsScalars.OutputFile, outputFile,
                     ConsoleArgsScalars.OutputUnderBasePath, ConsoleArgsScalars.FlagSpacer,
-                }
+                ]
             ;
 
-        #endregion
-
-        IConfiguration? configuration = null;
-        IHostBuilder builder = Host.CreateDefaultBuilder(args);
-
-        builder.ConfigureAppConfiguration((hostingContext, _) => configuration = hostingContext.Configuration);
-
-        using IHost _ = builder.Build();
-        // FUNKYKB: `IHost.Run` cannot be called here
-        // because it will await forever
-        // and any JSON files will not load until it is called.
-
-        ReportOnConfigState(configuration);
+        IConfiguration configuration = new ConfigurationBuilder().AddCommandLine(args).Build();
 
         var anon = new { modificationDate = DateTime.Now };
 
         configuration.WriteOutputToFile(JsonSerializer.Serialize(anon));
 
-        string actual = configuration.GetOutputPath();
+        var actual = configuration.GetOutputPath().ToReferenceTypeValueOrThrow();
 
-        _testOutputHelper.WriteLine($"output path: {actual}");
+        helper.WriteLine($"output path: {actual}");
 
-        _testOutputHelper.WriteLine($"file content: {File.ReadAllText(actual)}");
+        helper.WriteLine($"file content: {File.ReadAllText(actual)}");
     }
-
-    void ReportOnConfigState(IConfiguration? configuration)
-    {
-        Assert.NotNull(configuration);
-        IReadOnlyCollection<string> keys = configuration.ToKeys();
-        Assert.NotEmpty(keys);
-        _testOutputHelper.WriteLine($"{nameof(IConfiguration)}:");
-        keys.ForEachInEnumerable(k => _testOutputHelper.WriteLine($"    `{k}`: `{configuration[k]}`"));
-
-        _testOutputHelper.WriteLine($"{nameof(Environment)} variables:");
-        Environment
-            .GetEnvironmentVariables()
-            .Keys
-            .OfType<string>()
-            .ForEachInEnumerable(k => _testOutputHelper.WriteLine($"    `{k}`: `{Environment.GetEnvironmentVariable(k)}`"));
-    }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }
