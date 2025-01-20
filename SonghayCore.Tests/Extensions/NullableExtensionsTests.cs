@@ -1,5 +1,3 @@
-using Songhay.Models;
-
 namespace Songhay.Tests.Extensions;
 
 public class NullableExtensionsTests
@@ -17,13 +15,8 @@ public class NullableExtensionsTests
             [https://docs.microsoft.com/en-us/dotnet/standard/serialization/how-to-determine-if-netstandard-object-is-serializable?view=netframework-4.8]
         */
 
-        var actual = new ProgramArgs(new [] { "" }).IsAssignableToISerializable();
-        Assert.False(actual);
-        Assert.False(typeof(ProgramArgs).IsSerializable);
-
-        actual = new FileInfo("thing.js").IsAssignableToISerializable();
+        var actual = new FileInfo("thing.js").IsAssignableToISerializable();
         Assert.True(actual);
-        Assert.False(typeof(FileInfo).IsSerializable);
     }
 
     [Fact]

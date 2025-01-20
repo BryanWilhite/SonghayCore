@@ -2422,124 +2422,6 @@
             <param name="digits">The digits.</param>
             <param name="mantissaDigits">The mantissa digits.</param>
         </member>
-        <member name="T:Songhay.Extensions.ProgramArgsExtensions">
-            <summary>
-            Extensions of <see cref="T:Songhay.Models.ProgramArgs"/>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetBasePathValue(Songhay.Models.ProgramArgs)">
-            <summary>
-            Gets the conventional base-path value.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetOutputPath(Songhay.Models.ProgramArgs)">
-            <summary>
-            Gets the path to the output file specified by conventional arguments.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <remarks>
-            This member will generate a file when it does not exist.
-            </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetSettings(Songhay.Models.ProgramArgs)">
-            <summary>
-            Gets the conventional settings file <see cref="T:System.String"/> content.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetSettingsFilePath(Songhay.Models.ProgramArgs)">
-            <summary>
-            Gets the conventional settings file path.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetStringInput(Songhay.Models.ProgramArgs)">
-            <summary>
-            Gets <see cref="T:System.String"/> input
-            from either <see cref="F:Songhay.Models.ProgramArgs.InputString"/>
-            or <see cref="F:Songhay.Models.ProgramArgs.InputFile"/>.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.IsHelpRequest(Songhay.Models.ProgramArgs)">
-            <summary>
-            Determines whether args contain the <see cref="F:Songhay.Models.ProgramArgs.Help"/> flag.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.ToConfigurationKey(Songhay.Models.ProgramArgs,System.String)">
-            <summary>
-            Converts the <c>args</c> key to a conventional Configuration key.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="argKey">The arguments key.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.WithDefaultHelpText(Songhay.Models.ProgramArgs)">
-            <summary>
-            Returns <see cref="T:Songhay.Models.ProgramArgs"/>
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.WriteOutputToFile(Songhay.Models.ProgramArgs,System.String)">
-            <summary>
-            Writes the <see cref="T:System.String"/> output
-            to the file specified by <see cref="F:Songhay.Models.ProgramArgs.OutputFile"/>.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="output">the output to write</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.WriteOutputToFile(Songhay.Models.ProgramArgs,System.Byte[])">
-            <summary>
-            Writes the <see cref="T:System.Byte"/> array output
-            to the file specified by <see cref="F:Songhay.Models.ProgramArgs.OutputFile"/>.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="output">the output to write</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.WriteOutputToFile(Songhay.Models.ProgramArgs,System.IO.Stream)">
-            <summary>
-            Writes the <see cref="T:System.IO.Stream"/> output
-            to the file specified by <see cref="F:Songhay.Models.ProgramArgs.OutputFile"/>.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="stream">the <see cref="T:System.IO.Stream"/> to write</param>
-            <remarks>
-            [ see https://stackoverflow.com/a/5515894/22944 ]
-            </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetArgValue(Songhay.Models.ProgramArgs,System.String)">
-            <summary>
-            Gets the argument value.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="arg">The argument.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.HasArg(Songhay.Models.ProgramArgs,System.String,System.Boolean)">
-            <summary>
-            Determines whether the specified <see cref="T:Songhay.Models.ProgramArgs" /> has argument.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs" />.</param>
-            <param name="arg">The argument.</param>
-            <param name="required">if set to <c>true</c> then the argument is required.</param>
-            <returns>
-              <c>true</c> if the specified argument has argument; otherwise, <c>false</c>.
-            </returns>
-            <exception cref="T:System.ArgumentException">Argument {arg} requires a value.</exception>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.ToHelpDisplayText(Songhay.Models.ProgramArgs)">
-            <summary>
-            Converts the <c>args</c> key any help text.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.ToHelpDisplayText(Songhay.Models.ProgramArgs,System.Int32)">
-            <summary>
-            Converts the <c>args</c> key any help text.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="padding">the padding between <see cref="P:Songhay.Models.ProgramArgs.HelpSet"/> keys and values</param>
-        </member>
         <member name="T:Songhay.Extensions.ProgramMetadataExtensions">
             <summary>
             Extensions of <see cref="T:Songhay.Models.ProgramMetadata"/>.
@@ -3748,7 +3630,7 @@
         </member>
         <member name="F:Songhay.Models.ConsoleArgsScalars.OutputUnderBasePath">
             <summary>
-            Flag: use the output file argument relative to <see cref="F:Songhay.Models.ProgramArgs.BasePath"/>.
+            Flag: use the output file argument relative to <see cref="F:Songhay.Models.ConsoleArgsScalars.BaseDirectory"/>.
             </summary>
         </member>
         <member name="F:Songhay.Models.ConsoleArgsScalars.SettingsFile">
@@ -4581,67 +4463,6 @@
         <member name="P:Songhay.Models.PagedResultMeta.TotalCount">
             <summary>
             Gets or sets the total count.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.ProgramArgs">
-            <summary>
-            Defines conventional command-line arguments.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.ProgramArgs.#ctor(System.String[])">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Models.ProgramArgs"/> class.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.BasePath">
-            <summary>
-            The base-path argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.BasePathRequired">
-            <summary>
-            The base path required argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.Help">
-            <summary>
-            The help argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.InputFile">
-            <summary>
-            The input file argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.InputString">
-            <summary>
-            The input <see cref="T:System.String" /> argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.OutputFile">
-            <summary>
-            The output file argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.OutputUnderBasePath">
-            <summary>
-            Use the output file argument relative to <see cref="F:Songhay.Models.ProgramArgs.BasePath"/>.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.SettingsFile">
-            <summary>
-            The settings file argument.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.ProgramArgs.Args">
-            <summary>
-            Gets the arguments.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.ProgramArgs.HelpSet">
-            <summary>
-            Gets the help set.
             </summary>
         </member>
         <member name="T:Songhay.Models.ProgramAssemblyInfo">

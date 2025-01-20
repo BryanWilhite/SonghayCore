@@ -51,7 +51,7 @@ public static class ConsoleArgsScalars
     public const string OutputFile = "--output-file";
 
     /// <summary>
-    /// Flag: use the output file argument relative to <see cref="ProgramArgs.BasePath"/>.
+    /// Flag: use the output file argument relative to <see cref="BaseDirectory"/>.
     /// </summary>
     public const string OutputUnderBasePath = "--output-under-base-path";
 
