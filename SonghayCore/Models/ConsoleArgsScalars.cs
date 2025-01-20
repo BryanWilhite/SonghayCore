@@ -6,6 +6,16 @@ namespace Songhay.Models;
 public static class ConsoleArgsScalars
 {
     /// <summary>
+    /// The name of the class implementing one of the <c>Activity*</c> abstractions.
+    /// </summary>
+    /// <remarks>
+    /// Going forward, this Studio should not support command-line parameters based solely on position.
+    /// All parameters should have a <c>--key</c>.
+    /// [https://github.com/BryanWilhite/SonghayCore/issues/173]
+    /// </remarks>
+    public const string ActivityName = "--activity-name";
+
+    /// <summary>
     /// The base-directory argument.
     /// </summary>
     public const string BaseDirectory = "--base-directory";
