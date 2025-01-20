@@ -188,7 +188,7 @@ public class IConfigurationExtensionsTests
     public void WithDefaultHelpText_Test()
     {
         IConfiguration? configuration = null;
-        IHostBuilder builder = Host.CreateDefaultBuilder(Array.Empty<string>());
+        IHostBuilder builder = Host.CreateDefaultBuilder([]);
 
         builder.ConfigureAppConfiguration((hostingContext, _) =>
         {

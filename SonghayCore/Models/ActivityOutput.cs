@@ -2,7 +2,7 @@
 
 /// <summary>
 /// Defines the conventional output
-/// of <see cref="IActivityWithTask{TInput,TOutput}"/>.
+/// of <see cref="IActivityTask{TInput,TOutput}"/>.
 /// </summary>
 /// <typeparam name="TOutput">The type of the output.</typeparam>
 public class ActivityOutput<TOutput>

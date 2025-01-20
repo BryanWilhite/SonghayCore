@@ -6,62 +6,107 @@
     <members>
         <member name="T:Songhay.Abstractions.IActivity">
             <summary>
-            Defines an Activity in a shell environment.
+            Defines an Activity, optionally for <see cref="!:IHost"/> conventions.
             </summary>
             <remarks>
             For more detail, see “Songhay System Activities example”
             [https://github.com/BryanWilhite/Songhay.HelloWorlds.Activities]
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivity.DisplayHelp(Songhay.Models.ProgramArgs)">
+        <member name="M:Songhay.Abstractions.IActivity.Start">
             <summary>
-            Displays the conventional help text
-            of the Activity.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="M:Songhay.Abstractions.IActivity.Start(Songhay.Models.ProgramArgs)">
-            <summary>
-            Start the Activity with the specified arguments.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="T:Songhay.Abstractions.IActivityConfigurationSupport">
-            <summary>
-            Defines <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> support
-            for an <see cref="T:Songhay.Abstractions.IActivity"/>.
+            Starts with the specified input.
             </summary>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityConfigurationSupport.AddConfiguration(Microsoft.Extensions.Configuration.IConfigurationRoot)">
+        <member name="T:Songhay.Abstractions.IActivity`1">
             <summary>
-            Adds the configuration.
+            Defines an Activity, optionally for <see cref="!:IHost"/> conventions.
             </summary>
-            <param name="configuration">The configuration.</param>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <remarks>
+            For more detail, see “Songhay System Activities example”
+            [https://github.com/BryanWilhite/Songhay.HelloWorlds.Activities]
+            </remarks>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityWithOutput`2">
+        <member name="M:Songhay.Abstractions.IActivity`1.Start(`0)">
             <summary>
-            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with output support
-            and input support beyond <see cref="T:Songhay.Models.ProgramArgs"/>.
+            Starts with the specified input.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivity`2">
+            <summary>
+            Defines an Activity with output, optionally for <see cref="!:IHost"/> conventions.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
-            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <seealso cref="T:Songhay.Abstractions.IActivity`1" />
         </member>
-        <member name="M:Songhay.Abstractions.IActivityWithOutput`2.StartForOutput(`0)">
+        <member name="M:Songhay.Abstractions.IActivity`2.Start(`0)">
             <summary>
             Starts with the specified input
             and synchronously returns <c>TOutput</c>.
             </summary>
             <param name="input">The input.</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityHelpDisplay">
+            <summary>
+            Adds optional help-display text support to <c>IActivity*</c> types.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityHelpDisplay.DisplayHelp">
+            <summary>
+            Display the help text.
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.IActivityHelpDisplay.CachedHelpText">
+            <summary>
+            The cached help text.
+            </summary>
             <remarks>
-            This member is called <c>StartForOutput</c>
-            instead of <c>Start</c> to prevent compile-time,
-            overload-clashing with <see cref="M:Songhay.Abstractions.IActivity.Start(Songhay.Models.ProgramArgs)"/>.
+            Instead of calling <see cref="M:Songhay.Abstractions.IActivityHelpDisplay.DisplayHelp"/> more than once, return this member.
             </remarks>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityWithTask">
+        <member name="P:Songhay.Abstractions.IActivityHelpDisplay.HelpSet">
             <summary>
-            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            Gets the help set.
+            </summary>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityOutputOnly`1">
+            <summary>
+            Defines an Activity, optionally for <see cref="!:IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
+            </summary>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <remarks>
+            For detail around why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityOutputOnly`1.StartAsync">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
+            </summary>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityOutputOnlyTask`1">
+            <summary>
+            Defines an Activity, optionally for <see cref="!:IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
+            </summary>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <remarks>
+            For detail around why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
+            </summary>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityTask">
+            <summary>
+            Defines an Activity, optionally for <see cref="!:IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
@@ -69,14 +114,14 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityWithTask.StartAsync">
+        <member name="M:Songhay.Abstractions.IActivityTask.StartAsync">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityWithTask`1">
+        <member name="T:Songhay.Abstractions.IActivityTask`1">
             <summary>
-            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            Defines an Activity, optionally for <see cref="!:IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
@@ -85,25 +130,15 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityWithTask`1.StartAsync(`0)">
+        <member name="M:Songhay.Abstractions.IActivityTask`1.StartAsync(`0)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
             </summary>
             <param name="input">The input.</param>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityWithTaskOutput`1">
+        <member name="T:Songhay.Abstractions.IActivityTask`2">
             <summary>
-            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> output support.
-            </summary>
-        </member>
-        <member name="M:Songhay.Abstractions.IActivityWithTaskOutput`1.StartAsync">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
-            </summary>
-        </member>
-        <member name="T:Songhay.Abstractions.IActivityWithTask`2">
-            <summary>
-            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            Defines an Activity, optionally for <see cref="!:IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -113,7 +148,7 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityWithTask`2.StartAsync(`0)">
+        <member name="M:Songhay.Abstractions.IActivityTask`2.StartAsync(`0)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
@@ -1707,6 +1742,14 @@
             Extensions of <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
             </summary>
         </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="key">the key to add</param>
+            <param name="helpText">the help text to add</param>
+        </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Returns the value of the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.BaseDirectory"/> <c>arg</c>
@@ -1714,6 +1757,15 @@
             when the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.BaseDirectoryRequired"/> <c>arg</c> is present.
             </summary>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Returns a value from the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            by calling <see cref="M:Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)"/>
+            on the specified <c>arg</c>.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="arg">the command-line argument to be converted into a <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> key</param>
         </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -3620,7 +3672,7 @@
         <member name="T:Songhay.Models.ActivityOutput`1">
             <summary>
             Defines the conventional output
-            of <see cref="T:Songhay.Abstractions.IActivityWithTask`2"/>.
+            of <see cref="T:Songhay.Abstractions.IActivityTask`2"/>.
             </summary>
             <typeparam name="TOutput">The type of the output.</typeparam>
         </member>

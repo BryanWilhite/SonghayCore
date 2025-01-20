@@ -1,40 +1,45 @@
-﻿using Songhay.Diagnostics;
-using Songhay.Models;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Songhay.Abstractions;
 
 namespace Songhay.Tests.Activities;
 
-public class GetHelloWorldActivity : IActivity
+public class GetHelloWorldActivity(IConfiguration configuration, ILogger<GetHelloWorldActivity> logger) : IActivity, IActivityHelpDisplay
 {
-    static GetHelloWorldActivity() => TraceSource = TraceSources.Instance.GetConfiguredTraceSource();
-    static readonly TraceSource? TraceSource;
+    public string? CachedHelpText { get; set; }
 
-    public string DisplayHelp(ProgramArgs? args)
+    public string DisplayHelp()
     {
-        ArgumentNullException.ThrowIfNull(args);
-
-        if(!args.HelpSet.Any())SetupHelp(args);
+        SetupHelp();
 
         return string.Concat(
             ProgramAssemblyUtility.GetAssemblyInfo(GetType().Assembly),
-            args.ToHelpDisplayText()
+            CachedHelpText
         );
     }
 
-    public void Start(ProgramArgs? args)
+    public void Start()
     {
-        if (args.IsHelpRequest()) return;
+        if (configuration.IsHelpRequest())
+        {
+            DisplayHelp();
 
-        var worldName = args.GetArgValue(ArgWorldName);
-        TraceSource.ToReferenceTypeValueOrThrow().WriteLine($"Hello from world {worldName}!");
+            return;
+        }
+
+        string? worldName = configuration.GetCommandLineArgValue(ArgWorldName);
+        logger.LogInformation("Hello from world {Name}!", worldName);
     }
 
-    void SetupHelp(ProgramArgs args)
+    private void SetupHelp()
     {
-        var indentation = string.Join(string.Empty, Enumerable.Repeat(" ", 4).ToArray());
-        args.HelpSet.Add(ArgWorldName, $"{ArgWorldName} <world name>{indentation}Returns a greeting for the specified world.");
-        args.HelpSet.Add(ArgMoonList, $"{ArgMoonList} \"<list of moons>\"{indentation}A comma-separated list of moons.");
-        args.HelpSet.Add(ArgMoonsRequired, $"{ArgMoonsRequired}{indentation}Indicates that moons are required for the world.");
+        if(!string.IsNullOrWhiteSpace(this.CachedHelpText)) return;
+
+        configuration.AddHelpDisplayText(ArgWorldName, "Returns a greeting for the specified world.");
+        configuration.AddHelpDisplayText(ArgMoonList, "A comma-separated list of moons.");
+        configuration.AddHelpDisplayText(ArgMoonsRequired, "Indicates that moons are required for the world.");
+
+        CachedHelpText = configuration.ToHelpDisplayText();
     }
 
     const string ArgMoonList = "--moon-list";
