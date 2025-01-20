@@ -3,7 +3,7 @@
 /// <summary>
 /// Defines a Unicode glyphic character
 /// </summary>
-public readonly struct ProgramGlyph
+public readonly record struct ProgramGlyph
 {
     /// <summary>
     /// Gets or sets the unicode point.

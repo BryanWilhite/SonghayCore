@@ -13,5 +13,5 @@ public class PagedResult
     /// <summary>
     /// Gets or sets the paged result set.
     /// </summary>
-    public IEnumerable<DisplayItemModel> PagedResultSet { get; set; } = Enumerable.Empty<DisplayItemModel>();
+    public IEnumerable<DisplayItemModel> PagedResultSet { get; set; } = [];
 }

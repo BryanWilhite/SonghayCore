@@ -18,7 +18,7 @@ public class PagedResultMeta
     /// <summary>
     /// Gets or sets the size of the page.
     /// </summary>
-    public int PageSize { get; set; }
+    public int PageSize { get; set; } = 1;
 
     /// <summary>
     /// Gets or sets the total count.

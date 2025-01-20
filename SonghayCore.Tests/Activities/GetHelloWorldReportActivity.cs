@@ -1,10 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Songhay.Abstractions;
 
 namespace Songhay.Tests.Activities;
 
-public class GetHelloWorldReportActivity(IConfiguration configuration, ILogger<GetHelloWorldReportActivity> logger) : IActivity, IActivityHelpDisplay
+public class GetHelloWorldReportActivity(ILogger<GetHelloWorldReportActivity> logger) : IActivity, IActivityHelpDisplay
 {
     public string DisplayHelp()
     {

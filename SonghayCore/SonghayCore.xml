@@ -6,7 +6,7 @@
     <members>
         <member name="T:Songhay.Abstractions.IActivity">
             <summary>
-            Defines an Activity, optionally for <see cref="!:IHost"/> conventions.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions.
             </summary>
             <remarks>
             For more detail, see “Songhay System Activities example”
@@ -20,7 +20,7 @@
         </member>
         <member name="T:Songhay.Abstractions.IActivity`1">
             <summary>
-            Defines an Activity, optionally for <see cref="!:IHost"/> conventions.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <remarks>
@@ -36,7 +36,7 @@
         </member>
         <member name="T:Songhay.Abstractions.IActivity`2">
             <summary>
-            Defines an Activity with output, optionally for <see cref="!:IHost"/> conventions.
+            Defines an Activity with output, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -69,7 +69,7 @@
         </member>
         <member name="T:Songhay.Abstractions.IActivityOutputOnly`1">
             <summary>
-            Defines an Activity, optionally for <see cref="!:IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <typeparam name="TOutput">The type of the output.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
@@ -85,7 +85,7 @@
         </member>
         <member name="T:Songhay.Abstractions.IActivityOutputOnlyTask`1">
             <summary>
-            Defines an Activity, optionally for <see cref="!:IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <typeparam name="TOutput">The type of the output.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
@@ -101,7 +101,7 @@
         </member>
         <member name="T:Songhay.Abstractions.IActivityTask">
             <summary>
-            Defines an Activity, optionally for <see cref="!:IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
@@ -116,7 +116,7 @@
         </member>
         <member name="T:Songhay.Abstractions.IActivityTask`1">
             <summary>
-            Defines an Activity, optionally for <see cref="!:IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
@@ -133,7 +133,7 @@
         </member>
         <member name="T:Songhay.Abstractions.IActivityTask`2">
             <summary>
-            Defines an Activity, optionally for <see cref="!:IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -3582,6 +3582,16 @@
             <summary>
             Centralizes conventional console <c>args</c> passed to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
             </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.ActivityName">
+            <summary>
+            The name of the class implementing one of the <c>Activity*</c> abstractions.
+            </summary>
+            <remarks>
+            Going forward, this Studio should not support command-line parameters based solely on position.
+            All parameters should have a <c>--key</c>.
+            [https://github.com/BryanWilhite/SonghayCore/issues/173]
+            </remarks>
         </member>
         <member name="F:Songhay.Models.ConsoleArgsScalars.BaseDirectory">
             <summary>

@@ -1,4 +1,6 @@
-﻿namespace Songhay.Abstractions;
+﻿using Microsoft.Extensions.Hosting;
+
+namespace Songhay.Abstractions;
 
 /// <summary>
 /// Defines an Activity, optionally for <see cref="IHost"/> conventions.

@@ -53,7 +53,7 @@ public static partial class ProgramUtility
 
         var builder = new ConfigurationBuilder()
                 .AddEnvironmentVariables()
-                .SetBasePath(basePath)
+                .SetBasePath(basePath.ToReferenceTypeValueOrThrow())
                 .AddJsonFile("./appsettings.json", optional: false, reloadOnChange: false)
             ;
 
