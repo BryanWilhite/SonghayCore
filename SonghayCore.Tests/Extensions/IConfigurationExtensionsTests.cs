@@ -8,6 +8,21 @@ namespace Songhay.Tests.Extensions;
 public class IConfigurationExtensionsTests(ITestOutputHelper helper)
 {
     [Theory]
+    [InlineData(ConsoleArgsScalars.DryRun, true, true, $"{ConsoleArgsScalars.DryRun}=true")]
+    [InlineData(ConsoleArgsScalars.DryRun, true, false, $"{ConsoleArgsScalars.DryRun}=false")]
+    [InlineData("--my-arg", false, true, "--my-arg", "my-value")]
+    [InlineData("--my-other-arg", false, false, "--my-other-arg")]
+    [InlineData("--my-other-arg", true, false, "--my-other-arg")] //see https://github.com/BryanWilhite/SonghayCore/issues/177
+    public void HasKey_Test(string? key, bool isCommandLineSwitch, bool expected, params string[] args)
+    {
+        IConfiguration configuration = new ConfigurationBuilder().AddCommandLine(args).Build();
+
+        var actual = configuration.HasKey(key, isCommandLineSwitch);
+
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
     [InlineData(ConsoleArgsScalars.DryRun, "true")]
     [InlineData($"{ConsoleArgsScalars.DryRun}=true")]
     public async Task ShouldReadCommandLineArgsForDryRunWithHost(params string[] args)

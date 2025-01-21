@@ -1761,6 +1761,10 @@
             </summary>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
             <param name="arg">the command-line argument to be converted into a <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> key</param>
+            <remarks>
+            This member will call <see cref="M:Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)"/>
+            to convert a console argument to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key format.
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -1777,7 +1781,7 @@
             </summary>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
         </member>
-        <member name="M:Songhay.Extensions.IConfigurationExtensions.HasArg(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
             <summary>
             Returns <c>true</c> when the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
             contains the specified key.
@@ -1788,6 +1792,23 @@
             This member will call <see cref="M:Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)"/>
             to convert a console argument to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key format.
             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Boolean)">
+             <summary>
+             Returns <c>true</c> when the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+             contains the specified key.
+             </summary>
+             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+             <param name="key">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> key</param>
+             <param name="isCommandLineSwitch">when <c>true</c>, expect a command-line “switch” like <c>--dry-run=true</c></param>
+             <remarks>
+             This member will call <see cref="M:Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)"/>
+             to convert a console argument to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key format.
+            
+             When <c>isCommandLineSwitch</c> is <c>true</c>, a command-line “switch” like
+             `--dry-run=false` will make this member return `false` and `--dry-run=true` will make `HasArg` return `true`.
+             For more detail, see [https://github.com/BryanWilhite/SonghayCore/issues/177]
+             </remarks>
         </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.IsDryRun(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
