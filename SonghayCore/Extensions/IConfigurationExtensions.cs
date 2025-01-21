@@ -124,8 +124,9 @@ public static class IConfigurationExtensions
     /// to convert a console argument to <see cref="IConfiguration"/>-key format.
     ///
     /// When <c>isCommandLineSwitch</c> is <c>true</c>, a command-line “switch” like
-    /// `--dry-run=false` will make this member return `false` and `--dry-run=true` will make `HasArg` return `true`.
-    /// For more detail, see [https://github.com/BryanWilhite/SonghayCore/issues/177]
+    /// <c>--dry-run=false</c> will make this member return <c>false</c>
+    /// and <c>--dry-run=true</c> will make this member return <c>true</c>.
+    /// For more detail, [ see https://github.com/BryanWilhite/SonghayCore/issues/177 ]
     /// </remarks>
     public static bool HasKey(this IConfiguration? configuration, string? key, bool isCommandLineSwitch)
     {
