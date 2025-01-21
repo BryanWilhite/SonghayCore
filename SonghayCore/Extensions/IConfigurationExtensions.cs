@@ -29,7 +29,7 @@ public static class IConfigurationExtensions
     {
         if (configuration == null) return null;
 
-        bool isBasePathRequired = configuration.HasArg(ConsoleArgsScalars.BaseDirectoryRequired);
+        bool isBasePathRequired = configuration.HasKey(ConsoleArgsScalars.BaseDirectoryRequired);
         string? basePath = configuration.GetCommandLineArgValue(ConsoleArgsScalars.BaseDirectory);
 
         if(string.IsNullOrWhiteSpace(basePath) && isBasePathRequired)
@@ -47,6 +47,10 @@ public static class IConfigurationExtensions
     /// </summary>
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
     /// <param name="arg">the command-line argument to be converted into a <see cref="IConfiguration"/> key</param>
+    /// <remarks>
+    /// This member will call <see cref="StringExtensions.ToConfigurationKey"/>
+    /// to convert a console argument to <see cref="IConfiguration"/>-key format.
+    /// </remarks>
     public static string? GetCommandLineArgValue(this IConfiguration? configuration, string arg) => configuration?[arg.ToConfigurationKey()];
 
     /// <summary>
@@ -61,7 +65,7 @@ public static class IConfigurationExtensions
 
         string? outputFile = configuration.GetCommandLineArgValue(ConsoleArgsScalars.OutputFile);
 
-        bool outputUnderBasePath = configuration.HasArg(ConsoleArgsScalars.OutputUnderBasePath);
+        bool outputUnderBasePath = configuration.HasKey(ConsoleArgsScalars.OutputUnderBasePath);
 
         if (outputUnderBasePath)
         {
@@ -106,19 +110,46 @@ public static class IConfigurationExtensions
     /// This member will call <see cref="StringExtensions.ToConfigurationKey"/>
     /// to convert a console argument to <see cref="IConfiguration"/>-key format.
     /// </remarks>
-    public static bool HasArg(this IConfiguration? configuration, string? key) => configuration.ToKeys().Contains(key.ToConfigurationKey());
+    public static bool HasKey(this IConfiguration? configuration, string? key) => configuration.HasKey(key, isCommandLineSwitch: false);
+
+    /// <summary>
+    /// Returns <c>true</c> when the specified <see cref="IConfiguration"/>
+    /// contains the specified key.
+    /// </summary>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    /// <param name="key">the <see cref="IConfiguration"/> key</param>
+    /// <param name="isCommandLineSwitch">when <c>true</c>, expect a command-line “switch” like <c>--dry-run=true</c></param>
+    /// <remarks>
+    /// This member will call <see cref="StringExtensions.ToConfigurationKey"/>
+    /// to convert a console argument to <see cref="IConfiguration"/>-key format.
+    ///
+    /// When <c>isCommandLineSwitch</c> is <c>true</c>, a command-line “switch” like
+    /// `--dry-run=false` will make `HasArg` return `false` and `--dry-run=true` will make `HasArg` return `true`.
+    /// For more detail, see [https://github.com/BryanWilhite/SonghayCore/issues/177]
+    /// </remarks>
+    public static bool HasKey(this IConfiguration? configuration, string? key, bool isCommandLineSwitch)
+    {
+        if(string.IsNullOrWhiteSpace(key)) return false;
+
+        if (!isCommandLineSwitch) return configuration.ToKeys().Contains(key.ToConfigurationKey());
+
+        var booleanString = configuration.GetCommandLineArgValue(key);
+
+        return bool.TryParse(booleanString, out bool result) && result;
+
+    }
 
     /// <summary>
     /// Determines whether <c>args</c> contain the conventional <see cref="ConsoleArgsScalars.DryRun"/> flag.
     /// </summary>
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
-    public static bool IsDryRun(this IConfiguration? configuration) => configuration.HasArg(ConsoleArgsScalars.DryRun);
+    public static bool IsDryRun(this IConfiguration? configuration) => configuration.HasKey(ConsoleArgsScalars.DryRun);
 
     /// <summary>
     /// Determines whether <c>args</c> contain the conventional <see cref="ConsoleArgsScalars.Help"/> flag.
     /// </summary>
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
-    public static bool IsHelpRequest(this IConfiguration? configuration) => configuration.HasArg(ConsoleArgsScalars.Help);
+    public static bool IsHelpRequest(this IConfiguration? configuration) => configuration.HasKey(ConsoleArgsScalars.Help);
 
     /// <summary>
     /// Reads the settings data in the file specified by <see cref="ConsoleArgsScalars.SettingsFile"/>
@@ -144,11 +175,11 @@ public static class IConfigurationExtensions
     {
         string? input = null;
 
-        if (configuration.HasArg(ConsoleArgsScalars.InputString))
+        if (configuration.HasKey(ConsoleArgsScalars.InputString))
         {
             input = configuration.GetCommandLineArgValue(ConsoleArgsScalars.InputString);
         }
-        else if (configuration.HasArg(ConsoleArgsScalars.InputFile))
+        else if (configuration.HasKey(ConsoleArgsScalars.InputFile))
         {
             string? path = configuration.GetCommandLineArgValue(ConsoleArgsScalars.InputFile);
 
