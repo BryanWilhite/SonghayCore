@@ -23,8 +23,8 @@ public class DirectoryInfoExtensionsTests
     }
 
     [Theory]
-    [InlineData("../../../json/hello.json")]
-    [InlineData(@"..\..\..\json/hello.json")]
+    [InlineData("../../../content/json/hello.json")]
+    [InlineData(@"..\..\../content\json/hello.json")]
     public void ToCombinedPath_Test(string expectedPath)
     {
         var path = GetType().Assembly.GetPathFromAssembly().ToReferenceTypeValueOrThrow();

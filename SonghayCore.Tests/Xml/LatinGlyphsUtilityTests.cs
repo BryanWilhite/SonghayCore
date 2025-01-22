@@ -96,7 +96,7 @@ public class LatinGlyphsUtilityTests
 
     [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
     [SkippableTheory]
-    [InlineData("./xlsx/latin-glyphs.xlsx", "./txt/latin-glyphs.txt")]
+    [InlineData("./content/xlsx/latin-glyphs.xlsx", "./content/txt/latin-glyphs.txt")]
     public void ShouldWriteProgramGlyphData(string input, string output)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
@@ -181,7 +181,7 @@ public class LatinGlyphsUtilityTests
 
     [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
     [SkippableTheory]
-    [InlineData("./xlsx/latin-glyphs.xlsx", "./txt/latin-glyph-names.txt")]
+    [InlineData("./content/xlsx/latin-glyphs.xlsx", "./content/txt/latin-glyph-names.txt")]
     public void ShouldWriteUnicodeNames(string input, string output)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);

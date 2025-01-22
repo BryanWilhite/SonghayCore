@@ -9,7 +9,7 @@ public class FileInfoExtensionsTests
         _testOutputHelper = helper;
     }
 
-    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../zip/ReadZipArchiveEntries.zip")]
+    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../content/zip/ReadZipArchiveEntries.zip")]
     public void ReadZipArchiveEntries_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -26,7 +26,7 @@ public class FileInfoExtensionsTests
         Assert.True(isReading);
     }
 
-    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../zip/ReadZipArchiveEntries.zip")]
+    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../content/zip/ReadZipArchiveEntries.zip")]
     public void ReadZipArchiveEntriesBackwards_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -47,7 +47,7 @@ public class FileInfoExtensionsTests
         Assert.Equal(expectedOrder, builder.ToString());
     }
 
-    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../zip/ReadZipArchiveEntriesByLine.zip")]
+    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../content/zip/ReadZipArchiveEntriesByLine.zip")]
     public void ReadZipArchiveEntriesByLine_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -64,7 +64,7 @@ public class FileInfoExtensionsTests
         Assert.True(isReading);
     }
 
-    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../zip/UseZipArchive.zip")]
+    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../content/zip/UseZipArchive.zip")]
     public void UseZipArchive_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -81,7 +81,7 @@ public class FileInfoExtensionsTests
     [SkippableTheory,
      ProjectFileData(typeof(FileInfoExtensionsTests),
          "../../../json/hello.json",
-         "../../../zip/WriteZipArchiveEntry.zip")]
+         "../../../content/zip/WriteZipArchiveEntry.zip")]
     public void WriteZipArchiveEntry_Test(FileInfo fileInfo, FileInfo archiveInfo)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);

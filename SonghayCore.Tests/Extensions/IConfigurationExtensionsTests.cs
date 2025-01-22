@@ -60,7 +60,7 @@ public class IConfigurationExtensionsTests(ITestOutputHelper helper)
     }
 
     [Theory]
-    [InlineData("../../../json", "configuration.json")]
+    [InlineData("../../../content/json", "configuration.json")]
     public void ReadSettings_Test(string basePath, string configFile)
     {
         basePath = ProgramAssemblyUtility
@@ -85,8 +85,8 @@ public class IConfigurationExtensionsTests(ITestOutputHelper helper)
     }
 
     [Theory]
-    [InlineData("../../../json", "input.json")]
-    [InlineData(null, "../../../json/input.json")]
+    [InlineData("../../../content/json", "input.json")]
+    [InlineData(null, "../../../content/json/input.json")]
     [InlineData(null, @"{ ""arg1"": 1, ""arg2"": 2, ""arg3"": 3 }")]
     public void ReadStringInput_Test(string? basePath, string input)
     {
@@ -134,8 +134,8 @@ public class IConfigurationExtensionsTests(ITestOutputHelper helper)
     }
 
     [Theory]
-    [InlineData("../../../json", "output.json")]
-    [InlineData(null, "../../../json/output.json")]
+    [InlineData("../../../content/json", "output.json")]
+    [InlineData(null, "../../../content/json/output.json")]
     public void WriteOutputToFile_Test(string? basePath, string outputFile)
     {
         if (string.IsNullOrWhiteSpace(basePath))

@@ -4,7 +4,7 @@ namespace Songhay.Tests;
 
 public partial class ProgramFileUtilityTests
 {
-    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/ReadZipArchiveEntries.zip")]
+    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../content/zip/ReadZipArchiveEntries.zip")]
     public void ReadZipArchiveEntries_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -21,7 +21,7 @@ public partial class ProgramFileUtilityTests
         Assert.True(isReading);
     }
 
-    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/ReadZipArchiveEntries.zip")]
+    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../content/zip/ReadZipArchiveEntries.zip")]
     public void ReadZipArchiveEntriesBackwards_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -42,7 +42,7 @@ public partial class ProgramFileUtilityTests
         Assert.Equal(expectedOrder, builder.ToString());
     }
 
-    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/ReadZipArchiveEntriesByLine.zip")]
+    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../content/zip/ReadZipArchiveEntriesByLine.zip")]
     public void ReadZipArchiveEntriesByLine_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -59,7 +59,7 @@ public partial class ProgramFileUtilityTests
         Assert.True(isReading);
     }
 
-    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/UseZipArchive.zip")]
+    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../content/zip/UseZipArchive.zip")]
     public void UseZipArchive_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -76,7 +76,7 @@ public partial class ProgramFileUtilityTests
     [SkippableTheory,
      ProjectFileData(typeof(ProgramFileUtilityTests),
          "../../../json/hello.json",
-         "../../../zip/WriteZipArchiveEntry.zip")]
+         "../../../content/zip/WriteZipArchiveEntry.zip")]
     public void WriteZipArchiveEntry_Test(FileInfo fileInfo, FileInfo archiveInfo)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
