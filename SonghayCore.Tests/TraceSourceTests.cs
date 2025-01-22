@@ -4,7 +4,7 @@ using Songhay.Models;
 
 namespace Songhay.Tests;
 
-public class TraceSourceTests
+public class TraceSourceTests(ITestOutputHelper helper)
 {
     static TraceSourceTests()
     {
@@ -38,11 +38,6 @@ public class TraceSourceTests
     static readonly TraceSource? NullTraceSource;
     static readonly TraceSource OtherTraceSource;
 
-    public TraceSourceTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Fact]
     public void ShouldHaveConfiguredTraceSources()
     {
@@ -68,7 +63,7 @@ public class TraceSourceTests
         OtherTraceSource.TraceError("other err!");
 
         listener.Flush();
-        _testOutputHelper.WriteLine(writer.ToString());
+        helper.WriteLine(writer.ToString());
     }
 
     [Fact]
@@ -81,6 +76,4 @@ public class TraceSourceTests
         NullTraceSource.TraceWarning("info!");
         NullTraceSource.TraceError("info!");
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

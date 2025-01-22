@@ -3,7 +3,7 @@ using Songhay.Models;
 
 namespace Songhay.Tests.Extensions;
 
-public class TraceSourceExtensionsTests
+public class TraceSourceExtensionsTests(ITestOutputHelper testOutputHelper)
 {
     static TraceSourceExtensionsTests()
     {
@@ -15,11 +15,6 @@ public class TraceSourceExtensionsTests
     }
 
     static readonly TraceSource TraceSource;
-
-    public TraceSourceExtensionsTests(ITestOutputHelper testOutputHelper)
-    {
-        _testOutputHelper = testOutputHelper;
-    }
 
     [Fact]
     public async Task ShouldTraceFromMultipleThreads()
@@ -48,8 +43,6 @@ public class TraceSourceExtensionsTests
         await Task.WhenAll(tasks);
 
         listener.Flush();
-        _testOutputHelper.WriteLine(writer.ToString());
+        testOutputHelper.WriteLine(writer.ToString());
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

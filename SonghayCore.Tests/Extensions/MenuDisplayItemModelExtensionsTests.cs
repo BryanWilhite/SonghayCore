@@ -6,31 +6,28 @@ public class MenuDisplayItemModelExtensionsTests
 {
     // ReSharper disable once InconsistentNaming
     public static IEnumerable<object[]> GetAllByData =
-        new[]
-        {
-            new object[]
-            {
-                new MenuDisplayItemModel
+    [
+        [
+            new MenuDisplayItemModel
                 {
                     GroupId = "g-42",
-                    ChildItems = 
-                        new []
-                        {
-                            new MenuDisplayItemModel(),
+                    ChildItems =
+                    [
+                        new MenuDisplayItemModel(),
                             new MenuDisplayItemModel { GroupId = "g-42" },
                             new MenuDisplayItemModel
                             {
-                                ChildItems = new []
-                                {
-                                    new MenuDisplayItemModel { GroupId = "g-42" },
-                                }
+                                ChildItems =
+                                [
+                                    new MenuDisplayItemModel { GroupId = "g-42" }
+                                ]
                             }
-                        }
+                    ]
                 },
                 (MenuDisplayItemModel i) => i.HasGroupId("g-42"), // predicate
                 3 // expectedNumberOfItems
-            }
-        };
+        ]
+    ];
 
     [Theory]
     [MemberData(nameof(GetAllByData))]

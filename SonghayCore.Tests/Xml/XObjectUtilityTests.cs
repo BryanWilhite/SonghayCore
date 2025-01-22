@@ -3,13 +3,8 @@ using Songhay.Xml;
 
 namespace Songhay.Tests.Xml;
 
-public class XObjectUtilityTests
+public class XObjectUtilityTests(ITestOutputHelper helper)
 {
-    public XObjectUtilityTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Theory]
     [InlineData(@"<category domain=""category"" nicename=""root""><![CDATA[root]]></category>", "root")]
     public void GetCDataValue_Test(string xmlString, string expectedValue)
@@ -26,25 +21,27 @@ public class XObjectUtilityTests
     public void ShouldJoinFlattenedXTextNodes(string expectedValue, string sampleOne)
     {
         var rootElement = XElement.Parse(sampleOne);
-        _testOutputHelper.WriteLine(rootElement.ToString());
+        helper.WriteLine(rootElement.ToString());
 
         var actual = XObjectUtility.JoinFlattenedXTextNodes(rootElement);
-        _testOutputHelper.WriteLine($"actual: {actual}");
+        helper.WriteLine($"actual: {actual}");
         Assert.Equal(expectedValue, actual);
     }
 
     [Fact]
     public void ShouldMatchXPathForDescendingElements()
     {
-        var xml = @"
-<root>
-    <a>
-        <b>
-            <c>a text node</c>
-        </b>
-    </a>
-</root>
-";
+        const string xml = """
+
+                           <root>
+                               <a>
+                                   <b>
+                                       <c>a text node</c>
+                                   </b>
+                               </a>
+                           </root>
+
+                           """;
         var xd = XDocument.Parse(xml);
 
         var actual = XObjectUtility.GetXNode(xd.Root, "/root/a/b/c") as XElement;
@@ -65,6 +62,4 @@ public class XObjectUtilityTests
         var attr = c.FirstOrDefault()?.Attribute("foo");
         Assert.Null(attr);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

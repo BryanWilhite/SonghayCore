@@ -1,18 +1,13 @@
 ﻿namespace Songhay.Tests.Extensions;
 
-public partial class StringExtensionsTests
+public partial class StringExtensionsTests(ITestOutputHelper helper)
 {
-    public StringExtensionsTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Theory]
     [InlineData(@"{ ""my"": ""json"" }")]
     public void EscapeInterpolation_Test(string input)
     {
-        Assert.Throws<FormatException>(() => _testOutputHelper.WriteLine(input, 0));
-        _testOutputHelper.WriteLine(input.EscapeInterpolation(), 0);
+        Assert.Throws<FormatException>(() => helper.WriteLine(input, 0));
+        helper.WriteLine(input.EscapeInterpolation(), 0);
     }
 
     [Theory]
@@ -28,9 +23,9 @@ public partial class StringExtensionsTests
     public void FromSnakeToCaps_Test(string input, string expected)
     {
         var actual = input.FromSnakeToCaps();
-        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        helper.WriteLine($"{nameof(input)}: {input}");
+        helper.WriteLine($"{nameof(expected)}: {expected}");
+        helper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 
@@ -40,9 +35,9 @@ public partial class StringExtensionsTests
     public void InDoubleQuotesOrDefault_Test(string input, string defaultValue, string expected)
     {
         var actual = input.InDoubleQuotesOrDefault(defaultValue);
-        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        helper.WriteLine($"{nameof(input)}: {input}");
+        helper.WriteLine($"{nameof(expected)}: {expected}");
+        helper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 
@@ -81,11 +76,9 @@ public partial class StringExtensionsTests
     public void Reverse_Test(string input, string expected)
     {
         var actual = input.Reverse();
-        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        helper.WriteLine($"{nameof(input)}: {input}");
+        helper.WriteLine($"{nameof(expected)}: {expected}");
+        helper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

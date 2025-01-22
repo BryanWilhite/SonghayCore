@@ -3,13 +3,8 @@ using System.Text.Json;
 
 namespace Songhay.Tests.Extensions;
 
-public class Utf8JsonWriterExtensionsTests
+public class Utf8JsonWriterExtensionsTests(ITestOutputHelper helper)
 {
-    public Utf8JsonWriterExtensionsTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Fact]
     public void ShouldWriteEmptyJsonObject()
     {
@@ -22,7 +17,7 @@ public class Utf8JsonWriterExtensionsTests
 
         string json = Encoding.UTF8.GetString(stream.ToArray());
 
-        _testOutputHelper.WriteLine(json);
+        helper.WriteLine(json);
         Assert.Equal("{}", json);
     }
 
@@ -71,7 +66,7 @@ public class Utf8JsonWriterExtensionsTests
         string json = Encoding.UTF8.GetString(stream.ToArray());
         using var jDocument = JsonDocument.Parse(json);
 
-        _testOutputHelper.WriteLine(json);
+        helper.WriteLine(json);
 
         var pathProperty = jDocument.RootElement
             .GetProperty(query)
@@ -89,6 +84,4 @@ public class Utf8JsonWriterExtensionsTests
 
         Assert.Equal(matchProperty.GetInt32(), matchPropertyExpectedValue);
     }
-
-    ITestOutputHelper _testOutputHelper;
 }

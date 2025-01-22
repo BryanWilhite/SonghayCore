@@ -2,13 +2,8 @@ using System.Text;
 
 namespace Songhay.Tests.Extensions;
 
-public class FileInfoExtensionsTests
+public class FileInfoExtensionsTests(ITestOutputHelper helper)
 {
-    public FileInfoExtensionsTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../content/zip/ReadZipArchiveEntries.zip")]
     public void ReadZipArchiveEntries_Test(FileInfo archiveInfo)
     {
@@ -18,7 +13,7 @@ public class FileInfoExtensionsTests
         // act
         archiveInfo.ReadZipArchiveEntries(entry =>
         {
-            _testOutputHelper.WriteLine(entry);
+            helper.WriteLine(entry);
             isReading = true;
         });
 
@@ -38,7 +33,7 @@ public class FileInfoExtensionsTests
         archiveInfo.ReadZipArchiveEntries(entry =>
         {
             isReading = true;
-            _testOutputHelper.WriteLine(entry);
+            helper.WriteLine(entry);
             builder.Append(entry);
         }, entries => entries.OrderByDescending(i => i.Name));
 
@@ -56,7 +51,7 @@ public class FileInfoExtensionsTests
         // act
         archiveInfo.ReadZipArchiveEntriesByLine((lineNum, line) =>
         {
-            _testOutputHelper.WriteLine($"{lineNum}: {line}");
+            helper.WriteLine($"{lineNum}: {line}");
             isReading = true;
         }, entries => entries.Where(i => i.Name.EqualsInvariant("c.txt")));
 
@@ -88,6 +83,4 @@ public class FileInfoExtensionsTests
 
         archiveInfo.WriteZipArchiveEntry(fileInfo);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

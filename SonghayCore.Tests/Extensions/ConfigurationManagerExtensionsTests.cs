@@ -4,20 +4,15 @@ using Songhay.Models;
 
 namespace Songhay.Tests.Extensions;
 
-public class ConfigurationManagerExtensionsTests
+public class ConfigurationManagerExtensionsTests(ITestOutputHelper testOutputHelper)
 {
-    public ConfigurationManagerExtensionsTests(ITestOutputHelper testOutputHelper)
-    {
-        _testOutputHelper = testOutputHelper;
-    }
-
     [Theory]
     [ProjectFileData(
         typeof(ConfigurationManagerExtensionsTests),
-        new object[] {
+        [
             @"Data Source=|DataDirectory|\Chinook.dev.sqlite",
             "Chinook"
-        },
+        ],
         "../../../Extensions/ConfigurationManagerExtensionsTests.xml")]
     public void ShouldGetExternalConnectionStringSettings(string expectedConnectionString, string unqualifiedName, FileInfo externalConfigurationFileInfo)
     {
@@ -43,15 +38,15 @@ public class ConfigurationManagerExtensionsTests
 
         Assert.NotEmpty(collection);
         Assert.True(collection.OfType<ConnectionStringSettings>().Any(), "The expected ConnectionStringSettings are not here.");
-        collection.OfType<ConnectionStringSettings>().ForEachInEnumerable(i => _testOutputHelper.WriteLine(i.ToString()));
+        collection.OfType<ConnectionStringSettings>().ForEachInEnumerable(i => testOutputHelper.WriteLine(i.ToString()));
 
         var name = collection.GetConnectionNameFromEnvironment(unqualifiedName, environmentName);
-        _testOutputHelper.WriteLine("name: {0}", name);
+        testOutputHelper.WriteLine("name: {0}", name);
 
         var settings = collection.GetConnectionStringSettings(name).ToReferenceTypeValueOrThrow();
 
         var actual = settings.ConnectionString;
-        _testOutputHelper.WriteLine("actual: {0}", actual);
+        testOutputHelper.WriteLine("actual: {0}", actual);
 
         Assert.Equal(expectedConnectionString, actual);
     }
@@ -59,10 +54,10 @@ public class ConfigurationManagerExtensionsTests
     [Theory]
     [ProjectFileData(
         typeof(ConfigurationManagerExtensionsTests),
-        new object[] {
+        [
             "the external setting for DEV",
             "ex-setting"
-        },
+        ],
         "../../../Extensions/ConfigurationManagerExtensionsTests.xml")]
     public void ShouldGetExternalSetting(string expectedSetting, string unqualifiedKey, FileInfo externalConfigurationFileInfo)
     {
@@ -83,16 +78,16 @@ public class ConfigurationManagerExtensionsTests
             .WithAppSettings(externalConfigurationDoc)
             .ToReferenceTypeValueOrThrow();
 
-        _testOutputHelper.WriteLine("appSettings keys:");
+        testOutputHelper.WriteLine("appSettings keys:");
 
         Assert.True(collection.AllKeys.Any(), "The expected appSettings keys are not here.");
-        collection.AllKeys.ForEachInEnumerable(i => _testOutputHelper.WriteLine("key: {0}, value: {1}", i, collection[i]));
+        collection.AllKeys.ForEachInEnumerable(i => testOutputHelper.WriteLine("key: {0}, value: {1}", i, collection[i]));
 
         var key = collection.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
-        _testOutputHelper.WriteLine("key: {0}", key);
+        testOutputHelper.WriteLine("key: {0}", key);
 
         var actual = collection.GetSetting(key);
-        _testOutputHelper.WriteLine("actual: {0}", actual);
+        testOutputHelper.WriteLine("actual: {0}", actual);
 
         Assert.Equal(expectedSetting, actual);
     }
@@ -112,7 +107,7 @@ public class ConfigurationManagerExtensionsTests
         var name = configuration
             .ConnectionStrings.ConnectionStrings
             .GetConnectionNameFromEnvironment(unqualifiedName, environmentName);
-        _testOutputHelper.WriteLine("name: {0}", name);
+        testOutputHelper.WriteLine("name: {0}", name);
 
         var settings = configuration
             .ConnectionStrings.ConnectionStrings
@@ -120,7 +115,7 @@ public class ConfigurationManagerExtensionsTests
             .ToReferenceTypeValueOrThrow();
 
         var actual = settings.ConnectionString;
-        _testOutputHelper.WriteLine("actual: {0}", actual);
+        testOutputHelper.WriteLine("actual: {0}", actual);
 
         Assert.Equal(expectedConnectionString, actual);
     }
@@ -129,7 +124,7 @@ public class ConfigurationManagerExtensionsTests
     [InlineData(DeploymentEnvironment.DevelopmentEnvironmentName)]
     public void ShouldGetEnvironmentName(string expectedEnvironmentName)
     {
-        _testOutputHelper.WriteLine("expected: {0}", expectedEnvironmentName);
+        testOutputHelper.WriteLine("expected: {0}", expectedEnvironmentName);
 
         var configuration = ConfigurationManager
             .OpenExeConfiguration(GetType().Assembly.Location);
@@ -137,7 +132,7 @@ public class ConfigurationManagerExtensionsTests
         Assert.True(configuration.HasFile);
 
         var actual = configuration.AppSettings.Settings.GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
-        _testOutputHelper.WriteLine("actual: {0}", actual);
+        testOutputHelper.WriteLine("actual: {0}", actual);
 
         Assert.Equal(expectedEnvironmentName, actual);
     }
@@ -153,7 +148,7 @@ public class ConfigurationManagerExtensionsTests
 
         var environmentName = configuration.AppSettings.Settings.GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
         var actual = configuration.AppSettings.Settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
-        _testOutputHelper.WriteLine("actual: {0}", actual);
+        testOutputHelper.WriteLine("actual: {0}", actual);
 
         Assert.Equal(expectedKey, actual);
     }
@@ -170,13 +165,11 @@ public class ConfigurationManagerExtensionsTests
         var environmentName = configuration.AppSettings.Settings
             .GetEnvironmentName(DeploymentEnvironment.ConfigurationKey, "defaultEnvironmentName");
         var key = configuration.AppSettings.Settings.GetKeyWithEnvironmentName(unqualifiedKey, environmentName);
-        _testOutputHelper.WriteLine("key: {0}", key);
+        testOutputHelper.WriteLine("key: {0}", key);
 
         var actual = configuration.AppSettings.Settings.GetSetting(key);
-        _testOutputHelper.WriteLine("actual: {0}", actual);
+        testOutputHelper.WriteLine("actual: {0}", actual);
 
         Assert.Equal(expectedSetting, actual);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

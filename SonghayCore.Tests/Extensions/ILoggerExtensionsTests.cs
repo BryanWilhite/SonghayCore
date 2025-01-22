@@ -4,14 +4,8 @@ using Microsoft.Extensions.Logging;
 namespace Songhay.Tests.Extensions;
 
 // ReSharper disable once InconsistentNaming
-public class ILoggerExtensionsTests
+public class ILoggerExtensionsTests(ITestOutputHelper helper)
 {
-    public ILoggerExtensionsTests(ITestOutputHelper helper)
-    {
-        _helper = helper;
-        _loggerProvider = new XUnitLoggerProvider(helper);
-    }
-
     [Fact]
     public void LogErrorForMissingData_Test()
     {
@@ -43,6 +37,5 @@ public class ILoggerExtensionsTests
         public DateTime Stamp {get; init; } = DateTime.Now;
     }
 
-    readonly ITestOutputHelper _helper;
-    readonly XUnitLoggerProvider _loggerProvider;
+    readonly XUnitLoggerProvider _loggerProvider = new(helper);
 }

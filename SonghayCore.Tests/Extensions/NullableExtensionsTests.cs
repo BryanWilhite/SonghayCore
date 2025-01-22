@@ -31,7 +31,7 @@ public class NullableExtensionsTests
     [Fact]
     public void ThrowWhenNullOrEmpty_Empty_Failure_Test()
     {
-        IEnumerable<string> enumerable = Enumerable.Empty<string>();
+        IEnumerable<string> enumerable = [];
 
         // ReSharper disable once ExpressionIsAlwaysNull
         Assert.Throws<ArgumentNullException>(() => enumerable.ThrowWhenNullOrEmpty());
@@ -40,7 +40,7 @@ public class NullableExtensionsTests
     [Fact]
     public void ThrowWhenNullOrEmpty_Test()
     {
-        IEnumerable<string> enumerable = new []{ "one" };
+        IEnumerable<string> enumerable = ["one"];
 
         enumerable.ThrowWhenNullOrEmpty();
     }

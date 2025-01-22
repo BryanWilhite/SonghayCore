@@ -3,13 +3,8 @@ using Songhay.Tests.Extensions;
 
 namespace Songhay.Tests;
 
-public partial class ProgramFileUtilityTests
+public partial class ProgramFileUtilityTests(ITestOutputHelper helper)
 {
-    public ProgramFileUtilityTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
     [SkippableTheory]
     [InlineData("root1", @"z:\one", "z:|one", true)]
@@ -67,9 +62,9 @@ public partial class ProgramFileUtilityTests
     [Fact]
     public void GetEncodedString_Test()
     {
-        var unicode = "This string contains the unicode character Pi (\u03a0)";
+        const string unicode = "This string contains the unicode character Pi (\u03a0)";
 
-        var actual = ProgramFileUtility.GetEncodedString(unicode, Encoding.ASCII);
+        string actual = ProgramFileUtility.GetEncodedString(unicode, Encoding.ASCII);
 
         Assert.NotNull(actual);
         Assert.True(actual.Contains('?'));
@@ -78,8 +73,8 @@ public partial class ProgramFileUtilityTests
     [Fact]
     public void GetParentDirectory_Test()
     {
-        var expected = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, TestScalars.NetCoreRelativePathToProjectFolder);
-        var actual = ProgramFileUtility.GetParentDirectory(GetType().Assembly.Location, 4);
+        string expected = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, TestScalars.NetCoreRelativePathToProjectFolder);
+        string? actual = ProgramFileUtility.GetParentDirectory(GetType().Assembly.Location, 4);
 
         Assert.Equal(expected, actual);
     }
@@ -87,8 +82,8 @@ public partial class ProgramFileUtilityTests
     [Fact]
     public void GetParentDirectoryInfo_Test()
     {
-        var expected = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, TestScalars.NetCoreRelativePathToProjectFolder);
-        var actual = ProgramFileUtility.GetParentDirectoryInfo(GetType().Assembly.Location, 4);
+        string expected = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, TestScalars.NetCoreRelativePathToProjectFolder);
+        DirectoryInfo? actual = ProgramFileUtility.GetParentDirectoryInfo(GetType().Assembly.Location, 4);
 
         Assert.Equal(expected, actual.ToReferenceTypeValueOrThrow().FullName);
     }
@@ -100,16 +95,14 @@ public partial class ProgramFileUtilityTests
     [InlineData(@"..\..\one\", @"one|")]
     public void GetRelativePath_Test(string input, string expectedResult)
     {
-        var actual = ProgramFileUtility.GetRelativePath(input);
+        string? actual = ProgramFileUtility.GetRelativePath(input);
         Assert.Equal(expectedResult.Replace('|', Path.DirectorySeparatorChar), actual);
     }
 
     [Theory, InlineData(@"/\foo\bar\my-file.json", @"foo\bar\my-file.json")]
     public void TrimLeadingDirectorySeparatorChars_Test(string path, string expectedResult)
     {
-        var actual = ProgramFileUtility.TrimLeadingDirectorySeparatorChars(path);
+        string? actual = ProgramFileUtility.TrimLeadingDirectorySeparatorChars(path);
         Assert.Equal(expectedResult, actual);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

@@ -5,13 +5,8 @@ using Tavis.UriTemplates;
 
 namespace Songhay.Tests.Extensions;
 
-public class HttpRequestMessageExtensionsTests
+public class HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
 {
-    public HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Theory(Skip = "slowwly server is down")]
     [InlineData("https://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
     public async Task ShouldCancel(string location, int timeInSeconds)
@@ -28,7 +23,7 @@ public class HttpRequestMessageExtensionsTests
         {
             client.Timeout = Timeout.InfiniteTimeSpan;
 
-            _testOutputHelper.WriteLine($"calling `{location}`...");
+            helper.WriteLine($"calling `{location}`...");
             var request = new HttpRequestMessage(HttpMethod.Get, location);
 
             cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
@@ -67,7 +62,7 @@ public class HttpRequestMessageExtensionsTests
         var uri = template.BindByPosition($"{id}");
         var content = await new HttpRequestMessage(HttpMethod.Get, uri)
             .GetContentAsync(response => Assert.Equal(HttpStatusCode.OK, response.StatusCode));
-        _testOutputHelper.WriteLine(content);
+        helper.WriteLine(content);
     }
 
     [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
@@ -87,7 +82,7 @@ public class HttpRequestMessageExtensionsTests
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         var content = await response.Content.ReadAsStringAsync();
-        _testOutputHelper.WriteLine(content);
+        helper.WriteLine(content);
         var jO = JObject.Parse(content);
         Assert.Equal(albumId, jO.GetValue(nameof(albumId))?.Value<int>());
     }
@@ -116,7 +111,7 @@ public class HttpRequestMessageExtensionsTests
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         var content = await response.Content.ReadAsStringAsync();
-        _testOutputHelper.WriteLine(content);
+        helper.WriteLine(content);
         var jO = JObject.Parse(content);
         Assert.Equal(albumId, jO.GetValue(nameof(albumId))?.Value<int>());
     }
@@ -150,7 +145,7 @@ public class HttpRequestMessageExtensionsTests
         {
             client.Timeout = Timeout.InfiniteTimeSpan;
 
-            _testOutputHelper.WriteLine($"calling `{location}`...");
+            helper.WriteLine($"calling `{location}`...");
             var request = new HttpRequestMessage(HttpMethod.Get, location);
 
             await request.GetContentAsync(
@@ -164,6 +159,4 @@ public class HttpRequestMessageExtensionsTests
     }
 
     const string LiveApiBaseUri = "https://jsonplaceholder.typicode.com";
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

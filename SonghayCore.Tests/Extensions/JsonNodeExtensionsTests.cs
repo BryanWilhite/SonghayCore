@@ -4,14 +4,8 @@ using Microsoft.Extensions.Logging;
 
 namespace Songhay.Tests.Extensions;
 
-public class JsonNodeExtensionsTests
+public class JsonNodeExtensionsTests(ITestOutputHelper helper)
 {
-    public JsonNodeExtensionsTests(ITestOutputHelper helper)
-    {
-        _helper = helper;
-        _loggerProvider = new XUnitLoggerProvider(helper);
-    }
-
     [Theory]
     [InlineData("{ \"my-property\":\"hello world!\" }", "my-property", "hello world!")]
     public void GetPropertyValue_String_Test(string input, string propertyName, string expectedOutput)
@@ -91,6 +85,5 @@ public class JsonNodeExtensionsTests
         Assert.Null(actual);
     }
 
-    readonly ITestOutputHelper _helper;
-    readonly XUnitLoggerProvider _loggerProvider;
+    readonly XUnitLoggerProvider _loggerProvider = new(helper);
 }

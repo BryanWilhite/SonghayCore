@@ -21,16 +21,15 @@ namespace Songhay.Tests.Extensions
     public class IServiceProviderExtensionsTests
     {
         // ReSharper disable once InconsistentNaming
-        public static IEnumerable<object[]> TestData = new[]
-        {
-            new object[]
-            {
+        public static IEnumerable<object[]> TestData =
+        [
+            [
                 Host
-                    .CreateDefaultBuilder(Array.Empty<string>())
+                    .CreateDefaultBuilder([])
                     .ConfigureServices((hostContext, services) => { services.AddTransient<IMyService, MyService>(); })
                     .Build()
-            }
-        };
+            ]
+        ];
 
         [Theory]
         [MemberData(nameof(TestData))]

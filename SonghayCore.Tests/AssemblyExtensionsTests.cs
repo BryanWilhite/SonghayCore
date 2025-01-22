@@ -5,9 +5,9 @@ public class AssemblyExtensionsTests
     [Fact]
     public void GetPathFromAssembly_Test()
     {
-        var assembly = GetType().Assembly;
+        Assembly assembly = GetType().Assembly;
 
-        var path = assembly.GetPathFromAssembly();
+        string? path = assembly.GetPathFromAssembly();
 
         Assert.True(Directory.Exists(path));
     }

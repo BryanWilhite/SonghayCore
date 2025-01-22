@@ -1,12 +1,7 @@
 ﻿namespace Songhay.Tests.Extensions;
 
-public class UriExtensionsTests
+public class UriExtensionsTests(ITestOutputHelper helper)
 {
-    public UriExtensionsTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
     [SkippableTheory]
     [InlineData("http://ow.ly/i/8Tq32")] //does not expand
@@ -28,12 +23,10 @@ public class UriExtensionsTests
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
 
-        _testOutputHelper.WriteLine($"expanding `{location}`...");
+        helper.WriteLine($"expanding `{location}`...");
         var uri = new Uri(location);
 
         var expandedUri = await uri.ToExpandedUriAsync();
-        _testOutputHelper.WriteLine($"expanded to `{expandedUri.ToReferenceTypeValueOrThrow().OriginalString}`.");
+        helper.WriteLine($"expanded to `{expandedUri.ToReferenceTypeValueOrThrow().OriginalString}`.");
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

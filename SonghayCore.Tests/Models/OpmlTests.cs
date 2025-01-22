@@ -3,13 +3,8 @@ using Songhay.Xml;
 
 namespace Songhay.Tests.Models;
 
-public class OpmlTests
+public class OpmlTests(ITestOutputHelper helper)
 {
-    public OpmlTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Theory]
     [InlineData(@"Models\OpmlFromInfoPath.xml")]
     public void ShouldFilterCategory(string opmlFile)
@@ -48,14 +43,14 @@ public class OpmlTests
 
         categories
             .ForEachInEnumerable(category =>
-            _testOutputHelper.WriteLine($"Category: {category.Text}"));
+            helper.WriteLine($"Category: {category.Text}"));
 
         //XPATH./outline[@type="link"]
         var resources = categories.First().Outlines
             .Where(outline => outline.OutlineType == "link");
 
         resources.ForEachInEnumerable(resource =>
-            _testOutputHelper.WriteLine($"Resource: {resource.Text}"));
+            helper.WriteLine($"Resource: {resource.Text}"));
     }
 
     [Theory]
@@ -109,6 +104,4 @@ public class OpmlTests
         Assert.Equal(date.Value.Hour, actualDate.Hour);
         Assert.Equal(date.Value.Minute, actualDate.Minute);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }
