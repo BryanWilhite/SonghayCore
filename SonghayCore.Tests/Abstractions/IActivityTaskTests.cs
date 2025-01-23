@@ -82,7 +82,7 @@ public class IActivityTaskTestsIActivityTests(ITestOutputHelper testOutputHelper
         IConfiguration configuration = new ConfigurationBuilder()
             .AddInMemoryCollection(new Dictionary<string, string?>
             {
-                [actual] = null 
+                [actual] = null,
             })
             .Build();
 
