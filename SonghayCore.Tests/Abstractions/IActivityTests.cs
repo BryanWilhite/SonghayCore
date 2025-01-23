@@ -14,19 +14,55 @@ public class MyActivityWithInput(IConfiguration configuration, ILogger<MyActivit
 
         configuration[key] = $"Hello {input}!";
 
-        logger.LogInformation(configuration[key]);
+        logger.LogInformation("{s}", configuration[key]);
     }
 }
 
-public class MyActivityWithInputAndOutput : IActivity<int,string>
+public class MyActivityWithInputAndOutput : IActivity<int, string>
 {
     public string? Start(int input)
     {
         return input switch
         {
+            4 => "walls",
+            16 => "sweet",
             42 => "meaning of life",
             _ => null
         };
+    }
+}
+
+public class MyOtherActivityWithInputAndOutput : IActivity<int, string>
+{
+    public string? Start(int input)
+    {
+        return input switch
+        {
+            4 => "four",
+            16 => "sixteen",
+            42 => "forty-two",
+            _ => null
+        };
+    }
+}
+
+public class MyOutputActivity(
+    [FromKeyedServices(nameof(MyActivityWithInputAndOutput))] IActivity<int, string> ioActivity,
+    [FromKeyedServices(nameof(MyOtherActivityWithInputAndOutput))] IActivity<int, string> otherIoActivity) : IActivityOutputOnly<string[]>
+{
+    public string[] Start()
+    {
+        List<string?> output =
+        [
+            otherIoActivity.Start(4),
+            ioActivity.Start(4),
+            ioActivity.Start(16),
+            otherIoActivity.Start(16),
+            ioActivity.Start(42),
+            otherIoActivity.Start(42),
+        ];
+
+        return output.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray()!;
     }
 }
 
@@ -59,5 +95,27 @@ public class IActivityTests(ITestOutputHelper testOutputHelper)
 
         activity.Start(input);
         Assert.Equal(expected, configuration[actual]);
+    }
+
+    [Fact]
+    public void ShouldRunMyOutputActivity()
+    {
+        ServiceCollection services = new();
+
+        services.AddKeyedTransient<IActivity<int, string>, MyActivityWithInputAndOutput>(nameof(MyActivityWithInputAndOutput));
+        services.AddKeyedTransient<IActivity<int, string>, MyOtherActivityWithInputAndOutput>(nameof(MyOtherActivityWithInputAndOutput));
+        services.AddTransient<IActivityOutputOnly<string[]>, MyOutputActivity>();
+
+        ServiceProvider provider = services.BuildServiceProvider();
+
+        IActivityOutputOnly<string[]> activity = provider.GetRequiredService<IActivityOutputOnly<string[]>>();
+        var actual = activity.Start();
+
+        Assert.NotNull(actual);
+
+        foreach (string s in actual)
+        {
+            testOutputHelper.WriteLine(s);
+        }
     }
 }

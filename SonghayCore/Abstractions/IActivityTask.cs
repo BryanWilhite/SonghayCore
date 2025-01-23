@@ -46,7 +46,7 @@ public interface IActivityTask<in TInput>
 /// For detail aound why this definition exists,
 /// see https://github.com/BryanWilhite/SonghayCore/issues/83
 /// </remarks>
-public interface IActivityTask<in TInput, TOutput> : IActivity
+public interface IActivityTask<in TInput, TOutput>
 {
     /// <summary>
     /// Starts the <see cref="IActivity"/> asynchronously.

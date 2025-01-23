@@ -16,5 +16,5 @@ public interface IActivityOutputOnly<out TOutput>
     /// <summary>
     /// Starts the <see cref="IActivity" /> asynchronously.
     /// </summary>
-    TOutput? StartAsync();
+    TOutput? Start();
 }
