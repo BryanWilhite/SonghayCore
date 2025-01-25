@@ -2,7 +2,7 @@
     .Factory
     .CreateDocs(args)
     .AddExcludedPath("Statiq.Docs.Shell")
-    .AddSolutionFiles("SonghayCore/**/*.dll", "SonghayCore.xUnit/**/*.dll")
+    .AddProjectFiles("SonghayCore/SonghayCore.csproj", "SonghayCore.xUnit/SonghayCore.xUnit.csproj")
     .AddSettings(new Dictionary<string, object>
     {
         { Keys.Title, "API" },
