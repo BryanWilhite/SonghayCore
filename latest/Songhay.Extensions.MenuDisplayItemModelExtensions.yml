@@ -1,0 +1,779 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Extensions.MenuDisplayItemModelExtensions
+  commentId: T:Songhay.Extensions.MenuDisplayItemModelExtensions
+  id: MenuDisplayItemModelExtensions
+  parent: Songhay.Extensions
+  children:
+  - Songhay.Extensions.MenuDisplayItemModelExtensions.DefaultOrFirst(System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel})
+  - Songhay.Extensions.MenuDisplayItemModelExtensions.GetAllBy(Songhay.Models.MenuDisplayItemModel,System.Func{Songhay.Models.MenuDisplayItemModel,System.Boolean})
+  - Songhay.Extensions.MenuDisplayItemModelExtensions.HasGroupId(Songhay.Models.MenuDisplayItemModel,System.String)
+  - Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItem(Songhay.Models.MenuDisplayItemModel,Songhay.Models.MenuDisplayItemModel)
+  - Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItems(Songhay.Models.MenuDisplayItemModel,System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel})
+  langs:
+  - csharp
+  - vb
+  name: MenuDisplayItemModelExtensions
+  nameWithType: MenuDisplayItemModelExtensions
+  fullName: Songhay.Extensions.MenuDisplayItemModelExtensions
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MenuDisplayItemModelExtensions
+    path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Extensions of <xref href="Songhay.Models.MenuDisplayItemModel" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static class MenuDisplayItemModelExtensions
+    content.vb: Public Module MenuDisplayItemModelExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Extensions.MenuDisplayItemModelExtensions.GetAllBy(Songhay.Models.MenuDisplayItemModel,System.Func{Songhay.Models.MenuDisplayItemModel,System.Boolean})
+  commentId: M:Songhay.Extensions.MenuDisplayItemModelExtensions.GetAllBy(Songhay.Models.MenuDisplayItemModel,System.Func{Songhay.Models.MenuDisplayItemModel,System.Boolean})
+  id: GetAllBy(Songhay.Models.MenuDisplayItemModel,System.Func{Songhay.Models.MenuDisplayItemModel,System.Boolean})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.MenuDisplayItemModelExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetAllBy(MenuDisplayItemModel?, Func<MenuDisplayItemModel, bool>)
+  nameWithType: MenuDisplayItemModelExtensions.GetAllBy(MenuDisplayItemModel?, Func<MenuDisplayItemModel, bool>)
+  fullName: Songhay.Extensions.MenuDisplayItemModelExtensions.GetAllBy(Songhay.Models.MenuDisplayItemModel?, System.Func<Songhay.Models.MenuDisplayItemModel, bool>)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetAllBy
+    path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+    startLine: 13
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Gets all <xref href="Songhay.Models.MenuDisplayItemModel" data-throw-if-not-resolved="false"></xref>
+
+    by the specified predicate.
+  example: []
+  syntax:
+    content: public static IEnumerable<MenuDisplayItemModel> GetAllBy(this MenuDisplayItemModel? data, Func<MenuDisplayItemModel, bool> predicate)
+    parameters:
+    - id: data
+      type: Songhay.Models.MenuDisplayItemModel
+      description: the <xref href="Songhay.Models.MenuDisplayItemModel" data-throw-if-not-resolved="false"></xref>
+    - id: predicate
+      type: System.Func{Songhay.Models.MenuDisplayItemModel,System.Boolean}
+      description: the predicate
+    return:
+      type: System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel}
+    content.vb: Public Shared Function GetAllBy(data As MenuDisplayItemModel, predicate As Func(Of MenuDisplayItemModel, Boolean)) As IEnumerable(Of MenuDisplayItemModel)
+  overload: Songhay.Extensions.MenuDisplayItemModelExtensions.GetAllBy*
+  nameWithType.vb: MenuDisplayItemModelExtensions.GetAllBy(MenuDisplayItemModel, Func(Of MenuDisplayItemModel, Boolean))
+  fullName.vb: Songhay.Extensions.MenuDisplayItemModelExtensions.GetAllBy(Songhay.Models.MenuDisplayItemModel, System.Func(Of Songhay.Models.MenuDisplayItemModel, Boolean))
+  name.vb: GetAllBy(MenuDisplayItemModel, Func(Of MenuDisplayItemModel, Boolean))
+- uid: Songhay.Extensions.MenuDisplayItemModelExtensions.HasGroupId(Songhay.Models.MenuDisplayItemModel,System.String)
+  commentId: M:Songhay.Extensions.MenuDisplayItemModelExtensions.HasGroupId(Songhay.Models.MenuDisplayItemModel,System.String)
+  id: HasGroupId(Songhay.Models.MenuDisplayItemModel,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.MenuDisplayItemModelExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasGroupId(MenuDisplayItemModel?, string)
+  nameWithType: MenuDisplayItemModelExtensions.HasGroupId(MenuDisplayItemModel?, string)
+  fullName: Songhay.Extensions.MenuDisplayItemModelExtensions.HasGroupId(Songhay.Models.MenuDisplayItemModel?, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HasGroupId
+    path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+    startLine: 33
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Returns <code>true</code> when the grouping has the specified identifier.
+  example: []
+  syntax:
+    content: public static bool HasGroupId(this MenuDisplayItemModel? data, string groupId)
+    parameters:
+    - id: data
+      type: Songhay.Models.MenuDisplayItemModel
+      description: the <xref href="Songhay.Models.MenuDisplayItemModel" data-throw-if-not-resolved="false"></xref>
+    - id: groupId
+      type: System.String
+      description: the <xref href="Songhay.Models.MenuDisplayItemModel.GroupId" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasGroupId(data As MenuDisplayItemModel, groupId As String) As Boolean
+  overload: Songhay.Extensions.MenuDisplayItemModelExtensions.HasGroupId*
+  nameWithType.vb: MenuDisplayItemModelExtensions.HasGroupId(MenuDisplayItemModel, String)
+  fullName.vb: Songhay.Extensions.MenuDisplayItemModelExtensions.HasGroupId(Songhay.Models.MenuDisplayItemModel, String)
+  name.vb: HasGroupId(MenuDisplayItemModel, String)
+- uid: Songhay.Extensions.MenuDisplayItemModelExtensions.DefaultOrFirst(System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel})
+  commentId: M:Songhay.Extensions.MenuDisplayItemModelExtensions.DefaultOrFirst(System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel})
+  id: DefaultOrFirst(System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.MenuDisplayItemModelExtensions
+  langs:
+  - csharp
+  - vb
+  name: DefaultOrFirst(IEnumerable<MenuDisplayItemModel>?)
+  nameWithType: MenuDisplayItemModelExtensions.DefaultOrFirst(IEnumerable<MenuDisplayItemModel>?)
+  fullName: Songhay.Extensions.MenuDisplayItemModelExtensions.DefaultOrFirst(System.Collections.Generic.IEnumerable<Songhay.Models.MenuDisplayItemModel>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DefaultOrFirst
+    path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+    startLine: 42
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns the Default Selection
+
+    <code>IsDefaultSelection == true</code>
+
+    or the First <xref href="Songhay.Models.MenuDisplayItemModel" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static MenuDisplayItemModel? DefaultOrFirst(this IEnumerable<MenuDisplayItemModel>? data)
+    parameters:
+    - id: data
+      type: System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel}
+      description: The data.
+    return:
+      type: Songhay.Models.MenuDisplayItemModel
+    content.vb: Public Shared Function DefaultOrFirst(data As IEnumerable(Of MenuDisplayItemModel)) As MenuDisplayItemModel
+  overload: Songhay.Extensions.MenuDisplayItemModelExtensions.DefaultOrFirst*
+  nameWithType.vb: MenuDisplayItemModelExtensions.DefaultOrFirst(IEnumerable(Of MenuDisplayItemModel))
+  fullName.vb: Songhay.Extensions.MenuDisplayItemModelExtensions.DefaultOrFirst(System.Collections.Generic.IEnumerable(Of Songhay.Models.MenuDisplayItemModel))
+  name.vb: DefaultOrFirst(IEnumerable(Of MenuDisplayItemModel))
+- uid: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItem(Songhay.Models.MenuDisplayItemModel,Songhay.Models.MenuDisplayItemModel)
+  commentId: M:Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItem(Songhay.Models.MenuDisplayItemModel,Songhay.Models.MenuDisplayItemModel)
+  id: WithChildItem(Songhay.Models.MenuDisplayItemModel,Songhay.Models.MenuDisplayItemModel)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.MenuDisplayItemModelExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithChildItem(MenuDisplayItemModel?, MenuDisplayItemModel?)
+  nameWithType: MenuDisplayItemModelExtensions.WithChildItem(MenuDisplayItemModel?, MenuDisplayItemModel?)
+  fullName: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItem(Songhay.Models.MenuDisplayItemModel?, Songhay.Models.MenuDisplayItemModel?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithChildItem
+    path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+    startLine: 58
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Fluently returns <xref href="Songhay.Models.MenuDisplayItemModel" data-throw-if-not-resolved="false"></xref> with child item.
+  example: []
+  syntax:
+    content: public static MenuDisplayItemModel? WithChildItem(this MenuDisplayItemModel? data, MenuDisplayItemModel? child)
+    parameters:
+    - id: data
+      type: Songhay.Models.MenuDisplayItemModel
+      description: The data.
+    - id: child
+      type: Songhay.Models.MenuDisplayItemModel
+      description: The child.
+    return:
+      type: Songhay.Models.MenuDisplayItemModel
+    content.vb: Public Shared Function WithChildItem(data As MenuDisplayItemModel, child As MenuDisplayItemModel) As MenuDisplayItemModel
+  overload: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItem*
+  nameWithType.vb: MenuDisplayItemModelExtensions.WithChildItem(MenuDisplayItemModel, MenuDisplayItemModel)
+  fullName.vb: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItem(Songhay.Models.MenuDisplayItemModel, Songhay.Models.MenuDisplayItemModel)
+  name.vb: WithChildItem(MenuDisplayItemModel, MenuDisplayItemModel)
+- uid: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItems(Songhay.Models.MenuDisplayItemModel,System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel})
+  commentId: M:Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItems(Songhay.Models.MenuDisplayItemModel,System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel})
+  id: WithChildItems(Songhay.Models.MenuDisplayItemModel,System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.MenuDisplayItemModelExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithChildItems(MenuDisplayItemModel?, IEnumerable<MenuDisplayItemModel>?)
+  nameWithType: MenuDisplayItemModelExtensions.WithChildItems(MenuDisplayItemModel?, IEnumerable<MenuDisplayItemModel>?)
+  fullName: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItems(Songhay.Models.MenuDisplayItemModel?, System.Collections.Generic.IEnumerable<Songhay.Models.MenuDisplayItemModel>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithChildItems
+    path: SonghayCore/Extensions/MenuDisplayItemModelExtensions.cs
+    startLine: 73
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Fluently returns <xref href="Songhay.Models.MenuDisplayItemModel" data-throw-if-not-resolved="false"></xref> with child items.
+  example: []
+  syntax:
+    content: public static MenuDisplayItemModel? WithChildItems(this MenuDisplayItemModel? data, IEnumerable<MenuDisplayItemModel>? items)
+    parameters:
+    - id: data
+      type: Songhay.Models.MenuDisplayItemModel
+      description: The data.
+    - id: items
+      type: System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel}
+      description: The items.
+    return:
+      type: Songhay.Models.MenuDisplayItemModel
+    content.vb: Public Shared Function WithChildItems(data As MenuDisplayItemModel, items As IEnumerable(Of MenuDisplayItemModel)) As MenuDisplayItemModel
+  overload: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItems*
+  nameWithType.vb: MenuDisplayItemModelExtensions.WithChildItems(MenuDisplayItemModel, IEnumerable(Of MenuDisplayItemModel))
+  fullName.vb: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItems(Songhay.Models.MenuDisplayItemModel, System.Collections.Generic.IEnumerable(Of Songhay.Models.MenuDisplayItemModel))
+  name.vb: WithChildItems(MenuDisplayItemModel, IEnumerable(Of MenuDisplayItemModel))
+references:
+- uid: Songhay.Models.MenuDisplayItemModel
+  commentId: T:Songhay.Models.MenuDisplayItemModel
+  parent: Songhay.Models
+  href: Songhay.Models.MenuDisplayItemModel.html
+  name: MenuDisplayItemModel
+  nameWithType: MenuDisplayItemModel
+  fullName: Songhay.Models.MenuDisplayItemModel
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Extensions.MenuDisplayItemModelExtensions.GetAllBy*
+  commentId: Overload:Songhay.Extensions.MenuDisplayItemModelExtensions.GetAllBy
+  href: Songhay.Extensions.MenuDisplayItemModelExtensions.html#Songhay_Extensions_MenuDisplayItemModelExtensions_GetAllBy_Songhay_Models_MenuDisplayItemModel_System_Func_Songhay_Models_MenuDisplayItemModel_System_Boolean__
+  name: GetAllBy
+  nameWithType: MenuDisplayItemModelExtensions.GetAllBy
+  fullName: Songhay.Extensions.MenuDisplayItemModelExtensions.GetAllBy
+- uid: System.Func{Songhay.Models.MenuDisplayItemModel,System.Boolean}
+  commentId: T:System.Func{Songhay.Models.MenuDisplayItemModel,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<MenuDisplayItemModel, bool>
+  nameWithType: Func<MenuDisplayItemModel, bool>
+  fullName: System.Func<Songhay.Models.MenuDisplayItemModel, bool>
+  nameWithType.vb: Func(Of MenuDisplayItemModel, Boolean)
+  fullName.vb: System.Func(Of Songhay.Models.MenuDisplayItemModel, Boolean)
+  name.vb: Func(Of MenuDisplayItemModel, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Songhay.Models.MenuDisplayItemModel
+    name: MenuDisplayItemModel
+    href: Songhay.Models.MenuDisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.MenuDisplayItemModel
+    name: MenuDisplayItemModel
+    href: Songhay.Models.MenuDisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel}
+  commentId: T:System.Collections.Generic.IEnumerable{Songhay.Models.MenuDisplayItemModel}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<MenuDisplayItemModel>
+  nameWithType: IEnumerable<MenuDisplayItemModel>
+  fullName: System.Collections.Generic.IEnumerable<Songhay.Models.MenuDisplayItemModel>
+  nameWithType.vb: IEnumerable(Of MenuDisplayItemModel)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Songhay.Models.MenuDisplayItemModel)
+  name.vb: IEnumerable(Of MenuDisplayItemModel)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Songhay.Models.MenuDisplayItemModel
+    name: MenuDisplayItemModel
+    href: Songhay.Models.MenuDisplayItemModel.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.MenuDisplayItemModel
+    name: MenuDisplayItemModel
+    href: Songhay.Models.MenuDisplayItemModel.html
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Songhay.Models.MenuDisplayItemModel.GroupId
+  commentId: P:Songhay.Models.MenuDisplayItemModel.GroupId
+  href: Songhay.Models.MenuDisplayItemModel.html#Songhay_Models_MenuDisplayItemModel_GroupId
+  name: GroupId
+  nameWithType: MenuDisplayItemModel.GroupId
+  fullName: Songhay.Models.MenuDisplayItemModel.GroupId
+- uid: Songhay.Extensions.MenuDisplayItemModelExtensions.HasGroupId*
+  commentId: Overload:Songhay.Extensions.MenuDisplayItemModelExtensions.HasGroupId
+  href: Songhay.Extensions.MenuDisplayItemModelExtensions.html#Songhay_Extensions_MenuDisplayItemModelExtensions_HasGroupId_Songhay_Models_MenuDisplayItemModel_System_String_
+  name: HasGroupId
+  nameWithType: MenuDisplayItemModelExtensions.HasGroupId
+  fullName: Songhay.Extensions.MenuDisplayItemModelExtensions.HasGroupId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Songhay.Extensions.MenuDisplayItemModelExtensions.DefaultOrFirst*
+  commentId: Overload:Songhay.Extensions.MenuDisplayItemModelExtensions.DefaultOrFirst
+  href: Songhay.Extensions.MenuDisplayItemModelExtensions.html#Songhay_Extensions_MenuDisplayItemModelExtensions_DefaultOrFirst_System_Collections_Generic_IEnumerable_Songhay_Models_MenuDisplayItemModel__
+  name: DefaultOrFirst
+  nameWithType: MenuDisplayItemModelExtensions.DefaultOrFirst
+  fullName: Songhay.Extensions.MenuDisplayItemModelExtensions.DefaultOrFirst
+- uid: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItem*
+  commentId: Overload:Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItem
+  href: Songhay.Extensions.MenuDisplayItemModelExtensions.html#Songhay_Extensions_MenuDisplayItemModelExtensions_WithChildItem_Songhay_Models_MenuDisplayItemModel_Songhay_Models_MenuDisplayItemModel_
+  name: WithChildItem
+  nameWithType: MenuDisplayItemModelExtensions.WithChildItem
+  fullName: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItem
+- uid: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItems*
+  commentId: Overload:Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItems
+  href: Songhay.Extensions.MenuDisplayItemModelExtensions.html#Songhay_Extensions_MenuDisplayItemModelExtensions_WithChildItems_Songhay_Models_MenuDisplayItemModel_System_Collections_Generic_IEnumerable_Songhay_Models_MenuDisplayItemModel__
+  name: WithChildItems
+  nameWithType: MenuDisplayItemModelExtensions.WithChildItems
+  fullName: Songhay.Extensions.MenuDisplayItemModelExtensions.WithChildItems

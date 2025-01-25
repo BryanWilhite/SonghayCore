@@ -1,0 +1,1015 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Extensions.XElementExtensions
+  commentId: T:Songhay.Extensions.XElementExtensions
+  id: XElementExtensions
+  parent: Songhay.Extensions
+  children:
+  - Songhay.Extensions.XElementExtensions.AddOnce(System.Xml.Linq.XElement,System.Xml.Linq.XAttribute)
+  - Songhay.Extensions.XElementExtensions.GetElement(System.Xml.Linq.XNode,System.Xml.Linq.XName)
+  - Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XElement,System.Xml.Linq.XName)
+  - Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XNode,System.Xml.Linq.XName)
+  - Songhay.Extensions.XElementExtensions.IsElement(System.Xml.Linq.XNode)
+  - Songhay.Extensions.XElementExtensions.ToAttributeValueOrDefault(System.Xml.Linq.XElement,System.String,System.String)
+  - Songhay.Extensions.XElementExtensions.ToAttributeValueOrNull(System.Xml.Linq.XElement,System.String)
+  - Songhay.Extensions.XElementExtensions.ToElementValueOrDefault(System.Xml.Linq.XElement,System.String)
+  - Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement})
+  - Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Xml.Linq.XElement)
+  - Songhay.Extensions.XElementExtensions.WithoutNamespaces(System.Xml.Linq.XElement)
+  langs:
+  - csharp
+  - vb
+  name: XElementExtensions
+  nameWithType: XElementExtensions
+  fullName: Songhay.Extensions.XElementExtensions
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XElementExtensions
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Extensions of <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class XElementExtensions
+    content.vb: Public Module XElementExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Extensions.XElementExtensions.AddOnce(System.Xml.Linq.XElement,System.Xml.Linq.XAttribute)
+  commentId: M:Songhay.Extensions.XElementExtensions.AddOnce(System.Xml.Linq.XElement,System.Xml.Linq.XAttribute)
+  id: AddOnce(System.Xml.Linq.XElement,System.Xml.Linq.XAttribute)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.XElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddOnce(XElement?, XAttribute?)
+  nameWithType: XElementExtensions.AddOnce(XElement?, XAttribute?)
+  fullName: Songhay.Extensions.XElementExtensions.AddOnce(System.Xml.Linq.XElement?, System.Xml.Linq.XAttribute?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AddOnce
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 13
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Prevents the specified <xref href="System.Xml.Linq.XAttribute" data-throw-if-not-resolved="false"></xref>
+
+    from being added more than once.
+  example: []
+  syntax:
+    content: public static void AddOnce(this XElement? element, XAttribute? attribute)
+    parameters:
+    - id: element
+      type: System.Xml.Linq.XElement
+      description: The element.
+    - id: attribute
+      type: System.Xml.Linq.XAttribute
+      description: The attribute.
+    content.vb: Public Shared Sub AddOnce(element As XElement, attribute As XAttribute)
+  overload: Songhay.Extensions.XElementExtensions.AddOnce*
+  nameWithType.vb: XElementExtensions.AddOnce(XElement, XAttribute)
+  fullName.vb: Songhay.Extensions.XElementExtensions.AddOnce(System.Xml.Linq.XElement, System.Xml.Linq.XAttribute)
+  name.vb: AddOnce(XElement, XAttribute)
+- uid: Songhay.Extensions.XElementExtensions.GetElement(System.Xml.Linq.XNode,System.Xml.Linq.XName)
+  commentId: M:Songhay.Extensions.XElementExtensions.GetElement(System.Xml.Linq.XNode,System.Xml.Linq.XName)
+  id: GetElement(System.Xml.Linq.XNode,System.Xml.Linq.XName)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.XElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetElement(XNode?, XName?)
+  nameWithType: XElementExtensions.GetElement(XNode?, XName?)
+  fullName: Songhay.Extensions.XElementExtensions.GetElement(System.Xml.Linq.XNode?, System.Xml.Linq.XName?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetElement
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 28
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Gets the <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static XElement? GetElement(this XNode? node, XName? name)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    - id: name
+      type: System.Xml.Linq.XName
+      description: The name.
+    return:
+      type: System.Xml.Linq.XElement
+    content.vb: Public Shared Function GetElement(node As XNode, name As XName) As XElement
+  overload: Songhay.Extensions.XElementExtensions.GetElement*
+  nameWithType.vb: XElementExtensions.GetElement(XNode, XName)
+  fullName.vb: Songhay.Extensions.XElementExtensions.GetElement(System.Xml.Linq.XNode, System.Xml.Linq.XName)
+  name.vb: GetElement(XNode, XName)
+- uid: Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XElement,System.Xml.Linq.XName)
+  commentId: M:Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XElement,System.Xml.Linq.XName)
+  id: HasElementName(System.Xml.Linq.XElement,System.Xml.Linq.XName)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.XElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasElementName(XElement?, XName?)
+  nameWithType: XElementExtensions.HasElementName(XElement?, XName?)
+  fullName: Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XElement?, System.Xml.Linq.XName?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HasElementName
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 40
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Determines whether the <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref>
+
+    has the specified <xref href="System.Xml.Linq.XName" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool HasElementName(this XElement? element, XName? name)
+    parameters:
+    - id: element
+      type: System.Xml.Linq.XElement
+      description: The element.
+    - id: name
+      type: System.Xml.Linq.XName
+      description: The name.
+    return:
+      type: System.Boolean
+      description: <code>true</code> when the element has the name; otherwise, <code>false</code>.
+    content.vb: Public Shared Function HasElementName(element As XElement, name As XName) As Boolean
+  overload: Songhay.Extensions.XElementExtensions.HasElementName*
+  nameWithType.vb: XElementExtensions.HasElementName(XElement, XName)
+  fullName.vb: Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XElement, System.Xml.Linq.XName)
+  name.vb: HasElementName(XElement, XName)
+- uid: Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XNode,System.Xml.Linq.XName)
+  commentId: M:Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XNode,System.Xml.Linq.XName)
+  id: HasElementName(System.Xml.Linq.XNode,System.Xml.Linq.XName)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.XElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasElementName(XNode?, XName?)
+  nameWithType: XElementExtensions.HasElementName(XNode?, XName?)
+  fullName: Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XNode?, System.Xml.Linq.XName?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HasElementName
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 51
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Determines whether the <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref>
+
+    has the specified <xref href="System.Xml.Linq.XName" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool HasElementName(this XNode? node, XName? name)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    - id: name
+      type: System.Xml.Linq.XName
+      description: The name.
+    return:
+      type: System.Boolean
+      description: <code>true</code> when the node has the name; otherwise, <code>false</code>.
+    content.vb: Public Shared Function HasElementName(node As XNode, name As XName) As Boolean
+  overload: Songhay.Extensions.XElementExtensions.HasElementName*
+  nameWithType.vb: XElementExtensions.HasElementName(XNode, XName)
+  fullName.vb: Songhay.Extensions.XElementExtensions.HasElementName(System.Xml.Linq.XNode, System.Xml.Linq.XName)
+  name.vb: HasElementName(XNode, XName)
+- uid: Songhay.Extensions.XElementExtensions.IsElement(System.Xml.Linq.XNode)
+  commentId: M:Songhay.Extensions.XElementExtensions.IsElement(System.Xml.Linq.XNode)
+  id: IsElement(System.Xml.Linq.XNode)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.XElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsElement(XNode?)
+  nameWithType: XElementExtensions.IsElement(XNode?)
+  fullName: Songhay.Extensions.XElementExtensions.IsElement(System.Xml.Linq.XNode?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IsElement
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 61
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Determines whether the specified node is <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool IsElement(this XNode? node)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the specified node is element; otherwise, <code>false</code>.
+    content.vb: Public Shared Function IsElement(node As XNode) As Boolean
+  overload: Songhay.Extensions.XElementExtensions.IsElement*
+  nameWithType.vb: XElementExtensions.IsElement(XNode)
+  fullName.vb: Songhay.Extensions.XElementExtensions.IsElement(System.Xml.Linq.XNode)
+  name.vb: IsElement(XNode)
+- uid: Songhay.Extensions.XElementExtensions.ToAttributeValueOrDefault(System.Xml.Linq.XElement,System.String,System.String)
+  commentId: M:Songhay.Extensions.XElementExtensions.ToAttributeValueOrDefault(System.Xml.Linq.XElement,System.String,System.String)
+  id: ToAttributeValueOrDefault(System.Xml.Linq.XElement,System.String,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.XElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToAttributeValueOrDefault(XElement?, string?, string?)
+  nameWithType: XElementExtensions.ToAttributeValueOrDefault(XElement?, string?, string?)
+  fullName: Songhay.Extensions.XElementExtensions.ToAttributeValueOrDefault(System.Xml.Linq.XElement?, string?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToAttributeValueOrDefault
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 69
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Converts the <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref> into a attribute value or default.
+  example: []
+  syntax:
+    content: public static string? ToAttributeValueOrDefault(this XElement? element, string? attributeName, string? defaultValue)
+    parameters:
+    - id: element
+      type: System.Xml.Linq.XElement
+      description: The element.
+    - id: attributeName
+      type: System.String
+      description: Name of the attribute.
+    - id: defaultValue
+      type: System.String
+      description: The default value.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToAttributeValueOrDefault(element As XElement, attributeName As String, defaultValue As String) As String
+  overload: Songhay.Extensions.XElementExtensions.ToAttributeValueOrDefault*
+  nameWithType.vb: XElementExtensions.ToAttributeValueOrDefault(XElement, String, String)
+  fullName.vb: Songhay.Extensions.XElementExtensions.ToAttributeValueOrDefault(System.Xml.Linq.XElement, String, String)
+  name.vb: ToAttributeValueOrDefault(XElement, String, String)
+- uid: Songhay.Extensions.XElementExtensions.ToAttributeValueOrNull(System.Xml.Linq.XElement,System.String)
+  commentId: M:Songhay.Extensions.XElementExtensions.ToAttributeValueOrNull(System.Xml.Linq.XElement,System.String)
+  id: ToAttributeValueOrNull(System.Xml.Linq.XElement,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.XElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToAttributeValueOrNull(XElement?, string?)
+  nameWithType: XElementExtensions.ToAttributeValueOrNull(XElement?, string?)
+  fullName: Songhay.Extensions.XElementExtensions.ToAttributeValueOrNull(System.Xml.Linq.XElement?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToAttributeValueOrNull
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 81
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Returns the attribute value or null.
+  example: []
+  syntax:
+    content: public static string? ToAttributeValueOrNull(this XElement? element, string? attributeName)
+    parameters:
+    - id: element
+      type: System.Xml.Linq.XElement
+      description: The element.
+    - id: attributeName
+      type: System.String
+      description: Name of the attribute.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToAttributeValueOrNull(element As XElement, attributeName As String) As String
+  overload: Songhay.Extensions.XElementExtensions.ToAttributeValueOrNull*
+  nameWithType.vb: XElementExtensions.ToAttributeValueOrNull(XElement, String)
+  fullName.vb: Songhay.Extensions.XElementExtensions.ToAttributeValueOrNull(System.Xml.Linq.XElement, String)
+  name.vb: ToAttributeValueOrNull(XElement, String)
+- uid: Songhay.Extensions.XElementExtensions.ToElementValueOrDefault(System.Xml.Linq.XElement,System.String)
+  commentId: M:Songhay.Extensions.XElementExtensions.ToElementValueOrDefault(System.Xml.Linq.XElement,System.String)
+  id: ToElementValueOrDefault(System.Xml.Linq.XElement,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.XElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToElementValueOrDefault(XElement?, string?)
+  nameWithType: XElementExtensions.ToElementValueOrDefault(XElement?, string?)
+  fullName: Songhay.Extensions.XElementExtensions.ToElementValueOrDefault(System.Xml.Linq.XElement?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToElementValueOrDefault
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 98
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Converts the <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref> into a element value or default.
+  example: []
+  syntax:
+    content: public static string? ToElementValueOrDefault(this XElement? element, string? defaultValue)
+    parameters:
+    - id: element
+      type: System.Xml.Linq.XElement
+      description: The element.
+    - id: defaultValue
+      type: System.String
+      description: The default value.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToElementValueOrDefault(element As XElement, defaultValue As String) As String
+  overload: Songhay.Extensions.XElementExtensions.ToElementValueOrDefault*
+  nameWithType.vb: XElementExtensions.ToElementValueOrDefault(XElement, String)
+  fullName.vb: Songhay.Extensions.XElementExtensions.ToElementValueOrDefault(System.Xml.Linq.XElement, String)
+  name.vb: ToElementValueOrDefault(XElement, String)
+- uid: Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Xml.Linq.XElement)
+  commentId: M:Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Xml.Linq.XElement)
+  id: ToElementValueOrNull(System.Xml.Linq.XElement)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.XElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToElementValueOrNull(XElement?)
+  nameWithType: XElementExtensions.ToElementValueOrNull(XElement?)
+  fullName: Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Xml.Linq.XElement?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToElementValueOrNull
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 109
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Converts the <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref> into a element value or null.
+  example: []
+  syntax:
+    content: public static string? ToElementValueOrNull(this XElement? element)
+    parameters:
+    - id: element
+      type: System.Xml.Linq.XElement
+      description: The element.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToElementValueOrNull(element As XElement) As String
+  overload: Songhay.Extensions.XElementExtensions.ToElementValueOrNull*
+  nameWithType.vb: XElementExtensions.ToElementValueOrNull(XElement)
+  fullName.vb: Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Xml.Linq.XElement)
+  name.vb: ToElementValueOrNull(XElement)
+- uid: Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement})
+  commentId: M:Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement})
+  id: ToElementValueOrNull(System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.XElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToElementValueOrNull(IEnumerable<XElement>?)
+  nameWithType: XElementExtensions.ToElementValueOrNull(IEnumerable<XElement>?)
+  fullName: Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Collections.Generic.IEnumerable<System.Xml.Linq.XElement>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToElementValueOrNull
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 116
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Returns the element value or null.
+  example: []
+  syntax:
+    content: public static string? ToElementValueOrNull(this IEnumerable<XElement>? elements)
+    parameters:
+    - id: elements
+      type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement}
+      description: The elements.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToElementValueOrNull(elements As IEnumerable(Of XElement)) As String
+  overload: Songhay.Extensions.XElementExtensions.ToElementValueOrNull*
+  nameWithType.vb: XElementExtensions.ToElementValueOrNull(IEnumerable(Of XElement))
+  fullName.vb: Songhay.Extensions.XElementExtensions.ToElementValueOrNull(System.Collections.Generic.IEnumerable(Of System.Xml.Linq.XElement))
+  name.vb: ToElementValueOrNull(IEnumerable(Of XElement))
+- uid: Songhay.Extensions.XElementExtensions.WithoutNamespaces(System.Xml.Linq.XElement)
+  commentId: M:Songhay.Extensions.XElementExtensions.WithoutNamespaces(System.Xml.Linq.XElement)
+  id: WithoutNamespaces(System.Xml.Linq.XElement)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.XElementExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithoutNamespaces(XElement?)
+  nameWithType: XElementExtensions.WithoutNamespaces(XElement?)
+  fullName: Songhay.Extensions.XElementExtensions.WithoutNamespaces(System.Xml.Linq.XElement?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/XElementExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithoutNamespaces
+    path: SonghayCore/Extensions/XElementExtensions.cs
+    startLine: 128
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns the specified <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref>
+
+    without namespace qualifiers on elements and attributes.
+  remarks: >-
+    Based on “Answer: How to remove all namespaces from XML with C#?”
+
+    [http://stackoverflow.com/a/7238007/22944?stw=2]
+  example: []
+  syntax:
+    content: public static XElement? WithoutNamespaces(this XElement? element)
+    parameters:
+    - id: element
+      type: System.Xml.Linq.XElement
+      description: The element
+    return:
+      type: System.Xml.Linq.XElement
+    content.vb: Public Shared Function WithoutNamespaces(element As XElement) As XElement
+  overload: Songhay.Extensions.XElementExtensions.WithoutNamespaces*
+  nameWithType.vb: XElementExtensions.WithoutNamespaces(XElement)
+  fullName.vb: Songhay.Extensions.XElementExtensions.WithoutNamespaces(System.Xml.Linq.XElement)
+  name.vb: WithoutNamespaces(XElement)
+references:
+- uid: System.Xml.Linq.XElement
+  commentId: T:System.Xml.Linq.XElement
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement
+  name: XElement
+  nameWithType: XElement
+  fullName: System.Xml.Linq.XElement
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Xml.Linq
+  commentId: N:System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Xml.Linq
+  nameWithType: System.Xml.Linq
+  fullName: System.Xml.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Xml.Linq.XAttribute
+  commentId: T:System.Xml.Linq.XAttribute
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xattribute
+  name: XAttribute
+  nameWithType: XAttribute
+  fullName: System.Xml.Linq.XAttribute
+- uid: Songhay.Extensions.XElementExtensions.AddOnce*
+  commentId: Overload:Songhay.Extensions.XElementExtensions.AddOnce
+  href: Songhay.Extensions.XElementExtensions.html#Songhay_Extensions_XElementExtensions_AddOnce_System_Xml_Linq_XElement_System_Xml_Linq_XAttribute_
+  name: AddOnce
+  nameWithType: XElementExtensions.AddOnce
+  fullName: Songhay.Extensions.XElementExtensions.AddOnce
+- uid: Songhay.Extensions.XElementExtensions.GetElement*
+  commentId: Overload:Songhay.Extensions.XElementExtensions.GetElement
+  href: Songhay.Extensions.XElementExtensions.html#Songhay_Extensions_XElementExtensions_GetElement_System_Xml_Linq_XNode_System_Xml_Linq_XName_
+  name: GetElement
+  nameWithType: XElementExtensions.GetElement
+  fullName: Songhay.Extensions.XElementExtensions.GetElement
+- uid: System.Xml.Linq.XNode
+  commentId: T:System.Xml.Linq.XNode
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  name: XNode
+  nameWithType: XNode
+  fullName: System.Xml.Linq.XNode
+- uid: System.Xml.Linq.XName
+  commentId: T:System.Xml.Linq.XName
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xname
+  name: XName
+  nameWithType: XName
+  fullName: System.Xml.Linq.XName
+- uid: Songhay.Extensions.XElementExtensions.HasElementName*
+  commentId: Overload:Songhay.Extensions.XElementExtensions.HasElementName
+  href: Songhay.Extensions.XElementExtensions.html#Songhay_Extensions_XElementExtensions_HasElementName_System_Xml_Linq_XElement_System_Xml_Linq_XName_
+  name: HasElementName
+  nameWithType: XElementExtensions.HasElementName
+  fullName: Songhay.Extensions.XElementExtensions.HasElementName
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Songhay.Extensions.XElementExtensions.IsElement*
+  commentId: Overload:Songhay.Extensions.XElementExtensions.IsElement
+  href: Songhay.Extensions.XElementExtensions.html#Songhay_Extensions_XElementExtensions_IsElement_System_Xml_Linq_XNode_
+  name: IsElement
+  nameWithType: XElementExtensions.IsElement
+  fullName: Songhay.Extensions.XElementExtensions.IsElement
+- uid: Songhay.Extensions.XElementExtensions.ToAttributeValueOrDefault*
+  commentId: Overload:Songhay.Extensions.XElementExtensions.ToAttributeValueOrDefault
+  href: Songhay.Extensions.XElementExtensions.html#Songhay_Extensions_XElementExtensions_ToAttributeValueOrDefault_System_Xml_Linq_XElement_System_String_System_String_
+  name: ToAttributeValueOrDefault
+  nameWithType: XElementExtensions.ToAttributeValueOrDefault
+  fullName: Songhay.Extensions.XElementExtensions.ToAttributeValueOrDefault
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Songhay.Extensions.XElementExtensions.ToAttributeValueOrNull*
+  commentId: Overload:Songhay.Extensions.XElementExtensions.ToAttributeValueOrNull
+  href: Songhay.Extensions.XElementExtensions.html#Songhay_Extensions_XElementExtensions_ToAttributeValueOrNull_System_Xml_Linq_XElement_System_String_
+  name: ToAttributeValueOrNull
+  nameWithType: XElementExtensions.ToAttributeValueOrNull
+  fullName: Songhay.Extensions.XElementExtensions.ToAttributeValueOrNull
+- uid: Songhay.Extensions.XElementExtensions.ToElementValueOrDefault*
+  commentId: Overload:Songhay.Extensions.XElementExtensions.ToElementValueOrDefault
+  href: Songhay.Extensions.XElementExtensions.html#Songhay_Extensions_XElementExtensions_ToElementValueOrDefault_System_Xml_Linq_XElement_System_String_
+  name: ToElementValueOrDefault
+  nameWithType: XElementExtensions.ToElementValueOrDefault
+  fullName: Songhay.Extensions.XElementExtensions.ToElementValueOrDefault
+- uid: Songhay.Extensions.XElementExtensions.ToElementValueOrNull*
+  commentId: Overload:Songhay.Extensions.XElementExtensions.ToElementValueOrNull
+  href: Songhay.Extensions.XElementExtensions.html#Songhay_Extensions_XElementExtensions_ToElementValueOrNull_System_Xml_Linq_XElement_
+  name: ToElementValueOrNull
+  nameWithType: XElementExtensions.ToElementValueOrNull
+  fullName: Songhay.Extensions.XElementExtensions.ToElementValueOrNull
+- uid: System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<XElement>
+  nameWithType: IEnumerable<XElement>
+  fullName: System.Collections.Generic.IEnumerable<System.Xml.Linq.XElement>
+  nameWithType.vb: IEnumerable(Of XElement)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Xml.Linq.XElement)
+  name.vb: IEnumerable(Of XElement)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Xml.Linq.XElement
+    name: XElement
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Xml.Linq.XElement
+    name: XElement
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Songhay.Extensions.XElementExtensions.WithoutNamespaces*
+  commentId: Overload:Songhay.Extensions.XElementExtensions.WithoutNamespaces
+  href: Songhay.Extensions.XElementExtensions.html#Songhay_Extensions_XElementExtensions_WithoutNamespaces_System_Xml_Linq_XElement_
+  name: WithoutNamespaces
+  nameWithType: XElementExtensions.WithoutNamespaces
+  fullName: Songhay.Extensions.XElementExtensions.WithoutNamespaces

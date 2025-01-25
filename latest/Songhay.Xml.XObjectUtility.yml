@@ -1,0 +1,2222 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Xml.XObjectUtility
+  commentId: T:Songhay.Xml.XObjectUtility
+  id: XObjectUtility
+  parent: Songhay.Xml
+  children:
+  - Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XElement)
+  - Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XNode)
+  - Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String)
+  - Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String)
+  - Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String,System.String)
+  - Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String)
+  - Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String,System.Boolean)
+  - Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean)
+  - Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String)
+  - Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String,System.Xml.IXmlNamespaceResolver)
+  - Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse``1(System.Xml.Linq.XNode,System.String,System.Boolean,``0)
+  - Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse``1(System.Xml.Linq.XNode,System.String,System.Boolean,``0,System.Xml.IXmlNamespaceResolver)
+  - Songhay.Xml.XObjectUtility.GetXDeclaration
+  - Songhay.Xml.XObjectUtility.GetXDeclaration(System.String,System.Boolean)
+  - Songhay.Xml.XObjectUtility.GetXElement(System.String,System.Object)
+  - Songhay.Xml.XObjectUtility.GetXElement(System.Xml.Linq.XNode,System.String)
+  - Songhay.Xml.XObjectUtility.GetXElements(System.Xml.Linq.XNode,System.String)
+  - Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String)
+  - Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean)
+  - Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  - Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String)
+  - Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean)
+  - Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  - Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String)
+  - Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean)
+  - Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  - Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String)
+  - Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean)
+  - Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  - Songhay.Xml.XObjectUtility.GlyphNonBreakingSpace
+  - Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement)
+  - Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean)
+  - Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean,System.String)
+  - Songhay.Xml.XObjectUtility.XTextNonBreakingSpace
+  langs:
+  - csharp
+  - vb
+  name: XObjectUtility
+  nameWithType: XObjectUtility
+  fullName: Songhay.Xml.XObjectUtility
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XObjectUtility
+    path: SonghayCore/Xml/XObjectUtility._.cs
+    startLine: 9
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Static helper members for XML-related routines.
+  remarks: >-
+    These definitions are biased toward emitting <xref href="System.Xml.XPath.XPathDocument" data-throw-if-not-resolved="false"></xref> documents.
+
+    However, many accept any input implementing the <xref href="System.Xml.XPath.IXPathNavigable" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: public static class XObjectUtility
+    content.vb: Public Module XObjectUtility
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XElement)
+  commentId: M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XElement)
+  id: GetCDataValue(System.Xml.Linq.XElement)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetCDataValue(XElement?)
+  nameWithType: XObjectUtility.GetCDataValue(XElement?)
+  fullName: Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XElement?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetCDataValue
+    path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+    startLine: 8
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Get the CDATA value from the specified <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string? GetCDataValue(XElement? element)
+    parameters:
+    - id: element
+      type: System.Xml.Linq.XElement
+      description: The <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetCDataValue(element As XElement) As String
+  overload: Songhay.Xml.XObjectUtility.GetCDataValue*
+  nameWithType.vb: XObjectUtility.GetCDataValue(XElement)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XElement)
+  name.vb: GetCDataValue(XElement)
+- uid: Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XNode)
+  commentId: M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XNode)
+  id: GetCDataValue(System.Xml.Linq.XNode)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetCDataValue(XNode?)
+  nameWithType: XObjectUtility.GetCDataValue(XNode?)
+  fullName: Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XNode?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetCDataValue
+    path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+    startLine: 14
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Get the CDATA value from the specified <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string? GetCDataValue(XNode? node)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetCDataValue(node As XNode) As String
+  overload: Songhay.Xml.XObjectUtility.GetCDataValue*
+  nameWithType.vb: XObjectUtility.GetCDataValue(XNode)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XNode)
+  name.vb: GetCDataValue(XNode)
+- uid: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String)
+  id: GetLocalNameXPathQuery(System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetLocalNameXPathQuery(string?)
+  nameWithType: XObjectUtility.GetLocalNameXPathQuery(string?)
+  fullName: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetLocalNameXPathQuery
+    path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+    startLine: 20
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref> into a <code>local-name()</code>, XPath-predicate query.
+  example: []
+  syntax:
+    content: public static string? GetLocalNameXPathQuery(string? childElementName)
+    parameters:
+    - id: childElementName
+      type: System.String
+      description: Name of the child element.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetLocalNameXPathQuery(childElementName As String) As String
+  overload: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery*
+  nameWithType.vb: XObjectUtility.GetLocalNameXPathQuery(String)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(String)
+  name.vb: GetLocalNameXPathQuery(String)
+- uid: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String)
+  id: GetLocalNameXPathQuery(System.String,System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetLocalNameXPathQuery(string?, string?)
+  nameWithType: XObjectUtility.GetLocalNameXPathQuery(string?, string?)
+  fullName: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(string?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetLocalNameXPathQuery
+    path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+    startLine: 29
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref> into a <code>local-name()</code>, XPath-predicate query.
+  example: []
+  syntax:
+    content: public static string? GetLocalNameXPathQuery(string? namespacePrefixOrUri, string? childElementName)
+    parameters:
+    - id: namespacePrefixOrUri
+      type: System.String
+      description: The namespace prefix or URI.
+    - id: childElementName
+      type: System.String
+      description: Name of the child element.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetLocalNameXPathQuery(namespacePrefixOrUri As String, childElementName As String) As String
+  overload: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery*
+  nameWithType.vb: XObjectUtility.GetLocalNameXPathQuery(String, String)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(String, String)
+  name.vb: GetLocalNameXPathQuery(String, String)
+- uid: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String,System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String,System.String)
+  id: GetLocalNameXPathQuery(System.String,System.String,System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetLocalNameXPathQuery(string?, string?, string?)
+  nameWithType: XObjectUtility.GetLocalNameXPathQuery(string?, string?, string?)
+  fullName: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(string?, string?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetLocalNameXPathQuery
+    path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+    startLine: 41
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref> into a <code>local-name()</code>, XPath-predicate query.
+  remarks: This routine is useful when namespace-resolving is not desirable or available.
+  example: []
+  syntax:
+    content: public static string? GetLocalNameXPathQuery(string? namespacePrefixOrUri, string? childElementName, string? childAttributeName)
+    parameters:
+    - id: namespacePrefixOrUri
+      type: System.String
+      description: The namespace prefix or URI.
+    - id: childElementName
+      type: System.String
+      description: Name of the child element.
+    - id: childAttributeName
+      type: System.String
+      description: Name of the child attribute.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetLocalNameXPathQuery(namespacePrefixOrUri As String, childElementName As String, childAttributeName As String) As String
+  overload: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery*
+  nameWithType.vb: XObjectUtility.GetLocalNameXPathQuery(String, String, String)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(String, String, String)
+  name.vb: GetLocalNameXPathQuery(String, String, String)
+- uid: Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String)
+  id: GetValue(System.Xml.Linq.XNode,System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetValue(XNode?, string?)
+  nameWithType: XObjectUtility.GetValue(XNode?, string?)
+  fullName: Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetValue
+    path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+    startLine: 63
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the element or attribute value of the specified element.
+  example: []
+  syntax:
+    content: public static string? GetValue(XNode? currentNode, string? query)
+    parameters:
+    - id: currentNode
+      type: System.Xml.Linq.XNode
+      description: The current element.
+    - id: query
+      type: System.String
+      description: The xpath query.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetValue(currentNode As XNode, query As String) As String
+  overload: Songhay.Xml.XObjectUtility.GetValue*
+  nameWithType.vb: XObjectUtility.GetValue(XNode, String)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode, String)
+  name.vb: GetValue(XNode, String)
+- uid: Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String,System.Boolean)
+  commentId: M:Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String,System.Boolean)
+  id: GetValue(System.Xml.Linq.XNode,System.String,System.Boolean)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetValue(XNode?, string?, bool)
+  nameWithType: XObjectUtility.GetValue(XNode?, string?, bool)
+  fullName: Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode?, string?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetValue
+    path: SonghayCore/Xml/XObjectUtility.GetValue.cs
+    startLine: 71
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the element or attribute value of the current element.
+  example: []
+  syntax:
+    content: public static string? GetValue(XNode? currentNode, string? query, bool throwException)
+    parameters:
+    - id: currentNode
+      type: System.Xml.Linq.XNode
+      description: The current <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref>.
+    - id: query
+      type: System.String
+      description: The xpath query.
+    - id: throwException
+      type: System.Boolean
+      description: if set to <code>true</code> throw exception.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetValue(currentNode As XNode, query As String, throwException As Boolean) As String
+  overload: Songhay.Xml.XObjectUtility.GetValue*
+  nameWithType.vb: XObjectUtility.GetValue(XNode, String, Boolean)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode, String, Boolean)
+  name.vb: GetValue(XNode, String, Boolean)
+- uid: Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean)
+  id: GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXAttributeValue(XNode?, string?, bool)
+  nameWithType: XObjectUtility.GetXAttributeValue(XNode?, string?, bool)
+  fullName: Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode?, string?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXAttributeValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXAttributeValue
+    path: SonghayCore/Xml/XObjectUtility.GetXAttributeValue.cs
+    startLine: 11
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: >-
+    Returns an object for parsing
+
+    and adding to a list of parameters for data access.
+  example: []
+  syntax:
+    content: public static string? GetXAttributeValue(XNode? node, string? nodeQuery, bool throwException)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref>.
+    - id: nodeQuery
+      type: System.String
+      description: The node query <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    - id: throwException
+      type: System.Boolean
+      description: When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetXAttributeValue(node As XNode, nodeQuery As String, throwException As Boolean) As String
+  overload: Songhay.Xml.XObjectUtility.GetXAttributeValue*
+  nameWithType.vb: XObjectUtility.GetXAttributeValue(XNode, String, Boolean)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode, String, Boolean)
+  name.vb: GetXAttributeValue(XNode, String, Boolean)
+- uid: Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String)
+  id: GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXAttributeValue(XNode?, string?, bool, string?)
+  nameWithType: XObjectUtility.GetXAttributeValue(XNode?, string?, bool, string?)
+  fullName: Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode?, string?, bool, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXAttributeValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXAttributeValue
+    path: SonghayCore/Xml/XObjectUtility.GetXAttributeValue.cs
+    startLine: 22
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: >-
+    Returns an object for parsing
+
+    and adding to a list of parameters for data access.
+  example: []
+  syntax:
+    content: public static string? GetXAttributeValue(XNode? node, string? nodeQuery, bool throwException, string? defaultValue)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref>.
+    - id: nodeQuery
+      type: System.String
+      description: The node query <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    - id: throwException
+      type: System.Boolean
+      description: When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+    - id: defaultValue
+      type: System.String
+      description: Return the specified default value for “zero-length” text nodes.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetXAttributeValue(node As XNode, nodeQuery As String, throwException As Boolean, defaultValue As String) As String
+  overload: Songhay.Xml.XObjectUtility.GetXAttributeValue*
+  nameWithType.vb: XObjectUtility.GetXAttributeValue(XNode, String, Boolean, String)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode, String, Boolean, String)
+  name.vb: GetXAttributeValue(XNode, String, Boolean, String)
+- uid: Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String,System.Xml.IXmlNamespaceResolver)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String,System.Xml.IXmlNamespaceResolver)
+  id: GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean,System.String,System.Xml.IXmlNamespaceResolver)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXAttributeValue(XNode?, string?, bool, string?, IXmlNamespaceResolver?)
+  nameWithType: XObjectUtility.GetXAttributeValue(XNode?, string?, bool, string?, IXmlNamespaceResolver?)
+  fullName: Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode?, string?, bool, string?, System.Xml.IXmlNamespaceResolver?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXAttributeValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXAttributeValue
+    path: SonghayCore/Xml/XObjectUtility.GetXAttributeValue.cs
+    startLine: 35
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: >-
+    Returns an object for parsing
+
+    and adding to a list of parameters for data access.
+  example: []
+  syntax:
+    content: public static string? GetXAttributeValue(XNode? node, string? nodeQuery, bool throwException, string? defaultValue, IXmlNamespaceResolver? resolver)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref>.
+    - id: nodeQuery
+      type: System.String
+      description: The node query <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    - id: throwException
+      type: System.Boolean
+      description: When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+    - id: defaultValue
+      type: System.String
+      description: Return the specified default value for “zero-length” text nodes.
+    - id: resolver
+      type: System.Xml.IXmlNamespaceResolver
+      description: The <xref href="System.Xml.IXmlNamespaceResolver" data-throw-if-not-resolved="false"></xref> to use to resolve prefixes.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetXAttributeValue(node As XNode, nodeQuery As String, throwException As Boolean, defaultValue As String, resolver As IXmlNamespaceResolver) As String
+  overload: Songhay.Xml.XObjectUtility.GetXAttributeValue*
+  nameWithType.vb: XObjectUtility.GetXAttributeValue(XNode, String, Boolean, String, IXmlNamespaceResolver)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode, String, Boolean, String, System.Xml.IXmlNamespaceResolver)
+  name.vb: GetXAttributeValue(XNode, String, Boolean, String, IXmlNamespaceResolver)
+- uid: Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse``1(System.Xml.Linq.XNode,System.String,System.Boolean,``0)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse``1(System.Xml.Linq.XNode,System.String,System.Boolean,``0)
+  id: GetXAttributeValueAndParse``1(System.Xml.Linq.XNode,System.String,System.Boolean,``0)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXAttributeValueAndParse<T>(XNode?, string?, bool, T)
+  nameWithType: XObjectUtility.GetXAttributeValueAndParse<T>(XNode?, string?, bool, T)
+  fullName: Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse<T>(System.Xml.Linq.XNode?, string?, bool, T)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXAttributeValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXAttributeValueAndParse
+    path: SonghayCore/Xml/XObjectUtility.GetXAttributeValue.cs
+    startLine: 66
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: >-
+    Returns an object for parsing
+
+    and adding to a list of parameters for data access.
+  example: []
+  syntax:
+    content: public static object? GetXAttributeValueAndParse<T>(XNode? node, string? nodeQuery, bool throwException, T defaultValue)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref>.
+    - id: nodeQuery
+      type: System.String
+      description: The XPath <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    - id: throwException
+      type: System.Boolean
+      description: >-
+        When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes
+
+        and nodes that do not parse into the specified type.
+    - id: defaultValue
+      type: '{T}'
+      description: Return a boxing <xref href="System.Object" data-throw-if-not-resolved="false"></xref> for “zero-length” text nodes.
+    typeParameters:
+    - id: T
+      description: The type to parse from the node value.
+    return:
+      type: System.Object
+    content.vb: Public Shared Function GetXAttributeValueAndParse(Of T)(node As XNode, nodeQuery As String, throwException As Boolean, defaultValue As T) As Object
+  overload: Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse*
+  nameWithType.vb: XObjectUtility.GetXAttributeValueAndParse(Of T)(XNode, String, Boolean, T)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse(Of T)(System.Xml.Linq.XNode, String, Boolean, T)
+  name.vb: GetXAttributeValueAndParse(Of T)(XNode, String, Boolean, T)
+- uid: Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse``1(System.Xml.Linq.XNode,System.String,System.Boolean,``0,System.Xml.IXmlNamespaceResolver)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse``1(System.Xml.Linq.XNode,System.String,System.Boolean,``0,System.Xml.IXmlNamespaceResolver)
+  id: GetXAttributeValueAndParse``1(System.Xml.Linq.XNode,System.String,System.Boolean,``0,System.Xml.IXmlNamespaceResolver)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXAttributeValueAndParse<T>(XNode?, string?, bool, T?, IXmlNamespaceResolver?)
+  nameWithType: XObjectUtility.GetXAttributeValueAndParse<T>(XNode?, string?, bool, T?, IXmlNamespaceResolver?)
+  fullName: Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse<T>(System.Xml.Linq.XNode?, string?, bool, T?, System.Xml.IXmlNamespaceResolver?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXAttributeValue.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXAttributeValueAndParse
+    path: SonghayCore/Xml/XObjectUtility.GetXAttributeValue.cs
+    startLine: 83
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: >-
+    Returns an object for parsing
+
+    and adding to a list of parameters for data access.
+  example: []
+  syntax:
+    content: public static object? GetXAttributeValueAndParse<T>(XNode? node, string? nodeQuery, bool throwException, T? defaultValue, IXmlNamespaceResolver? resolver)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref>.
+    - id: nodeQuery
+      type: System.String
+      description: The XPath <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    - id: throwException
+      type: System.Boolean
+      description: >-
+        When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes
+
+        and nodes that do not parse into the specified type.
+    - id: defaultValue
+      type: '{T}'
+      description: Return a boxing <xref href="System.Object" data-throw-if-not-resolved="false"></xref> for “zero-length” text nodes.
+    - id: resolver
+      type: System.Xml.IXmlNamespaceResolver
+      description: The <xref href="System.Xml.IXmlNamespaceResolver" data-throw-if-not-resolved="false"></xref> to use to resolve prefixes.
+    typeParameters:
+    - id: T
+      description: The type to parse from the node value.
+    return:
+      type: System.Object
+    content.vb: Public Shared Function GetXAttributeValueAndParse(Of T)(node As XNode, nodeQuery As String, throwException As Boolean, defaultValue As T, resolver As IXmlNamespaceResolver) As Object
+  overload: Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse*
+  nameWithType.vb: XObjectUtility.GetXAttributeValueAndParse(Of T)(XNode, String, Boolean, T, IXmlNamespaceResolver)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse(Of T)(System.Xml.Linq.XNode, String, Boolean, T, System.Xml.IXmlNamespaceResolver)
+  name.vb: GetXAttributeValueAndParse(Of T)(XNode, String, Boolean, T, IXmlNamespaceResolver)
+- uid: Songhay.Xml.XObjectUtility.GetXDeclaration
+  commentId: M:Songhay.Xml.XObjectUtility.GetXDeclaration
+  id: GetXDeclaration
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXDeclaration()
+  nameWithType: XObjectUtility.GetXDeclaration()
+  fullName: Songhay.Xml.XObjectUtility.GetXDeclaration()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXDeclaration.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXDeclaration
+    path: SonghayCore/Xml/XObjectUtility.GetXDeclaration.cs
+    startLine: 7
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XDeclaration" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static XDeclaration GetXDeclaration()
+    return:
+      type: System.Xml.Linq.XDeclaration
+    content.vb: Public Shared Function GetXDeclaration() As XDeclaration
+  overload: Songhay.Xml.XObjectUtility.GetXDeclaration*
+- uid: Songhay.Xml.XObjectUtility.GetXDeclaration(System.String,System.Boolean)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXDeclaration(System.String,System.Boolean)
+  id: GetXDeclaration(System.String,System.Boolean)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXDeclaration(string?, bool)
+  nameWithType: XObjectUtility.GetXDeclaration(string?, bool)
+  fullName: Songhay.Xml.XObjectUtility.GetXDeclaration(string?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXDeclaration.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXDeclaration
+    path: SonghayCore/Xml/XObjectUtility.GetXDeclaration.cs
+    startLine: 14
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XDeclaration" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static XDeclaration GetXDeclaration(string? encoding, bool isStandAlone)
+    parameters:
+    - id: encoding
+      type: System.String
+      description: The encoding (<xref href="Songhay.Models.XEncoding.Utf08" data-throw-if-not-resolved="false"></xref> by default).
+    - id: isStandAlone
+      type: System.Boolean
+      description: When <code>true</code> document is stand-alone (<code>true</code> by default).
+    return:
+      type: System.Xml.Linq.XDeclaration
+    content.vb: Public Shared Function GetXDeclaration(encoding As String, isStandAlone As Boolean) As XDeclaration
+  overload: Songhay.Xml.XObjectUtility.GetXDeclaration*
+  nameWithType.vb: XObjectUtility.GetXDeclaration(String, Boolean)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXDeclaration(String, Boolean)
+  name.vb: GetXDeclaration(String, Boolean)
+- uid: Songhay.Xml.XObjectUtility.GetXElement(System.String,System.Object)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXElement(System.String,System.Object)
+  id: GetXElement(System.String,System.Object)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXElement(string?, object?)
+  nameWithType: XObjectUtility.GetXElement(string?, object?)
+  fullName: Songhay.Xml.XObjectUtility.GetXElement(string?, object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXElement.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXElement
+    path: SonghayCore/Xml/XObjectUtility.GetXElement.cs
+    startLine: 9
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static XElement GetXElement(string? rootElement, object? innerXml)
+    parameters:
+    - id: rootElement
+      type: System.String
+      description: The root element name.
+    - id: innerXml
+      type: System.Object
+      description: The inner XML.
+    return:
+      type: System.Xml.Linq.XElement
+    content.vb: Public Shared Function GetXElement(rootElement As String, innerXml As Object) As XElement
+  overload: Songhay.Xml.XObjectUtility.GetXElement*
+  nameWithType.vb: XObjectUtility.GetXElement(String, Object)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXElement(String, Object)
+  name.vb: GetXElement(String, Object)
+- uid: Songhay.Xml.XObjectUtility.GetXElement(System.Xml.Linq.XNode,System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXElement(System.Xml.Linq.XNode,System.String)
+  id: GetXElement(System.Xml.Linq.XNode,System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXElement(XNode?, string?)
+  nameWithType: XObjectUtility.GetXElement(XNode?, string?)
+  fullName: Songhay.Xml.XObjectUtility.GetXElement(System.Xml.Linq.XNode?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXElement.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXElement
+    path: SonghayCore/Xml/XObjectUtility.GetXElement.cs
+    startLine: 21
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static XElement? GetXElement(XNode? root, string? pathToElement)
+    parameters:
+    - id: root
+      type: System.Xml.Linq.XNode
+      description: The root <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref>.
+    - id: pathToElement
+      type: System.String
+      description: The XPath to element.
+    return:
+      type: System.Xml.Linq.XElement
+    content.vb: Public Shared Function GetXElement(root As XNode, pathToElement As String) As XElement
+  overload: Songhay.Xml.XObjectUtility.GetXElement*
+  nameWithType.vb: XObjectUtility.GetXElement(XNode, String)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXElement(System.Xml.Linq.XNode, String)
+  name.vb: GetXElement(XNode, String)
+- uid: Songhay.Xml.XObjectUtility.GetXElements(System.Xml.Linq.XNode,System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXElements(System.Xml.Linq.XNode,System.String)
+  id: GetXElements(System.Xml.Linq.XNode,System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXElements(XNode?, string?)
+  nameWithType: XObjectUtility.GetXElements(XNode?, string?)
+  fullName: Songhay.Xml.XObjectUtility.GetXElements(System.Xml.Linq.XNode?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXElement.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXElements
+    path: SonghayCore/Xml/XObjectUtility.GetXElement.cs
+    startLine: 34
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static IEnumerable<XElement> GetXElements(XNode? currentElement, string? query)
+    parameters:
+    - id: currentElement
+      type: System.Xml.Linq.XNode
+      description: The current element.
+    - id: query
+      type: System.String
+      description: The xpath query.
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement}
+    content.vb: Public Shared Function GetXElements(currentElement As XNode, query As String) As IEnumerable(Of XElement)
+  overload: Songhay.Xml.XObjectUtility.GetXElements*
+  nameWithType.vb: XObjectUtility.GetXElements(XNode, String)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXElements(System.Xml.Linq.XNode, String)
+  name.vb: GetXElements(XNode, String)
+- uid: Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String)
+  id: GetXNode(System.Xml.Linq.XNode,System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXNode(XNode?, string?)
+  nameWithType: XObjectUtility.GetXNode(XNode?, string?)
+  fullName: Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXNode
+    path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+    startLine: 9
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref> from the specified XPath query.
+  example: []
+  syntax:
+    content: public static XNode? GetXNode(XNode? node, string? nodeQuery)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query.
+    return:
+      type: System.Xml.Linq.XNode
+    content.vb: Public Shared Function GetXNode(node As XNode, nodeQuery As String) As XNode
+  overload: Songhay.Xml.XObjectUtility.GetXNode*
+  nameWithType.vb: XObjectUtility.GetXNode(XNode, String)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode, String)
+  name.vb: GetXNode(XNode, String)
+- uid: Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean)
+  id: GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXNode(XNode?, string?, bool)
+  nameWithType: XObjectUtility.GetXNode(XNode?, string?, bool)
+  fullName: Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode?, string?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXNode
+    path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+    startLine: 17
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref> from the specified XPath query.
+  example: []
+  syntax:
+    content: public static XNode? GetXNode(XNode? node, string? nodeQuery, bool throwException)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query.
+    - id: throwException
+      type: System.Boolean
+      description: When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+    return:
+      type: System.Xml.Linq.XNode
+    content.vb: Public Shared Function GetXNode(node As XNode, nodeQuery As String, throwException As Boolean) As XNode
+  overload: Songhay.Xml.XObjectUtility.GetXNode*
+  nameWithType.vb: XObjectUtility.GetXNode(XNode, String, Boolean)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode, String, Boolean)
+  name.vb: GetXNode(XNode, String, Boolean)
+- uid: Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  id: GetXNode(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXNode(XNode?, string?, bool, IXmlNamespaceResolver)
+  nameWithType: XObjectUtility.GetXNode(XNode?, string?, bool, IXmlNamespaceResolver)
+  fullName: Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode?, string?, bool, System.Xml.IXmlNamespaceResolver)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXNode
+    path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+    startLine: 27
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref> from the specified XPath query.
+  example: []
+  syntax:
+    content: public static XNode? GetXNode(XNode? node, string? nodeQuery, bool throwException, IXmlNamespaceResolver resolver)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query.
+    - id: throwException
+      type: System.Boolean
+      description: When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+    - id: resolver
+      type: System.Xml.IXmlNamespaceResolver
+      description: The resolver.
+    return:
+      type: System.Xml.Linq.XNode
+    content.vb: Public Shared Function GetXNode(node As XNode, nodeQuery As String, throwException As Boolean, resolver As IXmlNamespaceResolver) As XNode
+  overload: Songhay.Xml.XObjectUtility.GetXNode*
+  nameWithType.vb: XObjectUtility.GetXNode(XNode, String, Boolean, IXmlNamespaceResolver)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode, String, Boolean, System.Xml.IXmlNamespaceResolver)
+  name.vb: GetXNode(XNode, String, Boolean, IXmlNamespaceResolver)
+- uid: Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String)
+  id: GetXNodes(System.Xml.Linq.XNode,System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXNodes(XNode?, string?)
+  nameWithType: XObjectUtility.GetXNodes(XNode?, string?)
+  fullName: Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXNodes
+    path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+    startLine: 36
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> from the specified XPath query.
+  example: []
+  syntax:
+    content: public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query.
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XNode}
+    content.vb: Public Shared Function GetXNodes(node As XNode, nodeQuery As String) As IEnumerable(Of XNode)
+  overload: Songhay.Xml.XObjectUtility.GetXNodes*
+  nameWithType.vb: XObjectUtility.GetXNodes(XNode, String)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode, String)
+  name.vb: GetXNodes(XNode, String)
+- uid: Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean)
+  id: GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXNodes(XNode?, string?, bool)
+  nameWithType: XObjectUtility.GetXNodes(XNode?, string?, bool)
+  fullName: Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode?, string?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXNodes
+    path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+    startLine: 45
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> from the specified XPath query.
+  example: []
+  syntax:
+    content: public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery, bool throwException)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query.
+    - id: throwException
+      type: System.Boolean
+      description: When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XNode}
+    content.vb: Public Shared Function GetXNodes(node As XNode, nodeQuery As String, throwException As Boolean) As IEnumerable(Of XNode)
+  overload: Songhay.Xml.XObjectUtility.GetXNodes*
+  nameWithType.vb: XObjectUtility.GetXNodes(XNode, String, Boolean)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode, String, Boolean)
+  name.vb: GetXNodes(XNode, String, Boolean)
+- uid: Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  id: GetXNodes(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXNodes(XNode?, string?, bool, IXmlNamespaceResolver?)
+  nameWithType: XObjectUtility.GetXNodes(XNode?, string?, bool, IXmlNamespaceResolver?)
+  fullName: Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode?, string?, bool, System.Xml.IXmlNamespaceResolver?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXNodes
+    path: SonghayCore/Xml/XObjectUtility.GetXNode.cs
+    startLine: 55
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> from the specified XPath query.
+  example: []
+  syntax:
+    content: public static IEnumerable<XNode> GetXNodes(XNode? node, string? nodeQuery, bool throwException, IXmlNamespaceResolver? resolver)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query.
+    - id: throwException
+      type: System.Boolean
+      description: When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+    - id: resolver
+      type: System.Xml.IXmlNamespaceResolver
+      description: The resolver.
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XNode}
+    content.vb: Public Shared Function GetXNodes(node As XNode, nodeQuery As String, throwException As Boolean, resolver As IXmlNamespaceResolver) As IEnumerable(Of XNode)
+  overload: Songhay.Xml.XObjectUtility.GetXNodes*
+  nameWithType.vb: XObjectUtility.GetXNodes(XNode, String, Boolean, IXmlNamespaceResolver)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXNodes(System.Xml.Linq.XNode, String, Boolean, System.Xml.IXmlNamespaceResolver)
+  name.vb: GetXNodes(XNode, String, Boolean, IXmlNamespaceResolver)
+- uid: Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String)
+  id: GetXObject(System.Xml.Linq.XNode,System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXObject(XNode?, string?)
+  nameWithType: XObjectUtility.GetXObject(XNode?, string?)
+  fullName: Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXObject
+    path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+    startLine: 9
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XObject" data-throw-if-not-resolved="false"></xref> from the specified XPath query.
+  example: []
+  syntax:
+    content: public static XObject? GetXObject(XNode? node, string? nodeQuery)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref> node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Xml.Linq.XObject
+    content.vb: Public Shared Function GetXObject(node As XNode, nodeQuery As String) As XObject
+  overload: Songhay.Xml.XObjectUtility.GetXObject*
+  nameWithType.vb: XObjectUtility.GetXObject(XNode, String)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode, String)
+  name.vb: GetXObject(XNode, String)
+- uid: Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean)
+  id: GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXObject(XNode?, string?, bool)
+  nameWithType: XObjectUtility.GetXObject(XNode?, string?, bool)
+  fullName: Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode?, string?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXObject
+    path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XObject" data-throw-if-not-resolved="false"></xref> from the specified XPath query.
+  example: []
+  syntax:
+    content: public static XObject? GetXObject(XNode? node, string? nodeQuery, bool throwException)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref> node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    - id: throwException
+      type: System.Boolean
+      description: When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+    return:
+      type: System.Xml.Linq.XObject
+    content.vb: Public Shared Function GetXObject(node As XNode, nodeQuery As String, throwException As Boolean) As XObject
+  overload: Songhay.Xml.XObjectUtility.GetXObject*
+  nameWithType.vb: XObjectUtility.GetXObject(XNode, String, Boolean)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode, String, Boolean)
+  name.vb: GetXObject(XNode, String, Boolean)
+- uid: Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  id: GetXObject(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXObject(XNode?, string?, bool, IXmlNamespaceResolver?)
+  nameWithType: XObjectUtility.GetXObject(XNode?, string?, bool, IXmlNamespaceResolver?)
+  fullName: Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode?, string?, bool, System.Xml.IXmlNamespaceResolver?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXObject
+    path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+    startLine: 31
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets the <xref href="System.Xml.Linq.XObject" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static XObject? GetXObject(XNode? node, string? nodeQuery, bool throwException, IXmlNamespaceResolver? resolver)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The <xref href="System.Xml.Linq.XNode" data-throw-if-not-resolved="false"></xref> node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    - id: throwException
+      type: System.Boolean
+      description: When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+    - id: resolver
+      type: System.Xml.IXmlNamespaceResolver
+      description: >-
+        The <xref href="System.Xml.IXmlNamespaceResolver" data-throw-if-not-resolved="false"></xref>
+
+        to use to resolve prefixes.
+    return:
+      type: System.Xml.Linq.XObject
+    content.vb: Public Shared Function GetXObject(node As XNode, nodeQuery As String, throwException As Boolean, resolver As IXmlNamespaceResolver) As XObject
+  overload: Songhay.Xml.XObjectUtility.GetXObject*
+  nameWithType.vb: XObjectUtility.GetXObject(XNode, String, Boolean, IXmlNamespaceResolver)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode, String, Boolean, System.Xml.IXmlNamespaceResolver)
+  name.vb: GetXObject(XNode, String, Boolean, IXmlNamespaceResolver)
+- uid: Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String)
+  id: GetXObjects(System.Xml.Linq.XNode,System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXObjects(XNode?, string?)
+  nameWithType: XObjectUtility.GetXObjects(XNode?, string?)
+  fullName: Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXObjects
+    path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+    startLine: 44
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> from the specified XPath query.
+  example: []
+  syntax:
+    content: public static IEnumerable<XObject> GetXObjects(XNode? node, string? nodeQuery)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query.
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XObject}
+    content.vb: Public Shared Function GetXObjects(node As XNode, nodeQuery As String) As IEnumerable(Of XObject)
+  overload: Songhay.Xml.XObjectUtility.GetXObjects*
+  nameWithType.vb: XObjectUtility.GetXObjects(XNode, String)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode, String)
+  name.vb: GetXObjects(XNode, String)
+- uid: Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean)
+  id: GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXObjects(XNode?, string?, bool)
+  nameWithType: XObjectUtility.GetXObjects(XNode?, string?, bool)
+  fullName: Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode?, string?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXObjects
+    path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+    startLine: 53
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> from the specified XPath query.
+  example: []
+  syntax:
+    content: public static IEnumerable<XObject> GetXObjects(XNode? node, string? nodeQuery, bool throwException)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query.
+    - id: throwException
+      type: System.Boolean
+      description: When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XObject}
+    content.vb: Public Shared Function GetXObjects(node As XNode, nodeQuery As String, throwException As Boolean) As IEnumerable(Of XObject)
+  overload: Songhay.Xml.XObjectUtility.GetXObjects*
+  nameWithType.vb: XObjectUtility.GetXObjects(XNode, String, Boolean)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode, String, Boolean)
+  name.vb: GetXObjects(XNode, String, Boolean)
+- uid: Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  commentId: M:Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  id: GetXObjects(System.Xml.Linq.XNode,System.String,System.Boolean,System.Xml.IXmlNamespaceResolver)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GetXObjects(XNode?, string?, bool, IXmlNamespaceResolver?)
+  nameWithType: XObjectUtility.GetXObjects(XNode?, string?, bool, IXmlNamespaceResolver?)
+  fullName: Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode?, string?, bool, System.Xml.IXmlNamespaceResolver?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetXObjects
+    path: SonghayCore/Xml/XObjectUtility.GetXObject.cs
+    startLine: 63
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Gets <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> from the specified XPath query.
+  example: []
+  syntax:
+    content: public static IEnumerable<XObject> GetXObjects(XNode? node, string? nodeQuery, bool throwException, IXmlNamespaceResolver? resolver)
+    parameters:
+    - id: node
+      type: System.Xml.Linq.XNode
+      description: The node.
+    - id: nodeQuery
+      type: System.String
+      description: The node query.
+    - id: throwException
+      type: System.Boolean
+      description: When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+    - id: resolver
+      type: System.Xml.IXmlNamespaceResolver
+      description: The resolver.
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Xml.Linq.XObject}
+    content.vb: Public Shared Function GetXObjects(node As XNode, nodeQuery As String, throwException As Boolean, resolver As IXmlNamespaceResolver) As IEnumerable(Of XObject)
+  overload: Songhay.Xml.XObjectUtility.GetXObjects*
+  nameWithType.vb: XObjectUtility.GetXObjects(XNode, String, Boolean, IXmlNamespaceResolver)
+  fullName.vb: Songhay.Xml.XObjectUtility.GetXObjects(System.Xml.Linq.XNode, String, Boolean, System.Xml.IXmlNamespaceResolver)
+  name.vb: GetXObjects(XNode, String, Boolean, IXmlNamespaceResolver)
+- uid: Songhay.Xml.XObjectUtility.GlyphNonBreakingSpace
+  commentId: F:Songhay.Xml.XObjectUtility.GlyphNonBreakingSpace
+  id: GlyphNonBreakingSpace
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: GlyphNonBreakingSpace
+  nameWithType: XObjectUtility.GlyphNonBreakingSpace
+  fullName: Songhay.Xml.XObjectUtility.GlyphNonBreakingSpace
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.XText.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GlyphNonBreakingSpace
+    path: SonghayCore/Xml/XObjectUtility.XText.cs
+    startLine: 7
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: 'Glyph: Non-Breaking Space'
+  example: []
+  syntax:
+    content: public static readonly string GlyphNonBreakingSpace
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly GlyphNonBreakingSpace As String
+- uid: Songhay.Xml.XObjectUtility.XTextNonBreakingSpace
+  commentId: P:Songhay.Xml.XObjectUtility.XTextNonBreakingSpace
+  id: XTextNonBreakingSpace
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: XTextNonBreakingSpace
+  nameWithType: XObjectUtility.XTextNonBreakingSpace
+  fullName: Songhay.Xml.XObjectUtility.XTextNonBreakingSpace
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.XText.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XTextNonBreakingSpace
+    path: SonghayCore/Xml/XObjectUtility.XText.cs
+    startLine: 12
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: '<xref href="System.Xml.Linq.XText" data-throw-if-not-resolved="false"></xref>: Non-Breaking Space'
+  example: []
+  syntax:
+    content: public static XText XTextNonBreakingSpace { get; }
+    parameters: []
+    return:
+      type: System.Xml.Linq.XText
+    content.vb: Public Shared ReadOnly Property XTextNonBreakingSpace As XText
+  overload: Songhay.Xml.XObjectUtility.XTextNonBreakingSpace*
+- uid: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement)
+  commentId: M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement)
+  id: JoinFlattenedXTextNodes(System.Xml.Linq.XElement)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: JoinFlattenedXTextNodes(XElement?)
+  nameWithType: XObjectUtility.JoinFlattenedXTextNodes(XElement?)
+  fullName: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.XText.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: JoinFlattenedXTextNodes
+    path: SonghayCore/Xml/XObjectUtility.XText.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Joins the flattened <xref href="System.Xml.Linq.XText" data-throw-if-not-resolved="false"></xref> nodes.
+  example: []
+  syntax:
+    content: public static string? JoinFlattenedXTextNodes(XElement? rootElement)
+    parameters:
+    - id: rootElement
+      type: System.Xml.Linq.XElement
+      description: The root element.
+    return:
+      type: System.String
+    content.vb: Public Shared Function JoinFlattenedXTextNodes(rootElement As XElement) As String
+  overload: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes*
+  nameWithType.vb: XObjectUtility.JoinFlattenedXTextNodes(XElement)
+  fullName.vb: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement)
+  name.vb: JoinFlattenedXTextNodes(XElement)
+- uid: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean)
+  commentId: M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean)
+  id: JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: JoinFlattenedXTextNodes(XElement?, bool)
+  nameWithType: XObjectUtility.JoinFlattenedXTextNodes(XElement?, bool)
+  fullName: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.XText.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: JoinFlattenedXTextNodes
+    path: SonghayCore/Xml/XObjectUtility.XText.cs
+    startLine: 26
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Joins the flattened <xref href="System.Xml.Linq.XText" data-throw-if-not-resolved="false"></xref> nodes.
+  example: []
+  syntax:
+    content: public static string? JoinFlattenedXTextNodes(XElement? rootElement, bool includeRootElement)
+    parameters:
+    - id: rootElement
+      type: System.Xml.Linq.XElement
+      description: The root element.
+    - id: includeRootElement
+      type: System.Boolean
+      description: When <code>true</code> include root element.
+    return:
+      type: System.String
+    content.vb: Public Shared Function JoinFlattenedXTextNodes(rootElement As XElement, includeRootElement As Boolean) As String
+  overload: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes*
+  nameWithType.vb: XObjectUtility.JoinFlattenedXTextNodes(XElement, Boolean)
+  fullName.vb: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement, Boolean)
+  name.vb: JoinFlattenedXTextNodes(XElement, Boolean)
+- uid: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean,System.String)
+  commentId: M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean,System.String)
+  id: JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean,System.String)
+  parent: Songhay.Xml.XObjectUtility
+  langs:
+  - csharp
+  - vb
+  name: JoinFlattenedXTextNodes(XElement?, bool, string?)
+  nameWithType: XObjectUtility.JoinFlattenedXTextNodes(XElement?, bool, string?)
+  fullName: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement?, bool, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/XObjectUtility.XText.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: JoinFlattenedXTextNodes
+    path: SonghayCore/Xml/XObjectUtility.XText.cs
+    startLine: 35
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Joins the flattened <xref href="System.Xml.Linq.XText" data-throw-if-not-resolved="false"></xref> nodes.
+  example: []
+  syntax:
+    content: public static string? JoinFlattenedXTextNodes(XElement? rootElement, bool includeRootElement, string? joinDelimiter)
+    parameters:
+    - id: rootElement
+      type: System.Xml.Linq.XElement
+      description: The root element.
+    - id: includeRootElement
+      type: System.Boolean
+      description: When <code>true</code> include root element.
+    - id: joinDelimiter
+      type: System.String
+      description: The join delimiter.
+    return:
+      type: System.String
+    content.vb: Public Shared Function JoinFlattenedXTextNodes(rootElement As XElement, includeRootElement As Boolean, joinDelimiter As String) As String
+  overload: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes*
+  nameWithType.vb: XObjectUtility.JoinFlattenedXTextNodes(XElement, Boolean, String)
+  fullName.vb: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement, Boolean, String)
+  name.vb: JoinFlattenedXTextNodes(XElement, Boolean, String)
+references:
+- uid: System.Xml.XPath.XPathDocument
+  commentId: T:System.Xml.XPath.XPathDocument
+  parent: System.Xml.XPath
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument
+  name: XPathDocument
+  nameWithType: XPathDocument
+  fullName: System.Xml.XPath.XPathDocument
+- uid: System.Xml.XPath.IXPathNavigable
+  commentId: T:System.Xml.XPath.IXPathNavigable
+  parent: System.Xml.XPath
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable
+  name: IXPathNavigable
+  nameWithType: IXPathNavigable
+  fullName: System.Xml.XPath.IXPathNavigable
+- uid: Songhay.Xml
+  commentId: N:Songhay.Xml
+  href: Songhay.html
+  name: Songhay.Xml
+  nameWithType: Songhay.Xml
+  fullName: Songhay.Xml
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Xml
+    name: Xml
+    href: Songhay.Xml.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Xml
+    name: Xml
+    href: Songhay.Xml.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Xml.XPath
+  commentId: N:System.Xml.XPath
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Xml.XPath
+  nameWithType: System.Xml.XPath
+  fullName: System.Xml.XPath
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.XPath
+    name: XPath
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xpath
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.XPath
+    name: XPath
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.xpath
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Xml.Linq.XElement
+  commentId: T:System.Xml.Linq.XElement
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement
+  name: XElement
+  nameWithType: XElement
+  fullName: System.Xml.Linq.XElement
+- uid: Songhay.Xml.XObjectUtility.GetCDataValue*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetCDataValue
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetCDataValue_System_Xml_Linq_XElement_
+  name: GetCDataValue
+  nameWithType: XObjectUtility.GetCDataValue
+  fullName: Songhay.Xml.XObjectUtility.GetCDataValue
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Xml.Linq
+  commentId: N:System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Xml.Linq
+  nameWithType: System.Xml.Linq
+  fullName: System.Xml.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  - name: .
+  - uid: System.Xml.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq
+- uid: System.Xml.Linq.XNode
+  commentId: T:System.Xml.Linq.XNode
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  name: XNode
+  nameWithType: XNode
+  fullName: System.Xml.Linq.XNode
+- uid: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetLocalNameXPathQuery_System_String_
+  name: GetLocalNameXPathQuery
+  nameWithType: XObjectUtility.GetLocalNameXPathQuery
+  fullName: Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery
+- uid: Songhay.Xml.XObjectUtility.GetValue*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetValue
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetValue_System_Xml_Linq_XNode_System_String_
+  name: GetValue
+  nameWithType: XObjectUtility.GetValue
+  fullName: Songhay.Xml.XObjectUtility.GetValue
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Songhay.Xml.XObjectUtility.GetXAttributeValue*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetXAttributeValue
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetXAttributeValue_System_Xml_Linq_XNode_System_String_System_Boolean_
+  name: GetXAttributeValue
+  nameWithType: XObjectUtility.GetXAttributeValue
+  fullName: Songhay.Xml.XObjectUtility.GetXAttributeValue
+- uid: System.Xml.IXmlNamespaceResolver
+  commentId: T:System.Xml.IXmlNamespaceResolver
+  parent: System.Xml
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.ixmlnamespaceresolver
+  name: IXmlNamespaceResolver
+  nameWithType: IXmlNamespaceResolver
+  fullName: System.Xml.IXmlNamespaceResolver
+- uid: System.Xml
+  commentId: N:System.Xml
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Xml
+  nameWithType: System.Xml
+  fullName: System.Xml
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Xml
+    name: Xml
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml
+- uid: Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetXAttributeValueAndParse__1_System_Xml_Linq_XNode_System_String_System_Boolean___0_
+  name: GetXAttributeValueAndParse
+  nameWithType: XObjectUtility.GetXAttributeValueAndParse
+  fullName: Songhay.Xml.XObjectUtility.GetXAttributeValueAndParse
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Xml.Linq.XDeclaration
+  commentId: T:System.Xml.Linq.XDeclaration
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xdeclaration
+  name: XDeclaration
+  nameWithType: XDeclaration
+  fullName: System.Xml.Linq.XDeclaration
+- uid: Songhay.Xml.XObjectUtility.GetXDeclaration*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetXDeclaration
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetXDeclaration
+  name: GetXDeclaration
+  nameWithType: XObjectUtility.GetXDeclaration
+  fullName: Songhay.Xml.XObjectUtility.GetXDeclaration
+- uid: Songhay.Models.XEncoding.Utf08
+  commentId: F:Songhay.Models.XEncoding.Utf08
+  href: Songhay.Models.XEncoding.html#Songhay_Models_XEncoding_Utf08
+  name: Utf08
+  nameWithType: XEncoding.Utf08
+  fullName: Songhay.Models.XEncoding.Utf08
+- uid: Songhay.Xml.XObjectUtility.GetXElement*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetXElement
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetXElement_System_String_System_Object_
+  name: GetXElement
+  nameWithType: XObjectUtility.GetXElement
+  fullName: Songhay.Xml.XObjectUtility.GetXElement
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Songhay.Xml.XObjectUtility.GetXElements*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetXElements
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetXElements_System_Xml_Linq_XNode_System_String_
+  name: GetXElements
+  nameWithType: XObjectUtility.GetXElements
+  fullName: Songhay.Xml.XObjectUtility.GetXElements
+- uid: System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<XElement>
+  nameWithType: IEnumerable<XElement>
+  fullName: System.Collections.Generic.IEnumerable<System.Xml.Linq.XElement>
+  nameWithType.vb: IEnumerable(Of XElement)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Xml.Linq.XElement)
+  name.vb: IEnumerable(Of XElement)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Xml.Linq.XElement
+    name: XElement
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Xml.Linq.XElement
+    name: XElement
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Songhay.Xml.XObjectUtility.GetXNode*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetXNode
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetXNode_System_Xml_Linq_XNode_System_String_
+  name: GetXNode
+  nameWithType: XObjectUtility.GetXNode
+  fullName: Songhay.Xml.XObjectUtility.GetXNode
+- uid: Songhay.Xml.XObjectUtility.GetXNodes*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetXNodes
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetXNodes_System_Xml_Linq_XNode_System_String_
+  name: GetXNodes
+  nameWithType: XObjectUtility.GetXNodes
+  fullName: Songhay.Xml.XObjectUtility.GetXNodes
+- uid: System.Collections.Generic.IEnumerable{System.Xml.Linq.XNode}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Xml.Linq.XNode}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<XNode>
+  nameWithType: IEnumerable<XNode>
+  fullName: System.Collections.Generic.IEnumerable<System.Xml.Linq.XNode>
+  nameWithType.vb: IEnumerable(Of XNode)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Xml.Linq.XNode)
+  name.vb: IEnumerable(Of XNode)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Xml.Linq.XNode
+    name: XNode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xnode
+  - name: )
+- uid: System.Xml.Linq.XObject
+  commentId: T:System.Xml.Linq.XObject
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject
+  name: XObject
+  nameWithType: XObject
+  fullName: System.Xml.Linq.XObject
+- uid: Songhay.Xml.XObjectUtility.GetXObject*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetXObject
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetXObject_System_Xml_Linq_XNode_System_String_
+  name: GetXObject
+  nameWithType: XObjectUtility.GetXObject
+  fullName: Songhay.Xml.XObjectUtility.GetXObject
+- uid: Songhay.Xml.XObjectUtility.GetXObjects*
+  commentId: Overload:Songhay.Xml.XObjectUtility.GetXObjects
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_GetXObjects_System_Xml_Linq_XNode_System_String_
+  name: GetXObjects
+  nameWithType: XObjectUtility.GetXObjects
+  fullName: Songhay.Xml.XObjectUtility.GetXObjects
+- uid: System.Collections.Generic.IEnumerable{System.Xml.Linq.XObject}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Xml.Linq.XObject}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<XObject>
+  nameWithType: IEnumerable<XObject>
+  fullName: System.Collections.Generic.IEnumerable<System.Xml.Linq.XObject>
+  nameWithType.vb: IEnumerable(Of XObject)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Xml.Linq.XObject)
+  name.vb: IEnumerable(Of XObject)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Xml.Linq.XObject
+    name: XObject
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Xml.Linq.XObject
+    name: XObject
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xobject
+  - name: )
+- uid: System.Xml.Linq.XText
+  commentId: T:System.Xml.Linq.XText
+  parent: System.Xml.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.linq.xtext
+  name: XText
+  nameWithType: XText
+  fullName: System.Xml.Linq.XText
+- uid: Songhay.Xml.XObjectUtility.XTextNonBreakingSpace*
+  commentId: Overload:Songhay.Xml.XObjectUtility.XTextNonBreakingSpace
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_XTextNonBreakingSpace
+  name: XTextNonBreakingSpace
+  nameWithType: XObjectUtility.XTextNonBreakingSpace
+  fullName: Songhay.Xml.XObjectUtility.XTextNonBreakingSpace
+- uid: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes*
+  commentId: Overload:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes
+  href: Songhay.Xml.XObjectUtility.html#Songhay_Xml_XObjectUtility_JoinFlattenedXTextNodes_System_Xml_Linq_XElement_
+  name: JoinFlattenedXTextNodes
+  nameWithType: XObjectUtility.JoinFlattenedXTextNodes
+  fullName: Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes

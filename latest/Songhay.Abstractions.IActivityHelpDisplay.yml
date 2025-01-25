@@ -1,0 +1,463 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Abstractions.IActivityHelpDisplay
+  commentId: T:Songhay.Abstractions.IActivityHelpDisplay
+  id: IActivityHelpDisplay
+  parent: Songhay.Abstractions
+  children:
+  - Songhay.Abstractions.IActivityHelpDisplay.CachedHelpText
+  - Songhay.Abstractions.IActivityHelpDisplay.DisplayHelp
+  langs:
+  - csharp
+  - vb
+  name: IActivityHelpDisplay
+  nameWithType: IActivityHelpDisplay
+  fullName: Songhay.Abstractions.IActivityHelpDisplay
+  type: Interface
+  source:
+    remote:
+      path: SonghayCore/Abstractions/IActivityHelpDisplay.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IActivityHelpDisplay
+    path: SonghayCore/Abstractions/IActivityHelpDisplay.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Abstractions
+  summary: Adds optional help-display text support to <code>IActivity*</code> types.
+  example: []
+  syntax:
+    content: public interface IActivityHelpDisplay
+    content.vb: Public Interface IActivityHelpDisplay
+  extensionMethods:
+  - Songhay.Abstractions.IActivityHelpDisplay.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Abstractions.IActivityHelpDisplay.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Abstractions.IActivityHelpDisplay.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+- uid: Songhay.Abstractions.IActivityHelpDisplay.DisplayHelp
+  commentId: M:Songhay.Abstractions.IActivityHelpDisplay.DisplayHelp
+  id: DisplayHelp
+  parent: Songhay.Abstractions.IActivityHelpDisplay
+  langs:
+  - csharp
+  - vb
+  name: DisplayHelp()
+  nameWithType: IActivityHelpDisplay.DisplayHelp()
+  fullName: Songhay.Abstractions.IActivityHelpDisplay.DisplayHelp()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Abstractions/IActivityHelpDisplay.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DisplayHelp
+    path: SonghayCore/Abstractions/IActivityHelpDisplay.cs
+    startLine: 10
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Abstractions
+  summary: Display the help text.
+  example: []
+  syntax:
+    content: string DisplayHelp()
+    return:
+      type: System.String
+    content.vb: Function DisplayHelp() As String
+  overload: Songhay.Abstractions.IActivityHelpDisplay.DisplayHelp*
+- uid: Songhay.Abstractions.IActivityHelpDisplay.CachedHelpText
+  commentId: P:Songhay.Abstractions.IActivityHelpDisplay.CachedHelpText
+  id: CachedHelpText
+  parent: Songhay.Abstractions.IActivityHelpDisplay
+  langs:
+  - csharp
+  - vb
+  name: CachedHelpText
+  nameWithType: IActivityHelpDisplay.CachedHelpText
+  fullName: Songhay.Abstractions.IActivityHelpDisplay.CachedHelpText
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Abstractions/IActivityHelpDisplay.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: CachedHelpText
+    path: SonghayCore/Abstractions/IActivityHelpDisplay.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Abstractions
+  summary: The cached help text.
+  remarks: Instead of calling <xref href="Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref> more than once, return this member.
+  example: []
+  syntax:
+    content: string? CachedHelpText { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property CachedHelpText As String
+  overload: Songhay.Abstractions.IActivityHelpDisplay.CachedHelpText*
+references:
+- uid: Songhay.Abstractions
+  commentId: N:Songhay.Abstractions
+  href: Songhay.html
+  name: Songhay.Abstractions
+  nameWithType: Songhay.Abstractions
+  fullName: Songhay.Abstractions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+- uid: Songhay.Abstractions.IActivityHelpDisplay.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<IActivityHelpDisplay>(IActivityHelpDisplay)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<IActivityHelpDisplay>(IActivityHelpDisplay)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Abstractions.IActivityHelpDisplay>(Songhay.Abstractions.IActivityHelpDisplay)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of IActivityHelpDisplay)(IActivityHelpDisplay)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Abstractions.IActivityHelpDisplay)(Songhay.Abstractions.IActivityHelpDisplay)
+  name.vb: IsAssignableToISerializable(Of IActivityHelpDisplay)(IActivityHelpDisplay)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Abstractions.IActivityHelpDisplay)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Abstractions.IActivityHelpDisplay)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: )
+  - name: (
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: )
+- uid: Songhay.Abstractions.IActivityHelpDisplay.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<IActivityHelpDisplay>(IActivityHelpDisplay)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<IActivityHelpDisplay>(IActivityHelpDisplay)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Abstractions.IActivityHelpDisplay>(Songhay.Abstractions.IActivityHelpDisplay)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of IActivityHelpDisplay)(IActivityHelpDisplay)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Abstractions.IActivityHelpDisplay)(Songhay.Abstractions.IActivityHelpDisplay)
+  name.vb: ToObjectOrDbNull(Of IActivityHelpDisplay)(IActivityHelpDisplay)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Abstractions.IActivityHelpDisplay)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Abstractions.IActivityHelpDisplay)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: )
+  - name: (
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: )
+- uid: Songhay.Abstractions.IActivityHelpDisplay.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<IActivityHelpDisplay>(IActivityHelpDisplay, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<IActivityHelpDisplay>(IActivityHelpDisplay, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Abstractions.IActivityHelpDisplay>(Songhay.Abstractions.IActivityHelpDisplay, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of IActivityHelpDisplay)(IActivityHelpDisplay, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Abstractions.IActivityHelpDisplay)(Songhay.Abstractions.IActivityHelpDisplay, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of IActivityHelpDisplay)(IActivityHelpDisplay, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Abstractions.IActivityHelpDisplay,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Abstractions.IActivityHelpDisplay,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: )
+  - name: (
+  - uid: Songhay.Abstractions.IActivityHelpDisplay
+    name: IActivityHelpDisplay
+    href: Songhay.Abstractions.IActivityHelpDisplay.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Abstractions.IActivityHelpDisplay.DisplayHelp*
+  commentId: Overload:Songhay.Abstractions.IActivityHelpDisplay.DisplayHelp
+  href: Songhay.Abstractions.IActivityHelpDisplay.html#Songhay_Abstractions_IActivityHelpDisplay_DisplayHelp
+  name: DisplayHelp
+  nameWithType: IActivityHelpDisplay.DisplayHelp
+  fullName: Songhay.Abstractions.IActivityHelpDisplay.DisplayHelp
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)
+  isExternal: true
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_ToHelpDisplayText_Microsoft_Extensions_Configuration_IConfiguration_System_Int32_
+  name: ToHelpDisplayText(IConfiguration, int)
+  nameWithType: IConfigurationExtensions.ToHelpDisplayText(IConfiguration, int)
+  fullName: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration, int)
+  nameWithType.vb: IConfigurationExtensions.ToHelpDisplayText(IConfiguration, Integer)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration, Integer)
+  name.vb: ToHelpDisplayText(IConfiguration, Integer)
+  spec.csharp:
+  - uid: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)
+    name: ToHelpDisplayText
+    href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_ToHelpDisplayText_Microsoft_Extensions_Configuration_IConfiguration_System_Int32_
+  - name: (
+  - uid: Microsoft.Extensions.Configuration.IConfiguration
+    name: IConfiguration
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)
+    name: ToHelpDisplayText
+    href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_ToHelpDisplayText_Microsoft_Extensions_Configuration_IConfiguration_System_Int32_
+  - name: (
+  - uid: Microsoft.Extensions.Configuration.IConfiguration
+    name: IConfiguration
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Songhay.Abstractions.IActivityHelpDisplay.CachedHelpText*
+  commentId: Overload:Songhay.Abstractions.IActivityHelpDisplay.CachedHelpText
+  href: Songhay.Abstractions.IActivityHelpDisplay.html#Songhay_Abstractions_IActivityHelpDisplay_CachedHelpText
+  name: CachedHelpText
+  nameWithType: IActivityHelpDisplay.CachedHelpText
+  fullName: Songhay.Abstractions.IActivityHelpDisplay.CachedHelpText

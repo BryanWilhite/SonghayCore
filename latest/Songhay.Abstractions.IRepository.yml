@@ -1,0 +1,691 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Abstractions.IRepository
+  commentId: T:Songhay.Abstractions.IRepository
+  id: IRepository
+  parent: Songhay.Abstractions
+  children:
+  - Songhay.Abstractions.IRepository.DeleteEntity``1(System.Object)
+  - Songhay.Abstractions.IRepository.HasEntity``1(System.Object)
+  - Songhay.Abstractions.IRepository.LoadAll``1
+  - Songhay.Abstractions.IRepository.LoadSingle``1(System.Object)
+  - Songhay.Abstractions.IRepository.SaveEntity``1(``0)
+  langs:
+  - csharp
+  - vb
+  name: IRepository
+  nameWithType: IRepository
+  fullName: Songhay.Abstractions.IRepository
+  type: Interface
+  source:
+    remote:
+      path: SonghayCore/Abstractions/IRepository.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IRepository
+    path: SonghayCore/Abstractions/IRepository.cs
+    startLine: 9
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Abstractions
+  summary: Defines the repository pattern for an Entity.
+  remarks: >-
+    Based on the NBlog repository by Chris Fulstow
+
+    [https://github.com/ChrisFulstow/NBlog/blob/master/NBlog.Web/Application/Storage/IRepository.cs]
+  example: []
+  syntax:
+    content: public interface IRepository
+    content.vb: Public Interface IRepository
+  extensionMethods:
+  - Songhay.Abstractions.IRepository.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Abstractions.IRepository.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Abstractions.IRepository.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+- uid: Songhay.Abstractions.IRepository.DeleteEntity``1(System.Object)
+  commentId: M:Songhay.Abstractions.IRepository.DeleteEntity``1(System.Object)
+  id: DeleteEntity``1(System.Object)
+  parent: Songhay.Abstractions.IRepository
+  langs:
+  - csharp
+  - vb
+  name: DeleteEntity<TEntity>(object?)
+  nameWithType: IRepository.DeleteEntity<TEntity>(object?)
+  fullName: Songhay.Abstractions.IRepository.DeleteEntity<TEntity>(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Abstractions/IRepository.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DeleteEntity
+    path: SonghayCore/Abstractions/IRepository.cs
+    startLine: 16
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Abstractions
+  summary: Deletes the entity.
+  example: []
+  syntax:
+    content: 'void DeleteEntity<TEntity>(object? key) where TEntity : class, new()'
+    parameters:
+    - id: key
+      type: System.Object
+      description: The key.
+    typeParameters:
+    - id: TEntity
+      description: The type of the entity.
+    content.vb: Sub DeleteEntity(Of TEntity As {Class, New})(key As Object)
+  overload: Songhay.Abstractions.IRepository.DeleteEntity*
+  nameWithType.vb: IRepository.DeleteEntity(Of TEntity)(Object)
+  fullName.vb: Songhay.Abstractions.IRepository.DeleteEntity(Of TEntity)(Object)
+  name.vb: DeleteEntity(Of TEntity)(Object)
+- uid: Songhay.Abstractions.IRepository.HasEntity``1(System.Object)
+  commentId: M:Songhay.Abstractions.IRepository.HasEntity``1(System.Object)
+  id: HasEntity``1(System.Object)
+  parent: Songhay.Abstractions.IRepository
+  langs:
+  - csharp
+  - vb
+  name: HasEntity<TEntity>(object?)
+  nameWithType: IRepository.HasEntity<TEntity>(object?)
+  fullName: Songhay.Abstractions.IRepository.HasEntity<TEntity>(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Abstractions/IRepository.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HasEntity
+    path: SonghayCore/Abstractions/IRepository.cs
+    startLine: 23
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Abstractions
+  summary: Determines whether the specified key has entity.
+  example: []
+  syntax:
+    content: 'bool HasEntity<TEntity>(object? key) where TEntity : class, new()'
+    parameters:
+    - id: key
+      type: System.Object
+      description: The key.
+    typeParameters:
+    - id: TEntity
+      description: The type of the entity.
+    return:
+      type: System.Boolean
+    content.vb: Function HasEntity(Of TEntity As {Class, New})(key As Object) As Boolean
+  overload: Songhay.Abstractions.IRepository.HasEntity*
+  nameWithType.vb: IRepository.HasEntity(Of TEntity)(Object)
+  fullName.vb: Songhay.Abstractions.IRepository.HasEntity(Of TEntity)(Object)
+  name.vb: HasEntity(Of TEntity)(Object)
+- uid: Songhay.Abstractions.IRepository.LoadAll``1
+  commentId: M:Songhay.Abstractions.IRepository.LoadAll``1
+  id: LoadAll``1
+  parent: Songhay.Abstractions.IRepository
+  langs:
+  - csharp
+  - vb
+  name: LoadAll<TEntity>()
+  nameWithType: IRepository.LoadAll<TEntity>()
+  fullName: Songhay.Abstractions.IRepository.LoadAll<TEntity>()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Abstractions/IRepository.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: LoadAll
+    path: SonghayCore/Abstractions/IRepository.cs
+    startLine: 29
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Abstractions
+  summary: Loads all.
+  example: []
+  syntax:
+    content: 'IEnumerable<TEntity?> LoadAll<TEntity>() where TEntity : class, new()'
+    typeParameters:
+    - id: TEntity
+      description: The type of the entity.
+    return:
+      type: System.Collections.Generic.IEnumerable{{TEntity}}
+    content.vb: Function LoadAll(Of TEntity As {Class, New})() As IEnumerable(Of TEntity)
+  overload: Songhay.Abstractions.IRepository.LoadAll*
+  nameWithType.vb: IRepository.LoadAll(Of TEntity)()
+  fullName.vb: Songhay.Abstractions.IRepository.LoadAll(Of TEntity)()
+  name.vb: LoadAll(Of TEntity)()
+- uid: Songhay.Abstractions.IRepository.LoadSingle``1(System.Object)
+  commentId: M:Songhay.Abstractions.IRepository.LoadSingle``1(System.Object)
+  id: LoadSingle``1(System.Object)
+  parent: Songhay.Abstractions.IRepository
+  langs:
+  - csharp
+  - vb
+  name: LoadSingle<TEntity>(object?)
+  nameWithType: IRepository.LoadSingle<TEntity>(object?)
+  fullName: Songhay.Abstractions.IRepository.LoadSingle<TEntity>(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Abstractions/IRepository.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: LoadSingle
+    path: SonghayCore/Abstractions/IRepository.cs
+    startLine: 36
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Abstractions
+  summary: Loads the single.
+  example: []
+  syntax:
+    content: 'TEntity? LoadSingle<TEntity>(object? key) where TEntity : class, new()'
+    parameters:
+    - id: key
+      type: System.Object
+      description: The key.
+    typeParameters:
+    - id: TEntity
+      description: The type of the entity.
+    return:
+      type: '{TEntity}'
+    content.vb: Function LoadSingle(Of TEntity As {Class, New})(key As Object) As TEntity
+  overload: Songhay.Abstractions.IRepository.LoadSingle*
+  nameWithType.vb: IRepository.LoadSingle(Of TEntity)(Object)
+  fullName.vb: Songhay.Abstractions.IRepository.LoadSingle(Of TEntity)(Object)
+  name.vb: LoadSingle(Of TEntity)(Object)
+- uid: Songhay.Abstractions.IRepository.SaveEntity``1(``0)
+  commentId: M:Songhay.Abstractions.IRepository.SaveEntity``1(``0)
+  id: SaveEntity``1(``0)
+  parent: Songhay.Abstractions.IRepository
+  langs:
+  - csharp
+  - vb
+  name: SaveEntity<TEntity>(TEntity?)
+  nameWithType: IRepository.SaveEntity<TEntity>(TEntity?)
+  fullName: Songhay.Abstractions.IRepository.SaveEntity<TEntity>(TEntity?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Abstractions/IRepository.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SaveEntity
+    path: SonghayCore/Abstractions/IRepository.cs
+    startLine: 43
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Abstractions
+  summary: Saves the entity.
+  example: []
+  syntax:
+    content: 'void SaveEntity<TEntity>(TEntity? item) where TEntity : class, new()'
+    parameters:
+    - id: item
+      type: '{TEntity}'
+      description: The item.
+    typeParameters:
+    - id: TEntity
+      description: The type of the entity.
+    content.vb: Sub SaveEntity(Of TEntity As {Class, New})(item As TEntity)
+  overload: Songhay.Abstractions.IRepository.SaveEntity*
+  nameWithType.vb: IRepository.SaveEntity(Of TEntity)(TEntity)
+  fullName.vb: Songhay.Abstractions.IRepository.SaveEntity(Of TEntity)(TEntity)
+  name.vb: SaveEntity(Of TEntity)(TEntity)
+references:
+- uid: Songhay.Abstractions
+  commentId: N:Songhay.Abstractions
+  href: Songhay.html
+  name: Songhay.Abstractions
+  nameWithType: Songhay.Abstractions
+  fullName: Songhay.Abstractions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+- uid: Songhay.Abstractions.IRepository.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<IRepository>(IRepository)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<IRepository>(IRepository)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Abstractions.IRepository>(Songhay.Abstractions.IRepository)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of IRepository)(IRepository)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Abstractions.IRepository)(Songhay.Abstractions.IRepository)
+  name.vb: IsAssignableToISerializable(Of IRepository)(IRepository)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Abstractions.IRepository)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Abstractions.IRepository)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: )
+  - name: (
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: )
+- uid: Songhay.Abstractions.IRepository.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<IRepository>(IRepository)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<IRepository>(IRepository)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Abstractions.IRepository>(Songhay.Abstractions.IRepository)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of IRepository)(IRepository)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Abstractions.IRepository)(Songhay.Abstractions.IRepository)
+  name.vb: ToObjectOrDbNull(Of IRepository)(IRepository)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Abstractions.IRepository)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Abstractions.IRepository)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: )
+  - name: (
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: )
+- uid: Songhay.Abstractions.IRepository.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<IRepository>(IRepository, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<IRepository>(IRepository, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Abstractions.IRepository>(Songhay.Abstractions.IRepository, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of IRepository)(IRepository, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Abstractions.IRepository)(Songhay.Abstractions.IRepository, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of IRepository)(IRepository, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Abstractions.IRepository,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Abstractions.IRepository,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: )
+  - name: (
+  - uid: Songhay.Abstractions.IRepository
+    name: IRepository
+    href: Songhay.Abstractions.IRepository.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Abstractions.IRepository.DeleteEntity*
+  commentId: Overload:Songhay.Abstractions.IRepository.DeleteEntity
+  href: Songhay.Abstractions.IRepository.html#Songhay_Abstractions_IRepository_DeleteEntity__1_System_Object_
+  name: DeleteEntity
+  nameWithType: IRepository.DeleteEntity
+  fullName: Songhay.Abstractions.IRepository.DeleteEntity
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Abstractions.IRepository.HasEntity*
+  commentId: Overload:Songhay.Abstractions.IRepository.HasEntity
+  href: Songhay.Abstractions.IRepository.html#Songhay_Abstractions_IRepository_HasEntity__1_System_Object_
+  name: HasEntity
+  nameWithType: IRepository.HasEntity
+  fullName: Songhay.Abstractions.IRepository.HasEntity
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Songhay.Abstractions.IRepository.LoadAll*
+  commentId: Overload:Songhay.Abstractions.IRepository.LoadAll
+  href: Songhay.Abstractions.IRepository.html#Songhay_Abstractions_IRepository_LoadAll__1
+  name: LoadAll
+  nameWithType: IRepository.LoadAll
+  fullName: Songhay.Abstractions.IRepository.LoadAll
+- uid: System.Collections.Generic.IEnumerable{{TEntity}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TEntity>
+  nameWithType: IEnumerable<TEntity>
+  fullName: System.Collections.Generic.IEnumerable<TEntity>
+  nameWithType.vb: IEnumerable(Of TEntity)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TEntity)
+  name.vb: IEnumerable(Of TEntity)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Songhay.Abstractions.IRepository.LoadSingle*
+  commentId: Overload:Songhay.Abstractions.IRepository.LoadSingle
+  href: Songhay.Abstractions.IRepository.html#Songhay_Abstractions_IRepository_LoadSingle__1_System_Object_
+  name: LoadSingle
+  nameWithType: IRepository.LoadSingle
+  fullName: Songhay.Abstractions.IRepository.LoadSingle
+- uid: '{TEntity}'
+  commentId: '!:TEntity'
+  definition: TEntity
+  name: TEntity
+  nameWithType: TEntity
+  fullName: TEntity
+- uid: TEntity
+  name: TEntity
+  nameWithType: TEntity
+  fullName: TEntity
+- uid: Songhay.Abstractions.IRepository.SaveEntity*
+  commentId: Overload:Songhay.Abstractions.IRepository.SaveEntity
+  href: Songhay.Abstractions.IRepository.html#Songhay_Abstractions_IRepository_SaveEntity__1___0_
+  name: SaveEntity
+  nameWithType: IRepository.SaveEntity
+  fullName: Songhay.Abstractions.IRepository.SaveEntity

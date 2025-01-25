@@ -15,7 +15,9 @@
             "**/*.csproj"
           ]
         }
-      ]
+      ],
+      "dest": "latest",
+      "noRestore": true
     }
   ],
   "build": {
@@ -25,7 +27,7 @@
           "**/*.{md,yml}"
         ],
         "exclude": [
-          "_site/**"
+          "docs/**"
         ]
       }
     ],
@@ -36,14 +38,14 @@
         ]
       }
     ],
-    "output": "_site",
+    "output": "docs",
     "template": [
       "default",
       "modern"
     ],
     "globalMetadata": {
       "_appName": "SonghayCore",
-      "_appTitle": "SonghayCore",
+      "_appTitle": "SonghayCore API",
       "_enableSearch": true,
       "pdf": false
     }

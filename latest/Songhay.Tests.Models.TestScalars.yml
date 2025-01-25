@@ -1,0 +1,539 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Tests.Models.TestScalars
+  commentId: T:Songhay.Tests.Models.TestScalars
+  id: TestScalars
+  parent: Songhay.Tests.Models
+  children:
+  - Songhay.Tests.Models.TestScalars.IsNotDebugging
+  - Songhay.Tests.Models.TestScalars.NetCoreRelativePathToProjectFolder
+  - Songhay.Tests.Models.TestScalars.ReasonForSkippingWhenNotDebugging
+  - Songhay.Tests.Models.TestScalars.XunitCategory
+  - Songhay.Tests.Models.TestScalars.XunitCategoryIntegrationManualTest
+  - Songhay.Tests.Models.TestScalars.XunitCategoryIntegrationTest
+  langs:
+  - csharp
+  - vb
+  name: TestScalars
+  nameWithType: TestScalars
+  fullName: Songhay.Tests.Models.TestScalars
+  type: Class
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/TestScalars.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: TestScalars
+    path: SonghayCore.xUnit/Models/TestScalars.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: Shared values for this assembly.
+  example: []
+  syntax:
+    content: public static class TestScalars
+    content.vb: Public Module TestScalars
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Tests.Models.TestScalars.IsNotDebugging
+  commentId: P:Songhay.Tests.Models.TestScalars.IsNotDebugging
+  id: IsNotDebugging
+  parent: Songhay.Tests.Models.TestScalars
+  langs:
+  - csharp
+  - vb
+  name: IsNotDebugging
+  nameWithType: TestScalars.IsNotDebugging
+  fullName: Songhay.Tests.Models.TestScalars.IsNotDebugging
+  type: Property
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/TestScalars.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IsNotDebugging
+    path: SonghayCore.xUnit/Models/TestScalars.cs
+    startLine: 10
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: Returns <code>true</code> when <xref href="System.Diagnostics.Debugger.IsAttached" data-throw-if-not-resolved="false"></xref> is <code>false</code>.
+  example: []
+  syntax:
+    content: public static bool IsNotDebugging { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Shared ReadOnly Property IsNotDebugging As Boolean
+  overload: Songhay.Tests.Models.TestScalars.IsNotDebugging*
+- uid: Songhay.Tests.Models.TestScalars.NetCoreRelativePathToProjectFolder
+  commentId: F:Songhay.Tests.Models.TestScalars.NetCoreRelativePathToProjectFolder
+  id: NetCoreRelativePathToProjectFolder
+  parent: Songhay.Tests.Models.TestScalars
+  langs:
+  - csharp
+  - vb
+  name: NetCoreRelativePathToProjectFolder
+  nameWithType: TestScalars.NetCoreRelativePathToProjectFolder
+  fullName: Songhay.Tests.Models.TestScalars.NetCoreRelativePathToProjectFolder
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/TestScalars.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: NetCoreRelativePathToProjectFolder
+    path: SonghayCore.xUnit/Models/TestScalars.cs
+    startLine: 25
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: >-
+    The Microsoft conventional relative path, indicating the number of directories
+
+    above compiled assembly output in a modern .NET project.
+  remarks: >-
+    In .NET core and in modern .NET the path to compiled assembly output is:
+
+
+    <pre><code class="lang-csharp">{Project Directory}/bin/Debug/{.NET Version}</code></pre>
+
+
+    The <code>/bin/Debug/{.NET Version}</code> directory is three levels below {Project Directory}.
+  example: []
+  syntax:
+    content: public const string NetCoreRelativePathToProjectFolder = "../../../"
+    return:
+      type: System.String
+    content.vb: Public Const NetCoreRelativePathToProjectFolder As String = "../../../"
+- uid: Songhay.Tests.Models.TestScalars.ReasonForSkippingWhenNotDebugging
+  commentId: F:Songhay.Tests.Models.TestScalars.ReasonForSkippingWhenNotDebugging
+  id: ReasonForSkippingWhenNotDebugging
+  parent: Songhay.Tests.Models.TestScalars
+  langs:
+  - csharp
+  - vb
+  name: ReasonForSkippingWhenNotDebugging
+  nameWithType: TestScalars.ReasonForSkippingWhenNotDebugging
+  fullName: Songhay.Tests.Models.TestScalars.ReasonForSkippingWhenNotDebugging
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/TestScalars.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ReasonForSkippingWhenNotDebugging
+    path: SonghayCore.xUnit/Models/TestScalars.cs
+    startLine: 31
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: >-
+    The conventional reason for skipping a test
+
+    when not debugging the test
+  example: []
+  syntax:
+    content: public const string ReasonForSkippingWhenNotDebugging = "This test is intended to run when a Debugger is attached."
+    return:
+      type: System.String
+    content.vb: Public Const ReasonForSkippingWhenNotDebugging As String = "This test is intended to run when a Debugger is attached."
+- uid: Songhay.Tests.Models.TestScalars.XunitCategory
+  commentId: F:Songhay.Tests.Models.TestScalars.XunitCategory
+  id: XunitCategory
+  parent: Songhay.Tests.Models.TestScalars
+  langs:
+  - csharp
+  - vb
+  name: XunitCategory
+  nameWithType: TestScalars.XunitCategory
+  fullName: Songhay.Tests.Models.TestScalars.XunitCategory
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/TestScalars.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XunitCategory
+    path: SonghayCore.xUnit/Models/TestScalars.cs
+    startLine: 36
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: The xunit category trait
+  example: []
+  syntax:
+    content: public const string XunitCategory = "Category"
+    return:
+      type: System.String
+    content.vb: Public Const XunitCategory As String = "Category"
+- uid: Songhay.Tests.Models.TestScalars.XunitCategoryIntegrationTest
+  commentId: F:Songhay.Tests.Models.TestScalars.XunitCategoryIntegrationTest
+  id: XunitCategoryIntegrationTest
+  parent: Songhay.Tests.Models.TestScalars
+  langs:
+  - csharp
+  - vb
+  name: XunitCategoryIntegrationTest
+  nameWithType: TestScalars.XunitCategoryIntegrationTest
+  fullName: Songhay.Tests.Models.TestScalars.XunitCategoryIntegrationTest
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/TestScalars.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XunitCategoryIntegrationTest
+    path: SonghayCore.xUnit/Models/TestScalars.cs
+    startLine: 41
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: The xunit category integration test
+  example: []
+  syntax:
+    content: public const string XunitCategoryIntegrationTest = "Integration"
+    return:
+      type: System.String
+    content.vb: Public Const XunitCategoryIntegrationTest As String = "Integration"
+- uid: Songhay.Tests.Models.TestScalars.XunitCategoryIntegrationManualTest
+  commentId: F:Songhay.Tests.Models.TestScalars.XunitCategoryIntegrationManualTest
+  id: XunitCategoryIntegrationManualTest
+  parent: Songhay.Tests.Models.TestScalars
+  langs:
+  - csharp
+  - vb
+  name: XunitCategoryIntegrationManualTest
+  nameWithType: TestScalars.XunitCategoryIntegrationManualTest
+  fullName: Songhay.Tests.Models.TestScalars.XunitCategoryIntegrationManualTest
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/TestScalars.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XunitCategoryIntegrationManualTest
+    path: SonghayCore.xUnit/Models/TestScalars.cs
+    startLine: 46
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: The xunit category integration manual test
+  example: []
+  syntax:
+    content: public const string XunitCategoryIntegrationManualTest = "IntegrationManual"
+    return:
+      type: System.String
+    content.vb: Public Const XunitCategoryIntegrationManualTest As String = "IntegrationManual"
+references:
+- uid: Songhay.Tests.Models
+  commentId: N:Songhay.Tests.Models
+  href: Songhay.html
+  name: Songhay.Tests.Models
+  nameWithType: Songhay.Tests.Models
+  fullName: Songhay.Tests.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Tests
+    name: Tests
+    href: Songhay.Tests.html
+  - name: .
+  - uid: Songhay.Tests.Models
+    name: Models
+    href: Songhay.Tests.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Tests
+    name: Tests
+    href: Songhay.Tests.html
+  - name: .
+  - uid: Songhay.Tests.Models
+    name: Models
+    href: Songhay.Tests.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Diagnostics.Debugger.IsAttached
+  commentId: P:System.Diagnostics.Debugger.IsAttached
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.diagnostics.debugger.isattached
+  name: IsAttached
+  nameWithType: Debugger.IsAttached
+  fullName: System.Diagnostics.Debugger.IsAttached
+- uid: Songhay.Tests.Models.TestScalars.IsNotDebugging*
+  commentId: Overload:Songhay.Tests.Models.TestScalars.IsNotDebugging
+  href: Songhay.Tests.Models.TestScalars.html#Songhay_Tests_Models_TestScalars_IsNotDebugging
+  name: IsNotDebugging
+  nameWithType: TestScalars.IsNotDebugging
+  fullName: Songhay.Tests.Models.TestScalars.IsNotDebugging
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

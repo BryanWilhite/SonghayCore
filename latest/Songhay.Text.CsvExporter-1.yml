@@ -1,0 +1,1160 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Text.CsvExporter`1
+  commentId: T:Songhay.Text.CsvExporter`1
+  id: CsvExporter`1
+  parent: Songhay.Text
+  children:
+  - Songhay.Text.CsvExporter`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+  - Songhay.Text.CsvExporter`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{System.String})
+  - Songhay.Text.CsvExporter`1.Columns
+  - Songhay.Text.CsvExporter`1.Export
+  - Songhay.Text.CsvExporter`1.Export(System.Boolean)
+  - Songhay.Text.CsvExporter`1.ExportToBytes
+  - Songhay.Text.CsvExporter`1.ExportToFile(System.String)
+  - Songhay.Text.CsvExporter`1.Rows
+  langs:
+  - csharp
+  - vb
+  name: CsvExporter<T>
+  nameWithType: CsvExporter<T>
+  fullName: Songhay.Text.CsvExporter<T>
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Text/CsvExporter.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: CsvExporter
+    path: SonghayCore/Text/CsvExporter.cs
+    startLine: 9
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Text
+  summary: Transforms and exports the specified class to CSV format.
+  remarks: Based on http://stackoverflow.com/questions/2422212/simple-c-sharp-csv-excel-export-class
+  example: []
+  syntax:
+    content: 'public class CsvExporter<T> where T : class'
+    typeParameters:
+    - id: T
+      description: the class to export
+    content.vb: Public Class CsvExporter(Of T As Class)
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Songhay.Text.CsvExporter`1.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Text.CsvExporter`1.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Text.CsvExporter`1.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  nameWithType.vb: CsvExporter(Of T)
+  fullName.vb: Songhay.Text.CsvExporter(Of T)
+  name.vb: CsvExporter(Of T)
+- uid: Songhay.Text.CsvExporter`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:Songhay.Text.CsvExporter`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+  id: '#ctor(System.Collections.Generic.IEnumerable{`0})'
+  parent: Songhay.Text.CsvExporter`1
+  langs:
+  - csharp
+  - vb
+  name: CsvExporter(IEnumerable<T>?)
+  nameWithType: CsvExporter<T>.CsvExporter(IEnumerable<T>?)
+  fullName: Songhay.Text.CsvExporter<T>.CsvExporter(System.Collections.Generic.IEnumerable<T>?)
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore/Text/CsvExporter.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: SonghayCore/Text/CsvExporter.cs
+    startLine: 15
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Text
+  summary: Initializes a new instance of the <xref href="Songhay.Text.CsvExporter%601" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public CsvExporter(IEnumerable<T>? rows)
+    parameters:
+    - id: rows
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The rows.
+    content.vb: Public Sub New(rows As IEnumerable(Of T))
+  overload: Songhay.Text.CsvExporter`1.#ctor*
+  nameWithType.vb: CsvExporter(Of T).New(IEnumerable(Of T))
+  fullName.vb: Songhay.Text.CsvExporter(Of T).New(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: New(IEnumerable(Of T))
+- uid: Songhay.Text.CsvExporter`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:Songhay.Text.CsvExporter`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{System.String})
+  id: '#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{System.String})'
+  parent: Songhay.Text.CsvExporter`1
+  langs:
+  - csharp
+  - vb
+  name: CsvExporter(IEnumerable<T>?, IEnumerable<string>?)
+  nameWithType: CsvExporter<T>.CsvExporter(IEnumerable<T>?, IEnumerable<string>?)
+  fullName: Songhay.Text.CsvExporter<T>.CsvExporter(System.Collections.Generic.IEnumerable<T>?, System.Collections.Generic.IEnumerable<string>?)
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore/Text/CsvExporter.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: SonghayCore/Text/CsvExporter.cs
+    startLine: 25
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Text
+  summary: Initializes a new instance of the <xref href="Songhay.Text.CsvExporter%601" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public CsvExporter(IEnumerable<T>? rows, IEnumerable<string>? columns)
+    parameters:
+    - id: rows
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The rows.
+    - id: columns
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: The columns.
+    content.vb: Public Sub New(rows As IEnumerable(Of T), columns As IEnumerable(Of String))
+  overload: Songhay.Text.CsvExporter`1.#ctor*
+  nameWithType.vb: CsvExporter(Of T).New(IEnumerable(Of T), IEnumerable(Of String))
+  fullName.vb: Songhay.Text.CsvExporter(Of T).New(System.Collections.Generic.IEnumerable(Of T), System.Collections.Generic.IEnumerable(Of String))
+  name.vb: New(IEnumerable(Of T), IEnumerable(Of String))
+- uid: Songhay.Text.CsvExporter`1.Columns
+  commentId: P:Songhay.Text.CsvExporter`1.Columns
+  id: Columns
+  parent: Songhay.Text.CsvExporter`1
+  langs:
+  - csharp
+  - vb
+  name: Columns
+  nameWithType: CsvExporter<T>.Columns
+  fullName: Songhay.Text.CsvExporter<T>.Columns
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Text/CsvExporter.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: Columns
+    path: SonghayCore/Text/CsvExporter.cs
+    startLine: 34
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Text
+  summary: Gets the columns.
+  example: []
+  syntax:
+    content: public IEnumerable<string> Columns { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{System.String}
+    content.vb: Public Property Columns As IEnumerable(Of String)
+  overload: Songhay.Text.CsvExporter`1.Columns*
+  nameWithType.vb: CsvExporter(Of T).Columns
+  fullName.vb: Songhay.Text.CsvExporter(Of T).Columns
+- uid: Songhay.Text.CsvExporter`1.Rows
+  commentId: P:Songhay.Text.CsvExporter`1.Rows
+  id: Rows
+  parent: Songhay.Text.CsvExporter`1
+  langs:
+  - csharp
+  - vb
+  name: Rows
+  nameWithType: CsvExporter<T>.Rows
+  fullName: Songhay.Text.CsvExporter<T>.Rows
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Text/CsvExporter.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: Rows
+    path: SonghayCore/Text/CsvExporter.cs
+    startLine: 39
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Text
+  summary: Gets the rows.
+  example: []
+  syntax:
+    content: public IEnumerable<T> Rows { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{{T}}
+    content.vb: Public Property Rows As IEnumerable(Of T)
+  overload: Songhay.Text.CsvExporter`1.Rows*
+  nameWithType.vb: CsvExporter(Of T).Rows
+  fullName.vb: Songhay.Text.CsvExporter(Of T).Rows
+- uid: Songhay.Text.CsvExporter`1.Export
+  commentId: M:Songhay.Text.CsvExporter`1.Export
+  id: Export
+  parent: Songhay.Text.CsvExporter`1
+  langs:
+  - csharp
+  - vb
+  name: Export()
+  nameWithType: CsvExporter<T>.Export()
+  fullName: Songhay.Text.CsvExporter<T>.Export()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Text/CsvExporter.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: Export
+    path: SonghayCore/Text/CsvExporter.cs
+    startLine: 44
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Text
+  summary: Exports this instance.
+  example: []
+  syntax:
+    content: public string Export()
+    return:
+      type: System.String
+    content.vb: Public Function Export() As String
+  overload: Songhay.Text.CsvExporter`1.Export*
+  nameWithType.vb: CsvExporter(Of T).Export()
+  fullName.vb: Songhay.Text.CsvExporter(Of T).Export()
+- uid: Songhay.Text.CsvExporter`1.Export(System.Boolean)
+  commentId: M:Songhay.Text.CsvExporter`1.Export(System.Boolean)
+  id: Export(System.Boolean)
+  parent: Songhay.Text.CsvExporter`1
+  langs:
+  - csharp
+  - vb
+  name: Export(bool)
+  nameWithType: CsvExporter<T>.Export(bool)
+  fullName: Songhay.Text.CsvExporter<T>.Export(bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Text/CsvExporter.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: Export
+    path: SonghayCore/Text/CsvExporter.cs
+    startLine: 53
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Text
+  summary: Exports the specified include header line.
+  example: []
+  syntax:
+    content: public string Export(bool includeHeaderLine)
+    parameters:
+    - id: includeHeaderLine
+      type: System.Boolean
+      description: if set to <code>true</code> [include header line].
+    return:
+      type: System.String
+    content.vb: Public Function Export(includeHeaderLine As Boolean) As String
+  overload: Songhay.Text.CsvExporter`1.Export*
+  nameWithType.vb: CsvExporter(Of T).Export(Boolean)
+  fullName.vb: Songhay.Text.CsvExporter(Of T).Export(Boolean)
+  name.vb: Export(Boolean)
+- uid: Songhay.Text.CsvExporter`1.ExportToFile(System.String)
+  commentId: M:Songhay.Text.CsvExporter`1.ExportToFile(System.String)
+  id: ExportToFile(System.String)
+  parent: Songhay.Text.CsvExporter`1
+  langs:
+  - csharp
+  - vb
+  name: ExportToFile(string?)
+  nameWithType: CsvExporter<T>.ExportToFile(string?)
+  fullName: Songhay.Text.CsvExporter<T>.ExportToFile(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Text/CsvExporter.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ExportToFile
+    path: SonghayCore/Text/CsvExporter.cs
+    startLine: 106
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Text
+  summary: Exports to file.
+  example: []
+  syntax:
+    content: public void ExportToFile(string? path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path.
+    content.vb: Public Sub ExportToFile(path As String)
+  overload: Songhay.Text.CsvExporter`1.ExportToFile*
+  nameWithType.vb: CsvExporter(Of T).ExportToFile(String)
+  fullName.vb: Songhay.Text.CsvExporter(Of T).ExportToFile(String)
+  name.vb: ExportToFile(String)
+- uid: Songhay.Text.CsvExporter`1.ExportToBytes
+  commentId: M:Songhay.Text.CsvExporter`1.ExportToBytes
+  id: ExportToBytes
+  parent: Songhay.Text.CsvExporter`1
+  langs:
+  - csharp
+  - vb
+  name: ExportToBytes()
+  nameWithType: CsvExporter<T>.ExportToBytes()
+  fullName: Songhay.Text.CsvExporter<T>.ExportToBytes()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Text/CsvExporter.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ExportToBytes
+    path: SonghayCore/Text/CsvExporter.cs
+    startLine: 111
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Text
+  summary: Exports to bytes.
+  example: []
+  syntax:
+    content: public byte[] ExportToBytes()
+    return:
+      type: System.Byte[]
+    content.vb: Public Function ExportToBytes() As Byte()
+  overload: Songhay.Text.CsvExporter`1.ExportToBytes*
+  nameWithType.vb: CsvExporter(Of T).ExportToBytes()
+  fullName.vb: Songhay.Text.CsvExporter(Of T).ExportToBytes()
+references:
+- uid: Songhay.Text
+  commentId: N:Songhay.Text
+  href: Songhay.html
+  name: Songhay.Text
+  nameWithType: Songhay.Text
+  fullName: Songhay.Text
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Text
+    name: Text
+    href: Songhay.Text.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Text
+    name: Text
+    href: Songhay.Text.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Text.CsvExporter`1.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<CsvExporter<T>>(CsvExporter<T>)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<CsvExporter<T>>(CsvExporter<T>)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Text.CsvExporter<T>>(Songhay.Text.CsvExporter<T>)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of CsvExporter(Of T))(CsvExporter(Of T))
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Text.CsvExporter(Of T))(Songhay.Text.CsvExporter(Of T))
+  name.vb: IsAssignableToISerializable(Of CsvExporter(Of T))(CsvExporter(Of T))
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Text.CsvExporter{`0})
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  - name: (
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Text.CsvExporter{`0})
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+  - name: (
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: Songhay.Text.CsvExporter`1.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<CsvExporter<T>>(CsvExporter<T>)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<CsvExporter<T>>(CsvExporter<T>)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Text.CsvExporter<T>>(Songhay.Text.CsvExporter<T>)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of CsvExporter(Of T))(CsvExporter(Of T))
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Text.CsvExporter(Of T))(Songhay.Text.CsvExporter(Of T))
+  name.vb: ToObjectOrDbNull(Of CsvExporter(Of T))(CsvExporter(Of T))
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Text.CsvExporter{`0})
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  - name: (
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Text.CsvExporter{`0})
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+  - name: (
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: Songhay.Text.CsvExporter`1.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<CsvExporter<T>>(CsvExporter<T>, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<CsvExporter<T>>(CsvExporter<T>, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Text.CsvExporter<T>>(Songhay.Text.CsvExporter<T>, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of CsvExporter(Of T))(CsvExporter(Of T), String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Text.CsvExporter(Of T))(Songhay.Text.CsvExporter(Of T), String)
+  name.vb: ToReferenceTypeValueOrThrow(Of CsvExporter(Of T))(CsvExporter(Of T), String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Text.CsvExporter{`0},System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  - name: (
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Text.CsvExporter{`0},System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+  - name: (
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Text.CsvExporter`1
+  commentId: T:Songhay.Text.CsvExporter`1
+  href: Songhay.Text.CsvExporter-1.html
+  name: CsvExporter<T>
+  nameWithType: CsvExporter<T>
+  fullName: Songhay.Text.CsvExporter<T>
+  nameWithType.vb: CsvExporter(Of T)
+  fullName.vb: Songhay.Text.CsvExporter(Of T)
+  name.vb: CsvExporter(Of T)
+  spec.csharp:
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Text.CsvExporter`1
+    name: CsvExporter
+    href: Songhay.Text.CsvExporter-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Songhay.Text.CsvExporter`1.#ctor*
+  commentId: Overload:Songhay.Text.CsvExporter`1.#ctor
+  href: Songhay.Text.CsvExporter-1.html#Songhay_Text_CsvExporter_1__ctor_System_Collections_Generic_IEnumerable__0__
+  name: CsvExporter
+  nameWithType: CsvExporter<T>.CsvExporter
+  fullName: Songhay.Text.CsvExporter<T>.CsvExporter
+  nameWithType.vb: CsvExporter(Of T).New
+  fullName.vb: Songhay.Text.CsvExporter(Of T).New
+  name.vb: New
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Text.CsvExporter`1.Columns*
+  commentId: Overload:Songhay.Text.CsvExporter`1.Columns
+  href: Songhay.Text.CsvExporter-1.html#Songhay_Text_CsvExporter_1_Columns
+  name: Columns
+  nameWithType: CsvExporter<T>.Columns
+  fullName: Songhay.Text.CsvExporter<T>.Columns
+  nameWithType.vb: CsvExporter(Of T).Columns
+  fullName.vb: Songhay.Text.CsvExporter(Of T).Columns
+- uid: Songhay.Text.CsvExporter`1.Rows*
+  commentId: Overload:Songhay.Text.CsvExporter`1.Rows
+  href: Songhay.Text.CsvExporter-1.html#Songhay_Text_CsvExporter_1_Rows
+  name: Rows
+  nameWithType: CsvExporter<T>.Rows
+  fullName: Songhay.Text.CsvExporter<T>.Rows
+  nameWithType.vb: CsvExporter(Of T).Rows
+  fullName.vb: Songhay.Text.CsvExporter(Of T).Rows
+- uid: Songhay.Text.CsvExporter`1.Export*
+  commentId: Overload:Songhay.Text.CsvExporter`1.Export
+  href: Songhay.Text.CsvExporter-1.html#Songhay_Text_CsvExporter_1_Export
+  name: Export
+  nameWithType: CsvExporter<T>.Export
+  fullName: Songhay.Text.CsvExporter<T>.Export
+  nameWithType.vb: CsvExporter(Of T).Export
+  fullName.vb: Songhay.Text.CsvExporter(Of T).Export
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Songhay.Text.CsvExporter`1.ExportToFile*
+  commentId: Overload:Songhay.Text.CsvExporter`1.ExportToFile
+  href: Songhay.Text.CsvExporter-1.html#Songhay_Text_CsvExporter_1_ExportToFile_System_String_
+  name: ExportToFile
+  nameWithType: CsvExporter<T>.ExportToFile
+  fullName: Songhay.Text.CsvExporter<T>.ExportToFile
+  nameWithType.vb: CsvExporter(Of T).ExportToFile
+  fullName.vb: Songhay.Text.CsvExporter(Of T).ExportToFile
+- uid: Songhay.Text.CsvExporter`1.ExportToBytes*
+  commentId: Overload:Songhay.Text.CsvExporter`1.ExportToBytes
+  href: Songhay.Text.CsvExporter-1.html#Songhay_Text_CsvExporter_1_ExportToBytes
+  name: ExportToBytes
+  nameWithType: CsvExporter<T>.ExportToBytes
+  fullName: Songhay.Text.CsvExporter<T>.ExportToBytes
+  nameWithType.vb: CsvExporter(Of T).ExportToBytes
+  fullName.vb: Songhay.Text.CsvExporter(Of T).ExportToBytes
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )

@@ -1,0 +1,847 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Extensions.RestApiMetadataExtensions
+  commentId: T:Songhay.Extensions.RestApiMetadataExtensions
+  id: RestApiMetadataExtensions
+  parent: Songhay.Extensions
+  children:
+  - Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)
+  - Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)
+  - Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)
+  - Songhay.Extensions.RestApiMetadataExtensions.ToUri(Songhay.Models.RestApiMetadata,System.String,System.String[])
+  langs:
+  - csharp
+  - vb
+  name: RestApiMetadataExtensions
+  nameWithType: RestApiMetadataExtensions
+  fullName: Songhay.Extensions.RestApiMetadataExtensions
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Extensions/RestApiMetadataExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RestApiMetadataExtensions
+    path: SonghayCore/Extensions/RestApiMetadataExtensions.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Extensions of <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class RestApiMetadataExtensions
+    content.vb: Public Module RestApiMetadataExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)
+  commentId: M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)
+  id: ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.RestApiMetadataExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToAzureActiveDirectoryAccessTokenData(RestApiMetadata?)
+  nameWithType: RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(RestApiMetadata?)
+  fullName: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/RestApiMetadataExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToAzureActiveDirectoryAccessTokenData
+    path: SonghayCore/Extensions/RestApiMetadataExtensions.cs
+    startLine: 28
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+
+    to the data required by <xref href="Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri%2cSystem.Collections.Generic.Dictionary%7bSystem.String%2cSystem.String%7d)" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    As of this writing, this member should return data of the form:
+
+
+    <pre><code class="lang-csharp">"grant_type": "client_credentials",
+
+    "scope": "https://vault.azure.net/.default",
+
+    "client_id": "active-directory-registration-app-id",
+
+    "client_secret": "active-directory-registration-app-secret"</code></pre>
+
+
+    where <code>client_id</code> is the value of the <code>appId</code> property
+
+    in the output of <code>az ad app list</code>;
+
+    <code>client_secret</code> is the secret exposed under the App registration in the Azure Portal.
+
+
+    🔬☔ test coverage of this member further documents how the <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref> should be formatted
+  example: []
+  syntax:
+    content: public static Dictionary<string, string> ToAzureActiveDirectoryAccessTokenData(this RestApiMetadata? meta)
+    parameters:
+    - id: meta
+      type: Songhay.Models.RestApiMetadata
+      description: the <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.String}
+    content.vb: Public Shared Function ToAzureActiveDirectoryAccessTokenData(meta As RestApiMetadata) As Dictionary(Of String, String)
+  overload: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData*
+  nameWithType.vb: RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(RestApiMetadata)
+  fullName.vb: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)
+  name.vb: ToAzureActiveDirectoryAccessTokenData(RestApiMetadata)
+- uid: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)
+  commentId: M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)
+  id: ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.RestApiMetadataExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToAzureActiveDirectoryAccessTokenUri(RestApiMetadata?)
+  nameWithType: RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(RestApiMetadata?)
+  fullName: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/RestApiMetadataExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToAzureActiveDirectoryAccessTokenUri
+    path: SonghayCore/Extensions/RestApiMetadataExtensions.cs
+    startLine: 65
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+
+    to the <xref href="System.Uri" data-throw-if-not-resolved="false"></xref> required by <xref href="Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri%2cSystem.Collections.Generic.Dictionary%7bSystem.String%2cSystem.String%7d)" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    This member should return a <xref href="System.Uri" data-throw-if-not-resolved="false"></xref> of the form:
+
+
+    <pre><code class="lang-csharp">https://login.microsoftonline.com/{tenantOrDirectoryId}/oauth2/v2.0/token</code></pre>
+
+
+    where <code>tenantOrDirectoryId</code> is the value of “Directory (tenant) ID”
+
+    under the App registration in the Azure Portal.
+
+
+    🔬☔ test coverage of this member further documents how the <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref> should be formatted
+  example: []
+  syntax:
+    content: public static Uri ToAzureActiveDirectoryAccessTokenUri(this RestApiMetadata? meta)
+    parameters:
+    - id: meta
+      type: Songhay.Models.RestApiMetadata
+      description: the <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.Uri
+    content.vb: Public Shared Function ToAzureActiveDirectoryAccessTokenUri(meta As RestApiMetadata) As Uri
+  overload: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri*
+  nameWithType.vb: RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(RestApiMetadata)
+  fullName.vb: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)
+  name.vb: ToAzureActiveDirectoryAccessTokenUri(RestApiMetadata)
+- uid: Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)
+  commentId: M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)
+  id: ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.RestApiMetadataExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToAzureKeyVaultSecretUri(RestApiMetadata?, string)
+  nameWithType: RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(RestApiMetadata?, string)
+  fullName: Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata?, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/RestApiMetadataExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToAzureKeyVaultSecretUri
+    path: SonghayCore/Extensions/RestApiMetadataExtensions.cs
+    startLine: 93
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+
+    to the <xref href="System.Uri" data-throw-if-not-resolved="false"></xref> required by <xref href="Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String%2cSystem.Uri)" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    This member should return a <xref href="System.Uri" data-throw-if-not-resolved="false"></xref> of the form:
+
+
+    <pre><code class="lang-csharp">https://{vaultName}.vault.azure.net/secrets/{secretName}?api-version=2016-10-01</code></pre>
+
+
+    where <code>vaultName</code> is the name of the Azure Key Vault;
+
+    <code>secretName</code> is the name of the secret in the vault.
+
+
+    🔬☔ test coverage of this member further documents how the <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref> should be formatted
+  example: []
+  syntax:
+    content: public static Uri ToAzureKeyVaultSecretUri(this RestApiMetadata? meta, string secretNameKey)
+    parameters:
+    - id: meta
+      type: Songhay.Models.RestApiMetadata
+      description: the <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+    - id: secretNameKey
+      type: System.String
+      description: the name of the Claim key that returns the Vault secret
+    return:
+      type: System.Uri
+    content.vb: Public Shared Function ToAzureKeyVaultSecretUri(meta As RestApiMetadata, secretNameKey As String) As Uri
+  overload: Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri*
+  nameWithType.vb: RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(RestApiMetadata, String)
+  fullName.vb: Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata, String)
+  name.vb: ToAzureKeyVaultSecretUri(RestApiMetadata, String)
+- uid: Songhay.Extensions.RestApiMetadataExtensions.ToUri(Songhay.Models.RestApiMetadata,System.String,System.String[])
+  commentId: M:Songhay.Extensions.RestApiMetadataExtensions.ToUri(Songhay.Models.RestApiMetadata,System.String,System.String[])
+  id: ToUri(Songhay.Models.RestApiMetadata,System.String,System.String[])
+  isExtensionMethod: true
+  parent: Songhay.Extensions.RestApiMetadataExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToUri(RestApiMetadata?, string?, params string?[])
+  nameWithType: RestApiMetadataExtensions.ToUri(RestApiMetadata?, string?, params string?[])
+  fullName: Songhay.Extensions.RestApiMetadataExtensions.ToUri(Songhay.Models.RestApiMetadata?, string?, params string?[])
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/RestApiMetadataExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToUri
+    path: SonghayCore/Extensions/RestApiMetadataExtensions.cs
+    startLine: 117
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref> to a <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>
+
+    based on the specified URI Template.
+  example: []
+  syntax:
+    content: public static Uri? ToUri(this RestApiMetadata? meta, string? uriTemplateKey, params string?[] bindByPositionValues)
+    parameters:
+    - id: meta
+      type: Songhay.Models.RestApiMetadata
+      description: the <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+    - id: uriTemplateKey
+      type: System.String
+      description: The URI template key.
+    - id: bindByPositionValues
+      type: System.String[]
+      description: The bind by position values.
+    return:
+      type: System.Uri
+    content.vb: Public Shared Function ToUri(meta As RestApiMetadata, uriTemplateKey As String, ParamArray bindByPositionValues As String()) As Uri
+  overload: Songhay.Extensions.RestApiMetadataExtensions.ToUri*
+  nameWithType.vb: RestApiMetadataExtensions.ToUri(RestApiMetadata, String, ParamArray String())
+  fullName.vb: Songhay.Extensions.RestApiMetadataExtensions.ToUri(Songhay.Models.RestApiMetadata, String, ParamArray String())
+  name.vb: ToUri(RestApiMetadata, String, ParamArray String())
+references:
+- uid: Songhay.Models.RestApiMetadata
+  commentId: T:Songhay.Models.RestApiMetadata
+  parent: Songhay.Models
+  href: Songhay.Models.RestApiMetadata.html
+  name: RestApiMetadata
+  nameWithType: RestApiMetadata
+  fullName: Songhay.Models.RestApiMetadata
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
+  commentId: M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
+  isExternal: true
+  href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__
+  name: GetAccessTokenAsync(Uri, Dictionary<string, string>)
+  nameWithType: AzureKeyVaultRestApiUtility.GetAccessTokenAsync(Uri, Dictionary<string, string>)
+  fullName: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri, System.Collections.Generic.Dictionary<string, string>)
+  nameWithType.vb: AzureKeyVaultRestApiUtility.GetAccessTokenAsync(Uri, Dictionary(Of String, String))
+  fullName.vb: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri, System.Collections.Generic.Dictionary(Of String, String))
+  name.vb: GetAccessTokenAsync(Uri, Dictionary(Of String, String))
+  spec.csharp:
+  - uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
+    name: GetAccessTokenAsync
+    href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__
+  - name: (
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
+    name: GetAccessTokenAsync
+    href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__
+  - name: (
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData*
+  commentId: Overload:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData
+  href: Songhay.Extensions.RestApiMetadataExtensions.html#Songhay_Extensions_RestApiMetadataExtensions_ToAzureActiveDirectoryAccessTokenData_Songhay_Models_RestApiMetadata_
+  name: ToAzureActiveDirectoryAccessTokenData
+  nameWithType: RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData
+  fullName: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData
+- uid: System.Collections.Generic.Dictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, string>
+  nameWithType: Dictionary<string, string>
+  fullName: System.Collections.Generic.Dictionary<string, string>
+  nameWithType.vb: Dictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, String)
+  name.vb: Dictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri*
+  commentId: Overload:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri
+  href: Songhay.Extensions.RestApiMetadataExtensions.html#Songhay_Extensions_RestApiMetadataExtensions_ToAzureActiveDirectoryAccessTokenUri_Songhay_Models_RestApiMetadata_
+  name: ToAzureActiveDirectoryAccessTokenUri
+  nameWithType: RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri
+  fullName: Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri
+- uid: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)
+  commentId: M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)
+  isExternal: true
+  href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetSecretAsync_System_String_System_Uri_
+  name: GetSecretAsync(string, Uri)
+  nameWithType: AzureKeyVaultRestApiUtility.GetSecretAsync(string, Uri)
+  fullName: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(string, System.Uri)
+  nameWithType.vb: AzureKeyVaultRestApiUtility.GetSecretAsync(String, Uri)
+  fullName.vb: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(String, System.Uri)
+  name.vb: GetSecretAsync(String, Uri)
+  spec.csharp:
+  - uid: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)
+    name: GetSecretAsync
+    href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetSecretAsync_System_String_System_Uri_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: )
+  spec.vb:
+  - uid: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)
+    name: GetSecretAsync
+    href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetSecretAsync_System_String_System_Uri_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: )
+- uid: Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri*
+  commentId: Overload:Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri
+  href: Songhay.Extensions.RestApiMetadataExtensions.html#Songhay_Extensions_RestApiMetadataExtensions_ToAzureKeyVaultSecretUri_Songhay_Models_RestApiMetadata_System_String_
+  name: ToAzureKeyVaultSecretUri
+  nameWithType: RestApiMetadataExtensions.ToAzureKeyVaultSecretUri
+  fullName: Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Songhay.Extensions.RestApiMetadataExtensions.ToUri*
+  commentId: Overload:Songhay.Extensions.RestApiMetadataExtensions.ToUri
+  href: Songhay.Extensions.RestApiMetadataExtensions.html#Songhay_Extensions_RestApiMetadataExtensions_ToUri_Songhay_Models_RestApiMetadata_System_String_System_String___
+  name: ToUri
+  nameWithType: RestApiMetadataExtensions.ToUri
+  fullName: Songhay.Extensions.RestApiMetadataExtensions.ToUri
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )

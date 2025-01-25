@@ -1,0 +1,2347 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.ProgramFileUtility
+  commentId: T:Songhay.ProgramFileUtility
+  id: ProgramFileUtility
+  parent: Songhay
+  children:
+  - Songhay.ProgramFileUtility.CountParentDirectoryChars(System.String)
+  - Songhay.ProgramFileUtility.FindParentDirectory(System.String,System.String,System.Int32)
+  - Songhay.ProgramFileUtility.FindParentDirectoryInfo(System.String,System.String,System.Int32)
+  - Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)
+  - Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String,System.Boolean)
+  - Songhay.ProgramFileUtility.GetEncodedString(System.String)
+  - Songhay.ProgramFileUtility.GetEncodedString(System.String,System.Text.Encoding)
+  - Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)
+  - Songhay.ProgramFileUtility.GetParentDirectoryInfo(System.String,System.Int32)
+  - Songhay.ProgramFileUtility.GetRelativePath(System.String)
+  - Songhay.ProgramFileUtility.IsForwardSlashSystem
+  - Songhay.ProgramFileUtility.NormalizePath(System.String)
+  - Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})
+  - Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  - Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String})
+  - Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  - Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)
+  - Songhay.ProgramFileUtility.RemoveConventionalPrefixes(System.String)
+  - Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)
+  - Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)
+  - Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})
+  - Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive},System.IO.Compression.ZipArchiveMode)
+  - Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})
+  - Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  - Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo)
+  - Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo,System.IO.Compression.CompressionLevel)
+  langs:
+  - csharp
+  - vb
+  name: ProgramFileUtility
+  nameWithType: ProgramFileUtility
+  fullName: Songhay.ProgramFileUtility
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ProgramFileUtility
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: A few static helper members for <xref href="System.IO" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class ProgramFileUtility
+    content.vb: Public Module ProgramFileUtility
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})
+  commentId: M:Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})
+  id: ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: ReadZipArchiveEntries(FileInfo?, Action<string>?)
+  nameWithType: ProgramFileUtility.ReadZipArchiveEntries(FileInfo?, Action<string>?)
+  fullName: Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo?, System.Action<string>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.Compression.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ReadZipArchiveEntries
+    path: SonghayCore/ProgramFileUtility.Compression.cs
+    startLine: 12
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Read zip archive entries.
+  remarks: Use <code>entriesProjector</code> for any filtering or sorting.
+  example: []
+  syntax:
+    content: public static void ReadZipArchiveEntries(FileInfo? archiveInfo, Action<string>? fileAction)
+    parameters:
+    - id: archiveInfo
+      type: System.IO.FileInfo
+      description: The ZIP archive <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: fileAction
+      type: System.Action{System.String}
+      description: The action to take per text file.
+    content.vb: Public Shared Sub ReadZipArchiveEntries(archiveInfo As FileInfo, fileAction As Action(Of String))
+  overload: Songhay.ProgramFileUtility.ReadZipArchiveEntries*
+  nameWithType.vb: ProgramFileUtility.ReadZipArchiveEntries(FileInfo, Action(Of String))
+  fullName.vb: Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo, System.Action(Of String))
+  name.vb: ReadZipArchiveEntries(FileInfo, Action(Of String))
+- uid: Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  commentId: M:Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  id: ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: ReadZipArchiveEntries(FileInfo?, Action<string>?, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>>?)
+  nameWithType: ProgramFileUtility.ReadZipArchiveEntries(FileInfo?, Action<string>?, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>>?)
+  fullName: Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo?, System.Action<string>?, System.Func<System.Collections.ObjectModel.ReadOnlyCollection<System.IO.Compression.ZipArchiveEntry>, System.Collections.Generic.IEnumerable<System.IO.Compression.ZipArchiveEntry>>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.Compression.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ReadZipArchiveEntries
+    path: SonghayCore/ProgramFileUtility.Compression.cs
+    startLine: 24
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Read zip archive entries.
+  remarks: Use <code>entriesProjector</code> for any filtering or sorting.
+  example: []
+  syntax:
+    content: public static void ReadZipArchiveEntries(FileInfo? archiveInfo, Action<string>? fileAction, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>>? entriesProjector)
+    parameters:
+    - id: archiveInfo
+      type: System.IO.FileInfo
+      description: The ZIP archive <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: fileAction
+      type: System.Action{System.String}
+      description: The action to take per text file.
+    - id: entriesProjector
+      type: System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}}
+      description: The entries projector for LINQ filtering/sorting.
+    content.vb: Public Shared Sub ReadZipArchiveEntries(archiveInfo As FileInfo, fileAction As Action(Of String), entriesProjector As Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry)))
+  overload: Songhay.ProgramFileUtility.ReadZipArchiveEntries*
+  nameWithType.vb: ProgramFileUtility.ReadZipArchiveEntries(FileInfo, Action(Of String), Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry)))
+  fullName.vb: Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo, System.Action(Of String), System.Func(Of System.Collections.ObjectModel.ReadOnlyCollection(Of System.IO.Compression.ZipArchiveEntry), System.Collections.Generic.IEnumerable(Of System.IO.Compression.ZipArchiveEntry)))
+  name.vb: ReadZipArchiveEntries(FileInfo, Action(Of String), Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry)))
+- uid: Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String})
+  commentId: M:Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String})
+  id: ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String})
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: ReadZipArchiveEntriesByLine(FileInfo?, Action<int, string>?)
+  nameWithType: ProgramFileUtility.ReadZipArchiveEntriesByLine(FileInfo?, Action<int, string>?)
+  fullName: Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo?, System.Action<int, string>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.Compression.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ReadZipArchiveEntriesByLine
+    path: SonghayCore/ProgramFileUtility.Compression.cs
+    startLine: 45
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Read zip archive entries as strings, line by line.
+  remarks: >-
+    This member is designed for compressed text documents that are too large to load into memory.
+
+    The <code>fileAction</code> includes the line number and the current line.
+  example: []
+  syntax:
+    content: public static void ReadZipArchiveEntriesByLine(FileInfo? archiveInfo, Action<int, string>? lineAction)
+    parameters:
+    - id: archiveInfo
+      type: System.IO.FileInfo
+      description: The ZIP archive <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: lineAction
+      type: System.Action{System.Int32,System.String}
+      description: The action to take per text file line.
+    content.vb: Public Shared Sub ReadZipArchiveEntriesByLine(archiveInfo As FileInfo, lineAction As Action(Of Integer, String))
+  overload: Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine*
+  nameWithType.vb: ProgramFileUtility.ReadZipArchiveEntriesByLine(FileInfo, Action(Of Integer, String))
+  fullName.vb: Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo, System.Action(Of Integer, String))
+  name.vb: ReadZipArchiveEntriesByLine(FileInfo, Action(Of Integer, String))
+- uid: Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  commentId: M:Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  id: ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: ReadZipArchiveEntriesByLine(FileInfo?, Action<int, string>?, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>>?)
+  nameWithType: ProgramFileUtility.ReadZipArchiveEntriesByLine(FileInfo?, Action<int, string>?, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>>?)
+  fullName: Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo?, System.Action<int, string>?, System.Func<System.Collections.ObjectModel.ReadOnlyCollection<System.IO.Compression.ZipArchiveEntry>, System.Collections.Generic.IEnumerable<System.IO.Compression.ZipArchiveEntry>>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.Compression.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ReadZipArchiveEntriesByLine
+    path: SonghayCore/ProgramFileUtility.Compression.cs
+    startLine: 58
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Read zip archive entries as strings, line by line.
+  remarks: >-
+    This member is designed for compressed text documents that are too large to load into memory.
+
+    The <code>fileAction</code> includes the line number and the current line.
+  example: []
+  syntax:
+    content: public static void ReadZipArchiveEntriesByLine(FileInfo? archiveInfo, Action<int, string>? lineAction, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>>? entriesProjector)
+    parameters:
+    - id: archiveInfo
+      type: System.IO.FileInfo
+      description: The ZIP archive <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: lineAction
+      type: System.Action{System.Int32,System.String}
+      description: The action to take per text file line.
+    - id: entriesProjector
+      type: System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}}
+      description: The entries projector for LINQ filtering/sorting.
+    content.vb: Public Shared Sub ReadZipArchiveEntriesByLine(archiveInfo As FileInfo, lineAction As Action(Of Integer, String), entriesProjector As Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry)))
+  overload: Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine*
+  nameWithType.vb: ProgramFileUtility.ReadZipArchiveEntriesByLine(FileInfo, Action(Of Integer, String), Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry)))
+  fullName.vb: Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo, System.Action(Of Integer, String), System.Func(Of System.Collections.ObjectModel.ReadOnlyCollection(Of System.IO.Compression.ZipArchiveEntry), System.Collections.Generic.IEnumerable(Of System.IO.Compression.ZipArchiveEntry)))
+  name.vb: ReadZipArchiveEntriesByLine(FileInfo, Action(Of Integer, String), Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry)))
+- uid: Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})
+  commentId: M:Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})
+  id: UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: UseZipArchive(FileInfo?, Action<ZipArchive?>?)
+  nameWithType: ProgramFileUtility.UseZipArchive(FileInfo?, Action<ZipArchive?>?)
+  fullName: Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo?, System.Action<System.IO.Compression.ZipArchive?>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.Compression.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: UseZipArchive
+    path: SonghayCore/ProgramFileUtility.Compression.cs
+    startLine: 83
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Centralizes the use of <xref href="System.IO.Compression.ZipArchive" data-throw-if-not-resolved="false"></xref>
+
+    in <xref href="System.IO.Compression.ZipArchiveMode.Read" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void UseZipArchive(FileInfo? archiveInfo, Action<ZipArchive?>? archiveAction)
+    parameters:
+    - id: archiveInfo
+      type: System.IO.FileInfo
+      description: The ZIP archive <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: archiveAction
+      type: System.Action{System.IO.Compression.ZipArchive}
+      description: The action to take for the ZIP archive in use.
+    content.vb: Public Shared Sub UseZipArchive(archiveInfo As FileInfo, archiveAction As Action(Of ZipArchive))
+  overload: Songhay.ProgramFileUtility.UseZipArchive*
+  nameWithType.vb: ProgramFileUtility.UseZipArchive(FileInfo, Action(Of ZipArchive))
+  fullName.vb: Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo, System.Action(Of System.IO.Compression.ZipArchive))
+  name.vb: UseZipArchive(FileInfo, Action(Of ZipArchive))
+- uid: Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive},System.IO.Compression.ZipArchiveMode)
+  commentId: M:Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive},System.IO.Compression.ZipArchiveMode)
+  id: UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive},System.IO.Compression.ZipArchiveMode)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: UseZipArchive(FileInfo?, Action<ZipArchive?>?, ZipArchiveMode)
+  nameWithType: ProgramFileUtility.UseZipArchive(FileInfo?, Action<ZipArchive?>?, ZipArchiveMode)
+  fullName: Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo?, System.Action<System.IO.Compression.ZipArchive?>?, System.IO.Compression.ZipArchiveMode)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.Compression.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: UseZipArchive
+    path: SonghayCore/ProgramFileUtility.Compression.cs
+    startLine: 92
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Centralizes the use of <xref href="System.IO.Compression.ZipArchive" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static void UseZipArchive(FileInfo? archiveInfo, Action<ZipArchive?>? archiveAction, ZipArchiveMode zipArchiveMode)
+    parameters:
+    - id: archiveInfo
+      type: System.IO.FileInfo
+      description: The ZIP archive <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: archiveAction
+      type: System.Action{System.IO.Compression.ZipArchive}
+      description: The action to take for the ZIP archive in use.
+    - id: zipArchiveMode
+      type: System.IO.Compression.ZipArchiveMode
+      description: The <xref href="System.IO.Compression.ZipArchiveMode" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Sub UseZipArchive(archiveInfo As FileInfo, archiveAction As Action(Of ZipArchive), zipArchiveMode As ZipArchiveMode)
+  overload: Songhay.ProgramFileUtility.UseZipArchive*
+  nameWithType.vb: ProgramFileUtility.UseZipArchive(FileInfo, Action(Of ZipArchive), ZipArchiveMode)
+  fullName.vb: Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo, System.Action(Of System.IO.Compression.ZipArchive), System.IO.Compression.ZipArchiveMode)
+  name.vb: UseZipArchive(FileInfo, Action(Of ZipArchive), ZipArchiveMode)
+- uid: Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})
+  commentId: M:Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})
+  id: UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: UseZipArchiveEntries(FileInfo?, Action<ReadOnlyCollection<ZipArchiveEntry>>?)
+  nameWithType: ProgramFileUtility.UseZipArchiveEntries(FileInfo?, Action<ReadOnlyCollection<ZipArchiveEntry>>?)
+  fullName: Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo?, System.Action<System.Collections.ObjectModel.ReadOnlyCollection<System.IO.Compression.ZipArchiveEntry>>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.Compression.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: UseZipArchiveEntries
+    path: SonghayCore/ProgramFileUtility.Compression.cs
+    startLine: 110
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Centralizes the use of <xref href="System.Collections.ObjectModel.ReadOnlyCollection%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void UseZipArchiveEntries(FileInfo? archiveInfo, Action<ReadOnlyCollection<ZipArchiveEntry>>? entriesAction)
+    parameters:
+    - id: archiveInfo
+      type: System.IO.FileInfo
+      description: The ZIP archive <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: entriesAction
+      type: System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}}
+      description: The action to take for ZIP archive entries.
+    content.vb: Public Shared Sub UseZipArchiveEntries(archiveInfo As FileInfo, entriesAction As Action(Of ReadOnlyCollection(Of ZipArchiveEntry)))
+  overload: Songhay.ProgramFileUtility.UseZipArchiveEntries*
+  nameWithType.vb: ProgramFileUtility.UseZipArchiveEntries(FileInfo, Action(Of ReadOnlyCollection(Of ZipArchiveEntry)))
+  fullName.vb: Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo, System.Action(Of System.Collections.ObjectModel.ReadOnlyCollection(Of System.IO.Compression.ZipArchiveEntry)))
+  name.vb: UseZipArchiveEntries(FileInfo, Action(Of ReadOnlyCollection(Of ZipArchiveEntry)))
+- uid: Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  commentId: M:Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  id: UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: UseZipArchiveEntries(FileInfo?, Action<ReadOnlyCollection<ZipArchiveEntry>>?, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>>?)
+  nameWithType: ProgramFileUtility.UseZipArchiveEntries(FileInfo?, Action<ReadOnlyCollection<ZipArchiveEntry>>?, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>>?)
+  fullName: Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo?, System.Action<System.Collections.ObjectModel.ReadOnlyCollection<System.IO.Compression.ZipArchiveEntry>>?, System.Func<System.Collections.ObjectModel.ReadOnlyCollection<System.IO.Compression.ZipArchiveEntry>, System.Collections.Generic.IEnumerable<System.IO.Compression.ZipArchiveEntry>>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.Compression.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: UseZipArchiveEntries
+    path: SonghayCore/ProgramFileUtility.Compression.cs
+    startLine: 120
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Centralizes the use of <xref href="System.Collections.ObjectModel.ReadOnlyCollection%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void UseZipArchiveEntries(FileInfo? archiveInfo, Action<ReadOnlyCollection<ZipArchiveEntry>>? entriesAction, Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>>? entriesProjector)
+    parameters:
+    - id: archiveInfo
+      type: System.IO.FileInfo
+      description: The ZIP archive <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: entriesAction
+      type: System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}}
+      description: The action to take for ZIP archive entries.
+    - id: entriesProjector
+      type: System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}}
+      description: The entries projector for LINQ filtering/sorting.
+    content.vb: Public Shared Sub UseZipArchiveEntries(archiveInfo As FileInfo, entriesAction As Action(Of ReadOnlyCollection(Of ZipArchiveEntry)), entriesProjector As Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry)))
+  overload: Songhay.ProgramFileUtility.UseZipArchiveEntries*
+  nameWithType.vb: ProgramFileUtility.UseZipArchiveEntries(FileInfo, Action(Of ReadOnlyCollection(Of ZipArchiveEntry)), Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry)))
+  fullName.vb: Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo, System.Action(Of System.Collections.ObjectModel.ReadOnlyCollection(Of System.IO.Compression.ZipArchiveEntry)), System.Func(Of System.Collections.ObjectModel.ReadOnlyCollection(Of System.IO.Compression.ZipArchiveEntry), System.Collections.Generic.IEnumerable(Of System.IO.Compression.ZipArchiveEntry)))
+  name.vb: UseZipArchiveEntries(FileInfo, Action(Of ReadOnlyCollection(Of ZipArchiveEntry)), Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry)))
+- uid: Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo)
+  commentId: M:Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo)
+  id: WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: WriteZipArchiveEntry(FileInfo?, FileInfo)
+  nameWithType: ProgramFileUtility.WriteZipArchiveEntry(FileInfo?, FileInfo)
+  fullName: Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo?, System.IO.FileInfo)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.Compression.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WriteZipArchiveEntry
+    path: SonghayCore/ProgramFileUtility.Compression.cs
+    startLine: 142
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Write zip archive entry with <xref href="System.IO.Compression.CompressionLevel.Optimal" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void WriteZipArchiveEntry(FileInfo? archiveInfo, FileInfo fileInfo)
+    parameters:
+    - id: archiveInfo
+      type: System.IO.FileInfo
+      description: The ZIP archive <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: fileInfo
+      type: System.IO.FileInfo
+      description: The file information for writing the entry.
+    content.vb: Public Shared Sub WriteZipArchiveEntry(archiveInfo As FileInfo, fileInfo As FileInfo)
+  overload: Songhay.ProgramFileUtility.WriteZipArchiveEntry*
+  nameWithType.vb: ProgramFileUtility.WriteZipArchiveEntry(FileInfo, FileInfo)
+  fullName.vb: Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo, System.IO.FileInfo)
+  name.vb: WriteZipArchiveEntry(FileInfo, FileInfo)
+- uid: Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo,System.IO.Compression.CompressionLevel)
+  commentId: M:Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo,System.IO.Compression.CompressionLevel)
+  id: WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo,System.IO.Compression.CompressionLevel)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: WriteZipArchiveEntry(FileInfo?, FileInfo, CompressionLevel)
+  nameWithType: ProgramFileUtility.WriteZipArchiveEntry(FileInfo?, FileInfo, CompressionLevel)
+  fullName: Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo?, System.IO.FileInfo, System.IO.Compression.CompressionLevel)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.Compression.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WriteZipArchiveEntry
+    path: SonghayCore/ProgramFileUtility.Compression.cs
+    startLine: 151
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Write zip archive entry.
+  example: []
+  syntax:
+    content: public static void WriteZipArchiveEntry(FileInfo? archiveInfo, FileInfo fileInfo, CompressionLevel compressionLevel)
+    parameters:
+    - id: archiveInfo
+      type: System.IO.FileInfo
+      description: The ZIP archive <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: fileInfo
+      type: System.IO.FileInfo
+      description: The file information for writing the entry.
+    - id: compressionLevel
+      type: System.IO.Compression.CompressionLevel
+      description: The <xref href="System.IO.Compression.CompressionLevel" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Sub WriteZipArchiveEntry(archiveInfo As FileInfo, fileInfo As FileInfo, compressionLevel As CompressionLevel)
+  overload: Songhay.ProgramFileUtility.WriteZipArchiveEntry*
+  nameWithType.vb: ProgramFileUtility.WriteZipArchiveEntry(FileInfo, FileInfo, CompressionLevel)
+  fullName.vb: Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo, System.IO.FileInfo, System.IO.Compression.CompressionLevel)
+  name.vb: WriteZipArchiveEntry(FileInfo, FileInfo, CompressionLevel)
+- uid: Songhay.ProgramFileUtility.GetEncodedString(System.String)
+  commentId: M:Songhay.ProgramFileUtility.GetEncodedString(System.String)
+  id: GetEncodedString(System.String)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: GetEncodedString(string?)
+  nameWithType: ProgramFileUtility.GetEncodedString(string?)
+  fullName: Songhay.ProgramFileUtility.GetEncodedString(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.GetEncodedString.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetEncodedString
+    path: SonghayCore/ProgramFileUtility.GetEncodedString.cs
+    startLine: 8
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Gets the UTF-8 encoded string from.
+  example: []
+  syntax:
+    content: public static string GetEncodedString(string? utf16Value)
+    parameters:
+    - id: utf16Value
+      type: System.String
+      description: The raw value.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetEncodedString(utf16Value As String) As String
+  overload: Songhay.ProgramFileUtility.GetEncodedString*
+  nameWithType.vb: ProgramFileUtility.GetEncodedString(String)
+  fullName.vb: Songhay.ProgramFileUtility.GetEncodedString(String)
+  name.vb: GetEncodedString(String)
+- uid: Songhay.ProgramFileUtility.GetEncodedString(System.String,System.Text.Encoding)
+  commentId: M:Songhay.ProgramFileUtility.GetEncodedString(System.String,System.Text.Encoding)
+  id: GetEncodedString(System.String,System.Text.Encoding)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: GetEncodedString(string?, Encoding?)
+  nameWithType: ProgramFileUtility.GetEncodedString(string?, Encoding?)
+  fullName: Songhay.ProgramFileUtility.GetEncodedString(string?, System.Text.Encoding?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility.GetEncodedString.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetEncodedString
+    path: SonghayCore/ProgramFileUtility.GetEncodedString.cs
+    startLine: 21
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Gets the encoded <xref href="System.String" data-throw-if-not-resolved="false"></xref>
+
+    from its default <xref href="System.Text.Encoding.Unicode" data-throw-if-not-resolved="false"></xref> encoding.
+  remarks: >-
+    <xref href="System.Text.Encoding.Unicode" data-throw-if-not-resolved="false"></xref> encoding is the UTF-16
+
+    encoding of strings in .NET.
+
+    See: https://docs.microsoft.com/en-us/dotnet/api/system.text.unicodeencoding
+  example: []
+  syntax:
+    content: public static string GetEncodedString(string? utf16Value, Encoding? outputEncoding)
+    parameters:
+    - id: utf16Value
+      type: System.String
+      description: The raw value.
+    - id: outputEncoding
+      type: System.Text.Encoding
+      description: The output encoding.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetEncodedString(utf16Value As String, outputEncoding As Encoding) As String
+  overload: Songhay.ProgramFileUtility.GetEncodedString*
+  nameWithType.vb: ProgramFileUtility.GetEncodedString(String, Encoding)
+  fullName.vb: Songhay.ProgramFileUtility.GetEncodedString(String, System.Text.Encoding)
+  name.vb: GetEncodedString(String, Encoding)
+- uid: Songhay.ProgramFileUtility.CountParentDirectoryChars(System.String)
+  commentId: M:Songhay.ProgramFileUtility.CountParentDirectoryChars(System.String)
+  id: CountParentDirectoryChars(System.String)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: CountParentDirectoryChars(string?)
+  nameWithType: ProgramFileUtility.CountParentDirectoryChars(string?)
+  fullName: Songhay.ProgramFileUtility.CountParentDirectoryChars(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: CountParentDirectoryChars
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 27
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Counts the parent directory chars.
+  remarks: >-
+    This method is useful when running <xref href="Songhay.ProgramFileUtility.GetParentDirectory(System.String%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref>.
+
+
+    WARNING: call <xref href="Songhay.ProgramFileUtility.NormalizePath(System.String)" data-throw-if-not-resolved="false"></xref> to prevent incorrectly returning <code>0</code>
+
+    in cross-platform scenarios.
+  example: []
+  syntax:
+    content: public static int CountParentDirectoryChars(string? path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path.
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function CountParentDirectoryChars(path As String) As Integer
+  overload: Songhay.ProgramFileUtility.CountParentDirectoryChars*
+  nameWithType.vb: ProgramFileUtility.CountParentDirectoryChars(String)
+  fullName.vb: Songhay.ProgramFileUtility.CountParentDirectoryChars(String)
+  name.vb: CountParentDirectoryChars(String)
+- uid: Songhay.ProgramFileUtility.FindParentDirectory(System.String,System.String,System.Int32)
+  commentId: M:Songhay.ProgramFileUtility.FindParentDirectory(System.String,System.String,System.Int32)
+  id: FindParentDirectory(System.String,System.String,System.Int32)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: FindParentDirectory(string?, string?, int)
+  nameWithType: ProgramFileUtility.FindParentDirectory(string?, string?, int)
+  fullName: Songhay.ProgramFileUtility.FindParentDirectory(string?, string?, int)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: FindParentDirectory
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 43
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Finds the parent directory.
+  example: []
+  syntax:
+    content: public static string? FindParentDirectory(string? path, string? parentName, int levels)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path.
+    - id: parentName
+      type: System.String
+      description: Name of the parent.
+    - id: levels
+      type: System.Int32
+      description: The levels.
+    return:
+      type: System.String
+    content.vb: Public Shared Function FindParentDirectory(path As String, parentName As String, levels As Integer) As String
+  overload: Songhay.ProgramFileUtility.FindParentDirectory*
+  nameWithType.vb: ProgramFileUtility.FindParentDirectory(String, String, Integer)
+  fullName.vb: Songhay.ProgramFileUtility.FindParentDirectory(String, String, Integer)
+  name.vb: FindParentDirectory(String, String, Integer)
+- uid: Songhay.ProgramFileUtility.FindParentDirectoryInfo(System.String,System.String,System.Int32)
+  commentId: M:Songhay.ProgramFileUtility.FindParentDirectoryInfo(System.String,System.String,System.Int32)
+  id: FindParentDirectoryInfo(System.String,System.String,System.Int32)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: FindParentDirectoryInfo(string?, string?, int)
+  nameWithType: ProgramFileUtility.FindParentDirectoryInfo(string?, string?, int)
+  fullName: Songhay.ProgramFileUtility.FindParentDirectoryInfo(string?, string?, int)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: FindParentDirectoryInfo
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 52
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Finds the parent <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static DirectoryInfo? FindParentDirectoryInfo(string? path, string? parentName, int levels)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path.
+    - id: parentName
+      type: System.String
+      description: Name of the parent.
+    - id: levels
+      type: System.Int32
+      description: The levels.
+    return:
+      type: System.IO.DirectoryInfo
+    content.vb: Public Shared Function FindParentDirectoryInfo(path As String, parentName As String, levels As Integer) As DirectoryInfo
+  overload: Songhay.ProgramFileUtility.FindParentDirectoryInfo*
+  nameWithType.vb: ProgramFileUtility.FindParentDirectoryInfo(String, String, Integer)
+  fullName.vb: Songhay.ProgramFileUtility.FindParentDirectoryInfo(String, String, Integer)
+  name.vb: FindParentDirectoryInfo(String, String, Integer)
+- uid: Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)
+  commentId: M:Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)
+  id: GetCombinedPath(System.String,System.String)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: GetCombinedPath(string?, string?)
+  nameWithType: ProgramFileUtility.GetCombinedPath(string?, string?)
+  fullName: Songhay.ProgramFileUtility.GetCombinedPath(string?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetCombinedPath
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 87
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Combines path and root based
+        on the ambient value of <xref href="System.IO.Path.DirectorySeparatorChar" data-throw-if-not-resolved="false"></xref>
+        of the current OS.
+  remarks: >-
+    For detail, see:
+
+    📚 https://github.com/BryanWilhite/SonghayCore/issues/14
+
+    📚 https://github.com/BryanWilhite/SonghayCore/issues/32
+
+    📚 https://github.com/BryanWilhite/SonghayCore/issues/97
+  example: []
+  syntax:
+    content: public static string GetCombinedPath(string? root, string? path)
+    parameters:
+    - id: root
+      type: System.String
+      description: The root.
+    - id: path
+      type: System.String
+      description: The path.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetCombinedPath(root As String, path As String) As String
+  overload: Songhay.ProgramFileUtility.GetCombinedPath*
+  nameWithType.vb: ProgramFileUtility.GetCombinedPath(String, String)
+  fullName.vb: Songhay.ProgramFileUtility.GetCombinedPath(String, String)
+  name.vb: GetCombinedPath(String, String)
+- uid: Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String,System.Boolean)
+  commentId: M:Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String,System.Boolean)
+  id: GetCombinedPath(System.String,System.String,System.Boolean)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: GetCombinedPath(string?, string?, bool)
+  nameWithType: ProgramFileUtility.GetCombinedPath(string?, string?, bool)
+  fullName: Songhay.ProgramFileUtility.GetCombinedPath(string?, string?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetCombinedPath
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 116
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Combines path and root based
+        on the ambient value of <xref href="System.IO.Path.DirectorySeparatorChar" data-throw-if-not-resolved="false"></xref>
+        of the current OS.
+  remarks: >-
+    For detail, see:
+
+    📚 https://github.com/BryanWilhite/SonghayCore/issues/14
+
+    📚 https://github.com/BryanWilhite/SonghayCore/issues/32
+
+    📚 https://github.com/BryanWilhite/SonghayCore/issues/97
+  example: []
+  syntax:
+    content: public static string GetCombinedPath(string? root, string? path, bool fileIsExpected)
+    parameters:
+    - id: root
+      type: System.String
+      description: The root.
+    - id: path
+      type: System.String
+      description: The path.
+    - id: fileIsExpected
+      type: System.Boolean
+      description: >-
+        when <code>true</code> will throw <xref href="System.IO.FileNotFoundException" data-throw-if-not-resolved="false"></xref>
+
+        when combined path is not of a file; otherwise
+
+        will throw <xref href="System.IO.DirectoryNotFoundException" data-throw-if-not-resolved="false"></xref>
+
+        when combined path is not a directory
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetCombinedPath(root As String, path As String, fileIsExpected As Boolean) As String
+  overload: Songhay.ProgramFileUtility.GetCombinedPath*
+  nameWithType.vb: ProgramFileUtility.GetCombinedPath(String, String, Boolean)
+  fullName.vb: Songhay.ProgramFileUtility.GetCombinedPath(String, String, Boolean)
+  name.vb: GetCombinedPath(String, String, Boolean)
+- uid: Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)
+  commentId: M:Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)
+  id: GetParentDirectory(System.String,System.Int32)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: GetParentDirectory(string?, int)
+  nameWithType: ProgramFileUtility.GetParentDirectory(string?, int)
+  fullName: Songhay.ProgramFileUtility.GetParentDirectory(string?, int)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetParentDirectory
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 142
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Gets the parent directory.
+  remarks: A recursive wrapper for <xref href="System.IO.Directory.GetParent(System.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string? GetParentDirectory(string? path, int levels)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path.
+    - id: levels
+      type: System.Int32
+      description: The levels.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetParentDirectory(path As String, levels As Integer) As String
+  overload: Songhay.ProgramFileUtility.GetParentDirectory*
+  nameWithType.vb: ProgramFileUtility.GetParentDirectory(String, Integer)
+  fullName.vb: Songhay.ProgramFileUtility.GetParentDirectory(String, Integer)
+  name.vb: GetParentDirectory(String, Integer)
+- uid: Songhay.ProgramFileUtility.GetParentDirectoryInfo(System.String,System.Int32)
+  commentId: M:Songhay.ProgramFileUtility.GetParentDirectoryInfo(System.String,System.Int32)
+  id: GetParentDirectoryInfo(System.String,System.Int32)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: GetParentDirectoryInfo(string?, int)
+  nameWithType: ProgramFileUtility.GetParentDirectoryInfo(string?, int)
+  fullName: Songhay.ProgramFileUtility.GetParentDirectoryInfo(string?, int)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetParentDirectoryInfo
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 166
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Gets the parent <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+  remarks: A recursive wrapper for <xref href="System.IO.Directory.GetParent(System.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static DirectoryInfo? GetParentDirectoryInfo(string? path, int levels)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path.
+    - id: levels
+      type: System.Int32
+      description: The levels.
+    return:
+      type: System.IO.DirectoryInfo
+    content.vb: Public Shared Function GetParentDirectoryInfo(path As String, levels As Integer) As DirectoryInfo
+  overload: Songhay.ProgramFileUtility.GetParentDirectoryInfo*
+  nameWithType.vb: ProgramFileUtility.GetParentDirectoryInfo(String, Integer)
+  fullName.vb: Songhay.ProgramFileUtility.GetParentDirectoryInfo(String, Integer)
+  name.vb: GetParentDirectoryInfo(String, Integer)
+- uid: Songhay.ProgramFileUtility.GetRelativePath(System.String)
+  commentId: M:Songhay.ProgramFileUtility.GetRelativePath(System.String)
+  id: GetRelativePath(System.String)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: GetRelativePath(string?)
+  nameWithType: ProgramFileUtility.GetRelativePath(string?)
+  fullName: Songhay.ProgramFileUtility.GetRelativePath(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetRelativePath
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 195
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Gets the relative path from the specified file segment
+
+    without leading dots (<code>.</code>) or <xref href="System.IO.Path.DirectorySeparatorChar" data-throw-if-not-resolved="false"></xref> chars.
+  remarks: >-
+    This method is the equivalent of calling:
+     * <xref href="Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)" data-throw-if-not-resolved="false"></xref>
+     * <xref href="Songhay.ProgramFileUtility.NormalizePath(System.String)" data-throw-if-not-resolved="false"></xref>
+     * <xref href="Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)" data-throw-if-not-resolved="false"></xref>
+     * <xref href="Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static string? GetRelativePath(string? fileSegment)
+    parameters:
+    - id: fileSegment
+      type: System.String
+      description: The file segment.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetRelativePath(fileSegment As String) As String
+  overload: Songhay.ProgramFileUtility.GetRelativePath*
+  nameWithType.vb: ProgramFileUtility.GetRelativePath(String)
+  fullName.vb: Songhay.ProgramFileUtility.GetRelativePath(String)
+  name.vb: GetRelativePath(String)
+- uid: Songhay.ProgramFileUtility.IsForwardSlashSystem
+  commentId: M:Songhay.ProgramFileUtility.IsForwardSlashSystem
+  id: IsForwardSlashSystem
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: IsForwardSlashSystem()
+  nameWithType: ProgramFileUtility.IsForwardSlashSystem()
+  fullName: Songhay.ProgramFileUtility.IsForwardSlashSystem()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IsForwardSlashSystem
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 211
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Returns <code>true</code> when the current OS
+
+    uses forward-slash (<code>/</code>) paths or not.
+  example: []
+  syntax:
+    content: public static bool IsForwardSlashSystem()
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsForwardSlashSystem() As Boolean
+  overload: Songhay.ProgramFileUtility.IsForwardSlashSystem*
+- uid: Songhay.ProgramFileUtility.NormalizePath(System.String)
+  commentId: M:Songhay.ProgramFileUtility.NormalizePath(System.String)
+  id: NormalizePath(System.String)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: NormalizePath(string?)
+  nameWithType: ProgramFileUtility.NormalizePath(string?)
+  fullName: Songhay.ProgramFileUtility.NormalizePath(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: NormalizePath
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 218
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Normalizes the specified path with respect
+
+    to the ambient value of <xref href="System.IO.Path.DirectorySeparatorChar" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string? NormalizePath(string? path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path.
+    return:
+      type: System.String
+    content.vb: Public Shared Function NormalizePath(path As String) As String
+  overload: Songhay.ProgramFileUtility.NormalizePath*
+  nameWithType.vb: ProgramFileUtility.NormalizePath(String)
+  fullName.vb: Songhay.ProgramFileUtility.NormalizePath(String)
+  name.vb: NormalizePath(String)
+- uid: Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)
+  commentId: M:Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)
+  id: RemoveBackslashPrefixes(System.String)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: RemoveBackslashPrefixes(string?)
+  nameWithType: ProgramFileUtility.RemoveBackslashPrefixes(string?)
+  fullName: Songhay.ProgramFileUtility.RemoveBackslashPrefixes(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RemoveBackslashPrefixes
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 232
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Removes conventional Directory prefixes
+
+    for relative paths, e.g. <code>..\</code> or <code>.\</code>
+  example: []
+  syntax:
+    content: public static string? RemoveBackslashPrefixes(string? path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path.
+    return:
+      type: System.String
+    content.vb: Public Shared Function RemoveBackslashPrefixes(path As String) As String
+  overload: Songhay.ProgramFileUtility.RemoveBackslashPrefixes*
+  nameWithType.vb: ProgramFileUtility.RemoveBackslashPrefixes(String)
+  fullName.vb: Songhay.ProgramFileUtility.RemoveBackslashPrefixes(String)
+  name.vb: RemoveBackslashPrefixes(String)
+- uid: Songhay.ProgramFileUtility.RemoveConventionalPrefixes(System.String)
+  commentId: M:Songhay.ProgramFileUtility.RemoveConventionalPrefixes(System.String)
+  id: RemoveConventionalPrefixes(System.String)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: RemoveConventionalPrefixes(string?)
+  nameWithType: ProgramFileUtility.RemoveConventionalPrefixes(string?)
+  fullName: Songhay.ProgramFileUtility.RemoveConventionalPrefixes(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RemoveConventionalPrefixes
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 244
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Removes conventional Directory prefixes
+
+    for relative paths based on the ambient value\
+
+    of <xref href="System.IO.Path.DirectorySeparatorChar" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string? RemoveConventionalPrefixes(string? path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path.
+    return:
+      type: System.String
+    content.vb: Public Shared Function RemoveConventionalPrefixes(path As String) As String
+  overload: Songhay.ProgramFileUtility.RemoveConventionalPrefixes*
+  nameWithType.vb: ProgramFileUtility.RemoveConventionalPrefixes(String)
+  fullName.vb: Songhay.ProgramFileUtility.RemoveConventionalPrefixes(String)
+  name.vb: RemoveConventionalPrefixes(String)
+- uid: Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)
+  commentId: M:Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)
+  id: RemoveForwardslashPrefixes(System.String)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: RemoveForwardslashPrefixes(string?)
+  nameWithType: ProgramFileUtility.RemoveForwardslashPrefixes(string?)
+  fullName: Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RemoveForwardslashPrefixes
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 254
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Removes conventional Directory prefixes
+
+    for relative paths, e.g. <code>../</code> or <code>./</code>.
+  example: []
+  syntax:
+    content: public static string? RemoveForwardslashPrefixes(string? path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path.
+    return:
+      type: System.String
+    content.vb: Public Shared Function RemoveForwardslashPrefixes(path As String) As String
+  overload: Songhay.ProgramFileUtility.RemoveForwardslashPrefixes*
+  nameWithType.vb: ProgramFileUtility.RemoveForwardslashPrefixes(String)
+  fullName.vb: Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(String)
+  name.vb: RemoveForwardslashPrefixes(String)
+- uid: Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)
+  commentId: M:Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)
+  id: TrimLeadingDirectorySeparatorChars(System.String)
+  parent: Songhay.ProgramFileUtility
+  langs:
+  - csharp
+  - vb
+  name: TrimLeadingDirectorySeparatorChars(string?)
+  nameWithType: ProgramFileUtility.TrimLeadingDirectorySeparatorChars(string?)
+  fullName: Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramFileUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: TrimLeadingDirectorySeparatorChars
+    path: SonghayCore/ProgramFileUtility._.cs
+    startLine: 268
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Trims the leading directory separator chars.
+  remarks: >-
+    Trims leading <xref href="System.IO.Path.AltDirectorySeparatorChar" data-throw-if-not-resolved="false"></xref> and/or <xref href="System.IO.Path.DirectorySeparatorChar" data-throw-if-not-resolved="false"></xref>,
+
+    formatting relative paths for <xref href="System.IO.Path.Combine(System.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string? TrimLeadingDirectorySeparatorChars(string? path)
+    parameters:
+    - id: path
+      type: System.String
+      description: The path.
+    return:
+      type: System.String
+    content.vb: Public Shared Function TrimLeadingDirectorySeparatorChars(path As String) As String
+  overload: Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars*
+  nameWithType.vb: ProgramFileUtility.TrimLeadingDirectorySeparatorChars(String)
+  fullName.vb: Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(String)
+  name.vb: TrimLeadingDirectorySeparatorChars(String)
+references:
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: Songhay
+  commentId: N:Songhay
+  href: Songhay.html
+  name: Songhay
+  nameWithType: Songhay
+  fullName: Songhay
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IO.FileInfo
+  commentId: T:System.IO.FileInfo
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.fileinfo
+  name: FileInfo
+  nameWithType: FileInfo
+  fullName: System.IO.FileInfo
+- uid: Songhay.ProgramFileUtility.ReadZipArchiveEntries*
+  commentId: Overload:Songhay.ProgramFileUtility.ReadZipArchiveEntries
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_ReadZipArchiveEntries_System_IO_FileInfo_System_Action_System_String__
+  name: ReadZipArchiveEntries
+  nameWithType: ProgramFileUtility.ReadZipArchiveEntries
+  fullName: Songhay.ProgramFileUtility.ReadZipArchiveEntries
+- uid: System.Action{System.String}
+  commentId: T:System.Action{System.String}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<string>
+  nameWithType: Action<string>
+  fullName: System.Action<string>
+  nameWithType.vb: Action(Of String)
+  fullName.vb: System.Action(Of String)
+  name.vb: Action(Of String)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}}
+  commentId: T:System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>>
+  nameWithType: Func<ReadOnlyCollection<ZipArchiveEntry>, IEnumerable<ZipArchiveEntry>>
+  fullName: System.Func<System.Collections.ObjectModel.ReadOnlyCollection<System.IO.Compression.ZipArchiveEntry>, System.Collections.Generic.IEnumerable<System.IO.Compression.ZipArchiveEntry>>
+  nameWithType.vb: Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry))
+  fullName.vb: System.Func(Of System.Collections.ObjectModel.ReadOnlyCollection(Of System.IO.Compression.ZipArchiveEntry), System.Collections.Generic.IEnumerable(Of System.IO.Compression.ZipArchiveEntry))
+  name.vb: Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry))
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  - name: <
+  - uid: System.IO.Compression.ZipArchiveEntry
+    name: ZipArchiveEntry
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.IO.Compression.ZipArchiveEntry
+    name: ZipArchiveEntry
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.IO.Compression.ZipArchiveEntry
+    name: ZipArchiveEntry
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.IO.Compression.ZipArchiveEntry
+    name: ZipArchiveEntry
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry
+  - name: )
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine*
+  commentId: Overload:Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_ReadZipArchiveEntriesByLine_System_IO_FileInfo_System_Action_System_Int32_System_String__
+  name: ReadZipArchiveEntriesByLine
+  nameWithType: ProgramFileUtility.ReadZipArchiveEntriesByLine
+  fullName: Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine
+- uid: System.Action{System.Int32,System.String}
+  commentId: T:System.Action{System.Int32,System.String}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<int, string>
+  nameWithType: Action<int, string>
+  fullName: System.Action<int, string>
+  nameWithType.vb: Action(Of Integer, String)
+  fullName.vb: System.Action(Of Integer, String)
+  name.vb: Action(Of Integer, String)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: System.IO.Compression.ZipArchive
+  commentId: T:System.IO.Compression.ZipArchive
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchive
+  name: ZipArchive
+  nameWithType: ZipArchive
+  fullName: System.IO.Compression.ZipArchive
+- uid: System.IO.Compression.ZipArchiveMode.Read
+  commentId: F:System.IO.Compression.ZipArchiveMode.Read
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchivemode#system-io-compression-ziparchivemode-read
+  name: Read
+  nameWithType: ZipArchiveMode.Read
+  fullName: System.IO.Compression.ZipArchiveMode.Read
+- uid: Songhay.ProgramFileUtility.UseZipArchive*
+  commentId: Overload:Songhay.ProgramFileUtility.UseZipArchive
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_UseZipArchive_System_IO_FileInfo_System_Action_System_IO_Compression_ZipArchive__
+  name: UseZipArchive
+  nameWithType: ProgramFileUtility.UseZipArchive
+  fullName: Songhay.ProgramFileUtility.UseZipArchive
+- uid: System.Action{System.IO.Compression.ZipArchive}
+  commentId: T:System.Action{System.IO.Compression.ZipArchive}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<ZipArchive>
+  nameWithType: Action<ZipArchive>
+  fullName: System.Action<System.IO.Compression.ZipArchive>
+  nameWithType.vb: Action(Of ZipArchive)
+  fullName.vb: System.Action(Of System.IO.Compression.ZipArchive)
+  name.vb: Action(Of ZipArchive)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.IO.Compression.ZipArchive
+    name: ZipArchive
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchive
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.IO.Compression.ZipArchive
+    name: ZipArchive
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchive
+  - name: )
+- uid: System.IO.Compression.ZipArchiveMode
+  commentId: T:System.IO.Compression.ZipArchiveMode
+  parent: System.IO.Compression
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchivemode
+  name: ZipArchiveMode
+  nameWithType: ZipArchiveMode
+  fullName: System.IO.Compression.ZipArchiveMode
+- uid: System.IO.Compression
+  commentId: N:System.IO.Compression
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO.Compression
+  nameWithType: System.IO.Compression
+  fullName: System.IO.Compression
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  - name: .
+  - uid: System.IO.Compression
+    name: Compression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.compression
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  - name: .
+  - uid: System.IO.Compression
+    name: Compression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.compression
+- uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  name: ReadOnlyCollection<T>
+  nameWithType: ReadOnlyCollection<T>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<T>
+  nameWithType.vb: ReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of T)
+  name.vb: ReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Songhay.ProgramFileUtility.UseZipArchiveEntries*
+  commentId: Overload:Songhay.ProgramFileUtility.UseZipArchiveEntries
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_UseZipArchiveEntries_System_IO_FileInfo_System_Action_System_Collections_ObjectModel_ReadOnlyCollection_System_IO_Compression_ZipArchiveEntry___
+  name: UseZipArchiveEntries
+  nameWithType: ProgramFileUtility.UseZipArchiveEntries
+  fullName: Songhay.ProgramFileUtility.UseZipArchiveEntries
+- uid: System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}}
+  commentId: T:System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<ReadOnlyCollection<ZipArchiveEntry>>
+  nameWithType: Action<ReadOnlyCollection<ZipArchiveEntry>>
+  fullName: System.Action<System.Collections.ObjectModel.ReadOnlyCollection<System.IO.Compression.ZipArchiveEntry>>
+  nameWithType.vb: Action(Of ReadOnlyCollection(Of ZipArchiveEntry))
+  fullName.vb: System.Action(Of System.Collections.ObjectModel.ReadOnlyCollection(Of System.IO.Compression.ZipArchiveEntry))
+  name.vb: Action(Of ReadOnlyCollection(Of ZipArchiveEntry))
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  - name: <
+  - uid: System.IO.Compression.ZipArchiveEntry
+    name: ZipArchiveEntry
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.IO.Compression.ZipArchiveEntry
+    name: ZipArchiveEntry
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry
+  - name: )
+  - name: )
+- uid: System.IO.Compression.CompressionLevel.Optimal
+  commentId: F:System.IO.Compression.CompressionLevel.Optimal
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.compression.compressionlevel#system-io-compression-compressionlevel-optimal
+  name: Optimal
+  nameWithType: CompressionLevel.Optimal
+  fullName: System.IO.Compression.CompressionLevel.Optimal
+- uid: Songhay.ProgramFileUtility.WriteZipArchiveEntry*
+  commentId: Overload:Songhay.ProgramFileUtility.WriteZipArchiveEntry
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_WriteZipArchiveEntry_System_IO_FileInfo_System_IO_FileInfo_
+  name: WriteZipArchiveEntry
+  nameWithType: ProgramFileUtility.WriteZipArchiveEntry
+  fullName: Songhay.ProgramFileUtility.WriteZipArchiveEntry
+- uid: System.IO.Compression.CompressionLevel
+  commentId: T:System.IO.Compression.CompressionLevel
+  parent: System.IO.Compression
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.compression.compressionlevel
+  name: CompressionLevel
+  nameWithType: CompressionLevel
+  fullName: System.IO.Compression.CompressionLevel
+- uid: Songhay.ProgramFileUtility.GetEncodedString*
+  commentId: Overload:Songhay.ProgramFileUtility.GetEncodedString
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_GetEncodedString_System_String_
+  name: GetEncodedString
+  nameWithType: ProgramFileUtility.GetEncodedString
+  fullName: Songhay.ProgramFileUtility.GetEncodedString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Text.Encoding.Unicode
+  commentId: P:System.Text.Encoding.Unicode
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.encoding.unicode
+  name: Unicode
+  nameWithType: Encoding.Unicode
+  fullName: System.Text.Encoding.Unicode
+- uid: System.Text.Encoding
+  commentId: T:System.Text.Encoding
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.encoding
+  name: Encoding
+  nameWithType: Encoding
+  fullName: System.Text.Encoding
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)
+  commentId: M:Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)
+  isExternal: true
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_GetParentDirectory_System_String_System_Int32_
+  name: GetParentDirectory(string, int)
+  nameWithType: ProgramFileUtility.GetParentDirectory(string, int)
+  fullName: Songhay.ProgramFileUtility.GetParentDirectory(string, int)
+  nameWithType.vb: ProgramFileUtility.GetParentDirectory(String, Integer)
+  fullName.vb: Songhay.ProgramFileUtility.GetParentDirectory(String, Integer)
+  name.vb: GetParentDirectory(String, Integer)
+  spec.csharp:
+  - uid: Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)
+    name: GetParentDirectory
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_GetParentDirectory_System_String_System_Int32_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)
+    name: GetParentDirectory
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_GetParentDirectory_System_String_System_Int32_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Songhay.ProgramFileUtility.NormalizePath(System.String)
+  commentId: M:Songhay.ProgramFileUtility.NormalizePath(System.String)
+  isExternal: true
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_NormalizePath_System_String_
+  name: NormalizePath(string)
+  nameWithType: ProgramFileUtility.NormalizePath(string)
+  fullName: Songhay.ProgramFileUtility.NormalizePath(string)
+  nameWithType.vb: ProgramFileUtility.NormalizePath(String)
+  fullName.vb: Songhay.ProgramFileUtility.NormalizePath(String)
+  name.vb: NormalizePath(String)
+  spec.csharp:
+  - uid: Songhay.ProgramFileUtility.NormalizePath(System.String)
+    name: NormalizePath
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_NormalizePath_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.ProgramFileUtility.NormalizePath(System.String)
+    name: NormalizePath
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_NormalizePath_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.ProgramFileUtility.CountParentDirectoryChars*
+  commentId: Overload:Songhay.ProgramFileUtility.CountParentDirectoryChars
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_CountParentDirectoryChars_System_String_
+  name: CountParentDirectoryChars
+  nameWithType: ProgramFileUtility.CountParentDirectoryChars
+  fullName: Songhay.ProgramFileUtility.CountParentDirectoryChars
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Songhay.ProgramFileUtility.FindParentDirectory*
+  commentId: Overload:Songhay.ProgramFileUtility.FindParentDirectory
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_FindParentDirectory_System_String_System_String_System_Int32_
+  name: FindParentDirectory
+  nameWithType: ProgramFileUtility.FindParentDirectory
+  fullName: Songhay.ProgramFileUtility.FindParentDirectory
+- uid: System.IO.DirectoryInfo
+  commentId: T:System.IO.DirectoryInfo
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.directoryinfo
+  name: DirectoryInfo
+  nameWithType: DirectoryInfo
+  fullName: System.IO.DirectoryInfo
+- uid: Songhay.ProgramFileUtility.FindParentDirectoryInfo*
+  commentId: Overload:Songhay.ProgramFileUtility.FindParentDirectoryInfo
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_FindParentDirectoryInfo_System_String_System_String_System_Int32_
+  name: FindParentDirectoryInfo
+  nameWithType: ProgramFileUtility.FindParentDirectoryInfo
+  fullName: Songhay.ProgramFileUtility.FindParentDirectoryInfo
+- uid: System.IO.Path.DirectorySeparatorChar
+  commentId: F:System.IO.Path.DirectorySeparatorChar
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.path.directoryseparatorchar
+  name: DirectorySeparatorChar
+  nameWithType: Path.DirectorySeparatorChar
+  fullName: System.IO.Path.DirectorySeparatorChar
+- uid: Songhay.ProgramFileUtility.GetCombinedPath*
+  commentId: Overload:Songhay.ProgramFileUtility.GetCombinedPath
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_GetCombinedPath_System_String_System_String_
+  name: GetCombinedPath
+  nameWithType: ProgramFileUtility.GetCombinedPath
+  fullName: Songhay.ProgramFileUtility.GetCombinedPath
+- uid: System.IO.FileNotFoundException
+  commentId: T:System.IO.FileNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception
+  name: FileNotFoundException
+  nameWithType: FileNotFoundException
+  fullName: System.IO.FileNotFoundException
+- uid: System.IO.DirectoryNotFoundException
+  commentId: T:System.IO.DirectoryNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.directorynotfoundexception
+  name: DirectoryNotFoundException
+  nameWithType: DirectoryNotFoundException
+  fullName: System.IO.DirectoryNotFoundException
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IO.Directory.GetParent(System.String)
+  commentId: M:System.IO.Directory.GetParent(System.String)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.directory.getparent
+  name: GetParent(string)
+  nameWithType: Directory.GetParent(string)
+  fullName: System.IO.Directory.GetParent(string)
+  nameWithType.vb: Directory.GetParent(String)
+  fullName.vb: System.IO.Directory.GetParent(String)
+  name.vb: GetParent(String)
+  spec.csharp:
+  - uid: System.IO.Directory.GetParent(System.String)
+    name: GetParent
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.directory.getparent
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.IO.Directory.GetParent(System.String)
+    name: GetParent
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.directory.getparent
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.ProgramFileUtility.GetParentDirectory*
+  commentId: Overload:Songhay.ProgramFileUtility.GetParentDirectory
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_GetParentDirectory_System_String_System_Int32_
+  name: GetParentDirectory
+  nameWithType: ProgramFileUtility.GetParentDirectory
+  fullName: Songhay.ProgramFileUtility.GetParentDirectory
+- uid: Songhay.ProgramFileUtility.GetParentDirectoryInfo*
+  commentId: Overload:Songhay.ProgramFileUtility.GetParentDirectoryInfo
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_GetParentDirectoryInfo_System_String_System_Int32_
+  name: GetParentDirectoryInfo
+  nameWithType: ProgramFileUtility.GetParentDirectoryInfo
+  fullName: Songhay.ProgramFileUtility.GetParentDirectoryInfo
+- uid: Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)
+  commentId: M:Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)
+  isExternal: true
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_TrimLeadingDirectorySeparatorChars_System_String_
+  name: TrimLeadingDirectorySeparatorChars(string)
+  nameWithType: ProgramFileUtility.TrimLeadingDirectorySeparatorChars(string)
+  fullName: Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(string)
+  nameWithType.vb: ProgramFileUtility.TrimLeadingDirectorySeparatorChars(String)
+  fullName.vb: Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(String)
+  name.vb: TrimLeadingDirectorySeparatorChars(String)
+  spec.csharp:
+  - uid: Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)
+    name: TrimLeadingDirectorySeparatorChars
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_TrimLeadingDirectorySeparatorChars_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)
+    name: TrimLeadingDirectorySeparatorChars
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_TrimLeadingDirectorySeparatorChars_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)
+  commentId: M:Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)
+  isExternal: true
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_RemoveBackslashPrefixes_System_String_
+  name: RemoveBackslashPrefixes(string)
+  nameWithType: ProgramFileUtility.RemoveBackslashPrefixes(string)
+  fullName: Songhay.ProgramFileUtility.RemoveBackslashPrefixes(string)
+  nameWithType.vb: ProgramFileUtility.RemoveBackslashPrefixes(String)
+  fullName.vb: Songhay.ProgramFileUtility.RemoveBackslashPrefixes(String)
+  name.vb: RemoveBackslashPrefixes(String)
+  spec.csharp:
+  - uid: Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)
+    name: RemoveBackslashPrefixes
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_RemoveBackslashPrefixes_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)
+    name: RemoveBackslashPrefixes
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_RemoveBackslashPrefixes_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)
+  commentId: M:Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)
+  isExternal: true
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_RemoveForwardslashPrefixes_System_String_
+  name: RemoveForwardslashPrefixes(string)
+  nameWithType: ProgramFileUtility.RemoveForwardslashPrefixes(string)
+  fullName: Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(string)
+  nameWithType.vb: ProgramFileUtility.RemoveForwardslashPrefixes(String)
+  fullName.vb: Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(String)
+  name.vb: RemoveForwardslashPrefixes(String)
+  spec.csharp:
+  - uid: Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)
+    name: RemoveForwardslashPrefixes
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_RemoveForwardslashPrefixes_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)
+    name: RemoveForwardslashPrefixes
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_RemoveForwardslashPrefixes_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.ProgramFileUtility.GetRelativePath*
+  commentId: Overload:Songhay.ProgramFileUtility.GetRelativePath
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_GetRelativePath_System_String_
+  name: GetRelativePath
+  nameWithType: ProgramFileUtility.GetRelativePath
+  fullName: Songhay.ProgramFileUtility.GetRelativePath
+- uid: Songhay.ProgramFileUtility.IsForwardSlashSystem*
+  commentId: Overload:Songhay.ProgramFileUtility.IsForwardSlashSystem
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_IsForwardSlashSystem
+  name: IsForwardSlashSystem
+  nameWithType: ProgramFileUtility.IsForwardSlashSystem
+  fullName: Songhay.ProgramFileUtility.IsForwardSlashSystem
+- uid: Songhay.ProgramFileUtility.NormalizePath*
+  commentId: Overload:Songhay.ProgramFileUtility.NormalizePath
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_NormalizePath_System_String_
+  name: NormalizePath
+  nameWithType: ProgramFileUtility.NormalizePath
+  fullName: Songhay.ProgramFileUtility.NormalizePath
+- uid: Songhay.ProgramFileUtility.RemoveBackslashPrefixes*
+  commentId: Overload:Songhay.ProgramFileUtility.RemoveBackslashPrefixes
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_RemoveBackslashPrefixes_System_String_
+  name: RemoveBackslashPrefixes
+  nameWithType: ProgramFileUtility.RemoveBackslashPrefixes
+  fullName: Songhay.ProgramFileUtility.RemoveBackslashPrefixes
+- uid: Songhay.ProgramFileUtility.RemoveConventionalPrefixes*
+  commentId: Overload:Songhay.ProgramFileUtility.RemoveConventionalPrefixes
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_RemoveConventionalPrefixes_System_String_
+  name: RemoveConventionalPrefixes
+  nameWithType: ProgramFileUtility.RemoveConventionalPrefixes
+  fullName: Songhay.ProgramFileUtility.RemoveConventionalPrefixes
+- uid: Songhay.ProgramFileUtility.RemoveForwardslashPrefixes*
+  commentId: Overload:Songhay.ProgramFileUtility.RemoveForwardslashPrefixes
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_RemoveForwardslashPrefixes_System_String_
+  name: RemoveForwardslashPrefixes
+  nameWithType: ProgramFileUtility.RemoveForwardslashPrefixes
+  fullName: Songhay.ProgramFileUtility.RemoveForwardslashPrefixes
+- uid: System.IO.Path.AltDirectorySeparatorChar
+  commentId: F:System.IO.Path.AltDirectorySeparatorChar
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.path.altdirectoryseparatorchar
+  name: AltDirectorySeparatorChar
+  nameWithType: Path.AltDirectorySeparatorChar
+  fullName: System.IO.Path.AltDirectorySeparatorChar
+- uid: System.IO.Path.Combine(System.String,System.String)
+  commentId: M:System.IO.Path.Combine(System.String,System.String)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.path.combine#system-io-path-combine(system-string-system-string)
+  name: Combine(string, string)
+  nameWithType: Path.Combine(string, string)
+  fullName: System.IO.Path.Combine(string, string)
+  nameWithType.vb: Path.Combine(String, String)
+  fullName.vb: System.IO.Path.Combine(String, String)
+  name.vb: Combine(String, String)
+  spec.csharp:
+  - uid: System.IO.Path.Combine(System.String,System.String)
+    name: Combine
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.path.combine#system-io-path-combine(system-string-system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.IO.Path.Combine(System.String,System.String)
+    name: Combine
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.path.combine#system-io-path-combine(system-string-system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars*
+  commentId: Overload:Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_TrimLeadingDirectorySeparatorChars_System_String_
+  name: TrimLeadingDirectorySeparatorChars
+  nameWithType: ProgramFileUtility.TrimLeadingDirectorySeparatorChars
+  fullName: Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars

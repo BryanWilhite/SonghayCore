@@ -1,0 +1,1733 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Extensions.IConfigurationExtensions
+  commentId: T:Songhay.Extensions.IConfigurationExtensions
+  id: IConfigurationExtensions
+  parent: Songhay.Extensions
+  children:
+  - Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.String)
+  - Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  - Songhay.Extensions.IConfigurationExtensions.GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.GetSettingsFilePath(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  - Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Boolean)
+  - Songhay.Extensions.IConfigurationExtensions.IsDryRun(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.IsHelpRequest(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.ReadSettings(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.ReadStringInput(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)
+  - Songhay.Extensions.IConfigurationExtensions.ToKeys(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])
+  - Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)
+  - Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  - Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])
+  - Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)
+  - Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IConfigurationExtensions
+  nameWithType: IConfigurationExtensions
+  fullName: Songhay.Extensions.IConfigurationExtensions
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IConfigurationExtensions
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 6
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Extensions of <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class IConfigurationExtensions
+    content.vb: Public Module IConfigurationExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.String)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.String)
+  id: AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddHelpDisplayText(IConfiguration?, string, string)
+  nameWithType: IConfigurationExtensions.AddHelpDisplayText(IConfiguration?, string, string)
+  fullName: Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration?, string, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AddHelpDisplayText
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 14
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: ''
+  example: []
+  syntax:
+    content: public static void AddHelpDisplayText(this IConfiguration? configuration, string key, string helpText)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: key
+      type: System.String
+      description: the key to add
+    - id: helpText
+      type: System.String
+      description: the help text to add
+    content.vb: Public Shared Sub AddHelpDisplayText(configuration As IConfiguration, key As String, helpText As String)
+  overload: Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText*
+  nameWithType.vb: IConfigurationExtensions.AddHelpDisplayText(IConfiguration, String, String)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration, String, String)
+  name.vb: AddHelpDisplayText(IConfiguration, String, String)
+- uid: Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)
+  id: GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetBasePathValue(IConfiguration?)
+  nameWithType: IConfigurationExtensions.GetBasePathValue(IConfiguration?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetBasePathValue
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 27
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns the value of the conventional <xref href="Songhay.Models.ConsoleArgsScalars.BaseDirectory" data-throw-if-not-resolved="false"></xref><code>arg</code>
+
+    or throws <xref href="System.IO.DirectoryNotFoundException" data-throw-if-not-resolved="false"></xref>
+
+    when the conventional <xref href="Songhay.Models.ConsoleArgsScalars.BaseDirectoryRequired" data-throw-if-not-resolved="false"></xref><code>arg</code> is present.
+  example: []
+  syntax:
+    content: public static string? GetBasePathValue(this IConfiguration? configuration)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetBasePathValue(configuration As IConfiguration) As String
+  overload: Songhay.Extensions.IConfigurationExtensions.GetBasePathValue*
+  nameWithType.vb: IConfigurationExtensions.GetBasePathValue(IConfiguration)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: GetBasePathValue(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  id: GetCommandLineArgValue(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetCommandLineArgValue(IConfiguration?, string)
+  nameWithType: IConfigurationExtensions.GetCommandLineArgValue(IConfiguration?, string)
+  fullName: Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue(Microsoft.Extensions.Configuration.IConfiguration?, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetCommandLineArgValue
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 53
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns a value from the specified <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+
+    by calling <xref href="Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)" data-throw-if-not-resolved="false"></xref>
+
+    on the specified <code>arg</code>.
+  remarks: >-
+    This member will call <xref href="Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)" data-throw-if-not-resolved="false"></xref>
+
+    to convert a console argument to <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>-key format.
+  example: []
+  syntax:
+    content: public static string? GetCommandLineArgValue(this IConfiguration? configuration, string arg)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: arg
+      type: System.String
+      description: the command-line argument to be converted into a <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref> key
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetCommandLineArgValue(configuration As IConfiguration, arg As String) As String
+  overload: Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue*
+  nameWithType.vb: IConfigurationExtensions.GetCommandLineArgValue(IConfiguration, String)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue(Microsoft.Extensions.Configuration.IConfiguration, String)
+  name.vb: GetCommandLineArgValue(IConfiguration, String)
+- uid: Songhay.Extensions.IConfigurationExtensions.GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration)
+  id: GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetOutputPath(IConfiguration?)
+  nameWithType: IConfigurationExtensions.GetOutputPath(IConfiguration?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetOutputPath
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 61
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns the value of the conventional <xref href="Songhay.Models.ConsoleArgsScalars.OutputFile" data-throw-if-not-resolved="false"></xref><code>arg</code>
+
+    and will prefix it with the value of the <xref href="Songhay.Models.ConsoleArgsScalars.BaseDirectory" data-throw-if-not-resolved="false"></xref><code>arg</code>
+
+    when the conventional <xref href="Songhay.Models.ConsoleArgsScalars.OutputUnderBasePath" data-throw-if-not-resolved="false"></xref><code>arg</code> is present.
+  example: []
+  syntax:
+    content: public static string? GetOutputPath(this IConfiguration? configuration)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetOutputPath(configuration As IConfiguration) As String
+  overload: Songhay.Extensions.IConfigurationExtensions.GetOutputPath*
+  nameWithType.vb: IConfigurationExtensions.GetOutputPath(IConfiguration)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: GetOutputPath(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.GetSettingsFilePath(Microsoft.Extensions.Configuration.IConfiguration)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.GetSettingsFilePath(Microsoft.Extensions.Configuration.IConfiguration)
+  id: GetSettingsFilePath(Microsoft.Extensions.Configuration.IConfiguration)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetSettingsFilePath(IConfiguration?)
+  nameWithType: IConfigurationExtensions.GetSettingsFilePath(IConfiguration?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.GetSettingsFilePath(Microsoft.Extensions.Configuration.IConfiguration?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetSettingsFilePath
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 89
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns the value of the conventional <xref href="Songhay.Models.ConsoleArgsScalars.SettingsFile" data-throw-if-not-resolved="false"></xref><code>arg</code>
+
+    which should be a path to a text file.
+  example: []
+  syntax:
+    content: public static string GetSettingsFilePath(this IConfiguration? configuration)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetSettingsFilePath(configuration As IConfiguration) As String
+  overload: Songhay.Extensions.IConfigurationExtensions.GetSettingsFilePath*
+  nameWithType.vb: IConfigurationExtensions.GetSettingsFilePath(IConfiguration)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.GetSettingsFilePath(Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: GetSettingsFilePath(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  id: HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasKey(IConfiguration?, string?)
+  nameWithType: IConfigurationExtensions.HasKey(IConfiguration?, string?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HasKey
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 112
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns <code>true</code> when the specified <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+
+    contains the specified key.
+  remarks: >-
+    This member will call <xref href="Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)" data-throw-if-not-resolved="false"></xref>
+
+    to convert a console argument to <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>-key format.
+  example: []
+  syntax:
+    content: public static bool HasKey(this IConfiguration? configuration, string? key)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: key
+      type: System.String
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref> key
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasKey(configuration As IConfiguration, key As String) As Boolean
+  overload: Songhay.Extensions.IConfigurationExtensions.HasKey*
+  nameWithType.vb: IConfigurationExtensions.HasKey(IConfiguration, String)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration, String)
+  name.vb: HasKey(IConfiguration, String)
+- uid: Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Boolean)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Boolean)
+  id: HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Boolean)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasKey(IConfiguration?, string?, bool)
+  nameWithType: IConfigurationExtensions.HasKey(IConfiguration?, string?, bool)
+  fullName: Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration?, string?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HasKey
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 130
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns <code>true</code> when the specified <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+
+    contains the specified key.
+  remarks: >-
+    This member will call <xref href="Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)" data-throw-if-not-resolved="false"></xref>
+
+    to convert a console argument to <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>-key format.
+
+
+    When <code>isCommandLineSwitch</code> is <code>true</code>, a command-line “switch” like
+
+    <code>--dry-run=false</code> will make this member return <code>false</code>
+
+    and <code>--dry-run=true</code> will make this member return <code>true</code>.
+
+    For more detail, [ see https://github.com/BryanWilhite/SonghayCore/issues/177 ]
+  example: []
+  syntax:
+    content: public static bool HasKey(this IConfiguration? configuration, string? key, bool isCommandLineSwitch)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: key
+      type: System.String
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref> key
+    - id: isCommandLineSwitch
+      type: System.Boolean
+      description: when <code>true</code>, expect a command-line “switch” like <code>--dry-run=true</code>
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasKey(configuration As IConfiguration, key As String, isCommandLineSwitch As Boolean) As Boolean
+  overload: Songhay.Extensions.IConfigurationExtensions.HasKey*
+  nameWithType.vb: IConfigurationExtensions.HasKey(IConfiguration, String, Boolean)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration, String, Boolean)
+  name.vb: HasKey(IConfiguration, String, Boolean)
+- uid: Songhay.Extensions.IConfigurationExtensions.IsDryRun(Microsoft.Extensions.Configuration.IConfiguration)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.IsDryRun(Microsoft.Extensions.Configuration.IConfiguration)
+  id: IsDryRun(Microsoft.Extensions.Configuration.IConfiguration)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsDryRun(IConfiguration?)
+  nameWithType: IConfigurationExtensions.IsDryRun(IConfiguration?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.IsDryRun(Microsoft.Extensions.Configuration.IConfiguration?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IsDryRun
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 146
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Determines whether <code>args</code> contain the conventional <xref href="Songhay.Models.ConsoleArgsScalars.DryRun" data-throw-if-not-resolved="false"></xref> flag.
+  example: []
+  syntax:
+    content: public static bool IsDryRun(this IConfiguration? configuration)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsDryRun(configuration As IConfiguration) As Boolean
+  overload: Songhay.Extensions.IConfigurationExtensions.IsDryRun*
+  nameWithType.vb: IConfigurationExtensions.IsDryRun(IConfiguration)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.IsDryRun(Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: IsDryRun(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.IsHelpRequest(Microsoft.Extensions.Configuration.IConfiguration)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.IsHelpRequest(Microsoft.Extensions.Configuration.IConfiguration)
+  id: IsHelpRequest(Microsoft.Extensions.Configuration.IConfiguration)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsHelpRequest(IConfiguration?)
+  nameWithType: IConfigurationExtensions.IsHelpRequest(IConfiguration?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.IsHelpRequest(Microsoft.Extensions.Configuration.IConfiguration?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IsHelpRequest
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 152
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Determines whether <code>args</code> contain the conventional <xref href="Songhay.Models.ConsoleArgsScalars.Help" data-throw-if-not-resolved="false"></xref> flag.
+  example: []
+  syntax:
+    content: public static bool IsHelpRequest(this IConfiguration? configuration)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsHelpRequest(configuration As IConfiguration) As Boolean
+  overload: Songhay.Extensions.IConfigurationExtensions.IsHelpRequest*
+  nameWithType.vb: IConfigurationExtensions.IsHelpRequest(IConfiguration)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.IsHelpRequest(Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: IsHelpRequest(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.ReadSettings(Microsoft.Extensions.Configuration.IConfiguration)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.ReadSettings(Microsoft.Extensions.Configuration.IConfiguration)
+  id: ReadSettings(Microsoft.Extensions.Configuration.IConfiguration)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: ReadSettings(IConfiguration?)
+  nameWithType: IConfigurationExtensions.ReadSettings(IConfiguration?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.ReadSettings(Microsoft.Extensions.Configuration.IConfiguration?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ReadSettings
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 159
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Reads the settings data in the file specified by <xref href="Songhay.Models.ConsoleArgsScalars.SettingsFile" data-throw-if-not-resolved="false"></xref>
+
+    which could be a relative or absolute path.
+  example: []
+  syntax:
+    content: public static string ReadSettings(this IConfiguration? configuration)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.String
+    content.vb: Public Shared Function ReadSettings(configuration As IConfiguration) As String
+  overload: Songhay.Extensions.IConfigurationExtensions.ReadSettings*
+  nameWithType.vb: IConfigurationExtensions.ReadSettings(IConfiguration)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.ReadSettings(Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: ReadSettings(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.ReadStringInput(Microsoft.Extensions.Configuration.IConfiguration)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.ReadStringInput(Microsoft.Extensions.Configuration.IConfiguration)
+  id: ReadStringInput(Microsoft.Extensions.Configuration.IConfiguration)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: ReadStringInput(IConfiguration?)
+  nameWithType: IConfigurationExtensions.ReadStringInput(IConfiguration?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.ReadStringInput(Microsoft.Extensions.Configuration.IConfiguration?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ReadStringInput
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 174
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Reads the input data in the inline <xref href="System.String" data-throw-if-not-resolved="false"></xref>
+
+    specified by <xref href="Songhay.Models.ConsoleArgsScalars.InputString" data-throw-if-not-resolved="false"></xref>
+
+    or the file specified by <xref href="Songhay.Models.ConsoleArgsScalars.InputFile" data-throw-if-not-resolved="false"></xref>
+
+    which could be a relative or absolute path.
+  example: []
+  syntax:
+    content: public static string? ReadStringInput(this IConfiguration? configuration)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: ''
+    return:
+      type: System.String
+    content.vb: Public Shared Function ReadStringInput(configuration As IConfiguration) As String
+  overload: Songhay.Extensions.IConfigurationExtensions.ReadStringInput*
+  exceptions:
+  - type: System.IO.FileNotFoundException
+    commentId: T:System.IO.FileNotFoundException
+    description: ''
+  nameWithType.vb: IConfigurationExtensions.ReadStringInput(IConfiguration)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.ReadStringInput(Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: ReadStringInput(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration)
+  id: ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToHelpDisplayText(IConfiguration?)
+  nameWithType: IConfigurationExtensions.ToHelpDisplayText(IConfiguration?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToHelpDisplayText
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 207
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+
+    to any keys ending with <xref href="Songhay.Models.ConsoleArgsScalars.HelpTextSuffix" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string? ToHelpDisplayText(this IConfiguration? configuration)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: ''
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToHelpDisplayText(configuration As IConfiguration) As String
+  overload: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText*
+  nameWithType.vb: IConfigurationExtensions.ToHelpDisplayText(IConfiguration)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: ToHelpDisplayText(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)
+  id: ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToHelpDisplayText(IConfiguration?, int)
+  nameWithType: IConfigurationExtensions.ToHelpDisplayText(IConfiguration?, int)
+  fullName: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration?, int)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToHelpDisplayText
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 215
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+
+    to any keys ending with <xref href="Songhay.Models.ConsoleArgsScalars.HelpTextSuffix" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string? ToHelpDisplayText(this IConfiguration? configuration, int padding)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: ''
+    - id: padding
+      type: System.Int32
+      description: the padding between keys and values
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToHelpDisplayText(configuration As IConfiguration, padding As Integer) As String
+  overload: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText*
+  nameWithType.vb: IConfigurationExtensions.ToHelpDisplayText(IConfiguration, Integer)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration, Integer)
+  name.vb: ToHelpDisplayText(IConfiguration, Integer)
+- uid: Songhay.Extensions.IConfigurationExtensions.ToKeys(Microsoft.Extensions.Configuration.IConfiguration)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.ToKeys(Microsoft.Extensions.Configuration.IConfiguration)
+  id: ToKeys(Microsoft.Extensions.Configuration.IConfiguration)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToKeys(IConfiguration?)
+  nameWithType: IConfigurationExtensions.ToKeys(IConfiguration?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.ToKeys(Microsoft.Extensions.Configuration.IConfiguration?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToKeys
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 256
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+
+    to a collection of its underlying keys.
+  example: []
+  syntax:
+    content: public static IReadOnlyCollection<string> ToKeys(this IConfiguration? configuration)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{System.String}
+    content.vb: Public Shared Function ToKeys(configuration As IConfiguration) As IReadOnlyCollection(Of String)
+  overload: Songhay.Extensions.IConfigurationExtensions.ToKeys*
+  nameWithType.vb: IConfigurationExtensions.ToKeys(IConfiguration)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.ToKeys(Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: ToKeys(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText(Microsoft.Extensions.Configuration.IConfiguration)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText(Microsoft.Extensions.Configuration.IConfiguration)
+  id: WithDefaultHelpText(Microsoft.Extensions.Configuration.IConfiguration)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithDefaultHelpText(IConfiguration?)
+  nameWithType: IConfigurationExtensions.WithDefaultHelpText(IConfiguration?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText(Microsoft.Extensions.Configuration.IConfiguration?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithDefaultHelpText
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 267
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref> with the conventional, console, <code>args</code> help text
+
+    for <xref href="Songhay.Models.ConsoleArgsScalars" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static IConfiguration? WithDefaultHelpText(this IConfiguration? configuration)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: Microsoft.Extensions.Configuration.IConfiguration
+    content.vb: Public Shared Function WithDefaultHelpText(configuration As IConfiguration) As IConfiguration
+  overload: Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText*
+  nameWithType.vb: IConfigurationExtensions.WithDefaultHelpText(IConfiguration)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText(Microsoft.Extensions.Configuration.IConfiguration)
+  name.vb: WithDefaultHelpText(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  id: WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteOutputToFile(IConfiguration?, string)
+  nameWithType: IConfigurationExtensions.WriteOutputToFile(IConfiguration?, string)
+  fullName: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration?, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WriteOutputToFile
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 304
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Writes the <xref href="System.String" data-throw-if-not-resolved="false"></xref> output
+
+    to the file specified by <xref href="Songhay.Models.ConsoleArgsScalars.OutputFile" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void WriteOutputToFile(this IConfiguration? configuration, string output)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: output
+      type: System.String
+      description: the output to write
+    content.vb: Public Shared Sub WriteOutputToFile(configuration As IConfiguration, output As String)
+  overload: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile*
+  nameWithType.vb: IConfigurationExtensions.WriteOutputToFile(IConfiguration, String)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration, String)
+  name.vb: WriteOutputToFile(IConfiguration, String)
+- uid: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  id: WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteOutputToFileAsync(IConfiguration?, string)
+  nameWithType: IConfigurationExtensions.WriteOutputToFileAsync(IConfiguration?, string)
+  fullName: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration?, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WriteOutputToFileAsync
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 319
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Writes the <xref href="System.String" data-throw-if-not-resolved="false"></xref> output
+
+    to the file specified by <xref href="Songhay.Models.ConsoleArgsScalars.OutputFile" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task WriteOutputToFileAsync(this IConfiguration? configuration, string output)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: output
+      type: System.String
+      description: the output to write
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Shared Function WriteOutputToFileAsync(configuration As IConfiguration, output As String) As Task
+  overload: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync*
+  nameWithType.vb: IConfigurationExtensions.WriteOutputToFileAsync(IConfiguration, String)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration, String)
+  name.vb: WriteOutputToFileAsync(IConfiguration, String)
+- uid: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])
+  id: WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteOutputToFile(IConfiguration?, byte[])
+  nameWithType: IConfigurationExtensions.WriteOutputToFile(IConfiguration?, byte[])
+  fullName: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration?, byte[])
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WriteOutputToFile
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 334
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Writes the <xref href="System.Byte" data-throw-if-not-resolved="false"></xref> array output
+
+    to the file specified by <xref href="Songhay.Models.ConsoleArgsScalars.OutputFile" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void WriteOutputToFile(this IConfiguration? configuration, byte[] output)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: output
+      type: System.Byte[]
+      description: the output to write
+    content.vb: Public Shared Sub WriteOutputToFile(configuration As IConfiguration, output As Byte())
+  overload: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile*
+  nameWithType.vb: IConfigurationExtensions.WriteOutputToFile(IConfiguration, Byte())
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration, Byte())
+  name.vb: WriteOutputToFile(IConfiguration, Byte())
+- uid: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])
+  id: WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteOutputToFileAsync(IConfiguration?, byte[])
+  nameWithType: IConfigurationExtensions.WriteOutputToFileAsync(IConfiguration?, byte[])
+  fullName: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration?, byte[])
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WriteOutputToFileAsync
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 349
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Writes the <xref href="System.Byte" data-throw-if-not-resolved="false"></xref> array output
+
+    to the file specified by <xref href="Songhay.Models.ConsoleArgsScalars.OutputFile" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task WriteOutputToFileAsync(this IConfiguration? configuration, byte[] output)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: output
+      type: System.Byte[]
+      description: the output to write
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Shared Function WriteOutputToFileAsync(configuration As IConfiguration, output As Byte()) As Task
+  overload: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync*
+  nameWithType.vb: IConfigurationExtensions.WriteOutputToFileAsync(IConfiguration, Byte())
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration, Byte())
+  name.vb: WriteOutputToFileAsync(IConfiguration, Byte())
+- uid: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)
+  id: WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteOutputToFile(IConfiguration?, Stream)
+  nameWithType: IConfigurationExtensions.WriteOutputToFile(IConfiguration?, Stream)
+  fullName: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration?, System.IO.Stream)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WriteOutputToFile
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 367
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Writes the <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> output
+
+    to the file specified by <xref href="Songhay.Models.ConsoleArgsScalars.OutputFile" data-throw-if-not-resolved="false"></xref>.
+  remarks: '[ see https://stackoverflow.com/a/5515894/22944 ]'
+  example: []
+  syntax:
+    content: public static void WriteOutputToFile(this IConfiguration? configuration, Stream output)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: output
+      type: System.IO.Stream
+      description: the output to write
+    content.vb: Public Shared Sub WriteOutputToFile(configuration As IConfiguration, output As Stream)
+  overload: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile*
+  nameWithType.vb: IConfigurationExtensions.WriteOutputToFile(IConfiguration, Stream)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration, System.IO.Stream)
+  name.vb: WriteOutputToFile(IConfiguration, Stream)
+- uid: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)
+  id: WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: WriteOutputToFileAsync(IConfiguration?, Stream)
+  nameWithType: IConfigurationExtensions.WriteOutputToFileAsync(IConfiguration?, Stream)
+  fullName: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration?, System.IO.Stream)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WriteOutputToFileAsync
+    path: SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 388
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Writes the <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> output
+
+    to the file specified by <xref href="Songhay.Models.ConsoleArgsScalars.OutputFile" data-throw-if-not-resolved="false"></xref>.
+  remarks: '[ see https://stackoverflow.com/a/5515894/22944 ]'
+  example: []
+  syntax:
+    content: public static Task WriteOutputToFileAsync(this IConfiguration? configuration, Stream output)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: output
+      type: System.IO.Stream
+      description: the output to write
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Shared Function WriteOutputToFileAsync(configuration As IConfiguration, output As Stream) As Task
+  overload: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync*
+  nameWithType.vb: IConfigurationExtensions.WriteOutputToFileAsync(IConfiguration, Stream)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration, System.IO.Stream)
+  name.vb: WriteOutputToFileAsync(IConfiguration, Stream)
+references:
+- uid: Microsoft.Extensions.Configuration.IConfiguration
+  commentId: T:Microsoft.Extensions.Configuration.IConfiguration
+  parent: Microsoft.Extensions.Configuration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration
+  name: IConfiguration
+  nameWithType: IConfiguration
+  fullName: Microsoft.Extensions.Configuration.IConfiguration
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Microsoft.Extensions.Configuration
+  commentId: N:Microsoft.Extensions.Configuration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Configuration
+  nameWithType: Microsoft.Extensions.Configuration
+  fullName: Microsoft.Extensions.Configuration
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_AddHelpDisplayText_Microsoft_Extensions_Configuration_IConfiguration_System_String_System_String_
+  name: AddHelpDisplayText
+  nameWithType: IConfigurationExtensions.AddHelpDisplayText
+  fullName: Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Songhay.Models.ConsoleArgsScalars.BaseDirectory
+  commentId: F:Songhay.Models.ConsoleArgsScalars.BaseDirectory
+  href: Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_BaseDirectory
+  name: BaseDirectory
+  nameWithType: ConsoleArgsScalars.BaseDirectory
+  fullName: Songhay.Models.ConsoleArgsScalars.BaseDirectory
+- uid: System.IO.DirectoryNotFoundException
+  commentId: T:System.IO.DirectoryNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.directorynotfoundexception
+  name: DirectoryNotFoundException
+  nameWithType: DirectoryNotFoundException
+  fullName: System.IO.DirectoryNotFoundException
+- uid: Songhay.Models.ConsoleArgsScalars.BaseDirectoryRequired
+  commentId: F:Songhay.Models.ConsoleArgsScalars.BaseDirectoryRequired
+  href: Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_BaseDirectoryRequired
+  name: BaseDirectoryRequired
+  nameWithType: ConsoleArgsScalars.BaseDirectoryRequired
+  fullName: Songhay.Models.ConsoleArgsScalars.BaseDirectoryRequired
+- uid: Songhay.Extensions.IConfigurationExtensions.GetBasePathValue*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.GetBasePathValue
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_GetBasePathValue_Microsoft_Extensions_Configuration_IConfiguration_
+  name: GetBasePathValue
+  nameWithType: IConfigurationExtensions.GetBasePathValue
+  fullName: Songhay.Extensions.IConfigurationExtensions.GetBasePathValue
+- uid: Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)
+  commentId: M:Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)
+  isExternal: true
+  href: Songhay.Extensions.StringExtensions.html#Songhay_Extensions_StringExtensions_ToConfigurationKey_System_String_
+  name: ToConfigurationKey(string)
+  nameWithType: StringExtensions.ToConfigurationKey(string)
+  fullName: Songhay.Extensions.StringExtensions.ToConfigurationKey(string)
+  nameWithType.vb: StringExtensions.ToConfigurationKey(String)
+  fullName.vb: Songhay.Extensions.StringExtensions.ToConfigurationKey(String)
+  name.vb: ToConfigurationKey(String)
+  spec.csharp:
+  - uid: Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)
+    name: ToConfigurationKey
+    href: Songhay.Extensions.StringExtensions.html#Songhay_Extensions_StringExtensions_ToConfigurationKey_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)
+    name: ToConfigurationKey
+    href: Songhay.Extensions.StringExtensions.html#Songhay_Extensions_StringExtensions_ToConfigurationKey_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_GetCommandLineArgValue_Microsoft_Extensions_Configuration_IConfiguration_System_String_
+  name: GetCommandLineArgValue
+  nameWithType: IConfigurationExtensions.GetCommandLineArgValue
+  fullName: Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue
+- uid: Songhay.Models.ConsoleArgsScalars.OutputFile
+  commentId: F:Songhay.Models.ConsoleArgsScalars.OutputFile
+  href: Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_OutputFile
+  name: OutputFile
+  nameWithType: ConsoleArgsScalars.OutputFile
+  fullName: Songhay.Models.ConsoleArgsScalars.OutputFile
+- uid: Songhay.Models.ConsoleArgsScalars.OutputUnderBasePath
+  commentId: F:Songhay.Models.ConsoleArgsScalars.OutputUnderBasePath
+  href: Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_OutputUnderBasePath
+  name: OutputUnderBasePath
+  nameWithType: ConsoleArgsScalars.OutputUnderBasePath
+  fullName: Songhay.Models.ConsoleArgsScalars.OutputUnderBasePath
+- uid: Songhay.Extensions.IConfigurationExtensions.GetOutputPath*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.GetOutputPath
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_GetOutputPath_Microsoft_Extensions_Configuration_IConfiguration_
+  name: GetOutputPath
+  nameWithType: IConfigurationExtensions.GetOutputPath
+  fullName: Songhay.Extensions.IConfigurationExtensions.GetOutputPath
+- uid: Songhay.Models.ConsoleArgsScalars.SettingsFile
+  commentId: F:Songhay.Models.ConsoleArgsScalars.SettingsFile
+  href: Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_SettingsFile
+  name: SettingsFile
+  nameWithType: ConsoleArgsScalars.SettingsFile
+  fullName: Songhay.Models.ConsoleArgsScalars.SettingsFile
+- uid: Songhay.Extensions.IConfigurationExtensions.GetSettingsFilePath*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.GetSettingsFilePath
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_GetSettingsFilePath_Microsoft_Extensions_Configuration_IConfiguration_
+  name: GetSettingsFilePath
+  nameWithType: IConfigurationExtensions.GetSettingsFilePath
+  fullName: Songhay.Extensions.IConfigurationExtensions.GetSettingsFilePath
+- uid: Songhay.Extensions.IConfigurationExtensions.HasKey*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.HasKey
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_HasKey_Microsoft_Extensions_Configuration_IConfiguration_System_String_
+  name: HasKey
+  nameWithType: IConfigurationExtensions.HasKey
+  fullName: Songhay.Extensions.IConfigurationExtensions.HasKey
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Songhay.Models.ConsoleArgsScalars.DryRun
+  commentId: F:Songhay.Models.ConsoleArgsScalars.DryRun
+  href: Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_DryRun
+  name: DryRun
+  nameWithType: ConsoleArgsScalars.DryRun
+  fullName: Songhay.Models.ConsoleArgsScalars.DryRun
+- uid: Songhay.Extensions.IConfigurationExtensions.IsDryRun*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.IsDryRun
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_IsDryRun_Microsoft_Extensions_Configuration_IConfiguration_
+  name: IsDryRun
+  nameWithType: IConfigurationExtensions.IsDryRun
+  fullName: Songhay.Extensions.IConfigurationExtensions.IsDryRun
+- uid: Songhay.Models.ConsoleArgsScalars.Help
+  commentId: F:Songhay.Models.ConsoleArgsScalars.Help
+  href: Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_Help
+  name: Help
+  nameWithType: ConsoleArgsScalars.Help
+  fullName: Songhay.Models.ConsoleArgsScalars.Help
+- uid: Songhay.Extensions.IConfigurationExtensions.IsHelpRequest*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.IsHelpRequest
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_IsHelpRequest_Microsoft_Extensions_Configuration_IConfiguration_
+  name: IsHelpRequest
+  nameWithType: IConfigurationExtensions.IsHelpRequest
+  fullName: Songhay.Extensions.IConfigurationExtensions.IsHelpRequest
+- uid: Songhay.Extensions.IConfigurationExtensions.ReadSettings*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.ReadSettings
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_ReadSettings_Microsoft_Extensions_Configuration_IConfiguration_
+  name: ReadSettings
+  nameWithType: IConfigurationExtensions.ReadSettings
+  fullName: Songhay.Extensions.IConfigurationExtensions.ReadSettings
+- uid: Songhay.Models.ConsoleArgsScalars.InputString
+  commentId: F:Songhay.Models.ConsoleArgsScalars.InputString
+  href: Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_InputString
+  name: InputString
+  nameWithType: ConsoleArgsScalars.InputString
+  fullName: Songhay.Models.ConsoleArgsScalars.InputString
+- uid: Songhay.Models.ConsoleArgsScalars.InputFile
+  commentId: F:Songhay.Models.ConsoleArgsScalars.InputFile
+  href: Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_InputFile
+  name: InputFile
+  nameWithType: ConsoleArgsScalars.InputFile
+  fullName: Songhay.Models.ConsoleArgsScalars.InputFile
+- uid: System.IO.FileNotFoundException
+  commentId: T:System.IO.FileNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception
+  name: FileNotFoundException
+  nameWithType: FileNotFoundException
+  fullName: System.IO.FileNotFoundException
+- uid: Songhay.Extensions.IConfigurationExtensions.ReadStringInput*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.ReadStringInput
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_ReadStringInput_Microsoft_Extensions_Configuration_IConfiguration_
+  name: ReadStringInput
+  nameWithType: IConfigurationExtensions.ReadStringInput
+  fullName: Songhay.Extensions.IConfigurationExtensions.ReadStringInput
+- uid: Songhay.Models.ConsoleArgsScalars.HelpTextSuffix
+  commentId: F:Songhay.Models.ConsoleArgsScalars.HelpTextSuffix
+  href: Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_HelpTextSuffix
+  name: HelpTextSuffix
+  nameWithType: ConsoleArgsScalars.HelpTextSuffix
+  fullName: Songhay.Models.ConsoleArgsScalars.HelpTextSuffix
+- uid: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_ToHelpDisplayText_Microsoft_Extensions_Configuration_IConfiguration_
+  name: ToHelpDisplayText
+  nameWithType: IConfigurationExtensions.ToHelpDisplayText
+  fullName: Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Songhay.Extensions.IConfigurationExtensions.ToKeys*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.ToKeys
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_ToKeys_Microsoft_Extensions_Configuration_IConfiguration_
+  name: ToKeys
+  nameWithType: IConfigurationExtensions.ToKeys
+  fullName: Songhay.Extensions.IConfigurationExtensions.ToKeys
+- uid: System.Collections.Generic.IReadOnlyCollection{System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<string>
+  nameWithType: IReadOnlyCollection<string>
+  fullName: System.Collections.Generic.IReadOnlyCollection<string>
+  nameWithType.vb: IReadOnlyCollection(Of String)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of String)
+  name.vb: IReadOnlyCollection(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Songhay.Models.ConsoleArgsScalars
+  commentId: T:Songhay.Models.ConsoleArgsScalars
+  href: Songhay.Models.ConsoleArgsScalars.html
+  name: ConsoleArgsScalars
+  nameWithType: ConsoleArgsScalars
+  fullName: Songhay.Models.ConsoleArgsScalars
+- uid: Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_WithDefaultHelpText_Microsoft_Extensions_Configuration_IConfiguration_
+  name: WithDefaultHelpText
+  nameWithType: IConfigurationExtensions.WithDefaultHelpText
+  fullName: Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText
+- uid: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_WriteOutputToFile_Microsoft_Extensions_Configuration_IConfiguration_System_String_
+  name: WriteOutputToFile
+  nameWithType: IConfigurationExtensions.WriteOutputToFile
+  fullName: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile
+- uid: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_WriteOutputToFileAsync_Microsoft_Extensions_Configuration_IConfiguration_System_String_
+  name: WriteOutputToFileAsync
+  nameWithType: IConfigurationExtensions.WriteOutputToFileAsync
+  fullName: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io

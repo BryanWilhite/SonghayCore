@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>SonghayCore | SonghayCore API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="SonghayCore | SonghayCore API ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="SonghayCore">
+            SonghayCore
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="songhaycore">SonghayCore</h1>
+
+<p><a href="https://songhay.visualstudio.com/SonghaySystem/_build/latest?definitionId=16&amp;branchName=master"><img src="https://songhay.visualstudio.com/SonghaySystem/_apis/build/status/songhay-core-yaml-build?branchName=master" alt="Build Status"></a></p>
+<p>The <em>Core</em> code to install as <a href="https://www.nuget.org/packages/SonghayCore/">a NuGet package</a> for all of my studio Solutions. Anyone who may be reading this 👀 is free to do the same. This package is based on <a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/SonghayCore.csproj">a project file</a> that supports <a href="http://gigi.nullneuron.net/gigilabs/multi-targeting-net-standard-class-libraries/">multi-targeting</a>, declaring support for <code>net8.0</code>.</p>
+<p><strong>NuGet package 📦:</strong> <a href="https://www.nuget.org/packages/SonghayCore/"><code>SonghayCore</code></a></p>
+<p><strong>documentation 📚:</strong> <a href="https://bryanwilhite.github.io/SonghayCore/latest/"><code>SonghayCore</code> API</a></p>
+<p><strong>coverlet test coverage 🔬☔:</strong> [<a href="https://bryanwilhite.github.io/SonghayCore/coverlet/">report</a>]</p>
+<h2 id="core-reusable-opinionated-concerns"><em>core</em> reusable, opinionated concerns</h2>
+<h3 id="songhayhosting"><code>Songhay.Hosting</code></h3>
+<p>One of the most important additions to .NET came in .NET 6.0 (circa 2021): the <em>.NET Generic Host</em> [📖 <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host">docs</a>]. This <em>host</em> concept from Microsoft allows developers to <em>not</em> have to reinvent:</p>
+<ul>
+<li>Dependency injection (DI)</li>
+<li>Logging</li>
+<li>Configuration</li>
+<li>App shutdown</li>
+<li><code>IHostedService</code> implementations (for long-running background tasks [📖 <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/timer-service?pivots=dotnet-7-0">docs</a> ])</li>
+</ul>
+<p>All ASP.NET developers expect to get these things “for free” and, finally, Microsoft is basically letting all .NET developers get these things for free. This <em>Core</em> recognizes the <em>.NET Generic Host</em>, stating with the <code>DefaultHostedService</code> <a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Hosting/DefaultHostedService.cs">class</a> (see <code>Songhay.Extensions</code> below for more details).</p>
+<h3 id="songhaydiagnostics"><code>Songhay.Diagnostics</code></h3>
+<p>This <em>Core</em> is concerned with <em>tracing</em> as well as logging. Logging concerns should be logically above this <em>Core</em>. <a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Diagnostics/TraceSources.cs"><code>TraceSources</code></a> and <a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/TraceSourceExtensions.cs"><code>TraceSourceExtensions</code></a> define how tracing should be implemented with a bias toward using all source levels. When tracing is not configured for this <em>Core</em> then it will be ignored without throwing exceptions.</p>
+<p>For a review of the organizational difference between tracing and logging, see “<a href="https://www.bmc.com/blogs/monitoring-logging-tracing/">Tracing vs Logging vs Monitoring: What’s the Difference?</a>” by <a href="https://www.linkedin.com/in/chrissy-k-47294593">Chrissy Kidd</a>.</p>
+<p><strong>Documentation 📚:</strong> <a href="https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Diagnostics/"><code>Songhay.Diagnostics</code></a></p>
+<h3 id="songhayextensions"><code>Songhay.Extensions</code></h3>
+<p>The Songhay System uses imperative C# code with a view to make it more functional in an effort to control complexity and enhance maintainability.</p>
+<p>The preference for <a href="https://github.com/BryanWilhite/SonghayCore/tree/master/SonghayCore/Extensions">extension methods</a> encourages stateless, reusable routines (many of them are “pure” functions).</p>
+<p>Notable extensions:</p>
+<ul>
+<li><p><a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/IConfigurationExtensions.cs"><code>IConfigurationExtensions</code></a> — defines shared routines based on conventions around the <em>.NET Generic Host</em> [📖 <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host">docs</a>].</p>
+</li>
+<li><p><a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/IConfigurationBuilderExtensions.cs"><code>IConfigurationBuilderExtensions</code></a> — defines shared routines for application configuration building under .NET Standard.</p>
+</li>
+<li><p><a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/ILoggerExtensions.cs"><code>ILoggerExtensions</code></a> — defines shared routines based on conventions around the <em>.NET Generic Host</em> [📖 <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host">docs</a>].</p>
+</li>
+<li><p><a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/HttpRequestMessageExtensions.cs"><code>HttpRequestMessageExtensions</code></a> — defines shared routines for HTTP access under .NET Standard with a lazy-loaded <code>HttpClient</code>. Routines for Azure Blob Storage are included here.</p>
+</li>
+<li><p><a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/HttpWebRequestExtensions.cs"><code>HttpWebRequestExtensions</code></a> — defines shared routines for HTTP access for the legacy .NET Framework.</p>
+</li>
+</ul>
+<p>There is support for <a href="http://tools.ietf.org/html/rfc6570">URI templates</a> (to be used with <a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs"><code>RestApiMetadata</code></a>) in the form of <a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/RestApiMetadataExtensions.Tavis.cs">extension methods</a>, running on top of <a href="https://github.com/tavis-software/Tavis.UriTemplates"><code>Tavis.UriTemplates</code></a>.</p>
+<p><strong>Documentation 📚:</strong> <a href="https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Extensions/"><code>Songhay.Extensions</code></a></p>
+<h3 id="songhaymodels"><code>Songhay.Models</code></h3>
+<p>The <em>Core</em> models of the Songhay System define types for MIME, XHTML, OPML, REST, the Repository, the Display Item (for WPF and other MVVM solutions), etc.</p>
+<p>The <em>Core</em> models are “anemic” by design (there are very few abstract classes)—any logic would be found <em>first</em> in an Extension Method.</p>
+<p>Notable models:</p>
+<ul>
+<li><p><a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/DisplayItemModel.cs"><code>DisplayItemModel</code></a> — defines the conventional way to display data.</p>
+</li>
+<li><p><a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/MenuDisplayItemModel.cs"><code>MenuDisplayItemModel</code></a> — defines the conventional way to display nested/grouped data.</p>
+</li>
+<li><p><a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs"><code>RestApiMetadata</code></a> — defines conventional REST API metadata.</p>
+</li>
+</ul>
+<p><strong>Documentation 📚:</strong> <a href="https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Models/"><code>Songhay.Models</code></a></p>
+<h3 id="songhayxml"><code>Songhay.Xml</code></h3>
+<p>The “core” of the <em>Core</em> is concern for XML. The Songhay System started out as utilities around <a href="https://msdn.microsoft.com/en-us/library/system.xml.xpath.xpathdocument(v=vs.110).aspx"><code>XPathDocument</code></a> and grew into LINQ for XML—over <a href="https://msdn.microsoft.com/en-us/library/system.xml.linq.xdocument(v=vs.110).aspx"><code>XDocument</code></a>.</p>
+<p><strong>Documentation 📚:</strong> <a href="https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Xml/"><code>Songhay.Xml</code></a></p>
+<h2 id="satellite-packages">satellite packages</h2>
+<h3 id="songhaycorexunit"><code>SonghayCore.xUnit</code></h3>
+<p>Defines reusable class definitions for <a href="https://xunit.net/">xUnit</a>. Featured is the <a href="https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.xUnit/ProjectFileDataAttribute.cs"><code>ProjectFileDataAttribute</code></a>, allowing test data files to be loaded from a relative path.</p>
+<p><strong>NuGet package 📦:</strong> <a href="http://www.nuget.org/packages/SonghayCore.xUnit/"><code>SonghayCore.xUnit</code></a></p>
+<p><strong>Documentation 📚:</strong> <a href="https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Tests/"><code>Songhay.Tests</code></a></p>
+<h3 id="songhaycorenewtonsoft"><code>SonghayCore.Newtonsoft</code></h3>
+<p>Core reusable, opinionated Newtonsoft concerns for my C# projects.</p>
+<p><strong>GitHub repo:</strong> <a href="https://github.com/BryanWilhite/SonghayCore.Newtonsoft">https://github.com/BryanWilhite/SonghayCore.Newtonsoft</a></p>
+<p><strong>NuGet package 📦:</strong> <a href="https://www.nuget.org/packages/SonghayCore.Newtonsoft/"><code>SonghayCore.Newtonsoft</code></a></p>
+<h2 id="studio-packages-dependent-on-songhaycore">Studio packages dependent on <code>SonghayCore</code></h2>
+<pre><code class="lang-mermaid">graph BT
+    netstandard2[.NET Standard 2.0]
+    net6[.NET 6.0]
+
+    1[`SonghayCore`]
+    2[`SonghayCore.Newtonsoft`]
+
+    net6--&gt;1
+    netstandard2--&gt;2
+    2-..-&gt;|optional addition|1
+
+    1--&gt;3[`SonghayCore.xUnit`]
+    1--&gt;4[`Songhay.DataAccess`]
+    1--&gt;5[`Songhay.Feeds`]
+    1--&gt;6[`Songhay.Publications`]
+    1--&gt;7[`Songhay.Social`]
+</code></pre>
+<p>@<a href="https://twitter.com/BryanWilhite">BryanWilhite</a></p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

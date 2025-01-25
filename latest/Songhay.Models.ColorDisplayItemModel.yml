@@ -1,0 +1,1229 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Models.ColorDisplayItemModel
+  commentId: T:Songhay.Models.ColorDisplayItemModel
+  id: ColorDisplayItemModel
+  parent: Songhay.Models
+  children:
+  - Songhay.Models.ColorDisplayItemModel.BackgroundHex
+  - Songhay.Models.ColorDisplayItemModel.ForegroundHex
+  langs:
+  - csharp
+  - vb
+  name: ColorDisplayItemModel
+  nameWithType: ColorDisplayItemModel
+  fullName: Songhay.Models.ColorDisplayItemModel
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Models/ColorDisplayItemModel.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ColorDisplayItemModel
+    path: SonghayCore/Models/ColorDisplayItemModel.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Model for color display
+  example: []
+  syntax:
+    content: 'public class ColorDisplayItemModel : DisplayItemModel, ISortable, ITemporal, IColorable'
+    content.vb: Public Class ColorDisplayItemModel Inherits DisplayItemModel Implements ISortable, ITemporal, IColorable
+  inheritance:
+  - System.Object
+  - Songhay.Models.DisplayItemModel
+  derivedClasses:
+  - Songhay.Models.MenuDisplayItemModel
+  implements:
+  - Songhay.Abstractions.ISortable
+  - Songhay.Abstractions.ITemporal
+  - Songhay.Abstractions.IColorable
+  inheritedMembers:
+  - Songhay.Models.DisplayItemModel.Description
+  - Songhay.Models.DisplayItemModel.DisplayText
+  - Songhay.Models.DisplayItemModel.Id
+  - Songhay.Models.DisplayItemModel.ItemName
+  - Songhay.Models.DisplayItemModel.ResourceIndicator
+  - Songhay.Models.DisplayItemModel.Tag
+  - Songhay.Models.DisplayItemModel.SortOrdinal
+  - Songhay.Models.DisplayItemModel.EndDate
+  - Songhay.Models.DisplayItemModel.InceptDate
+  - Songhay.Models.DisplayItemModel.ModificationDate
+  - Songhay.Models.DisplayItemModel.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  extensionMethods:
+  - Songhay.Abstractions.ITemporal.Songhay.Extensions.ITemporalExtensions.SetDefaults
+  - Songhay.Abstractions.ITemporal.Songhay.Extensions.ITemporalExtensions.SetDefaults(System.Nullable{System.DateTime})
+  - Songhay.Models.ColorDisplayItemModel.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Models.ColorDisplayItemModel.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Models.ColorDisplayItemModel.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  - Songhay.Models.DisplayItemModel.Songhay.Extensions.DisplayItemModelExtensions.HasTag(System.Func{System.Object,System.Boolean})
+  - Songhay.Models.DisplayItemModel.Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel
+  - Songhay.Models.DisplayItemModel.Songhay.Extensions.DisplayItemModelExtensions.WithTag(System.Object)
+- uid: Songhay.Models.ColorDisplayItemModel.BackgroundHex
+  commentId: P:Songhay.Models.ColorDisplayItemModel.BackgroundHex
+  id: BackgroundHex
+  parent: Songhay.Models.ColorDisplayItemModel
+  langs:
+  - csharp
+  - vb
+  name: BackgroundHex
+  nameWithType: ColorDisplayItemModel.BackgroundHex
+  fullName: Songhay.Models.ColorDisplayItemModel.BackgroundHex
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/ColorDisplayItemModel.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: BackgroundHex
+    path: SonghayCore/Models/ColorDisplayItemModel.cs
+    startLine: 12
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Gets or sets the background hexadecimal value.
+  example: []
+  syntax:
+    content: public string? BackgroundHex { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property BackgroundHex As String
+  overload: Songhay.Models.ColorDisplayItemModel.BackgroundHex*
+  implements:
+  - Songhay.Abstractions.IColorable.BackgroundHex
+- uid: Songhay.Models.ColorDisplayItemModel.ForegroundHex
+  commentId: P:Songhay.Models.ColorDisplayItemModel.ForegroundHex
+  id: ForegroundHex
+  parent: Songhay.Models.ColorDisplayItemModel
+  langs:
+  - csharp
+  - vb
+  name: ForegroundHex
+  nameWithType: ColorDisplayItemModel.ForegroundHex
+  fullName: Songhay.Models.ColorDisplayItemModel.ForegroundHex
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/ColorDisplayItemModel.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ForegroundHex
+    path: SonghayCore/Models/ColorDisplayItemModel.cs
+    startLine: 17
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Gets or sets the foreground hexadecimal value.
+  example: []
+  syntax:
+    content: public string? ForegroundHex { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ForegroundHex As String
+  overload: Songhay.Models.ColorDisplayItemModel.ForegroundHex*
+  implements:
+  - Songhay.Abstractions.IColorable.ForegroundHex
+references:
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Songhay.Models.DisplayItemModel
+  commentId: T:Songhay.Models.DisplayItemModel
+  parent: Songhay.Models
+  href: Songhay.Models.DisplayItemModel.html
+  name: DisplayItemModel
+  nameWithType: DisplayItemModel
+  fullName: Songhay.Models.DisplayItemModel
+- uid: Songhay.Abstractions.ISortable
+  commentId: T:Songhay.Abstractions.ISortable
+  parent: Songhay.Abstractions
+  href: Songhay.Abstractions.ISortable.html
+  name: ISortable
+  nameWithType: ISortable
+  fullName: Songhay.Abstractions.ISortable
+- uid: Songhay.Abstractions.ITemporal
+  commentId: T:Songhay.Abstractions.ITemporal
+  parent: Songhay.Abstractions
+  href: Songhay.Abstractions.ITemporal.html
+  name: ITemporal
+  nameWithType: ITemporal
+  fullName: Songhay.Abstractions.ITemporal
+- uid: Songhay.Abstractions.IColorable
+  commentId: T:Songhay.Abstractions.IColorable
+  parent: Songhay.Abstractions
+  href: Songhay.Abstractions.IColorable.html
+  name: IColorable
+  nameWithType: IColorable
+  fullName: Songhay.Abstractions.IColorable
+- uid: Songhay.Models.DisplayItemModel.Description
+  commentId: P:Songhay.Models.DisplayItemModel.Description
+  parent: Songhay.Models.DisplayItemModel
+  href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_Description
+  name: Description
+  nameWithType: DisplayItemModel.Description
+  fullName: Songhay.Models.DisplayItemModel.Description
+- uid: Songhay.Models.DisplayItemModel.DisplayText
+  commentId: P:Songhay.Models.DisplayItemModel.DisplayText
+  parent: Songhay.Models.DisplayItemModel
+  href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_DisplayText
+  name: DisplayText
+  nameWithType: DisplayItemModel.DisplayText
+  fullName: Songhay.Models.DisplayItemModel.DisplayText
+- uid: Songhay.Models.DisplayItemModel.Id
+  commentId: P:Songhay.Models.DisplayItemModel.Id
+  parent: Songhay.Models.DisplayItemModel
+  href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_Id
+  name: Id
+  nameWithType: DisplayItemModel.Id
+  fullName: Songhay.Models.DisplayItemModel.Id
+- uid: Songhay.Models.DisplayItemModel.ItemName
+  commentId: P:Songhay.Models.DisplayItemModel.ItemName
+  parent: Songhay.Models.DisplayItemModel
+  href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_ItemName
+  name: ItemName
+  nameWithType: DisplayItemModel.ItemName
+  fullName: Songhay.Models.DisplayItemModel.ItemName
+- uid: Songhay.Models.DisplayItemModel.ResourceIndicator
+  commentId: P:Songhay.Models.DisplayItemModel.ResourceIndicator
+  parent: Songhay.Models.DisplayItemModel
+  href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_ResourceIndicator
+  name: ResourceIndicator
+  nameWithType: DisplayItemModel.ResourceIndicator
+  fullName: Songhay.Models.DisplayItemModel.ResourceIndicator
+- uid: Songhay.Models.DisplayItemModel.Tag
+  commentId: P:Songhay.Models.DisplayItemModel.Tag
+  parent: Songhay.Models.DisplayItemModel
+  href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_Tag
+  name: Tag
+  nameWithType: DisplayItemModel.Tag
+  fullName: Songhay.Models.DisplayItemModel.Tag
+- uid: Songhay.Models.DisplayItemModel.SortOrdinal
+  commentId: P:Songhay.Models.DisplayItemModel.SortOrdinal
+  parent: Songhay.Models.DisplayItemModel
+  href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_SortOrdinal
+  name: SortOrdinal
+  nameWithType: DisplayItemModel.SortOrdinal
+  fullName: Songhay.Models.DisplayItemModel.SortOrdinal
+- uid: Songhay.Models.DisplayItemModel.EndDate
+  commentId: P:Songhay.Models.DisplayItemModel.EndDate
+  parent: Songhay.Models.DisplayItemModel
+  href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_EndDate
+  name: EndDate
+  nameWithType: DisplayItemModel.EndDate
+  fullName: Songhay.Models.DisplayItemModel.EndDate
+- uid: Songhay.Models.DisplayItemModel.InceptDate
+  commentId: P:Songhay.Models.DisplayItemModel.InceptDate
+  parent: Songhay.Models.DisplayItemModel
+  href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_InceptDate
+  name: InceptDate
+  nameWithType: DisplayItemModel.InceptDate
+  fullName: Songhay.Models.DisplayItemModel.InceptDate
+- uid: Songhay.Models.DisplayItemModel.ModificationDate
+  commentId: P:Songhay.Models.DisplayItemModel.ModificationDate
+  parent: Songhay.Models.DisplayItemModel
+  href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_ModificationDate
+  name: ModificationDate
+  nameWithType: DisplayItemModel.ModificationDate
+  fullName: Songhay.Models.DisplayItemModel.ModificationDate
+- uid: Songhay.Models.DisplayItemModel.ToString
+  commentId: M:Songhay.Models.DisplayItemModel.ToString
+  parent: Songhay.Models.DisplayItemModel
+  href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_ToString
+  name: ToString()
+  nameWithType: DisplayItemModel.ToString()
+  fullName: Songhay.Models.DisplayItemModel.ToString()
+  spec.csharp:
+  - uid: Songhay.Models.DisplayItemModel.ToString
+    name: ToString
+    href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Songhay.Models.DisplayItemModel.ToString
+    name: ToString
+    href: Songhay.Models.DisplayItemModel.html#Songhay_Models_DisplayItemModel_ToString
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Songhay.Abstractions.ITemporal.Songhay.Extensions.ITemporalExtensions.SetDefaults
+  commentId: M:Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal)
+  parent: Songhay.Extensions.ITemporalExtensions
+  definition: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal)
+  href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_
+  name: SetDefaults(ITemporal)
+  nameWithType: ITemporalExtensions.SetDefaults(ITemporal)
+  fullName: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal)
+  spec.csharp:
+  - uid: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal)
+    name: SetDefaults
+    href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_
+  - name: (
+  - uid: Songhay.Abstractions.ITemporal
+    name: ITemporal
+    href: Songhay.Abstractions.ITemporal.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal)
+    name: SetDefaults
+    href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_
+  - name: (
+  - uid: Songhay.Abstractions.ITemporal
+    name: ITemporal
+    href: Songhay.Abstractions.ITemporal.html
+  - name: )
+- uid: Songhay.Abstractions.ITemporal.Songhay.Extensions.ITemporalExtensions.SetDefaults(System.Nullable{System.DateTime})
+  commentId: M:Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal,System.Nullable{System.DateTime})
+  parent: Songhay.Extensions.ITemporalExtensions
+  definition: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal,System.Nullable{System.DateTime})
+  href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_System_Nullable_System_DateTime__
+  name: SetDefaults(ITemporal, DateTime?)
+  nameWithType: ITemporalExtensions.SetDefaults(ITemporal, DateTime?)
+  fullName: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal, System.DateTime?)
+  nameWithType.vb: ITemporalExtensions.SetDefaults(ITemporal, Date?)
+  fullName.vb: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal, Date?)
+  name.vb: SetDefaults(ITemporal, Date?)
+  spec.csharp:
+  - uid: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal,System.Nullable{System.DateTime})
+    name: SetDefaults
+    href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_System_Nullable_System_DateTime__
+  - name: (
+  - uid: Songhay.Abstractions.ITemporal
+    name: ITemporal
+    href: Songhay.Abstractions.ITemporal.html
+  - name: ','
+  - name: " "
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal,System.Nullable{System.DateTime})
+    name: SetDefaults
+    href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_System_Nullable_System_DateTime__
+  - name: (
+  - uid: Songhay.Abstractions.ITemporal
+    name: ITemporal
+    href: Songhay.Abstractions.ITemporal.html
+  - name: ','
+  - name: " "
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: )
+- uid: Songhay.Models.ColorDisplayItemModel.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<ColorDisplayItemModel>(ColorDisplayItemModel)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<ColorDisplayItemModel>(ColorDisplayItemModel)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Models.ColorDisplayItemModel>(Songhay.Models.ColorDisplayItemModel)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of ColorDisplayItemModel)(ColorDisplayItemModel)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Models.ColorDisplayItemModel)(Songhay.Models.ColorDisplayItemModel)
+  name.vb: IsAssignableToISerializable(Of ColorDisplayItemModel)(ColorDisplayItemModel)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Models.ColorDisplayItemModel)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Models.ColorDisplayItemModel)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: )
+- uid: Songhay.Models.ColorDisplayItemModel.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<ColorDisplayItemModel>(ColorDisplayItemModel)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<ColorDisplayItemModel>(ColorDisplayItemModel)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Models.ColorDisplayItemModel>(Songhay.Models.ColorDisplayItemModel)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of ColorDisplayItemModel)(ColorDisplayItemModel)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Models.ColorDisplayItemModel)(Songhay.Models.ColorDisplayItemModel)
+  name.vb: ToObjectOrDbNull(Of ColorDisplayItemModel)(ColorDisplayItemModel)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Models.ColorDisplayItemModel)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Models.ColorDisplayItemModel)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: )
+- uid: Songhay.Models.ColorDisplayItemModel.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<ColorDisplayItemModel>(ColorDisplayItemModel, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<ColorDisplayItemModel>(ColorDisplayItemModel, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Models.ColorDisplayItemModel>(Songhay.Models.ColorDisplayItemModel, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of ColorDisplayItemModel)(ColorDisplayItemModel, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Models.ColorDisplayItemModel)(Songhay.Models.ColorDisplayItemModel, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of ColorDisplayItemModel)(ColorDisplayItemModel, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Models.ColorDisplayItemModel,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Models.ColorDisplayItemModel,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.ColorDisplayItemModel
+    name: ColorDisplayItemModel
+    href: Songhay.Models.ColorDisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Models.DisplayItemModel.Songhay.Extensions.DisplayItemModelExtensions.HasTag(System.Func{System.Object,System.Boolean})
+  commentId: M:Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel,System.Func{System.Object,System.Boolean})
+  parent: Songhay.Extensions.DisplayItemModelExtensions
+  definition: Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel,System.Func{System.Object,System.Boolean})
+  href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_HasTag_Songhay_Models_DisplayItemModel_System_Func_System_Object_System_Boolean__
+  name: HasTag(DisplayItemModel, Func<object, bool>)
+  nameWithType: DisplayItemModelExtensions.HasTag(DisplayItemModel, Func<object, bool>)
+  fullName: Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel, System.Func<object, bool>)
+  nameWithType.vb: DisplayItemModelExtensions.HasTag(DisplayItemModel, Func(Of Object, Boolean))
+  fullName.vb: Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel, System.Func(Of Object, Boolean))
+  name.vb: HasTag(DisplayItemModel, Func(Of Object, Boolean))
+  spec.csharp:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel,System.Func{System.Object,System.Boolean})
+    name: HasTag
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_HasTag_Songhay_Models_DisplayItemModel_System_Func_System_Object_System_Boolean__
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel,System.Func{System.Object,System.Boolean})
+    name: HasTag
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_HasTag_Songhay_Models_DisplayItemModel_System_Func_System_Object_System_Boolean__
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: Songhay.Models.DisplayItemModel.Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel
+  commentId: M:Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel(Songhay.Models.DisplayItemModel)
+  parent: Songhay.Extensions.DisplayItemModelExtensions
+  definition: Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel(Songhay.Models.DisplayItemModel)
+  href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_ToMenuDisplayItemModel_Songhay_Models_DisplayItemModel_
+  name: ToMenuDisplayItemModel(DisplayItemModel)
+  nameWithType: DisplayItemModelExtensions.ToMenuDisplayItemModel(DisplayItemModel)
+  fullName: Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel(Songhay.Models.DisplayItemModel)
+  spec.csharp:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel(Songhay.Models.DisplayItemModel)
+    name: ToMenuDisplayItemModel
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_ToMenuDisplayItemModel_Songhay_Models_DisplayItemModel_
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel(Songhay.Models.DisplayItemModel)
+    name: ToMenuDisplayItemModel
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_ToMenuDisplayItemModel_Songhay_Models_DisplayItemModel_
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: )
+- uid: Songhay.Models.DisplayItemModel.Songhay.Extensions.DisplayItemModelExtensions.WithTag(System.Object)
+  commentId: M:Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel,System.Object)
+  parent: Songhay.Extensions.DisplayItemModelExtensions
+  definition: Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel,System.Object)
+  href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_WithTag_Songhay_Models_DisplayItemModel_System_Object_
+  name: WithTag(DisplayItemModel, object)
+  nameWithType: DisplayItemModelExtensions.WithTag(DisplayItemModel, object)
+  fullName: Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel, object)
+  nameWithType.vb: DisplayItemModelExtensions.WithTag(DisplayItemModel, Object)
+  fullName.vb: Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel, Object)
+  name.vb: WithTag(DisplayItemModel, Object)
+  spec.csharp:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel,System.Object)
+    name: WithTag
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_WithTag_Songhay_Models_DisplayItemModel_System_Object_
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel,System.Object)
+    name: WithTag
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_WithTag_Songhay_Models_DisplayItemModel_System_Object_
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Abstractions
+  commentId: N:Songhay.Abstractions
+  href: Songhay.html
+  name: Songhay.Abstractions
+  nameWithType: Songhay.Abstractions
+  fullName: Songhay.Abstractions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+- uid: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal)
+  commentId: M:Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal)
+  href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_
+  name: SetDefaults(ITemporal)
+  nameWithType: ITemporalExtensions.SetDefaults(ITemporal)
+  fullName: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal)
+  spec.csharp:
+  - uid: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal)
+    name: SetDefaults
+    href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_
+  - name: (
+  - uid: Songhay.Abstractions.ITemporal
+    name: ITemporal
+    href: Songhay.Abstractions.ITemporal.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal)
+    name: SetDefaults
+    href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_
+  - name: (
+  - uid: Songhay.Abstractions.ITemporal
+    name: ITemporal
+    href: Songhay.Abstractions.ITemporal.html
+  - name: )
+- uid: Songhay.Extensions.ITemporalExtensions
+  commentId: T:Songhay.Extensions.ITemporalExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.ITemporalExtensions.html
+  name: ITemporalExtensions
+  nameWithType: ITemporalExtensions
+  fullName: Songhay.Extensions.ITemporalExtensions
+- uid: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal,System.Nullable{System.DateTime})
+  commentId: M:Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal,System.Nullable{System.DateTime})
+  isExternal: true
+  href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_System_Nullable_System_DateTime__
+  name: SetDefaults(ITemporal, DateTime?)
+  nameWithType: ITemporalExtensions.SetDefaults(ITemporal, DateTime?)
+  fullName: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal, System.DateTime?)
+  nameWithType.vb: ITemporalExtensions.SetDefaults(ITemporal, Date?)
+  fullName.vb: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal, Date?)
+  name.vb: SetDefaults(ITemporal, Date?)
+  spec.csharp:
+  - uid: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal,System.Nullable{System.DateTime})
+    name: SetDefaults
+    href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_System_Nullable_System_DateTime__
+  - name: (
+  - uid: Songhay.Abstractions.ITemporal
+    name: ITemporal
+    href: Songhay.Abstractions.ITemporal.html
+  - name: ','
+  - name: " "
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ITemporalExtensions.SetDefaults(Songhay.Abstractions.ITemporal,System.Nullable{System.DateTime})
+    name: SetDefaults
+    href: Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_System_Nullable_System_DateTime__
+  - name: (
+  - uid: Songhay.Abstractions.ITemporal
+    name: ITemporal
+    href: Songhay.Abstractions.ITemporal.html
+  - name: ','
+  - name: " "
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel,System.Func{System.Object,System.Boolean})
+  commentId: M:Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel,System.Func{System.Object,System.Boolean})
+  isExternal: true
+  href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_HasTag_Songhay_Models_DisplayItemModel_System_Func_System_Object_System_Boolean__
+  name: HasTag(DisplayItemModel, Func<object, bool>)
+  nameWithType: DisplayItemModelExtensions.HasTag(DisplayItemModel, Func<object, bool>)
+  fullName: Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel, System.Func<object, bool>)
+  nameWithType.vb: DisplayItemModelExtensions.HasTag(DisplayItemModel, Func(Of Object, Boolean))
+  fullName.vb: Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel, System.Func(Of Object, Boolean))
+  name.vb: HasTag(DisplayItemModel, Func(Of Object, Boolean))
+  spec.csharp:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel,System.Func{System.Object,System.Boolean})
+    name: HasTag
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_HasTag_Songhay_Models_DisplayItemModel_System_Func_System_Object_System_Boolean__
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.HasTag(Songhay.Models.DisplayItemModel,System.Func{System.Object,System.Boolean})
+    name: HasTag
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_HasTag_Songhay_Models_DisplayItemModel_System_Func_System_Object_System_Boolean__
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: Songhay.Extensions.DisplayItemModelExtensions
+  commentId: T:Songhay.Extensions.DisplayItemModelExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.DisplayItemModelExtensions.html
+  name: DisplayItemModelExtensions
+  nameWithType: DisplayItemModelExtensions
+  fullName: Songhay.Extensions.DisplayItemModelExtensions
+- uid: Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel(Songhay.Models.DisplayItemModel)
+  commentId: M:Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel(Songhay.Models.DisplayItemModel)
+  href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_ToMenuDisplayItemModel_Songhay_Models_DisplayItemModel_
+  name: ToMenuDisplayItemModel(DisplayItemModel)
+  nameWithType: DisplayItemModelExtensions.ToMenuDisplayItemModel(DisplayItemModel)
+  fullName: Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel(Songhay.Models.DisplayItemModel)
+  spec.csharp:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel(Songhay.Models.DisplayItemModel)
+    name: ToMenuDisplayItemModel
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_ToMenuDisplayItemModel_Songhay_Models_DisplayItemModel_
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.ToMenuDisplayItemModel(Songhay.Models.DisplayItemModel)
+    name: ToMenuDisplayItemModel
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_ToMenuDisplayItemModel_Songhay_Models_DisplayItemModel_
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: )
+- uid: Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel,System.Object)
+  commentId: M:Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel,System.Object)
+  isExternal: true
+  href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_WithTag_Songhay_Models_DisplayItemModel_System_Object_
+  name: WithTag(DisplayItemModel, object)
+  nameWithType: DisplayItemModelExtensions.WithTag(DisplayItemModel, object)
+  fullName: Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel, object)
+  nameWithType.vb: DisplayItemModelExtensions.WithTag(DisplayItemModel, Object)
+  fullName.vb: Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel, Object)
+  name.vb: WithTag(DisplayItemModel, Object)
+  spec.csharp:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel,System.Object)
+    name: WithTag
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_WithTag_Songhay_Models_DisplayItemModel_System_Object_
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.DisplayItemModelExtensions.WithTag(Songhay.Models.DisplayItemModel,System.Object)
+    name: WithTag
+    href: Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_WithTag_Songhay_Models_DisplayItemModel_System_Object_
+  - name: (
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Models.ColorDisplayItemModel.BackgroundHex*
+  commentId: Overload:Songhay.Models.ColorDisplayItemModel.BackgroundHex
+  href: Songhay.Models.ColorDisplayItemModel.html#Songhay_Models_ColorDisplayItemModel_BackgroundHex
+  name: BackgroundHex
+  nameWithType: ColorDisplayItemModel.BackgroundHex
+  fullName: Songhay.Models.ColorDisplayItemModel.BackgroundHex
+- uid: Songhay.Abstractions.IColorable.BackgroundHex
+  commentId: P:Songhay.Abstractions.IColorable.BackgroundHex
+  parent: Songhay.Abstractions.IColorable
+  href: Songhay.Abstractions.IColorable.html#Songhay_Abstractions_IColorable_BackgroundHex
+  name: BackgroundHex
+  nameWithType: IColorable.BackgroundHex
+  fullName: Songhay.Abstractions.IColorable.BackgroundHex
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Songhay.Models.ColorDisplayItemModel.ForegroundHex*
+  commentId: Overload:Songhay.Models.ColorDisplayItemModel.ForegroundHex
+  href: Songhay.Models.ColorDisplayItemModel.html#Songhay_Models_ColorDisplayItemModel_ForegroundHex
+  name: ForegroundHex
+  nameWithType: ColorDisplayItemModel.ForegroundHex
+  fullName: Songhay.Models.ColorDisplayItemModel.ForegroundHex
+- uid: Songhay.Abstractions.IColorable.ForegroundHex
+  commentId: P:Songhay.Abstractions.IColorable.ForegroundHex
+  parent: Songhay.Abstractions.IColorable
+  href: Songhay.Abstractions.IColorable.html#Songhay_Abstractions_IColorable_ForegroundHex
+  name: ForegroundHex
+  nameWithType: IColorable.ForegroundHex
+  fullName: Songhay.Abstractions.IColorable.ForegroundHex
