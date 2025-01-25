@@ -1,9 +1,4 @@
-﻿using Statiq.Common;
-using Statiq.App;
-using Statiq.Docs;
-using Statiq.Web;
-
-await Bootstrapper
+﻿await Bootstrapper
     .Factory
     .CreateDocs(args)
     .AddExcludedPath("../../../../Statiq.Docs.Shell")
