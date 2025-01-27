@@ -1,43 +1,43 @@
 {
-  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
-  "metadata": [
-    {
-      "src": [
+    "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+    "metadata": [
         {
-          "src": "../SonghayCore",
-          "files": [
-            "**/*.csproj"
-          ]
-        },
-        {
-          "src": "../SonghayCore.xUnit",
-          "files": [
-            "**/*.csproj"
-          ]
+            "src": [
+                {
+                    "src": "../SonghayCore",
+                    "files": [
+                        "**/*.csproj"
+                    ]
+                },
+                {
+                    "src": "../SonghayCore.xUnit",
+                    "files": [
+                        "**/*.csproj"
+                    ]
+                }
+            ],
+            "noRestore": true
         }
-      ],
-      "dest": "./latest",
-      "noRestore": true
-    }
-  ],
-  "build": {
-    "content": [
-      {
-        "files": [
-          "**/*.{md}"
+    ],
+    "build": {
+        "globalMetadata": {
+            "_appName": "SonghayCore",
+            "_appTitle": "SonghayCore API",
+            "_enableSearch": true,
+            "pdf": false
+        },
+        "content": [
+            {
+                "files": [
+                    "**/*.{md}"
+                ]
+            }
+        ],
+        "output": "./latest",
+        "resource": [],
+        "template": [
+            "default",
+            "modern"
         ]
-      }
-    ],
-    "resource": [],
-    "template": [
-      "default",
-      "modern"
-    ],
-    "globalMetadata": {
-      "_appName": "SonghayCore",
-      "_appTitle": "SonghayCore API",
-      "_enableSearch": true,
-      "pdf": false
     }
-  }
 }
