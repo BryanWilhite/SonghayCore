@@ -1,0 +1,2994 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class XmlUtility | SonghayCore API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class XmlUtility | SonghayCore API ">
+      
+      <meta name="description" content="Static helper members for XML-related routines.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/dev/version-8.0.0/apiSpec/new?filename=Songhay_Xml_XmlUtility.md&amp;value=---%0Auid%3A%20Songhay.Xml.XmlUtility%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SonghayCore">
+            SonghayCore
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Songhay.Xml.XmlUtility">
+
+
+
+  <h1 id="Songhay_Xml_XmlUtility" data-uid="Songhay.Xml.XmlUtility" class="text-break">
+Class XmlUtility  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility._.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Songhay.html">Songhay</a>.<a class="xref" href="Songhay.Xml.html">Xml</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SonghayCore.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Static helper members for XML-related routines.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class XmlUtility</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">XmlUtility</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="Songhay_Xml_XmlUtility_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>These definitions are biased toward
+emitting <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a> documents.
+However, many accept any input implementing the
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> interface.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Songhay_Xml_XmlUtility_ConventionalHtmlEntities" data-uid="Songhay.Xml.XmlUtility.ConventionalHtmlEntities">
+  ConventionalHtmlEntities
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.XmlDecode.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The conventional HTML entities mapped to their respective glyphs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Dictionary&lt;string, string&gt; ConventionalHtmlEntities</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Songhay_Xml_XmlUtility_CombineNavigableDocuments_" data-uid="Songhay.Xml.XmlUtility.CombineNavigableDocuments*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_CombineNavigableDocuments_System_Xml_XPath_IXPathNavigable_System_Xml_XPath_IXPathNavigable_" data-uid="Songhay.Xml.XmlUtility.CombineNavigableDocuments(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
+  CombineNavigableDocuments(IXPathNavigable?, IXPathNavigable?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.CombineNavigableDocuments.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines two <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> documents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument? CombineNavigableDocuments(IXPathNavigable? parentDocument, IXPathNavigable? childDocument)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parentDocument</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> “hosting” document.</p>
+</dd>
+    <dt><code>childDocument</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> child document.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_CombineNavigableDocuments_" data-uid="Songhay.Xml.XmlUtility.CombineNavigableDocuments*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_CombineNavigableDocuments_System_Xml_XPath_IXPathNavigable_System_Xml_XPath_IXPathNavigable_System_String_" data-uid="Songhay.Xml.XmlUtility.CombineNavigableDocuments(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable,System.String)">
+  CombineNavigableDocuments(IXPathNavigable?, IXPathNavigable?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.CombineNavigableDocuments.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines two <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> documents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument? CombineNavigableDocuments(IXPathNavigable? parentDocument, IXPathNavigable? childDocument, string? nodeQuery)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parentDocument</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> “hosting” document.</p>
+</dd>
+    <dt><code>childDocument</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> child document.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The XPath query to the child document location in the “hosting” document.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInstanceRaw_" data-uid="Songhay.Xml.XmlUtility.GetInstanceRaw*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInstanceRaw__1_System_String_" data-uid="Songhay.Xml.XmlUtility.GetInstanceRaw``1(System.String)">
+  GetInstanceRaw&lt;T&gt;(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInstance.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deserializes based on the specified raw XML.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T? GetInstanceRaw&lt;T&gt;(string? xmlFragment) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xmlFragment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The raw XML.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The specified type to deserialize.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInstance_" data-uid="Songhay.Xml.XmlUtility.GetInstance*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInstance__1_System_String_" data-uid="Songhay.Xml.XmlUtility.GetInstance``1(System.String)">
+  GetInstance&lt;T&gt;(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInstance.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deserializes based on the specified XML file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T? GetInstance&lt;T&gt;(string? xmlPath) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xmlPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The XML file path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The specified type to deserialize.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInternalMessage_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInternalMessage_System_String_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage(System.String)">
+  GetInternalMessage(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInternalMessage.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an XML <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+based on the specified header and lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetInternalMessage(string messageHeader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message header.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInternalMessage_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInternalMessage_System_String_System_Collections_ObjectModel_ReadOnlyCollection_System_String__" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.Collections.ObjectModel.ReadOnlyCollection{System.String})">
+  GetInternalMessage(string, ReadOnlyCollection&lt;string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInternalMessage.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an XML <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+based on the specified header and lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetInternalMessage(string messageHeader, ReadOnlyCollection&lt;string&gt;? messageLines)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message header.</p>
+</dd>
+    <dt><code>messageLines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1">ReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>Message lines.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInternalMessage_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInternalMessage_System_String_System_String_System_Collections_Generic_IEnumerable_System_String__" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+  GetInternalMessage(string?, string?, IEnumerable&lt;string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInternalMessage.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an XML <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+based on the specified header and lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetInternalMessage(string? messageHeader, string? messageCode, IEnumerable&lt;string&gt;? messageLines)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message header.</p>
+</dd>
+    <dt><code>messageCode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message code for errors, exceptions or faults.</p>
+</dd>
+    <dt><code>messageLines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>Message lines.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInternalMessage_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInternalMessage_System_String_System_String_System_String___System_Xml_XmlWriter_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String,System.String[],System.Xml.XmlWriter)">
+  GetInternalMessage(string?, string?, string[]?, XmlWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInternalMessage.XmlTextWriter.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the conventional, XML <code>&lt;InternalMessage&gt;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void GetInternalMessage(string? messageHeader, string? messageCode, string[]? messageLines, XmlWriter xmlDataWriter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message header.</p>
+</dd>
+    <dt><code>messageCode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message code for errors, exceptions or faults.</p>
+</dd>
+    <dt><code>messageLines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Message lines.</p>
+</dd>
+    <dt><code>xmlDataWriter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter">XmlWriter</a></dt>
+    <dd><p>The <span class="xref">System.Xml.XmlTextWriter</span>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInternalMessage_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInternalMessage_System_String_System_String_System_String___System_Xml_XmlWriter_System_Boolean_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String,System.String[],System.Xml.XmlWriter,System.Boolean)">
+  GetInternalMessage(string?, string?, string[]?, XmlWriter?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInternalMessage.XmlTextWriter.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the conventional, XML <code>&lt;InternalMessage&gt;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void GetInternalMessage(string? messageHeader, string? messageCode, string[]? messageLines, XmlWriter? xmlDataWriter, bool isFragment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message header.</p>
+</dd>
+    <dt><code>messageCode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message code for errors, exceptions or faults.</p>
+</dd>
+    <dt><code>messageLines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Message lines.</p>
+</dd>
+    <dt><code>xmlDataWriter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter">XmlWriter</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter">XmlWriter</a>.</p>
+</dd>
+    <dt><code>isFragment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <code>false</code> a new document is started.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInternalMessage_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInternalMessage_System_String_System_String___" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String[])">
+  GetInternalMessage(string, string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInternalMessage.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an XML <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+based on the specified header and lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetInternalMessage(string messageHeader, string[] messageLines)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message header.</p>
+</dd>
+    <dt><code>messageLines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Message lines.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInternalMessage_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInternalMessage_System_String_System_String___System_Xml_XmlWriter_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String[],System.Xml.XmlWriter)">
+  GetInternalMessage(string?, string[]?, XmlWriter?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInternalMessage.XmlTextWriter.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the conventional, XML <code>&lt;InternalMessage&gt;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void GetInternalMessage(string? messageHeader, string[]? messageLines, XmlWriter? xmlDataWriter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message header.</p>
+</dd>
+    <dt><code>messageLines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Message lines.</p>
+</dd>
+    <dt><code>xmlDataWriter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter">XmlWriter</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter">XmlWriter</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInternalMessage_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInternalMessage_System_String_System_String___System_Xml_XmlWriter_System_Boolean_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessage(System.String,System.String[],System.Xml.XmlWriter,System.Boolean)">
+  GetInternalMessage(string?, string[]?, XmlWriter?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInternalMessage.XmlTextWriter.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the conventional, XML <code>&lt;InternalMessage&gt;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void GetInternalMessage(string? messageHeader, string[]? messageLines, XmlWriter? xmlDataWriter, bool isFragment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message header.</p>
+</dd>
+    <dt><code>messageLines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Message lines.</p>
+</dd>
+    <dt><code>xmlDataWriter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter">XmlWriter</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter">XmlWriter</a>.</p>
+</dd>
+    <dt><code>isFragment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <code>false</code> a new document is started.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInternalMessageDocument_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessageDocument*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInternalMessageDocument_System_String_System_String_System_String___" data-uid="Songhay.Xml.XmlUtility.GetInternalMessageDocument(System.String,System.String,System.String[])">
+  GetInternalMessageDocument(string?, string?, string[]?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInternalMessageDocument.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>
+based on the specified header and lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument? GetInternalMessageDocument(string? messageHeader, string? messageCode, string[]? messageLines)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message header.</p>
+</dd>
+    <dt><code>messageCode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message code for errors, exceptions or faults</p>
+</dd>
+    <dt><code>messageLines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Message lines.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetInternalMessageDocument_" data-uid="Songhay.Xml.XmlUtility.GetInternalMessageDocument*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetInternalMessageDocument_System_String_System_String___" data-uid="Songhay.Xml.XmlUtility.GetInternalMessageDocument(System.String,System.String[])">
+  GetInternalMessageDocument(string?, string[]?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetInternalMessageDocument.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>
+based on the specified header and lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument? GetInternalMessageDocument(string? messageHeader, string[]? messageLines)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>messageHeader</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Message header.</p>
+</dd>
+    <dt><code>messageLines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Message lines.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNamespaceManager_" data-uid="Songhay.Xml.XmlUtility.GetNamespaceManager*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNamespaceManager_System_Xml_XPath_IXPathNavigable_" data-uid="Songhay.Xml.XmlUtility.GetNamespaceManager(System.Xml.XPath.IXPathNavigable)">
+  GetNamespaceManager(IXPathNavigable?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNamespaceManager.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a>
+with respect to the document element of the specified
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XmlNamespaceManager? GetNamespaceManager(IXPathNavigable? navigable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNavigableDocument_" data-uid="Songhay.Xml.XmlUtility.GetNavigableDocument*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNavigableDocument_System_IO_Stream_" data-uid="Songhay.Xml.XmlUtility.GetNavigableDocument(System.IO.Stream)">
+  GetNavigableDocument(Stream?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNavigableDocument.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>
+based on the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument? GetNavigableDocument(Stream? stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNavigableDocument_" data-uid="Songhay.Xml.XmlUtility.GetNavigableDocument*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNavigableDocument_System_String_" data-uid="Songhay.Xml.XmlUtility.GetNavigableDocument(System.String)">
+  GetNavigableDocument(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNavigableDocument.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>
+based on the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument? GetNavigableDocument(string? xmlFragment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xmlFragment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A well-formed XML <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNavigableDocument_" data-uid="Songhay.Xml.XmlUtility.GetNavigableDocument*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNavigableDocument_System_Xml_XPath_IXPathNavigable_" data-uid="Songhay.Xml.XmlUtility.GetNavigableDocument(System.Xml.XPath.IXPathNavigable)">
+  GetNavigableDocument(IXPathNavigable?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNavigableDocument.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>
+based on the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnode">XmlNode</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument? GetNavigableDocument(IXPathNavigable? navigable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_GetNavigableDocument_System_Xml_XPath_IXPathNavigable__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Use this member to convert <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmldocument">XmlDocument</a> documents.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNavigableNode_" data-uid="Songhay.Xml.XmlUtility.GetNavigableNode*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNavigableNode_System_Xml_XPath_IXPathNavigable_System_String_" data-uid="Songhay.Xml.XmlUtility.GetNavigableNode(System.Xml.XPath.IXPathNavigable,System.String)">
+  GetNavigableNode(IXPathNavigable?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNavigableNode.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathnavigator">XPathNavigator</a>
+based on the nodeQuery Expression toward the source document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathNavigator? GetNavigableNode(IXPathNavigable? navigable, string? nodeQuery)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value to be compiled
+into an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathexpression">XPathExpression</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathnavigator">XPathNavigator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNavigableNode_" data-uid="Songhay.Xml.XmlUtility.GetNavigableNode*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNavigableNode_System_Xml_XPath_IXPathNavigable_System_String_System_Xml_XmlNamespaceManager_" data-uid="Songhay.Xml.XmlUtility.GetNavigableNode(System.Xml.XPath.IXPathNavigable,System.String,System.Xml.XmlNamespaceManager)">
+  GetNavigableNode(IXPathNavigable?, string?, XmlNamespaceManager?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNavigableNode.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathnavigator">XPathNavigator</a>
+based on the nodeQuery Expression toward the source document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathNavigator? GetNavigableNode(IXPathNavigable? navigable, string? nodeQuery, XmlNamespaceManager? nsMan)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value to be compiled
+into an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathexpression">XPathExpression</a>.</p>
+</dd>
+    <dt><code>nsMan</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a>
+to use to resolve prefixes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathnavigator">XPathNavigator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNavigableNodes_" data-uid="Songhay.Xml.XmlUtility.GetNavigableNodes*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNavigableNodes_System_Xml_XPath_IXPathNavigable_System_String_" data-uid="Songhay.Xml.XmlUtility.GetNavigableNodes(System.Xml.XPath.IXPathNavigable,System.String)">
+  GetNavigableNodes(IXPathNavigable?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNavigableNode.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathnodeiterator">XPathNodeIterator</a>
+based on the nodeQuery Expression toward the source document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathNodeIterator? GetNavigableNodes(IXPathNavigable? navigable, string? nodeQuery)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value to be compiled
+into an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathexpression">XPathExpression</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathnodeiterator">XPathNodeIterator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNavigableNodes_" data-uid="Songhay.Xml.XmlUtility.GetNavigableNodes*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNavigableNodes_System_Xml_XPath_IXPathNavigable_System_String_System_Xml_XmlNamespaceManager_" data-uid="Songhay.Xml.XmlUtility.GetNavigableNodes(System.Xml.XPath.IXPathNavigable,System.String,System.Xml.XmlNamespaceManager)">
+  GetNavigableNodes(IXPathNavigable?, string?, XmlNamespaceManager)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNavigableNode.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathnodeiterator">XPathNodeIterator</a>
+based on the nodeQuery Expression toward the source document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathNodeIterator? GetNavigableNodes(IXPathNavigable? navigable, string? nodeQuery, XmlNamespaceManager nsMan)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value to be compiled
+into an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathexpression">XPathExpression</a>.</p>
+</dd>
+    <dt><code>nsMan</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a>
+to use to resolve prefixes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathnodeiterator">XPathNodeIterator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNodeValue_" data-uid="Songhay.Xml.XmlUtility.GetNodeValue*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNodeValue_System_Xml_XPath_IXPathNavigable_System_String_System_Boolean_" data-uid="Songhay.Xml.XmlUtility.GetNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean)">
+  GetNodeValue(IXPathNavigable?, string?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNodeValue.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an object for parsing
+and adding to a list of parameters for data access.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object? GetNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> node.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The node query <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>throwException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <code>true</code>, throw an exception for null nodes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNodeValue_" data-uid="Songhay.Xml.XmlUtility.GetNodeValue*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNodeValue_System_Xml_XPath_IXPathNavigable_System_String_System_Boolean_System_Object_" data-uid="Songhay.Xml.XmlUtility.GetNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.Object)">
+  GetNodeValue(IXPathNavigable?, string?, bool, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNodeValue.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an object for parsing
+and adding to a list of parameters for data access.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object? GetNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, object? defaultValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> node.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The node query <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>throwException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <code>true</code>, throw an exception for null nodes.</p>
+</dd>
+    <dt><code>defaultValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Return the specified default value for “zero-length” text nodes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNodeValue_" data-uid="Songhay.Xml.XmlUtility.GetNodeValue*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNodeValue_System_Xml_XPath_IXPathNavigable_System_String_System_Boolean_System_Object_System_Xml_XmlNamespaceManager_" data-uid="Songhay.Xml.XmlUtility.GetNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.Object,System.Xml.XmlNamespaceManager)">
+  GetNodeValue(IXPathNavigable?, string?, bool, object?, XmlNamespaceManager?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNodeValue.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an object for parsing
+and adding to a list of parameters for data access.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object? GetNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, object? defaultValue, XmlNamespaceManager? nsMan)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> node.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The node query <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>throwException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <code>true</code>, throw an exception for null nodes.</p>
+</dd>
+    <dt><code>defaultValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Return the specified default value for “zero-length” text nodes.</p>
+</dd>
+    <dt><code>nsMan</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a>
+to use to resolve prefixes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNodeValueAndParse_" data-uid="Songhay.Xml.XmlUtility.GetNodeValueAndParse*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNodeValueAndParse__1_System_Xml_XPath_IXPathNavigable_System_String_System_Boolean___0_" data-uid="Songhay.Xml.XmlUtility.GetNodeValueAndParse``1(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,``0)">
+  GetNodeValueAndParse&lt;T&gt;(IXPathNavigable?, string?, bool, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNodeValue.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an object for parsing
+and adding to a list of parameters for data access.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object? GetNodeValueAndParse&lt;T&gt;(IXPathNavigable? node, string? nodeQuery, bool throwException, T defaultValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> node.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The XPath <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>throwException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</p>
+</dd>
+    <dt><code>defaultValue</code> <span class="xref">T</span></dt>
+    <dd><p>Return a boxing <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> for “zero-length” text nodes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type to parse from the node value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetNodeValueAndParse_" data-uid="Songhay.Xml.XmlUtility.GetNodeValueAndParse*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetNodeValueAndParse__1_System_Xml_XPath_IXPathNavigable_System_String_System_Boolean___0_System_Xml_XmlNamespaceManager_" data-uid="Songhay.Xml.XmlUtility.GetNodeValueAndParse``1(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,``0,System.Xml.XmlNamespaceManager)">
+  GetNodeValueAndParse&lt;T&gt;(IXPathNavigable?, string?, bool, T?, XmlNamespaceManager?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetNodeValue.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an object for parsing
+and adding to a list of parameters for data access.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object? GetNodeValueAndParse&lt;T&gt;(IXPathNavigable? node, string? nodeQuery, bool throwException, T? defaultValue, XmlNamespaceManager? nsMan)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> node.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The XPath <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>throwException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <code>true</code>, throw an exception for null nodes and nodes that do not parse into the specified type.</p>
+</dd>
+    <dt><code>defaultValue</code> <span class="xref">T</span></dt>
+    <dd><p>Return a boxing <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a> for “zero-length” text nodes.</p>
+</dd>
+    <dt><code>nsMan</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a>
+to use to resolve prefixes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type to parse from the node value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetText_" data-uid="Songhay.Xml.XmlUtility.GetText*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetText_System_IO_MemoryStream_" data-uid="Songhay.Xml.XmlUtility.GetText(System.IO.MemoryStream)">
+  GetText(MemoryStream?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetText.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>“Cleans” XML data returning
+in a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.memorystream">MemoryStream</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? GetText(MemoryStream? ramStream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ramStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.memorystream">MemoryStream</a></dt>
+    <dd><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.memorystream">MemoryStream</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetXmlSchema_" data-uid="Songhay.Xml.XmlUtility.GetXmlSchema*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetXmlSchema_System_Xml_XPath_IXPathNavigable_System_Xml_Schema_ValidationEventHandler_" data-uid="Songhay.Xml.XmlUtility.GetXmlSchema(System.Xml.XPath.IXPathNavigable,System.Xml.Schema.ValidationEventHandler)">
+  GetXmlSchema(IXPathNavigable, ValidationEventHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.ValidateNavigableNode.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.xmlschema">XmlSchema</a> based
+on the specified navigable set and validation event handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XmlSchema? GetXmlSchema(IXPathNavigable navigable, ValidationEventHandler eventHandler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+    <dt><code>eventHandler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.validationeventhandler">ValidationEventHandler</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.validationeventhandler">ValidationEventHandler</a>
+with signature MyHandler(object sender, ValidationEventArgs args).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.xmlschema">XmlSchema</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetXslResult_" data-uid="Songhay.Xml.XmlUtility.GetXslResult*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetXslResult_System_Xml_XPath_IXPathNavigable_System_Xml_XPath_IXPathNavigable_" data-uid="Songhay.Xml.XmlUtility.GetXslResult(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
+  GetXslResult(IXPathNavigable?, IXPathNavigable?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetXslResult.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>
+for the transformation of the XSLT document
+and the XML document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument GetXslResult(IXPathNavigable? navigableXsl, IXPathNavigable? navigableSet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigableXsl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> XSL document.</p>
+</dd>
+    <dt><code>navigableSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> XML document.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetXslResult_" data-uid="Songhay.Xml.XmlUtility.GetXslResult*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetXslResult_System_Xml_XPath_IXPathNavigable_System_Xml_Xsl_XsltArgumentList_System_Xml_XPath_IXPathNavigable_" data-uid="Songhay.Xml.XmlUtility.GetXslResult(System.Xml.XPath.IXPathNavigable,System.Xml.Xsl.XsltArgumentList,System.Xml.XPath.IXPathNavigable)">
+  GetXslResult(IXPathNavigable?, XsltArgumentList?, IXPathNavigable?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetXslResult.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>
+for the transformation of the XSLT document
+and the XML document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument GetXslResult(IXPathNavigable? navigableXsl, XsltArgumentList? xslArgs, IXPathNavigable? navigableXml)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigableXsl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> XSL document.</p>
+</dd>
+    <dt><code>xslArgs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xsl.xsltargumentlist">XsltArgumentList</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xsl.xsltargumentlist">XsltArgumentList</a>.</p>
+</dd>
+    <dt><code>navigableXml</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> XML document.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetXslString_" data-uid="Songhay.Xml.XmlUtility.GetXslString*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetXslString_System_Xml_XPath_IXPathNavigable_System_Xml_XPath_IXPathNavigable_" data-uid="Songhay.Xml.XmlUtility.GetXslString(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
+  GetXslString(IXPathNavigable?, IXPathNavigable?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetXslString.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+for the transformation of the XSLT document
+and the XML document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? GetXslString(IXPathNavigable? navigableXsl, IXPathNavigable? navigableSet)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigableXsl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> XSL document.</p>
+</dd>
+    <dt><code>navigableSet</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> XML document.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetXslString_" data-uid="Songhay.Xml.XmlUtility.GetXslString*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetXslString_System_Xml_XPath_IXPathNavigable_System_Xml_Xsl_XsltArgumentList_System_Xml_XPath_IXPathNavigable_" data-uid="Songhay.Xml.XmlUtility.GetXslString(System.Xml.XPath.IXPathNavigable,System.Xml.Xsl.XsltArgumentList,System.Xml.XPath.IXPathNavigable)">
+  GetXslString(IXPathNavigable?, XsltArgumentList?, IXPathNavigable?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetXslString.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+for the transformation of the XSLT document
+and the XML document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? GetXslString(IXPathNavigable? navigableXsl, XsltArgumentList? xslArgs, IXPathNavigable? navigableXml)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigableXsl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> XSL document.</p>
+</dd>
+    <dt><code>xslArgs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xsl.xsltargumentlist">XsltArgumentList</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xsl.xsltargumentlist">XsltArgumentList</a>.</p>
+</dd>
+    <dt><code>navigableXml</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> XML document.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_GetXslString_" data-uid="Songhay.Xml.XmlUtility.GetXslString*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_GetXslString_System_Xml_XPath_IXPathNavigable_System_Xml_Xsl_XsltArgumentList_System_Xml_XPath_IXPathNavigable_System_Xml_XmlWriterSettings_" data-uid="Songhay.Xml.XmlUtility.GetXslString(System.Xml.XPath.IXPathNavigable,System.Xml.Xsl.XsltArgumentList,System.Xml.XPath.IXPathNavigable,System.Xml.XmlWriterSettings)">
+  GetXslString(IXPathNavigable?, XsltArgumentList?, IXPathNavigable?, XmlWriterSettings?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.GetXslString.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+for the transformation of the XSLT document
+and the XML document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? GetXslString(IXPathNavigable? navigableXsl, XsltArgumentList? xslArgs, IXPathNavigable? navigableXml, XmlWriterSettings? settings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigableXsl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> XSL document.</p>
+</dd>
+    <dt><code>xslArgs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xsl.xsltargumentlist">XsltArgumentList</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xsl.xsltargumentlist">XsltArgumentList</a>.</p>
+</dd>
+    <dt><code>navigableXml</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> XML document.</p>
+</dd>
+    <dt><code>settings</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlwritersettings">XmlWriterSettings</a></dt>
+    <dd><p>The settings.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_InputAs_" data-uid="Songhay.Xml.XmlUtility.InputAs*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_InputAs__1___0_" data-uid="Songhay.Xml.XmlUtility.InputAs``1(``0)">
+  InputAs&lt;TIn&gt;(TIn?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.InputAs.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>,
+converted from the specified input.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument? InputAs&lt;TIn&gt;(TIn? input) where TIn : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <span class="xref">TIn</span></dt>
+    <dd><p>The input.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd><p>Returns an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TIn</code></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> of the input.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_InputAs__1___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This member only supports <code>TIn</code> as
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmldocument">XmlDocument</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_IsNoNodeValue_" data-uid="Songhay.Xml.XmlUtility.IsNoNodeValue*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_IsNoNodeValue_System_Xml_XPath_IXPathNavigable_System_String_System_Boolean_" data-uid="Songhay.Xml.XmlUtility.IsNoNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean)">
+  IsNoNodeValue(IXPathNavigable?, string?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.IsNodeValue.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true when the node has the value “no”.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNoNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> node.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The node query <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>throwException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_IsNodeValue_" data-uid="Songhay.Xml.XmlUtility.IsNodeValue*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_IsNodeValue_System_Xml_XPath_IXPathNavigable_System_String_System_Boolean_System_String_" data-uid="Songhay.Xml.XmlUtility.IsNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.String)">
+  IsNodeValue(IXPathNavigable?, string?, bool, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.IsNodeValue.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true when the node has the specified value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> node.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The node query <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>throwException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+</dd>
+    <dt><code>testValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The specified value to test with the node value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_IsNodeValue_" data-uid="Songhay.Xml.XmlUtility.IsNodeValue*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_IsNodeValue_System_Xml_XPath_IXPathNavigable_System_String_System_Boolean_System_String_System_StringComparison_" data-uid="Songhay.Xml.XmlUtility.IsNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.String,System.StringComparison)">
+  IsNodeValue(IXPathNavigable?, string?, bool, string?, StringComparison)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.IsNodeValue.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true when the node has the specified value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue, StringComparison comparisonType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> node.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The node query <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>throwException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+</dd>
+    <dt><code>testValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The specified value to test with the node value.</p>
+</dd>
+    <dt><code>comparisonType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.stringcomparison">StringComparison</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.stringcomparison">StringComparison</a> type.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_IsNodeValue_" data-uid="Songhay.Xml.XmlUtility.IsNodeValue*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_IsNodeValue_System_Xml_XPath_IXPathNavigable_System_String_System_Boolean_System_String_System_Xml_XmlNamespaceManager_" data-uid="Songhay.Xml.XmlUtility.IsNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.String,System.Xml.XmlNamespaceManager)">
+  IsNodeValue(IXPathNavigable?, string?, bool, string?, XmlNamespaceManager)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.IsNodeValue.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true when the node has the specified value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue, XmlNamespaceManager nsMan)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> node.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The node query <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>throwException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+</dd>
+    <dt><code>testValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The specified value to test with the node value.</p>
+</dd>
+    <dt><code>nsMan</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a>
+to use to resolve prefixes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_IsNodeValue_" data-uid="Songhay.Xml.XmlUtility.IsNodeValue*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_IsNodeValue_System_Xml_XPath_IXPathNavigable_System_String_System_Boolean_System_String_System_Xml_XmlNamespaceManager_System_StringComparison_" data-uid="Songhay.Xml.XmlUtility.IsNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean,System.String,System.Xml.XmlNamespaceManager,System.StringComparison)">
+  IsNodeValue(IXPathNavigable?, string?, bool, string?, XmlNamespaceManager, StringComparison)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.IsNodeValue.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true when the node has the specified value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException, string? testValue, XmlNamespaceManager nsMan, StringComparison comparisonType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> node.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The node query <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>throwException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+</dd>
+    <dt><code>testValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The specified value to test with the node value.</p>
+</dd>
+    <dt><code>nsMan</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlnamespacemanager">XmlNamespaceManager</a>
+to use to resolve prefixes.</p>
+</dd>
+    <dt><code>comparisonType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.stringcomparison">StringComparison</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.stringcomparison">StringComparison</a> type.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_IsXml_" data-uid="Songhay.Xml.XmlUtility.IsXml*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_IsXml_System_String_" data-uid="Songhay.Xml.XmlUtility.IsXml(System.String)">
+  IsXml(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.IsXml.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <code>true</code> when the fragment is XML-like.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsXml(string? fragment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fragment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The fragment to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_IsYesNodeValue_" data-uid="Songhay.Xml.XmlUtility.IsYesNodeValue*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_IsYesNodeValue_System_Xml_XPath_IXPathNavigable_System_String_System_Boolean_" data-uid="Songhay.Xml.XmlUtility.IsYesNodeValue(System.Xml.XPath.IXPathNavigable,System.String,System.Boolean)">
+  IsYesNodeValue(IXPathNavigable?, string?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.IsNodeValue.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true when the node has the value “yes”.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsYesNodeValue(IXPathNavigable? node, string? nodeQuery, bool throwException)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> node.</p>
+</dd>
+    <dt><code>nodeQuery</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The node query <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>throwException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <pre><code class="lang-csharp">true</code></pre>, throw an exception for null nodes.
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_LoadXmlSchema_" data-uid="Songhay.Xml.XmlUtility.LoadXmlSchema*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_LoadXmlSchema_System_String_System_Xml_Schema_ValidationEventHandler_" data-uid="Songhay.Xml.XmlUtility.LoadXmlSchema(System.String,System.Xml.Schema.ValidationEventHandler)">
+  LoadXmlSchema(string?, ValidationEventHandler?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.ValidateNavigableNode.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.xmlschema">XmlSchema</a> based
+on the specified navigable set and validation event handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XmlSchema? LoadXmlSchema(string? pathToSchema, ValidationEventHandler? eventHandler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pathToSchema</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The valid path to an XML Schema file.</p>
+</dd>
+    <dt><code>eventHandler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.validationeventhandler">ValidationEventHandler</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.validationeventhandler">ValidationEventHandler</a>
+with signature MyHandler(object sender, ValidationEventArgs args).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.xmlschema">XmlSchema</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_LoadXslTransform_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransform*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_LoadXslTransform_System_String_System_String_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransform(System.String,System.String)">
+  LoadXslTransform(string?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.LoadXslTransform.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+for the transformation of the XSLT file
+and the XML file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? LoadXslTransform(string? xslPath, string? xmlPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xslPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Output path to the XSLT file.</p>
+</dd>
+    <dt><code>xmlPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Output path to the XML file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_LoadXslTransform_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransform*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_LoadXslTransform_System_String_System_String_System_String_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransform(System.String,System.String,System.String)">
+  LoadXslTransform(string?, string?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.LoadXslTransform.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+for the transformation of the XSLT file
+and the XML file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? LoadXslTransform(string? xslPath, string? commandName, string? xmlPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xslPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Output path to the XSLT file.</p>
+</dd>
+    <dt><code>commandName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value for the <pre><code class="lang-csharp">cmd</code></pre>-parameter convention.
+</dd>
+    <dt><code>xmlPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Output path to the XML file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_LoadXslTransform_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransform*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_LoadXslTransform_System_String_System_Xml_Xsl_XsltArgumentList_System_String_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransform(System.String,System.Xml.Xsl.XsltArgumentList,System.String)">
+  LoadXslTransform(string?, XsltArgumentList?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.LoadXslTransform.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+for the transformation of the XSLT file
+and the XML file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? LoadXslTransform(string? xslPath, XsltArgumentList? xslArgs, string? xmlPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xslPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Output path to the XSLT file.</p>
+</dd>
+    <dt><code>xslArgs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xsl.xsltargumentlist">XsltArgumentList</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xsl.xsltargumentlist">XsltArgumentList</a>.</p>
+</dd>
+    <dt><code>xmlPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Output path to the XML file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_LoadXslTransformForMemoryInput_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransformForMemoryInput*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_LoadXslTransformForMemoryInput_System_String_System_String_System_String_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransformForMemoryInput(System.String,System.String,System.String)">
+  LoadXslTransformForMemoryInput(string?, string?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.LoadXslTransform.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+for the transformation of the XSLT file
+and the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> in memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? LoadXslTransformForMemoryInput(string? xslPath, string? commandName, string? xmlFragment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xslPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Output path to the XSLT file.</p>
+</dd>
+    <dt><code>commandName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value for the <pre><code class="lang-csharp">cmd</code></pre>-parameter convention.
+</dd>
+    <dt><code>xmlFragment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A well-formed XML <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_LoadXslTransformForMemoryInput_System_String_System_String_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This convention is used in ASP.NET Web applications.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_LoadXslTransformForMemoryInput_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransformForMemoryInput*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_LoadXslTransformForMemoryInput_System_String_System_String_System_Xml_XPath_IXPathNavigable_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransformForMemoryInput(System.String,System.String,System.Xml.XPath.IXPathNavigable)">
+  LoadXslTransformForMemoryInput(string?, string?, IXPathNavigable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.LoadXslTransform.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+for the transformation of the XSLT file
+and the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> in memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? LoadXslTransformForMemoryInput(string? xslPath, string? commandName, IXPathNavigable navigableXml)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xslPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Output path to the XSLT file.</p>
+</dd>
+    <dt><code>commandName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value for the <pre><code class="lang-csharp">cmd</code></pre>-parameter convention.
+</dd>
+    <dt><code>navigableXml</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> in memory.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_LoadXslTransformForMemoryInput_System_String_System_String_System_Xml_XPath_IXPathNavigable__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This convention is used in ASP.NET Web applications.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_LoadXslTransformForMemoryInput_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransformForMemoryInput*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_LoadXslTransformForMemoryInput_System_String_System_Xml_Xsl_XsltArgumentList_System_String_" data-uid="Songhay.Xml.XmlUtility.LoadXslTransformForMemoryInput(System.String,System.Xml.Xsl.XsltArgumentList,System.String)">
+  LoadXslTransformForMemoryInput(string?, XsltArgumentList?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.LoadXslTransform.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
+for the transformation of the XSLT file
+and the XML in-memory fragment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? LoadXslTransformForMemoryInput(string? xslPath, XsltArgumentList? xslArgs, string? xmlFragment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xslPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Output path to the XSLT file.</p>
+</dd>
+    <dt><code>xslArgs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xsl.xsltargumentlist">XsltArgumentList</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xsl.xsltargumentlist">XsltArgumentList</a>.</p>
+</dd>
+    <dt><code>xmlFragment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A well-formed XML <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_LoadXslTransformForMemoryInput_System_String_System_Xml_Xsl_XsltArgumentList_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This convention is used in ASP.NET Web applications.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_OutputAs_" data-uid="Songhay.Xml.XmlUtility.OutputAs*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_OutputAs__1_System_String_" data-uid="Songhay.Xml.XmlUtility.OutputAs``1(System.String)">
+  OutputAs&lt;TOut&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.OutputAs.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns strongly typed output, converting the XML fragment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TOut? OutputAs&lt;TOut&gt;(string xmlFragment) where TOut : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xmlFragment</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>An XML fragment or document as a well-formed <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TOut</span></dt>
+    <dd><p>Returns the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TOut</code></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> of output to return (constrained to <code>class</code>).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_OutputAs__1_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This member only supports <code>TIn</code> as
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmldocument">XmlDocument</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_OutputAs_" data-uid="Songhay.Xml.XmlUtility.OutputAs*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_OutputAs__1_System_Xml_XPath_IXPathNavigable_" data-uid="Songhay.Xml.XmlUtility.OutputAs``1(System.Xml.XPath.IXPathNavigable)">
+  OutputAs&lt;TOut&gt;(IXPathNavigable?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.OutputAs.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns strongly typed output, converting the Navigable document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TOut? OutputAs&lt;TOut&gt;(IXPathNavigable? navigableDocument) where TOut : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigableDocument</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TOut</span></dt>
+    <dd><p>Returns the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TOut</code></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> of output to return (constrained to <code>class</code>).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_OutputAs__1_System_Xml_XPath_IXPathNavigable__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This member only supports <code>TIn</code> as
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmldocument">XmlDocument</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a>.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_StripNamespaces_" data-uid="Songhay.Xml.XmlUtility.StripNamespaces*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_StripNamespaces_System_String_" data-uid="Songhay.Xml.XmlUtility.StripNamespaces(System.String)">
+  StripNamespaces(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.StripNamespaces.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Strip the namespaces from specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? StripNamespaces(string xml)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xml</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_StripNamespaces_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>WARNING: Stripping namespaces “flattens” the document
+and can cause local-name collisions.</p>
+<p>This routine does not remove namespace prefixes.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_StripNamespaces_" data-uid="Songhay.Xml.XmlUtility.StripNamespaces*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_StripNamespaces_System_String_System_Boolean_" data-uid="Songhay.Xml.XmlUtility.StripNamespaces(System.String,System.Boolean)">
+  StripNamespaces(string?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.StripNamespaces.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Strip the namespaces from specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? StripNamespaces(string? xml, bool removeDocType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xml</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+</dd>
+    <dt><code>removeDocType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <code>true</code>, removes any DOCTYPE preambles.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_StripNamespaces_System_String_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>WARNING: Stripping namespaces “flattens” the document
+and can cause local-name collisions.</p>
+<p>This routine does not remove namespace prefixes.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_StripNamespaces_" data-uid="Songhay.Xml.XmlUtility.StripNamespaces*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_StripNamespaces_System_Xml_XPath_IXPathNavigable_" data-uid="Songhay.Xml.XmlUtility.StripNamespaces(System.Xml.XPath.IXPathNavigable)">
+  StripNamespaces(IXPathNavigable?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.StripNamespaces.IXPathNavigable.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Strip the namespaces from specified document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument? StripNamespaces(IXPathNavigable? navigable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_StripNamespaces_System_Xml_XPath_IXPathNavigable__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>WARNING: Stripping namespaces “flattens” the document
+and can cause local-name collisions.</p>
+<p>This routine does not remove namespace prefixes.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_StripNamespaces_" data-uid="Songhay.Xml.XmlUtility.StripNamespaces*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_StripNamespaces_System_Xml_XPath_IXPathNavigable_System_Boolean_" data-uid="Songhay.Xml.XmlUtility.StripNamespaces(System.Xml.XPath.IXPathNavigable,System.Boolean)">
+  StripNamespaces(IXPathNavigable?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.StripNamespaces.IXPathNavigable.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Strip the namespaces from specified document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XPathDocument? StripNamespaces(IXPathNavigable? navigable, bool removeDocType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+    <dt><code>removeDocType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When <code>true</code>, removes any DOCTYPE preambles.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.xpathdocument">XPathDocument</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_StripNamespaces_System_Xml_XPath_IXPathNavigable_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>WARNING: Stripping namespaces “flattens” the document
+and can cause local-name collisions.</p>
+<p>This routine does not remove namespace prefixes.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_ValidateNavigableNode_" data-uid="Songhay.Xml.XmlUtility.ValidateNavigableNode*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_ValidateNavigableNode_System_Xml_XPath_IXPathNavigable_System_Xml_Schema_XmlSchema_System_Xml_Schema_ValidationEventHandler_" data-uid="Songhay.Xml.XmlUtility.ValidateNavigableNode(System.Xml.XPath.IXPathNavigable,System.Xml.Schema.XmlSchema,System.Xml.Schema.ValidationEventHandler)">
+  ValidateNavigableNode(IXPathNavigable?, XmlSchema?, ValidationEventHandler?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.ValidateNavigableNode.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Validates the specified navigable set
+with the specified schema and validation event handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ValidateNavigableNode(IXPathNavigable? navigable, XmlSchema? schema, ValidationEventHandler? eventHandler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>navigable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+    <dt><code>schema</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.xmlschema">XmlSchema</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.xmlschema">XmlSchema</a>.</p>
+</dd>
+    <dt><code>eventHandler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.validationeventhandler">ValidationEventHandler</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.schema.validationeventhandler">ValidationEventHandler</a>
+with signature MyHandler(object sender, ValidationEventArgs args).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_WriteReader_" data-uid="Songhay.Xml.XmlUtility.WriteReader*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_WriteReader_System_Xml_XmlReader_System_Xml_XmlWriter_" data-uid="Songhay.Xml.XmlUtility.WriteReader(System.Xml.XmlReader,System.Xml.XmlWriter)">
+  WriteReader(XmlReader?, XmlWriter?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.Write.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transfers the data in the Source to the Destination.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteReader(XmlReader? readerSource, XmlWriter? writerDestination)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>readerSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlreader">XmlReader</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlreader">XmlReader</a>.</p>
+</dd>
+    <dt><code>writerDestination</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter">XmlWriter</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlwriter">XmlWriter</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_WriteXslTransform_" data-uid="Songhay.Xml.XmlUtility.WriteXslTransform*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_WriteXslTransform_System_Xml_XPath_IXPathNavigable_System_Xml_XPath_IXPathNavigable_System_String_" data-uid="Songhay.Xml.XmlUtility.WriteXslTransform(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable,System.String)">
+  WriteXslTransform(IXPathNavigable?, IXPathNavigable?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.Write.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms the specified navigable documents
+and writes to disk with the specified path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteXslTransform(IXPathNavigable? xmlInput, IXPathNavigable? navigableXsl, string? outputPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xmlInput</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The specified input.</p>
+</dd>
+    <dt><code>navigableXsl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+    <dt><code>outputPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file-system, target path.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_WriteXslTransform_" data-uid="Songhay.Xml.XmlUtility.WriteXslTransform*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_WriteXslTransform_System_Xml_XmlReader_System_Xml_XPath_IXPathNavigable_System_String_" data-uid="Songhay.Xml.XmlUtility.WriteXslTransform(System.Xml.XmlReader,System.Xml.XPath.IXPathNavigable,System.String)">
+  WriteXslTransform(XmlReader?, IXPathNavigable?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.Write.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms the specified input and writes to disk.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteXslTransform(XmlReader? xmlInput, IXPathNavigable? navigableXsl, string? outputPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xmlInput</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlreader">XmlReader</a></dt>
+    <dd><p>The specified input.</p>
+</dd>
+    <dt><code>navigableXsl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a></dt>
+    <dd><p>The source <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xpath.ixpathnavigable">IXPathNavigable</a> document.</p>
+</dd>
+    <dt><code>outputPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file-system, target path.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_Write_" data-uid="Songhay.Xml.XmlUtility.Write*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_Write__1___0_System_String_" data-uid="Songhay.Xml.XmlUtility.Write``1(``0,System.String)">
+  Write&lt;T&gt;(T?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.Write.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes and writes to the specified path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write&lt;T&gt;(T? instance, string? path) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>instance</code> <span class="xref">T</span></dt>
+    <dd><p>The instance.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Xml_XmlUtility_XmlDecode_" data-uid="Songhay.Xml.XmlUtility.XmlDecode*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_XmlDecode_System_String_" data-uid="Songhay.Xml.XmlUtility.XmlDecode(System.String)">
+  XmlDecode(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.XmlDecode.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms selected HTML entities
+into their respective glyphs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? XmlDecode(string? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Songhay.Xml.LatinGlyphsUtility.html#Songhay_Xml_LatinGlyphsUtility_Condense_System_String_System_Boolean_">Condense</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>)</div>
+    </dd>
+  </dl>
+
+
+  <a id="Songhay_Xml_XmlUtility_XmlEncode_" data-uid="Songhay.Xml.XmlUtility.XmlEncode*"></a>
+
+  <h3 id="Songhay_Xml_XmlUtility_XmlEncode_System_String_" data-uid="Songhay.Xml.XmlUtility.XmlEncode(System.String)">
+  XmlEncode(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility.XmlDecode.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms selected XML glyphs
+into their respective HTML entities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? XmlEncode(string? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Xml_XmlUtility_XmlEncode_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This member will preserve HTML comments.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Songhay.Xml.LatinGlyphsUtility.html#Songhay_Xml_LatinGlyphsUtility_Expand_System_String_System_Boolean_">Expand</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>)</div>
+    </dd>
+  </dl>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Xml/XmlUtility._.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -2,7 +2,7 @@
     "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
     "metadata": [
         {
-            "dest": "./latest-meta",
+            "dest": "./latest",
             "noRestore": true,
             "src": [
                 {
@@ -21,7 +21,6 @@
         }
     ],
     "build": {
-        "dest": "latest",
         "globalMetadata": {
             "_appName": "SonghayCore",
             "_appTitle": "SonghayCore API",
@@ -30,9 +29,8 @@
         },
         "content": [
             {
-                "files": [
-                    "**/*.{md}"
-                ]
+                "exclude": "**/*xrefmap.yml",
+                "files": ["**/*.{md,yml}"]
             }
         ],
         "resource": [],
