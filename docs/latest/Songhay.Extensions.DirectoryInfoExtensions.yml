@@ -1,0 +1,733 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Extensions.DirectoryInfoExtensions
+  commentId: T:Songhay.Extensions.DirectoryInfoExtensions
+  id: DirectoryInfoExtensions
+  parent: Songhay.Extensions
+  children:
+  - Songhay.Extensions.DirectoryInfoExtensions.FindDirectory(System.IO.DirectoryInfo,System.String)
+  - Songhay.Extensions.DirectoryInfoExtensions.FindFile(System.IO.DirectoryInfo,System.String)
+  - Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory(System.IO.DirectoryInfo,System.Int32)
+  - Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectoryInfo(System.IO.DirectoryInfo,System.Int32)
+  - Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath(System.IO.DirectoryInfo,System.String)
+  - Songhay.Extensions.DirectoryInfoExtensions.VerifyDirectory(System.IO.DirectoryInfo,System.String)
+  langs:
+  - csharp
+  - vb
+  name: DirectoryInfoExtensions
+  nameWithType: DirectoryInfoExtensions
+  fullName: Songhay.Extensions.DirectoryInfoExtensions
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Extensions/DirectoryInfoExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DirectoryInfoExtensions
+    path: ../SonghayCore/Extensions/DirectoryInfoExtensions.cs
+    startLine: 3
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Extensions of <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class DirectoryInfoExtensions
+    content.vb: Public Module DirectoryInfoExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Extensions.DirectoryInfoExtensions.FindDirectory(System.IO.DirectoryInfo,System.String)
+  commentId: M:Songhay.Extensions.DirectoryInfoExtensions.FindDirectory(System.IO.DirectoryInfo,System.String)
+  id: FindDirectory(System.IO.DirectoryInfo,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.DirectoryInfoExtensions
+  langs:
+  - csharp
+  - vb
+  name: FindDirectory(DirectoryInfo?, string?)
+  nameWithType: DirectoryInfoExtensions.FindDirectory(DirectoryInfo?, string?)
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.FindDirectory(System.IO.DirectoryInfo?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/DirectoryInfoExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: FindDirectory
+    path: ../SonghayCore/Extensions/DirectoryInfoExtensions.cs
+    startLine: 11
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Finds the specified target <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>
+
+    under the specified root <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static DirectoryInfo? FindDirectory(this DirectoryInfo? directoryInfo, string? expectedDirectoryName)
+    parameters:
+    - id: directoryInfo
+      type: System.IO.DirectoryInfo
+      description: The specified root <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: expectedDirectoryName
+      type: System.String
+      description: The specified target <xref href="System.IO.DirectoryInfo.Name" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.IO.DirectoryInfo
+    content.vb: Public Shared Function FindDirectory(directoryInfo As DirectoryInfo, expectedDirectoryName As String) As DirectoryInfo
+  overload: Songhay.Extensions.DirectoryInfoExtensions.FindDirectory*
+  nameWithType.vb: DirectoryInfoExtensions.FindDirectory(DirectoryInfo, String)
+  fullName.vb: Songhay.Extensions.DirectoryInfoExtensions.FindDirectory(System.IO.DirectoryInfo, String)
+  name.vb: FindDirectory(DirectoryInfo, String)
+- uid: Songhay.Extensions.DirectoryInfoExtensions.FindFile(System.IO.DirectoryInfo,System.String)
+  commentId: M:Songhay.Extensions.DirectoryInfoExtensions.FindFile(System.IO.DirectoryInfo,System.String)
+  id: FindFile(System.IO.DirectoryInfo,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.DirectoryInfoExtensions
+  langs:
+  - csharp
+  - vb
+  name: FindFile(DirectoryInfo?, string?)
+  nameWithType: DirectoryInfoExtensions.FindFile(DirectoryInfo?, string?)
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.FindFile(System.IO.DirectoryInfo?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/DirectoryInfoExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: FindFile
+    path: ../SonghayCore/Extensions/DirectoryInfoExtensions.cs
+    startLine: 30
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Finds the specified <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>
+
+    under the specified <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static FileInfo? FindFile(this DirectoryInfo? directoryInfo, string? expectedFileName)
+    parameters:
+    - id: directoryInfo
+      type: System.IO.DirectoryInfo
+      description: The specified <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: expectedFileName
+      type: System.String
+      description: The specified <xref href="System.IO.FileInfo.Name" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.IO.FileInfo
+    content.vb: Public Shared Function FindFile(directoryInfo As DirectoryInfo, expectedFileName As String) As FileInfo
+  overload: Songhay.Extensions.DirectoryInfoExtensions.FindFile*
+  nameWithType.vb: DirectoryInfoExtensions.FindFile(DirectoryInfo, String)
+  fullName.vb: Songhay.Extensions.DirectoryInfoExtensions.FindFile(System.IO.DirectoryInfo, String)
+  name.vb: FindFile(DirectoryInfo, String)
+- uid: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory(System.IO.DirectoryInfo,System.Int32)
+  commentId: M:Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory(System.IO.DirectoryInfo,System.Int32)
+  id: GetParentDirectory(System.IO.DirectoryInfo,System.Int32)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.DirectoryInfoExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetParentDirectory(DirectoryInfo?, int)
+  nameWithType: DirectoryInfoExtensions.GetParentDirectory(DirectoryInfo?, int)
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory(System.IO.DirectoryInfo?, int)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/DirectoryInfoExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetParentDirectory
+    path: ../SonghayCore/Extensions/DirectoryInfoExtensions.cs
+    startLine: 47
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Gets the parent directory.
+  example: []
+  syntax:
+    content: public static string? GetParentDirectory(this DirectoryInfo? directoryInfo, int levels)
+    parameters:
+    - id: directoryInfo
+      type: System.IO.DirectoryInfo
+      description: The specified <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: levels
+      type: System.Int32
+      description: The levels.
+    return:
+      type: System.String
+      description: Returns a <xref href="System.String" data-throw-if-not-resolved="false"></xref> representing the directory.
+    content.vb: Public Shared Function GetParentDirectory(directoryInfo As DirectoryInfo, levels As Integer) As String
+  overload: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory*
+  nameWithType.vb: DirectoryInfoExtensions.GetParentDirectory(DirectoryInfo, Integer)
+  fullName.vb: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory(System.IO.DirectoryInfo, Integer)
+  name.vb: GetParentDirectory(DirectoryInfo, Integer)
+- uid: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectoryInfo(System.IO.DirectoryInfo,System.Int32)
+  commentId: M:Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectoryInfo(System.IO.DirectoryInfo,System.Int32)
+  id: GetParentDirectoryInfo(System.IO.DirectoryInfo,System.Int32)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.DirectoryInfoExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetParentDirectoryInfo(DirectoryInfo?, int)
+  nameWithType: DirectoryInfoExtensions.GetParentDirectoryInfo(DirectoryInfo?, int)
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectoryInfo(System.IO.DirectoryInfo?, int)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/DirectoryInfoExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetParentDirectoryInfo
+    path: ../SonghayCore/Extensions/DirectoryInfoExtensions.cs
+    startLine: 53
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Gets the parent <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static DirectoryInfo? GetParentDirectoryInfo(this DirectoryInfo? directoryInfo, int levels)
+    parameters:
+    - id: directoryInfo
+      type: System.IO.DirectoryInfo
+      description: The specified <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: levels
+      type: System.Int32
+      description: The levels.
+    return:
+      type: System.IO.DirectoryInfo
+    content.vb: Public Shared Function GetParentDirectoryInfo(directoryInfo As DirectoryInfo, levels As Integer) As DirectoryInfo
+  overload: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectoryInfo*
+  nameWithType.vb: DirectoryInfoExtensions.GetParentDirectoryInfo(DirectoryInfo, Integer)
+  fullName.vb: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectoryInfo(System.IO.DirectoryInfo, Integer)
+  name.vb: GetParentDirectoryInfo(DirectoryInfo, Integer)
+- uid: Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath(System.IO.DirectoryInfo,System.String)
+  commentId: M:Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath(System.IO.DirectoryInfo,System.String)
+  id: ToCombinedPath(System.IO.DirectoryInfo,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.DirectoryInfoExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToCombinedPath(DirectoryInfo?, string?)
+  nameWithType: DirectoryInfoExtensions.ToCombinedPath(DirectoryInfo?, string?)
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath(System.IO.DirectoryInfo?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/DirectoryInfoExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToCombinedPath
+    path: ../SonghayCore/Extensions/DirectoryInfoExtensions.cs
+    startLine: 78
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Combines path and root based
+
+    on the current value of <xref href="System.IO.Path.DirectorySeparatorChar" data-throw-if-not-resolved="false"></xref>
+
+    of the current OS or passes through a drive-letter rooted path.
+  remarks: >-
+    For detail, see https://github.com/BryanWilhite/SonghayCore/issues/14
+
+    and <xref href="Songhay.ProgramFileUtility.GetCombinedPath(System.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string ToCombinedPath(this DirectoryInfo? directoryInfo, string? path)
+    parameters:
+    - id: directoryInfo
+      type: System.IO.DirectoryInfo
+      description: The specified <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: path
+      type: System.String
+      description: The path.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToCombinedPath(directoryInfo As DirectoryInfo, path As String) As String
+  overload: Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath*
+  nameWithType.vb: DirectoryInfoExtensions.ToCombinedPath(DirectoryInfo, String)
+  fullName.vb: Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath(System.IO.DirectoryInfo, String)
+  name.vb: ToCombinedPath(DirectoryInfo, String)
+- uid: Songhay.Extensions.DirectoryInfoExtensions.VerifyDirectory(System.IO.DirectoryInfo,System.String)
+  commentId: M:Songhay.Extensions.DirectoryInfoExtensions.VerifyDirectory(System.IO.DirectoryInfo,System.String)
+  id: VerifyDirectory(System.IO.DirectoryInfo,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.DirectoryInfoExtensions
+  langs:
+  - csharp
+  - vb
+  name: VerifyDirectory(DirectoryInfo?, string?)
+  nameWithType: DirectoryInfoExtensions.VerifyDirectory(DirectoryInfo?, string?)
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.VerifyDirectory(System.IO.DirectoryInfo?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/DirectoryInfoExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: VerifyDirectory
+    path: ../SonghayCore/Extensions/DirectoryInfoExtensions.cs
+    startLine: 91
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Verifies the specified <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>
+
+    with conventional error handling.
+  example: []
+  syntax:
+    content: public static void VerifyDirectory(this DirectoryInfo? directoryInfo, string? expectedDirectoryName)
+    parameters:
+    - id: directoryInfo
+      type: System.IO.DirectoryInfo
+      description: The specified <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>.
+    - id: expectedDirectoryName
+      type: System.String
+      description: The expected directory name.
+    content.vb: Public Shared Sub VerifyDirectory(directoryInfo As DirectoryInfo, expectedDirectoryName As String)
+  overload: Songhay.Extensions.DirectoryInfoExtensions.VerifyDirectory*
+  nameWithType.vb: DirectoryInfoExtensions.VerifyDirectory(DirectoryInfo, String)
+  fullName.vb: Songhay.Extensions.DirectoryInfoExtensions.VerifyDirectory(System.IO.DirectoryInfo, String)
+  name.vb: VerifyDirectory(DirectoryInfo, String)
+references:
+- uid: System.IO.DirectoryInfo
+  commentId: T:System.IO.DirectoryInfo
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.directoryinfo
+  name: DirectoryInfo
+  nameWithType: DirectoryInfo
+  fullName: System.IO.DirectoryInfo
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IO.DirectoryInfo.Name
+  commentId: P:System.IO.DirectoryInfo.Name
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.directoryinfo.name
+  name: Name
+  nameWithType: DirectoryInfo.Name
+  fullName: System.IO.DirectoryInfo.Name
+- uid: Songhay.Extensions.DirectoryInfoExtensions.FindDirectory*
+  commentId: Overload:Songhay.Extensions.DirectoryInfoExtensions.FindDirectory
+  href: Songhay.Extensions.DirectoryInfoExtensions.html#Songhay_Extensions_DirectoryInfoExtensions_FindDirectory_System_IO_DirectoryInfo_System_String_
+  name: FindDirectory
+  nameWithType: DirectoryInfoExtensions.FindDirectory
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.FindDirectory
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.IO.FileInfo
+  commentId: T:System.IO.FileInfo
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.fileinfo
+  name: FileInfo
+  nameWithType: FileInfo
+  fullName: System.IO.FileInfo
+- uid: System.IO.FileInfo.Name
+  commentId: P:System.IO.FileInfo.Name
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.fileinfo.name
+  name: Name
+  nameWithType: FileInfo.Name
+  fullName: System.IO.FileInfo.Name
+- uid: Songhay.Extensions.DirectoryInfoExtensions.FindFile*
+  commentId: Overload:Songhay.Extensions.DirectoryInfoExtensions.FindFile
+  href: Songhay.Extensions.DirectoryInfoExtensions.html#Songhay_Extensions_DirectoryInfoExtensions_FindFile_System_IO_DirectoryInfo_System_String_
+  name: FindFile
+  nameWithType: DirectoryInfoExtensions.FindFile
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.FindFile
+- uid: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory*
+  commentId: Overload:Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory
+  href: Songhay.Extensions.DirectoryInfoExtensions.html#Songhay_Extensions_DirectoryInfoExtensions_GetParentDirectory_System_IO_DirectoryInfo_System_Int32_
+  name: GetParentDirectory
+  nameWithType: DirectoryInfoExtensions.GetParentDirectory
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectory
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectoryInfo*
+  commentId: Overload:Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectoryInfo
+  href: Songhay.Extensions.DirectoryInfoExtensions.html#Songhay_Extensions_DirectoryInfoExtensions_GetParentDirectoryInfo_System_IO_DirectoryInfo_System_Int32_
+  name: GetParentDirectoryInfo
+  nameWithType: DirectoryInfoExtensions.GetParentDirectoryInfo
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.GetParentDirectoryInfo
+- uid: System.IO.Path.DirectorySeparatorChar
+  commentId: F:System.IO.Path.DirectorySeparatorChar
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.path.directoryseparatorchar
+  name: DirectorySeparatorChar
+  nameWithType: Path.DirectorySeparatorChar
+  fullName: System.IO.Path.DirectorySeparatorChar
+- uid: Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)
+  commentId: M:Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)
+  isExternal: true
+  href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_GetCombinedPath_System_String_System_String_
+  name: GetCombinedPath(string, string)
+  nameWithType: ProgramFileUtility.GetCombinedPath(string, string)
+  fullName: Songhay.ProgramFileUtility.GetCombinedPath(string, string)
+  nameWithType.vb: ProgramFileUtility.GetCombinedPath(String, String)
+  fullName.vb: Songhay.ProgramFileUtility.GetCombinedPath(String, String)
+  name.vb: GetCombinedPath(String, String)
+  spec.csharp:
+  - uid: Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)
+    name: GetCombinedPath
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_GetCombinedPath_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)
+    name: GetCombinedPath
+    href: Songhay.ProgramFileUtility.html#Songhay_ProgramFileUtility_GetCombinedPath_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath*
+  commentId: Overload:Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath
+  href: Songhay.Extensions.DirectoryInfoExtensions.html#Songhay_Extensions_DirectoryInfoExtensions_ToCombinedPath_System_IO_DirectoryInfo_System_String_
+  name: ToCombinedPath
+  nameWithType: DirectoryInfoExtensions.ToCombinedPath
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.ToCombinedPath
+- uid: Songhay.Extensions.DirectoryInfoExtensions.VerifyDirectory*
+  commentId: Overload:Songhay.Extensions.DirectoryInfoExtensions.VerifyDirectory
+  href: Songhay.Extensions.DirectoryInfoExtensions.html#Songhay_Extensions_DirectoryInfoExtensions_VerifyDirectory_System_IO_DirectoryInfo_System_String_
+  name: VerifyDirectory
+  nameWithType: DirectoryInfoExtensions.VerifyDirectory
+  fullName: Songhay.Extensions.DirectoryInfoExtensions.VerifyDirectory

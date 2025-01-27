@@ -1,0 +1,1428 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Extensions.IEnumerableOfTExtensions
+  commentId: T:Songhay.Extensions.IEnumerableOfTExtensions
+  id: IEnumerableOfTExtensions
+  parent: Songhay.Extensions
+  children:
+  - Songhay.Extensions.IEnumerableOfTExtensions.Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  - Songhay.Extensions.IEnumerableOfTExtensions.Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}},``0)
+  - Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})
+  - Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  - Songhay.Extensions.IEnumerableOfTExtensions.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+  - Songhay.Extensions.IEnumerableOfTExtensions.SelectWithPrevious``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``1})
+  - Songhay.Extensions.IEnumerableOfTExtensions.ToCollection``1(System.Collections.Generic.IEnumerable{``0})
+  - Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString``1(System.Collections.Generic.IEnumerable{``0})
+  - Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString``1(System.Collections.Generic.IEnumerable{``0},System.Byte)
+  langs:
+  - csharp
+  - vb
+  name: IEnumerableOfTExtensions
+  nameWithType: IEnumerableOfTExtensions
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IEnumerableOfTExtensions
+    path: ../SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+    startLine: 10
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Extensions of <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    When this ‘greatest hits collection’ is found to be limited,
+
+    upgrade to MoreLinq [ see https://github.com/morelinq/MoreLINQ ]
+  example: []
+  syntax:
+    content: public static class IEnumerableOfTExtensions
+    content.vb: Public Module IEnumerableOfTExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  commentId: M:Songhay.Extensions.IEnumerableOfTExtensions.Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  id: Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IEnumerableOfTExtensions
+  langs:
+  - csharp
+  - vb
+  name: Flatten<TSource>(IEnumerable<TSource>?, Func<TSource, IEnumerable<TSource>>?)
+  nameWithType: IEnumerableOfTExtensions.Flatten<TSource>(IEnumerable<TSource>?, Func<TSource, IEnumerable<TSource>>?)
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.Flatten<TSource>(System.Collections.Generic.IEnumerable<TSource>?, System.Func<TSource, System.Collections.Generic.IEnumerable<TSource>>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: Flatten
+    path: ../SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+    startLine: 24
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Flattens the specified source.
+  remarks: >-
+    When <code>source</code> is not already an array,
+
+    this member will mercilessly allocate a snapshot of <code>TSource[]</code>.
+
+    To avoid this memory pressure, upgrade to the <code>Flatten</code> method
+
+    of MoreLinq [ see https://github.com/morelinq/MoreLINQ/blob/master/MoreLinq/Flatten.cs#L91 ]
+  example: []
+  syntax:
+    content: public static IEnumerable<TSource> Flatten<TSource>(this IEnumerable<TSource>? source, Func<TSource, IEnumerable<TSource>>? childGetter)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TSource}}
+      description: The source.
+    - id: childGetter
+      type: System.Func{{TSource},System.Collections.Generic.IEnumerable{{TSource}}}
+      description: The child getter.
+    typeParameters:
+    - id: TSource
+      description: The type of the source.
+    return:
+      type: System.Collections.Generic.IEnumerable{{TSource}}
+    content.vb: Public Shared Function Flatten(Of TSource)(source As IEnumerable(Of TSource), childGetter As Func(Of TSource, IEnumerable(Of TSource))) As IEnumerable(Of TSource)
+  overload: Songhay.Extensions.IEnumerableOfTExtensions.Flatten*
+  nameWithType.vb: IEnumerableOfTExtensions.Flatten(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, IEnumerable(Of TSource)))
+  fullName.vb: Songhay.Extensions.IEnumerableOfTExtensions.Flatten(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, System.Collections.Generic.IEnumerable(Of TSource)))
+  name.vb: Flatten(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, IEnumerable(Of TSource)))
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}},``0)
+  commentId: M:Songhay.Extensions.IEnumerableOfTExtensions.Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}},``0)
+  id: Flatten``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}},``0)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IEnumerableOfTExtensions
+  langs:
+  - csharp
+  - vb
+  name: Flatten<TSource>(IEnumerable<TSource>, Func<TSource, IEnumerable<TSource>>, TSource)
+  nameWithType: IEnumerableOfTExtensions.Flatten<TSource>(IEnumerable<TSource>, Func<TSource, IEnumerable<TSource>>, TSource)
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.Flatten<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, System.Collections.Generic.IEnumerable<TSource>>, TSource)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: Flatten
+    path: ../SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+    startLine: 48
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Flattens the specified source.
+  example: []
+  syntax:
+    content: public static IEnumerable<TSource> Flatten<TSource>(this IEnumerable<TSource> source, Func<TSource, IEnumerable<TSource>> childGetter, TSource flattenedHead)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TSource}}
+      description: The source.
+    - id: childGetter
+      type: System.Func{{TSource},System.Collections.Generic.IEnumerable{{TSource}}}
+      description: The child getter.
+    - id: flattenedHead
+      type: '{TSource}'
+      description: The flattened head.
+    typeParameters:
+    - id: TSource
+      description: The type of the source.
+    return:
+      type: System.Collections.Generic.IEnumerable{{TSource}}
+    content.vb: Public Shared Function Flatten(Of TSource)(source As IEnumerable(Of TSource), childGetter As Func(Of TSource, IEnumerable(Of TSource)), flattenedHead As TSource) As IEnumerable(Of TSource)
+  overload: Songhay.Extensions.IEnumerableOfTExtensions.Flatten*
+  nameWithType.vb: IEnumerableOfTExtensions.Flatten(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, IEnumerable(Of TSource)), TSource)
+  fullName.vb: Songhay.Extensions.IEnumerableOfTExtensions.Flatten(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, System.Collections.Generic.IEnumerable(Of TSource)), TSource)
+  name.vb: Flatten(Of TSource)(IEnumerable(Of TSource), Func(Of TSource, IEnumerable(Of TSource)), TSource)
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  commentId: M:Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  id: ForEachInEnumerable``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IEnumerableOfTExtensions
+  langs:
+  - csharp
+  - vb
+  name: ForEachInEnumerable<TEnumerable>(IEnumerable<TEnumerable>?, Action<TEnumerable>?)
+  nameWithType: IEnumerableOfTExtensions.ForEachInEnumerable<TEnumerable>(IEnumerable<TEnumerable>?, Action<TEnumerable>?)
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable<TEnumerable>(System.Collections.Generic.IEnumerable<TEnumerable>?, System.Action<TEnumerable>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ForEachInEnumerable
+    path: ../SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+    startLine: 66
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Performs the <xref href="System.Action" data-throw-if-not-resolved="false"></xref>
+
+    on each item in the enumerable object.
+  remarks: >-
+    “I am philosophically opposed to providing such a method, for two reasons.
+
+    …The first reason is that doing so violates the functional programming principles
+
+    that all the other sequence operators are based upon. Clearly the sole purpose of a call
+
+    to this method is to cause side effects.”
+
+    —Eric Lippert, “foreach” vs “ForEach” [http://blogs.msdn.com/b/ericlippert/archive/2009/05/18/foreach-vs-foreach.aspx]
+  example: []
+  syntax:
+    content: public static void ForEachInEnumerable<TEnumerable>(this IEnumerable<TEnumerable>? enumerable, Action<TEnumerable>? action)
+    parameters:
+    - id: enumerable
+      type: System.Collections.Generic.IEnumerable{{TEnumerable}}
+      description: The enumerable.
+    - id: action
+      type: System.Action{{TEnumerable}}
+      description: The action.
+    typeParameters:
+    - id: TEnumerable
+      description: The type of the enumerable.
+    content.vb: Public Shared Sub ForEachInEnumerable(Of TEnumerable)(enumerable As IEnumerable(Of TEnumerable), action As Action(Of TEnumerable))
+  overload: Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable*
+  nameWithType.vb: IEnumerableOfTExtensions.ForEachInEnumerable(Of TEnumerable)(IEnumerable(Of TEnumerable), Action(Of TEnumerable))
+  fullName.vb: Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable(Of TEnumerable)(System.Collections.Generic.IEnumerable(Of TEnumerable), System.Action(Of TEnumerable))
+  name.vb: ForEachInEnumerable(Of TEnumerable)(IEnumerable(Of TEnumerable), Action(Of TEnumerable))
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})
+  commentId: M:Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})
+  id: ForEachInEnumerable``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IEnumerableOfTExtensions
+  langs:
+  - csharp
+  - vb
+  name: ForEachInEnumerable<TEnumerable>(IEnumerable<TEnumerable>?, Action<TEnumerable, int>?)
+  nameWithType: IEnumerableOfTExtensions.ForEachInEnumerable<TEnumerable>(IEnumerable<TEnumerable>?, Action<TEnumerable, int>?)
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable<TEnumerable>(System.Collections.Generic.IEnumerable<TEnumerable>?, System.Action<TEnumerable, int>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ForEachInEnumerable
+    path: ../SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+    startLine: 89
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Performs the <xref href="System.Action" data-throw-if-not-resolved="false"></xref>
+
+    on each item in the enumerable object.
+  remarks: >-
+    This member is ruthlessly derived from <code>MoreLinq.ForEach{T}</code>
+
+    [ see https://github.com/morelinq/MoreLINQ/blob/master/MoreLinq/ForEach.cs#L50 ].
+  example: []
+  syntax:
+    content: public static void ForEachInEnumerable<TEnumerable>(this IEnumerable<TEnumerable>? enumerable, Action<TEnumerable, int>? action)
+    parameters:
+    - id: enumerable
+      type: System.Collections.Generic.IEnumerable{{TEnumerable}}
+      description: The enumerable.
+    - id: action
+      type: System.Action{{TEnumerable},System.Int32}
+      description: The action.
+    typeParameters:
+    - id: TEnumerable
+      description: The type of the enumerable.
+    content.vb: Public Shared Sub ForEachInEnumerable(Of TEnumerable)(enumerable As IEnumerable(Of TEnumerable), action As Action(Of TEnumerable, Integer))
+  overload: Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable*
+  nameWithType.vb: IEnumerableOfTExtensions.ForEachInEnumerable(Of TEnumerable)(IEnumerable(Of TEnumerable), Action(Of TEnumerable, Integer))
+  fullName.vb: Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable(Of TEnumerable)(System.Collections.Generic.IEnumerable(Of TEnumerable), System.Action(Of TEnumerable, Integer))
+  name.vb: ForEachInEnumerable(Of TEnumerable)(IEnumerable(Of TEnumerable), Action(Of TEnumerable, Integer))
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+  commentId: M:Songhay.Extensions.IEnumerableOfTExtensions.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+  id: Partition``1(System.Collections.Generic.IEnumerable{``0},System.Int32)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IEnumerableOfTExtensions
+  langs:
+  - csharp
+  - vb
+  name: Partition<T>(IEnumerable<T>, int)
+  nameWithType: IEnumerableOfTExtensions.Partition<T>(IEnumerable<T>, int)
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.Partition<T>(System.Collections.Generic.IEnumerable<T>, int)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: Partition
+    path: ../SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+    startLine: 112
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Partitions the specified source.
+  remarks: >-
+    This member is by Jon Skeet.
+
+    [http://stackoverflow.com/questions/438188/split-a-collection-into-n-parts-with-linq]
+  example: []
+  syntax:
+    content: public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> source, int size)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The source.
+    - id: size
+      type: System.Int32
+      description: The size.
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{{T}}}
+    content.vb: Public Shared Function Partition(Of T)(source As IEnumerable(Of T), size As Integer) As IEnumerable(Of IEnumerable(Of T))
+  overload: Songhay.Extensions.IEnumerableOfTExtensions.Partition*
+  nameWithType.vb: IEnumerableOfTExtensions.Partition(Of T)(IEnumerable(Of T), Integer)
+  fullName.vb: Songhay.Extensions.IEnumerableOfTExtensions.Partition(Of T)(System.Collections.Generic.IEnumerable(Of T), Integer)
+  name.vb: Partition(Of T)(IEnumerable(Of T), Integer)
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.SelectWithPrevious``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``1})
+  commentId: M:Songhay.Extensions.IEnumerableOfTExtensions.SelectWithPrevious``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``1})
+  id: SelectWithPrevious``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``1})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IEnumerableOfTExtensions
+  langs:
+  - csharp
+  - vb
+  name: SelectWithPrevious<TSource, TResult>(IEnumerable<TSource>, Func<TSource, TSource, TResult>)
+  nameWithType: IEnumerableOfTExtensions.SelectWithPrevious<TSource, TResult>(IEnumerable<TSource>, Func<TSource, TSource, TResult>)
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.SelectWithPrevious<TSource, TResult>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, TSource, TResult>)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SelectWithPrevious
+    path: ../SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+    startLine: 161
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Projects the previous item with the current item.
+  remarks: >-
+    “This enables you to perform your projection using only a single pass of the source sequence,
+
+    which is always a bonus (imagine running it over a large log file).
+
+    Note that it will project a sequence of length n into a sequence of length n-1—
+
+    you may want to prepend a ‘dummy’ first element, for example. (Or change the method to include one.)
+
+    Here’s an example of how you'd use it:
+
+    <pre><code class="lang-csharp">var query = list.SelectWithPrevious((prev, cur) =&gt; new { ID = cur.ID, Date = cur.Date, DateDiff = (cur.Date - prev.Date).Days);</code></pre>
+
+    Note that this will include the final result of one ID with the first result of the next ID…
+
+    you may wish to group your sequence by ID first.”
+
+    —Jon Skeet, “Calculate difference from previous item with LINQ”
+
+    [http://stackoverflow.com/questions/3683105/calculate-difference-from-previous-item-with-linq/3683217#3683217]
+  example: []
+  syntax:
+    content: public static IEnumerable<TResult> SelectWithPrevious<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TSource, TResult> projection)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TSource}}
+      description: The source.
+    - id: projection
+      type: System.Func{{TSource},{TSource},{TResult}}
+      description: The projection.
+    typeParameters:
+    - id: TSource
+      description: The type of the source.
+    - id: TResult
+      description: The type of the result.
+    return:
+      type: System.Collections.Generic.IEnumerable{{TResult}}
+    content.vb: Public Shared Function SelectWithPrevious(Of TSource, TResult)(source As IEnumerable(Of TSource), projection As Func(Of TSource, TSource, TResult)) As IEnumerable(Of TResult)
+  overload: Songhay.Extensions.IEnumerableOfTExtensions.SelectWithPrevious*
+  nameWithType.vb: IEnumerableOfTExtensions.SelectWithPrevious(Of TSource, TResult)(IEnumerable(Of TSource), Func(Of TSource, TSource, TResult))
+  fullName.vb: Songhay.Extensions.IEnumerableOfTExtensions.SelectWithPrevious(Of TSource, TResult)(System.Collections.Generic.IEnumerable(Of TSource), System.Func(Of TSource, TSource, TResult))
+  name.vb: SelectWithPrevious(Of TSource, TResult)(IEnumerable(Of TSource), Func(Of TSource, TSource, TResult))
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.ToCollection``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:Songhay.Extensions.IEnumerableOfTExtensions.ToCollection``1(System.Collections.Generic.IEnumerable{``0})
+  id: ToCollection``1(System.Collections.Generic.IEnumerable{``0})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IEnumerableOfTExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToCollection<TEnumerable>(IEnumerable<TEnumerable>?)
+  nameWithType: IEnumerableOfTExtensions.ToCollection<TEnumerable>(IEnumerable<TEnumerable>?)
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.ToCollection<TEnumerable>(System.Collections.Generic.IEnumerable<TEnumerable>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToCollection
+    path: ../SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+    startLine: 189
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref>
+
+    into <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    For details, see “When To Use IEnumerable, ICollection, IList And List”
+
+    [http://www.claudiobernasconi.ch/2013/07/22/when-to-use-ienumerable-icollection-ilist-and-list/]
+  example: []
+  syntax:
+    content: public static ICollection<TEnumerable> ToCollection<TEnumerable>(this IEnumerable<TEnumerable>? enumerable)
+    parameters:
+    - id: enumerable
+      type: System.Collections.Generic.IEnumerable{{TEnumerable}}
+      description: ''
+    typeParameters:
+    - id: TEnumerable
+      description: ''
+    return:
+      type: System.Collections.Generic.ICollection{{TEnumerable}}
+    content.vb: Public Shared Function ToCollection(Of TEnumerable)(enumerable As IEnumerable(Of TEnumerable)) As ICollection(Of TEnumerable)
+  overload: Songhay.Extensions.IEnumerableOfTExtensions.ToCollection*
+  nameWithType.vb: IEnumerableOfTExtensions.ToCollection(Of TEnumerable)(IEnumerable(Of TEnumerable))
+  fullName.vb: Songhay.Extensions.IEnumerableOfTExtensions.ToCollection(Of TEnumerable)(System.Collections.Generic.IEnumerable(Of TEnumerable))
+  name.vb: ToCollection(Of TEnumerable)(IEnumerable(Of TEnumerable))
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString``1(System.Collections.Generic.IEnumerable{``0})
+  id: ToDisplayString``1(System.Collections.Generic.IEnumerable{``0})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IEnumerableOfTExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToDisplayString<TSource>(IEnumerable<TSource>)
+  nameWithType: IEnumerableOfTExtensions.ToDisplayString<TSource>(IEnumerable<TSource>)
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString<TSource>(System.Collections.Generic.IEnumerable<TSource>)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToDisplayString
+    path: ../SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+    startLine: 197
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Converts the <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> into a display string.
+  example: []
+  syntax:
+    content: 'public static string ToDisplayString<TSource>(this IEnumerable<TSource> data) where TSource : class'
+    parameters:
+    - id: data
+      type: System.Collections.Generic.IEnumerable{{TSource}}
+      description: The source.
+    typeParameters:
+    - id: TSource
+      description: The type of the source.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToDisplayString(Of TSource As Class)(data As IEnumerable(Of TSource)) As String
+  overload: Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString*
+  nameWithType.vb: IEnumerableOfTExtensions.ToDisplayString(Of TSource)(IEnumerable(Of TSource))
+  fullName.vb: Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource))
+  name.vb: ToDisplayString(Of TSource)(IEnumerable(Of TSource))
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString``1(System.Collections.Generic.IEnumerable{``0},System.Byte)
+  commentId: M:Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString``1(System.Collections.Generic.IEnumerable{``0},System.Byte)
+  id: ToDisplayString``1(System.Collections.Generic.IEnumerable{``0},System.Byte)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IEnumerableOfTExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToDisplayString<TSource>(IEnumerable<TSource>, byte)
+  nameWithType: IEnumerableOfTExtensions.ToDisplayString<TSource>(IEnumerable<TSource>, byte)
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString<TSource>(System.Collections.Generic.IEnumerable<TSource>, byte)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToDisplayString
+    path: ../SonghayCore/Extensions/IEnumerableOfTExtensions.cs
+    startLine: 206
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Converts the <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> into a display string.
+  example: []
+  syntax:
+    content: 'public static string ToDisplayString<TSource>(this IEnumerable<TSource> source, byte indent) where TSource : class'
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{{TSource}}
+      description: The source.
+    - id: indent
+      type: System.Byte
+      description: The indent.
+    typeParameters:
+    - id: TSource
+      description: The type of the source.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToDisplayString(Of TSource As Class)(source As IEnumerable(Of TSource), indent As Byte) As String
+  overload: Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString*
+  nameWithType.vb: IEnumerableOfTExtensions.ToDisplayString(Of TSource)(IEnumerable(Of TSource), Byte)
+  fullName.vb: Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), Byte)
+  name.vb: ToDisplayString(Of TSource)(IEnumerable(Of TSource), Byte)
+references:
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.Flatten*
+  commentId: Overload:Songhay.Extensions.IEnumerableOfTExtensions.Flatten
+  href: Songhay.Extensions.IEnumerableOfTExtensions.html#Songhay_Extensions_IEnumerableOfTExtensions_Flatten__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  name: Flatten
+  nameWithType: IEnumerableOfTExtensions.Flatten
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.Flatten
+- uid: System.Collections.Generic.IEnumerable{{TSource}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TSource>
+  nameWithType: IEnumerable<TSource>
+  fullName: System.Collections.Generic.IEnumerable<TSource>
+  nameWithType.vb: IEnumerable(Of TSource)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TSource)
+  name.vb: IEnumerable(Of TSource)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+- uid: System.Func{{TSource},System.Collections.Generic.IEnumerable{{TSource}}}
+  commentId: T:System.Func{``0,System.Collections.Generic.IEnumerable{``0}}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<TSource, IEnumerable<TSource>>
+  nameWithType: Func<TSource, IEnumerable<TSource>>
+  fullName: System.Func<TSource, System.Collections.Generic.IEnumerable<TSource>>
+  nameWithType.vb: Func(Of TSource, IEnumerable(Of TSource))
+  fullName.vb: System.Func(Of TSource, System.Collections.Generic.IEnumerable(Of TSource))
+  name.vb: Func(Of TSource, IEnumerable(Of TSource))
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TSource
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: '{TSource}'
+  commentId: '!:TSource'
+  definition: TSource
+  name: TSource
+  nameWithType: TSource
+  fullName: TSource
+- uid: TSource
+  commentId: '!:TSource'
+  name: TSource
+  nameWithType: TSource
+  fullName: TSource
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable*
+  commentId: Overload:Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable
+  href: Songhay.Extensions.IEnumerableOfTExtensions.html#Songhay_Extensions_IEnumerableOfTExtensions_ForEachInEnumerable__1_System_Collections_Generic_IEnumerable___0__System_Action___0__
+  name: ForEachInEnumerable
+  nameWithType: IEnumerableOfTExtensions.ForEachInEnumerable
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.ForEachInEnumerable
+- uid: System.Collections.Generic.IEnumerable{{TEnumerable}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TEnumerable>
+  nameWithType: IEnumerable<TEnumerable>
+  fullName: System.Collections.Generic.IEnumerable<TEnumerable>
+  nameWithType.vb: IEnumerable(Of TEnumerable)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TEnumerable)
+  name.vb: IEnumerable(Of TEnumerable)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TEnumerable
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnumerable
+  - name: )
+- uid: System.Action{{TEnumerable}}
+  commentId: T:System.Action{``0}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<TEnumerable>
+  nameWithType: Action<TEnumerable>
+  fullName: System.Action<TEnumerable>
+  nameWithType.vb: Action(Of TEnumerable)
+  fullName.vb: System.Action(Of TEnumerable)
+  name.vb: Action(Of TEnumerable)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: TEnumerable
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnumerable
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action{{TEnumerable},System.Int32}
+  commentId: T:System.Action{``0,System.Int32}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<TEnumerable, int>
+  nameWithType: Action<TEnumerable, int>
+  fullName: System.Action<TEnumerable, int>
+  nameWithType.vb: Action(Of TEnumerable, Integer)
+  fullName.vb: System.Action(Of TEnumerable, Integer)
+  name.vb: Action(Of TEnumerable, Integer)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: TEnumerable
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnumerable
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.Partition*
+  commentId: Overload:Songhay.Extensions.IEnumerableOfTExtensions.Partition
+  href: Songhay.Extensions.IEnumerableOfTExtensions.html#Songhay_Extensions_IEnumerableOfTExtensions_Partition__1_System_Collections_Generic_IEnumerable___0__System_Int32_
+  name: Partition
+  nameWithType: IEnumerableOfTExtensions.Partition
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.Partition
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{{T}}}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<IEnumerable<T>>
+  nameWithType: IEnumerable<IEnumerable<T>>
+  fullName: System.Collections.Generic.IEnumerable<System.Collections.Generic.IEnumerable<T>>
+  nameWithType.vb: IEnumerable(Of IEnumerable(Of T))
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Collections.Generic.IEnumerable(Of T))
+  name.vb: IEnumerable(Of IEnumerable(Of T))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.SelectWithPrevious*
+  commentId: Overload:Songhay.Extensions.IEnumerableOfTExtensions.SelectWithPrevious
+  href: Songhay.Extensions.IEnumerableOfTExtensions.html#Songhay_Extensions_IEnumerableOfTExtensions_SelectWithPrevious__2_System_Collections_Generic_IEnumerable___0__System_Func___0___0___1__
+  name: SelectWithPrevious
+  nameWithType: IEnumerableOfTExtensions.SelectWithPrevious
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.SelectWithPrevious
+- uid: System.Func{{TSource},{TSource},{TResult}}
+  commentId: T:System.Func{``0,``0,``1}
+  parent: System
+  definition: System.Func`3
+  href: https://learn.microsoft.com/dotnet/api/system.func-3
+  name: Func<TSource, TSource, TResult>
+  nameWithType: Func<TSource, TSource, TResult>
+  fullName: System.Func<TSource, TSource, TResult>
+  nameWithType.vb: Func(Of TSource, TSource, TResult)
+  fullName.vb: System.Func(Of TSource, TSource, TResult)
+  name.vb: Func(Of TSource, TSource, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - name: TSource
+  - name: ','
+  - name: " "
+  - name: TSource
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: ','
+  - name: " "
+  - name: TSource
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{{TResult}}
+  commentId: T:System.Collections.Generic.IEnumerable{``1}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TResult>
+  nameWithType: IEnumerable<TResult>
+  fullName: System.Collections.Generic.IEnumerable<TResult>
+  nameWithType.vb: IEnumerable(Of TResult)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TResult)
+  name.vb: IEnumerable(Of TResult)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-3
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.ToCollection*
+  commentId: Overload:Songhay.Extensions.IEnumerableOfTExtensions.ToCollection
+  href: Songhay.Extensions.IEnumerableOfTExtensions.html#Songhay_Extensions_IEnumerableOfTExtensions_ToCollection__1_System_Collections_Generic_IEnumerable___0__
+  name: ToCollection
+  nameWithType: IEnumerableOfTExtensions.ToCollection
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.ToCollection
+- uid: System.Collections.Generic.ICollection{{TEnumerable}}
+  commentId: T:System.Collections.Generic.ICollection{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<TEnumerable>
+  nameWithType: ICollection<TEnumerable>
+  fullName: System.Collections.Generic.ICollection<TEnumerable>
+  nameWithType.vb: ICollection(Of TEnumerable)
+  fullName.vb: System.Collections.Generic.ICollection(Of TEnumerable)
+  name.vb: ICollection(Of TEnumerable)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: TEnumerable
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnumerable
+  - name: )
+- uid: Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString*
+  commentId: Overload:Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString
+  href: Songhay.Extensions.IEnumerableOfTExtensions.html#Songhay_Extensions_IEnumerableOfTExtensions_ToDisplayString__1_System_Collections_Generic_IEnumerable___0__
+  name: ToDisplayString
+  nameWithType: IEnumerableOfTExtensions.ToDisplayString
+  fullName: Songhay.Extensions.IEnumerableOfTExtensions.ToDisplayString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte

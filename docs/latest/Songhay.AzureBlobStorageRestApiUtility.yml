@@ -1,0 +1,857 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.AzureBlobStorageRestApiUtility
+  commentId: T:Songhay.AzureBlobStorageRestApiUtility
+  id: AzureBlobStorageRestApiUtility
+  parent: Songhay
+  children:
+  - Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(System.String,System.String,System.String)
+  - Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(System.String,System.String,System.String)
+  - Songhay.AzureBlobStorageRestApiUtility.GetCloudStorageMetadata(System.String)
+  - Songhay.AzureBlobStorageRestApiUtility.GetStorageUriBuilder(System.String,System.String)
+  - Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(System.String,System.String)
+  - Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(System.String,System.String,System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: AzureBlobStorageRestApiUtility
+  nameWithType: AzureBlobStorageRestApiUtility
+  fullName: Songhay.AzureBlobStorageRestApiUtility
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/AzureBlobStorageRestApiUtility.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AzureBlobStorageRestApiUtility
+    path: ../SonghayCore/AzureBlobStorageRestApiUtility.cs
+    startLine: 8
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Shared REST routines for Azure BLOB Storage.
+  example: []
+  syntax:
+    content: public static class AzureBlobStorageRestApiUtility
+    content.vb: Public Module AzureBlobStorageRestApiUtility
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.AzureBlobStorageRestApiUtility.GetStorageUriBuilder(System.String,System.String)
+  commentId: M:Songhay.AzureBlobStorageRestApiUtility.GetStorageUriBuilder(System.String,System.String)
+  id: GetStorageUriBuilder(System.String,System.String)
+  parent: Songhay.AzureBlobStorageRestApiUtility
+  langs:
+  - csharp
+  - vb
+  name: GetStorageUriBuilder(string, string)
+  nameWithType: AzureBlobStorageRestApiUtility.GetStorageUriBuilder(string, string)
+  fullName: Songhay.AzureBlobStorageRestApiUtility.GetStorageUriBuilder(string, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/AzureBlobStorageRestApiUtility.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetStorageUriBuilder
+    path: ../SonghayCore/AzureBlobStorageRestApiUtility.cs
+    startLine: 16
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Builds the URI for Azure BLOB Storage.
+  example: []
+  syntax:
+    content: public static UriBuilder GetStorageUriBuilder(string accountName, string containerName)
+    parameters:
+    - id: accountName
+      type: System.String
+      description: Azure BLOB Storage account name
+    - id: containerName
+      type: System.String
+      description: Azure BLOB Storage container name
+    return:
+      type: System.UriBuilder
+      description: Returns the <xref href="System.UriBuilder" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Function GetStorageUriBuilder(accountName As String, containerName As String) As UriBuilder
+  overload: Songhay.AzureBlobStorageRestApiUtility.GetStorageUriBuilder*
+  nameWithType.vb: AzureBlobStorageRestApiUtility.GetStorageUriBuilder(String, String)
+  fullName.vb: Songhay.AzureBlobStorageRestApiUtility.GetStorageUriBuilder(String, String)
+  name.vb: GetStorageUriBuilder(String, String)
+- uid: Songhay.AzureBlobStorageRestApiUtility.GetCloudStorageMetadata(System.String)
+  commentId: M:Songhay.AzureBlobStorageRestApiUtility.GetCloudStorageMetadata(System.String)
+  id: GetCloudStorageMetadata(System.String)
+  parent: Songhay.AzureBlobStorageRestApiUtility
+  langs:
+  - csharp
+  - vb
+  name: GetCloudStorageMetadata(string)
+  nameWithType: AzureBlobStorageRestApiUtility.GetCloudStorageMetadata(string)
+  fullName: Songhay.AzureBlobStorageRestApiUtility.GetCloudStorageMetadata(string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/AzureBlobStorageRestApiUtility.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetCloudStorageMetadata
+    path: ../SonghayCore/AzureBlobStorageRestApiUtility.cs
+    startLine: 27
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Gets the conventional Azure BLOB Storage metadata
+
+    from the specified connection string.
+  example: []
+  syntax:
+    content: public static (string accountName, string accountKey, string apiVersion) GetCloudStorageMetadata(string connectionString)
+    parameters:
+    - id: connectionString
+      type: System.String
+      description: Azure BLOB Storage connection string
+    return:
+      type: System.ValueTuple{System.String,System.String,System.String}
+      description: Returns conventional named tuple.
+    content.vb: Public Shared Function GetCloudStorageMetadata(connectionString As String) As (accountName As String, accountKey As String, apiVersion As String)
+  overload: Songhay.AzureBlobStorageRestApiUtility.GetCloudStorageMetadata*
+  exceptions:
+  - type: System.NullReferenceException
+    commentId: T:System.NullReferenceException
+    description: ''
+  - type: System.Data.DataException
+    commentId: T:System.Data.DataException
+    description: ''
+  nameWithType.vb: AzureBlobStorageRestApiUtility.GetCloudStorageMetadata(String)
+  fullName.vb: Songhay.AzureBlobStorageRestApiUtility.GetCloudStorageMetadata(String)
+  name.vb: GetCloudStorageMetadata(String)
+- uid: Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(System.String,System.String,System.String)
+  commentId: M:Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(System.String,System.String,System.String)
+  id: DeleteBlobAsync(System.String,System.String,System.String)
+  parent: Songhay.AzureBlobStorageRestApiUtility
+  langs:
+  - csharp
+  - vb
+  name: DeleteBlobAsync(string, string, string)
+  nameWithType: AzureBlobStorageRestApiUtility.DeleteBlobAsync(string, string, string)
+  fullName: Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(string, string, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/AzureBlobStorageRestApiUtility.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DeleteBlobAsync
+    path: ../SonghayCore/AzureBlobStorageRestApiUtility.cs
+    startLine: 70
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: <code>DELETE</code>s the BLOB of the specified ‘file’ name.
+  example: []
+  syntax:
+    content: public static Task DeleteBlobAsync(string connectionString, string containerName, string fileName)
+    parameters:
+    - id: connectionString
+      type: System.String
+      description: Azure BLOB Storage connection string
+    - id: containerName
+      type: System.String
+      description: Azure BLOB Storage container name
+    - id: fileName
+      type: System.String
+      description: BLOB ‘file’ name
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Shared Function DeleteBlobAsync(connectionString As String, containerName As String, fileName As String) As Task
+  overload: Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync*
+  exceptions:
+  - type: System.Net.Http.HttpRequestException
+    commentId: T:System.Net.Http.HttpRequestException
+    description: ''
+  nameWithType.vb: AzureBlobStorageRestApiUtility.DeleteBlobAsync(String, String, String)
+  fullName.vb: Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(String, String, String)
+  name.vb: DeleteBlobAsync(String, String, String)
+- uid: Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(System.String,System.String,System.String)
+  commentId: M:Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(System.String,System.String,System.String)
+  id: DownloadBlobToStringAsync(System.String,System.String,System.String)
+  parent: Songhay.AzureBlobStorageRestApiUtility
+  langs:
+  - csharp
+  - vb
+  name: DownloadBlobToStringAsync(string, string, string)
+  nameWithType: AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(string, string, string)
+  fullName: Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(string, string, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/AzureBlobStorageRestApiUtility.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DownloadBlobToStringAsync
+    path: ../SonghayCore/AzureBlobStorageRestApiUtility.cs
+    startLine: 100
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: <code>GET</code>s the BLOB of the specified ‘file’ name.
+  example: []
+  syntax:
+    content: public static Task<string> DownloadBlobToStringAsync(string connectionString, string containerName, string fileName)
+    parameters:
+    - id: connectionString
+      type: System.String
+      description: Azure BLOB Storage connection string
+    - id: containerName
+      type: System.String
+      description: Azure BLOB Storage container name
+    - id: fileName
+      type: System.String
+      description: BLOB ‘file’ name
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: Returns the <xref href="System.String" data-throw-if-not-resolved="false"></xref> contents of the file.
+    content.vb: Public Shared Function DownloadBlobToStringAsync(connectionString As String, containerName As String, fileName As String) As Task(Of String)
+  overload: Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync*
+  exceptions:
+  - type: System.Net.Http.HttpRequestException
+    commentId: T:System.Net.Http.HttpRequestException
+    description: ''
+  nameWithType.vb: AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(String, String, String)
+  fullName.vb: Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(String, String, String)
+  name.vb: DownloadBlobToStringAsync(String, String, String)
+- uid: Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(System.String,System.String)
+  commentId: M:Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(System.String,System.String)
+  id: ListContainerAsync(System.String,System.String)
+  parent: Songhay.AzureBlobStorageRestApiUtility
+  langs:
+  - csharp
+  - vb
+  name: ListContainerAsync(string, string)
+  nameWithType: AzureBlobStorageRestApiUtility.ListContainerAsync(string, string)
+  fullName: Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(string, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/AzureBlobStorageRestApiUtility.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ListContainerAsync
+    path: ../SonghayCore/AzureBlobStorageRestApiUtility.cs
+    startLine: 130
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Lists the contents of the specified BLOB container.
+  example: []
+  syntax:
+    content: public static Task<string> ListContainerAsync(string connectionString, string containerName)
+    parameters:
+    - id: connectionString
+      type: System.String
+      description: Azure BLOB Storage connection string
+    - id: containerName
+      type: System.String
+      description: Azure BLOB Storage container name
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: Returns the contents of the container as an XML<xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function ListContainerAsync(connectionString As String, containerName As String) As Task(Of String)
+  overload: Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync*
+  exceptions:
+  - type: System.Net.Http.HttpRequestException
+    commentId: T:System.Net.Http.HttpRequestException
+    description: ''
+  nameWithType.vb: AzureBlobStorageRestApiUtility.ListContainerAsync(String, String)
+  fullName.vb: Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(String, String)
+  name.vb: ListContainerAsync(String, String)
+- uid: Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(System.String,System.String,System.String,System.String)
+  commentId: M:Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(System.String,System.String,System.String,System.String)
+  id: UploadBlobAsync(System.String,System.String,System.String,System.String)
+  parent: Songhay.AzureBlobStorageRestApiUtility
+  langs:
+  - csharp
+  - vb
+  name: UploadBlobAsync(string, string, string, string)
+  nameWithType: AzureBlobStorageRestApiUtility.UploadBlobAsync(string, string, string, string)
+  fullName: Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(string, string, string, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/AzureBlobStorageRestApiUtility.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: UploadBlobAsync
+    path: ../SonghayCore/AzureBlobStorageRestApiUtility.cs
+    startLine: 161
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: <code>PUT</code>s the BLOB of the specified ‘file’ name.
+  example: []
+  syntax:
+    content: public static Task UploadBlobAsync(string connectionString, string containerName, string fileName, string content)
+    parameters:
+    - id: connectionString
+      type: System.String
+      description: Azure BLOB Storage connection string
+    - id: containerName
+      type: System.String
+      description: Azure BLOB Storage container name
+    - id: fileName
+      type: System.String
+      description: BLOB ‘file’ name
+    - id: content
+      type: System.String
+      description: The <xref href="System.String" data-throw-if-not-resolved="false"></xref> contents of the ‘file.’
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Shared Function UploadBlobAsync(connectionString As String, containerName As String, fileName As String, content As String) As Task
+  overload: Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync*
+  exceptions:
+  - type: System.Net.Http.HttpRequestException
+    commentId: T:System.Net.Http.HttpRequestException
+    description: ''
+  nameWithType.vb: AzureBlobStorageRestApiUtility.UploadBlobAsync(String, String, String, String)
+  fullName.vb: Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(String, String, String, String)
+  name.vb: UploadBlobAsync(String, String, String, String)
+references:
+- uid: Songhay
+  commentId: N:Songhay
+  href: Songhay.html
+  name: Songhay
+  nameWithType: Songhay
+  fullName: Songhay
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UriBuilder
+  commentId: T:System.UriBuilder
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uribuilder
+  name: UriBuilder
+  nameWithType: UriBuilder
+  fullName: System.UriBuilder
+- uid: Songhay.AzureBlobStorageRestApiUtility.GetStorageUriBuilder*
+  commentId: Overload:Songhay.AzureBlobStorageRestApiUtility.GetStorageUriBuilder
+  href: Songhay.AzureBlobStorageRestApiUtility.html#Songhay_AzureBlobStorageRestApiUtility_GetStorageUriBuilder_System_String_System_String_
+  name: GetStorageUriBuilder
+  nameWithType: AzureBlobStorageRestApiUtility.GetStorageUriBuilder
+  fullName: Songhay.AzureBlobStorageRestApiUtility.GetStorageUriBuilder
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.NullReferenceException
+  commentId: T:System.NullReferenceException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullreferenceexception
+  name: NullReferenceException
+  nameWithType: NullReferenceException
+  fullName: System.NullReferenceException
+- uid: System.Data.DataException
+  commentId: T:System.Data.DataException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.dataexception
+  name: DataException
+  nameWithType: DataException
+  fullName: System.Data.DataException
+- uid: Songhay.AzureBlobStorageRestApiUtility.GetCloudStorageMetadata*
+  commentId: Overload:Songhay.AzureBlobStorageRestApiUtility.GetCloudStorageMetadata
+  href: Songhay.AzureBlobStorageRestApiUtility.html#Songhay_AzureBlobStorageRestApiUtility_GetCloudStorageMetadata_System_String_
+  name: GetCloudStorageMetadata
+  nameWithType: AzureBlobStorageRestApiUtility.GetCloudStorageMetadata
+  fullName: Songhay.AzureBlobStorageRestApiUtility.GetCloudStorageMetadata
+- uid: System.ValueTuple{System.String,System.String,System.String}
+  commentId: T:System.ValueTuple{System.String,System.String,System.String}
+  parent: System
+  definition: System.ValueTuple`3
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: (string accountName, string accountKey, string apiVersion)
+  nameWithType: (string accountName, string accountKey, string apiVersion)
+  fullName: (string accountName, string accountKey, string apiVersion)
+  nameWithType.vb: (accountName As String, accountKey As String, apiVersion As String)
+  fullName.vb: (accountName As String, accountKey As String, apiVersion As String)
+  name.vb: (accountName As String, accountKey As String, apiVersion As String)
+  spec.csharp:
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String}.accountName
+    name: accountName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string-.accountname
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String}.accountKey
+    name: accountKey
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string-.accountkey
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String}.apiVersion
+    name: apiVersion
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string-.apiversion
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.String,System.String,System.String}.accountName
+    name: accountName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string-.accountname
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String}.accountKey
+    name: accountKey
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string-.accountkey
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String}.apiVersion
+    name: apiVersion
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string-.apiversion
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.ValueTuple`3
+  commentId: T:System.ValueTuple`3
+  name: (T1, T2, T3)
+  nameWithType: (T1, T2, T3)
+  fullName: (T1, T2, T3)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+- uid: System.Net.Http.HttpRequestException
+  commentId: T:System.Net.Http.HttpRequestException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httprequestexception
+  name: HttpRequestException
+  nameWithType: HttpRequestException
+  fullName: System.Net.Http.HttpRequestException
+- uid: Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync*
+  commentId: Overload:Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync
+  href: Songhay.AzureBlobStorageRestApiUtility.html#Songhay_AzureBlobStorageRestApiUtility_DeleteBlobAsync_System_String_System_String_System_String_
+  name: DeleteBlobAsync
+  nameWithType: AzureBlobStorageRestApiUtility.DeleteBlobAsync
+  fullName: Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync*
+  commentId: Overload:Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync
+  href: Songhay.AzureBlobStorageRestApiUtility.html#Songhay_AzureBlobStorageRestApiUtility_DownloadBlobToStringAsync_System_String_System_String_System_String_
+  name: DownloadBlobToStringAsync
+  nameWithType: AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync
+  fullName: Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync*
+  commentId: Overload:Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync
+  href: Songhay.AzureBlobStorageRestApiUtility.html#Songhay_AzureBlobStorageRestApiUtility_ListContainerAsync_System_String_System_String_
+  name: ListContainerAsync
+  nameWithType: AzureBlobStorageRestApiUtility.ListContainerAsync
+  fullName: Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync
+- uid: Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync*
+  commentId: Overload:Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync
+  href: Songhay.AzureBlobStorageRestApiUtility.html#Songhay_AzureBlobStorageRestApiUtility_UploadBlobAsync_System_String_System_String_System_String_System_String_
+  name: UploadBlobAsync
+  nameWithType: AzureBlobStorageRestApiUtility.UploadBlobAsync
+  fullName: Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync

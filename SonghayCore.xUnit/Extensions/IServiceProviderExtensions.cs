@@ -16,7 +16,7 @@ public static class IServiceProviderExtensions
     /// <param name="serviceProvider">The service provider.</param>
     /// <remarks>
     /// This member is convenient for returning global-state (non-scoped) services
-    /// like those registered with <see cref="IServiceCollection.AddSingleton"/>
+    /// like those registered with <see cref="ServiceCollectionServiceExtensions.AddSingleton"/>
     /// (e.g. Microsoft’s <c>IConfiguration</c> contract).
     /// 
     /// This member also saves one line of code for the following scoped <c>ServiceProvider</c> pattern:

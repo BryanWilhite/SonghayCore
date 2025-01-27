@@ -1,0 +1,596 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Abstractions.IActivityTask`2
+  commentId: T:Songhay.Abstractions.IActivityTask`2
+  id: IActivityTask`2
+  parent: Songhay.Abstractions
+  children:
+  - Songhay.Abstractions.IActivityTask`2.StartAsync(`0)
+  langs:
+  - csharp
+  - vb
+  name: IActivityTask<TInput, TOutput>
+  nameWithType: IActivityTask<TInput, TOutput>
+  fullName: Songhay.Abstractions.IActivityTask<TInput, TOutput>
+  type: Interface
+  source:
+    remote:
+      path: SonghayCore/Abstractions/IActivityTask.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IActivityTask
+    path: ../SonghayCore/Abstractions/IActivityTask.cs
+    startLine: 48
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Abstractions
+  summary: Defines an Activity, optionally for <xref href="Microsoft.Extensions.Hosting.IHost" data-throw-if-not-resolved="false"></xref> conventions, with <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> support.
+  remarks: >-
+    For detail aound why this definition exists,
+
+    see https://github.com/BryanWilhite/SonghayCore/issues/83
+  example: []
+  syntax:
+    content: public interface IActivityTask<in TInput, TOutput>
+    typeParameters:
+    - id: TInput
+      description: The type of the input.
+    - id: TOutput
+      description: The type of the output.
+    content.vb: Public Interface IActivityTask(Of In TInput, TOutput)
+  seealso:
+  - linkId: Songhay.Abstractions.IActivity
+    commentId: T:Songhay.Abstractions.IActivity
+  extensionMethods:
+  - Songhay.Abstractions.IActivityTask`2.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Abstractions.IActivityTask`2.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Abstractions.IActivityTask`2.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  nameWithType.vb: IActivityTask(Of TInput, TOutput)
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput, TOutput)
+  name.vb: IActivityTask(Of TInput, TOutput)
+- uid: Songhay.Abstractions.IActivityTask`2.StartAsync(`0)
+  commentId: M:Songhay.Abstractions.IActivityTask`2.StartAsync(`0)
+  id: StartAsync(`0)
+  parent: Songhay.Abstractions.IActivityTask`2
+  langs:
+  - csharp
+  - vb
+  name: StartAsync(TInput?)
+  nameWithType: IActivityTask<TInput, TOutput>.StartAsync(TInput?)
+  fullName: Songhay.Abstractions.IActivityTask<TInput, TOutput>.StartAsync(TInput?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Abstractions/IActivityTask.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: StartAsync
+    path: ../SonghayCore/Abstractions/IActivityTask.cs
+    startLine: 53
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Abstractions
+  summary: Starts the <xref href="Songhay.Abstractions.IActivity" data-throw-if-not-resolved="false"></xref> asynchronously.
+  example: []
+  syntax:
+    content: Task<TOutput?> StartAsync(TInput? input)
+    parameters:
+    - id: input
+      type: '{TInput}'
+    return:
+      type: System.Threading.Tasks.Task{{TOutput}}
+    content.vb: Function StartAsync(input As TInput) As Task(Of TOutput)
+  overload: Songhay.Abstractions.IActivityTask`2.StartAsync*
+  nameWithType.vb: IActivityTask(Of TInput, TOutput).StartAsync(TInput)
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput, TOutput).StartAsync(TInput)
+  name.vb: StartAsync(TInput)
+references:
+- uid: Songhay.Abstractions.IActivity
+  commentId: T:Songhay.Abstractions.IActivity
+  href: Songhay.Abstractions.IActivity.html
+  name: IActivity
+  nameWithType: IActivity
+  fullName: Songhay.Abstractions.IActivity
+- uid: Microsoft.Extensions.Hosting.IHost
+  commentId: T:Microsoft.Extensions.Hosting.IHost
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihost
+  name: IHost
+  nameWithType: IHost
+  fullName: Microsoft.Extensions.Hosting.IHost
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Songhay.Abstractions
+  commentId: N:Songhay.Abstractions
+  href: Songhay.html
+  name: Songhay.Abstractions
+  nameWithType: Songhay.Abstractions
+  fullName: Songhay.Abstractions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+- uid: Songhay.Abstractions.IActivityTask`2.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<IActivityTask<TInput, TOutput>>(IActivityTask<TInput, TOutput>)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<IActivityTask<TInput, TOutput>>(IActivityTask<TInput, TOutput>)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Abstractions.IActivityTask<TInput, TOutput>>(Songhay.Abstractions.IActivityTask<TInput, TOutput>)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of IActivityTask(Of TInput, TOutput))(IActivityTask(Of TInput, TOutput))
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Abstractions.IActivityTask(Of TInput, TOutput))(Songhay.Abstractions.IActivityTask(Of TInput, TOutput))
+  name.vb: IsAssignableToISerializable(Of IActivityTask(Of TInput, TOutput))(IActivityTask(Of TInput, TOutput))
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Abstractions.IActivityTask{`0,`1})
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: '>'
+  - name: '>'
+  - name: (
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Abstractions.IActivityTask{`0,`1})
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: )
+  - name: )
+  - name: (
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: )
+  - name: )
+- uid: Songhay.Abstractions.IActivityTask`2.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<IActivityTask<TInput, TOutput>>(IActivityTask<TInput, TOutput>)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<IActivityTask<TInput, TOutput>>(IActivityTask<TInput, TOutput>)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Abstractions.IActivityTask<TInput, TOutput>>(Songhay.Abstractions.IActivityTask<TInput, TOutput>)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of IActivityTask(Of TInput, TOutput))(IActivityTask(Of TInput, TOutput))
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Abstractions.IActivityTask(Of TInput, TOutput))(Songhay.Abstractions.IActivityTask(Of TInput, TOutput))
+  name.vb: ToObjectOrDbNull(Of IActivityTask(Of TInput, TOutput))(IActivityTask(Of TInput, TOutput))
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Abstractions.IActivityTask{`0,`1})
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: '>'
+  - name: '>'
+  - name: (
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Abstractions.IActivityTask{`0,`1})
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: )
+  - name: )
+  - name: (
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: )
+  - name: )
+- uid: Songhay.Abstractions.IActivityTask`2.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<IActivityTask<TInput, TOutput>>(IActivityTask<TInput, TOutput>, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<IActivityTask<TInput, TOutput>>(IActivityTask<TInput, TOutput>, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Abstractions.IActivityTask<TInput, TOutput>>(Songhay.Abstractions.IActivityTask<TInput, TOutput>, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of IActivityTask(Of TInput, TOutput))(IActivityTask(Of TInput, TOutput), String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Abstractions.IActivityTask(Of TInput, TOutput))(Songhay.Abstractions.IActivityTask(Of TInput, TOutput), String)
+  name.vb: ToReferenceTypeValueOrThrow(Of IActivityTask(Of TInput, TOutput))(IActivityTask(Of TInput, TOutput), String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Abstractions.IActivityTask{`0,`1},System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: '>'
+  - name: '>'
+  - name: (
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Abstractions.IActivityTask{`0,`1},System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: )
+  - name: )
+  - name: (
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Abstractions.IActivityTask`2.StartAsync*
+  commentId: Overload:Songhay.Abstractions.IActivityTask`2.StartAsync
+  href: Songhay.Abstractions.IActivityTask-2.html#Songhay_Abstractions_IActivityTask_2_StartAsync__0_
+  name: StartAsync
+  nameWithType: IActivityTask<TInput, TOutput>.StartAsync
+  fullName: Songhay.Abstractions.IActivityTask<TInput, TOutput>.StartAsync
+  nameWithType.vb: IActivityTask(Of TInput, TOutput).StartAsync
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput, TOutput).StartAsync
+- uid: '{TInput}'
+  commentId: '!:TInput'
+  definition: TInput
+  name: TInput
+  nameWithType: TInput
+  fullName: TInput
+- uid: System.Threading.Tasks.Task{{TOutput}}
+  commentId: T:System.Threading.Tasks.Task{`0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TOutput>
+  nameWithType: Task<TOutput>
+  fullName: System.Threading.Tasks.Task<TOutput>
+  nameWithType.vb: Task(Of TOutput)
+  fullName.vb: System.Threading.Tasks.Task(Of TOutput)
+  name.vb: Task(Of TOutput)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TOutput
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOutput
+  - name: )
+- uid: TInput
+  name: TInput
+  nameWithType: TInput
+  fullName: TInput
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )

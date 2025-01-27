@@ -1,0 +1,1721 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Extensions.HttpRequestMessageExtensions
+  commentId: T:Songhay.Extensions.HttpRequestMessageExtensions
+  id: HttpRequestMessageExtensions
+  parent: Songhay.Extensions
+  children:
+  - Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)
+  - Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})
+  - Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})
+  - Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String,System.String)
+  - Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders(System.Net.Http.HttpRequestMessage)
+  - Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageSignature(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String)
+  - Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent(System.Net.Http.HttpRequestMessage,System.String,System.String)
+  - Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String)
+  - Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String,System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: HttpRequestMessageExtensions
+  nameWithType: HttpRequestMessageExtensions
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HttpRequestMessageExtensions
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Extensions of <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static class HttpRequestMessageExtensions
+    content.vb: Public Module HttpRequestMessageExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String,System.String)
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String,System.String)
+  id: ToAzureStorageAuthorizationHeader(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToAzureStorageAuthorizationHeader(HttpRequestMessage?, string?, string?, string?, string?)
+  nameWithType: HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader(HttpRequestMessage?, string?, string?, string?, string?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader(System.Net.Http.HttpRequestMessage?, string?, string?, string?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToAzureStorageAuthorizationHeader
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+    startLine: 32
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Derives the <xref href="System.Net.Http.Headers.AuthenticationHeaderValue" data-throw-if-not-resolved="false"></xref>
+
+    from the <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    There are two Authorization Header schemes supported: SharedKey and SharedKeyLite. This member supports only one of them: SharedKey.
+
+    For more detail, see “Specifying the Authorization header”
+
+    [ https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key#specifying-the-authorization-header ]
+
+
+    See also: “Authorize requests to Azure Storage”
+
+    [ https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage ]
+
+
+    See also: https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
+
+
+    Provide the md5 and it will check and make sure it matches the requested blob's md5.
+
+    If it doesn't match, it won't return a value.
+
+
+    Provide an eTag, and it will only make changes to a blob if the current eTag matches,
+
+    to ensure you don't overwrite someone else's changes.
+  example: []
+  syntax:
+    content: public static AuthenticationHeaderValue ToAzureStorageAuthorizationHeader(this HttpRequestMessage? request, string? storageAccountName, string? storageAccountKey, string? eTag, string? md5)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: the <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>
+    - id: storageAccountName
+      type: System.String
+      description: the Azure Storage account name
+    - id: storageAccountKey
+      type: System.String
+      description: the Azure Storage account shared key
+    - id: eTag
+      type: System.String
+      description: entity tag for Web cache validation
+    - id: md5
+      type: System.String
+      description: The MD5 (message-digest algorithm) hash
+    return:
+      type: System.Net.Http.Headers.AuthenticationHeaderValue
+    content.vb: Public Shared Function ToAzureStorageAuthorizationHeader(request As HttpRequestMessage, storageAccountName As String, storageAccountKey As String, eTag As String, md5 As String) As AuthenticationHeaderValue
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader*
+  nameWithType.vb: HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader(HttpRequestMessage, String, String, String, String)
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader(System.Net.Http.HttpRequestMessage, String, String, String, String)
+  name.vb: ToAzureStorageAuthorizationHeader(HttpRequestMessage, String, String, String, String)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders(System.Net.Http.HttpRequestMessage)
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders(System.Net.Http.HttpRequestMessage)
+  id: ToAzureStorageCanonicalizedHeaders(System.Net.Http.HttpRequestMessage)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToAzureStorageCanonicalizedHeaders(HttpRequestMessage?)
+  nameWithType: HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders(HttpRequestMessage?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders(System.Net.Http.HttpRequestMessage?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToAzureStorageCanonicalizedHeaders
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+    startLine: 64
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns headers, starting with <code>x-ms-</code>,
+
+    in a canonical format.
+  remarks: >-
+    See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
+
+
+    See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage
+
+
+    See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+
+
+    See http://en.wikipedia.org/wiki/Canonicalization
+  example: []
+  syntax:
+    content: public static string ToAzureStorageCanonicalizedHeaders(this HttpRequestMessage? request)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: the <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToAzureStorageCanonicalizedHeaders(request As HttpRequestMessage) As String
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders*
+  nameWithType.vb: HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders(HttpRequestMessage)
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders(System.Net.Http.HttpRequestMessage)
+  name.vb: ToAzureStorageCanonicalizedHeaders(HttpRequestMessage)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageSignature(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String)
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageSignature(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String)
+  id: ToAzureStorageSignature(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToAzureStorageSignature(HttpRequestMessage?, string?, string?, string?)
+  nameWithType: HttpRequestMessageExtensions.ToAzureStorageSignature(HttpRequestMessage?, string?, string?, string?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageSignature(System.Net.Http.HttpRequestMessage?, string?, string?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToAzureStorageSignature
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+    startLine: 111
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Derives the raw representation of the message signature
+
+    from the <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>.`
+  remarks: >-
+    See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
+
+
+    See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage
+
+
+    See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+  example: []
+  syntax:
+    content: public static byte[] ToAzureStorageSignature(this HttpRequestMessage? request, string? storageAccountName, string? eTag, string? md5)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: the <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>
+    - id: storageAccountName
+      type: System.String
+      description: The name of the storage account to use.
+    - id: eTag
+      type: System.String
+      description: entity tag for Web cache validation
+    - id: md5
+      type: System.String
+      description: The MD5 (message-digest algorithm) hash
+    return:
+      type: System.Byte[]
+    content.vb: Public Shared Function ToAzureStorageSignature(request As HttpRequestMessage, storageAccountName As String, eTag As String, md5 As String) As Byte()
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageSignature*
+  nameWithType.vb: HttpRequestMessageExtensions.ToAzureStorageSignature(HttpRequestMessage, String, String, String)
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageSignature(System.Net.Http.HttpRequestMessage, String, String, String)
+  name.vb: ToAzureStorageSignature(HttpRequestMessage, String, String, String)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent(System.Net.Http.HttpRequestMessage,System.String,System.String)
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent(System.Net.Http.HttpRequestMessage,System.String,System.String)
+  id: WithAzureStorageBlockBlobContent(System.Net.Http.HttpRequestMessage,System.String,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithAzureStorageBlockBlobContent(HttpRequestMessage?, string?, string?)
+  nameWithType: HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent(HttpRequestMessage?, string?, string?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent(System.Net.Http.HttpRequestMessage?, string?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithAzureStorageBlockBlobContent
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+    startLine: 158
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>
+
+    with conventional headers for <xref href="System.Net.Http.ByteArrayContent" data-throw-if-not-resolved="false"></xref>
+
+    for Azure Storage.
+  example: []
+  syntax:
+    content: public static HttpRequestMessage WithAzureStorageBlockBlobContent(this HttpRequestMessage? request, string? blobName, string? content)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: the <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>
+    - id: blobName
+      type: System.String
+      description: the Azure Storage Blob name
+    - id: content
+      type: System.String
+      description: the Azure Storage Blob content
+    return:
+      type: System.Net.Http.HttpRequestMessage
+    content.vb: Public Shared Function WithAzureStorageBlockBlobContent(request As HttpRequestMessage, blobName As String, content As String) As HttpRequestMessage
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent*
+  nameWithType.vb: HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent(HttpRequestMessage, String, String)
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent(System.Net.Http.HttpRequestMessage, String, String)
+  name.vb: WithAzureStorageBlockBlobContent(HttpRequestMessage, String, String)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String)
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String)
+  id: WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithAzureStorageHeaders(HttpRequestMessage?, DateTime, string?, string?, string?)
+  nameWithType: HttpRequestMessageExtensions.WithAzureStorageHeaders(HttpRequestMessage?, DateTime, string?, string?, string?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage?, System.DateTime, string?, string?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithAzureStorageHeaders
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+    startLine: 186
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>
+
+    with conventional headers for Azure Storage.
+  example: []
+  syntax:
+    content: public static HttpRequestMessage WithAzureStorageHeaders(this HttpRequestMessage? request, DateTime requestMoment, string? serviceVersion, string? storageAccountName, string? storageAccountKey)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: the <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>
+    - id: requestMoment
+      type: System.DateTime
+      description: the moment of the request
+    - id: serviceVersion
+      type: System.String
+      description: the version of the storage services to use for a request
+    - id: storageAccountName
+      type: System.String
+      description: the Azure Storage account name
+    - id: storageAccountKey
+      type: System.String
+      description: the Azure Storage account shared key
+    return:
+      type: System.Net.Http.HttpRequestMessage
+    content.vb: Public Shared Function WithAzureStorageHeaders(request As HttpRequestMessage, requestMoment As Date, serviceVersion As String, storageAccountName As String, storageAccountKey As String) As HttpRequestMessage
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders*
+  nameWithType.vb: HttpRequestMessageExtensions.WithAzureStorageHeaders(HttpRequestMessage, Date, String, String, String)
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage, Date, String, String, String)
+  name.vb: WithAzureStorageHeaders(HttpRequestMessage, Date, String, String, String)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String,System.String,System.String)
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String,System.String,System.String)
+  id: WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage,System.DateTime,System.String,System.String,System.String,System.String,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithAzureStorageHeaders(HttpRequestMessage?, DateTime, string?, string?, string?, string?, string?)
+  nameWithType: HttpRequestMessageExtensions.WithAzureStorageHeaders(HttpRequestMessage?, DateTime, string?, string?, string?, string?, string?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage?, System.DateTime, string?, string?, string?, string?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithAzureStorageHeaders
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions.AzureStorage.cs
+    startLine: 221
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref> with the minimum headers
+
+    required for Azure Storage.
+  remarks: >-
+    See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
+
+
+    See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage
+
+
+    See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+
+
+    Provide the md5 and it will check and make sure it matches the requested blob's md5. If it doesn't match, it won't return a value.
+
+
+    Provide an eTag, and it will only make changes to a blob if the current eTag matches, to ensure you don't overwrite someone else's changes.
+  example: []
+  syntax:
+    content: public static HttpRequestMessage WithAzureStorageHeaders(this HttpRequestMessage? request, DateTime requestMoment, string? serviceVersion, string? storageAccountName, string? storageAccountKey, string? eTag, string? md5)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: the <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>
+    - id: requestMoment
+      type: System.DateTime
+      description: the moment of the request
+    - id: serviceVersion
+      type: System.String
+      description: the version of the storage services to use for a request
+    - id: storageAccountName
+      type: System.String
+      description: the Azure Storage account name
+    - id: storageAccountKey
+      type: System.String
+      description: the Azure Storage account shared key
+    - id: eTag
+      type: System.String
+      description: entity tag for Web cache validation
+    - id: md5
+      type: System.String
+      description: The MD5 (message-digest algorithm) hash
+    return:
+      type: System.Net.Http.HttpRequestMessage
+    content.vb: Public Shared Function WithAzureStorageHeaders(request As HttpRequestMessage, requestMoment As Date, serviceVersion As String, storageAccountName As String, storageAccountKey As String, eTag As String, md5 As String) As HttpRequestMessage
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders*
+  nameWithType.vb: HttpRequestMessageExtensions.WithAzureStorageHeaders(HttpRequestMessage, Date, String, String, String, String, String)
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage, Date, String, String, String, String, String)
+  name.vb: WithAzureStorageHeaders(HttpRequestMessage, Date, String, String, String, String, String)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)
+  id: GetContentAsync(System.Net.Http.HttpRequestMessage)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetContentAsync(HttpRequestMessage?)
+  nameWithType: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetContentAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 11
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Gets a <xref href="System.String" data-throw-if-not-resolved="false"></xref> from the derived <xref href="System.Net.Http.HttpResponseMessage" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task<string> GetContentAsync(this HttpRequestMessage? request)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: The request.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Public Shared Function GetContentAsync(request As HttpRequestMessage) As Task(Of String)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage)
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)
+  name.vb: GetContentAsync(HttpRequestMessage)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})
+  id: GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetContentAsync(HttpRequestMessage?, Action<HttpResponseMessage>?)
+  nameWithType: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage?, Action<HttpResponseMessage>?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage?, System.Action<System.Net.Http.HttpResponseMessage>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetContentAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 19
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Gets a <xref href="System.String" data-throw-if-not-resolved="false"></xref> from the derived <xref href="System.Net.Http.HttpResponseMessage" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task<string> GetContentAsync(this HttpRequestMessage? request, Action<HttpResponseMessage>? responseMessageAction)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: The request.
+    - id: responseMessageAction
+      type: System.Action{System.Net.Http.HttpResponseMessage}
+      description: The response message action.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Public Shared Function GetContentAsync(request As HttpRequestMessage, responseMessageAction As Action(Of HttpResponseMessage)) As Task(Of String)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage, Action(Of HttpResponseMessage))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage, System.Action(Of System.Net.Http.HttpResponseMessage))
+  name.vb: GetContentAsync(HttpRequestMessage, Action(Of HttpResponseMessage))
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})
+  id: GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetContentAsync(HttpRequestMessage?, Action<HttpResponseMessage>?, Func<HttpClient>?)
+  nameWithType: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage?, Action<HttpResponseMessage>?, Func<HttpClient>?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage?, System.Action<System.Net.Http.HttpResponseMessage>?, System.Func<System.Net.Http.HttpClient>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetContentAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 29
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Gets a <xref href="System.String" data-throw-if-not-resolved="false"></xref> from the derived <xref href="System.Net.Http.HttpResponseMessage" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task<string> GetContentAsync(this HttpRequestMessage? request, Action<HttpResponseMessage>? responseMessageAction, Func<HttpClient>? optionalClientGetter)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: The request.
+    - id: responseMessageAction
+      type: System.Action{System.Net.Http.HttpResponseMessage}
+      description: The response message action.
+    - id: optionalClientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The optional client getter.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Public Shared Function GetContentAsync(request As HttpRequestMessage, responseMessageAction As Action(Of HttpResponseMessage), optionalClientGetter As Func(Of HttpClient)) As Task(Of String)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage, Action(Of HttpResponseMessage), Func(Of HttpClient))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage, System.Action(Of System.Net.Http.HttpResponseMessage), System.Func(Of System.Net.Http.HttpClient))
+  name.vb: GetContentAsync(HttpRequestMessage, Action(Of HttpResponseMessage), Func(Of HttpClient))
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)
+  id: SendAsync(System.Net.Http.HttpRequestMessage)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(HttpRequestMessage?)
+  nameWithType: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SendAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 54
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
+    content.vb: Public Shared Function SendAsync(request As HttpRequestMessage) As Task(Of HttpResponseMessage)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage)
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)
+  name.vb: SendAsync(HttpRequestMessage)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})
+  id: SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(HttpRequestMessage?, Action<HttpRequestMessage>?)
+  nameWithType: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage?, Action<HttpRequestMessage>?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage?, System.Action<System.Net.Http.HttpRequestMessage>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SendAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 64
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request, Action<HttpRequestMessage>? requestMessageAction)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: The request.
+    - id: requestMessageAction
+      type: System.Action{System.Net.Http.HttpRequestMessage}
+      description: The request message action.
+    return:
+      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
+    content.vb: Public Shared Function SendAsync(request As HttpRequestMessage, requestMessageAction As Action(Of HttpRequestMessage)) As Task(Of HttpResponseMessage)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage, Action(Of HttpRequestMessage))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage, System.Action(Of System.Net.Http.HttpRequestMessage))
+  name.vb: SendAsync(HttpRequestMessage, Action(Of HttpRequestMessage))
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)
+  id: SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendAsync(HttpRequestMessage?, Action<HttpRequestMessage>?, Func<HttpClient>?, HttpCompletionOption)
+  nameWithType: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage?, Action<HttpRequestMessage>?, Func<HttpClient>?, HttpCompletionOption)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage?, System.Action<System.Net.Http.HttpRequestMessage>?, System.Func<System.Net.Http.HttpClient>?, System.Net.Http.HttpCompletionOption)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SendAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 77
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request, Action<HttpRequestMessage>? requestMessageAction, Func<HttpClient>? optionalClientGetter, HttpCompletionOption completionOption)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: The request.
+    - id: requestMessageAction
+      type: System.Action{System.Net.Http.HttpRequestMessage}
+      description: The request message action.
+    - id: optionalClientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The optional client getter.
+    - id: completionOption
+      type: System.Net.Http.HttpCompletionOption
+      description: the <xref href="System.Net.Http.HttpCompletionOption" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
+    content.vb: Public Shared Function SendAsync(request As HttpRequestMessage, requestMessageAction As Action(Of HttpRequestMessage), optionalClientGetter As Func(Of HttpClient), completionOption As HttpCompletionOption) As Task(Of HttpResponseMessage)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage, Action(Of HttpRequestMessage), Func(Of HttpClient), HttpCompletionOption)
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage, System.Action(Of System.Net.Http.HttpRequestMessage), System.Func(Of System.Net.Http.HttpClient), System.Net.Http.HttpCompletionOption)
+  name.vb: SendAsync(HttpRequestMessage, Action(Of HttpRequestMessage), Func(Of HttpClient), HttpCompletionOption)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)
+  id: SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendBodyAsync(HttpRequestMessage?, string?)
+  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SendBodyAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 102
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
+
+    with the specified request body, <xref href="System.Text.Encoding.UTF8" data-throw-if-not-resolved="false"></xref>
+
+    and <xref href="Songhay.Models.MimeTypes.ApplicationJson" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: The request.
+    - id: requestBody
+      type: System.String
+      description: The request body.
+    return:
+      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
+    content.vb: Public Shared Function SendBodyAsync(request As HttpRequestMessage, requestBody As String) As Task(Of HttpResponseMessage)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage, String)
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage, String)
+  name.vb: SendBodyAsync(HttpRequestMessage, String)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)
+  id: SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding, string)
+  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding, string)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SendBodyAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 113
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
+
+    with the specified request body.
+  example: []
+  syntax:
+    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string mediaType)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: The request.
+    - id: requestBody
+      type: System.String
+      description: The request body.
+    - id: encoding
+      type: System.Text.Encoding
+      description: The encoding.
+    - id: mediaType
+      type: System.String
+      description: Type of the media.
+    return:
+      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
+    content.vb: Public Shared Function SendBodyAsync(request As HttpRequestMessage, requestBody As String, encoding As Encoding, mediaType As String) As Task(Of HttpResponseMessage)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage, String, Encoding, String)
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage, String, System.Text.Encoding, String)
+  name.vb: SendBodyAsync(HttpRequestMessage, String, Encoding, String)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})
+  id: SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding, string, Action<HttpRequestMessage>)
+  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding, string, Action<HttpRequestMessage>)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding, string, System.Action<System.Net.Http.HttpRequestMessage>)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SendBodyAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 126
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
+
+    with the specified request body.
+  example: []
+  syntax:
+    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string mediaType, Action<HttpRequestMessage> requestMessageAction)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: The request.
+    - id: requestBody
+      type: System.String
+      description: The request body.
+    - id: encoding
+      type: System.Text.Encoding
+      description: The encoding.
+    - id: mediaType
+      type: System.String
+      description: Type of the media.
+    - id: requestMessageAction
+      type: System.Action{System.Net.Http.HttpRequestMessage}
+      description: The request message action.
+    return:
+      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
+    content.vb: Public Shared Function SendBodyAsync(request As HttpRequestMessage, requestBody As String, encoding As Encoding, mediaType As String, requestMessageAction As Action(Of HttpRequestMessage)) As Task(Of HttpResponseMessage)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage, String, Encoding, String, Action(Of HttpRequestMessage))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage, String, System.Text.Encoding, String, System.Action(Of System.Net.Http.HttpRequestMessage))
+  name.vb: SendBodyAsync(HttpRequestMessage, String, Encoding, String, Action(Of HttpRequestMessage))
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})
+  id: SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding?, string?, Action<HttpRequestMessage>?, Func<HttpClient>?)
+  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding?, string?, Action<HttpRequestMessage>?, Func<HttpClient>?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding?, string?, System.Action<System.Net.Http.HttpRequestMessage>?, System.Func<System.Net.Http.HttpClient>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SendBodyAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 141
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
+
+    with the specified request body.
+  example: []
+  syntax:
+    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding? encoding, string? mediaType, Action<HttpRequestMessage>? requestMessageAction, Func<HttpClient>? optionalClientGetter)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: The request.
+    - id: requestBody
+      type: System.String
+      description: The request body.
+    - id: encoding
+      type: System.Text.Encoding
+      description: The encoding.
+    - id: mediaType
+      type: System.String
+      description: Type of the media.
+    - id: requestMessageAction
+      type: System.Action{System.Net.Http.HttpRequestMessage}
+      description: The request message action.
+    - id: optionalClientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The optional client getter.
+    return:
+      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
+    content.vb: Public Shared Function SendBodyAsync(request As HttpRequestMessage, requestBody As String, encoding As Encoding, mediaType As String, requestMessageAction As Action(Of HttpRequestMessage), optionalClientGetter As Func(Of HttpClient)) As Task(Of HttpResponseMessage)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage, String, Encoding, String, Action(Of HttpRequestMessage), Func(Of HttpClient))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage, String, System.Text.Encoding, String, System.Action(Of System.Net.Http.HttpRequestMessage), System.Func(Of System.Net.Http.HttpClient))
+  name.vb: SendBodyAsync(HttpRequestMessage, String, Encoding, String, Action(Of HttpRequestMessage), Func(Of HttpClient))
+references:
+- uid: System.Net.Http.HttpRequestMessage
+  commentId: T:System.Net.Http.HttpRequestMessage
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage
+  name: HttpRequestMessage
+  nameWithType: HttpRequestMessage
+  fullName: System.Net.Http.HttpRequestMessage
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Net.Http.Headers.AuthenticationHeaderValue
+  commentId: T:System.Net.Http.Headers.AuthenticationHeaderValue
+  parent: System.Net.Http.Headers
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.headers.authenticationheadervalue
+  name: AuthenticationHeaderValue
+  nameWithType: AuthenticationHeaderValue
+  fullName: System.Net.Http.Headers.AuthenticationHeaderValue
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader*
+  commentId: Overload:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader
+  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_ToAzureStorageAuthorizationHeader_System_Net_Http_HttpRequestMessage_System_String_System_String_System_String_System_String_
+  name: ToAzureStorageAuthorizationHeader
+  nameWithType: HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Net.Http.Headers
+  commentId: N:System.Net.Http.Headers
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http.Headers
+  nameWithType: System.Net.Http.Headers
+  fullName: System.Net.Http.Headers
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  - name: .
+  - uid: System.Net.Http.Headers
+    name: Headers
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.headers
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  - name: .
+  - uid: System.Net.Http.Headers
+    name: Headers
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.headers
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders*
+  commentId: Overload:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders
+  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_ToAzureStorageCanonicalizedHeaders_System_Net_Http_HttpRequestMessage_
+  name: ToAzureStorageCanonicalizedHeaders
+  nameWithType: HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageSignature*
+  commentId: Overload:Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageSignature
+  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_ToAzureStorageSignature_System_Net_Http_HttpRequestMessage_System_String_System_String_System_String_
+  name: ToAzureStorageSignature
+  nameWithType: HttpRequestMessageExtensions.ToAzureStorageSignature
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageSignature
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Net.Http.ByteArrayContent
+  commentId: T:System.Net.Http.ByteArrayContent
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.bytearraycontent
+  name: ByteArrayContent
+  nameWithType: ByteArrayContent
+  fullName: System.Net.Http.ByteArrayContent
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent*
+  commentId: Overload:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent
+  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_WithAzureStorageBlockBlobContent_System_Net_Http_HttpRequestMessage_System_String_System_String_
+  name: WithAzureStorageBlockBlobContent
+  nameWithType: HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageBlockBlobContent
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders*
+  commentId: Overload:Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders
+  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_WithAzureStorageHeaders_System_Net_Http_HttpRequestMessage_System_DateTime_System_String_System_String_System_String_
+  name: WithAzureStorageHeaders
+  nameWithType: HttpRequestMessageExtensions.WithAzureStorageHeaders
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: System.Net.Http.HttpResponseMessage
+  commentId: T:System.Net.Http.HttpResponseMessage
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  name: HttpResponseMessage
+  nameWithType: HttpResponseMessage
+  fullName: System.Net.Http.HttpResponseMessage
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync*
+  commentId: Overload:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync
+  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_GetContentAsync_System_Net_Http_HttpRequestMessage_
+  name: GetContentAsync
+  nameWithType: HttpRequestMessageExtensions.GetContentAsync
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.Action{System.Net.Http.HttpResponseMessage}
+  commentId: T:System.Action{System.Net.Http.HttpResponseMessage}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<HttpResponseMessage>
+  nameWithType: Action<HttpResponseMessage>
+  fullName: System.Action<System.Net.Http.HttpResponseMessage>
+  nameWithType.vb: Action(Of HttpResponseMessage)
+  fullName.vb: System.Action(Of System.Net.Http.HttpResponseMessage)
+  name.vb: Action(Of HttpResponseMessage)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Net.Http.HttpResponseMessage
+    name: HttpResponseMessage
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Net.Http.HttpResponseMessage
+    name: HttpResponseMessage
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Func{System.Net.Http.HttpClient}
+  commentId: T:System.Func{System.Net.Http.HttpClient}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<HttpClient>
+  nameWithType: Func<HttpClient>
+  fullName: System.Func<System.Net.Http.HttpClient>
+  nameWithType.vb: Func(Of HttpClient)
+  fullName.vb: System.Func(Of System.Net.Http.HttpClient)
+  name.vb: Func(Of HttpClient)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Net.Http.HttpClient
+    name: HttpClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Net.Http.HttpClient
+    name: HttpClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  - name: )
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)
+  commentId: M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient.sendasync#system-net-http-httpclient-sendasync(system-net-http-httprequestmessage)
+  name: SendAsync(HttpRequestMessage)
+  nameWithType: HttpClient.SendAsync(HttpRequestMessage)
+  fullName: System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)
+  spec.csharp:
+  - uid: System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)
+    name: SendAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient.sendasync#system-net-http-httpclient-sendasync(system-net-http-httprequestmessage)
+  - name: (
+  - uid: System.Net.Http.HttpRequestMessage
+    name: HttpRequestMessage
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage
+  - name: )
+  spec.vb:
+  - uid: System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)
+    name: SendAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient.sendasync#system-net-http-httpclient-sendasync(system-net-http-httprequestmessage)
+  - name: (
+  - uid: System.Net.Http.HttpRequestMessage
+    name: HttpRequestMessage
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage
+  - name: )
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync*
+  commentId: Overload:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync
+  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_System_Net_Http_HttpRequestMessage_
+  name: SendAsync
+  nameWithType: HttpRequestMessageExtensions.SendAsync
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync
+- uid: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
+  commentId: T:System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<HttpResponseMessage>
+  nameWithType: Task<HttpResponseMessage>
+  fullName: System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage>
+  nameWithType.vb: Task(Of HttpResponseMessage)
+  fullName.vb: System.Threading.Tasks.Task(Of System.Net.Http.HttpResponseMessage)
+  name.vb: Task(Of HttpResponseMessage)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Net.Http.HttpResponseMessage
+    name: HttpResponseMessage
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Net.Http.HttpResponseMessage
+    name: HttpResponseMessage
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  - name: )
+- uid: System.Action{System.Net.Http.HttpRequestMessage}
+  commentId: T:System.Action{System.Net.Http.HttpRequestMessage}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<HttpRequestMessage>
+  nameWithType: Action<HttpRequestMessage>
+  fullName: System.Action<System.Net.Http.HttpRequestMessage>
+  nameWithType.vb: Action(Of HttpRequestMessage)
+  fullName.vb: System.Action(Of System.Net.Http.HttpRequestMessage)
+  name.vb: Action(Of HttpRequestMessage)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Net.Http.HttpRequestMessage
+    name: HttpRequestMessage
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Net.Http.HttpRequestMessage
+    name: HttpRequestMessage
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage
+  - name: )
+- uid: System.Net.Http.HttpCompletionOption
+  commentId: T:System.Net.Http.HttpCompletionOption
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpcompletionoption
+  name: HttpCompletionOption
+  nameWithType: HttpCompletionOption
+  fullName: System.Net.Http.HttpCompletionOption
+- uid: System.Text.Encoding.UTF8
+  commentId: P:System.Text.Encoding.UTF8
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.encoding.utf8
+  name: UTF8
+  nameWithType: Encoding.UTF8
+  fullName: System.Text.Encoding.UTF8
+- uid: Songhay.Models.MimeTypes.ApplicationJson
+  commentId: F:Songhay.Models.MimeTypes.ApplicationJson
+  href: Songhay.Models.MimeTypes.html#Songhay_Models_MimeTypes_ApplicationJson
+  name: ApplicationJson
+  nameWithType: MimeTypes.ApplicationJson
+  fullName: Songhay.Models.MimeTypes.ApplicationJson
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
+  commentId: Overload:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync
+  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_
+  name: SendBodyAsync
+  nameWithType: HttpRequestMessageExtensions.SendBodyAsync
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync
+- uid: System.Text.Encoding
+  commentId: T:System.Text.Encoding
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.encoding
+  name: Encoding
+  nameWithType: Encoding
+  fullName: System.Text.Encoding
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
