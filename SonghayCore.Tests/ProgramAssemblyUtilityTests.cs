@@ -1,12 +1,7 @@
 ﻿namespace Songhay.Tests;
 
-public class ProgramAssemblyUtilityTests
+public class ProgramAssemblyUtilityTests(ITestOutputHelper helper)
 {
-    public ProgramAssemblyUtilityTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Theory]
     [InlineData(@"..\..\..\content\FrameworkAssemblyUtilityTest-ShouldGetPathFromAssembly.json")]
     [InlineData("../../../content/FrameworkAssemblyUtilityTest-ShouldGetPathFromAssembly.json")]
@@ -14,8 +9,8 @@ public class ProgramAssemblyUtilityTests
     [InlineData("../../../../SonghayCore/SonghayCore.nuspec")]
     public void GetPathFromAssembly_Test(string fileSegment)
     {
-        var actualPath = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, fileSegment);
-        _testOutputHelper.WriteLine(actualPath);
+        string actualPath = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, fileSegment);
+        helper.WriteLine(actualPath);
         Assert.True(File.Exists(actualPath));
     }
 
@@ -27,18 +22,16 @@ public class ProgramAssemblyUtilityTests
 // ⚠ https://docs.microsoft.com/en-us/dotnet/core/compatibility/syslib-warnings/syslib0012
 #pragma warning disable SYSLIB0012
 
-        var proposedLocation = (!string.IsNullOrWhiteSpace(assembly.CodeBase) &&
-                                !ProgramFileUtility.IsForwardSlashSystem()) ?
+        var proposedLocation = !string.IsNullOrWhiteSpace(assembly.CodeBase) &&
+                               !ProgramFileUtility.IsForwardSlashSystem() ?
             assembly.CodeBase.Replace("file:///", string.Empty) :
             assembly.Location;
 
-        _testOutputHelper.WriteLine($"{nameof(assembly.Location)}: {assembly.Location}");
-        _testOutputHelper.WriteLine($"{nameof(assembly.CodeBase)}: {assembly.CodeBase}");
-        _testOutputHelper.WriteLine($"{nameof(proposedLocation)}: {proposedLocation}");
+        helper.WriteLine($"{nameof(assembly.Location)}: {assembly.Location}");
+        helper.WriteLine($"{nameof(assembly.CodeBase)}: {assembly.CodeBase}");
+        helper.WriteLine($"{nameof(proposedLocation)}: {proposedLocation}");
 
 #pragma warning restore SYSLIB0012
 
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

@@ -2,13 +2,8 @@
 
 namespace Songhay.Tests.Extensions;
 
-public class ValidationContextExtensionsTest
+public class ValidationContextExtensionsTest(ITestOutputHelper helper)
 {
-    public ValidationContextExtensionsTest(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Fact]
     public void ShouldGetDisplayText()
     {
@@ -21,10 +16,8 @@ public class ValidationContextExtensionsTest
 
         var results = mine.Validate(mine.ToValidationContext()).ToArray();
         Assert.NotEmpty(results);
-        _testOutputHelper.WriteLine(results.ToDisplayText());
+        helper.WriteLine(results.ToDisplayText());
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }
 
 class MyModelOne : IValidatableObject

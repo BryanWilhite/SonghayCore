@@ -8,17 +8,18 @@ public class ProgramMetadata
     /// <summary>
     /// Gets or sets the cloud storage set.
     /// </summary>
-    public Dictionary<string, Dictionary<string, string>> CloudStorageSet { get; set; } = new();
+    [Obsolete("See https://github.com/BryanWilhite/SonghayCore/issues/176")]
+    public Dictionary<string, Dictionary<string, string>> CloudStorageSet { get; } = new();
 
     /// <summary>
     /// Gets or sets the DBMS set.
     /// </summary>
-    public Dictionary<string, DbmsMetadata> DbmsSet { get; set; } = new();
+    public Dictionary<string, DbmsMetadata> DbmsSet { get; } = new();
 
     /// <summary>
     /// Gets or sets the REST API metadata set.
     /// </summary>
-    public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; set; } = new();
+    public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; } = new();
 
     /// <summary>
     /// Represents this instance as a <c>string</c>.
@@ -26,26 +27,6 @@ public class ProgramMetadata
     public override string ToString()
     {
         var sb = new StringBuilder();
-
-        if (CloudStorageSet.Any())
-        {
-            sb.AppendLine($"{nameof(CloudStorageSet)}:");
-            foreach (var item in CloudStorageSet)
-            {
-                sb.AppendLine($"    {item.Key}:");
-                if (item.Value.Any())
-                {
-                    foreach (var item2 in item.Value)
-                    {
-                        var maxLength = 64;
-                        if (item2.Value.Length >= maxLength)
-                            sb.AppendLine($"        {item2.Key}: {item2.Value.Substring(0, maxLength)}... ");
-                        else
-                            sb.AppendLine($"        {item2.Key}: {item2.Value}... ");
-                    }
-                }
-            }
-        }
 
         if (DbmsSet.Any())
         {

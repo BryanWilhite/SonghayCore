@@ -23,7 +23,7 @@ public partial class StringExtensionsTests
     public void ToBlogSlug_Test(string input, string expectedOutput)
     {
         var slug = input.ToBlogSlug();
-        _testOutputHelper.WriteLine("slug: {0}", slug);
+        helper.WriteLine("slug: {0}", slug);
         Assert.True(slug.EqualsInvariant(expectedOutput));
     }
 
@@ -34,9 +34,9 @@ public partial class StringExtensionsTests
     public void ToIntString_Test(string input, string defaultValue, string expected)
     {
         var actual = input.ToIntString(defaultValue);
-        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        helper.WriteLine($"{nameof(input)}: {input}");
+        helper.WriteLine($"{nameof(expected)}: {expected}");
+        helper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 
@@ -67,9 +67,9 @@ public partial class StringExtensionsTests
     public void ToPascalCase_Test(string input, string expected)
     {
         var actual = input.ToPascalCase();
-        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        helper.WriteLine($"{nameof(input)}: {input}");
+        helper.WriteLine($"{nameof(expected)}: {expected}");
+        helper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 
@@ -78,9 +78,9 @@ public partial class StringExtensionsTests
     public void ToSnakeCase_Test(string input, string expected)
     {
         var actual = input.ToSnakeCase();
-        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        helper.WriteLine($"{nameof(input)}: {input}");
+        helper.WriteLine($"{nameof(expected)}: {expected}");
+        helper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 
@@ -106,9 +106,9 @@ public partial class StringExtensionsTests
     public void Truncate_Test(string input, int length, string expected)
     {
         var actual = input.Truncate(length);
-        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
-        _testOutputHelper.WriteLine($"{nameof(expected)}: {expected}");
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        helper.WriteLine($"{nameof(input)}: {input}");
+        helper.WriteLine($"{nameof(expected)}: {expected}");
+        helper.WriteLine($"{nameof(actual)}: {actual}");
         Assert.Equal(expected, actual);
     }
 }

@@ -4,7 +4,7 @@ namespace Songhay.Tests;
 
 public partial class ProgramFileUtilityTests
 {
-    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/ReadZipArchiveEntries.zip")]
+    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../content/zip/ReadZipArchiveEntries.zip")]
     public void ReadZipArchiveEntries_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -13,7 +13,7 @@ public partial class ProgramFileUtilityTests
         // act
         ProgramFileUtility.ReadZipArchiveEntries(archiveInfo, entry =>
         {
-            _testOutputHelper.WriteLine(entry);
+            helper.WriteLine(entry);
             isReading = true;
         });
 
@@ -21,7 +21,7 @@ public partial class ProgramFileUtilityTests
         Assert.True(isReading);
     }
 
-    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/ReadZipArchiveEntries.zip")]
+    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../content/zip/ReadZipArchiveEntries.zip")]
     public void ReadZipArchiveEntriesBackwards_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -33,7 +33,7 @@ public partial class ProgramFileUtilityTests
         ProgramFileUtility.ReadZipArchiveEntries(archiveInfo, entry =>
         {
             isReading = true;
-            _testOutputHelper.WriteLine(entry);
+            helper.WriteLine(entry);
             builder.Append(entry);
         }, entries => entries.OrderByDescending(i => i.Name));
 
@@ -42,7 +42,7 @@ public partial class ProgramFileUtilityTests
         Assert.Equal(expectedOrder, builder.ToString());
     }
 
-    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/ReadZipArchiveEntriesByLine.zip")]
+    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../content/zip/ReadZipArchiveEntriesByLine.zip")]
     public void ReadZipArchiveEntriesByLine_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -51,7 +51,7 @@ public partial class ProgramFileUtilityTests
         // act
         ProgramFileUtility.ReadZipArchiveEntriesByLine(archiveInfo, (lineNum, line) =>
         {
-            _testOutputHelper.WriteLine($"{lineNum}: {line}");
+            helper.WriteLine($"{lineNum}: {line}");
             isReading = true;
         }, entries => entries.Where(i => i.Name.EqualsInvariant("c.txt")));
 
@@ -59,7 +59,7 @@ public partial class ProgramFileUtilityTests
         Assert.True(isReading);
     }
 
-    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../zip/UseZipArchive.zip")]
+    [Theory, ProjectFileData(typeof(ProgramFileUtilityTests), "../../../content/zip/UseZipArchive.zip")]
     public void UseZipArchive_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -76,7 +76,7 @@ public partial class ProgramFileUtilityTests
     [SkippableTheory,
      ProjectFileData(typeof(ProgramFileUtilityTests),
          "../../../json/hello.json",
-         "../../../zip/WriteZipArchiveEntry.zip")]
+         "../../../content/zip/WriteZipArchiveEntry.zip")]
     public void WriteZipArchiveEntry_Test(FileInfo fileInfo, FileInfo archiveInfo)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);

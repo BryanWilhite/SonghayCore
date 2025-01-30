@@ -1,0 +1,1051 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Models.OpmlHead
+  commentId: T:Songhay.Models.OpmlHead
+  id: OpmlHead
+  parent: Songhay.Models
+  children:
+  - Songhay.Models.OpmlHead.#ctor
+  - Songhay.Models.OpmlHead.DateCreated
+  - Songhay.Models.OpmlHead.DateCreatedString
+  - Songhay.Models.OpmlHead.DateModified
+  - Songhay.Models.OpmlHead.DateModifiedString
+  - Songhay.Models.OpmlHead.OwnerEmail
+  - Songhay.Models.OpmlHead.OwnerName
+  - Songhay.Models.OpmlHead.Title
+  langs:
+  - csharp
+  - vb
+  name: OpmlHead
+  nameWithType: OpmlHead
+  fullName: Songhay.Models.OpmlHead
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Models/OpmlHead.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: OpmlHead
+    path: ../SonghayCore/Models/OpmlHead.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Defines a managed representation of the OPML head element.
+  example: []
+  syntax:
+    content: >-
+      [Serializable]
+
+      [DataContract(Name = "head")]
+
+      public class OpmlHead
+    content.vb: >-
+      <Serializable>
+
+      <DataContract(Name:="head")>
+
+      Public Class OpmlHead
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Songhay.Models.OpmlHead.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Models.OpmlHead.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Models.OpmlHead.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: head
+- uid: Songhay.Models.OpmlHead.#ctor
+  commentId: M:Songhay.Models.OpmlHead.#ctor
+  id: '#ctor'
+  parent: Songhay.Models.OpmlHead
+  langs:
+  - csharp
+  - vb
+  name: OpmlHead()
+  nameWithType: OpmlHead.OpmlHead()
+  fullName: Songhay.Models.OpmlHead.OpmlHead()
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore/Models/OpmlHead.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: ../SonghayCore/Models/OpmlHead.cs
+    startLine: 13
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Initializes a new instance of the <xref href="Songhay.Models.OpmlHead" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public OpmlHead()
+    content.vb: Public Sub New()
+  overload: Songhay.Models.OpmlHead.#ctor*
+  nameWithType.vb: OpmlHead.New()
+  fullName.vb: Songhay.Models.OpmlHead.New()
+  name.vb: New()
+- uid: Songhay.Models.OpmlHead.Title
+  commentId: P:Songhay.Models.OpmlHead.Title
+  id: Title
+  parent: Songhay.Models.OpmlHead
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: OpmlHead.Title
+  fullName: Songhay.Models.OpmlHead.Title
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/OpmlHead.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: Title
+    path: ../SonghayCore/Models/OpmlHead.cs
+    startLine: 22
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Gets or sets the title.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("title")]
+
+      public string? Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("title")>
+
+      Public Property Title As String
+  overload: Songhay.Models.OpmlHead.Title*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: title
+- uid: Songhay.Models.OpmlHead.DateCreated
+  commentId: P:Songhay.Models.OpmlHead.DateCreated
+  id: DateCreated
+  parent: Songhay.Models.OpmlHead
+  langs:
+  - csharp
+  - vb
+  name: DateCreated
+  nameWithType: OpmlHead.DateCreated
+  fullName: Songhay.Models.OpmlHead.DateCreated
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/OpmlHead.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DateCreated
+    path: ../SonghayCore/Models/OpmlHead.cs
+    startLine: 29
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Gets or sets the date created.
+  example: []
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public DateTime? DateCreated { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property DateCreated As Date?
+  overload: Songhay.Models.OpmlHead.DateCreated*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: Songhay.Models.OpmlHead.DateCreatedString
+  commentId: P:Songhay.Models.OpmlHead.DateCreatedString
+  id: DateCreatedString
+  parent: Songhay.Models.OpmlHead
+  langs:
+  - csharp
+  - vb
+  name: DateCreatedString
+  nameWithType: OpmlHead.DateCreatedString
+  fullName: Songhay.Models.OpmlHead.DateCreatedString
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/OpmlHead.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DateCreatedString
+    path: ../SonghayCore/Models/OpmlHead.cs
+    startLine: 44
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Gets the date created string.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("dateCreated")]
+
+      public string? DateCreatedString { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("dateCreated")>
+
+      Public Property DateCreatedString As String
+  overload: Songhay.Models.OpmlHead.DateCreatedString*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: dateCreated
+- uid: Songhay.Models.OpmlHead.DateModified
+  commentId: P:Songhay.Models.OpmlHead.DateModified
+  id: DateModified
+  parent: Songhay.Models.OpmlHead
+  langs:
+  - csharp
+  - vb
+  name: DateModified
+  nameWithType: OpmlHead.DateModified
+  fullName: Songhay.Models.OpmlHead.DateModified
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/OpmlHead.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DateModified
+    path: ../SonghayCore/Models/OpmlHead.cs
+    startLine: 51
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Gets or sets the date modified.
+  example: []
+  syntax:
+    content: >-
+      [JsonIgnore]
+
+      public DateTime? DateModified { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: >-
+      <JsonIgnore>
+
+      Public Property DateModified As Date?
+  overload: Songhay.Models.OpmlHead.DateModified*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonIgnoreAttribute
+    ctor: System.Text.Json.Serialization.JsonIgnoreAttribute.#ctor
+    arguments: []
+- uid: Songhay.Models.OpmlHead.DateModifiedString
+  commentId: P:Songhay.Models.OpmlHead.DateModifiedString
+  id: DateModifiedString
+  parent: Songhay.Models.OpmlHead
+  langs:
+  - csharp
+  - vb
+  name: DateModifiedString
+  nameWithType: OpmlHead.DateModifiedString
+  fullName: Songhay.Models.OpmlHead.DateModifiedString
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/OpmlHead.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DateModifiedString
+    path: ../SonghayCore/Models/OpmlHead.cs
+    startLine: 67
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Gets the date created string.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("dateModified")]
+
+      public string? DateModifiedString { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("dateModified")>
+
+      Public Property DateModifiedString As String
+  overload: Songhay.Models.OpmlHead.DateModifiedString*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: dateModified
+- uid: Songhay.Models.OpmlHead.OwnerName
+  commentId: P:Songhay.Models.OpmlHead.OwnerName
+  id: OwnerName
+  parent: Songhay.Models.OpmlHead
+  langs:
+  - csharp
+  - vb
+  name: OwnerName
+  nameWithType: OpmlHead.OwnerName
+  fullName: Songhay.Models.OpmlHead.OwnerName
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/OpmlHead.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: OwnerName
+    path: ../SonghayCore/Models/OpmlHead.cs
+    startLine: 74
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Gets or sets the name of the owner.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("ownerName")]
+
+      public string? OwnerName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("ownerName")>
+
+      Public Property OwnerName As String
+  overload: Songhay.Models.OpmlHead.OwnerName*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ownerName
+- uid: Songhay.Models.OpmlHead.OwnerEmail
+  commentId: P:Songhay.Models.OpmlHead.OwnerEmail
+  id: OwnerEmail
+  parent: Songhay.Models.OpmlHead
+  langs:
+  - csharp
+  - vb
+  name: OwnerEmail
+  nameWithType: OpmlHead.OwnerEmail
+  fullName: Songhay.Models.OpmlHead.OwnerEmail
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/OpmlHead.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: OwnerEmail
+    path: ../SonghayCore/Models/OpmlHead.cs
+    startLine: 81
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Gets or sets the owner email.
+  example: []
+  syntax:
+    content: >-
+      [JsonPropertyName("ownerEmail")]
+
+      public string? OwnerEmail { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonPropertyName("ownerEmail")>
+
+      Public Property OwnerEmail As String
+  overload: Songhay.Models.OpmlHead.OwnerEmail*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
+    ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ownerEmail
+references:
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Models.OpmlHead.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<OpmlHead>(OpmlHead)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<OpmlHead>(OpmlHead)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Models.OpmlHead>(Songhay.Models.OpmlHead)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of OpmlHead)(OpmlHead)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Models.OpmlHead)(Songhay.Models.OpmlHead)
+  name.vb: IsAssignableToISerializable(Of OpmlHead)(OpmlHead)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Models.OpmlHead)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Models.OpmlHead)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: )
+- uid: Songhay.Models.OpmlHead.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<OpmlHead>(OpmlHead)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<OpmlHead>(OpmlHead)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Models.OpmlHead>(Songhay.Models.OpmlHead)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of OpmlHead)(OpmlHead)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Models.OpmlHead)(Songhay.Models.OpmlHead)
+  name.vb: ToObjectOrDbNull(Of OpmlHead)(OpmlHead)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Models.OpmlHead)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Models.OpmlHead)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: )
+- uid: Songhay.Models.OpmlHead.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<OpmlHead>(OpmlHead, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<OpmlHead>(OpmlHead, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Models.OpmlHead>(Songhay.Models.OpmlHead, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of OpmlHead)(OpmlHead, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Models.OpmlHead)(Songhay.Models.OpmlHead, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of OpmlHead)(OpmlHead, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Models.OpmlHead,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Models.OpmlHead,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.OpmlHead
+    name: OpmlHead
+    href: Songhay.Models.OpmlHead.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Models.OpmlHead
+  commentId: T:Songhay.Models.OpmlHead
+  parent: Songhay.Models
+  href: Songhay.Models.OpmlHead.html
+  name: OpmlHead
+  nameWithType: OpmlHead
+  fullName: Songhay.Models.OpmlHead
+- uid: Songhay.Models.OpmlHead.#ctor*
+  commentId: Overload:Songhay.Models.OpmlHead.#ctor
+  href: Songhay.Models.OpmlHead.html#Songhay_Models_OpmlHead__ctor
+  name: OpmlHead
+  nameWithType: OpmlHead.OpmlHead
+  fullName: Songhay.Models.OpmlHead.OpmlHead
+  nameWithType.vb: OpmlHead.New
+  fullName.vb: Songhay.Models.OpmlHead.New
+  name.vb: New
+- uid: Songhay.Models.OpmlHead.Title*
+  commentId: Overload:Songhay.Models.OpmlHead.Title
+  href: Songhay.Models.OpmlHead.html#Songhay_Models_OpmlHead_Title
+  name: Title
+  nameWithType: OpmlHead.Title
+  fullName: Songhay.Models.OpmlHead.Title
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Songhay.Models.OpmlHead.DateCreated*
+  commentId: Overload:Songhay.Models.OpmlHead.DateCreated
+  href: Songhay.Models.OpmlHead.html#Songhay_Models_OpmlHead_DateCreated
+  name: DateCreated
+  nameWithType: OpmlHead.DateCreated
+  fullName: Songhay.Models.OpmlHead.DateCreated
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Songhay.Models.OpmlHead.DateCreatedString*
+  commentId: Overload:Songhay.Models.OpmlHead.DateCreatedString
+  href: Songhay.Models.OpmlHead.html#Songhay_Models_OpmlHead_DateCreatedString
+  name: DateCreatedString
+  nameWithType: OpmlHead.DateCreatedString
+  fullName: Songhay.Models.OpmlHead.DateCreatedString
+- uid: Songhay.Models.OpmlHead.DateModified*
+  commentId: Overload:Songhay.Models.OpmlHead.DateModified
+  href: Songhay.Models.OpmlHead.html#Songhay_Models_OpmlHead_DateModified
+  name: DateModified
+  nameWithType: OpmlHead.DateModified
+  fullName: Songhay.Models.OpmlHead.DateModified
+- uid: Songhay.Models.OpmlHead.DateModifiedString*
+  commentId: Overload:Songhay.Models.OpmlHead.DateModifiedString
+  href: Songhay.Models.OpmlHead.html#Songhay_Models_OpmlHead_DateModifiedString
+  name: DateModifiedString
+  nameWithType: OpmlHead.DateModifiedString
+  fullName: Songhay.Models.OpmlHead.DateModifiedString
+- uid: Songhay.Models.OpmlHead.OwnerName*
+  commentId: Overload:Songhay.Models.OpmlHead.OwnerName
+  href: Songhay.Models.OpmlHead.html#Songhay_Models_OpmlHead_OwnerName
+  name: OwnerName
+  nameWithType: OpmlHead.OwnerName
+  fullName: Songhay.Models.OpmlHead.OwnerName
+- uid: Songhay.Models.OpmlHead.OwnerEmail*
+  commentId: Overload:Songhay.Models.OpmlHead.OwnerEmail
+  href: Songhay.Models.OpmlHead.html#Songhay_Models_OpmlHead_OwnerEmail
+  name: OwnerEmail
+  nameWithType: OpmlHead.OwnerEmail
+  fullName: Songhay.Models.OpmlHead.OwnerEmail

@@ -1,0 +1,42 @@
+{
+    "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+    "metadata": [
+        {
+            "dest": "./latest",
+            "noRestore": true,
+            "src": [
+                {
+                    "src": "../SonghayCore",
+                    "files": [
+                        "**/*.csproj"
+                    ]
+                },
+                {
+                    "src": "../SonghayCore.xUnit",
+                    "files": [
+                        "**/*.csproj"
+                    ]
+                }
+            ]
+        }
+    ],
+    "build": {
+        "globalMetadata": {
+            "_appName": "SonghayCore",
+            "_appTitle": "SonghayCore API",
+            "_enableSearch": true,
+            "pdf": false
+        },
+        "content": [
+            {
+                "exclude": "**/*xrefmap.yml",
+                "files": ["**/*.{md,yml}"]
+            }
+        ],
+        "resource": [],
+        "template": [
+            "default",
+            "modern"
+        ]
+    }
+}

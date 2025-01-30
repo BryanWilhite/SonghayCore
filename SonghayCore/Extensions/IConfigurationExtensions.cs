@@ -7,6 +7,19 @@ namespace Songhay.Extensions;
 public static class IConfigurationExtensions
 {
     /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    /// <param name="key">the key to add</param>
+    /// <param name="helpText">the help text to add</param>
+    public static void AddHelpDisplayText(this IConfiguration? configuration, string key, string helpText)
+    {
+        if (configuration == null) return;
+
+        configuration[key.ToConfigurationKey().WithConfigurationHelpTextSuffix()] = helpText;
+    }
+
+    /// <summary>
     /// Returns the value of the conventional <see cref="ConsoleArgsScalars.BaseDirectory"/> <c>arg</c>
     /// or throws <see cref="DirectoryNotFoundException"/>
     /// when the conventional <see cref="ConsoleArgsScalars.BaseDirectoryRequired"/> <c>arg</c> is present.
@@ -16,8 +29,8 @@ public static class IConfigurationExtensions
     {
         if (configuration == null) return null;
 
-        bool isBasePathRequired = configuration.HasArg(ConsoleArgsScalars.BaseDirectoryRequired.ToConfigurationKey());
-        string? basePath = configuration[ConsoleArgsScalars.BaseDirectory.ToConfigurationKey()];
+        bool isBasePathRequired = configuration.HasKey(ConsoleArgsScalars.BaseDirectoryRequired);
+        string? basePath = configuration.GetCommandLineArgValue(ConsoleArgsScalars.BaseDirectory);
 
         if(string.IsNullOrWhiteSpace(basePath) && isBasePathRequired)
             throw new DirectoryNotFoundException($"The expected `{ConsoleArgsScalars.BaseDirectory}` is not here.");
@@ -28,18 +41,31 @@ public static class IConfigurationExtensions
     }
 
     /// <summary>
+    /// Returns a value from the specified <see cref="IConfiguration"/>
+    /// by calling <see cref="StringExtensions.ToConfigurationKey"/>
+    /// on the specified <c>arg</c>.
+    /// </summary>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    /// <param name="arg">the command-line argument to be converted into a <see cref="IConfiguration"/> key</param>
+    /// <remarks>
+    /// This member will call <see cref="StringExtensions.ToConfigurationKey"/>
+    /// to convert a console argument to <see cref="IConfiguration"/>-key format.
+    /// </remarks>
+    public static string? GetCommandLineArgValue(this IConfiguration? configuration, string arg) => configuration?[arg.ToConfigurationKey()];
+
+    /// <summary>
     /// Returns the value of the conventional <see cref="ConsoleArgsScalars.OutputFile"/> <c>arg</c>
     /// and will prefix it with the value of the <see cref="ConsoleArgsScalars.BaseDirectory"/> <c>arg</c>
     /// when the conventional <see cref="ConsoleArgsScalars.OutputUnderBasePath"/> <c>arg</c> is present.
     /// </summary>
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
-    public static string GetOutputPath(this IConfiguration? configuration)
+    public static string? GetOutputPath(this IConfiguration? configuration)
     {
         if (configuration == null) return string.Empty;
 
-        string outputFile = configuration[ConsoleArgsScalars.OutputFile.ToConfigurationKey()];
+        string? outputFile = configuration.GetCommandLineArgValue(ConsoleArgsScalars.OutputFile);
 
-        bool outputUnderBasePath = configuration.HasArg(ConsoleArgsScalars.OutputUnderBasePath);
+        bool outputUnderBasePath = configuration.HasKey(ConsoleArgsScalars.OutputUnderBasePath);
 
         if (outputUnderBasePath)
         {
@@ -48,7 +74,10 @@ public static class IConfigurationExtensions
             outputFile = ProgramFileUtility.GetCombinedPath(basePath, outputFile);
         }
 
-        if (!File.Exists(outputFile)) File.WriteAllText(outputFile, string.Empty);
+        if (!string.IsNullOrWhiteSpace(outputFile) &&
+            !File.Exists(outputFile) &&
+            Directory.Exists(Path.GetPathRoot(outputFile)))
+            File.WriteAllText(outputFile, string.Empty);
 
         return outputFile;
     }
@@ -60,7 +89,7 @@ public static class IConfigurationExtensions
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
     public static string GetSettingsFilePath(this IConfiguration? configuration)
     {
-        string? path =  configuration?[ConsoleArgsScalars.SettingsFile.ToConfigurationKey()];
+        string? path =  configuration.GetCommandLineArgValue(ConsoleArgsScalars.SettingsFile);
 
         if (File.Exists(path)) return path;
 
@@ -81,22 +110,47 @@ public static class IConfigurationExtensions
     /// This member will call <see cref="StringExtensions.ToConfigurationKey"/>
     /// to convert a console argument to <see cref="IConfiguration"/>-key format.
     /// </remarks>
-    public static bool HasArg(this IConfiguration? configuration, string? key) =>
-        configuration.ToKeys().Contains(key.ToConfigurationKey());
+    public static bool HasKey(this IConfiguration? configuration, string? key) => configuration.HasKey(key, isCommandLineSwitch: false);
+
+    /// <summary>
+    /// Returns <c>true</c> when the specified <see cref="IConfiguration"/>
+    /// contains the specified key.
+    /// </summary>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    /// <param name="key">the <see cref="IConfiguration"/> key</param>
+    /// <param name="isCommandLineSwitch">when <c>true</c>, expect a command-line “switch” like <c>--dry-run=true</c></param>
+    /// <remarks>
+    /// This member will call <see cref="StringExtensions.ToConfigurationKey"/>
+    /// to convert a console argument to <see cref="IConfiguration"/>-key format.
+    ///
+    /// When <c>isCommandLineSwitch</c> is <c>true</c>, a command-line “switch” like
+    /// <c>--dry-run=false</c> will make this member return <c>false</c>
+    /// and <c>--dry-run=true</c> will make this member return <c>true</c>.
+    /// For more detail, [ see https://github.com/BryanWilhite/SonghayCore/issues/177 ]
+    /// </remarks>
+    public static bool HasKey(this IConfiguration? configuration, string? key, bool isCommandLineSwitch)
+    {
+        if(string.IsNullOrWhiteSpace(key)) return false;
+
+        if (!isCommandLineSwitch) return configuration.ToKeys().Contains(key.ToConfigurationKey());
+
+        var booleanString = configuration.GetCommandLineArgValue(key);
+
+        return bool.TryParse(booleanString, out bool result) && result;
+
+    }
 
     /// <summary>
     /// Determines whether <c>args</c> contain the conventional <see cref="ConsoleArgsScalars.DryRun"/> flag.
     /// </summary>
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
-    public static bool IsDryRun(this IConfiguration? configuration) =>
-        configuration.HasArg(ConsoleArgsScalars.DryRun.ToConfigurationKey());
+    public static bool IsDryRun(this IConfiguration? configuration) => configuration.HasKey(ConsoleArgsScalars.DryRun);
 
     /// <summary>
     /// Determines whether <c>args</c> contain the conventional <see cref="ConsoleArgsScalars.Help"/> flag.
     /// </summary>
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
-    public static bool IsHelpRequest(this IConfiguration? configuration) =>
-        configuration.HasArg(ConsoleArgsScalars.Help.ToConfigurationKey());
+    public static bool IsHelpRequest(this IConfiguration? configuration) => configuration.HasKey(ConsoleArgsScalars.Help);
 
     /// <summary>
     /// Reads the settings data in the file specified by <see cref="ConsoleArgsScalars.SettingsFile"/>
@@ -122,20 +176,19 @@ public static class IConfigurationExtensions
     {
         string? input = null;
 
-        if (configuration.HasArg(ConsoleArgsScalars.InputString))
+        if (configuration.HasKey(ConsoleArgsScalars.InputString))
         {
-            input = configuration?[ConsoleArgsScalars.InputString.ToConfigurationKey()];
+            input = configuration.GetCommandLineArgValue(ConsoleArgsScalars.InputString);
         }
-        else if (configuration.HasArg(ConsoleArgsScalars.InputFile))
+        else if (configuration.HasKey(ConsoleArgsScalars.InputFile))
         {
-            var path = configuration?[ConsoleArgsScalars.InputFile.ToConfigurationKey()];
+            string? path = configuration.GetCommandLineArgValue(ConsoleArgsScalars.InputFile);
 
             if (!File.Exists(path))
             {
                 var basePath = configuration.GetBasePathValue();
 
-                path = ProgramFileUtility
-                    .GetCombinedPath(basePath, path, fileIsExpected: true);
+                path = ProgramFileUtility.GetCombinedPath(basePath, path, fileIsExpected: true);
 
                 if (!File.Exists(path))
                     throw new FileNotFoundException($"The expected input file, `{path}`, is not here.");
@@ -152,8 +205,7 @@ public static class IConfigurationExtensions
     /// to any keys ending with <see cref="ConsoleArgsScalars.HelpTextSuffix"/>.
     /// </summary>
     /// <param name="configuration"></param>
-    public static string? ToHelpDisplayText(this IConfiguration? configuration) =>
-        configuration.ToHelpDisplayText(4);
+    public static string? ToHelpDisplayText(this IConfiguration? configuration) => configuration.ToHelpDisplayText(4);
 
     /// <summary>
     /// Converts the specified <see cref="IConfiguration"/>
@@ -175,7 +227,7 @@ public static class IConfigurationExtensions
         if (!helpKeys.Any()) return null;
 
         var pairs = helpKeys
-            .Select(k => new KeyValuePair<string, string>(k, configuration[k]))
+            .Select(k => new KeyValuePair<string, string?>(k, configuration.GetValue<string>(k)))
             .ToArray();
 
         int maxLength = helpKeys.Select(k => k.Length).Max();
@@ -204,7 +256,7 @@ public static class IConfigurationExtensions
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
     public static IReadOnlyCollection<string> ToKeys(this IConfiguration? configuration) =>
         configuration == null ?
-            Array.Empty<string>()
+            []
             :
             configuration.AsEnumerable().Select(kv => kv.Key).ToArray();
 
@@ -215,31 +267,31 @@ public static class IConfigurationExtensions
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
     public static IConfiguration? WithDefaultHelpText(this IConfiguration? configuration)
     {
-        if (configuration == null) return default;
+        if (configuration == null) return null;
 
-        configuration[ConsoleArgsScalars.BaseDirectory.WithConfigurationHelpTextSuffix()] =
-            "The path to the Directory where the Activity will set its context.";
+        configuration.AddHelpDisplayText(ConsoleArgsScalars.BaseDirectory,
+            "The path to the Directory where the Activity will set its context.");
 
-        configuration[ConsoleArgsScalars.BaseDirectoryRequired.WithConfigurationHelpTextSuffix()] =
-            $"Indicates that {ConsoleArgsScalars.BaseDirectory} is required.";
+        configuration.AddHelpDisplayText(ConsoleArgsScalars.BaseDirectoryRequired,
+            $"Indicates that {ConsoleArgsScalars.BaseDirectory} is required.");
 
-        configuration[ConsoleArgsScalars.Help.WithConfigurationHelpTextSuffix()] =
-            "Displays this help text.";
+        configuration.AddHelpDisplayText(ConsoleArgsScalars.Help,
+            "Displays this help text.");
 
-        configuration[ConsoleArgsScalars.InputFile.WithConfigurationHelpTextSuffix()] =
-            $"The path to the file to load as Activity input. {ConsoleArgsScalars.InputString} can be used alternatively.";
+        configuration.AddHelpDisplayText(ConsoleArgsScalars.InputFile,
+            $"The path to the file to load as Activity input. {ConsoleArgsScalars.InputString} can be used alternatively.");
 
-        configuration[ConsoleArgsScalars.InputString.WithConfigurationHelpTextSuffix()] =
-            $"The string literal used as Activity input. {ConsoleArgsScalars.InputFile} can be used alternatively.";
+        configuration.AddHelpDisplayText(ConsoleArgsScalars.InputString,
+            $"The string literal used as Activity input. {ConsoleArgsScalars.InputFile} can be used alternatively.");
 
-        configuration[ConsoleArgsScalars.OutputFile.WithConfigurationHelpTextSuffix()] =
-            $"The path to the file to write as Activity output. This can be an absolute path or relative to {ConsoleArgsScalars.BaseDirectory} when {ConsoleArgsScalars.OutputUnderBasePath} is used.";
+        configuration.AddHelpDisplayText(ConsoleArgsScalars.OutputFile,
+            $"The path to the file to write as Activity output. This can be an absolute path or relative to {ConsoleArgsScalars.BaseDirectory} when {ConsoleArgsScalars.OutputUnderBasePath} is used.");
 
-        configuration[ConsoleArgsScalars.OutputUnderBasePath.WithConfigurationHelpTextSuffix()] =
-            $"See {ConsoleArgsScalars.OutputFile}.";
+        configuration.AddHelpDisplayText(ConsoleArgsScalars.OutputUnderBasePath,
+            $"See {ConsoleArgsScalars.OutputFile}.");
 
-        configuration[ConsoleArgsScalars.SettingsFile.WithConfigurationHelpTextSuffix()] =
-            $"The path to the file to load as Activity Settings input. This can be an absolute path or relative to {ConsoleArgsScalars.BaseDirectory}.";
+        configuration.AddHelpDisplayText(ConsoleArgsScalars.SettingsFile,
+            $"The path to the file to load as Activity Settings input. This can be an absolute path or relative to {ConsoleArgsScalars.BaseDirectory}.");
 
         return configuration;
     }
@@ -252,7 +304,9 @@ public static class IConfigurationExtensions
     /// <param name="output">the output to write</param>
     public static void WriteOutputToFile(this IConfiguration? configuration, string output)
     {
-        string outputFile = configuration.GetOutputPath();
+        string? outputFile = configuration.GetOutputPath();
+
+        if (string.IsNullOrWhiteSpace(outputFile)) return;
 
         File.WriteAllText(outputFile, output);
     }
@@ -265,7 +319,9 @@ public static class IConfigurationExtensions
     /// <param name="output">the output to write</param>
     public static async Task WriteOutputToFileAsync(this IConfiguration? configuration, string output)
     {
-        string outputFile = configuration.GetOutputPath();
+        string? outputFile = configuration.GetOutputPath();
+
+        if (string.IsNullOrWhiteSpace(outputFile)) return;
 
         await File.WriteAllTextAsync(outputFile, output);
     }
@@ -278,7 +334,9 @@ public static class IConfigurationExtensions
     /// <param name="output">the output to write</param>
     public static void WriteOutputToFile(this IConfiguration? configuration, byte[] output)
     {
-        string outputFile = configuration.GetOutputPath();
+        string? outputFile = configuration.GetOutputPath();
+
+        if (string.IsNullOrWhiteSpace(outputFile)) return;
 
         File.WriteAllBytes(outputFile, output);
     }
@@ -291,7 +349,9 @@ public static class IConfigurationExtensions
     /// <param name="output">the output to write</param>
     public static async Task WriteOutputToFileAsync(this IConfiguration? configuration, byte[] output)
     {
-        string outputFile = configuration.GetOutputPath();
+        string? outputFile = configuration.GetOutputPath();
+
+        if (string.IsNullOrWhiteSpace(outputFile)) return;
 
         await File.WriteAllBytesAsync(outputFile, output);
     }
@@ -307,7 +367,9 @@ public static class IConfigurationExtensions
     /// </remarks>
     public static void WriteOutputToFile(this IConfiguration? configuration, Stream output)
     {
-        string outputFile = configuration.GetOutputPath();
+        string? outputFile = configuration.GetOutputPath();
+
+        if (string.IsNullOrWhiteSpace(outputFile)) return;
 
         using var fileStream = File.Create(outputFile);
 
@@ -326,7 +388,9 @@ public static class IConfigurationExtensions
     /// </remarks>
     public static async Task WriteOutputToFileAsync(this IConfiguration? configuration, Stream output)
     {
-        string outputFile = configuration.GetOutputPath();
+        string? outputFile = configuration.GetOutputPath();
+
+        if (string.IsNullOrWhiteSpace(outputFile)) return;
 
         await using var fileStream = File.Create(outputFile);
 

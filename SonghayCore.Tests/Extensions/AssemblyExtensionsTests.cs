@@ -1,12 +1,7 @@
 namespace Songhay.Tests.Extensions;
 
-public class AssemblyExtensionsTests
+public class AssemblyExtensionsTests(ITestOutputHelper helper)
 {
-    public AssemblyExtensionsTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Fact]
     public void FindNetCoreProjectDirectorySiblingInfo_Test()
     {
@@ -14,8 +9,6 @@ public class AssemblyExtensionsTests
 
         Assert.NotNull(actual);
 
-        _testOutputHelper.WriteLine(actual.FullName);
+        helper.WriteLine(actual.FullName);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

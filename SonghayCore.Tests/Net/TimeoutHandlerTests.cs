@@ -2,13 +2,8 @@
 
 namespace Songhay.Tests.Net;
 
-public class TimeoutHandlerTests
+public class TimeoutHandlerTests(ITestOutputHelper helper)
 {
-    public TimeoutHandlerTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Theory(Skip = "slowwly server is down")]
     [InlineData("http://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
     public async Task ShouldCancel(string location, int timeInSeconds)
@@ -25,7 +20,7 @@ public class TimeoutHandlerTests
         {
             client.Timeout = Timeout.InfiniteTimeSpan;
 
-            _testOutputHelper.WriteLine($"calling `{location}`...");
+            helper.WriteLine($"calling `{location}`...");
             var request = new HttpRequestMessage(HttpMethod.Get, location);
 
             cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
@@ -54,7 +49,7 @@ public class TimeoutHandlerTests
         {
             client.Timeout = Timeout.InfiniteTimeSpan;
 
-            _testOutputHelper.WriteLine($"calling `{location}`...");
+            helper.WriteLine($"calling `{location}`...");
             var request = new HttpRequestMessage(HttpMethod.Get, location);
 
             using var response = await client.SendAsync(request, cts.Token);
@@ -64,6 +59,4 @@ public class TimeoutHandlerTests
             Assert.IsType<TimeoutException>(ex);
         }
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

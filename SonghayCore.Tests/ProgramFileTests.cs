@@ -4,13 +4,8 @@ using Songhay.Tests.Extensions;
 
 namespace Songhay.Tests;
 
-public class ProgramFileTests
+public class ProgramFileTests(ITestOutputHelper helper)
 {
-    public ProgramFileTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Theory, InlineData(200)]
     public void ShouldFindPathOfGivenLength(int length)
     {
@@ -21,7 +16,7 @@ public class ProgramFileTests
         dict.ForEachInEnumerable(d =>
         {
             if (d.Value > length)
-                _testOutputHelper
+                helper
                     .WriteLine($"{d.Key}:{d.Value.ToString()}");
         });
     }
@@ -43,14 +38,17 @@ public class ProgramFileTests
     [Fact]
     public void ShouldHaveEnvironmentNewline()
     {
-        if (Environment.OSVersion.Platform == PlatformID.Win32NT)
-            Assert.Equal("\r\n", Environment.NewLine);
-
-        else if (Environment.OSVersion.Platform == PlatformID.Unix)
-            Assert.Equal("\n", Environment.NewLine);
-
-        else
-            throw new NotSupportedException($"{Environment.OSVersion} is not supported.");
+        switch (Environment.OSVersion.Platform)
+        {
+            case PlatformID.Win32NT:
+                Assert.Equal("\r\n", Environment.NewLine);
+                break;
+            case PlatformID.Unix:
+                Assert.Equal("\n", Environment.NewLine);
+                break;
+            default:
+                throw new NotSupportedException($"{Environment.OSVersion} is not supported.");
+        }
     }
 
     [Theory, InlineData(@"content\FrameworkFileTest-ShouldSortTextFileData.txt")]
@@ -65,13 +63,13 @@ public class ProgramFileTests
         {
             using var sr = new StreamReader(stream);
 
-            var dataArray = sr.ReadToEnd().Replace(Environment.NewLine, ",").Split(',');
+            string[] dataArray = sr.ReadToEnd().Replace(Environment.NewLine, ",").Split(',');
             dataArray.Select(s => new { Car = s, Count = dataArray.Count(i => i == s) })
                 .OrderByDescending(o => o.Count).ThenBy(o => o.Car)
                 .GroupBy(o => o.Car)
                 .ForEachInEnumerable(o =>
                 {
-                    _testOutputHelper.WriteLine($"{o.Key} = {o.Count()}");
+                    helper.WriteLine($"{o.Key} = {o.Count()}");
                 });
         }
         finally
@@ -87,13 +85,15 @@ public class ProgramFileTests
         outFile = projectDirectoryInfo.ToCombinedPath(outFile);
         Assert.True(File.Exists(outFile), "The expected output file is not here");
 
-        var fileText = @"
-This is the text to write to the test file.
-This sentence should be on a line all by itself.
-According to Notepad++ this file should be in ANSI format by default.
-According to Notepad++, when Encoding.UTF8 is specified the encoding is UTF8.
-This is the end of the file.
-            ";
+        const string fileText = """
+
+                                This is the text to write to the test file.
+                                This sentence should be on a line all by itself.
+                                According to Notepad++ this file should be in ANSI format by default.
+                                According to Notepad++, when Encoding.UTF8 is specified the encoding is UTF8.
+                                This is the end of the file.
+                                            
+                                """;
 
         var stream = new FileStream(outFile, FileMode.Create);
         try
@@ -138,11 +138,9 @@ This is the end of the file.
     [Theory, InlineData("TestMyDocumentsFolder")]
     public void ShouldWriteToMyDocumentsFolder(string folder)
     {
-        var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folder);
+        string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folder);
         if (!Directory.Exists(path)) Directory.CreateDirectory(path);
 
         Assert.True(Directory.Exists(path));
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

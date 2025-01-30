@@ -1,0 +1,1040 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Extensions.HttpWebRequestExtensions
+  commentId: T:Songhay.Extensions.HttpWebRequestExtensions
+  id: HttpWebRequestExtensions
+  parent: Songhay.Extensions
+  children:
+  - Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile(System.Net.HttpWebRequest,System.String)
+  - Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile(System.Net.HttpWebRequest,System.String,System.Uri,System.Boolean)
+  - Songhay.Extensions.HttpWebRequestExtensions.DownloadToString(System.Net.HttpWebRequest)
+  - Songhay.Extensions.HttpWebRequestExtensions.DownloadToString(System.Net.HttpWebRequest,System.Uri,System.Boolean)
+  - Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Collections.Hashtable)
+  - Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Collections.Hashtable,System.Uri,System.Boolean)
+  - Songhay.Extensions.HttpWebRequestExtensions.PostXml(System.Net.HttpWebRequest,System.String)
+  - Songhay.Extensions.HttpWebRequestExtensions.PostXml(System.Net.HttpWebRequest,System.String,System.Uri,System.Boolean)
+  - Songhay.Extensions.HttpWebRequestExtensions.ToHttpStatusCode(System.Net.HttpWebRequest)
+  - Songhay.Extensions.HttpWebRequestExtensions.ToHttpWebResponse(System.Net.HttpWebRequest)
+  - Songhay.Extensions.HttpWebRequestExtensions.WithProxy(System.Net.HttpWebRequest,System.Uri,System.Boolean)
+  - Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest,System.String,System.String)
+  - Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest,System.String,System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: HttpWebRequestExtensions
+  nameWithType: HttpWebRequestExtensions
+  fullName: Songhay.Extensions.HttpWebRequestExtensions
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HttpWebRequestExtensions
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Extensions of <xref href="System.Net.HttpWebRequest" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static class HttpWebRequestExtensions
+    content.vb: Public Module HttpWebRequestExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile(System.Net.HttpWebRequest,System.String)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile(System.Net.HttpWebRequest,System.String)
+  id: DownloadToFile(System.Net.HttpWebRequest,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: DownloadToFile(HttpWebRequest?, string?)
+  nameWithType: HttpWebRequestExtensions.DownloadToFile(HttpWebRequest?, string?)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile(System.Net.HttpWebRequest?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DownloadToFile
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 12
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Downloads to file.
+  example: []
+  syntax:
+    content: public static void DownloadToFile(this HttpWebRequest? request, string? path)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    - id: path
+      type: System.String
+      description: The path.
+    content.vb: Public Shared Sub DownloadToFile(request As HttpWebRequest, path As String)
+  overload: Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile*
+  nameWithType.vb: HttpWebRequestExtensions.DownloadToFile(HttpWebRequest, String)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile(System.Net.HttpWebRequest, String)
+  name.vb: DownloadToFile(HttpWebRequest, String)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile(System.Net.HttpWebRequest,System.String,System.Uri,System.Boolean)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile(System.Net.HttpWebRequest,System.String,System.Uri,System.Boolean)
+  id: DownloadToFile(System.Net.HttpWebRequest,System.String,System.Uri,System.Boolean)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: DownloadToFile(HttpWebRequest?, string?, Uri?, bool)
+  nameWithType: HttpWebRequestExtensions.DownloadToFile(HttpWebRequest?, string?, Uri?, bool)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile(System.Net.HttpWebRequest?, string?, System.Uri?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DownloadToFile
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 22
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Downloads to file.
+  example: []
+  syntax:
+    content: public static void DownloadToFile(this HttpWebRequest? request, string? path, Uri? proxyLocation, bool bypassProxy)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    - id: path
+      type: System.String
+      description: The path.
+    - id: proxyLocation
+      type: System.Uri
+      description: The proxy location.
+    - id: bypassProxy
+      type: System.Boolean
+      description: if set to <code>true</code> [bypass proxy].
+    content.vb: Public Shared Sub DownloadToFile(request As HttpWebRequest, path As String, proxyLocation As Uri, bypassProxy As Boolean)
+  overload: Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile*
+  nameWithType.vb: HttpWebRequestExtensions.DownloadToFile(HttpWebRequest, String, Uri, Boolean)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile(System.Net.HttpWebRequest, String, System.Uri, Boolean)
+  name.vb: DownloadToFile(HttpWebRequest, String, Uri, Boolean)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.DownloadToString(System.Net.HttpWebRequest)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.DownloadToString(System.Net.HttpWebRequest)
+  id: DownloadToString(System.Net.HttpWebRequest)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: DownloadToString(HttpWebRequest?)
+  nameWithType: HttpWebRequestExtensions.DownloadToString(HttpWebRequest?)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.DownloadToString(System.Net.HttpWebRequest?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DownloadToString
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 59
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Downloads to string.
+  example: []
+  syntax:
+    content: public static string? DownloadToString(this HttpWebRequest? request)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    return:
+      type: System.String
+    content.vb: Public Shared Function DownloadToString(request As HttpWebRequest) As String
+  overload: Songhay.Extensions.HttpWebRequestExtensions.DownloadToString*
+  nameWithType.vb: HttpWebRequestExtensions.DownloadToString(HttpWebRequest)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.DownloadToString(System.Net.HttpWebRequest)
+  name.vb: DownloadToString(HttpWebRequest)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.DownloadToString(System.Net.HttpWebRequest,System.Uri,System.Boolean)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.DownloadToString(System.Net.HttpWebRequest,System.Uri,System.Boolean)
+  id: DownloadToString(System.Net.HttpWebRequest,System.Uri,System.Boolean)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: DownloadToString(HttpWebRequest?, Uri?, bool)
+  nameWithType: HttpWebRequestExtensions.DownloadToString(HttpWebRequest?, Uri?, bool)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.DownloadToString(System.Net.HttpWebRequest?, System.Uri?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DownloadToString
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 68
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Downloads to string.
+  example: []
+  syntax:
+    content: public static string? DownloadToString(this HttpWebRequest? request, Uri? proxyLocation, bool bypassProxy)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    - id: proxyLocation
+      type: System.Uri
+      description: The proxy location
+    - id: bypassProxy
+      type: System.Boolean
+      description: when <code>true</code>, bypass proxy
+    return:
+      type: System.String
+    content.vb: Public Shared Function DownloadToString(request As HttpWebRequest, proxyLocation As Uri, bypassProxy As Boolean) As String
+  overload: Songhay.Extensions.HttpWebRequestExtensions.DownloadToString*
+  nameWithType.vb: HttpWebRequestExtensions.DownloadToString(HttpWebRequest, Uri, Boolean)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.DownloadToString(System.Net.HttpWebRequest, System.Uri, Boolean)
+  name.vb: DownloadToString(HttpWebRequest, Uri, Boolean)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Collections.Hashtable)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Collections.Hashtable)
+  id: PostForm(System.Net.HttpWebRequest,System.Collections.Hashtable)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: PostForm(HttpWebRequest?, Hashtable?)
+  nameWithType: HttpWebRequestExtensions.PostForm(HttpWebRequest?, Hashtable?)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest?, System.Collections.Hashtable?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: PostForm
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 96
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Posts the form.
+  example: []
+  syntax:
+    content: public static string? PostForm(this HttpWebRequest? request, Hashtable? postData)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    - id: postData
+      type: System.Collections.Hashtable
+      description: The post data.
+    return:
+      type: System.String
+    content.vb: Public Shared Function PostForm(request As HttpWebRequest, postData As Hashtable) As String
+  overload: Songhay.Extensions.HttpWebRequestExtensions.PostForm*
+  nameWithType.vb: HttpWebRequestExtensions.PostForm(HttpWebRequest, Hashtable)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest, System.Collections.Hashtable)
+  name.vb: PostForm(HttpWebRequest, Hashtable)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Collections.Hashtable,System.Uri,System.Boolean)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest,System.Collections.Hashtable,System.Uri,System.Boolean)
+  id: PostForm(System.Net.HttpWebRequest,System.Collections.Hashtable,System.Uri,System.Boolean)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: PostForm(HttpWebRequest?, Hashtable?, Uri?, bool)
+  nameWithType: HttpWebRequestExtensions.PostForm(HttpWebRequest?, Hashtable?, Uri?, bool)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest?, System.Collections.Hashtable?, System.Uri?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: PostForm
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 106
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Posts the form.
+  example: []
+  syntax:
+    content: public static string? PostForm(this HttpWebRequest? request, Hashtable? postData, Uri? proxyLocation, bool bypassProxy)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    - id: postData
+      type: System.Collections.Hashtable
+      description: The post data.
+    - id: proxyLocation
+      type: System.Uri
+      description: The proxy location.
+    - id: bypassProxy
+      type: System.Boolean
+      description: if set to <code>true</code> [bypass proxy].
+    return:
+      type: System.String
+    content.vb: Public Shared Function PostForm(request As HttpWebRequest, postData As Hashtable, proxyLocation As Uri, bypassProxy As Boolean) As String
+  overload: Songhay.Extensions.HttpWebRequestExtensions.PostForm*
+  nameWithType.vb: HttpWebRequestExtensions.PostForm(HttpWebRequest, Hashtable, Uri, Boolean)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.PostForm(System.Net.HttpWebRequest, System.Collections.Hashtable, System.Uri, Boolean)
+  name.vb: PostForm(HttpWebRequest, Hashtable, Uri, Boolean)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.PostXml(System.Net.HttpWebRequest,System.String)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.PostXml(System.Net.HttpWebRequest,System.String)
+  id: PostXml(System.Net.HttpWebRequest,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: PostXml(HttpWebRequest?, string?)
+  nameWithType: HttpWebRequestExtensions.PostXml(HttpWebRequest?, string?)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.PostXml(System.Net.HttpWebRequest?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: PostXml
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 128
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Posts the XML.
+  example: []
+  syntax:
+    content: public static string? PostXml(this HttpWebRequest? request, string? xmlFragment)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    - id: xmlFragment
+      type: System.String
+      description: The XML fragment.
+    return:
+      type: System.String
+    content.vb: Public Shared Function PostXml(request As HttpWebRequest, xmlFragment As String) As String
+  overload: Songhay.Extensions.HttpWebRequestExtensions.PostXml*
+  nameWithType.vb: HttpWebRequestExtensions.PostXml(HttpWebRequest, String)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.PostXml(System.Net.HttpWebRequest, String)
+  name.vb: PostXml(HttpWebRequest, String)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.PostXml(System.Net.HttpWebRequest,System.String,System.Uri,System.Boolean)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.PostXml(System.Net.HttpWebRequest,System.String,System.Uri,System.Boolean)
+  id: PostXml(System.Net.HttpWebRequest,System.String,System.Uri,System.Boolean)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: PostXml(HttpWebRequest?, string?, Uri?, bool)
+  nameWithType: HttpWebRequestExtensions.PostXml(HttpWebRequest?, string?, Uri?, bool)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.PostXml(System.Net.HttpWebRequest?, string?, System.Uri?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: PostXml
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 138
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Posts the XML.
+  example: []
+  syntax:
+    content: public static string? PostXml(this HttpWebRequest? request, string? xmlFragment, Uri? proxyLocation, bool bypassProxy)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    - id: xmlFragment
+      type: System.String
+      description: The XML fragment.
+    - id: proxyLocation
+      type: System.Uri
+      description: The proxy location.
+    - id: bypassProxy
+      type: System.Boolean
+      description: if set to <code>true</code> [bypass proxy].
+    return:
+      type: System.String
+    content.vb: Public Shared Function PostXml(request As HttpWebRequest, xmlFragment As String, proxyLocation As Uri, bypassProxy As Boolean) As String
+  overload: Songhay.Extensions.HttpWebRequestExtensions.PostXml*
+  nameWithType.vb: HttpWebRequestExtensions.PostXml(HttpWebRequest, String, Uri, Boolean)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.PostXml(System.Net.HttpWebRequest, String, System.Uri, Boolean)
+  name.vb: PostXml(HttpWebRequest, String, Uri, Boolean)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.ToHttpStatusCode(System.Net.HttpWebRequest)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.ToHttpStatusCode(System.Net.HttpWebRequest)
+  id: ToHttpStatusCode(System.Net.HttpWebRequest)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToHttpStatusCode(HttpWebRequest?)
+  nameWithType: HttpWebRequestExtensions.ToHttpStatusCode(HttpWebRequest?)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.ToHttpStatusCode(System.Net.HttpWebRequest?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToHttpStatusCode
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 156
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Converts the <xref href="System.Net.HttpWebRequest" data-throw-if-not-resolved="false"></xref> into a HTTP status code.
+  example: []
+  syntax:
+    content: public static HttpStatusCode ToHttpStatusCode(this HttpWebRequest? request)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    return:
+      type: System.Net.HttpStatusCode
+    content.vb: Public Shared Function ToHttpStatusCode(request As HttpWebRequest) As HttpStatusCode
+  overload: Songhay.Extensions.HttpWebRequestExtensions.ToHttpStatusCode*
+  nameWithType.vb: HttpWebRequestExtensions.ToHttpStatusCode(HttpWebRequest)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.ToHttpStatusCode(System.Net.HttpWebRequest)
+  name.vb: ToHttpStatusCode(HttpWebRequest)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.ToHttpWebResponse(System.Net.HttpWebRequest)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.ToHttpWebResponse(System.Net.HttpWebRequest)
+  id: ToHttpWebResponse(System.Net.HttpWebRequest)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToHttpWebResponse(HttpWebRequest?)
+  nameWithType: HttpWebRequestExtensions.ToHttpWebResponse(HttpWebRequest?)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.ToHttpWebResponse(System.Net.HttpWebRequest?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToHttpWebResponse
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 181
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Converts the <xref href="System.Net.HttpWebRequest" data-throw-if-not-resolved="false"></xref> into a HTTP web response.
+  example: []
+  syntax:
+    content: public static HttpWebResponse? ToHttpWebResponse(this HttpWebRequest? request)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    return:
+      type: System.Net.HttpWebResponse
+    content.vb: Public Shared Function ToHttpWebResponse(request As HttpWebRequest) As HttpWebResponse
+  overload: Songhay.Extensions.HttpWebRequestExtensions.ToHttpWebResponse*
+  nameWithType.vb: HttpWebRequestExtensions.ToHttpWebResponse(HttpWebRequest)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.ToHttpWebResponse(System.Net.HttpWebRequest)
+  name.vb: ToHttpWebResponse(HttpWebRequest)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.WithProxy(System.Net.HttpWebRequest,System.Uri,System.Boolean)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.WithProxy(System.Net.HttpWebRequest,System.Uri,System.Boolean)
+  id: WithProxy(System.Net.HttpWebRequest,System.Uri,System.Boolean)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithProxy(HttpWebRequest?, Uri?, bool)
+  nameWithType: HttpWebRequestExtensions.WithProxy(HttpWebRequest?, Uri?, bool)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.WithProxy(System.Net.HttpWebRequest?, System.Uri?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithProxy
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 191
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns the <xref href="System.Net.HttpWebRequest" data-throw-if-not-resolved="false"></xref>
+
+    with a <xref href="System.Net.WebProxy" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static HttpWebRequest? WithProxy(this HttpWebRequest? request, Uri? proxyLocation, bool bypassProxy)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    - id: proxyLocation
+      type: System.Uri
+      description: The proxy location.
+    - id: bypassProxy
+      type: System.Boolean
+      description: if set to <code>true</code> [bypass proxy].
+    return:
+      type: System.Net.HttpWebRequest
+    content.vb: Public Shared Function WithProxy(request As HttpWebRequest, proxyLocation As Uri, bypassProxy As Boolean) As HttpWebRequest
+  overload: Songhay.Extensions.HttpWebRequestExtensions.WithProxy*
+  nameWithType.vb: HttpWebRequestExtensions.WithProxy(HttpWebRequest, Uri, Boolean)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.WithProxy(System.Net.HttpWebRequest, System.Uri, Boolean)
+  name.vb: WithProxy(HttpWebRequest, Uri, Boolean)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest,System.String,System.String)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest,System.String,System.String)
+  id: WithRequestBody(System.Net.HttpWebRequest,System.String,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithRequestBody(HttpWebRequest?, string?, string?)
+  nameWithType: HttpWebRequestExtensions.WithRequestBody(HttpWebRequest?, string?, string?)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest?, string?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithRequestBody
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 209
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Returns <xref href="System.Net.HttpWebRequest" data-throw-if-not-resolved="false"></xref> with the request body.
+  example: []
+  syntax:
+    content: public static HttpWebRequest? WithRequestBody(this HttpWebRequest? request, string? requestBody, string? requestMethod)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    - id: requestBody
+      type: System.String
+      description: The request body.
+    - id: requestMethod
+      type: System.String
+      description: The request method.
+    return:
+      type: System.Net.HttpWebRequest
+    content.vb: Public Shared Function WithRequestBody(request As HttpWebRequest, requestBody As String, requestMethod As String) As HttpWebRequest
+  overload: Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody*
+  nameWithType.vb: HttpWebRequestExtensions.WithRequestBody(HttpWebRequest, String, String)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest, String, String)
+  name.vb: WithRequestBody(HttpWebRequest, String, String)
+- uid: Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest,System.String,System.String,System.String)
+  commentId: M:Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest,System.String,System.String,System.String)
+  id: WithRequestBody(System.Net.HttpWebRequest,System.String,System.String,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpWebRequestExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithRequestBody(HttpWebRequest?, string?, string?, string?)
+  nameWithType: HttpWebRequestExtensions.WithRequestBody(HttpWebRequest?, string?, string?, string?)
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest?, string?, string?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpWebRequestExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithRequestBody
+    path: ../SonghayCore/Extensions/HttpWebRequestExtensions.cs
+    startLine: 219
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Returns <xref href="System.Net.HttpWebRequest" data-throw-if-not-resolved="false"></xref> with the request body.
+  example: []
+  syntax:
+    content: public static HttpWebRequest? WithRequestBody(this HttpWebRequest? request, string? requestBody, string? requestMethod, string? contentType)
+    parameters:
+    - id: request
+      type: System.Net.HttpWebRequest
+      description: The request.
+    - id: requestBody
+      type: System.String
+      description: The request body.
+    - id: requestMethod
+      type: System.String
+      description: The request method.
+    - id: contentType
+      type: System.String
+      description: The request content type.
+    return:
+      type: System.Net.HttpWebRequest
+    content.vb: Public Shared Function WithRequestBody(request As HttpWebRequest, requestBody As String, requestMethod As String, contentType As String) As HttpWebRequest
+  overload: Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody*
+  nameWithType.vb: HttpWebRequestExtensions.WithRequestBody(HttpWebRequest, String, String, String)
+  fullName.vb: Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody(System.Net.HttpWebRequest, String, String, String)
+  name.vb: WithRequestBody(HttpWebRequest, String, String, String)
+references:
+- uid: System.Net.HttpWebRequest
+  commentId: T:System.Net.HttpWebRequest
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.httpwebrequest
+  name: HttpWebRequest
+  nameWithType: HttpWebRequest
+  fullName: System.Net.HttpWebRequest
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile*
+  commentId: Overload:Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile
+  href: Songhay.Extensions.HttpWebRequestExtensions.html#Songhay_Extensions_HttpWebRequestExtensions_DownloadToFile_System_Net_HttpWebRequest_System_String_
+  name: DownloadToFile
+  nameWithType: HttpWebRequestExtensions.DownloadToFile
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.DownloadToFile
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Songhay.Extensions.HttpWebRequestExtensions.DownloadToString*
+  commentId: Overload:Songhay.Extensions.HttpWebRequestExtensions.DownloadToString
+  href: Songhay.Extensions.HttpWebRequestExtensions.html#Songhay_Extensions_HttpWebRequestExtensions_DownloadToString_System_Net_HttpWebRequest_
+  name: DownloadToString
+  nameWithType: HttpWebRequestExtensions.DownloadToString
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.DownloadToString
+- uid: Songhay.Extensions.HttpWebRequestExtensions.PostForm*
+  commentId: Overload:Songhay.Extensions.HttpWebRequestExtensions.PostForm
+  href: Songhay.Extensions.HttpWebRequestExtensions.html#Songhay_Extensions_HttpWebRequestExtensions_PostForm_System_Net_HttpWebRequest_System_Collections_Hashtable_
+  name: PostForm
+  nameWithType: HttpWebRequestExtensions.PostForm
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.PostForm
+- uid: System.Collections.Hashtable
+  commentId: T:System.Collections.Hashtable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.hashtable
+  name: Hashtable
+  nameWithType: Hashtable
+  fullName: System.Collections.Hashtable
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: Songhay.Extensions.HttpWebRequestExtensions.PostXml*
+  commentId: Overload:Songhay.Extensions.HttpWebRequestExtensions.PostXml
+  href: Songhay.Extensions.HttpWebRequestExtensions.html#Songhay_Extensions_HttpWebRequestExtensions_PostXml_System_Net_HttpWebRequest_System_String_
+  name: PostXml
+  nameWithType: HttpWebRequestExtensions.PostXml
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.PostXml
+- uid: Songhay.Extensions.HttpWebRequestExtensions.ToHttpStatusCode*
+  commentId: Overload:Songhay.Extensions.HttpWebRequestExtensions.ToHttpStatusCode
+  href: Songhay.Extensions.HttpWebRequestExtensions.html#Songhay_Extensions_HttpWebRequestExtensions_ToHttpStatusCode_System_Net_HttpWebRequest_
+  name: ToHttpStatusCode
+  nameWithType: HttpWebRequestExtensions.ToHttpStatusCode
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.ToHttpStatusCode
+- uid: System.Net.HttpStatusCode
+  commentId: T:System.Net.HttpStatusCode
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.httpstatuscode
+  name: HttpStatusCode
+  nameWithType: HttpStatusCode
+  fullName: System.Net.HttpStatusCode
+- uid: Songhay.Extensions.HttpWebRequestExtensions.ToHttpWebResponse*
+  commentId: Overload:Songhay.Extensions.HttpWebRequestExtensions.ToHttpWebResponse
+  href: Songhay.Extensions.HttpWebRequestExtensions.html#Songhay_Extensions_HttpWebRequestExtensions_ToHttpWebResponse_System_Net_HttpWebRequest_
+  name: ToHttpWebResponse
+  nameWithType: HttpWebRequestExtensions.ToHttpWebResponse
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.ToHttpWebResponse
+- uid: System.Net.HttpWebResponse
+  commentId: T:System.Net.HttpWebResponse
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.httpwebresponse
+  name: HttpWebResponse
+  nameWithType: HttpWebResponse
+  fullName: System.Net.HttpWebResponse
+- uid: System.Net.WebProxy
+  commentId: T:System.Net.WebProxy
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.webproxy
+  name: WebProxy
+  nameWithType: WebProxy
+  fullName: System.Net.WebProxy
+- uid: Songhay.Extensions.HttpWebRequestExtensions.WithProxy*
+  commentId: Overload:Songhay.Extensions.HttpWebRequestExtensions.WithProxy
+  href: Songhay.Extensions.HttpWebRequestExtensions.html#Songhay_Extensions_HttpWebRequestExtensions_WithProxy_System_Net_HttpWebRequest_System_Uri_System_Boolean_
+  name: WithProxy
+  nameWithType: HttpWebRequestExtensions.WithProxy
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.WithProxy
+- uid: Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody*
+  commentId: Overload:Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody
+  href: Songhay.Extensions.HttpWebRequestExtensions.html#Songhay_Extensions_HttpWebRequestExtensions_WithRequestBody_System_Net_HttpWebRequest_System_String_System_String_
+  name: WithRequestBody
+  nameWithType: HttpWebRequestExtensions.WithRequestBody
+  fullName: Songhay.Extensions.HttpWebRequestExtensions.WithRequestBody

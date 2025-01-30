@@ -2,13 +2,8 @@
 
 namespace Songhay.Tests;
 
-public class NuGetTests
+public class NuGetTests(ITestOutputHelper helper)
 {
-    public NuGetTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
     [SkippableTheory]
     [ProjectFileData(typeof(NuGetTests), "../../../../SonghayCore/SonghayCore.nuspec")]
@@ -28,86 +23,84 @@ public class NuGetTests
         var csprojPgElement = csprojDoc.Root?.Element("PropertyGroup");
         Assert.NotNull(csprojPgElement);
 
-        _testOutputHelper.WriteLine($"reading {nameof(csprojDoc)}...");
+        helper.WriteLine($"reading {nameof(csprojDoc)}...");
 
-        var version = csprojPgElement?.Element("AssemblyVersion")?.Value;
+        var version = csprojPgElement.Element("AssemblyVersion")?.Value;
         var versionElement = nuspecMetaElement?.Element(nameof(version));
         versionElement?.SetValue(version.ToReferenceTypeValueOrThrow());
-        _testOutputHelper.WriteLine($"{nameof(version)}: {version}");
+        helper.WriteLine($"{nameof(version)}: {version}");
 
-        var description = csprojPgElement?.Element("Description")?.Value;
+        var description = csprojPgElement.Element("Description")?.Value;
         var descriptionElement = nuspecMetaElement?.Element(nameof(description));
         descriptionElement?.SetValue(description.ToReferenceTypeValueOrThrow());
-        _testOutputHelper.WriteLine($"{nameof(description)}: {description}");
+        helper.WriteLine($"{nameof(description)}: {description}");
 
-        var authors = csprojPgElement?.Element("Authors")?.Value;
+        var authors = csprojPgElement.Element("Authors")?.Value;
         var authorsElement = nuspecMetaElement?.Element(nameof(authors));
         authorsElement?.SetValue(authors.ToReferenceTypeValueOrThrow());
-        _testOutputHelper.WriteLine($"{nameof(authors)}: {authors}");
+        helper.WriteLine($"{nameof(authors)}: {authors}");
 
-        var title = csprojPgElement?.Element("Title")?.Value;
+        var title = csprojPgElement.Element("Title")?.Value;
         var titleElement = nuspecMetaElement?.Element(nameof(title));
         titleElement?.SetValue(title.ToReferenceTypeValueOrThrow());
-        _testOutputHelper.WriteLine($"{nameof(title)}: {title}");
+        helper.WriteLine($"{nameof(title)}: {title}");
 
         var ownersElement = nuspecMetaElement?.Element("owners");
         ownersElement?.SetValue(authors.ToReferenceTypeValueOrThrow());
 
-        var projectUrl = csprojPgElement?.Element("PackageProjectUrl")?.Value;
+        var projectUrl = csprojPgElement.Element("PackageProjectUrl")?.Value;
         var projectUrlElement = nuspecMetaElement?.Element(nameof(projectUrl));
         projectUrlElement?.SetValue(projectUrl.ToReferenceTypeValueOrThrow());
-        _testOutputHelper.WriteLine($"{nameof(projectUrl)}: {projectUrl}");
+        helper.WriteLine($"{nameof(projectUrl)}: {projectUrl}");
 
-        var license = csprojPgElement?.Element("PackageLicenseFile")?.Value;
+        var license = csprojPgElement.Element("PackageLicenseFile")?.Value;
         var licenseElement = nuspecMetaElement?.Element(nameof(license));
         licenseElement?.SetValue(license.ToReferenceTypeValueOrThrow());
-        _testOutputHelper.WriteLine($"{nameof(license)}: {license}");
+        helper.WriteLine($"{nameof(license)}: {license}");
 
-        var iconUrl = csprojPgElement?.Element("PackageIconUrl")?.Value;
+        var iconUrl = csprojPgElement.Element("PackageIconUrl")?.Value;
         var iconUrlElement = nuspecMetaElement?.Element(nameof(iconUrl));
         iconUrlElement?.SetValue(iconUrl.ToReferenceTypeValueOrThrow());
-        _testOutputHelper.WriteLine($"{nameof(iconUrl)}: {iconUrl}");
+        helper.WriteLine($"{nameof(iconUrl)}: {iconUrl}");
 
-        var requireLicenseAcceptance = csprojPgElement?.Element("PackageRequireLicenseAcceptance")?.Value;
+        var requireLicenseAcceptance = csprojPgElement.Element("PackageRequireLicenseAcceptance")?.Value;
         var requireLicenseAcceptanceElement = nuspecMetaElement?.Element(nameof(requireLicenseAcceptance));
         requireLicenseAcceptanceElement?.SetValue(requireLicenseAcceptance.ToReferenceTypeValueOrThrow());
-        _testOutputHelper.WriteLine($"{nameof(requireLicenseAcceptance)}: {requireLicenseAcceptance}");
+        helper.WriteLine($"{nameof(requireLicenseAcceptance)}: {requireLicenseAcceptance}");
 
         var summaryElement = nuspecMetaElement?.Element("summary");
         summaryElement?.SetValue(description.ToReferenceTypeValueOrThrow());
 
-        var releaseNotes = csprojPgElement?.Element("PackageReleaseNotes")?.Value;
+        var releaseNotes = csprojPgElement.Element("PackageReleaseNotes")?.Value;
         var releaseNotesElement = nuspecMetaElement?.Element(nameof(releaseNotes));
         releaseNotesElement?.SetValue(releaseNotes.ToReferenceTypeValueOrThrow());
-        _testOutputHelper.WriteLine($"{nameof(releaseNotes)}: {releaseNotes}");
+        helper.WriteLine($"{nameof(releaseNotes)}: {releaseNotes}");
 
-        var copyright = csprojPgElement?.Element("Copyright")?.Value;
+        var copyright = csprojPgElement.Element("Copyright")?.Value;
         var copyrightElement = nuspecMetaElement?.Element(nameof(copyright));
         copyrightElement?.SetValue(copyright.ToReferenceTypeValueOrThrow());
-        _testOutputHelper.WriteLine($"{nameof(copyright)}: {copyright}");
+        helper.WriteLine($"{nameof(copyright)}: {copyright}");
 
-        var tags = csprojPgElement?.Element("PackageTags")?.Value.Replace(';', ' ');
+        var tags = csprojPgElement.Element("PackageTags")?.Value.Replace(';', ' ');
         var tagsElement = nuspecMetaElement?.Element(nameof(tags));
         tagsElement?.SetValue(tags.ToReferenceTypeValueOrThrow());
-        _testOutputHelper.WriteLine($"{nameof(tags)}: {tags}");
+        helper.WriteLine($"{nameof(tags)}: {tags}");
 
-        var repositoryType = csprojPgElement?.Element("RepositoryType")?.Value.Replace(';', ' ');
-        _testOutputHelper.WriteLine($"{nameof(repositoryType)}: {repositoryType}");
+        var repositoryType = csprojPgElement.Element("RepositoryType")?.Value.Replace(';', ' ');
+        helper.WriteLine($"{nameof(repositoryType)}: {repositoryType}");
 
-        var repositoryUrl = csprojPgElement?.Element("RepositoryUrl")?.Value.Replace(';', ' ');
-        _testOutputHelper.WriteLine($"{nameof(repositoryUrl)}: {repositoryUrl}");
+        var repositoryUrl = csprojPgElement.Element("RepositoryUrl")?.Value.Replace(';', ' ');
+        helper.WriteLine($"{nameof(repositoryUrl)}: {repositoryUrl}");
 
         var repositoryElement = nuspecMetaElement?.Element("repository");
         Assert.NotNull(repositoryElement);
-        var typeAttribute = repositoryElement?.Attribute("type");
+        var typeAttribute = repositoryElement.Attribute("type");
         Assert.NotNull(typeAttribute);
-        var urlAttribute = repositoryElement?.Attribute("url");
+        var urlAttribute = repositoryElement.Attribute("url");
         Assert.NotNull(urlAttribute);
-        typeAttribute?.SetValue(repositoryType.ToReferenceTypeValueOrThrow());
-        urlAttribute?.SetValue(repositoryUrl.ToReferenceTypeValueOrThrow());
+        typeAttribute.SetValue(repositoryType.ToReferenceTypeValueOrThrow());
+        urlAttribute.SetValue(repositoryUrl.ToReferenceTypeValueOrThrow());
 
         nuspecDoc.Save(nuspecInfo.FullName);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

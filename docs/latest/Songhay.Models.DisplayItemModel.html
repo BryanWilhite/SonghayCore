@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DisplayItemModel | SonghayCore API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DisplayItemModel | SonghayCore API ">
+      
+      <meta name="description" content="Model for display item.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/dev/version-8.0.0/apiSpec/new?filename=Songhay_Models_DisplayItemModel.md&amp;value=---%0Auid%3A%20Songhay.Models.DisplayItemModel%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SonghayCore">
+            SonghayCore
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Songhay.Models.DisplayItemModel">
+
+
+
+  <h1 id="Songhay_Models_DisplayItemModel" data-uid="Songhay.Models.DisplayItemModel" class="text-break">
+Class DisplayItemModel  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Songhay.html">Songhay</a>.<a class="xref" href="Songhay.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SonghayCore.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Model for display item.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DisplayItemModel : ISortable, ITemporal</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DisplayItemModel</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Songhay.Abstractions.ISortable.html">ISortable</a></div>
+      <div><a class="xref" href="Songhay.Abstractions.ITemporal.html">ITemporal</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Songhay.Models.ColorDisplayItemModel.html">ColorDisplayItemModel</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_">ITemporalExtensions.SetDefaults(ITemporal)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.ITemporalExtensions.html#Songhay_Extensions_ITemporalExtensions_SetDefaults_Songhay_Abstractions_ITemporal_System_Nullable_System_DateTime__">ITemporalExtensions.SetDefaults(ITemporal?, DateTime?)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_HasTag_Songhay_Models_DisplayItemModel_System_Func_System_Object_System_Boolean__">DisplayItemModelExtensions.HasTag(DisplayItemModel?, Func&lt;object?, bool&gt;?)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_ToMenuDisplayItemModel_Songhay_Models_DisplayItemModel_">DisplayItemModelExtensions.ToMenuDisplayItemModel(DisplayItemModel?)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.DisplayItemModelExtensions.html#Songhay_Extensions_DisplayItemModelExtensions_WithTag_Songhay_Models_DisplayItemModel_System_Object_">DisplayItemModelExtensions.WithTag(DisplayItemModel?, object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_">NullableExtensions.IsAssignableToISerializable&lt;T&gt;(T?)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_">NullableExtensions.ToObjectOrDbNull&lt;T&gt;(T?)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_">NullableExtensions.ToReferenceTypeValueOrThrow&lt;T&gt;(T?, string?)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="Songhay_Models_DisplayItemModel_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This class was originally developed
+to compensate for RIA Services not supporting composition
+of Entity Framework entities
+where an Entity is the property of another object.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Songhay_Models_DisplayItemModel_Description_" data-uid="Songhay.Models.DisplayItemModel.Description*"></a>
+
+  <h3 id="Songhay_Models_DisplayItemModel_Description" data-uid="Songhay.Models.DisplayItemModel.Description">
+  Description
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Description { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Songhay_Models_DisplayItemModel_DisplayText_" data-uid="Songhay.Models.DisplayItemModel.DisplayText*"></a>
+
+  <h3 id="Songhay_Models_DisplayItemModel_DisplayText" data-uid="Songhay.Models.DisplayItemModel.DisplayText">
+  DisplayText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the display text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? DisplayText { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Songhay_Models_DisplayItemModel_EndDate_" data-uid="Songhay.Models.DisplayItemModel.EndDate*"></a>
+
+  <h3 id="Songhay_Models_DisplayItemModel_EndDate" data-uid="Songhay.Models.DisplayItemModel.EndDate">
+  EndDate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>End/expiration <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a> of the item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? EndDate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Songhay_Models_DisplayItemModel_Id_" data-uid="Songhay.Models.DisplayItemModel.Id*"></a>
+
+  <h3 id="Songhay_Models_DisplayItemModel_Id" data-uid="Songhay.Models.DisplayItemModel.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Id { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Songhay_Models_DisplayItemModel_InceptDate_" data-uid="Songhay.Models.DisplayItemModel.InceptDate*"></a>
+
+  <h3 id="Songhay_Models_DisplayItemModel_InceptDate" data-uid="Songhay.Models.DisplayItemModel.InceptDate">
+  InceptDate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Origin <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a> of the item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? InceptDate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Songhay_Models_DisplayItemModel_ItemName_" data-uid="Songhay.Models.DisplayItemModel.ItemName*"></a>
+
+  <h3 id="Songhay_Models_DisplayItemModel_ItemName" data-uid="Songhay.Models.DisplayItemModel.ItemName">
+  ItemName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the item name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ItemName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Songhay_Models_DisplayItemModel_ModificationDate_" data-uid="Songhay.Models.DisplayItemModel.ModificationDate*"></a>
+
+  <h3 id="Songhay_Models_DisplayItemModel_ModificationDate" data-uid="Songhay.Models.DisplayItemModel.ModificationDate">
+  ModificationDate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modification/editorial <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a> of the item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? ModificationDate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Songhay_Models_DisplayItemModel_ResourceIndicator_" data-uid="Songhay.Models.DisplayItemModel.ResourceIndicator*"></a>
+
+  <h3 id="Songhay_Models_DisplayItemModel_ResourceIndicator" data-uid="Songhay.Models.DisplayItemModel.ResourceIndicator">
+  ResourceIndicator
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the resource indicator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Uri? ResourceIndicator { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Songhay_Models_DisplayItemModel_SortOrdinal_" data-uid="Songhay.Models.DisplayItemModel.SortOrdinal*"></a>
+
+  <h3 id="Songhay_Models_DisplayItemModel_SortOrdinal" data-uid="Songhay.Models.DisplayItemModel.SortOrdinal">
+  SortOrdinal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the sort ordinal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte SortOrdinal { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Songhay_Models_DisplayItemModel_Tag_" data-uid="Songhay.Models.DisplayItemModel.Tag*"></a>
+
+  <h3 id="Songhay_Models_DisplayItemModel_Tag" data-uid="Songhay.Models.DisplayItemModel.Tag">
+  Tag
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the tag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object? Tag { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Songhay_Models_DisplayItemModel_ToString_" data-uid="Songhay.Models.DisplayItemModel.ToString*"></a>
+
+  <h3 id="Songhay_Models_DisplayItemModel_ToString" data-uid="Songhay.Models.DisplayItemModel.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents this instance as a <code>string</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/DisplayItemModel.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

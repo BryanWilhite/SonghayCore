@@ -2,13 +2,8 @@
 
 namespace Songhay.Tests.Extensions;
 
-public class HttpResponseMessageExtensionsTests
+public class HttpResponseMessageExtensionsTests(ITestOutputHelper helper)
 {
-    public HttpResponseMessageExtensionsTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Theory]
     [InlineData("https://songhaystorage.blob.core.windows.net/studio-public/songhay_icon.png", "../../../content")]
     public async Task DownloadByteArrayToFile_Test(string location, string target)
@@ -22,7 +17,7 @@ public class HttpResponseMessageExtensionsTests
         using var response = await request.SendAsync();
 
         var targetInfo = new FileInfo(rootInfo.ToCombinedPath(uri.ToFileName()));
-        _testOutputHelper.WriteLine($"Downloading to {targetInfo.FullName}...");
+        helper.WriteLine($"Downloading to {targetInfo.FullName}...");
 
         await response.DownloadByteArrayToFileAsync(targetInfo);
     }
@@ -40,7 +35,7 @@ public class HttpResponseMessageExtensionsTests
         using var response = await request.SendAsync();
 
         var targetInfo = new FileInfo(rootInfo.ToCombinedPath(uri.ToFileName()));
-        _testOutputHelper.WriteLine($"Downloading to {targetInfo.FullName}...");
+        helper.WriteLine($"Downloading to {targetInfo.FullName}...");
 
         await response.DownloadStringToFileAsync(targetInfo);
     }
@@ -66,6 +61,4 @@ public class HttpResponseMessageExtensionsTests
         Assert.NotNull(instance);
         Assert.NotEmpty(instance);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

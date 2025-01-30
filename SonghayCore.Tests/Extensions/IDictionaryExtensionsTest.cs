@@ -1,13 +1,8 @@
 ﻿namespace Songhay.Tests.Extensions;
 
 // ReSharper disable once InconsistentNaming
-public class IDictionaryExtensionsTest
+public class IDictionaryExtensionsTest(ITestOutputHelper helper)
 {
-    public IDictionaryExtensionsTest(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Fact]
     public void ShouldAddAndOverwrite()
     {
@@ -56,7 +51,7 @@ public class IDictionaryExtensionsTest
 
         void TestException()
         {
-            _testOutputHelper.WriteLine("Testing for exception...");
+            helper.WriteLine("Testing for exception...");
 
             var hasThrownException = false;
 
@@ -72,7 +67,7 @@ public class IDictionaryExtensionsTest
             }
             catch (NullReferenceException)
             {
-                _testOutputHelper.WriteLine("Exception expected.");
+                helper.WriteLine("Exception expected.");
                 hasThrownException = true;
             }
 
@@ -81,7 +76,7 @@ public class IDictionaryExtensionsTest
 
         void TestRef()
         {
-            _testOutputHelper.WriteLine("Testing for reference value...");
+            helper.WriteLine("Testing for reference value...");
 
             var dictionary = new Dictionary<int, string>
             {
@@ -97,7 +92,7 @@ public class IDictionaryExtensionsTest
 
         void TestValue()
         {
-            _testOutputHelper.WriteLine("Testing for value...");
+            helper.WriteLine("Testing for value...");
 
             var dictionary = new Dictionary<string, int>
             {
@@ -174,6 +169,4 @@ public class IDictionaryExtensionsTest
         Assert.Equal("two", dictionary.Last().Key);
         Assert.Equal(2, dictionary.Last().Value);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

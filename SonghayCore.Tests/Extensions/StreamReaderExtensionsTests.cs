@@ -7,7 +7,7 @@ public class StreamReaderExtensionsTests
     /// https://github.com/danielesergio/md-big-data-computing/blob/main/sample_10000.csv
     /// </remarks>
     [Theory]
-    [ProjectFileData(typeof(StreamReaderExtensionsTests), "../../../csv/sample_10000.csv")]
+    [ProjectFileData(typeof(StreamReaderExtensionsTests), "../../../content/csv/sample_10000.csv")]
     public async Task ShouldReadLinesAsync(FileInfo csvFileInfo)
     {
         var lineCount = 0;

@@ -1,21 +1,19 @@
-﻿using Songhay.Diagnostics;
-using Songhay.Models;
+﻿using Microsoft.Extensions.Logging;
 using Songhay.Abstractions;
 
 namespace Songhay.Tests.Activities;
 
-public class GetHelloWorldReportActivity : IActivity
+public class GetHelloWorldReportActivity(ILogger<GetHelloWorldReportActivity> logger) : IActivity, IActivityHelpDisplay
 {
-    static GetHelloWorldReportActivity() => TraceSource = TraceSources.Instance.GetTraceSourceFromConfiguredName().WithSourceLevels();
-    static readonly TraceSource? TraceSource;
-
-    public string DisplayHelp(ProgramArgs? args)
+    public string DisplayHelp()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
-    public void Start(ProgramArgs? args)
+    public string? CachedHelpText { get; set; }
+
+    public void Start()
     {
-        TraceSource.WriteLine("Sorry, but the Hello Worlds reports are not yet available :(");
+        logger.LogInformation("Sorry, but the Hello Worlds reports are not yet available :(");
     }
 }

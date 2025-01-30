@@ -64,7 +64,7 @@ public static class NullableExtensions
     /// <param name="nullable">the nullable <see cref="string"/></param>
     /// <param name="paramName">the name of the variable holding the <see cref="string"/></param>
     /// <remarks>
-    /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull"/>.
+    /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull(object?,string?)"/>.
     ///
     /// The <see cref="NotNullAttribute"/> is applied to this member based
     /// on the following statement from Microsoft:
@@ -101,7 +101,7 @@ public static class NullableExtensions
     /// <param name="paramName">the name of the variable holding the nullable</param>
     /// <typeparam name="T">the type</typeparam>
     /// <remarks>
-    /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull"/>.
+    /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull(object?,string?)"/>.
     ///
     /// The <see cref="NotNullAttribute"/> is applied to this member based
     /// on the following statement from Microsoft:
@@ -131,7 +131,7 @@ public static class NullableExtensions
     /// <param name="paramName">the name of the variable holding the nullable</param>
     /// <typeparam name="T">the type</typeparam>
     /// <remarks>
-    /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull"/>.
+    /// This member borrows heavily from <see cref="ArgumentNullException.ThrowIfNull(object?,string?)"/>.
     ///
     /// The <see cref="NotNullAttribute"/> is applied to this member based
     /// on the following statement from Microsoft:

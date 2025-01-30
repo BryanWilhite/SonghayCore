@@ -7,7 +7,7 @@ public class ProgramTypeUtilityTests
     [InlineData("Warning,Critical,Error", SourceLevels.All, SourceLevels.All)]
     public void ShouldParseEnum(string input, SourceLevels defaultEnum, SourceLevels expectedEnum)
     {
-        var enumValue = ProgramTypeUtility.ParseEnum(input, defaultEnum);
+        SourceLevels enumValue = ProgramTypeUtility.ParseEnum(input, defaultEnum);
         Assert.Equal(expectedEnum, enumValue);
     }
 }

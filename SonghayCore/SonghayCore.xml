@@ -6,62 +6,102 @@
     <members>
         <member name="T:Songhay.Abstractions.IActivity">
             <summary>
-            Defines an Activity in a shell environment.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions.
             </summary>
             <remarks>
             For more detail, see “Songhay System Activities example”
             [https://github.com/BryanWilhite/Songhay.HelloWorlds.Activities]
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivity.DisplayHelp(Songhay.Models.ProgramArgs)">
+        <member name="M:Songhay.Abstractions.IActivity.Start">
             <summary>
-            Displays the conventional help text
-            of the Activity.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="M:Songhay.Abstractions.IActivity.Start(Songhay.Models.ProgramArgs)">
-            <summary>
-            Start the Activity with the specified arguments.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="T:Songhay.Abstractions.IActivityConfigurationSupport">
-            <summary>
-            Defines <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> support
-            for an <see cref="T:Songhay.Abstractions.IActivity"/>.
+            Starts with the specified input.
             </summary>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityConfigurationSupport.AddConfiguration(Microsoft.Extensions.Configuration.IConfigurationRoot)">
+        <member name="T:Songhay.Abstractions.IActivity`1">
             <summary>
-            Adds the configuration.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions.
             </summary>
-            <param name="configuration">The configuration.</param>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <remarks>
+            For more detail, see “Songhay System Activities example”
+            [https://github.com/BryanWilhite/Songhay.HelloWorlds.Activities]
+            </remarks>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityWithOutput`2">
+        <member name="M:Songhay.Abstractions.IActivity`1.Start(`0)">
             <summary>
-            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with output support
-            and input support beyond <see cref="T:Songhay.Models.ProgramArgs"/>.
+            Starts with the specified input.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivity`2">
+            <summary>
+            Defines an Activity with output, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
-            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <seealso cref="T:Songhay.Abstractions.IActivity`1" />
         </member>
-        <member name="M:Songhay.Abstractions.IActivityWithOutput`2.StartForOutput(`0)">
+        <member name="M:Songhay.Abstractions.IActivity`2.Start(`0)">
             <summary>
             Starts with the specified input
             and synchronously returns <c>TOutput</c>.
             </summary>
             <param name="input">The input.</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityHelpDisplay">
+            <summary>
+            Adds optional help-display text support to <c>IActivity*</c> types.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityHelpDisplay.DisplayHelp">
+            <summary>
+            Display the help text.
+            </summary>
+        </member>
+        <member name="P:Songhay.Abstractions.IActivityHelpDisplay.CachedHelpText">
+            <summary>
+            The cached help text.
+            </summary>
             <remarks>
-            This member is called <c>StartForOutput</c>
-            instead of <c>Start</c> to prevent compile-time,
-            overload-clashing with <see cref="M:Songhay.Abstractions.IActivity.Start(Songhay.Models.ProgramArgs)"/>.
+            Instead of calling <see cref="M:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)"/> more than once, return this member.
             </remarks>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityWithTask">
+        <member name="T:Songhay.Abstractions.IActivityOutputOnly`1">
             <summary>
-            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
+            </summary>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <remarks>
+            For detail around why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityOutputOnly`1.Start">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
+            </summary>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityOutputOnlyTask`1">
+            <summary>
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
+            </summary>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <remarks>
+            For detail around why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
+            </summary>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityTask">
+            <summary>
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
@@ -69,14 +109,14 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityWithTask.StartAsync">
+        <member name="M:Songhay.Abstractions.IActivityTask.StartAsync">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityWithTask`1">
+        <member name="T:Songhay.Abstractions.IActivityTask`1">
             <summary>
-            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
@@ -85,25 +125,15 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityWithTask`1.StartAsync(`0)">
+        <member name="M:Songhay.Abstractions.IActivityTask`1.StartAsync(`0)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
             </summary>
             <param name="input">The input.</param>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityWithTaskOutput`1">
+        <member name="T:Songhay.Abstractions.IActivityTask`2">
             <summary>
-            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> output support.
-            </summary>
-        </member>
-        <member name="M:Songhay.Abstractions.IActivityWithTaskOutput`1.StartAsync">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
-            </summary>
-        </member>
-        <member name="T:Songhay.Abstractions.IActivityWithTask`2">
-            <summary>
-            Extends <see cref="T:Songhay.Abstractions.IActivity" /> with <see cref="T:System.Threading.Tasks.Task"/> support.
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
             <typeparam name="TOutput">The type of the output.</typeparam>
@@ -113,7 +143,7 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityWithTask`2.StartAsync(`0)">
+        <member name="M:Songhay.Abstractions.IActivityTask`2.StartAsync(`0)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
@@ -515,13 +545,6 @@
             </summary>
             <param name="message">The message.</param>
             <param name="innerException">The inner exception.</param>
-        </member>
-        <member name="M:Songhay.Exceptions.CsvParseException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Exceptions.CsvParseException"/> class.
-            </summary>
-            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
-            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
         </member>
         <member name="M:Songhay.Exceptions.CsvParseException.#ctor(System.String)">
             <summary>
@@ -1702,220 +1725,18 @@
             <param name="requestMethod">The request method.</param>
             <param name="contentType">The request content type.</param>
         </member>
-        <member name="T:Songhay.Extensions.IActivityExtensions">
-            <summary>
-            Extensions of <see cref="T:Songhay.Abstractions.IActivity"/>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.WithConfiguration(Songhay.Abstractions.IActivity,Microsoft.Extensions.Configuration.IConfigurationRoot)">
-            <summary>
-            Returns <see cref="T:Songhay.Abstractions.IActivity"/> with <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> added when available.
-            </summary>
-            <param name="activity">The activity.</param>
-            <param name="configuration">The configuration.</param>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivity(Songhay.Abstractions.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>
-            with <see cref="T:System.Diagnostics.ConsoleTraceListener"/>.
-            </summary>
-            <param name="activity">The activity.</param>
-            <param name="args">The arguments.</param>
-            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityAsync``1(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously
-            with <see cref="T:System.Diagnostics.ConsoleTraceListener"/>.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <param name="activity">The activity.</param>
-            <param name="input">The input.</param>
-            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityAsync``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously
-            with the specified <see cref="T:System.Diagnostics.ConsoleTraceListener"/>.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <param name="activity">The activity.</param>
-            <param name="input">The input.</param>
-            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartConsoleActivityForOutput``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, synchronously
-            with the specified <see cref="T:System.Diagnostics.ConsoleTraceListener"/>.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <param name="activity">The activity.</param>
-            <param name="input">The input.</param>
-            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithOutput``2(Songhay.Abstractions.IActivity)">
-            <summary>
-            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
-            to <see cref="T:Songhay.Abstractions.IActivityWithOutput`2" />.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <param name="activity">The activity.</param>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``2(Songhay.Abstractions.IActivity)">
-            <summary>
-            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
-            to <see cref="T:Songhay.Abstractions.IActivityWithTask`2" />.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <param name="activity">The activity.</param>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask``1(Songhay.Abstractions.IActivity)">
-            <summary>
-            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
-            to <see cref="T:Songhay.Abstractions.IActivityWithTask`1" />.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <param name="activity">The activity.</param>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTask(Songhay.Abstractions.IActivity)">
-            <summary>
-            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
-            to <see cref="T:Songhay.Abstractions.IActivityWithTask" />.
-            </summary>
-            <param name="activity">The activity.</param>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.ToActivityWithTaskOutput``1(Songhay.Abstractions.IActivity)">
-            <summary>
-            Converts the specified <see cref="T:Songhay.Abstractions.IActivity" />
-            to <see cref="T:Songhay.Abstractions.IActivityWithTaskOutput`1" />.
-            </summary>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <param name="activity">The activity.</param>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.GetActivity(System.Collections.Generic.Dictionary{System.String,System.Lazy{Songhay.Abstractions.IActivity}},System.String)">
-            <summary>
-            Gets the <see cref="T:Songhay.Abstractions.IActivity"/>.
-            </summary>
-            <param name="activities">The activities.</param>
-            <param name="activityName">Name of the activity.</param>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivity(Songhay.Abstractions.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>.
-            </summary>
-            <param name="activity">The activity.</param>
-            <param name="args">The arguments.</param>
-            <param name="traceSource">The trace source.</param>
-            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivity(Songhay.Abstractions.IActivity,Songhay.Models.ProgramArgs,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>.
-            </summary>
-            <param name="activity">The activity.</param>
-            <param name="args">The arguments.</param>
-            <param name="traceSource">The trace source.</param>
-            <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
-            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityForOutput``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>
-            for the specified output (<typeparamref name="TOutput"/>).
-            </summary>
-            <param name="activity">The activity.</param>
-            <param name="input">The input.</param>
-            <param name="traceSource">The trace source.</param>
-            <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityForOutput``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>
-            for the specified output (<typeparamref name="TOutput"/>).
-            </summary>
-            <param name="activity">The activity.</param>
-            <param name="input">The input.</param>
-            <param name="traceSource">The trace source.</param>
-            <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
-            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <param name="activity">The activity.</param>
-            <param name="input">The input.</param>
-            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``2(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter})">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
-            <param name="activity">The activity.</param>
-            <param name="input">The input.</param>
-            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns><see cref="T:Songhay.Models.ActivityOutput`1"/></returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``1(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <param name="activity">The activity.</param>
-            <param name="input">The input.</param>
-            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync``1(Songhay.Abstractions.IActivity,``0,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
-            </summary>
-            <typeparam name="TInput">The type of the input.</typeparam>
-            <param name="activity">The activity.</param>
-            <param name="input">The input.</param>
-            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
-            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>.</returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync(Songhay.Abstractions.IActivity,System.Diagnostics.TraceSource)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
-            </summary>
-            <param name="activity">The activity.</param>
-            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log.</returns>
-        </member>
-        <member name="M:Songhay.Extensions.IActivityExtensions.StartActivityAsync(Songhay.Abstractions.IActivity,System.Diagnostics.TraceSource,System.Func{System.IO.TextWriter},System.Boolean)">
-            <summary>
-            Starts the <see cref="T:Songhay.Abstractions.IActivity"/>, asynchronously.
-            </summary>
-            <param name="activity">The activity.</param>
-            <param name="traceSource">The <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <param name="traceWriterGetter">gets the <see cref="T:System.IO.TextWriter"/> for the <see cref="T:System.Diagnostics.TraceSource"/>.</param>
-            <param name="flushLog">when <c>true</c> return <see cref="T:System.Diagnostics.TraceSource"/> log</param>
-            <returns>The <see cref="T:System.Diagnostics.TraceSource"/> log when <c>flushLog</c> is <c>true</c>; otherwise, <c>null</c>.</returns>
-        </member>
         <member name="T:Songhay.Extensions.IConfigurationExtensions">
             <summary>
             Extensions of <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
             </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="key">the key to add</param>
+            <param name="helpText">the help text to add</param>
         </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -1924,6 +1745,19 @@
             when the conventional <see cref="F:Songhay.Models.ConsoleArgsScalars.BaseDirectoryRequired"/> <c>arg</c> is present.
             </summary>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Returns a value from the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            by calling <see cref="M:Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)"/>
+            on the specified <c>arg</c>.
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="arg">the command-line argument to be converted into a <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> key</param>
+            <remarks>
+            This member will call <see cref="M:Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)"/>
+            to convert a console argument to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key format.
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -1940,7 +1774,7 @@
             </summary>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
         </member>
-        <member name="M:Songhay.Extensions.IConfigurationExtensions.HasArg(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
             <summary>
             Returns <c>true</c> when the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
             contains the specified key.
@@ -1951,6 +1785,24 @@
             This member will call <see cref="M:Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)"/>
             to convert a console argument to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key format.
             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Boolean)">
+             <summary>
+             Returns <c>true</c> when the specified <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+             contains the specified key.
+             </summary>
+             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+             <param name="key">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> key</param>
+             <param name="isCommandLineSwitch">when <c>true</c>, expect a command-line “switch” like <c>--dry-run=true</c></param>
+             <remarks>
+             This member will call <see cref="M:Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)"/>
+             to convert a console argument to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>-key format.
+            
+             When <c>isCommandLineSwitch</c> is <c>true</c>, a command-line “switch” like
+             <c>--dry-run=false</c> will make this member return <c>false</c>
+             and <c>--dry-run=true</c> will make this member return <c>true</c>.
+             For more detail, [ see https://github.com/BryanWilhite/SonghayCore/issues/177 ]
+             </remarks>
         </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.IsDryRun(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -2584,124 +2436,6 @@
             <param name="collectionOfByte">The collection of byte.</param>
             <param name="digits">The digits.</param>
             <param name="mantissaDigits">The mantissa digits.</param>
-        </member>
-        <member name="T:Songhay.Extensions.ProgramArgsExtensions">
-            <summary>
-            Extensions of <see cref="T:Songhay.Models.ProgramArgs"/>
-            </summary>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetBasePathValue(Songhay.Models.ProgramArgs)">
-            <summary>
-            Gets the conventional base-path value.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetOutputPath(Songhay.Models.ProgramArgs)">
-            <summary>
-            Gets the path to the output file specified by conventional arguments.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <remarks>
-            This member will generate a file when it does not exist.
-            </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetSettings(Songhay.Models.ProgramArgs)">
-            <summary>
-            Gets the conventional settings file <see cref="T:System.String"/> content.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetSettingsFilePath(Songhay.Models.ProgramArgs)">
-            <summary>
-            Gets the conventional settings file path.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetStringInput(Songhay.Models.ProgramArgs)">
-            <summary>
-            Gets <see cref="T:System.String"/> input
-            from either <see cref="F:Songhay.Models.ProgramArgs.InputString"/>
-            or <see cref="F:Songhay.Models.ProgramArgs.InputFile"/>.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.IsHelpRequest(Songhay.Models.ProgramArgs)">
-            <summary>
-            Determines whether args contain the <see cref="F:Songhay.Models.ProgramArgs.Help"/> flag.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.ToConfigurationKey(Songhay.Models.ProgramArgs,System.String)">
-            <summary>
-            Converts the <c>args</c> key to a conventional Configuration key.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="argKey">The arguments key.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.WithDefaultHelpText(Songhay.Models.ProgramArgs)">
-            <summary>
-            Returns <see cref="T:Songhay.Models.ProgramArgs"/>
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.WriteOutputToFile(Songhay.Models.ProgramArgs,System.String)">
-            <summary>
-            Writes the <see cref="T:System.String"/> output
-            to the file specified by <see cref="F:Songhay.Models.ProgramArgs.OutputFile"/>.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="output">the output to write</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.WriteOutputToFile(Songhay.Models.ProgramArgs,System.Byte[])">
-            <summary>
-            Writes the <see cref="T:System.Byte"/> array output
-            to the file specified by <see cref="F:Songhay.Models.ProgramArgs.OutputFile"/>.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="output">the output to write</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.WriteOutputToFile(Songhay.Models.ProgramArgs,System.IO.Stream)">
-            <summary>
-            Writes the <see cref="T:System.IO.Stream"/> output
-            to the file specified by <see cref="F:Songhay.Models.ProgramArgs.OutputFile"/>.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="stream">the <see cref="T:System.IO.Stream"/> to write</param>
-            <remarks>
-            [ see https://stackoverflow.com/a/5515894/22944 ]
-            </remarks>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.GetArgValue(Songhay.Models.ProgramArgs,System.String)">
-            <summary>
-            Gets the argument value.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="arg">The argument.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.HasArg(Songhay.Models.ProgramArgs,System.String,System.Boolean)">
-            <summary>
-            Determines whether the specified <see cref="T:Songhay.Models.ProgramArgs" /> has argument.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs" />.</param>
-            <param name="arg">The argument.</param>
-            <param name="required">if set to <c>true</c> then the argument is required.</param>
-            <returns>
-              <c>true</c> if the specified argument has argument; otherwise, <c>false</c>.
-            </returns>
-            <exception cref="T:System.ArgumentException">Argument {arg} requires a value.</exception>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.ToHelpDisplayText(Songhay.Models.ProgramArgs)">
-            <summary>
-            Converts the <c>args</c> key any help text.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-        </member>
-        <member name="M:Songhay.Extensions.ProgramArgsExtensions.ToHelpDisplayText(Songhay.Models.ProgramArgs,System.Int32)">
-            <summary>
-            Converts the <c>args</c> key any help text.
-            </summary>
-            <param name="args">The <see cref="T:Songhay.Models.ProgramArgs"/>.</param>
-            <param name="padding">the padding between <see cref="P:Songhay.Models.ProgramArgs.HelpSet"/> keys and values</param>
         </member>
         <member name="T:Songhay.Extensions.ProgramMetadataExtensions">
             <summary>
@@ -3827,44 +3561,10 @@
             Silverlight does not have <c>Math.Truncate()</c>.
             </remarks>
         </member>
-        <member name="T:Songhay.Models.ActivitiesGetter">
-            <summary>
-            Defines the in-memory storage
-            and Program access to <see cref="T:Songhay.Abstractions.IActivity"/> types.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.ActivitiesGetter.#ctor(System.String[])">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Models.ActivitiesGetter" /> class.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="P:Songhay.Models.ActivitiesGetter.Args">
-            <summary>
-            Gets the <see cref="T:Songhay.Models.ProgramArgs"/>.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.ActivitiesGetter.GetActivity">
-            <summary>
-            Gets the <see cref="T:Songhay.Abstractions.IActivity"/>.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.ActivitiesGetter.GetActivity(System.String)">
-            <summary>
-            Gets the <see cref="T:Songhay.Abstractions.IActivity"/>.
-            </summary>
-            <param name="activityName">Name of the <see cref="T:Songhay.Abstractions.IActivity"/>.</param>
-        </member>
-        <member name="M:Songhay.Models.ActivitiesGetter.LoadActivities(System.Collections.Generic.Dictionary{System.String,System.Lazy{Songhay.Abstractions.IActivity}})">
-            <summary>
-            Loads the activities into memory, lazily.
-            </summary>
-            <param name="activities">The activities.</param>
-        </member>
         <member name="T:Songhay.Models.ActivityOutput`1">
             <summary>
             Defines the conventional output
-            of <see cref="T:Songhay.Abstractions.IActivityWithTask`2"/>.
+            of <see cref="T:Songhay.Abstractions.IActivityTask`2"/>.
             </summary>
             <typeparam name="TOutput">The type of the output.</typeparam>
         </member>
@@ -3897,6 +3597,16 @@
             <summary>
             Centralizes conventional console <c>args</c> passed to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
             </summary>
+        </member>
+        <member name="F:Songhay.Models.ConsoleArgsScalars.ActivityName">
+            <summary>
+            The name of the class implementing one of the <c>Activity*</c> abstractions.
+            </summary>
+            <remarks>
+            Going forward, this Studio should not support command-line parameters based solely on position.
+            All parameters should have a <c>--key</c>.
+            [https://github.com/BryanWilhite/SonghayCore/issues/173]
+            </remarks>
         </member>
         <member name="F:Songhay.Models.ConsoleArgsScalars.BaseDirectory">
             <summary>
@@ -3945,7 +3655,7 @@
         </member>
         <member name="F:Songhay.Models.ConsoleArgsScalars.OutputUnderBasePath">
             <summary>
-            Flag: use the output file argument relative to <see cref="F:Songhay.Models.ProgramArgs.BasePath"/>.
+            Flag: use the output file argument relative to <see cref="F:Songhay.Models.ConsoleArgsScalars.BaseDirectory"/>.
             </summary>
         </member>
         <member name="F:Songhay.Models.ConsoleArgsScalars.SettingsFile">
@@ -4778,67 +4488,6 @@
         <member name="P:Songhay.Models.PagedResultMeta.TotalCount">
             <summary>
             Gets or sets the total count.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.ProgramArgs">
-            <summary>
-            Defines conventional command-line arguments.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.ProgramArgs.#ctor(System.String[])">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Models.ProgramArgs"/> class.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.BasePath">
-            <summary>
-            The base-path argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.BasePathRequired">
-            <summary>
-            The base path required argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.Help">
-            <summary>
-            The help argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.InputFile">
-            <summary>
-            The input file argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.InputString">
-            <summary>
-            The input <see cref="T:System.String" /> argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.OutputFile">
-            <summary>
-            The output file argument.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.OutputUnderBasePath">
-            <summary>
-            Use the output file argument relative to <see cref="F:Songhay.Models.ProgramArgs.BasePath"/>.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.ProgramArgs.SettingsFile">
-            <summary>
-            The settings file argument.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.ProgramArgs.Args">
-            <summary>
-            Gets the arguments.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.ProgramArgs.HelpSet">
-            <summary>
-            Gets the help set.
             </summary>
         </member>
         <member name="T:Songhay.Models.ProgramAssemblyInfo">

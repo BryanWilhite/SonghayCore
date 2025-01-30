@@ -103,8 +103,9 @@ public static partial class StringExtensions
     /// to <see cref="IConfiguration"/>-key format.
     /// </summary>
     /// <param name="input">The input.</param>
-    public static string? ToConfigurationKey(this string? input) =>
-        input?.TrimStart('-')
+    public static string ToConfigurationKey(this string? input) =>
+        input.ToReferenceTypeValueOrThrow()
+            .TrimStart('-')
             .Replace("/", string.Empty)
             .Replace("=", string.Empty);
 
@@ -295,5 +296,10 @@ public static partial class StringExtensions
     /// with <see cref="ConsoleArgsScalars.HelpTextSuffix"/>.
     /// </summary>
     /// <param name="input">The input.</param>
-    public static string WithConfigurationHelpTextSuffix(this string? input) => $"{input}{ConsoleArgsScalars.HelpTextSuffix}";
+    public static string WithConfigurationHelpTextSuffix(this string? input)
+    {
+        if (string.IsNullOrWhiteSpace(input)) return $"{input}";
+
+        return input.EndsWith(ConsoleArgsScalars.HelpTextSuffix) ? input : $"{input}{ConsoleArgsScalars.HelpTextSuffix}";
+    }
 }

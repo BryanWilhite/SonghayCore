@@ -1,0 +1,2545 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.ProgramTypeUtility
+  commentId: T:Songhay.ProgramTypeUtility
+  id: ProgramTypeUtility
+  parent: Songhay
+  children:
+  - Songhay.ProgramTypeUtility.ConvertDateTimeFromUnixTime(System.Double)
+  - Songhay.ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime(System.DateTime)
+  - Songhay.ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(System.DateTime)
+  - Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime
+  - Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime(System.DateTime)
+  - Songhay.ProgramTypeUtility.ConvertDateTimeToUtc(System.DateTime)
+  - Songhay.ProgramTypeUtility.ConvertInchesToPoints(System.Single)
+  - Songhay.ProgramTypeUtility.ConvertPointsToInches(System.Single)
+  - Songhay.ProgramTypeUtility.GenerateRandomPassword(System.Int32)
+  - Songhay.ProgramTypeUtility.IsNullOrEmptyOrNotArray(System.Object)
+  - Songhay.ProgramTypeUtility.IsNullOrEmptyString(System.Object)
+  - Songhay.ProgramTypeUtility.ParseBoolean(System.Object)
+  - Songhay.ProgramTypeUtility.ParseBoolean(System.Object,System.Boolean)
+  - Songhay.ProgramTypeUtility.ParseBoolean(System.Object,System.Boolean,System.Boolean)
+  - Songhay.ProgramTypeUtility.ParseByte(System.Object)
+  - Songhay.ProgramTypeUtility.ParseByte(System.Object,System.Byte)
+  - Songhay.ProgramTypeUtility.ParseDateTime(System.Object)
+  - Songhay.ProgramTypeUtility.ParseDateTime(System.Object,System.DateTime)
+  - Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(System.Object,System.String)
+  - Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(System.Object,System.String,System.String)
+  - Songhay.ProgramTypeUtility.ParseDecimal(System.Object)
+  - Songhay.ProgramTypeUtility.ParseDecimal(System.Object,System.Decimal)
+  - Songhay.ProgramTypeUtility.ParseDouble(System.Object)
+  - Songhay.ProgramTypeUtility.ParseDouble(System.Object,System.Double)
+  - Songhay.ProgramTypeUtility.ParseEnum``1(System.String,``0)
+  - Songhay.ProgramTypeUtility.ParseInt16(System.Object)
+  - Songhay.ProgramTypeUtility.ParseInt16(System.Object,System.Int16)
+  - Songhay.ProgramTypeUtility.ParseInt32(System.Object)
+  - Songhay.ProgramTypeUtility.ParseInt32(System.Object,System.Int32)
+  - Songhay.ProgramTypeUtility.ParseInt64(System.Object)
+  - Songhay.ProgramTypeUtility.ParseInt64(System.Object,System.Int64)
+  - Songhay.ProgramTypeUtility.ParseRfc3339DateTime(System.String)
+  - Songhay.ProgramTypeUtility.ParseRfc822DateTime(System.String)
+  - Songhay.ProgramTypeUtility.ParseString(System.Object)
+  - Songhay.ProgramTypeUtility.ParseString(System.Object,System.String)
+  - Songhay.ProgramTypeUtility.SqlDatabaseNull
+  - Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)
+  - Songhay.ProgramTypeUtility.TryParseRfc822DateTime(System.String,System.DateTime@)
+  langs:
+  - csharp
+  - vb
+  name: ProgramTypeUtility
+  nameWithType: ProgramTypeUtility
+  fullName: Songhay.ProgramTypeUtility
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ProgramTypeUtility
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 9
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Static members for type handling.
+  remarks: >-
+    Most of the Parse methods were originally meant
+
+    for unboxing values from XML documents.
+  example: []
+  syntax:
+    content: public static class ProgramTypeUtility
+    content.vb: Public Module ProgramTypeUtility
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.ProgramTypeUtility.ParseBoolean(System.Object)
+  commentId: M:Songhay.ProgramTypeUtility.ParseBoolean(System.Object)
+  id: ParseBoolean(System.Object)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseBoolean(object?)
+  nameWithType: ProgramTypeUtility.ParseBoolean(object?)
+  fullName: Songhay.ProgramTypeUtility.ParseBoolean(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseBoolean
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 16
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static bool? ParseBoolean(object? value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    return:
+      type: System.Nullable{System.Boolean}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseBoolean(value As Object) As Boolean?
+  overload: Songhay.ProgramTypeUtility.ParseBoolean*
+  nameWithType.vb: ProgramTypeUtility.ParseBoolean(Object)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseBoolean(Object)
+  name.vb: ParseBoolean(Object)
+- uid: Songhay.ProgramTypeUtility.ParseBoolean(System.Object,System.Boolean)
+  commentId: M:Songhay.ProgramTypeUtility.ParseBoolean(System.Object,System.Boolean)
+  id: ParseBoolean(System.Object,System.Boolean)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseBoolean(object?, bool)
+  nameWithType: ProgramTypeUtility.ParseBoolean(object?, bool)
+  fullName: Songhay.ProgramTypeUtility.ParseBoolean(object?, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseBoolean
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 34
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static bool? ParseBoolean(object? value, bool supportBitStrings)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    - id: supportBitStrings
+      type: System.Boolean
+      description: >-
+        When <code>true</code>, support "1" and "0"
+
+        as Boolean strings.
+    return:
+      type: System.Nullable{System.Boolean}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseBoolean(value As Object, supportBitStrings As Boolean) As Boolean?
+  overload: Songhay.ProgramTypeUtility.ParseBoolean*
+  nameWithType.vb: ProgramTypeUtility.ParseBoolean(Object, Boolean)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseBoolean(Object, Boolean)
+  name.vb: ParseBoolean(Object, Boolean)
+- uid: Songhay.ProgramTypeUtility.ParseBoolean(System.Object,System.Boolean,System.Boolean)
+  commentId: M:Songhay.ProgramTypeUtility.ParseBoolean(System.Object,System.Boolean,System.Boolean)
+  id: ParseBoolean(System.Object,System.Boolean,System.Boolean)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseBoolean(object?, bool, bool)
+  nameWithType: ProgramTypeUtility.ParseBoolean(object?, bool, bool)
+  fullName: Songhay.ProgramTypeUtility.ParseBoolean(object?, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseBoolean
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 71
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static bool? ParseBoolean(object? value, bool supportBitStrings, bool defaultValue)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    - id: supportBitStrings
+      type: System.Boolean
+      description: >-
+        When <code>true</code>, support "1" and "0"
+
+        as Boolean strings.
+    - id: defaultValue
+      type: System.Boolean
+      description: The default value to return when <code>Nullable.HasValue == false</code>.
+    return:
+      type: System.Nullable{System.Boolean}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseBoolean(value As Object, supportBitStrings As Boolean, defaultValue As Boolean) As Boolean?
+  overload: Songhay.ProgramTypeUtility.ParseBoolean*
+  nameWithType.vb: ProgramTypeUtility.ParseBoolean(Object, Boolean, Boolean)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseBoolean(Object, Boolean, Boolean)
+  name.vb: ParseBoolean(Object, Boolean, Boolean)
+- uid: Songhay.ProgramTypeUtility.ParseByte(System.Object)
+  commentId: M:Songhay.ProgramTypeUtility.ParseByte(System.Object)
+  id: ParseByte(System.Object)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseByte(object?)
+  nameWithType: ProgramTypeUtility.ParseByte(object?)
+  fullName: Songhay.ProgramTypeUtility.ParseByte(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseByte
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 90
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static byte? ParseByte(object? value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    return:
+      type: System.Nullable{System.Byte}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseByte(value As Object) As Byte?
+  overload: Songhay.ProgramTypeUtility.ParseByte*
+  nameWithType.vb: ProgramTypeUtility.ParseByte(Object)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseByte(Object)
+  name.vb: ParseByte(Object)
+- uid: Songhay.ProgramTypeUtility.ParseByte(System.Object,System.Byte)
+  commentId: M:Songhay.ProgramTypeUtility.ParseByte(System.Object,System.Byte)
+  id: ParseByte(System.Object,System.Byte)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseByte(object?, byte)
+  nameWithType: ProgramTypeUtility.ParseByte(object?, byte)
+  fullName: Songhay.ProgramTypeUtility.ParseByte(object?, byte)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseByte
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 112
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static byte? ParseByte(object? value, byte defaultValue)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    - id: defaultValue
+      type: System.Byte
+      description: The default value to return when <code>Nullable.HasValue == false</code>.
+    return:
+      type: System.Nullable{System.Byte}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseByte(value As Object, defaultValue As Byte) As Byte?
+  overload: Songhay.ProgramTypeUtility.ParseByte*
+  nameWithType.vb: ProgramTypeUtility.ParseByte(Object, Byte)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseByte(Object, Byte)
+  name.vb: ParseByte(Object, Byte)
+- uid: Songhay.ProgramTypeUtility.ParseDateTime(System.Object)
+  commentId: M:Songhay.ProgramTypeUtility.ParseDateTime(System.Object)
+  id: ParseDateTime(System.Object)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseDateTime(object?)
+  nameWithType: ProgramTypeUtility.ParseDateTime(object?)
+  fullName: Songhay.ProgramTypeUtility.ParseDateTime(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseDateTime
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 131
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static DateTime? ParseDateTime(object? value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    return:
+      type: System.Nullable{System.DateTime}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseDateTime(value As Object) As Date?
+  overload: Songhay.ProgramTypeUtility.ParseDateTime*
+  nameWithType.vb: ProgramTypeUtility.ParseDateTime(Object)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseDateTime(Object)
+  name.vb: ParseDateTime(Object)
+- uid: Songhay.ProgramTypeUtility.ParseDateTime(System.Object,System.DateTime)
+  commentId: M:Songhay.ProgramTypeUtility.ParseDateTime(System.Object,System.DateTime)
+  id: ParseDateTime(System.Object,System.DateTime)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseDateTime(object?, DateTime)
+  nameWithType: ProgramTypeUtility.ParseDateTime(object?, DateTime)
+  fullName: Songhay.ProgramTypeUtility.ParseDateTime(object?, System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseDateTime
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 153
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static DateTime? ParseDateTime(object? value, DateTime defaultValue)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    - id: defaultValue
+      type: System.DateTime
+      description: The default value to return when <code>Nullable.HasValue == false</code>.
+    return:
+      type: System.Nullable{System.DateTime}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseDateTime(value As Object, defaultValue As Date) As Date?
+  overload: Songhay.ProgramTypeUtility.ParseDateTime*
+  nameWithType.vb: ProgramTypeUtility.ParseDateTime(Object, Date)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseDateTime(Object, Date)
+  name.vb: ParseDateTime(Object, Date)
+- uid: Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(System.Object,System.String)
+  commentId: M:Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(System.Object,System.String)
+  id: ParseDateTimeWithFormat(System.Object,System.String)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseDateTimeWithFormat(object?, string)
+  nameWithType: ProgramTypeUtility.ParseDateTimeWithFormat(object?, string)
+  fullName: Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(object?, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseDateTimeWithFormat
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 175
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static string? ParseDateTimeWithFormat(object? value, string formatExpression)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    - id: formatExpression
+      type: System.String
+      description: The string format expression.
+    return:
+      type: System.String
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseDateTimeWithFormat(value As Object, formatExpression As String) As String
+  overload: Songhay.ProgramTypeUtility.ParseDateTimeWithFormat*
+  nameWithType.vb: ProgramTypeUtility.ParseDateTimeWithFormat(Object, String)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(Object, String)
+  name.vb: ParseDateTimeWithFormat(Object, String)
+- uid: Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(System.Object,System.String,System.String)
+  commentId: M:Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(System.Object,System.String,System.String)
+  id: ParseDateTimeWithFormat(System.Object,System.String,System.String)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseDateTimeWithFormat(object?, string, string)
+  nameWithType: ProgramTypeUtility.ParseDateTimeWithFormat(object?, string, string)
+  fullName: Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(object?, string, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseDateTimeWithFormat
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 200
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static string ParseDateTimeWithFormat(object? value, string formatExpression, string defaultValue)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    - id: formatExpression
+      type: System.String
+      description: The string format expression.
+    - id: defaultValue
+      type: System.String
+      description: The default value to return when <code>Nullable.HasValue == false</code>.
+    return:
+      type: System.String
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseDateTimeWithFormat(value As Object, formatExpression As String, defaultValue As String) As String
+  overload: Songhay.ProgramTypeUtility.ParseDateTimeWithFormat*
+  nameWithType.vb: ProgramTypeUtility.ParseDateTimeWithFormat(Object, String, String)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseDateTimeWithFormat(Object, String, String)
+  name.vb: ParseDateTimeWithFormat(Object, String, String)
+- uid: Songhay.ProgramTypeUtility.ParseDecimal(System.Object)
+  commentId: M:Songhay.ProgramTypeUtility.ParseDecimal(System.Object)
+  id: ParseDecimal(System.Object)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseDecimal(object?)
+  nameWithType: ProgramTypeUtility.ParseDecimal(object?)
+  fullName: Songhay.ProgramTypeUtility.ParseDecimal(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseDecimal
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 219
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static decimal? ParseDecimal(object? value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    return:
+      type: System.Nullable{System.Decimal}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseDecimal(value As Object) As Decimal?
+  overload: Songhay.ProgramTypeUtility.ParseDecimal*
+  nameWithType.vb: ProgramTypeUtility.ParseDecimal(Object)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseDecimal(Object)
+  name.vb: ParseDecimal(Object)
+- uid: Songhay.ProgramTypeUtility.ParseDecimal(System.Object,System.Decimal)
+  commentId: M:Songhay.ProgramTypeUtility.ParseDecimal(System.Object,System.Decimal)
+  id: ParseDecimal(System.Object,System.Decimal)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseDecimal(object?, decimal)
+  nameWithType: ProgramTypeUtility.ParseDecimal(object?, decimal)
+  fullName: Songhay.ProgramTypeUtility.ParseDecimal(object?, decimal)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseDecimal
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 241
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static decimal? ParseDecimal(object? value, decimal defaultValue)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    - id: defaultValue
+      type: System.Decimal
+      description: The default value to return when <code>Nullable.HasValue == false</code>.
+    return:
+      type: System.Nullable{System.Decimal}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseDecimal(value As Object, defaultValue As Decimal) As Decimal?
+  overload: Songhay.ProgramTypeUtility.ParseDecimal*
+  nameWithType.vb: ProgramTypeUtility.ParseDecimal(Object, Decimal)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseDecimal(Object, Decimal)
+  name.vb: ParseDecimal(Object, Decimal)
+- uid: Songhay.ProgramTypeUtility.ParseDouble(System.Object)
+  commentId: M:Songhay.ProgramTypeUtility.ParseDouble(System.Object)
+  id: ParseDouble(System.Object)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseDouble(object?)
+  nameWithType: ProgramTypeUtility.ParseDouble(object?)
+  fullName: Songhay.ProgramTypeUtility.ParseDouble(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseDouble
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 260
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static double? ParseDouble(object? value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    return:
+      type: System.Nullable{System.Double}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseDouble(value As Object) As Double?
+  overload: Songhay.ProgramTypeUtility.ParseDouble*
+  nameWithType.vb: ProgramTypeUtility.ParseDouble(Object)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseDouble(Object)
+  name.vb: ParseDouble(Object)
+- uid: Songhay.ProgramTypeUtility.ParseDouble(System.Object,System.Double)
+  commentId: M:Songhay.ProgramTypeUtility.ParseDouble(System.Object,System.Double)
+  id: ParseDouble(System.Object,System.Double)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseDouble(object?, double)
+  nameWithType: ProgramTypeUtility.ParseDouble(object?, double)
+  fullName: Songhay.ProgramTypeUtility.ParseDouble(object?, double)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseDouble
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 282
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static double? ParseDouble(object? value, double defaultValue)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    - id: defaultValue
+      type: System.Double
+      description: The default value to return when <code>Nullable.HasValue == false</code>.
+    return:
+      type: System.Nullable{System.Double}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseDouble(value As Object, defaultValue As Double) As Double?
+  overload: Songhay.ProgramTypeUtility.ParseDouble*
+  nameWithType.vb: ProgramTypeUtility.ParseDouble(Object, Double)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseDouble(Object, Double)
+  name.vb: ParseDouble(Object, Double)
+- uid: Songhay.ProgramTypeUtility.ParseEnum``1(System.String,``0)
+  commentId: M:Songhay.ProgramTypeUtility.ParseEnum``1(System.String,``0)
+  id: ParseEnum``1(System.String,``0)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseEnum<TEnum>(string, TEnum)
+  nameWithType: ProgramTypeUtility.ParseEnum<TEnum>(string, TEnum)
+  fullName: Songhay.ProgramTypeUtility.ParseEnum<TEnum>(string, TEnum)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseEnum
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 299
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Enum" data-throw-if-not-resolved="false"></xref> return type.
+  remarks: For background, see http://stackoverflow.com/a/15017429/22944
+  example: []
+  syntax:
+    content: 'public static TEnum ParseEnum<TEnum>(string value, TEnum defaultValue) where TEnum : struct'
+    parameters:
+    - id: value
+      type: System.String
+      description: The value.
+    - id: defaultValue
+      type: '{TEnum}'
+      description: The default value.
+    typeParameters:
+    - id: TEnum
+      description: The type of the enum.
+    return:
+      type: '{TEnum}'
+    content.vb: Public Shared Function ParseEnum(Of TEnum As Structure)(value As String, defaultValue As TEnum) As TEnum
+  overload: Songhay.ProgramTypeUtility.ParseEnum*
+  nameWithType.vb: ProgramTypeUtility.ParseEnum(Of TEnum)(String, TEnum)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseEnum(Of TEnum)(String, TEnum)
+  name.vb: ParseEnum(Of TEnum)(String, TEnum)
+- uid: Songhay.ProgramTypeUtility.ParseInt16(System.Object)
+  commentId: M:Songhay.ProgramTypeUtility.ParseInt16(System.Object)
+  id: ParseInt16(System.Object)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseInt16(object?)
+  nameWithType: ProgramTypeUtility.ParseInt16(object?)
+  fullName: Songhay.ProgramTypeUtility.ParseInt16(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseInt16
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 318
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static short? ParseInt16(object? value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    return:
+      type: System.Nullable{System.Int16}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseInt16(value As Object) As Short?
+  overload: Songhay.ProgramTypeUtility.ParseInt16*
+  nameWithType.vb: ProgramTypeUtility.ParseInt16(Object)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseInt16(Object)
+  name.vb: ParseInt16(Object)
+- uid: Songhay.ProgramTypeUtility.ParseInt16(System.Object,System.Int16)
+  commentId: M:Songhay.ProgramTypeUtility.ParseInt16(System.Object,System.Int16)
+  id: ParseInt16(System.Object,System.Int16)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseInt16(object?, short)
+  nameWithType: ProgramTypeUtility.ParseInt16(object?, short)
+  fullName: Songhay.ProgramTypeUtility.ParseInt16(object?, short)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseInt16
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 340
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static short? ParseInt16(object? value, short defaultValue)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    - id: defaultValue
+      type: System.Int16
+      description: The default value to return when <code>Nullable.HasValue == false</code>.
+    return:
+      type: System.Nullable{System.Int16}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseInt16(value As Object, defaultValue As Short) As Short?
+  overload: Songhay.ProgramTypeUtility.ParseInt16*
+  nameWithType.vb: ProgramTypeUtility.ParseInt16(Object, Short)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseInt16(Object, Short)
+  name.vb: ParseInt16(Object, Short)
+- uid: Songhay.ProgramTypeUtility.ParseInt32(System.Object)
+  commentId: M:Songhay.ProgramTypeUtility.ParseInt32(System.Object)
+  id: ParseInt32(System.Object)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseInt32(object?)
+  nameWithType: ProgramTypeUtility.ParseInt32(object?)
+  fullName: Songhay.ProgramTypeUtility.ParseInt32(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseInt32
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 359
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static int? ParseInt32(object? value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    return:
+      type: System.Nullable{System.Int32}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseInt32(value As Object) As Integer?
+  overload: Songhay.ProgramTypeUtility.ParseInt32*
+  nameWithType.vb: ProgramTypeUtility.ParseInt32(Object)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseInt32(Object)
+  name.vb: ParseInt32(Object)
+- uid: Songhay.ProgramTypeUtility.ParseInt32(System.Object,System.Int32)
+  commentId: M:Songhay.ProgramTypeUtility.ParseInt32(System.Object,System.Int32)
+  id: ParseInt32(System.Object,System.Int32)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseInt32(object?, int)
+  nameWithType: ProgramTypeUtility.ParseInt32(object?, int)
+  fullName: Songhay.ProgramTypeUtility.ParseInt32(object?, int)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseInt32
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 381
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static int? ParseInt32(object? value, int defaultValue)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    - id: defaultValue
+      type: System.Int32
+      description: The default value to return when <code>Nullable.HasValue == false</code>.
+    return:
+      type: System.Nullable{System.Int32}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseInt32(value As Object, defaultValue As Integer) As Integer?
+  overload: Songhay.ProgramTypeUtility.ParseInt32*
+  nameWithType.vb: ProgramTypeUtility.ParseInt32(Object, Integer)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseInt32(Object, Integer)
+  name.vb: ParseInt32(Object, Integer)
+- uid: Songhay.ProgramTypeUtility.ParseInt64(System.Object)
+  commentId: M:Songhay.ProgramTypeUtility.ParseInt64(System.Object)
+  id: ParseInt64(System.Object)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseInt64(object?)
+  nameWithType: ProgramTypeUtility.ParseInt64(object?)
+  fullName: Songhay.ProgramTypeUtility.ParseInt64(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseInt64
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 400
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static long? ParseInt64(object? value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    return:
+      type: System.Nullable{System.Int64}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseInt64(value As Object) As Long?
+  overload: Songhay.ProgramTypeUtility.ParseInt64*
+  nameWithType.vb: ProgramTypeUtility.ParseInt64(Object)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseInt64(Object)
+  name.vb: ParseInt64(Object)
+- uid: Songhay.ProgramTypeUtility.ParseInt64(System.Object,System.Int64)
+  commentId: M:Songhay.ProgramTypeUtility.ParseInt64(System.Object,System.Int64)
+  id: ParseInt64(System.Object,System.Int64)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseInt64(object?, long)
+  nameWithType: ProgramTypeUtility.ParseInt64(object?, long)
+  fullName: Songhay.ProgramTypeUtility.ParseInt64(object?, long)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseInt64
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 422
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  example: []
+  syntax:
+    content: public static long? ParseInt64(object? value, long defaultValue)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    - id: defaultValue
+      type: System.Int64
+      description: The default value to return when <code>Nullable.HasValue == false</code>.
+    return:
+      type: System.Nullable{System.Int64}
+      description: >-
+        Always returns a <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref>
+
+        as parse failure means <code>HasValue</code>
+
+        is false.
+    content.vb: Public Shared Function ParseInt64(value As Object, defaultValue As Long) As Long?
+  overload: Songhay.ProgramTypeUtility.ParseInt64*
+  nameWithType.vb: ProgramTypeUtility.ParseInt64(Object, Long)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseInt64(Object, Long)
+  name.vb: ParseInt64(Object, Long)
+- uid: Songhay.ProgramTypeUtility.ParseRfc3339DateTime(System.String)
+  commentId: M:Songhay.ProgramTypeUtility.ParseRfc3339DateTime(System.String)
+  id: ParseRfc3339DateTime(System.String)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseRfc3339DateTime(string?)
+  nameWithType: ProgramTypeUtility.ParseRfc3339DateTime(string?)
+  fullName: Songhay.ProgramTypeUtility.ParseRfc3339DateTime(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseRfc3339DateTime
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 436
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Parses the RFC3339 date and time.
+  remarks: This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
+  example: []
+  syntax:
+    content: public static DateTime ParseRfc3339DateTime(string? value)
+    parameters:
+    - id: value
+      type: System.String
+      description: The value.
+    return:
+      type: System.DateTime
+    content.vb: Public Shared Function ParseRfc3339DateTime(value As String) As Date
+  overload: Songhay.ProgramTypeUtility.ParseRfc3339DateTime*
+  nameWithType.vb: ProgramTypeUtility.ParseRfc3339DateTime(String)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseRfc3339DateTime(String)
+  name.vb: ParseRfc3339DateTime(String)
+- uid: Songhay.ProgramTypeUtility.ParseRfc822DateTime(System.String)
+  commentId: M:Songhay.ProgramTypeUtility.ParseRfc822DateTime(System.String)
+  id: ParseRfc822DateTime(System.String)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseRfc822DateTime(string)
+  nameWithType: ProgramTypeUtility.ParseRfc822DateTime(string)
+  fullName: Songhay.ProgramTypeUtility.ParseRfc822DateTime(string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseRfc822DateTime
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 456
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Parses the RFC822 date and time.
+  remarks: This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
+  example: []
+  syntax:
+    content: public static DateTime ParseRfc822DateTime(string value)
+    parameters:
+    - id: value
+      type: System.String
+      description: The value.
+    return:
+      type: System.DateTime
+    content.vb: Public Shared Function ParseRfc822DateTime(value As String) As Date
+  overload: Songhay.ProgramTypeUtility.ParseRfc822DateTime*
+  nameWithType.vb: ProgramTypeUtility.ParseRfc822DateTime(String)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseRfc822DateTime(String)
+  name.vb: ParseRfc822DateTime(String)
+- uid: Songhay.ProgramTypeUtility.ParseString(System.Object)
+  commentId: M:Songhay.ProgramTypeUtility.ParseString(System.Object)
+  id: ParseString(System.Object)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseString(object?)
+  nameWithType: ProgramTypeUtility.ParseString(object?)
+  fullName: Songhay.ProgramTypeUtility.ParseString(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseString
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 476
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to a <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string? ParseString(object? value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref> box.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ParseString(value As Object) As String
+  overload: Songhay.ProgramTypeUtility.ParseString*
+  nameWithType.vb: ProgramTypeUtility.ParseString(Object)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseString(Object)
+  name.vb: ParseString(Object)
+- uid: Songhay.ProgramTypeUtility.ParseString(System.Object,System.String)
+  commentId: M:Songhay.ProgramTypeUtility.ParseString(System.Object,System.String)
+  id: ParseString(System.Object,System.String)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseString(object?, string?)
+  nameWithType: ProgramTypeUtility.ParseString(object?, string?)
+  fullName: Songhay.ProgramTypeUtility.ParseString(object?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseString
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 484
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to convert the specified value
+
+    to a <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static string? ParseString(object? value, string? defaultValue)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value.
+    - id: defaultValue
+      type: System.String
+      description: The default value.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ParseString(value As Object, defaultValue As String) As String
+  overload: Songhay.ProgramTypeUtility.ParseString*
+  nameWithType.vb: ProgramTypeUtility.ParseString(Object, String)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseString(Object, String)
+  name.vb: ParseString(Object, String)
+- uid: Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)
+  commentId: M:Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)
+  id: TryParseRfc3339DateTime(System.String,System.DateTime@)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: TryParseRfc3339DateTime(string, out DateTime)
+  nameWithType: ProgramTypeUtility.TryParseRfc3339DateTime(string, out DateTime)
+  fullName: Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(string, out System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: TryParseRfc3339DateTime
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 495
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Tries the parse RFC3339 date and time.
+  remarks: This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
+  example: []
+  syntax:
+    content: public static bool TryParseRfc3339DateTime(string value, out DateTime result)
+    parameters:
+    - id: value
+      type: System.String
+      description: The value.
+    - id: result
+      type: System.DateTime
+      description: The result.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function TryParseRfc3339DateTime(value As String, result As Date) As Boolean
+  overload: Songhay.ProgramTypeUtility.TryParseRfc3339DateTime*
+  nameWithType.vb: ProgramTypeUtility.TryParseRfc3339DateTime(String, Date)
+  fullName.vb: Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(String, Date)
+  name.vb: TryParseRfc3339DateTime(String, Date)
+- uid: Songhay.ProgramTypeUtility.TryParseRfc822DateTime(System.String,System.DateTime@)
+  commentId: M:Songhay.ProgramTypeUtility.TryParseRfc822DateTime(System.String,System.DateTime@)
+  id: TryParseRfc822DateTime(System.String,System.DateTime@)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: TryParseRfc822DateTime(string, out DateTime)
+  nameWithType: ProgramTypeUtility.TryParseRfc822DateTime(string, out DateTime)
+  fullName: Songhay.ProgramTypeUtility.TryParseRfc822DateTime(string, out System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: TryParseRfc822DateTime
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 525
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Tries the parse RFC822 date and time.
+  remarks: This member is based on patterns in the Argotic Syndication Framework (http://www.codeplex.com/Argotic).
+  example: []
+  syntax:
+    content: public static bool TryParseRfc822DateTime(string value, out DateTime result)
+    parameters:
+    - id: value
+      type: System.String
+      description: The value.
+    - id: result
+      type: System.DateTime
+      description: The result.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function TryParseRfc822DateTime(value As String, result As Date) As Boolean
+  overload: Songhay.ProgramTypeUtility.TryParseRfc822DateTime*
+  nameWithType.vb: ProgramTypeUtility.TryParseRfc822DateTime(String, Date)
+  fullName.vb: Songhay.ProgramTypeUtility.TryParseRfc822DateTime(String, Date)
+  name.vb: TryParseRfc822DateTime(String, Date)
+- uid: Songhay.ProgramTypeUtility.ConvertDateTimeFromUnixTime(System.Double)
+  commentId: M:Songhay.ProgramTypeUtility.ConvertDateTimeFromUnixTime(System.Double)
+  id: ConvertDateTimeFromUnixTime(System.Double)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ConvertDateTimeFromUnixTime(double)
+  nameWithType: ProgramTypeUtility.ConvertDateTimeFromUnixTime(double)
+  fullName: Songhay.ProgramTypeUtility.ConvertDateTimeFromUnixTime(double)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ConvertDateTimeFromUnixTime
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 17
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Converts Unix time stamps
+
+    to <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static DateTime ConvertDateTimeFromUnixTime(double time)
+    parameters:
+    - id: time
+      type: System.Double
+      description: A <xref href="System.Double" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.DateTime
+      description: A <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function ConvertDateTimeFromUnixTime(time As Double) As Date
+  overload: Songhay.ProgramTypeUtility.ConvertDateTimeFromUnixTime*
+  nameWithType.vb: ProgramTypeUtility.ConvertDateTimeFromUnixTime(Double)
+  fullName.vb: Songhay.ProgramTypeUtility.ConvertDateTimeFromUnixTime(Double)
+  name.vb: ConvertDateTimeFromUnixTime(Double)
+- uid: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime(System.DateTime)
+  commentId: M:Songhay.ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime(System.DateTime)
+  id: ConvertDateTimeToRfc3339DateTime(System.DateTime)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ConvertDateTimeToRfc3339DateTime(DateTime)
+  nameWithType: ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime(DateTime)
+  fullName: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime(System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ConvertDateTimeToRfc3339DateTime
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 24
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Converts the specified <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> to RFC3339.
+  example: []
+  syntax:
+    content: public static string ConvertDateTimeToRfc3339DateTime(DateTime utcDateTime)
+    parameters:
+    - id: utcDateTime
+      type: System.DateTime
+      description: The UTC date and time.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ConvertDateTimeToRfc3339DateTime(utcDateTime As Date) As String
+  overload: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime*
+  nameWithType.vb: ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime(Date)
+  fullName.vb: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime(Date)
+  name.vb: ConvertDateTimeToRfc3339DateTime(Date)
+- uid: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(System.DateTime)
+  commentId: M:Songhay.ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(System.DateTime)
+  id: ConvertDateTimeToRfc822DateTime(System.DateTime)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ConvertDateTimeToRfc822DateTime(DateTime)
+  nameWithType: ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(DateTime)
+  fullName: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ConvertDateTimeToRfc822DateTime
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 47
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: /// Converts the specified <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> to RFC822.
+  remarks: >-
+    “Shortcomings of OPML… The RFC 822 date format is considered obsolete,
+
+    and amongst other things permits the representation of years as two digits.
+
+    (RFC 822 has been superseded by RFC 2822.)
+
+    In general, date and time formats should be represented according to RFC 3339.”
+
+    http://www.answers.com/topic/opml
+  example: []
+  syntax:
+    content: public static string ConvertDateTimeToRfc822DateTime(DateTime dateTime)
+    parameters:
+    - id: dateTime
+      type: System.DateTime
+      description: The date and time.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ConvertDateTimeToRfc822DateTime(dateTime As Date) As String
+  overload: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc822DateTime*
+  nameWithType.vb: ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(Date)
+  fullName.vb: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc822DateTime(Date)
+  name.vb: ConvertDateTimeToRfc822DateTime(Date)
+- uid: Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime
+  commentId: M:Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime
+  id: ConvertDateTimeToUnixTime
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ConvertDateTimeToUnixTime()
+  nameWithType: ProgramTypeUtility.ConvertDateTimeToUnixTime()
+  fullName: Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ConvertDateTimeToUnixTime
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 59
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Converts the current time
+
+    to a Unix time stamp.
+  example: []
+  syntax:
+    content: public static double ConvertDateTimeToUnixTime()
+    return:
+      type: System.Double
+      description: A <xref href="System.Double" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function ConvertDateTimeToUnixTime() As Double
+  overload: Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime*
+- uid: Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime(System.DateTime)
+  commentId: M:Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime(System.DateTime)
+  id: ConvertDateTimeToUnixTime(System.DateTime)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ConvertDateTimeToUnixTime(DateTime)
+  nameWithType: ProgramTypeUtility.ConvertDateTimeToUnixTime(DateTime)
+  fullName: Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime(System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ConvertDateTimeToUnixTime
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 69
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Converts a <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+
+    to a Unix time stamp.
+  example: []
+  syntax:
+    content: public static double ConvertDateTimeToUnixTime(DateTime dateValue)
+    parameters:
+    - id: dateValue
+      type: System.DateTime
+      description: The <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Double
+      description: A <xref href="System.Double" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function ConvertDateTimeToUnixTime(dateValue As Date) As Double
+  overload: Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime*
+  nameWithType.vb: ProgramTypeUtility.ConvertDateTimeToUnixTime(Date)
+  fullName.vb: Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime(Date)
+  name.vb: ConvertDateTimeToUnixTime(Date)
+- uid: Songhay.ProgramTypeUtility.ConvertDateTimeToUtc(System.DateTime)
+  commentId: M:Songhay.ProgramTypeUtility.ConvertDateTimeToUtc(System.DateTime)
+  id: ConvertDateTimeToUtc(System.DateTime)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ConvertDateTimeToUtc(DateTime)
+  nameWithType: ProgramTypeUtility.ConvertDateTimeToUtc(DateTime)
+  fullName: Songhay.ProgramTypeUtility.ConvertDateTimeToUtc(System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ConvertDateTimeToUtc
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 81
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Converts a <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+
+    to UTC (ISO 8601).
+  remarks: For detail, see https://stackoverflow.com/a/1728437/22944.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use `DateTimeExtensions.ToIso8601String` instead.")]
+
+      public static string ConvertDateTimeToUtc(DateTime dateValue)
+    parameters:
+    - id: dateValue
+      type: System.DateTime
+      description: The <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.String
+    content.vb: >-
+      <Obsolete("Use `DateTimeExtensions.ToIso8601String` instead.")>
+
+      Public Shared Function ConvertDateTimeToUtc(dateValue As Date) As String
+  overload: Songhay.ProgramTypeUtility.ConvertDateTimeToUtc*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use `DateTimeExtensions.ToIso8601String` instead.
+  nameWithType.vb: ProgramTypeUtility.ConvertDateTimeToUtc(Date)
+  fullName.vb: Songhay.ProgramTypeUtility.ConvertDateTimeToUtc(Date)
+  name.vb: ConvertDateTimeToUtc(Date)
+- uid: Songhay.ProgramTypeUtility.ConvertInchesToPoints(System.Single)
+  commentId: M:Songhay.ProgramTypeUtility.ConvertInchesToPoints(System.Single)
+  id: ConvertInchesToPoints(System.Single)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ConvertInchesToPoints(float)
+  nameWithType: ProgramTypeUtility.ConvertInchesToPoints(float)
+  fullName: Songhay.ProgramTypeUtility.ConvertInchesToPoints(float)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ConvertInchesToPoints
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 95
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Converts inches as a <xref href="System.Single" data-throw-if-not-resolved="false"></xref>
+
+    to points.
+  remarks: 1 point = 0.013837 inch
+  example: []
+  syntax:
+    content: public static float ConvertInchesToPoints(float inches)
+    parameters:
+    - id: inches
+      type: System.Single
+      description: The inches.
+    return:
+      type: System.Single
+    content.vb: Public Shared Function ConvertInchesToPoints(inches As Single) As Single
+  overload: Songhay.ProgramTypeUtility.ConvertInchesToPoints*
+  nameWithType.vb: ProgramTypeUtility.ConvertInchesToPoints(Single)
+  fullName.vb: Songhay.ProgramTypeUtility.ConvertInchesToPoints(Single)
+  name.vb: ConvertInchesToPoints(Single)
+- uid: Songhay.ProgramTypeUtility.ConvertPointsToInches(System.Single)
+  commentId: M:Songhay.ProgramTypeUtility.ConvertPointsToInches(System.Single)
+  id: ConvertPointsToInches(System.Single)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ConvertPointsToInches(float)
+  nameWithType: ProgramTypeUtility.ConvertPointsToInches(float)
+  fullName: Songhay.ProgramTypeUtility.ConvertPointsToInches(float)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ConvertPointsToInches
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 105
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Converts points as a <xref href="System.Single" data-throw-if-not-resolved="false"></xref>
+
+    to inches.
+  remarks: 1 point = 0.013837 inch
+  example: []
+  syntax:
+    content: public static float ConvertPointsToInches(float points)
+    parameters:
+    - id: points
+      type: System.Single
+      description: The points.
+    return:
+      type: System.Single
+    content.vb: Public Shared Function ConvertPointsToInches(points As Single) As Single
+  overload: Songhay.ProgramTypeUtility.ConvertPointsToInches*
+  nameWithType.vb: ProgramTypeUtility.ConvertPointsToInches(Single)
+  fullName.vb: Songhay.ProgramTypeUtility.ConvertPointsToInches(Single)
+  name.vb: ConvertPointsToInches(Single)
+- uid: Songhay.ProgramTypeUtility.GenerateRandomPassword(System.Int32)
+  commentId: M:Songhay.ProgramTypeUtility.GenerateRandomPassword(System.Int32)
+  id: GenerateRandomPassword(System.Int32)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: GenerateRandomPassword(int)
+  nameWithType: ProgramTypeUtility.GenerateRandomPassword(int)
+  fullName: Songhay.ProgramTypeUtility.GenerateRandomPassword(int)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GenerateRandomPassword
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 115
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Generates the random password.
+  remarks: >-
+    See “Generate random password in C#” by Mads Kristensen
+
+    [http://madskristensen.net/post/Generate-random-password-in-C]
+  example: []
+  syntax:
+    content: public static string GenerateRandomPassword(int passwordLength)
+    parameters:
+    - id: passwordLength
+      type: System.Int32
+      description: Length of the password.
+    return:
+      type: System.String
+    content.vb: Public Shared Function GenerateRandomPassword(passwordLength As Integer) As String
+  overload: Songhay.ProgramTypeUtility.GenerateRandomPassword*
+  nameWithType.vb: ProgramTypeUtility.GenerateRandomPassword(Integer)
+  fullName.vb: Songhay.ProgramTypeUtility.GenerateRandomPassword(Integer)
+  name.vb: GenerateRandomPassword(Integer)
+- uid: Songhay.ProgramTypeUtility.IsNullOrEmptyString(System.Object)
+  commentId: M:Songhay.ProgramTypeUtility.IsNullOrEmptyString(System.Object)
+  id: IsNullOrEmptyString(System.Object)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: IsNullOrEmptyString(object?)
+  nameWithType: ProgramTypeUtility.IsNullOrEmptyString(object?)
+  fullName: Songhay.ProgramTypeUtility.IsNullOrEmptyString(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IsNullOrEmptyString
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 134
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Returns <code>true</code> when the specified value
+
+    is <code>null</code> or <xref href="System.String.Empty" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool IsNullOrEmptyString(object? boxedString)
+    parameters:
+    - id: boxedString
+      type: System.Object
+      description: The framework value.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsNullOrEmptyString(boxedString As Object) As Boolean
+  overload: Songhay.ProgramTypeUtility.IsNullOrEmptyString*
+  nameWithType.vb: ProgramTypeUtility.IsNullOrEmptyString(Object)
+  fullName.vb: Songhay.ProgramTypeUtility.IsNullOrEmptyString(Object)
+  name.vb: IsNullOrEmptyString(Object)
+- uid: Songhay.ProgramTypeUtility.IsNullOrEmptyOrNotArray(System.Object)
+  commentId: M:Songhay.ProgramTypeUtility.IsNullOrEmptyOrNotArray(System.Object)
+  id: IsNullOrEmptyOrNotArray(System.Object)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: IsNullOrEmptyOrNotArray(object?)
+  nameWithType: ProgramTypeUtility.IsNullOrEmptyOrNotArray(object?)
+  fullName: Songhay.ProgramTypeUtility.IsNullOrEmptyOrNotArray(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IsNullOrEmptyOrNotArray
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 142
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Returns <code>true</code> when the specified value
+
+    is an empty array, not an array or null.
+  example: []
+  syntax:
+    content: public static bool IsNullOrEmptyOrNotArray(object? boxedArray)
+    parameters:
+    - id: boxedArray
+      type: System.Object
+      description: The specified value.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsNullOrEmptyOrNotArray(boxedArray As Object) As Boolean
+  overload: Songhay.ProgramTypeUtility.IsNullOrEmptyOrNotArray*
+  nameWithType.vb: ProgramTypeUtility.IsNullOrEmptyOrNotArray(Object)
+  fullName.vb: Songhay.ProgramTypeUtility.IsNullOrEmptyOrNotArray(Object)
+  name.vb: IsNullOrEmptyOrNotArray(Object)
+- uid: Songhay.ProgramTypeUtility.SqlDatabaseNull
+  commentId: M:Songhay.ProgramTypeUtility.SqlDatabaseNull
+  id: SqlDatabaseNull
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: SqlDatabaseNull()
+  nameWithType: ProgramTypeUtility.SqlDatabaseNull()
+  fullName: Songhay.ProgramTypeUtility.SqlDatabaseNull()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility._.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SqlDatabaseNull
+    path: ../SonghayCore/ProgramTypeUtility._.cs
+    startLine: 151
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Returns the conventional database null
+
+    (<xref href="System.DBNull" data-throw-if-not-resolved="false"></xref>)
+
+    for Microsoft SQL Server systems.
+  example: []
+  syntax:
+    content: public static DBNull SqlDatabaseNull()
+    return:
+      type: System.DBNull
+      description: <xref href="System.DBNull" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Function SqlDatabaseNull() As DBNull
+  overload: Songhay.ProgramTypeUtility.SqlDatabaseNull*
+references:
+- uid: Songhay
+  commentId: N:Songhay
+  href: Songhay.html
+  name: Songhay
+  nameWithType: Songhay
+  fullName: Songhay
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Nullable
+  commentId: T:System.Nullable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable
+  name: Nullable
+  nameWithType: Nullable
+  fullName: System.Nullable
+- uid: Songhay.ProgramTypeUtility.ParseBoolean*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseBoolean
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseBoolean_System_Object_
+  name: ParseBoolean
+  nameWithType: ProgramTypeUtility.ParseBoolean
+  fullName: Songhay.ProgramTypeUtility.ParseBoolean
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Songhay.ProgramTypeUtility.ParseByte*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseByte
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseByte_System_Object_
+  name: ParseByte
+  nameWithType: ProgramTypeUtility.ParseByte
+  fullName: Songhay.ProgramTypeUtility.ParseByte
+- uid: System.Nullable{System.Byte}
+  commentId: T:System.Nullable{System.Byte}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte?
+  nameWithType: byte?
+  fullName: byte?
+  nameWithType.vb: Byte?
+  fullName.vb: Byte?
+  name.vb: Byte?
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '?'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '?'
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Songhay.ProgramTypeUtility.ParseDateTime*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseDateTime
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseDateTime_System_Object_
+  name: ParseDateTime
+  nameWithType: ProgramTypeUtility.ParseDateTime
+  fullName: Songhay.ProgramTypeUtility.ParseDateTime
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Songhay.ProgramTypeUtility.ParseDateTimeWithFormat*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseDateTimeWithFormat
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseDateTimeWithFormat_System_Object_System_String_
+  name: ParseDateTimeWithFormat
+  nameWithType: ProgramTypeUtility.ParseDateTimeWithFormat
+  fullName: Songhay.ProgramTypeUtility.ParseDateTimeWithFormat
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Songhay.ProgramTypeUtility.ParseDecimal*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseDecimal
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseDecimal_System_Object_
+  name: ParseDecimal
+  nameWithType: ProgramTypeUtility.ParseDecimal
+  fullName: Songhay.ProgramTypeUtility.ParseDecimal
+- uid: System.Nullable{System.Decimal}
+  commentId: T:System.Nullable{System.Decimal}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal?
+  nameWithType: decimal?
+  fullName: decimal?
+  nameWithType.vb: Decimal?
+  fullName.vb: Decimal?
+  name.vb: Decimal?
+  spec.csharp:
+  - uid: System.Decimal
+    name: decimal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.decimal
+  - name: '?'
+  spec.vb:
+  - uid: System.Decimal
+    name: Decimal
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.decimal
+  - name: '?'
+- uid: System.Decimal
+  commentId: T:System.Decimal
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.decimal
+  name: decimal
+  nameWithType: decimal
+  fullName: decimal
+  nameWithType.vb: Decimal
+  fullName.vb: Decimal
+  name.vb: Decimal
+- uid: Songhay.ProgramTypeUtility.ParseDouble*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseDouble
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseDouble_System_Object_
+  name: ParseDouble
+  nameWithType: ProgramTypeUtility.ParseDouble
+  fullName: Songhay.ProgramTypeUtility.ParseDouble
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: System.Enum
+  commentId: T:System.Enum
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.enum
+  name: Enum
+  nameWithType: Enum
+  fullName: System.Enum
+- uid: Songhay.ProgramTypeUtility.ParseEnum*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseEnum
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseEnum__1_System_String___0_
+  name: ParseEnum
+  nameWithType: ProgramTypeUtility.ParseEnum
+  fullName: Songhay.ProgramTypeUtility.ParseEnum
+- uid: '{TEnum}'
+  commentId: '!:TEnum'
+  definition: TEnum
+  name: TEnum
+  nameWithType: TEnum
+  fullName: TEnum
+- uid: TEnum
+  name: TEnum
+  nameWithType: TEnum
+  fullName: TEnum
+- uid: Songhay.ProgramTypeUtility.ParseInt16*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseInt16
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseInt16_System_Object_
+  name: ParseInt16
+  nameWithType: ProgramTypeUtility.ParseInt16
+  fullName: Songhay.ProgramTypeUtility.ParseInt16
+- uid: System.Nullable{System.Int16}
+  commentId: T:System.Nullable{System.Int16}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int16
+  name: short?
+  nameWithType: short?
+  fullName: short?
+  nameWithType.vb: Short?
+  fullName.vb: Short?
+  name.vb: Short?
+  spec.csharp:
+  - uid: System.Int16
+    name: short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: '?'
+  spec.vb:
+  - uid: System.Int16
+    name: Short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: '?'
+- uid: System.Int16
+  commentId: T:System.Int16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int16
+  name: short
+  nameWithType: short
+  fullName: short
+  nameWithType.vb: Short
+  fullName.vb: Short
+  name.vb: Short
+- uid: Songhay.ProgramTypeUtility.ParseInt32*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseInt32
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseInt32_System_Object_
+  name: ParseInt32
+  nameWithType: ProgramTypeUtility.ParseInt32
+  fullName: Songhay.ProgramTypeUtility.ParseInt32
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Songhay.ProgramTypeUtility.ParseInt64*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseInt64
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseInt64_System_Object_
+  name: ParseInt64
+  nameWithType: ProgramTypeUtility.ParseInt64
+  fullName: Songhay.ProgramTypeUtility.ParseInt64
+- uid: System.Nullable{System.Int64}
+  commentId: T:System.Nullable{System.Int64}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long?
+  nameWithType: long?
+  fullName: long?
+  nameWithType.vb: Long?
+  fullName.vb: Long?
+  name.vb: Long?
+  spec.csharp:
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  spec.vb:
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Songhay.ProgramTypeUtility.ParseRfc3339DateTime*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseRfc3339DateTime
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseRfc3339DateTime_System_String_
+  name: ParseRfc3339DateTime
+  nameWithType: ProgramTypeUtility.ParseRfc3339DateTime
+  fullName: Songhay.ProgramTypeUtility.ParseRfc3339DateTime
+- uid: Songhay.ProgramTypeUtility.ParseRfc822DateTime*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseRfc822DateTime
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseRfc822DateTime_System_String_
+  name: ParseRfc822DateTime
+  nameWithType: ProgramTypeUtility.ParseRfc822DateTime
+  fullName: Songhay.ProgramTypeUtility.ParseRfc822DateTime
+- uid: Songhay.ProgramTypeUtility.ParseString*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseString
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseString_System_Object_
+  name: ParseString
+  nameWithType: ProgramTypeUtility.ParseString
+  fullName: Songhay.ProgramTypeUtility.ParseString
+- uid: Songhay.ProgramTypeUtility.TryParseRfc3339DateTime*
+  commentId: Overload:Songhay.ProgramTypeUtility.TryParseRfc3339DateTime
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_TryParseRfc3339DateTime_System_String_System_DateTime__
+  name: TryParseRfc3339DateTime
+  nameWithType: ProgramTypeUtility.TryParseRfc3339DateTime
+  fullName: Songhay.ProgramTypeUtility.TryParseRfc3339DateTime
+- uid: Songhay.ProgramTypeUtility.TryParseRfc822DateTime*
+  commentId: Overload:Songhay.ProgramTypeUtility.TryParseRfc822DateTime
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_TryParseRfc822DateTime_System_String_System_DateTime__
+  name: TryParseRfc822DateTime
+  nameWithType: ProgramTypeUtility.TryParseRfc822DateTime
+  fullName: Songhay.ProgramTypeUtility.TryParseRfc822DateTime
+- uid: Songhay.ProgramTypeUtility.ConvertDateTimeFromUnixTime*
+  commentId: Overload:Songhay.ProgramTypeUtility.ConvertDateTimeFromUnixTime
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ConvertDateTimeFromUnixTime_System_Double_
+  name: ConvertDateTimeFromUnixTime
+  nameWithType: ProgramTypeUtility.ConvertDateTimeFromUnixTime
+  fullName: Songhay.ProgramTypeUtility.ConvertDateTimeFromUnixTime
+- uid: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime*
+  commentId: Overload:Songhay.ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ConvertDateTimeToRfc3339DateTime_System_DateTime_
+  name: ConvertDateTimeToRfc3339DateTime
+  nameWithType: ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime
+  fullName: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc3339DateTime
+- uid: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc822DateTime*
+  commentId: Overload:Songhay.ProgramTypeUtility.ConvertDateTimeToRfc822DateTime
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ConvertDateTimeToRfc822DateTime_System_DateTime_
+  name: ConvertDateTimeToRfc822DateTime
+  nameWithType: ProgramTypeUtility.ConvertDateTimeToRfc822DateTime
+  fullName: Songhay.ProgramTypeUtility.ConvertDateTimeToRfc822DateTime
+- uid: Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime*
+  commentId: Overload:Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ConvertDateTimeToUnixTime
+  name: ConvertDateTimeToUnixTime
+  nameWithType: ProgramTypeUtility.ConvertDateTimeToUnixTime
+  fullName: Songhay.ProgramTypeUtility.ConvertDateTimeToUnixTime
+- uid: Songhay.ProgramTypeUtility.ConvertDateTimeToUtc*
+  commentId: Overload:Songhay.ProgramTypeUtility.ConvertDateTimeToUtc
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ConvertDateTimeToUtc_System_DateTime_
+  name: ConvertDateTimeToUtc
+  nameWithType: ProgramTypeUtility.ConvertDateTimeToUtc
+  fullName: Songhay.ProgramTypeUtility.ConvertDateTimeToUtc
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Songhay.ProgramTypeUtility.ConvertInchesToPoints*
+  commentId: Overload:Songhay.ProgramTypeUtility.ConvertInchesToPoints
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ConvertInchesToPoints_System_Single_
+  name: ConvertInchesToPoints
+  nameWithType: ProgramTypeUtility.ConvertInchesToPoints
+  fullName: Songhay.ProgramTypeUtility.ConvertInchesToPoints
+- uid: Songhay.ProgramTypeUtility.ConvertPointsToInches*
+  commentId: Overload:Songhay.ProgramTypeUtility.ConvertPointsToInches
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ConvertPointsToInches_System_Single_
+  name: ConvertPointsToInches
+  nameWithType: ProgramTypeUtility.ConvertPointsToInches
+  fullName: Songhay.ProgramTypeUtility.ConvertPointsToInches
+- uid: Songhay.ProgramTypeUtility.GenerateRandomPassword*
+  commentId: Overload:Songhay.ProgramTypeUtility.GenerateRandomPassword
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_GenerateRandomPassword_System_Int32_
+  name: GenerateRandomPassword
+  nameWithType: ProgramTypeUtility.GenerateRandomPassword
+  fullName: Songhay.ProgramTypeUtility.GenerateRandomPassword
+- uid: System.String.Empty
+  commentId: F:System.String.Empty
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string.empty
+  name: Empty
+  nameWithType: string.Empty
+  fullName: string.Empty
+  nameWithType.vb: String.Empty
+  fullName.vb: String.Empty
+- uid: Songhay.ProgramTypeUtility.IsNullOrEmptyString*
+  commentId: Overload:Songhay.ProgramTypeUtility.IsNullOrEmptyString
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_IsNullOrEmptyString_System_Object_
+  name: IsNullOrEmptyString
+  nameWithType: ProgramTypeUtility.IsNullOrEmptyString
+  fullName: Songhay.ProgramTypeUtility.IsNullOrEmptyString
+- uid: Songhay.ProgramTypeUtility.IsNullOrEmptyOrNotArray*
+  commentId: Overload:Songhay.ProgramTypeUtility.IsNullOrEmptyOrNotArray
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_IsNullOrEmptyOrNotArray_System_Object_
+  name: IsNullOrEmptyOrNotArray
+  nameWithType: ProgramTypeUtility.IsNullOrEmptyOrNotArray
+  fullName: Songhay.ProgramTypeUtility.IsNullOrEmptyOrNotArray
+- uid: System.DBNull
+  commentId: T:System.DBNull
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.dbnull
+  name: DBNull
+  nameWithType: DBNull
+  fullName: System.DBNull
+- uid: Songhay.ProgramTypeUtility.SqlDatabaseNull*
+  commentId: Overload:Songhay.ProgramTypeUtility.SqlDatabaseNull
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_SqlDatabaseNull
+  name: SqlDatabaseNull
+  nameWithType: ProgramTypeUtility.SqlDatabaseNull
+  fullName: Songhay.ProgramTypeUtility.SqlDatabaseNull

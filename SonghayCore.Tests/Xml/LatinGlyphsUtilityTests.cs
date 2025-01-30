@@ -8,22 +8,17 @@ using Songhay.Tests.Extensions;
 
 namespace Songhay.Tests.Xml;
 
-public class LatinGlyphsUtilityTests
+public class LatinGlyphsUtilityTests(ITestOutputHelper helper)
 {
-    public LatinGlyphsUtilityTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     [Theory]
     [InlineData("1 &amp; 2; 3 &#38; 4; it&apos;s done", "1 & 2; 3 & 4; it's done")]
     public void Condense_Test(string input, string expectedOutput)
     {
-        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+        helper.WriteLine($"{nameof(input)}: {input}");
 
         var actual = LatinGlyphsUtility.Condense(input, basicLatinOnly: true);
 
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        helper.WriteLine($"{nameof(actual)}: {actual}");
 
         Assert.Equal(expectedOutput, actual);
     }
@@ -33,11 +28,11 @@ public class LatinGlyphsUtilityTests
     [InlineData("1 & 2; 3 & 4; it's done", "1 &#38; 2; 3 &#38; 4; it&#39;s done")]
     public void Expand_Test(string input, string expectedOutput)
     {
-        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+        helper.WriteLine($"{nameof(input)}: {input}");
 
         var actual = LatinGlyphsUtility.Expand(input, basicLatinOnly: true);
 
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        helper.WriteLine($"{nameof(actual)}: {actual}");
 
         Assert.Equal(expectedOutput, actual);
     }
@@ -47,11 +42,11 @@ public class LatinGlyphsUtilityTests
     [InlineData("%e2%80%a6,%e2%80%98,%e2%80%99,%e2%80%9c,%e2%80%9d,%e2%80%a2,%c2%a9,%c2%ae", ",,,,,,,", false)]
     public void RemoveUrlEncodings_Test(string input, string expectedOutput, bool basicLatinOnly)
     {
-        _testOutputHelper.WriteLine($"{nameof(input)}: {input}");
+        helper.WriteLine($"{nameof(input)}: {input}");
 
         var actual = LatinGlyphsUtility.RemoveUrlEncodings(input, basicLatinOnly);
 
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual}");
+        helper.WriteLine($"{nameof(actual)}: {actual}");
 
         Assert.Equal(expectedOutput, actual);
     }
@@ -96,7 +91,7 @@ public class LatinGlyphsUtilityTests
 
     [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
     [SkippableTheory]
-    [InlineData("./xlsx/latin-glyphs.xlsx", "./txt/latin-glyphs.txt")]
+    [InlineData("./content/xlsx/latin-glyphs.xlsx", "./content/txt/latin-glyphs.txt")]
     public void ShouldWriteProgramGlyphData(string input, string output)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
@@ -115,15 +110,12 @@ public class LatinGlyphsUtilityTests
         {
             var unicodePoint = reader.GetValue(0) as string;
 
-            switch (unicodePoint)
+            return unicodePoint switch
             {
-                case "22":
-                    return "\\\"";
-                case "5c":
-                    return "\\\\";
-                default:
-                    return reader.GetValue(3) as string;
-            }
+                "22" => "\\\"",
+                "5c" => "\\\\",
+                _ => reader.GetValue(3) as string
+            };
         }
 
         string? GetUnicodePoint(IExcelDataReader reader)
@@ -181,7 +173,7 @@ public class LatinGlyphsUtilityTests
 
     [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
     [SkippableTheory]
-    [InlineData("./xlsx/latin-glyphs.xlsx", "./txt/latin-glyph-names.txt")]
+    [InlineData("./content/xlsx/latin-glyphs.xlsx", "./content/txt/latin-glyph-names.txt")]
     public void ShouldWriteUnicodeNames(string input, string output)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
@@ -205,7 +197,7 @@ public class LatinGlyphsUtilityTests
                 .Replace("&#", string.Empty)
                 .Replace(";", string.Empty);
 
-            _testOutputHelper.WriteLine($"{nameof(xmlEntityNumber)}: {xmlEntityNumber}");
+            helper.WriteLine($"{nameof(xmlEntityNumber)}: {xmlEntityNumber}");
 
             var location = $"https://www.codetable.net/decimal/{xmlEntityNumber}";
 
@@ -245,6 +237,4 @@ public class LatinGlyphsUtilityTests
 
         File.WriteAllText(output, sb.ToString().Replace("\t", string.Empty));
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

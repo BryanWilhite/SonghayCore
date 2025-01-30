@@ -14,7 +14,7 @@ public class ObservableCollectionExtensionsTests
         collection.SetCollectionWithDigits(x);
         Assert.Equal<double>(8, collection[0].ToValueOrThrow());
 
-        x = x * .0001d;
+        x *= .0001d;
         collection.SetCollectionWithDigits(x);
         Assert.Equal<double>(1, collection[0].ToValueOrThrow());
 

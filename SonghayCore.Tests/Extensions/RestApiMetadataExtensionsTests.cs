@@ -2,17 +2,12 @@
 
 namespace Songhay.Tests.Extensions;
 
-public class RestApiMetadataExtensionsTests
+public class RestApiMetadataExtensionsTests(ITestOutputHelper helper)
 {
-    public RestApiMetadataExtensionsTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
     public static readonly IEnumerable<object[]> MetaData =
-        new [] {
-            new object[] {
-                "weather-template",
+    [
+        [
+            "weather-template",
                 new RestApiMetadata
                 {
                     ApiBase = new Uri("https://my.api.me", UriKind.Absolute),
@@ -23,15 +18,15 @@ public class RestApiMetadataExtensionsTests
                 },
                 new[] { "Washington", "Redmond", "Today" },
                 "https://my.api.me/weather/Washington/Redmond?forecast=Today"
-            }
-        };
+        ]
+    ];
 
     [Theory]
     [MemberData(nameof(MetaData))]
     public void ToUri_Test(string key, RestApiMetadata meta, string[] input, string expected)
     {
         Uri actual = meta.ToUri(key, input).ToReferenceTypeValueOrThrow();
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual.OriginalString}");
+        helper.WriteLine($"{nameof(actual)}: {actual.OriginalString}");
         Assert.Equal(expected, actual.OriginalString);
     }
 
@@ -61,7 +56,7 @@ public class RestApiMetadataExtensionsTests
         var meta = AzureActiveDirectoryUtility.GetActiveDirectoryAccessMetadata(json);
 
         var actual = meta.ToAzureActiveDirectoryAccessTokenUri();
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual.OriginalString}");
+        helper.WriteLine($"{nameof(actual)}: {actual.OriginalString}");
         Assert.Equal(expected, actual.OriginalString);
     }
 
@@ -79,9 +74,7 @@ public class RestApiMetadataExtensionsTests
         var meta = AzureActiveDirectoryUtility.GetAzureKeyVaultMetadata(json);
 
         var actual = meta.ToAzureKeyVaultSecretUri(secretNameKey);
-        _testOutputHelper.WriteLine($"{nameof(actual)}: {actual.OriginalString}");
+        helper.WriteLine($"{nameof(actual)}: {actual.OriginalString}");
         Assert.Equal(expected, actual.OriginalString);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

@@ -11,7 +11,7 @@ public class TaskUtilityTests
         {
             Assert.Equal(TaskStatus.RanToCompletion, task.Status);
 
-            var test = DateTime.Now.Second - thePast.Second >= 1;
+            bool test = DateTime.Now.Second - thePast.Second >= 1;
             Assert.True(test, "The expected delay did not occur.");
         });
     }

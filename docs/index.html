@@ -1,273 +1,106 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+      <title>SonghayCore API | SonghayCore API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="SonghayCore API | SonghayCore API ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/docs/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/SonghayCore/assets/favicons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/SonghayCore/assets/favicons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/SonghayCore/assets/favicons/favicon-16x16.png">
-        <link rel="manifest" href="/SonghayCore/assets/favicons/site.webmanifest">
-        <link rel="shortcut icon" type="image/png" href="/SonghayCore/assets/favicons/favicon.ico"/>
-        <link rel="mask-icon" href="/SonghayCore/assets/favicons/safari-pinned-tab.svg" color="#e9ecef">
-        <meta name="msapplication-config" content="/SonghayCore/assets/favicons/browserconfig.xml" />
-        <meta name="msapplication-TileColor" content="#e9ecef">
-        <meta name="theme-color" content="#e9ecef">
+      <script type="module" src="./public/docfx.min.js"></script>
 
-        <link href="/SonghayCore/assets/bootstrap/bootstrap.css" rel="stylesheet" />
-                <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism.css">
-        <link href="/SonghayCore/assets/css/theme.css" rel="stylesheet" />
-        <link href="/SonghayCore/assets/css/styles.css" rel="stylesheet" />
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
 
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
-        <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-core.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.26.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
-        <script src="https://cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
+  </head>
 
-        
-
-        
-
-        <title>SonghayCore - SonghayCore API</title>
-    </head>
-    <body class="d-flex flex-column">
-        <div class="flex-grow-1 d-flex flex-column">
-            <div class="bg-nav">
-                <div class="container-xl py-3">
-                    <div class="row">
-                        <div class="offset-lg-2 col-12 col-lg-8 px-0">
-                            <nav class="navbar navbar-expand-md navbar-light align-items-start">
-    <a class="navbar-brand" href="/">
-                <span class="text-primary">SonghayCore</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse-topnav" aria-controls="collapse-topnav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div id="collapse-topnav" class="collapse navbar-collapse flex-wrap">
-        <ul class="navbar-nav mr-auto">
-            
-        </ul>
-        <ul class="navbar-nav">
-                    <li class="nav-item">
-            <a class="nav-link" href="/SonghayCore/latest">API</a>
-        </li>
-
-            
-        </ul>
-    </div>
-</nav>
-                        </div>
-                    </div>
-                </div>
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="SonghayCore">
+            SonghayCore
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
-            
-            <div class="flex-grow-1 d-flex flex-column">
-                    <!-- Titlebar -->
-                    <div id="titlebar" class="py-4">
-                        <div class="container-xl">
-                            <div class="row">
-                                <div class="offset-lg-2 col-12 col-lg-8 px-3 px-lg-0 w-100 d-flex flex-wrap align-items-end">
-                                    <div class="flex-grow-1">
-                                        <div class="breadcrumbs d-flex flex-column flex-md-row text-break">
-
-                                        </div>
-                                        <div class="text-white m-0 text-break title">
-
-SonghayCore API
-                                        </div>
-                                    </div>
-                                        <div class="navbar navbar-expand-md navbar-dark p-0">
-                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#left-sidebar" aria-controls="left-sidebar" aria-expanded="false" aria-label="Toggle navigation">
-                                                <span class="navbar-toggler-icon"></span>
-                                            </button>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Under title -->
-                    <div id="undertitle">
-                        <div class="container-xl">
-                            <div class="row">
-                                    <div class="col-md-3 col-lg-2">
-                                    </div>
-                                    <div class="col-md-9 col-lg-8 bg-white">
-                                    </div>
-                                <div class="col-lg-2 d-none d-lg-block">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                <!-- Body -->
-                <div class="flex-grow-1 d-flex flex-column">
-                        <div class="container-xl flex-grow-1 d-flex flex-column">
-                            <div class="row flex-grow-1 align-items-stretch">
-                                        <div id="content" class="offset-lg-2 col-12 col-lg-8 p-4 pt-md-0 bg-white">
-<h1 id="songhaycore-api"><code>SonghayCore</code> API</h1>
-<p>[📖 <a href="latest">docs</a>]</p>
-<p><small>Documentation generated by Statiq [<a href="https://github.com/statiqdev">GitHub</a>].</small></p>
-<p>&#64;<a href="https://twitter.com/BryanWilhite">BryanWilhite</a></p>
-
-                                        </div>
-                                <div class="col-lg-2 p-md-0 m-md-0 bg-body">
-                                    <div id="right-sidebar" class="sidebar px-0 px-md-3 pt-3">
-        <div class=" mb-3 sidebar-root">
-            <div class="sidebar-nav-item sidebar-header">On This Page</div>
-            <div class="sidebar-nav-children">
-                    <div class="sidebar-nav-item"><a href="#songhaycore-api">API</a></div>
-            </div>
+          </div>
         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
         </div>
 
-        <!-- Footer -->
-        <div id="footer" class="p-3 text-white">
-            <div class="container-xl">
-                <div class="row">
-    <div class="offset-lg-2 col-12 col-lg-8">
-        <div class="pt-2 font-size-sm text-muted text-center">
-            Generated By <a class="text-muted" href="https://statiq.dev">Statiq</a>
+        <article data-uid="">
+<h1 id="songhaycore-api"><code>SonghayCore</code> <acronym title="Application Programming Interface">API</acronym></h1>
+
+<ul>
+<li>view the <a href="./latest/Songhay.html">latest documentation</a></li>
+<li><a href="https://github.com/BryanWilhite/SonghayCore/tree/main">source repository</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/docs/index.md/#L1" class="edit-link">Edit this page</a>
         </div>
-    </div>
-</div>
-            </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
-
-        <!-- Scripts -->
-        <script>
-            $(document).ready(function() {
-                quicklink.listen();
-
-                // Bootstrap tooltips
-                $('[data-toggle="tooltip"]').tooltip();
-
-				// Keeps the sidebars in view on wider viewports
-				let left = null;
-				let leftParent = null;
-				let right = null;
-				let rightParent = null;
-                function stickSidebars()
-				{
-				    if (left == null) {
-                        left = $('#left-sidebar');
-                        right = $('#right-sidebar');
-                    }
-                    if (left.length) {
-                        if (window.innerWidth >= 768) {
-                            if (leftParent == null) {
-                                leftParent = left.parent()[0];
-                            }
-                            if (leftParent) {
-                                let leftRect = leftParent.getBoundingClientRect();
-                                stickSidebar(left,  leftRect);
-                            }
-                        } else {
-                            left.css('position', 'relative');
-                            if (left.css('bottom') != 0) {
-                                left.css('bottom', '0');
-                            }
-                        }
-                    }
-                    if (right.length) {
-                        if (window.innerWidth >= 768) {
-                            if (rightParent == null) {
-                                rightParent = right.parent()[0];
-                            }
-                            if (rightParent) {
-                                let rightRect = rightParent.getBoundingClientRect();
-                                stickSidebar(right,  rightRect);
-                            }
-                        } else {
-                            right.css('position', 'relative');
-                            if (right.css('bottom') != 0) {
-                                right.css('bottom', '0');
-                            }
-                        }
-                    }
-				}
-				function stickSidebar(sidebar, rect) {
-                    // Bottom
-                    if (rect.bottom > window.innerHeight) {
-                        sidebar.css('bottom', rect.bottom - window.innerHeight + "px");
-                    } else {
-                        sidebar.css('bottom', 0);
-                    }
-                    // Top
-                    if (rect.top < 0) {
-                        sidebar.css('position', 'sticky');
-                    } else {
-                        sidebar.css('position', 'absolute');
-                    }
-				}
-				$(window).on("load", function() {
-				    stickSidebars();
-				});
-                $(window).scroll(function() {
-				    stickSidebars();
-				});
-				$(window).resize(function() {
-				    stickSidebars();
-				})
-
-                // Mermaid diagrams
-                mermaid.initialize(
-                {
-                    flowchart:
-                    {
-                        useMaxWidth: false
-                    },
-					startOnLoad: false,
-					cloneCssStyles: false
-                });
-                mermaid.init(undefined, ".mermaid");
-
-                // Remove the max-width setting that Mermaid sets
-                var mermaidSvg = $('.mermaid svg');
-                mermaidSvg.addClass('img-fluid');
-                mermaidSvg.css('max-width', '');
-
-                // Make it scrollable
-				var target = document.querySelector(".mermaid svg");
-				if(target !== null)
-				{
-					var panZoom = window.panZoom = svgPanZoom(target, {
-						zoomEnabled: true,
-						controlIconsEnabled: true,
-						fit: true,
-						center: true,
-                        maxZoom: 20,
-                        zoomScaleSensitivity: 0.6
-					});
-
-                    // Do the reset once right away to fit the diagram
-                    panZoom.resize();
-                    panZoom.fit();
-                    panZoom.center();
-
-                    $(window).resize(function(){
-                        panZoom.resize();
-                        panZoom.fit();
-                        panZoom.center();
-                    });
-				}
-            });
-        </script>
-
-        
-
-        
-    </body>
+      </div>
+    </footer>
+  </body>
 </html>

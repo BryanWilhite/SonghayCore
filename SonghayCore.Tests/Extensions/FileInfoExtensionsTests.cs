@@ -2,14 +2,9 @@ using System.Text;
 
 namespace Songhay.Tests.Extensions;
 
-public class FileInfoExtensionsTests
+public class FileInfoExtensionsTests(ITestOutputHelper helper)
 {
-    public FileInfoExtensionsTests(ITestOutputHelper helper)
-    {
-        _testOutputHelper = helper;
-    }
-
-    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../zip/ReadZipArchiveEntries.zip")]
+    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../content/zip/ReadZipArchiveEntries.zip")]
     public void ReadZipArchiveEntries_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -18,7 +13,7 @@ public class FileInfoExtensionsTests
         // act
         archiveInfo.ReadZipArchiveEntries(entry =>
         {
-            _testOutputHelper.WriteLine(entry);
+            helper.WriteLine(entry);
             isReading = true;
         });
 
@@ -26,7 +21,7 @@ public class FileInfoExtensionsTests
         Assert.True(isReading);
     }
 
-    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../zip/ReadZipArchiveEntries.zip")]
+    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../content/zip/ReadZipArchiveEntries.zip")]
     public void ReadZipArchiveEntriesBackwards_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -38,7 +33,7 @@ public class FileInfoExtensionsTests
         archiveInfo.ReadZipArchiveEntries(entry =>
         {
             isReading = true;
-            _testOutputHelper.WriteLine(entry);
+            helper.WriteLine(entry);
             builder.Append(entry);
         }, entries => entries.OrderByDescending(i => i.Name));
 
@@ -47,7 +42,7 @@ public class FileInfoExtensionsTests
         Assert.Equal(expectedOrder, builder.ToString());
     }
 
-    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../zip/ReadZipArchiveEntriesByLine.zip")]
+    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../content/zip/ReadZipArchiveEntriesByLine.zip")]
     public void ReadZipArchiveEntriesByLine_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -56,7 +51,7 @@ public class FileInfoExtensionsTests
         // act
         archiveInfo.ReadZipArchiveEntriesByLine((lineNum, line) =>
         {
-            _testOutputHelper.WriteLine($"{lineNum}: {line}");
+            helper.WriteLine($"{lineNum}: {line}");
             isReading = true;
         }, entries => entries.Where(i => i.Name.EqualsInvariant("c.txt")));
 
@@ -64,7 +59,7 @@ public class FileInfoExtensionsTests
         Assert.True(isReading);
     }
 
-    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../zip/UseZipArchive.zip")]
+    [Theory, ProjectFileData(typeof(FileInfoExtensionsTests), "../../../content/zip/UseZipArchive.zip")]
     public void UseZipArchive_Test(FileInfo archiveInfo)
     {
         // arrange
@@ -81,13 +76,11 @@ public class FileInfoExtensionsTests
     [SkippableTheory,
      ProjectFileData(typeof(FileInfoExtensionsTests),
          "../../../json/hello.json",
-         "../../../zip/WriteZipArchiveEntry.zip")]
+         "../../../content/zip/WriteZipArchiveEntry.zip")]
     public void WriteZipArchiveEntry_Test(FileInfo fileInfo, FileInfo archiveInfo)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
 
         archiveInfo.WriteZipArchiveEntry(fileInfo);
     }
-
-    readonly ITestOutputHelper _testOutputHelper;
 }

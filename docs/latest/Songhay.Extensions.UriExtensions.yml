@@ -1,0 +1,919 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Extensions.UriExtensions
+  commentId: T:Songhay.Extensions.UriExtensions
+  id: UriExtensions
+  parent: Songhay.Extensions
+  children:
+  - Songhay.Extensions.UriExtensions.IsProbablyAFile(System.Uri)
+  - Songhay.Extensions.UriExtensions.ToAzureStorageCanonicalizedResourceLocation(System.Uri,System.String)
+  - Songhay.Extensions.UriExtensions.ToBaseUri(System.Uri)
+  - Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)
+  - Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)
+  - Songhay.Extensions.UriExtensions.ToFileName(System.Uri)
+  - Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)
+  langs:
+  - csharp
+  - vb
+  name: UriExtensions
+  nameWithType: UriExtensions
+  fullName: Songhay.Extensions.UriExtensions
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Extensions/UriExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: UriExtensions
+    path: ../SonghayCore/Extensions/UriExtensions.cs
+    startLine: 7
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Extensions of <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static class UriExtensions
+    content.vb: Public Module UriExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Extensions.UriExtensions.IsProbablyAFile(System.Uri)
+  commentId: M:Songhay.Extensions.UriExtensions.IsProbablyAFile(System.Uri)
+  id: IsProbablyAFile(System.Uri)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.UriExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsProbablyAFile(Uri?)
+  nameWithType: UriExtensions.IsProbablyAFile(Uri?)
+  fullName: Songhay.Extensions.UriExtensions.IsProbablyAFile(System.Uri?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/UriExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IsProbablyAFile
+    path: ../SonghayCore/Extensions/UriExtensions.cs
+    startLine: 21
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Determines whether the <xref href="System.Uri" data-throw-if-not-resolved="false"></xref> is a file.
+  remarks: >-
+    Recall that <xref href="System.Uri.IsFile" data-throw-if-not-resolved="false"></xref> is another way
+
+    of stating that <code>Uri.Schema == Uri.UriSchemeFile</code>
+
+    and that <xref href="System.IO" data-throw-if-not-resolved="false"></xref> members can process URIs.
+
+
+    Also note that the only way to truly define a directory
+
+    or folder is with a trailing forward/back slash.
+  example: []
+  syntax:
+    content: public static bool IsProbablyAFile(this Uri? input)
+    parameters:
+    - id: input
+      type: System.Uri
+      description: The input.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsProbablyAFile(input As Uri) As Boolean
+  overload: Songhay.Extensions.UriExtensions.IsProbablyAFile*
+  nameWithType.vb: UriExtensions.IsProbablyAFile(Uri)
+  fullName.vb: Songhay.Extensions.UriExtensions.IsProbablyAFile(System.Uri)
+  name.vb: IsProbablyAFile(Uri)
+- uid: Songhay.Extensions.UriExtensions.ToAzureStorageCanonicalizedResourceLocation(System.Uri,System.String)
+  commentId: M:Songhay.Extensions.UriExtensions.ToAzureStorageCanonicalizedResourceLocation(System.Uri,System.String)
+  id: ToAzureStorageCanonicalizedResourceLocation(System.Uri,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.UriExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToAzureStorageCanonicalizedResourceLocation(Uri?, string?)
+  nameWithType: UriExtensions.ToAzureStorageCanonicalizedResourceLocation(Uri?, string?)
+  fullName: Songhay.Extensions.UriExtensions.ToAzureStorageCanonicalizedResourceLocation(System.Uri?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/UriExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToAzureStorageCanonicalizedResourceLocation
+    path: ../SonghayCore/Extensions/UriExtensions.cs
+    startLine: 43
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    This part of the signature string represents the storage account 
+      targeted by the request. Will also include any additional query parameters/values.
+    For ListContainers, this will return something like this:
+      /storageaccountname/\ncomp:list
+  remarks: >-
+    See https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth/tree/master
+
+
+    See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-requests-to-azure-storage
+
+
+    See https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key
+
+
+    See “Shared Key format for 2009-09-19 and later”
+
+    [ https://docs.microsoft.com/en-us/rest/api/storageservices/authorize-with-shared-key#shared-key-format-for-2009-09-19-and-later ]
+  example: []
+  syntax:
+    content: public static string ToAzureStorageCanonicalizedResourceLocation(this Uri? uri, string? accountName)
+    parameters:
+    - id: uri
+      type: System.Uri
+      description: The URI of the storage service.
+    - id: accountName
+      type: System.String
+      description: The storage account name.
+    return:
+      type: System.String
+      description: <xref href="System.String" data-throw-if-not-resolved="false"></xref> representing the canonicalized resource.
+    content.vb: Public Shared Function ToAzureStorageCanonicalizedResourceLocation(uri As Uri, accountName As String) As String
+  overload: Songhay.Extensions.UriExtensions.ToAzureStorageCanonicalizedResourceLocation*
+  nameWithType.vb: UriExtensions.ToAzureStorageCanonicalizedResourceLocation(Uri, String)
+  fullName.vb: Songhay.Extensions.UriExtensions.ToAzureStorageCanonicalizedResourceLocation(System.Uri, String)
+  name.vb: ToAzureStorageCanonicalizedResourceLocation(Uri, String)
+- uid: Songhay.Extensions.UriExtensions.ToBaseUri(System.Uri)
+  commentId: M:Songhay.Extensions.UriExtensions.ToBaseUri(System.Uri)
+  id: ToBaseUri(System.Uri)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.UriExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToBaseUri(Uri?)
+  nameWithType: UriExtensions.ToBaseUri(Uri?)
+  fullName: Songhay.Extensions.UriExtensions.ToBaseUri(System.Uri?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/UriExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToBaseUri
+    path: ../SonghayCore/Extensions/UriExtensions.cs
+    startLine: 73
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Converts the <xref href="System.Uri" data-throw-if-not-resolved="false"></xref> into a base URI.
+  example: []
+  syntax:
+    content: public static string? ToBaseUri(this Uri? input)
+    parameters:
+    - id: input
+      type: System.Uri
+      description: The input.
+    return:
+      type: System.String
+      description: 'Returns a <xref href="System.String" data-throw-if-not-resolved="false"></xref> like: <code>https://MyServer:8080/</code>'
+    content.vb: Public Shared Function ToBaseUri(input As Uri) As String
+  overload: Songhay.Extensions.UriExtensions.ToBaseUri*
+  nameWithType.vb: UriExtensions.ToBaseUri(Uri)
+  fullName.vb: Songhay.Extensions.UriExtensions.ToBaseUri(System.Uri)
+  name.vb: ToBaseUri(Uri)
+- uid: Songhay.Extensions.UriExtensions.ToFileName(System.Uri)
+  commentId: M:Songhay.Extensions.UriExtensions.ToFileName(System.Uri)
+  id: ToFileName(System.Uri)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.UriExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToFileName(Uri?)
+  nameWithType: UriExtensions.ToFileName(Uri?)
+  fullName: Songhay.Extensions.UriExtensions.ToFileName(System.Uri?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/UriExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToFileName
+    path: ../SonghayCore/Extensions/UriExtensions.cs
+    startLine: 86
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Converts the <xref href="System.Uri" data-throw-if-not-resolved="false"></xref> into its file name.
+  example: []
+  syntax:
+    content: public static string? ToFileName(this Uri? input)
+    parameters:
+    - id: input
+      type: System.Uri
+      description: The input.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToFileName(input As Uri) As String
+  overload: Songhay.Extensions.UriExtensions.ToFileName*
+  nameWithType.vb: UriExtensions.ToFileName(Uri)
+  fullName.vb: Songhay.Extensions.UriExtensions.ToFileName(System.Uri)
+  name.vb: ToFileName(Uri)
+- uid: Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)
+  commentId: M:Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)
+  id: ToExpandedUriAsync(System.Uri)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.UriExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToExpandedUriAsync(Uri?)
+  nameWithType: UriExtensions.ToExpandedUriAsync(Uri?)
+  fullName: Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/UriExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToExpandedUriAsync
+    path: ../SonghayCore/Extensions/UriExtensions.cs
+    startLine: 98
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>
+
+    to its ‘expanded’ version.
+  remarks: >-
+    This member will call itself recursively
+
+    until <xref href="Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)" data-throw-if-not-resolved="false"></xref> returns <code>true</code>
+
+    or <xref href="System.Net.Http.Headers.HttpResponseHeaders.Location" data-throw-if-not-resolved="false"></xref> is null.
+  example: []
+  syntax:
+    content: public static Task<Uri?> ToExpandedUriAsync(this Uri? expandableUri)
+    parameters:
+    - id: expandableUri
+      type: System.Uri
+      description: The expandable <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{System.Uri}
+    content.vb: Public Shared Function ToExpandedUriAsync(expandableUri As Uri) As Task(Of Uri)
+  overload: Songhay.Extensions.UriExtensions.ToExpandedUriAsync*
+  nameWithType.vb: UriExtensions.ToExpandedUriAsync(Uri)
+  fullName.vb: Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)
+  name.vb: ToExpandedUriAsync(Uri)
+- uid: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)
+  commentId: M:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)
+  id: ToExpandedUriPairAsync(System.Uri)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.UriExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToExpandedUriPairAsync(Uri?)
+  nameWithType: UriExtensions.ToExpandedUriPairAsync(Uri?)
+  fullName: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/UriExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToExpandedUriPairAsync
+    path: ../SonghayCore/Extensions/UriExtensions.cs
+    startLine: 128
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>
+
+    to its ‘expanded’ version.
+  example: []
+  syntax:
+    content: public static Task<KeyValuePair<Uri?, Uri?>> ToExpandedUriPairAsync(this Uri? expandableUri)
+    parameters:
+    - id: expandableUri
+      type: System.Uri
+      description: The expandable <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.KeyValuePair{System.Uri,System.Uri}}
+    content.vb: Public Shared Function ToExpandedUriPairAsync(expandableUri As Uri) As Task(Of KeyValuePair(Of Uri, Uri))
+  overload: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync*
+  nameWithType.vb: UriExtensions.ToExpandedUriPairAsync(Uri)
+  fullName.vb: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)
+  name.vb: ToExpandedUriPairAsync(Uri)
+- uid: Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)
+  commentId: M:Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)
+  id: ToRelativeUriFromQuery(System.Uri)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.UriExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToRelativeUriFromQuery(Uri?)
+  nameWithType: UriExtensions.ToRelativeUriFromQuery(Uri?)
+  fullName: Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/UriExtensions.cs
+      branch: dev/version-8.0.0
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToRelativeUriFromQuery
+    path: ../SonghayCore/Extensions/UriExtensions.cs
+    startLine: 141
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Converts the <xref href="System.Uri" data-throw-if-not-resolved="false"></xref> into a relative URI from query.
+  example: []
+  syntax:
+    content: public static Uri? ToRelativeUriFromQuery(this Uri? input)
+    parameters:
+    - id: input
+      type: System.Uri
+      description: The input.
+    return:
+      type: System.Uri
+    content.vb: Public Shared Function ToRelativeUriFromQuery(input As Uri) As Uri
+  overload: Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery*
+  nameWithType.vb: UriExtensions.ToRelativeUriFromQuery(Uri)
+  fullName.vb: Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)
+  name.vb: ToRelativeUriFromQuery(Uri)
+references:
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Uri.IsFile
+  commentId: P:System.Uri.IsFile
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri.isfile
+  name: IsFile
+  nameWithType: Uri.IsFile
+  fullName: System.Uri.IsFile
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: Songhay.Extensions.UriExtensions.IsProbablyAFile*
+  commentId: Overload:Songhay.Extensions.UriExtensions.IsProbablyAFile
+  href: Songhay.Extensions.UriExtensions.html#Songhay_Extensions_UriExtensions_IsProbablyAFile_System_Uri_
+  name: IsProbablyAFile
+  nameWithType: UriExtensions.IsProbablyAFile
+  fullName: Songhay.Extensions.UriExtensions.IsProbablyAFile
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Songhay.Extensions.UriExtensions.ToAzureStorageCanonicalizedResourceLocation*
+  commentId: Overload:Songhay.Extensions.UriExtensions.ToAzureStorageCanonicalizedResourceLocation
+  href: Songhay.Extensions.UriExtensions.html#Songhay_Extensions_UriExtensions_ToAzureStorageCanonicalizedResourceLocation_System_Uri_System_String_
+  name: ToAzureStorageCanonicalizedResourceLocation
+  nameWithType: UriExtensions.ToAzureStorageCanonicalizedResourceLocation
+  fullName: Songhay.Extensions.UriExtensions.ToAzureStorageCanonicalizedResourceLocation
+- uid: Songhay.Extensions.UriExtensions.ToBaseUri*
+  commentId: Overload:Songhay.Extensions.UriExtensions.ToBaseUri
+  href: Songhay.Extensions.UriExtensions.html#Songhay_Extensions_UriExtensions_ToBaseUri_System_Uri_
+  name: ToBaseUri
+  nameWithType: UriExtensions.ToBaseUri
+  fullName: Songhay.Extensions.UriExtensions.ToBaseUri
+- uid: Songhay.Extensions.UriExtensions.ToFileName*
+  commentId: Overload:Songhay.Extensions.UriExtensions.ToFileName
+  href: Songhay.Extensions.UriExtensions.html#Songhay_Extensions_UriExtensions_ToFileName_System_Uri_
+  name: ToFileName
+  nameWithType: UriExtensions.ToFileName
+  fullName: Songhay.Extensions.UriExtensions.ToFileName
+- uid: Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)
+  commentId: M:Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)
+  isExternal: true
+  href: Songhay.Extensions.HttpResponseMessageExtensions.html#Songhay_Extensions_HttpResponseMessageExtensions_IsMovedOrRedirected_System_Net_Http_HttpResponseMessage_
+  name: IsMovedOrRedirected(HttpResponseMessage)
+  nameWithType: HttpResponseMessageExtensions.IsMovedOrRedirected(HttpResponseMessage)
+  fullName: Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)
+  spec.csharp:
+  - uid: Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)
+    name: IsMovedOrRedirected
+    href: Songhay.Extensions.HttpResponseMessageExtensions.html#Songhay_Extensions_HttpResponseMessageExtensions_IsMovedOrRedirected_System_Net_Http_HttpResponseMessage_
+  - name: (
+  - uid: System.Net.Http.HttpResponseMessage
+    name: HttpResponseMessage
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)
+    name: IsMovedOrRedirected
+    href: Songhay.Extensions.HttpResponseMessageExtensions.html#Songhay_Extensions_HttpResponseMessageExtensions_IsMovedOrRedirected_System_Net_Http_HttpResponseMessage_
+  - name: (
+  - uid: System.Net.Http.HttpResponseMessage
+    name: HttpResponseMessage
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage
+  - name: )
+- uid: System.Net.Http.Headers.HttpResponseHeaders.Location
+  commentId: P:System.Net.Http.Headers.HttpResponseHeaders.Location
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.headers.httpresponseheaders.location
+  name: Location
+  nameWithType: HttpResponseHeaders.Location
+  fullName: System.Net.Http.Headers.HttpResponseHeaders.Location
+- uid: Songhay.Extensions.UriExtensions.ToExpandedUriAsync*
+  commentId: Overload:Songhay.Extensions.UriExtensions.ToExpandedUriAsync
+  href: Songhay.Extensions.UriExtensions.html#Songhay_Extensions_UriExtensions_ToExpandedUriAsync_System_Uri_
+  name: ToExpandedUriAsync
+  nameWithType: UriExtensions.ToExpandedUriAsync
+  fullName: Songhay.Extensions.UriExtensions.ToExpandedUriAsync
+- uid: System.Threading.Tasks.Task{System.Uri}
+  commentId: T:System.Threading.Tasks.Task{System.Uri}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Uri>
+  nameWithType: Task<Uri>
+  fullName: System.Threading.Tasks.Task<System.Uri>
+  nameWithType.vb: Task(Of Uri)
+  fullName.vb: System.Threading.Tasks.Task(Of System.Uri)
+  name.vb: Task(Of Uri)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync*
+  commentId: Overload:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync
+  href: Songhay.Extensions.UriExtensions.html#Songhay_Extensions_UriExtensions_ToExpandedUriPairAsync_System_Uri_
+  name: ToExpandedUriPairAsync
+  nameWithType: UriExtensions.ToExpandedUriPairAsync
+  fullName: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.KeyValuePair{System.Uri,System.Uri}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.KeyValuePair{System.Uri,System.Uri}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<KeyValuePair<Uri, Uri>>
+  nameWithType: Task<KeyValuePair<Uri, Uri>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.KeyValuePair<System.Uri, System.Uri>>
+  nameWithType.vb: Task(Of KeyValuePair(Of Uri, Uri))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.KeyValuePair(Of System.Uri, System.Uri))
+  name.vb: Task(Of KeyValuePair(Of Uri, Uri))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: ','
+  - name: " "
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: ','
+  - name: " "
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: )
+  - name: )
+- uid: Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery*
+  commentId: Overload:Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery
+  href: Songhay.Extensions.UriExtensions.html#Songhay_Extensions_UriExtensions_ToRelativeUriFromQuery_System_Uri_
+  name: ToRelativeUriFromQuery
+  nameWithType: UriExtensions.ToRelativeUriFromQuery
+  fullName: Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery
