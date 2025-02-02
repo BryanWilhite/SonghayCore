@@ -6,7 +6,7 @@ The _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/S
 
 **NuGet package 📦:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
 
-**documentation 📚:** [`SonghayCore` API](https://bryanwilhite.github.io/SonghayCore/latest/)
+**documentation 📚:** [`SonghayCore` API](https://bryanwilhite.github.io/SonghayCore/)
 
 **coverlet test coverage 🔬☔:** [[report](https://bryanwilhite.github.io/SonghayCore/coverlet/)]
 
