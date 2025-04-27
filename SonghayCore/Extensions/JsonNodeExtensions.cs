@@ -15,7 +15,7 @@ public static class JsonNodeExtensions
     /// <typeparam name="T"></typeparam>
     /// <param name="node">The node.</param>
     /// <param name="propertyName">Name of the property.</param>
-    /// <returns></returns>
+    [Obsolete(message: "Use `GetPropertyJsonArrayOrNull`, `GetPropertyJsonObjectOrNull` or `GetPropertyJsonValueOrNull` instead.")]
     public static (T? value, bool success) GetPropertyValue<T>(this JsonNode? node, string propertyName)
     {
         if (node == null) return (default, false);
