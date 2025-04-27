@@ -10,6 +10,64 @@ namespace Songhay.Extensions;
 public static class JsonNodeExtensions
 {
     /// <summary>
+    /// Gets the <see cref="JsonValue"/> of the specified <see cref="JsonNode"/>
+    /// of <see cref="JsonValueKind.Array" />
+    /// or defaults to null.
+    /// </summary>
+    /// <param name="node">The <see cref="JsonNode"/>.</param>
+    /// <param name="propertyName">Name of the property.</param>
+    public static JsonArray? GetPropertyJsonArrayOrNull(this JsonNode? node, string propertyName)
+    {
+        if (node == null) return null;
+        if (node.GetJsonValueKind() != JsonValueKind.Object) return null;
+
+        if (!node.AsObject().TryGetPropertyValue(propertyName, out JsonNode? outputNode)) return null;
+
+        return outputNode is not JsonArray ? null : outputNode.AsArray();
+    }
+
+    /// <summary>
+    /// Gets the <see cref="JsonValue"/> of the specified <see cref="JsonNode"/>
+    /// of <see cref="JsonValueKind.Object" />
+    /// or defaults to null.
+    /// </summary>
+    /// <param name="node">The <see cref="JsonNode"/>.</param>
+    /// <param name="propertyName">Name of the property.</param>
+    public static JsonObject? GetPropertyJsonObjectOrNull(this JsonNode? node, string propertyName)
+    {
+        if (node == null) return null;
+        if (node.GetJsonValueKind() != JsonValueKind.Object) return null;
+
+        if (!node.AsObject().TryGetPropertyValue(propertyName, out JsonNode? outputNode)) return null;
+
+        return outputNode is not JsonObject ? null : outputNode.AsObject();
+    }
+
+    /// <summary>
+    /// Gets the <see cref="JsonValue"/> of the specified <see cref="JsonNode"/>
+    /// or defaults to null.
+    /// </summary>
+    /// <param name="node">The <see cref="JsonNode"/>.</param>
+    /// <param name="propertyName">Name of the property.</param>
+    /// <remarks>
+    /// This member will return <c>null</c> when the specified <see cref="JsonNode"/>
+    /// is not of:
+    /// * <see cref="JsonValueKind.String" />
+    /// * <see cref="JsonValueKind.Number" />
+    /// * <see cref="JsonValueKind.True" />
+    /// * <see cref="JsonValueKind.False" />
+    /// </remarks>
+    public static JsonValue? GetPropertyJsonValueOrNull(this JsonNode? node, string propertyName)
+    {
+        if (node == null) return null;
+        if (node.GetJsonValueKind() != JsonValueKind.Object) return null;
+
+        if (!node.AsObject().TryGetPropertyValue(propertyName, out JsonNode? outputNode)) return null;
+
+        return outputNode is not JsonValue ? null : outputNode.AsValue();
+    }
+
+    /// <summary>
     /// Gets the property value of the specified <see cref="JsonNode"/>.
     /// </summary>
     /// <typeparam name="T"></typeparam>

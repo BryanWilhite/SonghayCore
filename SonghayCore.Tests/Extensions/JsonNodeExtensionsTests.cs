@@ -7,6 +7,57 @@ namespace Songhay.Tests.Extensions;
 public class JsonNodeExtensionsTests(ITestOutputHelper helper)
 {
     [Theory]
+    [InlineData("{ \"my-property\": [] }", "my-property", "[]")]
+    [InlineData("{ \"my-property\": [] }", "my-not-property", null)]
+    public void GetPropertyJsonArrayOrNull_Test(string input, string propertyName, string? expectedOutput)
+    {
+        JsonArray? actual = JsonNode.Parse(input).GetPropertyJsonArrayOrNull(propertyName);
+        Assert.Equal(expectedOutput, actual?.ToJsonString());
+    }
+
+    [Theory]
+    [InlineData("{ \"my-property\": {} }", "my-property", "{}")]
+    [InlineData("{ \"my-property\": {} }", "my-not-property", null)]
+    public void GetPropertyJsonObjectOrNull_Test(string input, string propertyName, string? expectedOutput)
+    {
+        JsonObject? actual = JsonNode.Parse(input).GetPropertyJsonObjectOrNull(propertyName);
+        Assert.Equal(expectedOutput, actual?.ToJsonString());
+    }
+
+    [Theory]
+    [InlineData("{ \"my-property\": false }", "my-property", false)]
+    [InlineData("{ \"my-property\": 2 }", "my-property", 2)]
+    [InlineData("{ \"my-property\": \"two\" }", "my-property", "two")]
+    [InlineData("{ \"my-property\": 42 }", "my-not-property", null)]
+    [InlineData("{ \"my-property\": {} }", "my-property", null)]
+    [InlineData("{ \"my-property\": [] }", "my-property", null)]
+    [InlineData("{ \"my-property\": null }", "my-property", null)]
+    public void GetPropertyJsonValueOrNull_Test(string input, string propertyName, object? expectedOutput)
+    {
+        JsonValue? actual = JsonNode.Parse(input).GetPropertyJsonValueOrNull(propertyName);
+
+        switch (actual?.GetValueKind())
+        {
+            case JsonValueKind.String:
+                Assert.Equal((string)expectedOutput!, actual.GetValue<string>());
+                break;
+            case JsonValueKind.Number:
+                Assert.Equal((int)expectedOutput!, actual.GetValue<int>());
+                break;
+            case JsonValueKind.True:
+            case JsonValueKind.False:
+                Assert.Equal((bool)expectedOutput!, actual.GetValue<bool>());
+                break;
+            case null:
+                Assert.Equal(expectedOutput, actual);
+                break;
+            default:
+                Assert.Fail($"The expected {nameof(JsonValueKind)} is not here.");
+                break;
+        }
+    }
+
+    [Theory]
     [InlineData("{ \"my-property\":\"hello world!\" }", "my-property", "hello world!")]
     public void GetPropertyValue_String_Test(string input, string propertyName, string expectedOutput)
     {

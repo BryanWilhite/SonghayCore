@@ -2219,6 +2219,36 @@
             Extensions of <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
             </summary>
         </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
+            <summary>
+            Gets the <see cref="T:System.Text.Json.Nodes.JsonValue"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            of <see cref="F:System.Text.Json.JsonValueKind.Array" />
+            or defaults to null.
+            </summary>
+            <param name="node">The <see cref="T:System.Text.Json.Nodes.JsonNode"/>.</param>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
+            <summary>
+            Gets the <see cref="T:System.Text.Json.Nodes.JsonValue"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            of <see cref="F:System.Text.Json.JsonValueKind.Object" />
+            or defaults to null.
+            </summary>
+            <param name="node">The <see cref="T:System.Text.Json.Nodes.JsonNode"/>.</param>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
+            <summary>
+            Gets the <see cref="T:System.Text.Json.Nodes.JsonValue"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            or defaults to null.
+            </summary>
+            <param name="node">The <see cref="T:System.Text.Json.Nodes.JsonNode"/>.</param>
+            <param name="propertyName">Name of the property.</param>
+            <remarks>
+            This member will return <c>null</c> when the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            is of <see cref="F:System.Text.Json.JsonValueKind.Object" /> or <see cref="F:System.Text.Json.JsonValueKind.Array" />
+            </remarks>
+        </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyValue``1(System.Text.Json.Nodes.JsonNode,System.String)">
             <summary>
             Gets the property value of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
@@ -2226,7 +2256,6 @@
             <typeparam name="T"></typeparam>
             <param name="node">The node.</param>
             <param name="propertyName">Name of the property.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetJsonValueKind(System.Text.Json.Nodes.JsonNode)">
             <summary>
