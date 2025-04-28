@@ -173,6 +173,28 @@ public static class JsonElementExtensions
     }
 
     /// <summary>
+    /// Converts the specified <see cref="JsonElement"/>
+    /// to <c>TObject</c>.
+    /// </summary>
+    /// <param name="elementOrNull">the specified <see cref="JsonElement"/></param>
+    /// <typeparam name="TObject">the type to convert to</typeparam>
+    public static TObject? ToObject<TObject>(this JsonElement? elementOrNull) where TObject : class =>
+        elementOrNull?.ToObject<TObject>();
+
+    /// <summary>
+    /// Converts the specified <see cref="JsonElement"/>
+    /// to <c>TObject</c>.
+    /// </summary>
+    /// <param name="element">the specified <see cref="JsonElement"/></param>
+    /// <typeparam name="TObject">the type to convert to</typeparam>
+    public static TObject? ToObject<TObject>(this JsonElement element) where TObject : class
+    {
+        var json = element.GetRawText();
+
+        return JsonSerializer.Deserialize<TObject>(json);
+    }
+
+    /// <summary>
     /// Converts the specified <see cref="JsonElement" /> array
     /// into a collection of string values.
     /// </summary>
@@ -223,6 +245,9 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="string"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
+    /// <remarks>
+    /// To de-serialize a class use <see cref="ToObject{TObject}"/>.
+    /// </remarks>
     public static T? ToScalarValue<T>(this JsonElement element) where T : struct
     {
         object? boxedScalar = element.ValueKind switch

@@ -2345,6 +2345,22 @@
             </summary>
             <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
         </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement"/>
+            to <c>TObject</c>.
+            </summary>
+            <param name="elementOrNull">the specified <see cref="T:System.Text.Json.JsonElement"/></param>
+            <typeparam name="TObject">the type to convert to</typeparam>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement"/>
+            to <c>TObject</c>.
+            </summary>
+            <param name="element">the specified <see cref="T:System.Text.Json.JsonElement"/></param>
+            <typeparam name="TObject">the type to convert to</typeparam>
+        </member>
         <member name="M:Songhay.Extensions.JsonElementExtensions.ToReadOnlyCollection(System.Nullable{System.Text.Json.JsonElement})">
             <summary>
             Converts the specified <see cref="T:System.Text.Json.JsonElement" /> array
@@ -2382,6 +2398,9 @@
             Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.String"/>.
             </summary>
             <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+            <remarks>
+            To de-serialize a class use <see cref="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Nullable{System.Text.Json.JsonElement})"/>.
+            </remarks>
         </member>
         <member name="T:Songhay.Extensions.JsonNodeExtensions">
             <summary>

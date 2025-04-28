@@ -42,6 +42,15 @@ public class JsonElementExtensionsTests
     }
 
     [Theory]
+    [InlineData("{ \"one\": \"uno\", \"two\": \"two\", \"three\": \"tres\" }", 3)]
+    public void ToObject_Dictionary_Test(string input, int expectedNumberOfKeys)
+    {
+        Dictionary<string, string>? actual = JsonDocument.Parse(input).RootElement.ToObject<Dictionary<string, string>>();
+        Assert.NotNull(actual);
+        Assert.Equal(expectedNumberOfKeys, actual.Keys.Count);
+    }
+
+    [Theory]
     [InlineData("{ \"my-property\": [1,2,3] }", "my-property", "1", "2", "3")]
     [InlineData("{ \"my-property\": [1,null,3] }", "my-property", "1", null, "3")]
     [InlineData("{ \"my-property\": [] }", "my-property")]
