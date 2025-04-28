@@ -2120,13 +2120,16 @@
             <param name="indent">The indent.</param>
         </member>
         <member name="T:Songhay.Extensions.ILoggerExtensions">
-            <summary>
-            Extensions of <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-            to assist with “structured logging.”
-            </summary>
-            <remarks>
-            For a video overview, see https://www.youtube.com/watch?v=NlBjVJPkT6M 🎥
-            </remarks>
+             <summary>
+             Extensions of <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+             to assist with “structured logging.”
+             </summary>
+             <remarks>
+             For a video overview of “structured logging,” see https://www.youtube.com/watch?v=NlBjVJPkT6M 🎥
+            
+             To prevent passing null instances of <see cref="T:Microsoft.Extensions.Logging.ILogger"/> into these methods,
+             use <see cref="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)"/>.
+             </remarks>
         </member>
         <member name="M:Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData(Microsoft.Extensions.Logging.ILogger,System.String)">
             <summary>
@@ -2352,6 +2355,9 @@
             </summary>
             <param name="elementOrNull">the specified <see cref="T:System.Text.Json.JsonElement"/></param>
             <typeparam name="TObject">the type to convert to</typeparam>
+            <remarks>
+            To return value types, use <see cref="M:Songhay.Extensions.JsonElementExtensions.ToScalarValue``1(System.Nullable{System.Text.Json.JsonElement})"/>.
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Text.Json.JsonElement)">
             <summary>
@@ -2360,6 +2366,9 @@
             </summary>
             <param name="element">the specified <see cref="T:System.Text.Json.JsonElement"/></param>
             <typeparam name="TObject">the type to convert to</typeparam>
+            <remarks>
+            To return value types, use <see cref="M:Songhay.Extensions.JsonElementExtensions.ToScalarValue``1(System.Text.Json.JsonElement)"/>.
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.JsonElementExtensions.ToReadOnlyCollection(System.Nullable{System.Text.Json.JsonElement})">
             <summary>
@@ -2374,6 +2383,24 @@
             into a collection of string values.
             </summary>
             <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToReadOnlyCollection``1(System.Nullable{System.Text.Json.JsonElement},System.Func{System.Text.Json.JsonElement,``0})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> array
+            into a collection of type <c>T</c>
+            with the specified converter.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+            <param name="converter">the specified converter</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToReadOnlyCollection``1(System.Text.Json.JsonElement,System.Func{System.Text.Json.JsonElement,``0})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> array
+            into a collection of type <c>T</c>
+            with the specified converter.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+            <param name="converter">the specified converter</param>
         </member>
         <member name="M:Songhay.Extensions.JsonElementExtensions.ToStringValue(System.Nullable{System.Text.Json.JsonElement})">
             <summary>
@@ -2392,20 +2419,32 @@
             Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.String"/>.
             </summary>
             <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+            <remarks>
+            To de-serialize a class, use <see cref="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Nullable{System.Text.Json.JsonElement})"/>.
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.JsonElementExtensions.ToScalarValue``1(System.Text.Json.JsonElement)">
-            <summary>
-            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.String"/>.
-            </summary>
-            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
-            <remarks>
-            To de-serialize a class use <see cref="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Nullable{System.Text.Json.JsonElement})"/>.
-            </remarks>
+             <summary>
+             Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.String"/>.
+             </summary>
+             <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+             <remarks>
+             To de-serialize a class, use <see cref="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Text.Json.JsonElement)"/>.
+            
+             BTW: I am 98% certain that Microsoft did not design generics to be used with object boxing
+             which kind of defeats the fundamental purpose of generics, their use with generic collections.
+             For higher performance, use methods like <see cref="M:Songhay.Extensions.JsonElementExtensions.ToBoolean(System.Nullable{System.Text.Json.JsonElement},System.Boolean)"/>
+             or <see cref="M:Songhay.Extensions.JsonElementExtensions.ToDecimal(System.Text.Json.JsonElement)"/> instead.
+             </remarks>
         </member>
         <member name="T:Songhay.Extensions.JsonNodeExtensions">
             <summary>
             Extensions of <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
             </summary>
+            <remarks>
+            To prevent passing null instances of <see cref="T:Microsoft.Extensions.Logging.ILogger"/> into these methods,
+            use <see cref="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)"/>.
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
             <summary>
@@ -3753,6 +3792,26 @@
             Triggered when the application host is performing a graceful shutdown.
             </summary>
             <param name="cancellationToken">Indicates that the shutdown process should no longer be graceful.</param>
+        </member>
+        <member name="T:Songhay.ILoggerUtility">
+            <summary>
+            Centralized routines for <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            When the specified <see cref="T:Microsoft.Extensions.Logging.ILogger"/> is null,
+            fallback to Microsoft’s <see cref="T:Microsoft.Extensions.Logging.Abstractions.NullLogger"/>.
+            </summary>
+            <param name="logger">the specified <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger``1(Microsoft.Extensions.Logging.ILogger{``0})">
+            <summary>
+            When the specified <see cref="T:Microsoft.Extensions.Logging.ILogger`1"/> is null,
+            fallback to Microsoft’s <see cref="T:Microsoft.Extensions.Logging.Abstractions.NullLogger`1"/>.
+            </summary>
+            <typeparam name="TCategory">logging category by type</typeparam>
+            <param name="logger">the specified <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="T:Songhay.MathUtility">
             <summary>
