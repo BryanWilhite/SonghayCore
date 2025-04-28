@@ -220,6 +220,29 @@ public static class JsonElementExtensions
     }
 
     /// <summary>
+    /// Converts the specified <see cref="JsonElement" /> array
+    /// into a collection of type <c>T</c>
+    /// with the specified converter.
+    /// </summary>
+    /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
+    /// <param name="converter">the specified converter</param>
+    public static IReadOnlyCollection<T?> ToReadOnlyCollection<T>(this JsonElement? elementOrNull, Func<JsonElement, T?> converter) => elementOrNull?.ToReadOnlyCollection(converter) ?? [];
+
+    /// <summary>
+    /// Converts the specified <see cref="JsonElement" /> array
+    /// into a collection of type <c>T</c>
+    /// with the specified converter.
+    /// </summary>
+    /// <param name="element">The <see cref="JsonElement" />.</param>
+    /// <param name="converter">the specified converter</param>
+    public static IReadOnlyCollection<T?> ToReadOnlyCollection<T>(this JsonElement element, Func<JsonElement, T?> converter)
+    {
+        JsonElement[] elements = element.ToJsonElementArray();
+
+        return elements.Select(converter).ToArray();
+    }
+
+    /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="string"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
@@ -256,6 +279,11 @@ public static class JsonElementExtensions
     /// <param name="element">The <see cref="JsonElement" />.</param>
     /// <remarks>
     /// To de-serialize a class, use <see cref="ToObject{TObject}(JsonElement)"/>.
+    ///
+    /// BTW: I am 98% certain that Microsoft did not design generics to be used with object boxing
+    /// which kind of defeats the fundamental purpose of generics, their use with generic collections.
+    /// For higher performance, use methods like <see cref="ToBoolean(System.Text.Json.JsonElement?,bool)"/>
+    /// or <see cref="ToDecimal(System.Text.Json.JsonElement)"/> instead.
     /// </remarks>
     public static T? ToScalarValue<T>(this JsonElement element) where T : struct
     {

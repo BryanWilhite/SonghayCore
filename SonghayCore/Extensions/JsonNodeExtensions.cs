@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Logging;
 using System.Text.Json.Nodes;
 
 namespace Songhay.Extensions;
@@ -6,6 +5,10 @@ namespace Songhay.Extensions;
 /// <summary>
 /// Extensions of <see cref="JsonNode"/>.
 /// </summary>
+/// <remarks>
+/// To prevent passing null instances of <see cref="ILogger"/> into these methods,
+/// use <see cref="ILoggerUtility.AsInstanceOrNullLogger"/>.
+/// </remarks>
 [SuppressMessage("ReSharper", "LogMessageIsSentenceProblem")]
 public static class JsonNodeExtensions
 {
@@ -114,11 +117,11 @@ public static class JsonNodeExtensions
     /// <param name="node">The node.</param>
     /// <param name="logger">The logger.</param>
     /// <param name="properties">The properties.</param>
-    public static bool IsExpectedObject(this JsonNode? node, ILogger? logger, params string[] properties)
+    public static bool IsExpectedObject(this JsonNode? node, ILogger logger, params string[] properties)
     {
         if (node == null)
         {
-            logger?.LogErrorForMissingData<JsonNode>();
+            logger.LogErrorForMissingData<JsonNode>();
 
             return false;
         }
@@ -134,7 +137,7 @@ public static class JsonNodeExtensions
 
             if (containsKey) continue;
 
-            logger?.LogError("The expected property, `{Property}`, is not here.", property);
+            logger.LogError("The expected property, `{Property}`, is not here.", property);
 
             break;
         }
@@ -149,18 +152,18 @@ public static class JsonNodeExtensions
     /// <param name="node">The node.</param>
     /// <param name="logger">The logger.</param>
     /// <returns></returns>
-    public static JsonArray? ToJsonArray(this JsonNode? node, ILogger? logger)
+    public static JsonArray? ToJsonArray(this JsonNode? node, ILogger logger)
     {
         if (node == null)
         {
-            logger?.LogErrorForMissingData<JsonNode>();
+            logger.LogErrorForMissingData<JsonNode>();
 
             return null;
         }
 
         if (node.GetJsonValueKind() != JsonValueKind.Array)
         {
-            logger?.LogError("The kind of JSON, {Enum}.{Member}, of the specified {Node} is not expected.", nameof(JsonValueKind), nameof(JsonValueKind.Object), nameof(JsonNode));
+            logger.LogError("The kind of JSON, {Enum}.{Member}, of the specified {Node} is not expected.", nameof(JsonValueKind), nameof(JsonValueKind.Object), nameof(JsonNode));
 
             return null;
         }
@@ -175,18 +178,18 @@ public static class JsonNodeExtensions
     /// <param name="node">The node.</param>
     /// <param name="logger">The logger.</param>
     /// <returns></returns>
-    public static JsonObject? ToJsonObject(this JsonNode? node, ILogger? logger)
+    public static JsonObject? ToJsonObject(this JsonNode? node, ILogger logger)
     {
         if (node == null)
         {
-            logger?.LogErrorForMissingData<JsonNode>();
+            logger.LogErrorForMissingData<JsonNode>();
 
             return null;
         }
 
         if (node.GetJsonValueKind() != JsonValueKind.Object)
         {
-            logger?.LogError("The kind of JSON, {Enum}.{Member}, of the specified {Node} is not expected.", nameof(JsonValueKind), nameof(JsonValueKind.Object), nameof(JsonNode));
+            logger.LogError("The kind of JSON, {Enum}.{Member}, of the specified {Node} is not expected.", nameof(JsonValueKind), nameof(JsonValueKind.Object), nameof(JsonNode));
 
             return null;
         }
