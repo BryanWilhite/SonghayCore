@@ -178,6 +178,9 @@ public static class JsonElementExtensions
     /// </summary>
     /// <param name="elementOrNull">the specified <see cref="JsonElement"/></param>
     /// <typeparam name="TObject">the type to convert to</typeparam>
+    /// <remarks>
+    /// To return value types, use <see cref="ToScalarValue{T}(JsonElement?)"/>.
+    /// </remarks>
     public static TObject? ToObject<TObject>(this JsonElement? elementOrNull) where TObject : class =>
         elementOrNull?.ToObject<TObject>();
 
@@ -187,6 +190,9 @@ public static class JsonElementExtensions
     /// </summary>
     /// <param name="element">the specified <see cref="JsonElement"/></param>
     /// <typeparam name="TObject">the type to convert to</typeparam>
+    /// <remarks>
+    /// To return value types, use <see cref="ToScalarValue{T}(JsonElement)"/>.
+    /// </remarks>
     public static TObject? ToObject<TObject>(this JsonElement element) where TObject : class
     {
         var json = element.GetRawText();
@@ -239,6 +245,9 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="string"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
+    /// <remarks>
+    /// To de-serialize a class, use <see cref="ToObject{TObject}(JsonElement?)"/>.
+    /// </remarks>
     public static T? ToScalarValue<T>(this JsonElement? elementOrNull) where T : struct => elementOrNull?.ToScalarValue<T>();
 
     /// <summary>
@@ -246,7 +255,7 @@ public static class JsonElementExtensions
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
     /// <remarks>
-    /// To de-serialize a class use <see cref="ToObject{TObject}"/>.
+    /// To de-serialize a class, use <see cref="ToObject{TObject}(JsonElement)"/>.
     /// </remarks>
     public static T? ToScalarValue<T>(this JsonElement element) where T : struct
     {
