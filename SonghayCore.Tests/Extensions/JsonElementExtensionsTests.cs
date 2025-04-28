@@ -63,6 +63,18 @@ public class JsonElementExtensionsTests
     }
 
     [Theory]
+    [InlineData("{ \"my-property\": [1,2,3] }", "my-property", 1, 2, 3)]
+    [InlineData("{ \"my-property\": [1,null,3] }", "my-property", 1, null, 3)]
+    [InlineData("{ \"my-property\": [] }", "my-property")]
+    public void ToReadOnlyCollection_Int_Test(string input, string propertyName, params int?[] expectedOutput)
+    {
+        IReadOnlyCollection<int?> actual = JsonDocument.Parse(input).RootElement
+            .GetJsonPropertyOrNull(propertyName)
+            .ToReadOnlyCollection(el => el.ToInt());
+        Assert.Equal(expectedOutput, actual);
+    }
+
+    [Theory]
     [InlineData("{ \"my-property\": \"2022-07-23T18:59:41.183Z\" }", "my-property", "2022-07-23T18:59:41.183Z")]
     [InlineData("{ \"my-property\": null }", "my-not-property", null)]
     public void ToScalarValue_DateTime_Test(string input, string propertyName, string? expectedOutput)
