@@ -38,7 +38,7 @@ public static partial class ProgramTypeUtility
 
         if (supportBitStrings)
         {
-            switch (s?.Trim())
+            switch (s?.Trim(' ', '"'))
             {
                 case "0":
                     return false;
@@ -497,14 +497,14 @@ public static partial class ProgramTypeUtility
     {
         DateTimeFormatInfo dateTimeFormat = CultureInfo.InvariantCulture.DateTimeFormat;
         string[] formats =
-        {
+        [
             dateTimeFormat.SortableDateTimePattern, dateTimeFormat.UniversalSortableDateTimePattern,
             "yyyy'-'MM'-'dd'T'HH:mm:ss'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.f'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ff'Z'",
             "yyyy'-'MM'-'dd'T'HH:mm:ss.fff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffff'Z'",
             "yyyy'-'MM'-'dd'T'HH:mm:ss.fffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffff'Z'", "yyyy'-'MM'-'dd'T'HH:mm:sszzz",
             "yyyy'-'MM'-'dd'T'HH:mm:ss.ffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.fffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffzzz",
             "yyyy'-'MM'-'dd'T'HH:mm:ss.fffffzzz", "yyyy'-'MM'-'dd'T'HH:mm:ss.ffffffzzz"
-        };
+        ];
 
         if (string.IsNullOrWhiteSpace(value))
         {
@@ -527,7 +527,7 @@ public static partial class ProgramTypeUtility
     {
         DateTimeFormatInfo dateTimeFormat = CultureInfo.InvariantCulture.DateTimeFormat;
         string[] formats =
-            {dateTimeFormat.RFC1123Pattern, "ddd',' d MMM yyyy HH:mm:ss zzz", "ddd',' dd MMM yyyy HH:mm:ss zzz"};
+            [dateTimeFormat.RFC1123Pattern, "ddd',' d MMM yyyy HH:mm:ss zzz", "ddd',' dd MMM yyyy HH:mm:ss zzz"];
 
         if (string.IsNullOrWhiteSpace(value))
         {
