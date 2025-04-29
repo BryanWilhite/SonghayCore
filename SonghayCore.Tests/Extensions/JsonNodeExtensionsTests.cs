@@ -1,6 +1,4 @@
 using System.Text.Json.Nodes;
-using Meziantou.Extensions.Logging.Xunit;
-using Microsoft.Extensions.Logging;
 
 namespace Songhay.Tests.Extensions;
 
@@ -108,6 +106,16 @@ public class JsonNodeExtensionsTests(ITestOutputHelper helper)
     }
 
     [Theory]
+    [InlineData("{ \"my-property\": [] }", "my-property", true)]
+    [InlineData("{ \"my-property\": [] }", "my-not-property", false)]
+    [InlineData("{}", "my-not-property", false)]
+    public void HasProperty_Test(string input, string propertyName, bool expectedOutput)
+    {
+        bool actual = JsonNode.Parse(input).HasProperty(propertyName);
+        Assert.Equal(expectedOutput, actual);
+    }
+
+    [Theory]
     [InlineData("{\"a\":1, \"b\":2, \"c\":3}", true, "a","b","c")]
     [InlineData("[1,2,3]", false, "")]
     public void IsExpectedObject_Test(string input, bool expectedOutput, params string[] properties)
@@ -136,5 +144,16 @@ public class JsonNodeExtensionsTests(ITestOutputHelper helper)
         Assert.Null(actual);
     }
 
-    readonly XUnitLoggerProvider _loggerProvider = new(helper);
+    [Theory]
+    [InlineData("{ \"my-property\": 42 }", "my-property", "my-other-property")]
+    [InlineData("{ \"my-property\": 42 }", "my-non-property", "my-other-property")]
+    [InlineData("{ \"my-property\": null }", "my-non-property", "my-other-property")]
+    public void WithPropertiesRenamed_Test(string input, string oldName, string newName)
+    {
+        ILogger logger = _loggerProvider.CreateLogger(nameof(IsExpectedObject_Test));
+        JsonObject? actual = JsonNode.Parse(input)?.AsObject().WithPropertiesRenamed(logger, (oldName, newName));
+        Assert.False(actual.HasProperty(oldName));
+    }
+
+    private readonly XUnitLoggerProvider _loggerProvider = new(helper);
 }

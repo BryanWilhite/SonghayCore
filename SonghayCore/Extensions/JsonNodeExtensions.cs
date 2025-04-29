@@ -111,6 +111,19 @@ public static class JsonNodeExtensions
     }
 
     /// <summary>
+    /// Returns <c>false</c> when the specified property name does not exist.
+    /// </summary>
+    /// <param name="node">the <see cref="JsonNode"/></param>
+    /// <param name="propertyName">the property name</param>
+    public static bool HasProperty(this JsonNode? node, string? propertyName)
+    {
+        if (node == null) return false;
+        if (string.IsNullOrWhiteSpace(propertyName)) return false;
+
+        return node[propertyName] != null;
+    }
+
+    /// <summary>
     /// Determines whether the specified <see cref="JsonNode"/>
     /// is the expected <see cref="JsonObject"/>.
     /// </summary>
@@ -195,5 +208,36 @@ public static class JsonNodeExtensions
         }
 
         return node.AsObject();
+    }
+
+    /// <summary>
+    /// Returns the specified <see cref="JsonObject"/>
+    /// with its properties renamed.
+    /// </summary>
+    /// <param name="documentData">the <see cref="JsonObject"/></param>
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    /// <param name="operations">specifies which <see cref="JsonObject"/> properties to rename</param>
+    public static JsonObject? WithPropertiesRenamed(this JsonObject? documentData, ILogger logger, params (string oldName, string newName)[] operations)
+    {
+        if (documentData == null) return documentData;
+        foreach (var (oldName, newName) in operations)
+        {
+            if(!documentData.HasProperty(oldName)) continue;
+
+            logger.LogDebug("Renaming `{OldName}` property to `{NewName}`...", oldName, newName);
+
+            JsonNode? oldNode = documentData[oldName];
+            if (oldNode == null)
+            {
+                logger.LogWarning("Warning: the expected element, `{OldName}`, is not here. Continuing...", oldName);
+
+                continue;
+            }
+
+            documentData[newName] = oldNode.DeepClone();
+            documentData.Remove(oldName);
+        }
+
+        return documentData;
     }
 }

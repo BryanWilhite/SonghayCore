@@ -2276,13 +2276,19 @@
             </summary>
             <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
         </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToDecimal(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
         <member name="M:Songhay.Extensions.JsonElementExtensions.ToDecimal(System.Text.Json.JsonElement)">
             <summary>
             Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Decimal"/>.
             </summary>
             <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
         </member>
-        <member name="M:Songhay.Extensions.JsonElementExtensions.ToDecimal(System.Nullable{System.Text.Json.JsonElement})">
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToDouble(System.Nullable{System.Text.Json.JsonElement})">
             <summary>
             Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Boolean"/>.
             </summary>
@@ -2293,12 +2299,6 @@
             Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Double"/>.
             </summary>
             <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
-        </member>
-        <member name="M:Songhay.Extensions.JsonElementExtensions.ToDouble(System.Nullable{System.Text.Json.JsonElement})">
-            <summary>
-            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Boolean"/>.
-            </summary>
-            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
         </member>
         <member name="M:Songhay.Extensions.JsonElementExtensions.ToGuid(System.Nullable{System.Text.Json.JsonElement})">
             <summary>
@@ -2497,6 +2497,13 @@
             This member is needed for .NET 6.0 and earlier.
             </remarks>
         </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.HasProperty(System.Text.Json.Nodes.JsonNode,System.String)">
+            <summary>
+            Returns <c>false</c> when the specified property name does not exist.
+            </summary>
+            <param name="node">the <see cref="T:System.Text.Json.Nodes.JsonNode"/></param>
+            <param name="propertyName">the property name</param>
+        </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.IsExpectedObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger,System.String[])">
             <summary>
             Determines whether the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
@@ -2523,6 +2530,15 @@
             <param name="node">The node.</param>
             <param name="logger">The logger.</param>
             <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject,Microsoft.Extensions.Logging.ILogger,System.ValueTuple{System.String,System.String}[])">
+            <summary>
+            Returns the specified <see cref="T:System.Text.Json.Nodes.JsonObject"/>
+            with its properties renamed.
+            </summary>
+            <param name="documentData">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+            <param name="operations">specifies which <see cref="T:System.Text.Json.Nodes.JsonObject"/> properties to rename</param>
         </member>
         <member name="T:Songhay.Extensions.MenuDisplayItemModelExtensions">
             <summary>
