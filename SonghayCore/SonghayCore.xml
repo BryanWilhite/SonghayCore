@@ -3829,6 +3829,22 @@
             <typeparam name="TCategory">logging category by type</typeparam>
             <param name="logger">the specified <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
+        <member name="T:Songhay.JsonNodeUtility">
+            <summary>
+            Shared routines for <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.JsonNodeUtility.ConvertToJsonNode(System.Object)">
+            <summary>
+            Converts the specified <see cref="T:System.Object"/>
+            to a <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </summary>
+            <param name="data">any <see cref="T:System.Object"/></param>
+            <remarks>
+            The primary inspiration for this member is
+            to transform an anonymous object to a <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </remarks>
+        </member>
         <member name="T:Songhay.MathUtility">
             <summary>
             Static helpers for Math.
