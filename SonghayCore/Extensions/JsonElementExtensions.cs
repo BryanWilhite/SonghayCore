@@ -48,7 +48,7 @@ public static class JsonElementExtensions
             && element.ValueKind != JsonValueKind.True
             && element.ValueKind != JsonValueKind.String) return null;
 
-        return ProgramTypeUtility.ParseBoolean(element.GetRawText(), supportBitStrings);
+        return ProgramTypeUtility.ParseBoolean(element.ToString(), supportBitStrings);
     }
 
     /// <summary>
@@ -79,7 +79,7 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="bool"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static DateTime? ToDateTime(this JsonElement element) => ProgramTypeUtility.ParseDateTime(element.GetRawText());
+    public static DateTime? ToDateTime(this JsonElement element) => ProgramTypeUtility.ParseDateTime(element.ToString());
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="bool"/>.
@@ -91,7 +91,7 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="Decimal"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static decimal? ToDecimal(this JsonElement element) => ProgramTypeUtility.ParseDecimal(element.GetRawText());
+    public static decimal? ToDecimal(this JsonElement element) => ProgramTypeUtility.ParseDecimal(element.ToString());
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="bool"/>.
@@ -103,7 +103,7 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="Double"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static double? ToDouble(this JsonElement element) => ProgramTypeUtility.ParseDouble(element.GetRawText());
+    public static double? ToDouble(this JsonElement element) => ProgramTypeUtility.ParseDouble(element.ToString());
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="Guid"/>.
@@ -198,7 +198,9 @@ public static class JsonElementExtensions
     /// </remarks>
     public static TObject? ToObject<TObject>(this JsonElement element) where TObject : class
     {
-        var json = element.GetRawText();
+        if (element.ValueKind != JsonValueKind.Object) return null;
+
+        string json = element.GetRawText();
 
         return JsonSerializer.Deserialize<TObject>(json);
     }
@@ -259,8 +261,8 @@ public static class JsonElementExtensions
     {
         return element.ValueKind switch
         {
-            JsonValueKind.True => element.GetRawText(),
-            JsonValueKind.False => element.GetRawText(),
+            JsonValueKind.True => element.ToString(),
+            JsonValueKind.False => element.ToString(),
             JsonValueKind.Number => element.GetRawText(),
             JsonValueKind.String => element.GetString(),
             _ => null
