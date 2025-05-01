@@ -116,7 +116,7 @@ public class JsonElementExtensionsTests
     [Theory]
     [InlineData("{ \"my-property\": \"two\" }", "my-property", "two")]
     [InlineData("{ \"my-property\": 42 }", "my-property", "42")]
-    [InlineData("{ \"my-property\": true }", "my-property", "true")]
+    [InlineData("{ \"my-property\": true }", "my-property", "True")]
     [InlineData("{ \"my-property\": null }", "my-property", null)]
     [InlineData("{ \"my-property\": [] }", "my-property", null)]
     [InlineData("{ \"my-property\": \"two\" }", "my-other-property", null)]

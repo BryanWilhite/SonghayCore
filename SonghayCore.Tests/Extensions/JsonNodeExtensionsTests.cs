@@ -5,6 +5,37 @@ namespace Songhay.Tests.Extensions;
 public class JsonNodeExtensionsTests(ITestOutputHelper helper)
 {
     [Theory]
+    [InlineData("""
+                {
+                    "my-property": {
+                        "one": 1,
+                        "sure": true
+                    }
+                }
+                """, 16, "my-property: {\"one\":1,\"sure\":…\n")]
+    [InlineData("""
+                {
+                    "my-property": {
+                        "one": 1.0,
+                        "sure": true
+                    }
+                }
+                """, 16, "my-property: {\"one\":1.0,\"sure…\n")]
+    [InlineData("""
+                {
+                    "my-property": {
+                        "one": null,
+                        "others": ["y","n","u"]
+                    }
+                }
+                """, 24, "my-property: {\"one\":null,\"others\":[\"y…\n")]
+    public void DisplayTopProperties_Test(string input, int truncationLength, string expectedOutput)
+    {
+        string? actual = JsonNode.Parse(input)?.AsObject().DisplayTopProperties(truncationLength);
+        Assert.Equal(expectedOutput, actual);
+    }
+
+    [Theory]
     [InlineData("{ \"my-property\": [] }", "my-property", "[]")]
     [InlineData("{ \"my-property\": [] }", "my-not-property", null)]
     public void GetPropertyJsonArrayOrNull_Test(string input, string propertyName, string? expectedOutput)
@@ -126,11 +157,132 @@ public class JsonNodeExtensionsTests(ITestOutputHelper helper)
     }
 
     [Theory]
+    [InlineData("""
+                [
+                    {
+                        "one": 1.0
+                    },
+                    {
+                        "three": 3.0,
+                        "four": 4.0
+                    }
+                ]
+                """)]
+    public void RemoveFromParent_JsonArray_First_JsonObject_Test(string input)
+    {
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ToJsonArray_Success_Test));
+        JsonArray? parent = JsonNode.Parse(input)?.AsArray();
+        JsonObject? actual = parent?.First()?.AsObject();
+
+        actual.RemoveFromParent(logger);
+
+        logger.LogDebug("JSON removed: {Json}", actual?.ToJsonString());
+        logger.LogDebug("JSON parent: {Json}", parent?.ToJsonString());
+
+        Assert.Null(actual!.Parent);
+        Assert.Single(parent!);
+    }
+
+    [Theory]
+    [InlineData("""
+                [
+                    1,
+                    2,
+                    3
+                ]
+                """)]
+    public void RemoveFromParent_JsonArray_Third_Number_Test(string input)
+    {
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ToJsonArray_Success_Test));
+        JsonArray? parent = JsonNode.Parse(input)?.AsArray();
+        JsonValue? actual = parent?.Last()?.AsValue();
+
+        actual.RemoveFromParent(logger);
+
+        logger.LogDebug("JSON removed: {Json}", actual?.ToJsonString());
+        logger.LogDebug("JSON parent: {Json}", parent?.ToJsonString());
+
+        Assert.Null(actual!.Parent);
+        Assert.Equal(2, parent!.Count);
+    }
+
+    [Theory]
+    [InlineData("""
+                {
+                    "my-property": {
+                        "one": 1.0
+                    },
+                    "my-other-property": {
+                        "two": 2.0
+                    }
+                }
+                """, "my-property")]
+    public void RemoveFromParent_JsonObject_Test(string input, string propertyName)
+    {
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ToJsonArray_Success_Test));
+        JsonObject? parent = JsonNode.Parse(input)?.AsObject();
+        JsonObject? actual = parent.GetPropertyJsonObjectOrNull(propertyName);
+
+        actual.RemoveFromParent(propertyName, logger);
+
+        logger.LogDebug("JSON removed: {Json}", actual?.ToJsonString());
+        logger.LogDebug("JSON parent: {Json}", parent?.ToJsonString());
+
+        Assert.Null(actual!.Parent);
+        Assert.Null(parent.GetPropertyJsonObjectOrNull(propertyName));
+    }
+
+    [Theory]
+    [InlineData("""
+                {
+                    "my-property": {
+                        "one": 1.0
+                    },
+                    "my-other-property": {
+                        "two": 2.0
+                    }
+                }
+                """, "my-property")]
+    [InlineData("""
+                [
+                    {
+                        "one": 1.0
+                    },
+                    {
+                        "one": 1.0,
+                        "two": 2.0
+                    }
+                ]
+                """, "one")]
+    public void RemoveProperty_Test(string input, string propertyName)
+    {
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ToJsonArray_Success_Test));
+        JsonNode? actual = JsonNode.Parse(input);
+
+        actual.RemoveProperty(propertyName, logger);
+        logger.LogDebug("JSON: {Json}", actual?.ToJsonString());
+
+        switch (actual?.GetValueKind())
+        {
+            case JsonValueKind.Array:
+                Assert.All(actual.AsArray(),
+                    n => Assert.False(n.HasProperty(propertyName)));
+                break;
+            case JsonValueKind.Object:
+                Assert.False(actual.HasProperty(propertyName));
+                break;
+            default:
+                Assert.Fail("Kind is not supported.");
+                break;
+        }
+    }
+
+    [Theory]
     [InlineData("[]")]
     [InlineData("[1,2,3]")]
     public void ToJsonArray_Success_Test(string input)
     {
-        ILogger logger = _loggerProvider.CreateLogger(nameof(IsExpectedObject_Test));
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ToJsonArray_Success_Test));
         JsonArray? actual = JsonNode.Parse(input).ToJsonArray(logger);
         Assert.NotNull(actual);
     }
@@ -139,7 +291,7 @@ public class JsonNodeExtensionsTests(ITestOutputHelper helper)
     [InlineData("{}")]
     public void ToJsonArray_Failure_Test(string input)
     {
-        ILogger logger = _loggerProvider.CreateLogger(nameof(IsExpectedObject_Test));
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ToJsonArray_Failure_Test));
         JsonArray? actual = JsonNode.Parse(input).ToJsonArray(logger);
         Assert.Null(actual);
     }

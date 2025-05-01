@@ -261,7 +261,7 @@ public static class JsonElementExtensions
     {
         return element.ValueKind switch
         {
-            JsonValueKind.True => element.ToString(),
+            JsonValueKind.True or
             JsonValueKind.False => element.ToString(),
             JsonValueKind.Number => element.GetRawText(),
             JsonValueKind.String => element.GetString(),
@@ -294,7 +294,7 @@ public static class JsonElementExtensions
     {
         object? boxedScalar = element.ValueKind switch
         {
-            JsonValueKind.True => element.ToBoolean(supportBitStrings: false),
+            JsonValueKind.True or
             JsonValueKind.False => element.ToBoolean(supportBitStrings: false),
             JsonValueKind.Number => Type.GetTypeCode(typeof(T)) switch
             {

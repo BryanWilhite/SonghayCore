@@ -13,6 +13,48 @@ namespace Songhay.Extensions;
 public static class JsonNodeExtensions
 {
     /// <summary>
+    /// Displays top-level <see cref="JsonObject"/> properties
+    /// without recursion.
+    /// </summary>
+    /// <param name="jObject">the <see cref="JsonObject"/></param>
+    /// <param name="truncationLength">the number of characters to display for each property</param>
+    public static string DisplayTopProperties(this JsonObject? jObject, int truncationLength = 16)
+    {
+        if (jObject == null) return $"The expected {nameof(jObject)} is not here.";
+
+        StringBuilder sb = new();
+        foreach (KeyValuePair<string, JsonNode?> pair in jObject)
+        {
+            var kind = pair.Value.GetJsonValueKind();
+
+            switch (kind)
+            {
+                case JsonValueKind.Array:
+                case JsonValueKind.Object:
+                    sb.AppendLine($"{pair.Key}: {pair.Value?.ToJsonString().Truncate(truncationLength)}");
+                    break;
+
+                case JsonValueKind.False:
+                case JsonValueKind.Number:
+                case JsonValueKind.String:
+                case JsonValueKind.True:
+                    sb.AppendLine($"{pair.Key}: {pair.Value?.AsValue().ToString()}");
+                    break;
+
+                case JsonValueKind.Null:
+                    sb.AppendLine($"{pair.Key}: {nameof(JsonValueKind.Null).ToLowerInvariant()}");
+                    break;
+
+                case JsonValueKind.Undefined:
+                    sb.AppendLine($"{pair.Key}: {nameof(JsonValueKind.Undefined).ToLowerInvariant()}");
+                    break;
+            }
+        }
+
+        return sb.ToString();
+    }
+
+    /// <summary>
     /// Gets the <see cref="JsonValue"/> of the specified <see cref="JsonNode"/>
     /// of <see cref="JsonValueKind.Array" />
     /// or defaults to null.
@@ -190,7 +232,6 @@ public static class JsonNodeExtensions
     /// </summary>
     /// <param name="node">The node.</param>
     /// <param name="logger">The logger.</param>
-    /// <returns></returns>
     public static JsonObject? ToJsonObject(this JsonNode? node, ILogger logger)
     {
         if (node == null)
@@ -208,6 +249,111 @@ public static class JsonNodeExtensions
         }
 
         return node.AsObject();
+    }
+
+    /// <summary>
+    /// Removes the specified <see cref="JsonNode"/>
+    /// when its parent is <see cref="JsonArray"/> or <see cref="JsonObject"/>.
+    /// </summary>
+    /// <param name="node">the <see cref="JsonNode"/></param>
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    public static void RemoveFromParent(this JsonNode? node, ILogger logger) => RemoveFromParent(node, propertyName: null, logger);
+
+    /// <summary>
+    /// Removes the specified <see cref="JsonNode"/>
+    /// when its parent is <see cref="JsonArray"/> or <see cref="JsonObject"/>.
+    /// </summary>
+    /// <param name="node">the <see cref="JsonNode"/></param>
+    /// <param name="propertyName">the name of the property when the specified node is <see cref="JsonValueKind.Object"/></param>
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    public static void RemoveFromParent(this JsonNode? node, string? propertyName, ILogger logger)
+    {
+        if (node == null)
+        {
+            logger.LogWarning("{Name}: The expected node is not here.", nameof(RemoveFromParent));
+
+            return;
+        }
+
+        if (node.Parent == null)
+        {
+            logger.LogWarning("{Name}: This node has no parent.", nameof(RemoveFromParent));
+
+            return;
+        }
+
+        var kind = node.Parent.GetJsonValueKind();
+
+        switch (kind)
+        {
+            case JsonValueKind.Array:
+                node.Parent.AsArray().Remove(node);
+                break;
+
+            case JsonValueKind.Object:
+                if (string.IsNullOrWhiteSpace(propertyName))
+                {
+                    logger.LogDebug("{Kind} requires a property name.", kind.ToString());
+
+                    break;
+                }
+
+                node.Parent.AsObject().Remove(propertyName);
+                break;
+
+            default:
+                logger.LogDebug("{Kind} is not supported.", kind.ToString());
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Removes the specified <see cref="JsonNode"/>
+    /// when its parent is <see cref="JsonArray"/> or <see cref="JsonObject"/>.
+    /// </summary>
+    /// <param name="node">the <see cref="JsonNode"/></param>
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    public static void RemoveProperty(this JsonNode? node, ILogger logger) => RemoveProperty(node, propertyName: null, logger);
+
+    /// <summary>
+    /// Removes the specified <see cref="JsonNode"/>
+    /// with the specified property name
+    /// when the node is <see cref="JsonObject"/>
+    /// or <see cref="JsonArray"/> (array of <see cref="JsonObject"/> with a property to remove).
+    /// </summary>
+    /// <param name="node">the <see cref="JsonNode"/></param>
+    /// <param name="propertyName">the name of the property when the specified node is <see cref="JsonValueKind.Object"/></param>
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    public static void RemoveProperty(this JsonNode? node, string? propertyName, ILogger logger)
+    {
+        if (node == null)
+        {
+            logger.LogDebug("{Name}: The expected node is not here.", nameof(RemoveProperty));
+
+            return;
+        }
+
+        JsonValueKind kind = node.GetJsonValueKind();
+
+        switch (kind)
+        {
+            case JsonValueKind.Array:
+                node.AsArray().ForEachInEnumerable(n => n.RemoveProperty(propertyName, logger));
+                break;
+
+            case JsonValueKind.Object:
+                if (string.IsNullOrWhiteSpace(propertyName))
+                {
+                    break;
+                }
+
+                node.AsObject().Remove(propertyName);
+                break;
+
+            default:
+                logger.LogWarning("{Kind} is not supported.", kind.ToString());
+                break;
+        }
     }
 
     /// <summary>

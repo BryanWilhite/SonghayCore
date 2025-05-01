@@ -2446,6 +2446,14 @@
             use <see cref="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)"/>.
             </remarks>
         </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)">
+            <summary>
+            Displays top-level <see cref="T:System.Text.Json.Nodes.JsonObject"/> properties
+            without recursion.
+            </summary>
+            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="truncationLength">the number of characters to display for each property</param>
+        </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
             <summary>
             Gets the <see cref="T:System.Text.Json.Nodes.JsonValue"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
@@ -2530,6 +2538,42 @@
             <param name="node">The node.</param>
             <param name="logger">The logger.</param>
             <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Removes the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            when its parent is <see cref="T:System.Text.Json.Nodes.JsonArray"/> or <see cref="T:System.Text.Json.Nodes.JsonObject"/>.
+            </summary>
+            <param name="node">the <see cref="T:System.Text.Json.Nodes.JsonNode"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Removes the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            when its parent is <see cref="T:System.Text.Json.Nodes.JsonArray"/> or <see cref="T:System.Text.Json.Nodes.JsonObject"/>.
+            </summary>
+            <param name="node">the <see cref="T:System.Text.Json.Nodes.JsonNode"/></param>
+            <param name="propertyName">the name of the property when the specified node is <see cref="F:System.Text.Json.JsonValueKind.Object"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Removes the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            when its parent is <see cref="T:System.Text.Json.Nodes.JsonArray"/> or <see cref="T:System.Text.Json.Nodes.JsonObject"/>.
+            </summary>
+            <param name="node">the <see cref="T:System.Text.Json.Nodes.JsonNode"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Removes the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            with the specified property name
+            when the node is <see cref="T:System.Text.Json.Nodes.JsonObject"/>
+            or <see cref="T:System.Text.Json.Nodes.JsonArray"/> (array of <see cref="T:System.Text.Json.Nodes.JsonObject"/> with a property to remove).
+            </summary>
+            <param name="node">the <see cref="T:System.Text.Json.Nodes.JsonNode"/></param>
+            <param name="propertyName">the name of the property when the specified node is <see cref="F:System.Text.Json.JsonValueKind.Object"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject,Microsoft.Extensions.Logging.ILogger,System.ValueTuple{System.String,System.String}[])">
             <summary>
