@@ -24,4 +24,24 @@ public static class JsonNodeUtility
 
         return JsonNode.Parse(json);
     }
+
+    /// <summary>
+    /// A wrapper for <see cref="JsonNode.Parse(string)"/>
+    /// </summary>
+    /// <param name="json">the JSON to parse</param>
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    public static JsonObject? ParseJsonObject(string json, ILogger logger)
+    {
+        JsonObject? jObject = null;
+        try
+        {
+            jObject = JsonNode.Parse(json)?.AsObject();
+        }
+        catch (JsonException ex)
+        {
+            logger.LogError("Tried to parse JSON.\n{Message}", ex.Message);
+        }
+
+        return jObject;
+    }
 }
