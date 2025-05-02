@@ -8,6 +8,24 @@ namespace Songhay.Extensions;
 public static class ProgramMetadataExtensions
 {
     /// <summary>
+    /// Ensures that <see cref="ProgramMetadata.DbmsSet"/>
+    /// and <see cref="ProgramMetadata.RestApiMetadataSet"/>
+    /// are not null or throws <see cref="NullReferenceException"/>
+    /// </summary>
+    /// <param name="meta">The <see cref="ProgramMetadata"/>.</param>
+    /// <exception cref="NullReferenceException"></exception>
+    public static void EnsureProgramMetadata([NotNull] this ProgramMetadata? meta)
+    {
+        ArgumentNullException.ThrowIfNull(meta);
+
+        if (meta.DbmsSet == null)
+            throw new NullReferenceException($"The expected {nameof(ProgramMetadata.DbmsSet)} is not here.");
+
+        if (meta.RestApiMetadataSet == null)
+            throw new NullReferenceException($"The expected {nameof(ProgramMetadata.RestApiMetadataSet)} is not here.");
+    }
+
+    /// <summary>
     /// Converts <see cref="ProgramMetadata" />
     /// to the conventional <see cref="HttpRequestHeaders"/>.
     /// </summary>

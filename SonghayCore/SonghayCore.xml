@@ -1725,6 +1725,19 @@
             <param name="requestMethod">The request method.</param>
             <param name="contentType">The request content type.</param>
         </member>
+        <member name="T:Songhay.Extensions.IConfigurationBuilderExtensions">
+            <summary>
+            Extensions of <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationBuilderExtensions.AddConventionalJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)">
+            <summary>
+            Returns the specified <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>
+            after calling <see cref="M:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder,System.String)"/>
+            with the conventional environment variable, <c>SONGHAY_APP_SETTINGS_PATH</c>.
+            </summary>
+            <param name="configurationBuilder">the <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/></param>
+        </member>
         <member name="T:Songhay.Extensions.IConfigurationExtensions">
             <summary>
             Extensions of <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
@@ -2537,7 +2550,6 @@
             </summary>
             <param name="node">The node.</param>
             <param name="logger">The logger.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)">
             <summary>
@@ -2761,6 +2773,15 @@
             <summary>
             Extensions of <see cref="T:Songhay.Models.ProgramMetadata"/>.
             </summary>
+        </member>
+        <member name="M:Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)">
+            <summary>
+            Ensures that <see cref="P:Songhay.Models.ProgramMetadata.DbmsSet"/>
+            and <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/>
+            are not null or throws <see cref="T:System.NullReferenceException"/>
+            </summary>
+            <param name="meta">The <see cref="T:Songhay.Models.ProgramMetadata"/>.</param>
+            <exception cref="T:System.NullReferenceException"></exception>
         </member>
         <member name="M:Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(Songhay.Models.ProgramMetadata,System.String)">
             <summary>

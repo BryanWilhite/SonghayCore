@@ -9,17 +9,17 @@ public class ProgramMetadata
     /// Gets or sets the cloud storage set.
     /// </summary>
     [Obsolete("See https://github.com/BryanWilhite/SonghayCore/issues/176")]
-    public Dictionary<string, Dictionary<string, string>> CloudStorageSet { get; } = new();
+    public Dictionary<string, Dictionary<string, string>> CloudStorageSet { get; init; } = new();
 
     /// <summary>
     /// Gets or sets the DBMS set.
     /// </summary>
-    public Dictionary<string, DbmsMetadata> DbmsSet { get; } = new();
+    public Dictionary<string, DbmsMetadata> DbmsSet { get; init; } = new();
 
     /// <summary>
     /// Gets or sets the REST API metadata set.
     /// </summary>
-    public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; } = new();
+    public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; init; } = new();
 
     /// <summary>
     /// Represents this instance as a <c>string</c>.
