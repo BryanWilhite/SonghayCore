@@ -51,4 +51,26 @@ public static class ProgramMetadataExtensions
 
         return headers;
     }
+
+    /// <summary>
+    /// Converts <see cref="ProgramMetadata" />
+    /// to the <see cref="RestApiMetadata"/>
+    /// it contains, identified by the specified key.
+    /// </summary>
+    /// <param name="meta">The <see cref="ProgramMetadata"/>.</param>
+    /// <param name="restApiMetadataSetKey">the key of <see cref="ProgramMetadata.RestApiMetadataSet"/></param>
+    public static RestApiMetadata ToRestApiMetadata(this ProgramMetadata? meta, string? restApiMetadataSetKey)
+    {
+        ArgumentNullException.ThrowIfNull(meta);
+
+        if (string.IsNullOrWhiteSpace(restApiMetadataSetKey))
+            throw new ArgumentNullException(nameof(restApiMetadataSetKey));
+
+        RestApiMetadata restApiMetadata = meta
+            .RestApiMetadataSet
+            .TryGetValueWithKey(restApiMetadataSetKey, throwException: true)
+            .ToReferenceTypeValueOrThrow();
+
+        return restApiMetadata;
+    }
 }
