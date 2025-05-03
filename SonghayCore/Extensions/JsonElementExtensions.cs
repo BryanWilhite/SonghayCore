@@ -24,7 +24,7 @@ public static class JsonElementExtensions
             {
                 case JsonValueKind.Array:
                 case JsonValueKind.Object:
-                    sb.AppendLine($"{property.Name}: {property.Value.GetRawText().Truncate(truncationLength)}");
+                    sb.AppendLine($"{property.Name}: {property.Value.GetRawText()}");
                     break;
 
                 case JsonValueKind.False:
@@ -44,7 +44,20 @@ public static class JsonElementExtensions
             }
         }
 
-        return sb.ToString();
+        string output = sb.ToString()
+            .Replace("{\n", "{")
+            .Replace(":\n", ":")
+            .Replace(",\n", ",")
+            ;
+
+        const string doubleSpaces = "  ";
+
+        while (output.Contains(doubleSpaces))
+        {
+            output = output.Replace(doubleSpaces, " ");
+        }
+
+        return output.Replace("{ \"", "{\"").Truncate(truncationLength) ?? "The expected truncated string is not here.";
     }
 
     /// <summary>

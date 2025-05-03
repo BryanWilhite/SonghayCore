@@ -3,6 +3,37 @@ namespace Songhay.Tests.Extensions;
 public class JsonElementExtensionsTests
 {
     [Theory]
+    [InlineData("""
+                {
+                    "my-property": {
+                        "one": 1,
+                        "sure": true
+                    }
+                }
+                """, 32, "my-property: {\"one\": 1, \"sure\":…")]
+    [InlineData("""
+                {
+                    "my-property": {
+                        "one": 1.0,
+                        "sure": true
+                    }
+                }
+                """, 32, "my-property: {\"one\": 1.0, \"sure\"…")]
+    [InlineData("""
+                {
+                    "my-property": {
+                        "one": null,
+                        "others": ["y","n","u"]
+                    }
+                }
+                """, 48, "my-property: {\"one\": null, \"others\": [\"y\",\"n\",\"u…")]
+    public void DisplayTopProperties_Test(string input, int truncationLength, string expectedOutput)
+    {
+        string actual = JsonDocument.Parse(input).RootElement.DisplayTopProperties(truncationLength);
+        Assert.Equal(expectedOutput, actual);
+    }
+
+    [Theory]
     [InlineData("{ \"my-property\": {} }", "my-property", "{}")]
     [InlineData("{ \"my-property\": [] }", "my-property", "[]")]
     [InlineData("{ \"my-property\": [] }", "my-not-property", null)]
@@ -23,6 +54,16 @@ public class JsonElementExtensionsTests
             .GetJsonPropertyOrNull(propertyName)
             .GetJsonPropertyOrNull(nestedPropertyName);
         Assert.Equal(expectedOutput, actual?.ToString());
+    }
+
+    [Theory]
+    [InlineData("{ \"my-property\": [] }", "my-property", true)]
+    [InlineData("{ \"my-property\": [] }", "my-not-property", false)]
+    [InlineData("{}", "my-not-property", false)]
+    public void HasProperty_Test(string input, string propertyName, bool expectedOutput)
+    {
+        bool actual = JsonDocument.Parse(input).RootElement.HasProperty(propertyName);
+        Assert.Equal(expectedOutput, actual);
     }
 
     [Theory]
