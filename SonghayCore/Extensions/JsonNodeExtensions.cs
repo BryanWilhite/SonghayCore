@@ -25,7 +25,7 @@ public static class JsonNodeExtensions
         StringBuilder sb = new();
         foreach (KeyValuePair<string, JsonNode?> pair in jObject)
         {
-            var kind = pair.Value.GetJsonValueKind();
+            JsonValueKind kind = pair.Value?.GetValueKind() ?? JsonValueKind.Null;
 
             switch (kind)
             {
@@ -64,7 +64,7 @@ public static class JsonNodeExtensions
     public static JsonArray? GetPropertyJsonArrayOrNull(this JsonNode? node, string propertyName)
     {
         if (node == null) return null;
-        if (node.GetJsonValueKind() != JsonValueKind.Object) return null;
+        if (node.GetValueKind() != JsonValueKind.Object) return null;
 
         if (!node.AsObject().TryGetPropertyValue(propertyName, out JsonNode? outputNode)) return null;
 
@@ -81,7 +81,7 @@ public static class JsonNodeExtensions
     public static JsonObject? GetPropertyJsonObjectOrNull(this JsonNode? node, string propertyName)
     {
         if (node == null) return null;
-        if (node.GetJsonValueKind() != JsonValueKind.Object) return null;
+        if (node.GetValueKind() != JsonValueKind.Object) return null;
 
         if (!node.AsObject().TryGetPropertyValue(propertyName, out JsonNode? outputNode)) return null;
 
@@ -105,7 +105,7 @@ public static class JsonNodeExtensions
     public static JsonValue? GetPropertyJsonValueOrNull(this JsonNode? node, string propertyName)
     {
         if (node == null) return null;
-        if (node.GetJsonValueKind() != JsonValueKind.Object) return null;
+        if (node.GetValueKind() != JsonValueKind.Object) return null;
 
         if (!node.AsObject().TryGetPropertyValue(propertyName, out JsonNode? outputNode)) return null;
 
@@ -122,7 +122,7 @@ public static class JsonNodeExtensions
     public static (T? value, bool success) GetPropertyValue<T>(this JsonNode? node, string propertyName)
     {
         if (node == null) return (default, false);
-        if (node.GetJsonValueKind() != JsonValueKind.Object) return (default, false);
+        if (node.GetValueKind() != JsonValueKind.Object) return (default, false);
 
         var success = node.AsObject().TryGetPropertyValue(propertyName, out JsonNode? outputNode);
 
@@ -141,6 +141,7 @@ public static class JsonNodeExtensions
     /// <remarks>
     /// This member is needed for .NET 6.0 and earlier.
     /// </remarks>
+    [Obsolete("For .NET 8 and beyond use `JsonNode.GetValueKind()` instead.")]
     public static JsonValueKind GetJsonValueKind(this JsonNode? node)
     {
         return node switch
@@ -216,7 +217,7 @@ public static class JsonNodeExtensions
             return null;
         }
 
-        if (node.GetJsonValueKind() != JsonValueKind.Array)
+        if (node.GetValueKind() != JsonValueKind.Array)
         {
             logger.LogError("The kind of JSON, {Enum}.{Member}, of the specified {Node} is not expected.", nameof(JsonValueKind), nameof(JsonValueKind.Object), nameof(JsonNode));
 
@@ -241,7 +242,7 @@ public static class JsonNodeExtensions
             return null;
         }
 
-        if (node.GetJsonValueKind() != JsonValueKind.Object)
+        if (node.GetValueKind() != JsonValueKind.Object)
         {
             logger.LogError("The kind of JSON, {Enum}.{Member}, of the specified {Node} is not expected.", nameof(JsonValueKind), nameof(JsonValueKind.Object), nameof(JsonNode));
 
@@ -282,7 +283,7 @@ public static class JsonNodeExtensions
             return;
         }
 
-        var kind = node.Parent.GetJsonValueKind();
+        var kind = node.Parent.GetValueKind();
 
         switch (kind)
         {
@@ -333,7 +334,7 @@ public static class JsonNodeExtensions
             return;
         }
 
-        JsonValueKind kind = node.GetJsonValueKind();
+        JsonValueKind kind = node.GetValueKind();
 
         switch (kind)
         {
