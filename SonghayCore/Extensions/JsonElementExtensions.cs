@@ -6,6 +6,48 @@ namespace Songhay.Extensions;
 public static class JsonElementExtensions
 {
     /// <summary>
+    /// Displays top-level <see cref="JsonElement"/> properties
+    /// without recursion.
+    /// </summary>
+    /// <param name="element">the <see cref="JsonElement"/></param>
+    /// <param name="truncationLength">the number of characters to display for each property</param>
+    public static string DisplayTopProperties(this JsonElement element, int truncationLength = 16)
+    {
+        if (element.ValueKind != JsonValueKind.Object) return $"The expected {nameof(element)} is not here.";
+
+        StringBuilder sb = new();
+        foreach (JsonProperty property in element.EnumerateObject())
+        {
+            var kind = property.Value.ValueKind;
+
+            switch (kind)
+            {
+                case JsonValueKind.Array:
+                case JsonValueKind.Object:
+                    sb.AppendLine($"{property.Name}: {property.Value.GetRawText().Truncate(truncationLength)}");
+                    break;
+
+                case JsonValueKind.False:
+                case JsonValueKind.Number:
+                case JsonValueKind.String:
+                case JsonValueKind.True:
+                    sb.AppendLine($"{property.Name}: {property.Value.ToStringValue()}");
+                    break;
+
+                case JsonValueKind.Null:
+                    sb.AppendLine($"{property.Name}: {nameof(JsonValueKind.Null).ToLowerInvariant()}");
+                    break;
+
+                case JsonValueKind.Undefined:
+                    sb.AppendLine($"{property.Name}: {nameof(JsonValueKind.Undefined).ToLowerInvariant()}");
+                    break;
+            }
+        }
+
+        return sb.ToString();
+    }
+
+    /// <summary>
     /// Tries to return the <see cref="JsonElement" /> property
     /// of the specified <see cref="JsonElement" /> object.
     /// </summary>
@@ -28,6 +70,58 @@ public static class JsonElementExtensions
         if (!element.TryGetProperty(elementName, out JsonElement property)) return null;
 
         return property;
+    }
+
+    /// <summary>
+    /// Returns <c>false</c> when the specified property name does not exist.
+    /// </summary>
+    /// <param name="elementOrNull">the <see cref="JsonElement"/></param>
+    /// <param name="propertyName">the property name</param>
+    public static bool HasProperty(this JsonElement? elementOrNull, string? propertyName) =>
+        elementOrNull?.HasProperty(propertyName) ?? false;
+
+    /// <summary>
+    /// Returns <c>false</c> when the specified property name does not exist.
+    /// </summary>
+    /// <param name="element">the <see cref="JsonElement"/></param>
+    /// <param name="propertyName">the property name</param>
+    public static bool HasProperty(this JsonElement element, string? propertyName) => element.GetJsonPropertyOrNull(propertyName) != null;
+
+    /// <summary>
+    /// Determines whether the specified <see cref="JsonElement"/>
+    /// has the expected properties.
+    /// </summary>
+    /// <param name="elementOrNull">The node.</param>
+    /// <param name="logger">The logger.</param>
+    /// <param name="properties">The properties.</param>
+    public static bool IsExpectedObject(this JsonElement? elementOrNull, ILogger logger, params string[] properties) =>
+        elementOrNull?.IsExpectedObject(logger, properties) ?? false;
+
+    /// <summary>
+    /// Determines whether the specified <see cref="JsonElement"/>
+    /// has the expected properties.
+    /// </summary>
+    /// <param name="element">The node.</param>
+    /// <param name="logger">The logger.</param>
+    /// <param name="properties">The properties.</param>
+    public static bool IsExpectedObject(this JsonElement element, ILogger logger, params string[] properties)
+    {
+        if (element.ValueKind != JsonValueKind.Object) return false;
+
+        bool containsKey = true;
+
+        foreach (var property in properties)
+        {
+            containsKey = element.HasProperty(property);
+
+            if (containsKey) continue;
+
+            logger.LogError("The expected property, `{Property}`, is not here.", property);
+
+            break;
+        }
+
+        return containsKey;
     }
 
     /// <summary>

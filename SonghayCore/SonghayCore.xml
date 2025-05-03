@@ -2235,6 +2235,14 @@
             Extensions of <see cref="T:System.Text.Json.JsonElement"/>
             </summary>
         </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.DisplayTopProperties(System.Text.Json.JsonElement,System.Int32)">
+            <summary>
+            Displays top-level <see cref="T:System.Text.Json.JsonElement"/> properties
+            without recursion.
+            </summary>
+            <param name="element">the <see cref="T:System.Text.Json.JsonElement"/></param>
+            <param name="truncationLength">the number of characters to display for each property</param>
+        </member>
         <member name="M:Songhay.Extensions.JsonElementExtensions.GetJsonPropertyOrNull(System.Nullable{System.Text.Json.JsonElement},System.String)">
             <summary>
             Tries to return the <see cref="T:System.Text.Json.JsonElement" /> property
@@ -2250,6 +2258,38 @@
             </summary>
             <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
             <param name="elementName">The <see cref="T:System.Text.Json.JsonElement" /> name.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.HasProperty(System.Nullable{System.Text.Json.JsonElement},System.String)">
+            <summary>
+            Returns <c>false</c> when the specified property name does not exist.
+            </summary>
+            <param name="elementOrNull">the <see cref="T:System.Text.Json.JsonElement"/></param>
+            <param name="propertyName">the property name</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.HasProperty(System.Text.Json.JsonElement,System.String)">
+            <summary>
+            Returns <c>false</c> when the specified property name does not exist.
+            </summary>
+            <param name="element">the <see cref="T:System.Text.Json.JsonElement"/></param>
+            <param name="propertyName">the property name</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.IsExpectedObject(System.Nullable{System.Text.Json.JsonElement},Microsoft.Extensions.Logging.ILogger,System.String[])">
+            <summary>
+            Determines whether the specified <see cref="T:System.Text.Json.JsonElement"/>
+            has the expected properties.
+            </summary>
+            <param name="elementOrNull">The node.</param>
+            <param name="logger">The logger.</param>
+            <param name="properties">The properties.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.IsExpectedObject(System.Text.Json.JsonElement,Microsoft.Extensions.Logging.ILogger,System.String[])">
+            <summary>
+            Determines whether the specified <see cref="T:System.Text.Json.JsonElement"/>
+            has the expected properties.
+            </summary>
+            <param name="element">The node.</param>
+            <param name="logger">The logger.</param>
+            <param name="properties">The properties.</param>
         </member>
         <member name="M:Songhay.Extensions.JsonElementExtensions.ToBoolean(System.Nullable{System.Text.Json.JsonElement},System.Boolean)">
             <summary>

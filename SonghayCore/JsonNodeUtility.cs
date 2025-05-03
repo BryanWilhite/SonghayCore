@@ -26,7 +26,7 @@ public static class JsonNodeUtility
     }
 
     /// <summary>
-    /// A wrapper for <see cref="JsonNode.Parse(string)"/>
+    /// A wrapper for <see cref="JsonNode.Parse(System.IO.Stream,System.Text.Json.Nodes.JsonNodeOptions?,System.Text.Json.JsonDocumentOptions)"/>
     /// </summary>
     /// <param name="json">the JSON to parse</param>
     /// <param name="logger">the <see cref="ILogger"/></param>
