@@ -8,4 +8,11 @@ public class ProjectFileDataAttributeTests(ITestOutputHelper helper)
     {
         helper.WriteLine($"{fileInfo.FullName}");
     }
+
+    [Theory]
+    [ProjectFileData("../../../../LICENSE.md")]
+    public void ShouldLoadLicenseFileWithoutSpecifyingType(FileInfo fileInfo)
+    {
+        helper.WriteLine($"{fileInfo.FullName}");
+    }
 }
