@@ -3,13 +3,21 @@ using Songhay.Tests.Extensions;
 
 namespace Songhay.Tests;
 
-/// <summary>File-based data source for a data theory.</summary>
+/// <summary>
+/// Defines a custom <see cref="DataAttribute"/>
+/// for loading <see cref="FileInfo"/> test-method arguments.
+/// </summary>
 public partial class ProjectFileDataAttribute : DataAttribute
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ProjectFileDataAttribute"/> class.
     /// </summary>
-    /// <param name="relativePaths">The relative paths.</param>
+    /// <param name="relativePaths">The relative paths, mapping to <see cref="FileInfo"/> test-method arguments.</param>
+    /// <remarks>
+    /// Each relative path maps to a <see cref="FileInfo"/> argument that must be specified in the test method.
+    /// Each path is relative to assembly location of the <c>typeInAssembly</c>.
+    /// For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
+    /// </remarks>
     public ProjectFileDataAttribute(params string[] relativePaths) : this(null, [], relativePaths)
     {
     }
@@ -17,9 +25,13 @@ public partial class ProjectFileDataAttribute : DataAttribute
     /// <summary>
     /// Initializes a new instance of the <see cref="ProjectFileDataAttribute" /> class.
     /// </summary>
-    /// <param name="inlineData">The inline data.</param>
-    /// <param name="relativePaths">The relative paths.</param>
+    /// <param name="inlineData">The inline data of <see cref="InlineDataAttribute"/> conventions.</param>
+    /// <param name="relativePaths">The relative paths, mapping to <see cref="FileInfo"/> test-method arguments.</param>
     /// <remarks>
+    /// Each relative path maps to a <see cref="FileInfo"/> argument that must be specified in the test method.
+    /// Each path is relative to assembly location of the <c>typeInAssembly</c>.
+    /// For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
+    ///
     /// The order of elements in <c>inlineData</c> must have the order of args.
     /// So <c>new object[] { 1, "two" }</c> must have <c>int one, string two,</c>.
     /// </remarks>
@@ -31,7 +43,12 @@ public partial class ProjectFileDataAttribute : DataAttribute
     /// Initializes a new instance of the <see cref="ProjectFileDataAttribute"/> class.
     /// </summary>
     /// <param name="typeInAssembly">The type in assembly.</param>
-    /// <param name="relativePaths">The relative paths.</param>
+    /// <param name="relativePaths">The relative paths, mapping to <see cref="FileInfo"/> test-method arguments.</param>
+    /// <remarks>
+    /// Each relative path maps to a <see cref="FileInfo"/> argument that must be specified in the test method.
+    /// Each path is relative to assembly location of the <c>typeInAssembly</c>.
+    /// For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
+    /// </remarks>
     public ProjectFileDataAttribute(Type? typeInAssembly, params string[] relativePaths) : this(typeInAssembly, [], relativePaths)
     {
     }
@@ -40,9 +57,13 @@ public partial class ProjectFileDataAttribute : DataAttribute
     /// Initializes a new instance of the <see cref="ProjectFileDataAttribute" /> class.
     /// </summary>
     /// <param name="typeInAssembly">The type in assembly.</param>
-    /// <param name="inlineData">The inline data.</param>
-    /// <param name="relativePaths">The relative paths.</param>
+    /// <param name="inlineData">The inline data of <see cref="InlineDataAttribute"/> conventions.</param>
+    /// <param name="relativePaths">The relative paths, mapping to <see cref="FileInfo"/> test-method arguments.</param>
     /// <remarks>
+    /// Each relative path maps to a <see cref="FileInfo"/> argument that must be specified in the test method.
+    /// Each path is relative to assembly location of the <c>typeInAssembly</c>.
+    /// For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
+    ///
     /// The order of elements in <c>inlineData</c> must have the order of args.
     /// So <c>new object[] { 1, "two" }</c> must have <c>int one, string two,</c>.
     /// </remarks>

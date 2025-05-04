@@ -1,9 +1,9 @@
 namespace Songhay.Tests;
 
-public class ProjectDirectoryAttributeTests(ITestOutputHelper helper)
+public class ProjectDirectoryDataAttributeTests(ITestOutputHelper helper)
 {
     [Theory]
-    [ProjectDirectory(
+    [ProjectDirectoryData(
         "./content/json/hello.json", "./content/txt/latin-glyphs.txt")]
     public void ShouldLoadContentFiles(DirectoryInfo projectDirectoryInfo, string jsonPath, string txtPath)
     {
@@ -21,7 +21,7 @@ public class ProjectDirectoryAttributeTests(ITestOutputHelper helper)
     }
 
     [Theory]
-    [ProjectDirectory("./content/json/",
+    [ProjectDirectoryData("./content/json/",
         ProjectDirectoryOption.AppendPathSuffixOnly,
         "hello.json")]
     public void ShouldLoadContentFileWithSuffix(DirectoryInfo rootDirectoryInfo, string jsonPath)

@@ -4,22 +4,37 @@ using Songhay.Tests.Models;
 namespace Songhay.Tests;
 
 /// <summary>
-/// 
+/// Defines a custom <see cref="DataAttribute"/>
+/// for loading the <see cref="DirectoryInfo"/> test-method argument,
+/// representing a directory within the test project.
 /// </summary>
-public class ProjectDirectoryAttribute : DataAttribute
+public class ProjectDirectoryDataAttribute : DataAttribute
 {
-    public ProjectDirectoryAttribute(params object[] inlineData)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ProjectDirectoryDataAttribute"/> class.
+    /// </summary>
+    /// <param name="inlineData">The inline data of <see cref="InlineDataAttribute"/> conventions.</param>
+    public ProjectDirectoryDataAttribute(params object[] inlineData) : this(null, ProjectDirectoryOption.AppendNothing, inlineData)
     {
-        _inlineData = inlineData;
     }
 
-    public ProjectDirectoryAttribute(string pathSuffix, ProjectDirectoryOption placement, params object[] inlineData)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ProjectDirectoryDataAttribute"/> class.
+    /// </summary>
+    /// <param name="pathSuffix">the directory path to append</param>
+    /// <param name="placement">the <see cref="ProjectDirectoryOption"/></param>
+    /// <param name="inlineData">The inline data of <see cref="InlineDataAttribute"/> conventions.</param>
+    public ProjectDirectoryDataAttribute(string? pathSuffix, ProjectDirectoryOption placement, params object[] inlineData)
     {
         _pathSuffix = pathSuffix;
         _placement = placement;
         _inlineData = inlineData;
     }
 
+    /// <summary>Returns the data to be used to test the theory.</summary>
+    /// <param name="testMethod">The method that is being tested</param>
+    /// <returns>One or more sets of theory data. Each invocation of the test method
+    /// is represented by a single object array.</returns>
     public override IEnumerable<object[]> GetData(MethodInfo testMethod)
     {
         Type methodType = testMethod.DeclaringType.ToReferenceTypeValueOrThrow();
@@ -78,6 +93,6 @@ public class ProjectDirectoryAttribute : DataAttribute
     }
 
     private readonly string? _pathSuffix;
-    private readonly ProjectDirectoryOption? _placement;
+    private readonly ProjectDirectoryOption _placement;
     private readonly object[] _inlineData;
 }
