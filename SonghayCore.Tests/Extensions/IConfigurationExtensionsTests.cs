@@ -8,6 +8,15 @@ namespace Songhay.Tests.Extensions;
 public class IConfigurationExtensionsTests(ITestOutputHelper helper)
 {
     [Theory]
+    [InlineData(ConsoleArgsScalars.DryRun,ConsoleArgsScalars.DryRun, ConsoleArgsScalars.Help)]
+    public void GetCommandLineArgValue_ArgumentException_Test(string key, params string[] args)
+    {
+        IConfiguration configuration = new ConfigurationBuilder().AddCommandLine(args).Build();
+
+        Assert.Throws<ArgumentException>(() => configuration.GetCommandLineArgValue(key));
+    }
+
+    [Theory]
     [InlineData(ConsoleArgsScalars.DryRun, true, true, $"{ConsoleArgsScalars.DryRun}=true")]
     [InlineData(ConsoleArgsScalars.DryRun, true, false, $"{ConsoleArgsScalars.DryRun}=false")]
     [InlineData("--my-arg", false, true, "--my-arg", "my-value")]
@@ -57,6 +66,18 @@ public class IConfigurationExtensionsTests(ITestOutputHelper helper)
         IConfiguration configuration = new ConfigurationBuilder().AddCommandLine(args).Build();
         var actual = configuration.IsDryRun();
         Assert.True(actual);
+    }
+
+    [Theory]
+    [InlineData(ConsoleArgsScalars.DryRun)]
+    [InlineData(ConsoleArgsScalars.DryRun, ConsoleArgsScalars.FlagSpacer)]
+    [InlineData(ConsoleArgsScalars.DryRun, "false")]
+    [InlineData($"{ConsoleArgsScalars.DryRun}=false")]
+    public void ShouldReadCommandLineArgsForDryRunAsFalseWithoutHost(params string[] args)
+    {
+        IConfiguration configuration = new ConfigurationBuilder().AddCommandLine(args).Build();
+        bool actual = configuration.IsDryRun();
+        Assert.False(actual);
     }
 
     [Theory]
