@@ -2,6 +2,25 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "docfx [rebuild docs]",
+            "command": "docfx",
+            "type": "shell",
+            "options": {
+                "cwd": "./docs"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "docfx [rebuild docs and serve]",
+            "command": "docfx",
+            "type": "shell",
+            "args": [ "--serve" ],
+            "options": {
+                "cwd": "./docs"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "dotnet build [Solution]",
             "command": "dotnet",
             "type": "shell",

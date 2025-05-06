@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/dev/version-8.0.0/apiSpec/new?filename=Songhay_Models_ProgramMetadata.md&amp;value=---%0Auid%3A%20Songhay.Models.ProgramMetadata%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/dev/version-8.0.1/apiSpec/new?filename=Songhay_Models_ProgramMetadata.md&amp;value=---%0Auid%3A%20Songhay.Models.ProgramMetadata%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Songhay_Models_ProgramMetadata" data-uid="Songhay.Models.ProgramMetadata" class="text-break">
-Class ProgramMetadata  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/ProgramMetadata.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class ProgramMetadata  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Models/ProgramMetadata.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -154,7 +154,13 @@ Class ProgramMetadata  <a class="header-action link-secondary" title="View sourc
       <a class="xref" href="Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_">NullableExtensions.ToReferenceTypeValueOrThrow&lt;T&gt;(T?, string?)</a>
   </div>
   <div>
+      <a class="xref" href="Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_EnsureProgramMetadata_Songhay_Models_ProgramMetadata_">ProgramMetadataExtensions.EnsureProgramMetadata(ProgramMetadata?)</a>
+  </div>
+  <div>
       <a class="xref" href="Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_ToConventionalHeaders_Songhay_Models_ProgramMetadata_System_String_">ProgramMetadataExtensions.ToConventionalHeaders(ProgramMetadata?, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_ToRestApiMetadata_Songhay_Models_ProgramMetadata_System_String_">ProgramMetadataExtensions.ToRestApiMetadata(ProgramMetadata?, string?)</a>
   </div>
   </dd></dl>
 
@@ -170,7 +176,7 @@ Class ProgramMetadata  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="Songhay_Models_ProgramMetadata_CloudStorageSet" data-uid="Songhay.Models.ProgramMetadata.CloudStorageSet">
   CloudStorageSet
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/ProgramMetadata.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Models/ProgramMetadata.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the cloud storage set.</p>
@@ -179,7 +185,7 @@ Class ProgramMetadata  <a class="header-action link-secondary" title="View sourc
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Obsolete(&quot;See https://github.com/BryanWilhite/SonghayCore/issues/176&quot;)]
-public Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt; CloudStorageSet { get; }</code></pre>
+public Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt; CloudStorageSet { get; init; }</code></pre>
   </div>
 
 
@@ -203,7 +209,7 @@ public Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt; CloudStorageSe
 
   <h3 id="Songhay_Models_ProgramMetadata_DbmsSet" data-uid="Songhay.Models.ProgramMetadata.DbmsSet">
   DbmsSet
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/ProgramMetadata.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Models/ProgramMetadata.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the DBMS set.</p>
@@ -211,7 +217,7 @@ public Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt; CloudStorageSe
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, DbmsMetadata&gt; DbmsSet { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, DbmsMetadata&gt; DbmsSet { get; init; }</code></pre>
   </div>
 
 
@@ -235,7 +241,7 @@ public Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt; CloudStorageSe
 
   <h3 id="Songhay_Models_ProgramMetadata_RestApiMetadataSet" data-uid="Songhay.Models.ProgramMetadata.RestApiMetadataSet">
   RestApiMetadataSet
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/ProgramMetadata.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Models/ProgramMetadata.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the REST API metadata set.</p>
@@ -243,7 +249,7 @@ public Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt; CloudStorageSe
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, RestApiMetadata&gt; RestApiMetadataSet { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, RestApiMetadata&gt; RestApiMetadataSet { get; init; }</code></pre>
   </div>
 
 
@@ -271,7 +277,7 @@ public Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt; CloudStorageSe
 
   <h3 id="Songhay_Models_ProgramMetadata_ToString" data-uid="Songhay.Models.ProgramMetadata.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/ProgramMetadata.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Models/ProgramMetadata.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Represents this instance as a <code>string</code>.</p>
@@ -303,7 +309,7 @@ public Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt; CloudStorageSe
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Models/ProgramMetadata.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Models/ProgramMetadata.cs/#L6" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: SonghayCore/Models/ProgramMetadata.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ProgramMetadata
     path: ../SonghayCore/Models/ProgramMetadata.cs
@@ -45,7 +45,9 @@ items:
   - Songhay.Models.ProgramMetadata.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
   - Songhay.Models.ProgramMetadata.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
   - Songhay.Models.ProgramMetadata.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  - Songhay.Models.ProgramMetadata.Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata
   - Songhay.Models.ProgramMetadata.Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(System.String)
+  - Songhay.Models.ProgramMetadata.Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(System.String)
 - uid: Songhay.Models.ProgramMetadata.CloudStorageSet
   commentId: P:Songhay.Models.ProgramMetadata.CloudStorageSet
   id: CloudStorageSet
@@ -60,7 +62,7 @@ items:
   source:
     remote:
       path: SonghayCore/Models/ProgramMetadata.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: CloudStorageSet
     path: ../SonghayCore/Models/ProgramMetadata.cs
@@ -74,14 +76,14 @@ items:
     content: >-
       [Obsolete("See https://github.com/BryanWilhite/SonghayCore/issues/176")]
 
-      public Dictionary<string, Dictionary<string, string>> CloudStorageSet { get; }
+      public Dictionary<string, Dictionary<string, string>> CloudStorageSet { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}
     content.vb: >-
       <Obsolete("See https://github.com/BryanWilhite/SonghayCore/issues/176")>
 
-      Public ReadOnly Property CloudStorageSet As Dictionary(Of String, Dictionary(Of String, String))
+      Public Property CloudStorageSet As Dictionary(Of String, Dictionary(Of String, String))
   overload: Songhay.Models.ProgramMetadata.CloudStorageSet*
   attributes:
   - type: System.ObsoleteAttribute
@@ -103,7 +105,7 @@ items:
   source:
     remote:
       path: SonghayCore/Models/ProgramMetadata.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: DbmsSet
     path: ../SonghayCore/Models/ProgramMetadata.cs
@@ -114,11 +116,11 @@ items:
   summary: Gets or sets the DBMS set.
   example: []
   syntax:
-    content: public Dictionary<string, DbmsMetadata> DbmsSet { get; }
+    content: public Dictionary<string, DbmsMetadata> DbmsSet { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.Dictionary{System.String,Songhay.Models.DbmsMetadata}
-    content.vb: Public ReadOnly Property DbmsSet As Dictionary(Of String, DbmsMetadata)
+    content.vb: Public Property DbmsSet As Dictionary(Of String, DbmsMetadata)
   overload: Songhay.Models.ProgramMetadata.DbmsSet*
 - uid: Songhay.Models.ProgramMetadata.RestApiMetadataSet
   commentId: P:Songhay.Models.ProgramMetadata.RestApiMetadataSet
@@ -134,7 +136,7 @@ items:
   source:
     remote:
       path: SonghayCore/Models/ProgramMetadata.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: RestApiMetadataSet
     path: ../SonghayCore/Models/ProgramMetadata.cs
@@ -145,11 +147,11 @@ items:
   summary: Gets or sets the REST API metadata set.
   example: []
   syntax:
-    content: public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; }
+    content: public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.Dictionary{System.String,Songhay.Models.RestApiMetadata}
-    content.vb: Public ReadOnly Property RestApiMetadataSet As Dictionary(Of String, RestApiMetadata)
+    content.vb: Public Property RestApiMetadataSet As Dictionary(Of String, RestApiMetadata)
   overload: Songhay.Models.ProgramMetadata.RestApiMetadataSet*
 - uid: Songhay.Models.ProgramMetadata.ToString
   commentId: M:Songhay.Models.ProgramMetadata.ToString
@@ -165,7 +167,7 @@ items:
   source:
     remote:
       path: SonghayCore/Models/ProgramMetadata.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToString
     path: ../SonghayCore/Models/ProgramMetadata.cs
@@ -546,6 +548,32 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
+- uid: Songhay.Models.ProgramMetadata.Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata
+  commentId: M:Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)
+  parent: Songhay.Extensions.ProgramMetadataExtensions
+  definition: Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)
+  href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_EnsureProgramMetadata_Songhay_Models_ProgramMetadata_
+  name: EnsureProgramMetadata(ProgramMetadata)
+  nameWithType: ProgramMetadataExtensions.EnsureProgramMetadata(ProgramMetadata)
+  fullName: Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)
+  spec.csharp:
+  - uid: Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)
+    name: EnsureProgramMetadata
+    href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_EnsureProgramMetadata_Songhay_Models_ProgramMetadata_
+  - name: (
+  - uid: Songhay.Models.ProgramMetadata
+    name: ProgramMetadata
+    href: Songhay.Models.ProgramMetadata.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)
+    name: EnsureProgramMetadata
+    href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_EnsureProgramMetadata_Songhay_Models_ProgramMetadata_
+  - name: (
+  - uid: Songhay.Models.ProgramMetadata
+    name: ProgramMetadata
+    href: Songhay.Models.ProgramMetadata.html
+  - name: )
 - uid: Songhay.Models.ProgramMetadata.Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(System.String)
   commentId: M:Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(Songhay.Models.ProgramMetadata,System.String)
   parent: Songhay.Extensions.ProgramMetadataExtensions
@@ -576,6 +604,47 @@ references:
   - uid: Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(Songhay.Models.ProgramMetadata,System.String)
     name: ToConventionalHeaders
     href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_ToConventionalHeaders_Songhay_Models_ProgramMetadata_System_String_
+  - name: (
+  - uid: Songhay.Models.ProgramMetadata
+    name: ProgramMetadata
+    href: Songhay.Models.ProgramMetadata.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Models.ProgramMetadata.Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(System.String)
+  commentId: M:Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata,System.String)
+  parent: Songhay.Extensions.ProgramMetadataExtensions
+  definition: Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata,System.String)
+  href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_ToRestApiMetadata_Songhay_Models_ProgramMetadata_System_String_
+  name: ToRestApiMetadata(ProgramMetadata, string)
+  nameWithType: ProgramMetadataExtensions.ToRestApiMetadata(ProgramMetadata, string)
+  fullName: Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata, string)
+  nameWithType.vb: ProgramMetadataExtensions.ToRestApiMetadata(ProgramMetadata, String)
+  fullName.vb: Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata, String)
+  name.vb: ToRestApiMetadata(ProgramMetadata, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata,System.String)
+    name: ToRestApiMetadata
+    href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_ToRestApiMetadata_Songhay_Models_ProgramMetadata_System_String_
+  - name: (
+  - uid: Songhay.Models.ProgramMetadata
+    name: ProgramMetadata
+    href: Songhay.Models.ProgramMetadata.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata,System.String)
+    name: ToRestApiMetadata
+    href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_ToRestApiMetadata_Songhay_Models_ProgramMetadata_System_String_
   - name: (
   - uid: Songhay.Models.ProgramMetadata
     name: ProgramMetadata
@@ -707,6 +776,37 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
+- uid: Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)
+  commentId: M:Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)
+  href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_EnsureProgramMetadata_Songhay_Models_ProgramMetadata_
+  name: EnsureProgramMetadata(ProgramMetadata)
+  nameWithType: ProgramMetadataExtensions.EnsureProgramMetadata(ProgramMetadata)
+  fullName: Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)
+  spec.csharp:
+  - uid: Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)
+    name: EnsureProgramMetadata
+    href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_EnsureProgramMetadata_Songhay_Models_ProgramMetadata_
+  - name: (
+  - uid: Songhay.Models.ProgramMetadata
+    name: ProgramMetadata
+    href: Songhay.Models.ProgramMetadata.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)
+    name: EnsureProgramMetadata
+    href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_EnsureProgramMetadata_Songhay_Models_ProgramMetadata_
+  - name: (
+  - uid: Songhay.Models.ProgramMetadata
+    name: ProgramMetadata
+    href: Songhay.Models.ProgramMetadata.html
+  - name: )
+- uid: Songhay.Extensions.ProgramMetadataExtensions
+  commentId: T:Songhay.Extensions.ProgramMetadataExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.ProgramMetadataExtensions.html
+  name: ProgramMetadataExtensions
+  nameWithType: ProgramMetadataExtensions
+  fullName: Songhay.Extensions.ProgramMetadataExtensions
 - uid: Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(Songhay.Models.ProgramMetadata,System.String)
   commentId: M:Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(Songhay.Models.ProgramMetadata,System.String)
   isExternal: true
@@ -747,13 +847,46 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
-- uid: Songhay.Extensions.ProgramMetadataExtensions
-  commentId: T:Songhay.Extensions.ProgramMetadataExtensions
-  parent: Songhay.Extensions
-  href: Songhay.Extensions.ProgramMetadataExtensions.html
-  name: ProgramMetadataExtensions
-  nameWithType: ProgramMetadataExtensions
-  fullName: Songhay.Extensions.ProgramMetadataExtensions
+- uid: Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata,System.String)
+  commentId: M:Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata,System.String)
+  isExternal: true
+  href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_ToRestApiMetadata_Songhay_Models_ProgramMetadata_System_String_
+  name: ToRestApiMetadata(ProgramMetadata, string)
+  nameWithType: ProgramMetadataExtensions.ToRestApiMetadata(ProgramMetadata, string)
+  fullName: Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata, string)
+  nameWithType.vb: ProgramMetadataExtensions.ToRestApiMetadata(ProgramMetadata, String)
+  fullName.vb: Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata, String)
+  name.vb: ToRestApiMetadata(ProgramMetadata, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata,System.String)
+    name: ToRestApiMetadata
+    href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_ToRestApiMetadata_Songhay_Models_ProgramMetadata_System_String_
+  - name: (
+  - uid: Songhay.Models.ProgramMetadata
+    name: ProgramMetadata
+    href: Songhay.Models.ProgramMetadata.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata,System.String)
+    name: ToRestApiMetadata
+    href: Songhay.Extensions.ProgramMetadataExtensions.html#Songhay_Extensions_ProgramMetadataExtensions_ToRestApiMetadata_Songhay_Models_ProgramMetadata_System_String_
+  - name: (
+  - uid: Songhay.Models.ProgramMetadata
+    name: ProgramMetadata
+    href: Songhay.Models.ProgramMetadata.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
 - uid: Songhay.Extensions
   commentId: N:Songhay.Extensions
   href: Songhay.html

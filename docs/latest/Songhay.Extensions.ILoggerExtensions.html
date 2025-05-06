@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/dev/version-8.0.0/apiSpec/new?filename=Songhay_Extensions_ILoggerExtensions.md&amp;value=---%0Auid%3A%20Songhay.Extensions.ILoggerExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/dev/version-8.0.1/apiSpec/new?filename=Songhay_Extensions_ILoggerExtensions.md&amp;value=---%0Auid%3A%20Songhay.Extensions.ILoggerExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Songhay_Extensions_ILoggerExtensions" data-uid="Songhay.Extensions.ILoggerExtensions" class="text-break">
-Class ILoggerExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Extensions/ILoggerExtensions.cs/#L16"><i class="bi bi-code-slash"></i></a>
+Class ILoggerExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/ILoggerExtensions.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -149,7 +149,9 @@ to assist with “structured logging.”</p>
 
 
   <h2 id="Songhay_Extensions_ILoggerExtensions_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>For a video overview, see <a href="https://www.youtube.com/watch?v=NlBjVJPkT6M">https://www.youtube.com/watch?v=NlBjVJPkT6M</a> 🎥</p>
+  <div class="markdown level0 remarks"><p>For a video overview of “structured logging,” see <a href="https://www.youtube.com/watch?v=NlBjVJPkT6M">https://www.youtube.com/watch?v=NlBjVJPkT6M</a> 🎥</p>
+<p>To prevent passing null instances of <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger">ILogger</a> into these methods,
+use <a class="xref" href="Songhay.ILoggerUtility.html#Songhay_ILoggerUtility_AsInstanceOrNullLogger_Microsoft_Extensions_Logging_ILogger_">AsInstanceOrNullLogger(ILogger?)</a>.</p>
 </div>
 
 
@@ -160,8 +162,8 @@ to assist with “structured logging.”</p>
   <a id="Songhay_Extensions_ILoggerExtensions_LogErrorForMissingData_" data-uid="Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData*"></a>
 
   <h3 id="Songhay_Extensions_ILoggerExtensions_LogErrorForMissingData_Microsoft_Extensions_Logging_ILogger_System_String_" data-uid="Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData(Microsoft.Extensions.Logging.ILogger,System.String)">
-  LogErrorForMissingData(ILogger?, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Extensions/ILoggerExtensions.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  LogErrorForMissingData(ILogger, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/ILoggerExtensions.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions.logerror#microsoft-extensions-logging-loggerextensions-logerror(microsoft-extensions-logging-ilogger-system-string-system-object())">LogError(ILogger, string, params object[])</a> for missing data.</p>
@@ -169,7 +171,7 @@ to assist with “structured logging.”</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void LogErrorForMissingData(this ILogger? logger, string caption)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void LogErrorForMissingData(this ILogger logger, string caption)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -196,8 +198,8 @@ to assist with “structured logging.”</p>
   <a id="Songhay_Extensions_ILoggerExtensions_LogErrorForMissingData_" data-uid="Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData*"></a>
 
   <h3 id="Songhay_Extensions_ILoggerExtensions_LogErrorForMissingData__1_Microsoft_Extensions_Logging_ILogger_" data-uid="Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData``1(Microsoft.Extensions.Logging.ILogger)">
-  LogErrorForMissingData&lt;TData&gt;(ILogger?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Extensions/ILoggerExtensions.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  LogErrorForMissingData&lt;TData&gt;(ILogger)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/ILoggerExtensions.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions.logerror#microsoft-extensions-logging-loggerextensions-logerror(microsoft-extensions-logging-ilogger-system-string-system-object())">LogError(ILogger, string, params object[])</a> for missing data.</p>
@@ -205,7 +207,7 @@ to assist with “structured logging.”</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void LogErrorForMissingData&lt;TData&gt;(this ILogger? logger)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void LogErrorForMissingData&lt;TData&gt;(this ILogger logger)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -235,17 +237,17 @@ to assist with “structured logging.”</p>
   <a id="Songhay_Extensions_ILoggerExtensions_LogInformationNewLine_" data-uid="Songhay.Extensions.ILoggerExtensions.LogInformationNewLine*"></a>
 
   <h3 id="Songhay_Extensions_ILoggerExtensions_LogInformationNewLine_Microsoft_Extensions_Logging_ILogger_" data-uid="Songhay.Extensions.ILoggerExtensions.LogInformationNewLine(Microsoft.Extensions.Logging.ILogger)">
-  LogInformationNewLine(ILogger?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Extensions/ILoggerExtensions.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  LogInformationNewLine(ILogger)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/ILoggerExtensions.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Calls <a class="xref" href="Songhay.Extensions.ILoggerExtensions.html#Songhay_Extensions_ILoggerExtensions_LogNewLine_Microsoft_Extensions_Logging_ILogger_Microsoft_Extensions_Logging_LogLevel_">LogNewLine(ILogger?, LogLevel)</a>
+  <div class="markdown level1 summary"><p>Calls <a class="xref" href="Songhay.Extensions.ILoggerExtensions.html#Songhay_Extensions_ILoggerExtensions_LogNewLine_Microsoft_Extensions_Logging_ILogger_Microsoft_Extensions_Logging_LogLevel_">LogNewLine(ILogger, LogLevel)</a>
 for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.loglevel#microsoft-extensions-logging-loglevel-information">Information</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void LogInformationNewLine(this ILogger? logger)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void LogInformationNewLine(this ILogger logger)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -269,8 +271,8 @@ for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.exten
   <a id="Songhay_Extensions_ILoggerExtensions_LogNewLine_" data-uid="Songhay.Extensions.ILoggerExtensions.LogNewLine*"></a>
 
   <h3 id="Songhay_Extensions_ILoggerExtensions_LogNewLine_Microsoft_Extensions_Logging_ILogger_Microsoft_Extensions_Logging_LogLevel_" data-uid="Songhay.Extensions.ILoggerExtensions.LogNewLine(Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Logging.LogLevel)">
-  LogNewLine(ILogger?, LogLevel)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Extensions/ILoggerExtensions.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  LogNewLine(ILogger, LogLevel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/ILoggerExtensions.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Logs <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.environment.newline">NewLine</a> for human readability.</p>
@@ -278,7 +280,7 @@ for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.exten
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void LogNewLine(this ILogger? logger, LogLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void LogNewLine(this ILogger logger, LogLevel level)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -305,8 +307,8 @@ for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.exten
   <a id="Songhay_Extensions_ILoggerExtensions_LogTraceDataTypeAndValue_" data-uid="Songhay.Extensions.ILoggerExtensions.LogTraceDataTypeAndValue*"></a>
 
   <h3 id="Songhay_Extensions_ILoggerExtensions_LogTraceDataTypeAndValue__1_Microsoft_Extensions_Logging_ILogger___0_" data-uid="Songhay.Extensions.ILoggerExtensions.LogTraceDataTypeAndValue``1(Microsoft.Extensions.Logging.ILogger,``0)">
-  LogTraceDataTypeAndValue&lt;TData&gt;(ILogger?, TData?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Extensions/ILoggerExtensions.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  LogTraceDataTypeAndValue&lt;TData&gt;(ILogger, TData?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/ILoggerExtensions.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Traces data type and value.</p>
@@ -314,7 +316,7 @@ for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.exten
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void LogTraceDataTypeAndValue&lt;TData&gt;(this ILogger? logger, TData? data)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void LogTraceDataTypeAndValue&lt;TData&gt;(this ILogger logger, TData? data)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -350,8 +352,8 @@ for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.exten
   <a id="Songhay_Extensions_ILoggerExtensions_LogTraceMethodCall_" data-uid="Songhay.Extensions.ILoggerExtensions.LogTraceMethodCall*"></a>
 
   <h3 id="Songhay_Extensions_ILoggerExtensions_LogTraceMethodCall_Microsoft_Extensions_Logging_ILogger_System_String_" data-uid="Songhay.Extensions.ILoggerExtensions.LogTraceMethodCall(Microsoft.Extensions.Logging.ILogger,System.String)">
-  LogTraceMethodCall(ILogger?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Extensions/ILoggerExtensions.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  LogTraceMethodCall(ILogger, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/ILoggerExtensions.cs/#L108"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Conventional trace of the specified method call.</p>
@@ -359,7 +361,7 @@ for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.exten
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void LogTraceMethodCall(this ILogger? logger, string? methodName)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void LogTraceMethodCall(this ILogger logger, string? methodName)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -386,17 +388,17 @@ for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.exten
   <a id="Songhay_Extensions_ILoggerExtensions_LogTraceNewLine_" data-uid="Songhay.Extensions.ILoggerExtensions.LogTraceNewLine*"></a>
 
   <h3 id="Songhay_Extensions_ILoggerExtensions_LogTraceNewLine_Microsoft_Extensions_Logging_ILogger_" data-uid="Songhay.Extensions.ILoggerExtensions.LogTraceNewLine(Microsoft.Extensions.Logging.ILogger)">
-  LogTraceNewLine(ILogger?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Extensions/ILoggerExtensions.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  LogTraceNewLine(ILogger)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/ILoggerExtensions.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Calls <a class="xref" href="Songhay.Extensions.ILoggerExtensions.html#Songhay_Extensions_ILoggerExtensions_LogNewLine_Microsoft_Extensions_Logging_ILogger_Microsoft_Extensions_Logging_LogLevel_">LogNewLine(ILogger?, LogLevel)</a>
+  <div class="markdown level1 summary"><p>Calls <a class="xref" href="Songhay.Extensions.ILoggerExtensions.html#Songhay_Extensions_ILoggerExtensions_LogNewLine_Microsoft_Extensions_Logging_ILogger_Microsoft_Extensions_Logging_LogLevel_">LogNewLine(ILogger, LogLevel)</a>
 for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.loglevel#microsoft-extensions-logging-loglevel-trace">Trace</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void LogTraceNewLine(this ILogger? logger)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void LogTraceNewLine(this ILogger logger)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -421,7 +423,7 @@ for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.exten
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore/Extensions/ILoggerExtensions.cs/#L16" class="edit-link">Edit this page</a>
+          <a href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/ILoggerExtensions.cs/#L17" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -51,7 +51,17 @@ public static class IConfigurationExtensions
     /// This member will call <see cref="StringExtensions.ToConfigurationKey"/>
     /// to convert a console argument to <see cref="IConfiguration"/>-key format.
     /// </remarks>
-    public static string? GetCommandLineArgValue(this IConfiguration? configuration, string arg) => configuration?[arg.ToConfigurationKey()];
+    public static string? GetCommandLineArgValue(this IConfiguration? configuration, string arg)
+    {
+        const string argPrefix = "--";
+
+        string? value = configuration?[arg.ToConfigurationKey()];
+
+        if (!string.IsNullOrWhiteSpace(value) && value.Trim().StartsWith(argPrefix))
+            throw new ArgumentException($"The value of `{arg}` (`{value}`) looks like the next argument. Arguments cannot be passed without values. Microsoft does not support command-line switches.");
+
+        return value;
+    }
 
     /// <summary>
     /// Returns the value of the conventional <see cref="ConsoleArgsScalars.OutputFile"/> <c>arg</c>
@@ -144,7 +154,7 @@ public static class IConfigurationExtensions
     /// Determines whether <c>args</c> contain the conventional <see cref="ConsoleArgsScalars.DryRun"/> flag.
     /// </summary>
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
-    public static bool IsDryRun(this IConfiguration? configuration) => configuration.HasKey(ConsoleArgsScalars.DryRun);
+    public static bool IsDryRun(this IConfiguration? configuration) => ProgramTypeUtility.ParseBoolean(configuration.GetCommandLineArgValue(ConsoleArgsScalars.DryRun)) ?? false;
 
     /// <summary>
     /// Determines whether <c>args</c> contain the conventional <see cref="ConsoleArgsScalars.Help"/> flag.

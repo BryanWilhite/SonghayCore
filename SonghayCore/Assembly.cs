@@ -1,4 +1,3 @@
-global using Microsoft.Extensions.Configuration;
 global using System.Collections;
 global using System.Collections.ObjectModel;
 global using System.Collections.Specialized;
@@ -19,9 +18,13 @@ global using System.Xml.Linq;
 global using System.Xml.Serialization;
 global using System.Xml.XPath;
 global using System.Xml.Xsl;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.Extensions.Logging.Abstractions;
+global using Tavis.UriTemplates;
+
 global using Songhay.Abstractions;
 global using Songhay.Diagnostics;
 global using Songhay.Extensions;
 global using Songhay.Models;
 global using Songhay.Xml;
-global using Tavis.UriTemplates;

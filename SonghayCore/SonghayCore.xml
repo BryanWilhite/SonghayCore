@@ -1725,6 +1725,19 @@
             <param name="requestMethod">The request method.</param>
             <param name="contentType">The request content type.</param>
         </member>
+        <member name="T:Songhay.Extensions.IConfigurationBuilderExtensions">
+            <summary>
+            Extensions of <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationBuilderExtensions.AddConventionalJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)">
+            <summary>
+            Returns the specified <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>
+            after calling <see cref="M:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder,System.String)"/>
+            with the conventional environment variable, <c>SONGHAY_APP_SETTINGS_PATH</c>.
+            </summary>
+            <param name="configurationBuilder">the <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/></param>
+        </member>
         <member name="T:Songhay.Extensions.IConfigurationExtensions">
             <summary>
             Extensions of <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
@@ -2120,13 +2133,16 @@
             <param name="indent">The indent.</param>
         </member>
         <member name="T:Songhay.Extensions.ILoggerExtensions">
-            <summary>
-            Extensions of <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-            to assist with “structured logging.”
-            </summary>
-            <remarks>
-            For a video overview, see https://www.youtube.com/watch?v=NlBjVJPkT6M 🎥
-            </remarks>
+             <summary>
+             Extensions of <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+             to assist with “structured logging.”
+             </summary>
+             <remarks>
+             For a video overview of “structured logging,” see https://www.youtube.com/watch?v=NlBjVJPkT6M 🎥
+            
+             To prevent passing null instances of <see cref="T:Microsoft.Extensions.Logging.ILogger"/> into these methods,
+             use <see cref="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)"/>.
+             </remarks>
         </member>
         <member name="M:Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData(Microsoft.Extensions.Logging.ILogger,System.String)">
             <summary>
@@ -2214,10 +2230,316 @@
             <param name="data">The <see cref="T:Songhay.Abstractions.ITemporal"/> data.</param>
             <param name="endDate">Sets <see cref="P:Songhay.Abstractions.ITemporal.EndDate"/>.</param>
         </member>
+        <member name="T:Songhay.Extensions.JsonElementExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Text.Json.JsonElement"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.DisplayTopProperties(System.Text.Json.JsonElement,System.Int32)">
+            <summary>
+            Displays top-level <see cref="T:System.Text.Json.JsonElement"/> properties
+            without recursion.
+            </summary>
+            <param name="element">the <see cref="T:System.Text.Json.JsonElement"/></param>
+            <param name="truncationLength">the number of characters to display for each property</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.GetJsonPropertyOrNull(System.Nullable{System.Text.Json.JsonElement},System.String)">
+            <summary>
+            Tries to return the <see cref="T:System.Text.Json.JsonElement" /> property
+            of the specified <see cref="T:System.Text.Json.JsonElement" /> object.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+            <param name="elementName">The <see cref="T:System.Text.Json.JsonElement" /> name.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.GetJsonPropertyOrNull(System.Text.Json.JsonElement,System.String)">
+            <summary>
+            Tries to return the <see cref="T:System.Text.Json.JsonElement" /> property
+            of the specified <see cref="T:System.Text.Json.JsonElement" /> object.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+            <param name="elementName">The <see cref="T:System.Text.Json.JsonElement" /> name.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.HasProperty(System.Nullable{System.Text.Json.JsonElement},System.String)">
+            <summary>
+            Returns <c>false</c> when the specified property name does not exist.
+            </summary>
+            <param name="elementOrNull">the <see cref="T:System.Text.Json.JsonElement"/></param>
+            <param name="propertyName">the property name</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.HasProperty(System.Text.Json.JsonElement,System.String)">
+            <summary>
+            Returns <c>false</c> when the specified property name does not exist.
+            </summary>
+            <param name="element">the <see cref="T:System.Text.Json.JsonElement"/></param>
+            <param name="propertyName">the property name</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.IsExpectedObject(System.Nullable{System.Text.Json.JsonElement},Microsoft.Extensions.Logging.ILogger,System.String[])">
+            <summary>
+            Determines whether the specified <see cref="T:System.Text.Json.JsonElement"/>
+            has the expected properties.
+            </summary>
+            <param name="elementOrNull">The node.</param>
+            <param name="logger">The logger.</param>
+            <param name="properties">The properties.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.IsExpectedObject(System.Text.Json.JsonElement,Microsoft.Extensions.Logging.ILogger,System.String[])">
+            <summary>
+            Determines whether the specified <see cref="T:System.Text.Json.JsonElement"/>
+            has the expected properties.
+            </summary>
+            <param name="element">The node.</param>
+            <param name="logger">The logger.</param>
+            <param name="properties">The properties.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToBoolean(System.Nullable{System.Text.Json.JsonElement},System.Boolean)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+            <param name="supportBitStrings">When <c>true</c>, support "1" and "0" as Boolean strings.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToBoolean(System.Text.Json.JsonElement,System.Boolean)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+            <param name="supportBitStrings">When <c>true</c>, support "1" and "0" as Boolean strings.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToByte(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Byte"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToByte(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Byte"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToDateTime(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToDateTime(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToDecimal(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToDecimal(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Decimal"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToDouble(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToDouble(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Double"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToGuid(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Guid"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToGuid(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Guid"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToInt(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToInt(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToJsonElementArray(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Enumerates the specified <see cref="T:System.Text.Json.JsonElement" /> array
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToJsonElementArray(System.Text.Json.JsonElement)">
+            <summary>
+            Enumerates the specified <see cref="T:System.Text.Json.JsonElement" /> array
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToLong(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToLong(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement"/>
+            to <c>TObject</c>.
+            </summary>
+            <param name="elementOrNull">the specified <see cref="T:System.Text.Json.JsonElement"/></param>
+            <typeparam name="TObject">the type to convert to</typeparam>
+            <remarks>
+            To return value types, use <see cref="M:Songhay.Extensions.JsonElementExtensions.ToScalarValue``1(System.Nullable{System.Text.Json.JsonElement})"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement"/>
+            to <c>TObject</c>.
+            </summary>
+            <param name="element">the specified <see cref="T:System.Text.Json.JsonElement"/></param>
+            <typeparam name="TObject">the type to convert to</typeparam>
+            <remarks>
+            To return value types, use <see cref="M:Songhay.Extensions.JsonElementExtensions.ToScalarValue``1(System.Text.Json.JsonElement)"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToReadOnlyCollection(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> array
+            into a collection of string values.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToReadOnlyCollection(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> array
+            into a collection of string values.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToReadOnlyCollection``1(System.Nullable{System.Text.Json.JsonElement},System.Func{System.Text.Json.JsonElement,``0})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> array
+            into a collection of type <c>T</c>
+            with the specified converter.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+            <param name="converter">the specified converter</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToReadOnlyCollection``1(System.Text.Json.JsonElement,System.Func{System.Text.Json.JsonElement,``0})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> array
+            into a collection of type <c>T</c>
+            with the specified converter.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+            <param name="converter">the specified converter</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToStringValue(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.String"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToStringValue(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.String"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToScalarValue``1(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.String"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+            <remarks>
+            To de-serialize a class, use <see cref="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Nullable{System.Text.Json.JsonElement})"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToScalarValue``1(System.Text.Json.JsonElement)">
+             <summary>
+             Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.String"/>.
+             </summary>
+             <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+             <remarks>
+             To de-serialize a class, use <see cref="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Text.Json.JsonElement)"/>.
+            
+             BTW: I am 98% certain that Microsoft did not design generics to be used with object boxing
+             which kind of defeats the fundamental purpose of generics, their use with generic collections.
+             For higher performance, use methods like <see cref="M:Songhay.Extensions.JsonElementExtensions.ToBoolean(System.Nullable{System.Text.Json.JsonElement},System.Boolean)"/>
+             or <see cref="M:Songhay.Extensions.JsonElementExtensions.ToDecimal(System.Text.Json.JsonElement)"/> instead.
+             </remarks>
+        </member>
         <member name="T:Songhay.Extensions.JsonNodeExtensions">
             <summary>
             Extensions of <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
             </summary>
+            <remarks>
+            To prevent passing null instances of <see cref="T:Microsoft.Extensions.Logging.ILogger"/> into these methods,
+            use <see cref="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)">
+            <summary>
+            Displays top-level <see cref="T:System.Text.Json.Nodes.JsonObject"/> properties
+            without recursion.
+            </summary>
+            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="truncationLength">the number of characters to display for each property</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
+            <summary>
+            Gets the <see cref="T:System.Text.Json.Nodes.JsonValue"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            of <see cref="F:System.Text.Json.JsonValueKind.Array" />
+            or defaults to null.
+            </summary>
+            <param name="node">The <see cref="T:System.Text.Json.Nodes.JsonNode"/>.</param>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
+            <summary>
+            Gets the <see cref="T:System.Text.Json.Nodes.JsonValue"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            of <see cref="F:System.Text.Json.JsonValueKind.Object" />
+            or defaults to null.
+            </summary>
+            <param name="node">The <see cref="T:System.Text.Json.Nodes.JsonNode"/>.</param>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
+            <summary>
+            Gets the <see cref="T:System.Text.Json.Nodes.JsonValue"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            or defaults to null.
+            </summary>
+            <param name="node">The <see cref="T:System.Text.Json.Nodes.JsonNode"/>.</param>
+            <param name="propertyName">Name of the property.</param>
+            <remarks>
+            This member will return <c>null</c> when the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            is not of:
+            * <see cref="F:System.Text.Json.JsonValueKind.String" />
+            * <see cref="F:System.Text.Json.JsonValueKind.Number" />
+            * <see cref="F:System.Text.Json.JsonValueKind.True" />
+            * <see cref="F:System.Text.Json.JsonValueKind.False" />
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyValue``1(System.Text.Json.Nodes.JsonNode,System.String)">
             <summary>
@@ -2226,7 +2548,6 @@
             <typeparam name="T"></typeparam>
             <param name="node">The node.</param>
             <param name="propertyName">Name of the property.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetJsonValueKind(System.Text.Json.Nodes.JsonNode)">
             <summary>
@@ -2236,6 +2557,13 @@
             <remarks>
             This member is needed for .NET 6.0 and earlier.
             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.HasProperty(System.Text.Json.Nodes.JsonNode,System.String)">
+            <summary>
+            Returns <c>false</c> when the specified property name does not exist.
+            </summary>
+            <param name="node">the <see cref="T:System.Text.Json.Nodes.JsonNode"/></param>
+            <param name="propertyName">the property name</param>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.IsExpectedObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger,System.String[])">
             <summary>
@@ -2262,7 +2590,51 @@
             </summary>
             <param name="node">The node.</param>
             <param name="logger">The logger.</param>
-            <returns></returns>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Removes the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            when its parent is <see cref="T:System.Text.Json.Nodes.JsonArray"/> or <see cref="T:System.Text.Json.Nodes.JsonObject"/>.
+            </summary>
+            <param name="node">the <see cref="T:System.Text.Json.Nodes.JsonNode"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Removes the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            when its parent is <see cref="T:System.Text.Json.Nodes.JsonArray"/> or <see cref="T:System.Text.Json.Nodes.JsonObject"/>.
+            </summary>
+            <param name="node">the <see cref="T:System.Text.Json.Nodes.JsonNode"/></param>
+            <param name="propertyName">the name of the property when the specified node is <see cref="F:System.Text.Json.JsonValueKind.Object"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Removes the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            when its parent is <see cref="T:System.Text.Json.Nodes.JsonArray"/> or <see cref="T:System.Text.Json.Nodes.JsonObject"/>.
+            </summary>
+            <param name="node">the <see cref="T:System.Text.Json.Nodes.JsonNode"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Removes the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            with the specified property name
+            when the node is <see cref="T:System.Text.Json.Nodes.JsonObject"/>
+            or <see cref="T:System.Text.Json.Nodes.JsonArray"/> (array of <see cref="T:System.Text.Json.Nodes.JsonObject"/> with a property to remove).
+            </summary>
+            <param name="node">the <see cref="T:System.Text.Json.Nodes.JsonNode"/></param>
+            <param name="propertyName">the name of the property when the specified node is <see cref="F:System.Text.Json.JsonValueKind.Object"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject,Microsoft.Extensions.Logging.ILogger,System.ValueTuple{System.String,System.String}[])">
+            <summary>
+            Returns the specified <see cref="T:System.Text.Json.Nodes.JsonObject"/>
+            with its properties renamed.
+            </summary>
+            <param name="documentData">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+            <param name="operations">specifies which <see cref="T:System.Text.Json.Nodes.JsonObject"/> properties to rename</param>
         </member>
         <member name="T:Songhay.Extensions.MenuDisplayItemModelExtensions">
             <summary>
@@ -2442,6 +2814,15 @@
             Extensions of <see cref="T:Songhay.Models.ProgramMetadata"/>.
             </summary>
         </member>
+        <member name="M:Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata(Songhay.Models.ProgramMetadata)">
+            <summary>
+            Ensures that <see cref="P:Songhay.Models.ProgramMetadata.DbmsSet"/>
+            and <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/>
+            are not null or throws <see cref="T:System.NullReferenceException"/>
+            </summary>
+            <param name="meta">The <see cref="T:Songhay.Models.ProgramMetadata"/>.</param>
+            <exception cref="T:System.NullReferenceException"></exception>
+        </member>
         <member name="M:Songhay.Extensions.ProgramMetadataExtensions.ToConventionalHeaders(Songhay.Models.ProgramMetadata,System.String)">
             <summary>
             Converts <see cref="T:Songhay.Models.ProgramMetadata" />
@@ -2449,6 +2830,15 @@
             </summary>
             <param name="meta">The <see cref="T:Songhay.Models.ProgramMetadata"/>.</param>
             <param name="restApiMetadataSetKey">The key for <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/>.</param>
+        </member>
+        <member name="M:Songhay.Extensions.ProgramMetadataExtensions.ToRestApiMetadata(Songhay.Models.ProgramMetadata,System.String)">
+            <summary>
+            Converts <see cref="T:Songhay.Models.ProgramMetadata" />
+            to the <see cref="T:Songhay.Models.RestApiMetadata"/>
+            it contains, identified by the specified key.
+            </summary>
+            <param name="meta">The <see cref="T:Songhay.Models.ProgramMetadata"/>.</param>
+            <param name="restApiMetadataSetKey">the key of <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/></param>
         </member>
         <member name="T:Songhay.Extensions.RestApiMetadataExtensions">
             <summary>
@@ -3532,6 +3922,49 @@
             Triggered when the application host is performing a graceful shutdown.
             </summary>
             <param name="cancellationToken">Indicates that the shutdown process should no longer be graceful.</param>
+        </member>
+        <member name="T:Songhay.ILoggerUtility">
+            <summary>
+            Centralized routines for <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            When the specified <see cref="T:Microsoft.Extensions.Logging.ILogger"/> is null,
+            fallback to Microsoft’s <see cref="T:Microsoft.Extensions.Logging.Abstractions.NullLogger"/>.
+            </summary>
+            <param name="logger">the specified <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger``1(Microsoft.Extensions.Logging.ILogger{``0})">
+            <summary>
+            When the specified <see cref="T:Microsoft.Extensions.Logging.ILogger`1"/> is null,
+            fallback to Microsoft’s <see cref="T:Microsoft.Extensions.Logging.Abstractions.NullLogger`1"/>.
+            </summary>
+            <typeparam name="TCategory">logging category by type</typeparam>
+            <param name="logger">the specified <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="T:Songhay.JsonNodeUtility">
+            <summary>
+            Shared routines for <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.JsonNodeUtility.ConvertToJsonNode(System.Object)">
+            <summary>
+            Converts the specified <see cref="T:System.Object"/>
+            to a <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </summary>
+            <param name="data">any <see cref="T:System.Object"/></param>
+            <remarks>
+            The primary inspiration for this member is
+            to transform an anonymous object to a <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.JsonNodeUtility.ParseJsonObject(System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            A wrapper for <see cref="M:System.Text.Json.Nodes.JsonNode.Parse(System.IO.Stream,System.Nullable{System.Text.Json.Nodes.JsonNodeOptions},System.Text.Json.JsonDocumentOptions)"/>
+            </summary>
+            <param name="json">the JSON to parse</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="T:Songhay.MathUtility">
             <summary>

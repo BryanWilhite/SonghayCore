@@ -3,33 +3,71 @@ using Songhay.Tests.Extensions;
 
 namespace Songhay.Tests;
 
-/// <summary>File-based data source for a data theory.</summary>
-public class ProjectFileDataAttribute : DataAttribute
+/// <summary>
+/// Defines a custom <see cref="DataAttribute"/>
+/// for loading <see cref="FileInfo"/> test-method arguments.
+/// </summary>
+public partial class ProjectFileDataAttribute : DataAttribute
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ProjectFileDataAttribute"/> class.
     /// </summary>
-    /// <param name="typeInAssembly">The type in assembly.</param>
-    /// <param name="relativePaths">The relative paths.</param>
-    public ProjectFileDataAttribute(Type typeInAssembly, params string[] relativePaths)
+    /// <param name="relativePaths">The relative paths, mapping to <see cref="FileInfo"/> test-method arguments.</param>
+    /// <remarks>
+    /// Each relative path maps to a <see cref="FileInfo"/> argument that must be specified in the test method.
+    /// Each path is relative to assembly location of the <c>typeInAssembly</c>.
+    /// For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
+    /// </remarks>
+    public ProjectFileDataAttribute(params string[] relativePaths) : this(null, [], relativePaths)
     {
-        _typeInAssembly = typeInAssembly;
-        _inlineData = Enumerable.Empty<object>().ToArray();
-        _relativePaths = relativePaths;
-        _numbersOfDirectoryLevels = relativePaths.Select(GetNumberOfDirectoryLevels).ToArray();
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ProjectFileDataAttribute" /> class.
+    /// </summary>
+    /// <param name="inlineData">The inline data of <see cref="InlineDataAttribute"/> conventions.</param>
+    /// <param name="relativePaths">The relative paths, mapping to <see cref="FileInfo"/> test-method arguments.</param>
+    /// <remarks>
+    /// Each relative path maps to a <see cref="FileInfo"/> argument that must be specified in the test method.
+    /// Each path is relative to assembly location of the <c>typeInAssembly</c>.
+    /// For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
+    ///
+    /// The order of elements in <c>inlineData</c> must have the order of args.
+    /// So <c>new object[] { 1, "two" }</c> must have <c>int one, string two,</c>.
+    /// </remarks>
+    public ProjectFileDataAttribute(object[] inlineData, params string[] relativePaths) : this(null, inlineData, relativePaths)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ProjectFileDataAttribute"/> class.
+    /// </summary>
+    /// <param name="typeInAssembly">The type in assembly.</param>
+    /// <param name="relativePaths">The relative paths, mapping to <see cref="FileInfo"/> test-method arguments.</param>
+    /// <remarks>
+    /// Each relative path maps to a <see cref="FileInfo"/> argument that must be specified in the test method.
+    /// Each path is relative to assembly location of the <c>typeInAssembly</c>.
+    /// For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
+    /// </remarks>
+    public ProjectFileDataAttribute(Type? typeInAssembly, params string[] relativePaths) : this(typeInAssembly, [], relativePaths)
+    {
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ProjectFileDataAttribute" /> class.
     /// </summary>
     /// <param name="typeInAssembly">The type in assembly.</param>
-    /// <param name="inlineData">The inline data.</param>
-    /// <param name="relativePaths">The relative paths.</param>
+    /// <param name="inlineData">The inline data of <see cref="InlineDataAttribute"/> conventions.</param>
+    /// <param name="relativePaths">The relative paths, mapping to <see cref="FileInfo"/> test-method arguments.</param>
     /// <remarks>
+    /// Each relative path maps to a <see cref="FileInfo"/> argument that must be specified in the test method.
+    /// Each path is relative to assembly location of the <c>typeInAssembly</c>.
+    /// For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
+    ///
     /// The order of elements in <c>inlineData</c> must have the order of args.
     /// So <c>new object[] { 1, "two" }</c> must have <c>int one, string two,</c>.
     /// </remarks>
-    public ProjectFileDataAttribute(Type typeInAssembly, object[] inlineData, params string[] relativePaths)
+    public ProjectFileDataAttribute(Type? typeInAssembly, object[] inlineData, params string[] relativePaths)
     {
         _typeInAssembly = typeInAssembly;
         _inlineData = inlineData;
@@ -47,44 +85,51 @@ public class ProjectFileDataAttribute : DataAttribute
         var data = new List<object>();
 
         data.AddRange(GetInlineData());
-        data.AddRange(GetDataForFiles());
+        data.AddRange(GetDataForFiles(testMethod));
 
-        return new[] { data.ToArray() };
+        return [data.ToArray()];
     }
 
-    IEnumerable<object> GetDataForFiles()
+    private object[] GetDataForFiles(MethodInfo testMethod)
     {
-        if (!_relativePaths.Any()) return Enumerable.Empty<object>().ToArray();
+        if (_relativePaths.Length == 0) return [];
 
         var pairs = _relativePaths.Zip(_numbersOfDirectoryLevels, (path, levels) => new KeyValuePair<string, int>(path, levels));
 
         var infos = pairs.Select(pair =>
         {
-            var projectDirectoryInfo = this.GetAssemblyParentDirectoryInfo(_typeInAssembly, pair.Value);
-            var file = projectDirectoryInfo.ToCombinedPath(pair.Key)
+            _typeInAssembly ??= testMethod.DeclaringType.ToReferenceTypeValueOrThrow();
+
+            DirectoryInfo projectDirectoryInfo = this.GetAssemblyParentDirectoryInfo(_typeInAssembly, pair.Value);
+            string file = projectDirectoryInfo.ToCombinedPath(pair.Key)
                     .Replace("../", string.Empty)
                     .Replace(@"..\", string.Empty)
                     .Replace("./", string.Empty)
                     .Replace(@".\", string.Empty)
                 ;
+
             return new FileInfo(file);
         });
 
         return infos.OfType<object>().ToArray();
     }
 
-    IEnumerable<object> GetInlineData() => !_inlineData.Any() ? Enumerable.Empty<object>().ToArray() : _inlineData;
+    private object[] GetInlineData() => _inlineData.Length == 0 ? [] : _inlineData;
 
-    static int GetNumberOfDirectoryLevels(string path)
+    private static int GetNumberOfDirectoryLevels(string path)
     {
         if (string.IsNullOrWhiteSpace(path)) return 0;
-        var matches = Regex.Matches(path, @"\.\./|\.\.\\");
+
+        MatchCollection matches = DirectoryLevelsRegex().Matches(path);
 
         return matches.Count;
     }
 
-    readonly Type _typeInAssembly;
-    readonly object[] _inlineData;
-    readonly string[] _relativePaths;
-    readonly int[] _numbersOfDirectoryLevels;
+    private Type? _typeInAssembly;
+    private readonly object[] _inlineData;
+    private readonly string[] _relativePaths;
+    private readonly int[] _numbersOfDirectoryLevels;
+
+    [GeneratedRegex(@"\.\./|\.\.\\")]
+    private static partial Regex DirectoryLevelsRegex();
 }

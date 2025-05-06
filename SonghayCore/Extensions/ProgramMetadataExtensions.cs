@@ -8,6 +8,24 @@ namespace Songhay.Extensions;
 public static class ProgramMetadataExtensions
 {
     /// <summary>
+    /// Ensures that <see cref="ProgramMetadata.DbmsSet"/>
+    /// and <see cref="ProgramMetadata.RestApiMetadataSet"/>
+    /// are not null or throws <see cref="NullReferenceException"/>
+    /// </summary>
+    /// <param name="meta">The <see cref="ProgramMetadata"/>.</param>
+    /// <exception cref="NullReferenceException"></exception>
+    public static void EnsureProgramMetadata([NotNull] this ProgramMetadata? meta)
+    {
+        ArgumentNullException.ThrowIfNull(meta);
+
+        if (meta.DbmsSet == null)
+            throw new NullReferenceException($"The expected {nameof(ProgramMetadata.DbmsSet)} is not here.");
+
+        if (meta.RestApiMetadataSet == null)
+            throw new NullReferenceException($"The expected {nameof(ProgramMetadata.RestApiMetadataSet)} is not here.");
+    }
+
+    /// <summary>
     /// Converts <see cref="ProgramMetadata" />
     /// to the conventional <see cref="HttpRequestHeaders"/>.
     /// </summary>
@@ -32,5 +50,27 @@ public static class ProgramMetadataExtensions
         };
 
         return headers;
+    }
+
+    /// <summary>
+    /// Converts <see cref="ProgramMetadata" />
+    /// to the <see cref="RestApiMetadata"/>
+    /// it contains, identified by the specified key.
+    /// </summary>
+    /// <param name="meta">The <see cref="ProgramMetadata"/>.</param>
+    /// <param name="restApiMetadataSetKey">the key of <see cref="ProgramMetadata.RestApiMetadataSet"/></param>
+    public static RestApiMetadata ToRestApiMetadata(this ProgramMetadata? meta, string? restApiMetadataSetKey)
+    {
+        ArgumentNullException.ThrowIfNull(meta);
+
+        if (string.IsNullOrWhiteSpace(restApiMetadataSetKey))
+            throw new ArgumentNullException(nameof(restApiMetadataSetKey));
+
+        RestApiMetadata restApiMetadata = meta
+            .RestApiMetadataSet
+            .TryGetValueWithKey(restApiMetadataSetKey, throwException: true)
+            .ToReferenceTypeValueOrThrow();
+
+        return restApiMetadata;
     }
 }

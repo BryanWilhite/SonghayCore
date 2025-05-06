@@ -5,11 +5,21 @@ items:
   id: JsonNodeExtensions
   parent: Songhay.Extensions
   children:
+  - Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)
   - Songhay.Extensions.JsonNodeExtensions.GetJsonValueKind(System.Text.Json.Nodes.JsonNode)
+  - Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  - Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  - Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)
   - Songhay.Extensions.JsonNodeExtensions.GetPropertyValue``1(System.Text.Json.Nodes.JsonNode,System.String)
+  - Songhay.Extensions.JsonNodeExtensions.HasProperty(System.Text.Json.Nodes.JsonNode,System.String)
   - Songhay.Extensions.JsonNodeExtensions.IsExpectedObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger,System.String[])
+  - Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)
+  - Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)
+  - Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)
+  - Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)
   - Songhay.Extensions.JsonNodeExtensions.ToJsonArray(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)
   - Songhay.Extensions.JsonNodeExtensions.ToJsonObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)
+  - Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject,Microsoft.Extensions.Logging.ILogger,System.ValueTuple{System.String,System.String}[])
   langs:
   - csharp
   - vb
@@ -20,15 +30,19 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: JsonNodeExtensions
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 8
+    startLine: 11
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: Extensions of <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    To prevent passing null instances of <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref> into these methods,
+
+    use <xref href="Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public static class JsonNodeExtensions
@@ -43,6 +57,198 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)
+  commentId: M:Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)
+  id: DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.JsonNodeExtensions
+  langs:
+  - csharp
+  - vb
+  name: DisplayTopProperties(JsonObject?, int)
+  nameWithType: JsonNodeExtensions.DisplayTopProperties(JsonObject?, int)
+  fullName: Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject?, int)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/JsonNodeExtensions.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DisplayTopProperties
+    path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
+    startLine: 20
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Displays top-level <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref> properties
+
+    without recursion.
+  example: []
+  syntax:
+    content: public static string DisplayTopProperties(this JsonObject? jObject, int truncationLength = 16)
+    parameters:
+    - id: jObject
+      type: System.Text.Json.Nodes.JsonObject
+      description: the <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref>
+    - id: truncationLength
+      type: System.Int32
+      description: the number of characters to display for each property
+    return:
+      type: System.String
+    content.vb: Public Shared Function DisplayTopProperties(jObject As JsonObject, truncationLength As Integer = 16) As String
+  overload: Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties*
+  nameWithType.vb: JsonNodeExtensions.DisplayTopProperties(JsonObject, Integer)
+  fullName.vb: Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject, Integer)
+  name.vb: DisplayTopProperties(JsonObject, Integer)
+- uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  commentId: M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  id: GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.JsonNodeExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyJsonArrayOrNull(JsonNode?, string)
+  nameWithType: JsonNodeExtensions.GetPropertyJsonArrayOrNull(JsonNode?, string)
+  fullName: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode?, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/JsonNodeExtensions.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetPropertyJsonArrayOrNull
+    path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
+    startLine: 63
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Gets the <xref href="System.Text.Json.Nodes.JsonValue" data-throw-if-not-resolved="false"></xref> of the specified <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+
+    of <xref href="System.Text.Json.JsonValueKind.Array" data-throw-if-not-resolved="false"></xref>
+
+    or defaults to null.
+  example: []
+  syntax:
+    content: public static JsonArray? GetPropertyJsonArrayOrNull(this JsonNode? node, string propertyName)
+    parameters:
+    - id: node
+      type: System.Text.Json.Nodes.JsonNode
+      description: The <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>.
+    - id: propertyName
+      type: System.String
+      description: Name of the property.
+    return:
+      type: System.Text.Json.Nodes.JsonArray
+    content.vb: Public Shared Function GetPropertyJsonArrayOrNull(node As JsonNode, propertyName As String) As JsonArray
+  overload: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull*
+  nameWithType.vb: JsonNodeExtensions.GetPropertyJsonArrayOrNull(JsonNode, String)
+  fullName.vb: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode, String)
+  name.vb: GetPropertyJsonArrayOrNull(JsonNode, String)
+- uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  commentId: M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  id: GetPropertyJsonObjectOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.JsonNodeExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyJsonObjectOrNull(JsonNode?, string)
+  nameWithType: JsonNodeExtensions.GetPropertyJsonObjectOrNull(JsonNode?, string)
+  fullName: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull(System.Text.Json.Nodes.JsonNode?, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/JsonNodeExtensions.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetPropertyJsonObjectOrNull
+    path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
+    startLine: 80
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Gets the <xref href="System.Text.Json.Nodes.JsonValue" data-throw-if-not-resolved="false"></xref> of the specified <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+
+    of <xref href="System.Text.Json.JsonValueKind.Object" data-throw-if-not-resolved="false"></xref>
+
+    or defaults to null.
+  example: []
+  syntax:
+    content: public static JsonObject? GetPropertyJsonObjectOrNull(this JsonNode? node, string propertyName)
+    parameters:
+    - id: node
+      type: System.Text.Json.Nodes.JsonNode
+      description: The <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>.
+    - id: propertyName
+      type: System.String
+      description: Name of the property.
+    return:
+      type: System.Text.Json.Nodes.JsonObject
+    content.vb: Public Shared Function GetPropertyJsonObjectOrNull(node As JsonNode, propertyName As String) As JsonObject
+  overload: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull*
+  nameWithType.vb: JsonNodeExtensions.GetPropertyJsonObjectOrNull(JsonNode, String)
+  fullName.vb: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull(System.Text.Json.Nodes.JsonNode, String)
+  name.vb: GetPropertyJsonObjectOrNull(JsonNode, String)
+- uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  commentId: M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  id: GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.JsonNodeExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyJsonValueOrNull(JsonNode?, string)
+  nameWithType: JsonNodeExtensions.GetPropertyJsonValueOrNull(JsonNode?, string)
+  fullName: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode?, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/JsonNodeExtensions.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetPropertyJsonValueOrNull
+    path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
+    startLine: 104
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Gets the <xref href="System.Text.Json.Nodes.JsonValue" data-throw-if-not-resolved="false"></xref> of the specified <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+
+    or defaults to null.
+  remarks: >-
+    This member will return <code>null</code> when the specified <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+
+    is not of:
+
+    * <xref href="System.Text.Json.JsonValueKind.String" data-throw-if-not-resolved="false"></xref>
+
+    * <xref href="System.Text.Json.JsonValueKind.Number" data-throw-if-not-resolved="false"></xref>
+
+    * <xref href="System.Text.Json.JsonValueKind.True" data-throw-if-not-resolved="false"></xref>
+
+    * <xref href="System.Text.Json.JsonValueKind.False" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static JsonValue? GetPropertyJsonValueOrNull(this JsonNode? node, string propertyName)
+    parameters:
+    - id: node
+      type: System.Text.Json.Nodes.JsonNode
+      description: The <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>.
+    - id: propertyName
+      type: System.String
+      description: Name of the property.
+    return:
+      type: System.Text.Json.Nodes.JsonValue
+    content.vb: Public Shared Function GetPropertyJsonValueOrNull(node As JsonNode, propertyName As String) As JsonValue
+  overload: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull*
+  nameWithType.vb: JsonNodeExtensions.GetPropertyJsonValueOrNull(JsonNode, String)
+  fullName.vb: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode, String)
+  name.vb: GetPropertyJsonValueOrNull(JsonNode, String)
 - uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyValue``1(System.Text.Json.Nodes.JsonNode,System.String)
   commentId: M:Songhay.Extensions.JsonNodeExtensions.GetPropertyValue``1(System.Text.Json.Nodes.JsonNode,System.String)
   id: GetPropertyValue``1(System.Text.Json.Nodes.JsonNode,System.String)
@@ -58,18 +264,21 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetPropertyValue
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 18
+    startLine: 120
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: Gets the property value of the specified <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public static (T? value, bool success) GetPropertyValue<T>(this JsonNode? node, string propertyName)
+    content: >-
+      [Obsolete("Use `GetPropertyJsonArrayOrNull`, `GetPropertyJsonObjectOrNull` or `GetPropertyJsonValueOrNull` instead.")]
+
+      public static (T? value, bool success) GetPropertyValue<T>(this JsonNode? node, string propertyName)
     parameters:
     - id: node
       type: System.Text.Json.Nodes.JsonNode
@@ -82,9 +291,17 @@ items:
       description: ''
     return:
       type: System.ValueTuple{{T},System.Boolean}
-      description: ''
-    content.vb: Public Shared Function GetPropertyValue(Of T)(node As JsonNode, propertyName As String) As (value As T, success As Boolean)
+    content.vb: >-
+      <Obsolete("Use `GetPropertyJsonArrayOrNull`, `GetPropertyJsonObjectOrNull` or `GetPropertyJsonValueOrNull` instead.")>
+
+      Public Shared Function GetPropertyValue(Of T)(node As JsonNode, propertyName As String) As (value As T, success As Boolean)
   overload: Songhay.Extensions.JsonNodeExtensions.GetPropertyValue*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use `GetPropertyJsonArrayOrNull`, `GetPropertyJsonObjectOrNull` or `GetPropertyJsonValueOrNull` instead.
   nameWithType.vb: JsonNodeExtensions.GetPropertyValue(Of T)(JsonNode, String)
   fullName.vb: Songhay.Extensions.JsonNodeExtensions.GetPropertyValue(Of T)(System.Text.Json.Nodes.JsonNode, String)
   name.vb: GetPropertyValue(Of T)(JsonNode, String)
@@ -103,11 +320,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetJsonValueKind
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 40
+    startLine: 143
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -115,18 +332,71 @@ items:
   remarks: This member is needed for .NET 6.0 and earlier.
   example: []
   syntax:
-    content: public static JsonValueKind GetJsonValueKind(this JsonNode? node)
+    content: >-
+      [Obsolete("For .NET 8 and beyond use `JsonNode.GetValueKind()` instead.")]
+
+      public static JsonValueKind GetJsonValueKind(this JsonNode? node)
     parameters:
     - id: node
       type: System.Text.Json.Nodes.JsonNode
       description: The node.
     return:
       type: System.Text.Json.JsonValueKind
-    content.vb: Public Shared Function GetJsonValueKind(node As JsonNode) As JsonValueKind
+    content.vb: >-
+      <Obsolete("For .NET 8 and beyond use `JsonNode.GetValueKind()` instead.")>
+
+      Public Shared Function GetJsonValueKind(node As JsonNode) As JsonValueKind
   overload: Songhay.Extensions.JsonNodeExtensions.GetJsonValueKind*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: For .NET 8 and beyond use `JsonNode.GetValueKind()` instead.
   nameWithType.vb: JsonNodeExtensions.GetJsonValueKind(JsonNode)
   fullName.vb: Songhay.Extensions.JsonNodeExtensions.GetJsonValueKind(System.Text.Json.Nodes.JsonNode)
   name.vb: GetJsonValueKind(JsonNode)
+- uid: Songhay.Extensions.JsonNodeExtensions.HasProperty(System.Text.Json.Nodes.JsonNode,System.String)
+  commentId: M:Songhay.Extensions.JsonNodeExtensions.HasProperty(System.Text.Json.Nodes.JsonNode,System.String)
+  id: HasProperty(System.Text.Json.Nodes.JsonNode,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.JsonNodeExtensions
+  langs:
+  - csharp
+  - vb
+  name: HasProperty(JsonNode?, string?)
+  nameWithType: JsonNodeExtensions.HasProperty(JsonNode?, string?)
+  fullName: Songhay.Extensions.JsonNodeExtensions.HasProperty(System.Text.Json.Nodes.JsonNode?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/JsonNodeExtensions.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HasProperty
+    path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
+    startLine: 160
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Returns <code>false</code> when the specified property name does not exist.
+  example: []
+  syntax:
+    content: public static bool HasProperty(this JsonNode? node, string? propertyName)
+    parameters:
+    - id: node
+      type: System.Text.Json.Nodes.JsonNode
+      description: the <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+    - id: propertyName
+      type: System.String
+      description: the property name
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function HasProperty(node As JsonNode, propertyName As String) As Boolean
+  overload: Songhay.Extensions.JsonNodeExtensions.HasProperty*
+  nameWithType.vb: JsonNodeExtensions.HasProperty(JsonNode, String)
+  fullName.vb: Songhay.Extensions.JsonNodeExtensions.HasProperty(System.Text.Json.Nodes.JsonNode, String)
+  name.vb: HasProperty(JsonNode, String)
 - uid: Songhay.Extensions.JsonNodeExtensions.IsExpectedObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger,System.String[])
   commentId: M:Songhay.Extensions.JsonNodeExtensions.IsExpectedObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger,System.String[])
   id: IsExpectedObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger,System.String[])
@@ -135,18 +405,18 @@ items:
   langs:
   - csharp
   - vb
-  name: IsExpectedObject(JsonNode?, ILogger?, params string[])
-  nameWithType: JsonNodeExtensions.IsExpectedObject(JsonNode?, ILogger?, params string[])
-  fullName: Songhay.Extensions.JsonNodeExtensions.IsExpectedObject(System.Text.Json.Nodes.JsonNode?, Microsoft.Extensions.Logging.ILogger?, params string[])
+  name: IsExpectedObject(JsonNode?, ILogger, params string[])
+  nameWithType: JsonNodeExtensions.IsExpectedObject(JsonNode?, ILogger, params string[])
+  fullName: Songhay.Extensions.JsonNodeExtensions.IsExpectedObject(System.Text.Json.Nodes.JsonNode?, Microsoft.Extensions.Logging.ILogger, params string[])
   type: Method
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: IsExpectedObject
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 58
+    startLine: 175
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -156,7 +426,7 @@ items:
     is the expected <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public static bool IsExpectedObject(this JsonNode? node, ILogger? logger, params string[] properties)
+    content: public static bool IsExpectedObject(this JsonNode? node, ILogger logger, params string[] properties)
     parameters:
     - id: node
       type: System.Text.Json.Nodes.JsonNode
@@ -182,18 +452,18 @@ items:
   langs:
   - csharp
   - vb
-  name: ToJsonArray(JsonNode?, ILogger?)
-  nameWithType: JsonNodeExtensions.ToJsonArray(JsonNode?, ILogger?)
-  fullName: Songhay.Extensions.JsonNodeExtensions.ToJsonArray(System.Text.Json.Nodes.JsonNode?, Microsoft.Extensions.Logging.ILogger?)
+  name: ToJsonArray(JsonNode?, ILogger)
+  nameWithType: JsonNodeExtensions.ToJsonArray(JsonNode?, ILogger)
+  fullName: Songhay.Extensions.JsonNodeExtensions.ToJsonArray(System.Text.Json.Nodes.JsonNode?, Microsoft.Extensions.Logging.ILogger)
   type: Method
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToJsonArray
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 93
+    startLine: 210
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -203,7 +473,7 @@ items:
     to <xref href="System.Text.Json.Nodes.JsonArray" data-throw-if-not-resolved="false"></xref> or logs failure and returns <code>null</code>.
   example: []
   syntax:
-    content: public static JsonArray? ToJsonArray(this JsonNode? node, ILogger? logger)
+    content: public static JsonArray? ToJsonArray(this JsonNode? node, ILogger logger)
     parameters:
     - id: node
       type: System.Text.Json.Nodes.JsonNode
@@ -227,18 +497,18 @@ items:
   langs:
   - csharp
   - vb
-  name: ToJsonObject(JsonNode?, ILogger?)
-  nameWithType: JsonNodeExtensions.ToJsonObject(JsonNode?, ILogger?)
-  fullName: Songhay.Extensions.JsonNodeExtensions.ToJsonObject(System.Text.Json.Nodes.JsonNode?, Microsoft.Extensions.Logging.ILogger?)
+  name: ToJsonObject(JsonNode?, ILogger)
+  nameWithType: JsonNodeExtensions.ToJsonObject(JsonNode?, ILogger)
+  fullName: Songhay.Extensions.JsonNodeExtensions.ToJsonObject(System.Text.Json.Nodes.JsonNode?, Microsoft.Extensions.Logging.ILogger)
   type: Method
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToJsonObject
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 119
+    startLine: 235
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -248,7 +518,7 @@ items:
     to <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref> or logs failure and returns <code>null</code>.
   example: []
   syntax:
-    content: public static JsonObject? ToJsonObject(this JsonNode? node, ILogger? logger)
+    content: public static JsonObject? ToJsonObject(this JsonNode? node, ILogger logger)
     parameters:
     - id: node
       type: System.Text.Json.Nodes.JsonNode
@@ -258,12 +528,236 @@ items:
       description: The logger.
     return:
       type: System.Text.Json.Nodes.JsonObject
-      description: ''
     content.vb: Public Shared Function ToJsonObject(node As JsonNode, logger As ILogger) As JsonObject
   overload: Songhay.Extensions.JsonNodeExtensions.ToJsonObject*
   nameWithType.vb: JsonNodeExtensions.ToJsonObject(JsonNode, ILogger)
   fullName.vb: Songhay.Extensions.JsonNodeExtensions.ToJsonObject(System.Text.Json.Nodes.JsonNode, Microsoft.Extensions.Logging.ILogger)
   name.vb: ToJsonObject(JsonNode, ILogger)
+- uid: Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)
+  id: RemoveFromParent(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.JsonNodeExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveFromParent(JsonNode?, ILogger)
+  nameWithType: JsonNodeExtensions.RemoveFromParent(JsonNode?, ILogger)
+  fullName: Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode?, Microsoft.Extensions.Logging.ILogger)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/JsonNodeExtensions.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RemoveFromParent
+    path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
+    startLine: 260
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Removes the specified <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+
+    when its parent is <xref href="System.Text.Json.Nodes.JsonArray" data-throw-if-not-resolved="false"></xref> or <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void RemoveFromParent(this JsonNode? node, ILogger logger)
+    parameters:
+    - id: node
+      type: System.Text.Json.Nodes.JsonNode
+      description: the <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Sub RemoveFromParent(node As JsonNode, logger As ILogger)
+  overload: Songhay.Extensions.JsonNodeExtensions.RemoveFromParent*
+  nameWithType.vb: JsonNodeExtensions.RemoveFromParent(JsonNode, ILogger)
+  fullName.vb: Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode, Microsoft.Extensions.Logging.ILogger)
+  name.vb: RemoveFromParent(JsonNode, ILogger)
+- uid: Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)
+  id: RemoveFromParent(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.JsonNodeExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveFromParent(JsonNode?, string?, ILogger)
+  nameWithType: JsonNodeExtensions.RemoveFromParent(JsonNode?, string?, ILogger)
+  fullName: Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode?, string?, Microsoft.Extensions.Logging.ILogger)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/JsonNodeExtensions.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RemoveFromParent
+    path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
+    startLine: 269
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Removes the specified <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+
+    when its parent is <xref href="System.Text.Json.Nodes.JsonArray" data-throw-if-not-resolved="false"></xref> or <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void RemoveFromParent(this JsonNode? node, string? propertyName, ILogger logger)
+    parameters:
+    - id: node
+      type: System.Text.Json.Nodes.JsonNode
+      description: the <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+    - id: propertyName
+      type: System.String
+      description: the name of the property when the specified node is <xref href="System.Text.Json.JsonValueKind.Object" data-throw-if-not-resolved="false"></xref>
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Sub RemoveFromParent(node As JsonNode, propertyName As String, logger As ILogger)
+  overload: Songhay.Extensions.JsonNodeExtensions.RemoveFromParent*
+  nameWithType.vb: JsonNodeExtensions.RemoveFromParent(JsonNode, String, ILogger)
+  fullName.vb: Songhay.Extensions.JsonNodeExtensions.RemoveFromParent(System.Text.Json.Nodes.JsonNode, String, Microsoft.Extensions.Logging.ILogger)
+  name.vb: RemoveFromParent(JsonNode, String, ILogger)
+- uid: Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)
+  id: RemoveProperty(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.JsonNodeExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveProperty(JsonNode?, ILogger)
+  nameWithType: JsonNodeExtensions.RemoveProperty(JsonNode?, ILogger)
+  fullName: Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode?, Microsoft.Extensions.Logging.ILogger)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/JsonNodeExtensions.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RemoveProperty
+    path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
+    startLine: 316
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Removes the specified <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+
+    when its parent is <xref href="System.Text.Json.Nodes.JsonArray" data-throw-if-not-resolved="false"></xref> or <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void RemoveProperty(this JsonNode? node, ILogger logger)
+    parameters:
+    - id: node
+      type: System.Text.Json.Nodes.JsonNode
+      description: the <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Sub RemoveProperty(node As JsonNode, logger As ILogger)
+  overload: Songhay.Extensions.JsonNodeExtensions.RemoveProperty*
+  nameWithType.vb: JsonNodeExtensions.RemoveProperty(JsonNode, ILogger)
+  fullName.vb: Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode, Microsoft.Extensions.Logging.ILogger)
+  name.vb: RemoveProperty(JsonNode, ILogger)
+- uid: Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)
+  id: RemoveProperty(System.Text.Json.Nodes.JsonNode,System.String,Microsoft.Extensions.Logging.ILogger)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.JsonNodeExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveProperty(JsonNode?, string?, ILogger)
+  nameWithType: JsonNodeExtensions.RemoveProperty(JsonNode?, string?, ILogger)
+  fullName: Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode?, string?, Microsoft.Extensions.Logging.ILogger)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/JsonNodeExtensions.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RemoveProperty
+    path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
+    startLine: 327
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Removes the specified <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+
+    with the specified property name
+
+    when the node is <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="System.Text.Json.Nodes.JsonArray" data-throw-if-not-resolved="false"></xref> (array of <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref> with a property to remove).
+  example: []
+  syntax:
+    content: public static void RemoveProperty(this JsonNode? node, string? propertyName, ILogger logger)
+    parameters:
+    - id: node
+      type: System.Text.Json.Nodes.JsonNode
+      description: the <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+    - id: propertyName
+      type: System.String
+      description: the name of the property when the specified node is <xref href="System.Text.Json.JsonValueKind.Object" data-throw-if-not-resolved="false"></xref>
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Sub RemoveProperty(node As JsonNode, propertyName As String, logger As ILogger)
+  overload: Songhay.Extensions.JsonNodeExtensions.RemoveProperty*
+  nameWithType.vb: JsonNodeExtensions.RemoveProperty(JsonNode, String, ILogger)
+  fullName.vb: Songhay.Extensions.JsonNodeExtensions.RemoveProperty(System.Text.Json.Nodes.JsonNode, String, Microsoft.Extensions.Logging.ILogger)
+  name.vb: RemoveProperty(JsonNode, String, ILogger)
+- uid: Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject,Microsoft.Extensions.Logging.ILogger,System.ValueTuple{System.String,System.String}[])
+  commentId: M:Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject,Microsoft.Extensions.Logging.ILogger,System.ValueTuple{System.String,System.String}[])
+  id: WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject,Microsoft.Extensions.Logging.ILogger,System.ValueTuple{System.String,System.String}[])
+  isExtensionMethod: true
+  parent: Songhay.Extensions.JsonNodeExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithPropertiesRenamed(JsonObject?, ILogger, params (string oldName, string newName)[])
+  nameWithType: JsonNodeExtensions.WithPropertiesRenamed(JsonObject?, ILogger, params (string oldName, string newName)[])
+  fullName: Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject?, Microsoft.Extensions.Logging.ILogger, params (string oldName, string newName)[])
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/JsonNodeExtensions.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithPropertiesRenamed
+    path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
+    startLine: 366
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns the specified <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref>
+
+    with its properties renamed.
+  example: []
+  syntax:
+    content: public static JsonObject? WithPropertiesRenamed(this JsonObject? documentData, ILogger logger, params (string oldName, string newName)[] operations)
+    parameters:
+    - id: documentData
+      type: System.Text.Json.Nodes.JsonObject
+      description: the <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref>
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    - id: operations
+      type: System.ValueTuple{System.String,System.String}[]
+      description: specifies which <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref> properties to rename
+    return:
+      type: System.Text.Json.Nodes.JsonObject
+    content.vb: Public Shared Function WithPropertiesRenamed(documentData As JsonObject, logger As ILogger, ParamArray operations As (oldName As String, newName As String)()) As JsonObject
+  overload: Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed*
+  nameWithType.vb: JsonNodeExtensions.WithPropertiesRenamed(JsonObject, ILogger, ParamArray (oldName As String, newName As String)())
+  fullName.vb: Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject, Microsoft.Extensions.Logging.ILogger, ParamArray (oldName As String, newName As String)())
+  name.vb: WithPropertiesRenamed(JsonObject, ILogger, ParamArray (oldName As String, newName As String)())
 references:
 - uid: System.Text.Json.Nodes.JsonNode
   commentId: T:System.Text.Json.Nodes.JsonNode
@@ -273,6 +767,41 @@ references:
   name: JsonNode
   nameWithType: JsonNode
   fullName: System.Text.Json.Nodes.JsonNode
+- uid: Microsoft.Extensions.Logging.ILogger
+  commentId: T:Microsoft.Extensions.Logging.ILogger
+  parent: Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  name: ILogger
+  nameWithType: ILogger
+  fullName: Microsoft.Extensions.Logging.ILogger
+- uid: Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)
+  isExternal: true
+  href: Songhay.ILoggerUtility.html#Songhay_ILoggerUtility_AsInstanceOrNullLogger_Microsoft_Extensions_Logging_ILogger_
+  name: AsInstanceOrNullLogger(ILogger)
+  nameWithType: ILoggerUtility.AsInstanceOrNullLogger(ILogger)
+  fullName: Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)
+  spec.csharp:
+  - uid: Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)
+    name: AsInstanceOrNullLogger
+    href: Songhay.ILoggerUtility.html#Songhay_ILoggerUtility_AsInstanceOrNullLogger_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+  spec.vb:
+  - uid: Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)
+    name: AsInstanceOrNullLogger
+    href: Songhay.ILoggerUtility.html#Songhay_ILoggerUtility_AsInstanceOrNullLogger_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
 - uid: Songhay.Extensions
   commentId: N:Songhay.Extensions
   href: Songhay.html
@@ -572,6 +1101,43 @@ references:
     name: Nodes
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
 - uid: System
   commentId: N:System
   isExternal: true
@@ -579,12 +1145,31 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyValue*
-  commentId: Overload:Songhay.Extensions.JsonNodeExtensions.GetPropertyValue
-  href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_GetPropertyValue__1_System_Text_Json_Nodes_JsonNode_System_String_
-  name: GetPropertyValue
-  nameWithType: JsonNodeExtensions.GetPropertyValue
-  fullName: Songhay.Extensions.JsonNodeExtensions.GetPropertyValue
+- uid: System.Text.Json.Nodes.JsonObject
+  commentId: T:System.Text.Json.Nodes.JsonObject
+  parent: System.Text.Json.Nodes
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonobject
+  name: JsonObject
+  nameWithType: JsonObject
+  fullName: System.Text.Json.Nodes.JsonObject
+- uid: Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties*
+  commentId: Overload:Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties
+  href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_DisplayTopProperties_System_Text_Json_Nodes_JsonObject_System_Int32_
+  name: DisplayTopProperties
+  nameWithType: JsonNodeExtensions.DisplayTopProperties
+  fullName: Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -596,6 +1181,88 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: System.Text.Json.Nodes.JsonValue
+  commentId: T:System.Text.Json.Nodes.JsonValue
+  parent: System.Text.Json.Nodes
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonvalue
+  name: JsonValue
+  nameWithType: JsonValue
+  fullName: System.Text.Json.Nodes.JsonValue
+- uid: System.Text.Json.JsonValueKind.Array
+  commentId: F:System.Text.Json.JsonValueKind.Array
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonvaluekind#system-text-json-jsonvaluekind-array
+  name: Array
+  nameWithType: JsonValueKind.Array
+  fullName: System.Text.Json.JsonValueKind.Array
+- uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull*
+  commentId: Overload:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull
+  href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_GetPropertyJsonArrayOrNull_System_Text_Json_Nodes_JsonNode_System_String_
+  name: GetPropertyJsonArrayOrNull
+  nameWithType: JsonNodeExtensions.GetPropertyJsonArrayOrNull
+  fullName: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull
+- uid: System.Text.Json.Nodes.JsonArray
+  commentId: T:System.Text.Json.Nodes.JsonArray
+  parent: System.Text.Json.Nodes
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonarray
+  name: JsonArray
+  nameWithType: JsonArray
+  fullName: System.Text.Json.Nodes.JsonArray
+- uid: System.Text.Json.JsonValueKind.Object
+  commentId: F:System.Text.Json.JsonValueKind.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonvaluekind#system-text-json-jsonvaluekind-object
+  name: Object
+  nameWithType: JsonValueKind.Object
+  fullName: System.Text.Json.JsonValueKind.Object
+- uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull*
+  commentId: Overload:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull
+  href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_GetPropertyJsonObjectOrNull_System_Text_Json_Nodes_JsonNode_System_String_
+  name: GetPropertyJsonObjectOrNull
+  nameWithType: JsonNodeExtensions.GetPropertyJsonObjectOrNull
+  fullName: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull
+- uid: System.Text.Json.JsonValueKind.String
+  commentId: F:System.Text.Json.JsonValueKind.String
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonvaluekind#system-text-json-jsonvaluekind-string
+  name: String
+  nameWithType: JsonValueKind.String
+  fullName: System.Text.Json.JsonValueKind.String
+- uid: System.Text.Json.JsonValueKind.Number
+  commentId: F:System.Text.Json.JsonValueKind.Number
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonvaluekind#system-text-json-jsonvaluekind-number
+  name: Number
+  nameWithType: JsonValueKind.Number
+  fullName: System.Text.Json.JsonValueKind.Number
+- uid: System.Text.Json.JsonValueKind.True
+  commentId: F:System.Text.Json.JsonValueKind.True
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonvaluekind#system-text-json-jsonvaluekind-true
+  name: "True"
+  nameWithType: JsonValueKind.True
+  fullName: System.Text.Json.JsonValueKind.True
+- uid: System.Text.Json.JsonValueKind.False
+  commentId: F:System.Text.Json.JsonValueKind.False
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonvaluekind#system-text-json-jsonvaluekind-false
+  name: "False"
+  nameWithType: JsonValueKind.False
+  fullName: System.Text.Json.JsonValueKind.False
+- uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull*
+  commentId: Overload:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull
+  href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_GetPropertyJsonValueOrNull_System_Text_Json_Nodes_JsonNode_System_String_
+  name: GetPropertyJsonValueOrNull
+  nameWithType: JsonNodeExtensions.GetPropertyJsonValueOrNull
+  fullName: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull
+- uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyValue*
+  commentId: Overload:Songhay.Extensions.JsonNodeExtensions.GetPropertyValue
+  href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_GetPropertyValue__1_System_Text_Json_Nodes_JsonNode_System_String_
+  name: GetPropertyValue
+  nameWithType: JsonNodeExtensions.GetPropertyValue
+  fullName: Songhay.Extensions.JsonNodeExtensions.GetPropertyValue
 - uid: System.ValueTuple{{T},System.Boolean}
   commentId: T:System.ValueTuple{``0,System.Boolean}
   parent: System
@@ -717,28 +1384,29 @@ references:
     name: Json
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json
-- uid: System.Text.Json.Nodes.JsonObject
-  commentId: T:System.Text.Json.Nodes.JsonObject
-  parent: System.Text.Json.Nodes
+- uid: Songhay.Extensions.JsonNodeExtensions.HasProperty*
+  commentId: Overload:Songhay.Extensions.JsonNodeExtensions.HasProperty
+  href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_HasProperty_System_Text_Json_Nodes_JsonNode_System_String_
+  name: HasProperty
+  nameWithType: JsonNodeExtensions.HasProperty
+  fullName: Songhay.Extensions.JsonNodeExtensions.HasProperty
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonobject
-  name: JsonObject
-  nameWithType: JsonObject
-  fullName: System.Text.Json.Nodes.JsonObject
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: Songhay.Extensions.JsonNodeExtensions.IsExpectedObject*
   commentId: Overload:Songhay.Extensions.JsonNodeExtensions.IsExpectedObject
   href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_IsExpectedObject_System_Text_Json_Nodes_JsonNode_Microsoft_Extensions_Logging_ILogger_System_String___
   name: IsExpectedObject
   nameWithType: JsonNodeExtensions.IsExpectedObject
   fullName: Songhay.Extensions.JsonNodeExtensions.IsExpectedObject
-- uid: Microsoft.Extensions.Logging.ILogger
-  commentId: T:Microsoft.Extensions.Logging.ILogger
-  parent: Microsoft.Extensions.Logging
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
-  name: ILogger
-  nameWithType: ILogger
-  fullName: Microsoft.Extensions.Logging.ILogger
 - uid: System.String[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.string
@@ -762,62 +1430,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: (
   - name: )
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: Microsoft.Extensions.Logging
-  commentId: N:Microsoft.Extensions.Logging
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/microsoft
-  name: Microsoft.Extensions.Logging
-  nameWithType: Microsoft.Extensions.Logging
-  fullName: Microsoft.Extensions.Logging
-  spec.csharp:
-  - uid: Microsoft
-    name: Microsoft
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft
-  - name: .
-  - uid: Microsoft.Extensions
-    name: Extensions
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
-  - name: .
-  - uid: Microsoft.Extensions.Logging
-    name: Logging
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
-  spec.vb:
-  - uid: Microsoft
-    name: Microsoft
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft
-  - name: .
-  - uid: Microsoft.Extensions
-    name: Extensions
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
-  - name: .
-  - uid: Microsoft.Extensions.Logging
-    name: Logging
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
-- uid: System.Text.Json.Nodes.JsonArray
-  commentId: T:System.Text.Json.Nodes.JsonArray
-  parent: System.Text.Json.Nodes
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonarray
-  name: JsonArray
-  nameWithType: JsonArray
-  fullName: System.Text.Json.Nodes.JsonArray
 - uid: Songhay.Extensions.JsonNodeExtensions.ToJsonArray*
   commentId: Overload:Songhay.Extensions.JsonNodeExtensions.ToJsonArray
   href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_ToJsonArray_System_Text_Json_Nodes_JsonNode_Microsoft_Extensions_Logging_ILogger_
@@ -830,3 +1442,80 @@ references:
   name: ToJsonObject
   nameWithType: JsonNodeExtensions.ToJsonObject
   fullName: Songhay.Extensions.JsonNodeExtensions.ToJsonObject
+- uid: Songhay.Extensions.JsonNodeExtensions.RemoveFromParent*
+  commentId: Overload:Songhay.Extensions.JsonNodeExtensions.RemoveFromParent
+  href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_RemoveFromParent_System_Text_Json_Nodes_JsonNode_Microsoft_Extensions_Logging_ILogger_
+  name: RemoveFromParent
+  nameWithType: JsonNodeExtensions.RemoveFromParent
+  fullName: Songhay.Extensions.JsonNodeExtensions.RemoveFromParent
+- uid: Songhay.Extensions.JsonNodeExtensions.RemoveProperty*
+  commentId: Overload:Songhay.Extensions.JsonNodeExtensions.RemoveProperty
+  href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_RemoveProperty_System_Text_Json_Nodes_JsonNode_Microsoft_Extensions_Logging_ILogger_
+  name: RemoveProperty
+  nameWithType: JsonNodeExtensions.RemoveProperty
+  fullName: Songhay.Extensions.JsonNodeExtensions.RemoveProperty
+- uid: Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed*
+  commentId: Overload:Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed
+  href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_WithPropertiesRenamed_System_Text_Json_Nodes_JsonObject_Microsoft_Extensions_Logging_ILogger_System_ValueTuple_System_String_System_String____
+  name: WithPropertiesRenamed
+  nameWithType: JsonNodeExtensions.WithPropertiesRenamed
+  fullName: Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed
+- uid: System.ValueTuple{System.String,System.String}[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: (string oldName, string newName)[]
+  nameWithType: (string oldName, string newName)[]
+  fullName: (string oldName, string newName)[]
+  nameWithType.vb: (oldName As String, newName As String)()
+  fullName.vb: (oldName As String, newName As String)()
+  name.vb: (oldName As String, newName As String)()
+  spec.csharp:
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.oldName
+    name: oldName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.oldname
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.newName
+    name: newName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.newname
+  - name: )
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.String,System.String}.oldName
+    name: oldName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.oldname
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.newName
+    name: newName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.newname
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: (
+  - name: )
