@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ProjectFileDataAttribute | SonghayCore API ">
       
-      <meta name="description" content="File-based data source for a data theory.">
+      <meta name="description" content="Defines a custom  for loading  test-method arguments.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/dev/version-8.0.0/apiSpec/new?filename=Songhay_Tests_ProjectFileDataAttribute.md&amp;value=---%0Auid%3A%20Songhay.Tests.ProjectFileDataAttribute%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Songhay_Tests_ProjectFileDataAttribute" data-uid="Songhay.Tests.ProjectFileDataAttribute" class="text-break">
-Class ProjectFileDataAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore.xUnit/ProjectFileDataAttribute.cs/#L7"><i class="bi bi-code-slash"></i></a>
+Class ProjectFileDataAttribute  
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class ProjectFileDataAttribute  <a class="header-action link-secondary" title="V
   <dl><dt>Assembly</dt><dd>SonghayCore.xUnit.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>File-based data source for a data theory.</p>
+  <div class="markdown summary"><p>Defines a custom <span class="xref">Xunit.Sdk.DataAttribute</span>
+for loading <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a> test-method arguments.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -290,9 +291,9 @@ Class ProjectFileDataAttribute  <a class="header-action link-secondary" title="V
 
   <a id="Songhay_Tests_ProjectFileDataAttribute__ctor_" data-uid="Songhay.Tests.ProjectFileDataAttribute.#ctor*"></a>
 
-  <h3 id="Songhay_Tests_ProjectFileDataAttribute__ctor_System_Type_System_Object___System_String___" data-uid="Songhay.Tests.ProjectFileDataAttribute.#ctor(System.Type,System.Object[],System.String[])">
-  ProjectFileDataAttribute(Type, object[], params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore.xUnit/ProjectFileDataAttribute.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Tests_ProjectFileDataAttribute__ctor_System_Object___System_String___" data-uid="Songhay.Tests.ProjectFileDataAttribute.#ctor(System.Object[],System.String[])">
+  ProjectFileDataAttribute(object[], params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore.xUnit/ProjectFileDataAttribute.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Songhay.Tests.ProjectFileDataAttribute.html">ProjectFileDataAttribute</a> class.</p>
@@ -300,7 +301,88 @@ Class ProjectFileDataAttribute  <a class="header-action link-secondary" title="V
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ProjectFileDataAttribute(Type typeInAssembly, object[] inlineData, params string[] relativePaths)</code></pre>
+    <pre><code class="lang-csharp hljs">public ProjectFileDataAttribute(object[] inlineData, params string[] relativePaths)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inlineData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd><p>The inline data of <span class="xref">Xunit.InlineDataAttribute</span> conventions.</p>
+</dd>
+    <dt><code>relativePaths</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>The relative paths, mapping to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a> test-method arguments.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Tests_ProjectFileDataAttribute__ctor_System_Object___System_String____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Each relative path maps to a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a> argument that must be specified in the test method.
+Each path is relative to assembly location of the <code>typeInAssembly</code>.
+For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]</p>
+<p>The order of elements in <code>inlineData</code> must have the order of args.
+So <code>new object[] { 1, &quot;two&quot; }</code> must have <code>int one, string two,</code>.</p>
+</div>
+
+
+
+
+  <a id="Songhay_Tests_ProjectFileDataAttribute__ctor_" data-uid="Songhay.Tests.ProjectFileDataAttribute.#ctor*"></a>
+
+  <h3 id="Songhay_Tests_ProjectFileDataAttribute__ctor_System_String___" data-uid="Songhay.Tests.ProjectFileDataAttribute.#ctor(System.String[])">
+  ProjectFileDataAttribute(params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore.xUnit/ProjectFileDataAttribute.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Songhay.Tests.ProjectFileDataAttribute.html">ProjectFileDataAttribute</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProjectFileDataAttribute(params string[] relativePaths)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>relativePaths</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>The relative paths, mapping to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a> test-method arguments.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Tests_ProjectFileDataAttribute__ctor_System_String____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Each relative path maps to a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a> argument that must be specified in the test method.
+Each path is relative to assembly location of the <code>typeInAssembly</code>.
+For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]</p>
+</div>
+
+
+
+
+  <a id="Songhay_Tests_ProjectFileDataAttribute__ctor_" data-uid="Songhay.Tests.ProjectFileDataAttribute.#ctor*"></a>
+
+  <h3 id="Songhay_Tests_ProjectFileDataAttribute__ctor_System_Type_System_Object___System_String___" data-uid="Songhay.Tests.ProjectFileDataAttribute.#ctor(System.Type,System.Object[],System.String[])">
+  ProjectFileDataAttribute(Type?, object[], params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore.xUnit/ProjectFileDataAttribute.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Songhay.Tests.ProjectFileDataAttribute.html">ProjectFileDataAttribute</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProjectFileDataAttribute(Type? typeInAssembly, object[] inlineData, params string[] relativePaths)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -309,10 +391,10 @@ Class ProjectFileDataAttribute  <a class="header-action link-secondary" title="V
     <dd><p>The type in assembly.</p>
 </dd>
     <dt><code>inlineData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
-    <dd><p>The inline data.</p>
+    <dd><p>The inline data of <span class="xref">Xunit.InlineDataAttribute</span> conventions.</p>
 </dd>
     <dt><code>relativePaths</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
-    <dd><p>The relative paths.</p>
+    <dd><p>The relative paths, mapping to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a> test-method arguments.</p>
 </dd>
   </dl>
 
@@ -324,7 +406,10 @@ Class ProjectFileDataAttribute  <a class="header-action link-secondary" title="V
 
 
   <h4 class="section" id="Songhay_Tests_ProjectFileDataAttribute__ctor_System_Type_System_Object___System_String____remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The order of elements in <code>inlineData</code> must have the order of args.
+  <div class="markdown level1 remarks"><p>Each relative path maps to a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a> argument that must be specified in the test method.
+Each path is relative to assembly location of the <code>typeInAssembly</code>.
+For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]</p>
+<p>The order of elements in <code>inlineData</code> must have the order of args.
 So <code>new object[] { 1, &quot;two&quot; }</code> must have <code>int one, string two,</code>.</p>
 </div>
 
@@ -334,8 +419,8 @@ So <code>new object[] { 1, &quot;two&quot; }</code> must have <code>int one, str
   <a id="Songhay_Tests_ProjectFileDataAttribute__ctor_" data-uid="Songhay.Tests.ProjectFileDataAttribute.#ctor*"></a>
 
   <h3 id="Songhay_Tests_ProjectFileDataAttribute__ctor_System_Type_System_String___" data-uid="Songhay.Tests.ProjectFileDataAttribute.#ctor(System.Type,System.String[])">
-  ProjectFileDataAttribute(Type, params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore.xUnit/ProjectFileDataAttribute.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  ProjectFileDataAttribute(Type?, params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore.xUnit/ProjectFileDataAttribute.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Songhay.Tests.ProjectFileDataAttribute.html">ProjectFileDataAttribute</a> class.</p>
@@ -343,7 +428,7 @@ So <code>new object[] { 1, &quot;two&quot; }</code> must have <code>int one, str
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ProjectFileDataAttribute(Type typeInAssembly, params string[] relativePaths)</code></pre>
+    <pre><code class="lang-csharp hljs">public ProjectFileDataAttribute(Type? typeInAssembly, params string[] relativePaths)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -352,7 +437,7 @@ So <code>new object[] { 1, &quot;two&quot; }</code> must have <code>int one, str
     <dd><p>The type in assembly.</p>
 </dd>
     <dt><code>relativePaths</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
-    <dd><p>The relative paths.</p>
+    <dd><p>The relative paths, mapping to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a> test-method arguments.</p>
 </dd>
   </dl>
 
@@ -363,6 +448,11 @@ So <code>new object[] { 1, &quot;two&quot; }</code> must have <code>int one, str
 
 
 
+  <h4 class="section" id="Songhay_Tests_ProjectFileDataAttribute__ctor_System_Type_System_String____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Each relative path maps to a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a> argument that must be specified in the test method.
+Each path is relative to assembly location of the <code>typeInAssembly</code>.
+For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]</p>
+</div>
 
 
 
@@ -375,7 +465,7 @@ So <code>new object[] { 1, &quot;two&quot; }</code> must have <code>int one, str
 
   <h3 id="Songhay_Tests_ProjectFileDataAttribute_GetData_System_Reflection_MethodInfo_" data-uid="Songhay.Tests.ProjectFileDataAttribute.GetData(System.Reflection.MethodInfo)">
   GetData(MethodInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore.xUnit/ProjectFileDataAttribute.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore.xUnit/ProjectFileDataAttribute.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the data to be used to test the theory.</p>
@@ -415,7 +505,6 @@ is represented by a single object array.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.0/SonghayCore.xUnit/ProjectFileDataAttribute.cs/#L7" class="edit-link">Edit this page</a>
         </div>
 
 

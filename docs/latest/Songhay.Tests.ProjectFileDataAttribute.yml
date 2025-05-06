@@ -5,6 +5,8 @@ items:
   id: ProjectFileDataAttribute
   parent: Songhay.Tests
   children:
+  - Songhay.Tests.ProjectFileDataAttribute.#ctor(System.Object[],System.String[])
+  - Songhay.Tests.ProjectFileDataAttribute.#ctor(System.String[])
   - Songhay.Tests.ProjectFileDataAttribute.#ctor(System.Type,System.Object[],System.String[])
   - Songhay.Tests.ProjectFileDataAttribute.#ctor(System.Type,System.String[])
   - Songhay.Tests.ProjectFileDataAttribute.GetData(System.Reflection.MethodInfo)
@@ -16,17 +18,16 @@ items:
   fullName: Songhay.Tests.ProjectFileDataAttribute
   type: Class
   source:
-    remote:
-      path: SonghayCore.xUnit/ProjectFileDataAttribute.cs
-      branch: dev/version-8.0.0
-      repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ProjectFileDataAttribute
-    path: ../SonghayCore.xUnit/ProjectFileDataAttribute.cs
-    startLine: 6
+    path: System.Text.RegularExpressions.Generator/System.Text.RegularExpressions.Generator.RegexGenerator/RegexGenerator.g.cs
+    startLine: 8
   assemblies:
   - SonghayCore.xUnit
   namespace: Songhay.Tests
-  summary: File-based data source for a data theory.
+  summary: >-
+    Defines a custom <xref href="Xunit.Sdk.DataAttribute" data-throw-if-not-resolved="false"></xref>
+
+    for loading <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref> test-method arguments.
   example: []
   syntax:
     content: 'public class ProjectFileDataAttribute : DataAttribute'
@@ -87,6 +88,96 @@ items:
   - Xunit.Sdk.DataAttribute.Songhay.Tests.Extensions.DataAttributeExtensions.GetAssemblyDirectoryInfo(System.Type)
   - Xunit.Sdk.DataAttribute.Songhay.Tests.Extensions.DataAttributeExtensions.GetAssemblyParentDirectory(System.Type,System.Int32)
   - Xunit.Sdk.DataAttribute.Songhay.Tests.Extensions.DataAttributeExtensions.GetAssemblyParentDirectoryInfo(System.Type,System.Int32)
+- uid: Songhay.Tests.ProjectFileDataAttribute.#ctor(System.String[])
+  commentId: M:Songhay.Tests.ProjectFileDataAttribute.#ctor(System.String[])
+  id: '#ctor(System.String[])'
+  parent: Songhay.Tests.ProjectFileDataAttribute
+  langs:
+  - csharp
+  - vb
+  name: ProjectFileDataAttribute(params string[])
+  nameWithType: ProjectFileDataAttribute.ProjectFileDataAttribute(params string[])
+  fullName: Songhay.Tests.ProjectFileDataAttribute.ProjectFileDataAttribute(params string[])
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore.xUnit/ProjectFileDataAttribute.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: ../SonghayCore.xUnit/ProjectFileDataAttribute.cs
+    startLine: 20
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests
+  summary: Initializes a new instance of the <xref href="Songhay.Tests.ProjectFileDataAttribute" data-throw-if-not-resolved="false"></xref> class.
+  remarks: >-
+    Each relative path maps to a <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref> argument that must be specified in the test method.
+
+    Each path is relative to assembly location of the <code>typeInAssembly</code>.
+
+    For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
+  example: []
+  syntax:
+    content: public ProjectFileDataAttribute(params string[] relativePaths)
+    parameters:
+    - id: relativePaths
+      type: System.String[]
+      description: The relative paths, mapping to <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref> test-method arguments.
+    content.vb: Public Sub New(ParamArray relativePaths As String())
+  overload: Songhay.Tests.ProjectFileDataAttribute.#ctor*
+  nameWithType.vb: ProjectFileDataAttribute.New(ParamArray String())
+  fullName.vb: Songhay.Tests.ProjectFileDataAttribute.New(ParamArray String())
+  name.vb: New(ParamArray String())
+- uid: Songhay.Tests.ProjectFileDataAttribute.#ctor(System.Object[],System.String[])
+  commentId: M:Songhay.Tests.ProjectFileDataAttribute.#ctor(System.Object[],System.String[])
+  id: '#ctor(System.Object[],System.String[])'
+  parent: Songhay.Tests.ProjectFileDataAttribute
+  langs:
+  - csharp
+  - vb
+  name: ProjectFileDataAttribute(object[], params string[])
+  nameWithType: ProjectFileDataAttribute.ProjectFileDataAttribute(object[], params string[])
+  fullName: Songhay.Tests.ProjectFileDataAttribute.ProjectFileDataAttribute(object[], params string[])
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore.xUnit/ProjectFileDataAttribute.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: ../SonghayCore.xUnit/ProjectFileDataAttribute.cs
+    startLine: 37
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests
+  summary: Initializes a new instance of the <xref href="Songhay.Tests.ProjectFileDataAttribute" data-throw-if-not-resolved="false"></xref> class.
+  remarks: >-
+    Each relative path maps to a <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref> argument that must be specified in the test method.
+
+    Each path is relative to assembly location of the <code>typeInAssembly</code>.
+
+    For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
+
+
+    The order of elements in <code>inlineData</code> must have the order of args.
+
+    So <code>new object[] { 1, "two" }</code> must have <code>int one, string two,</code>.
+  example: []
+  syntax:
+    content: public ProjectFileDataAttribute(object[] inlineData, params string[] relativePaths)
+    parameters:
+    - id: inlineData
+      type: System.Object[]
+      description: The inline data of <xref href="Xunit.InlineDataAttribute" data-throw-if-not-resolved="false"></xref> conventions.
+    - id: relativePaths
+      type: System.String[]
+      description: The relative paths, mapping to <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref> test-method arguments.
+    content.vb: Public Sub New(inlineData As Object(), ParamArray relativePaths As String())
+  overload: Songhay.Tests.ProjectFileDataAttribute.#ctor*
+  nameWithType.vb: ProjectFileDataAttribute.New(Object(), ParamArray String())
+  fullName.vb: Songhay.Tests.ProjectFileDataAttribute.New(Object(), ParamArray String())
+  name.vb: New(Object(), ParamArray String())
 - uid: Songhay.Tests.ProjectFileDataAttribute.#ctor(System.Type,System.String[])
   commentId: M:Songhay.Tests.ProjectFileDataAttribute.#ctor(System.Type,System.String[])
   id: '#ctor(System.Type,System.String[])'
@@ -94,32 +185,38 @@ items:
   langs:
   - csharp
   - vb
-  name: ProjectFileDataAttribute(Type, params string[])
-  nameWithType: ProjectFileDataAttribute.ProjectFileDataAttribute(Type, params string[])
-  fullName: Songhay.Tests.ProjectFileDataAttribute.ProjectFileDataAttribute(System.Type, params string[])
+  name: ProjectFileDataAttribute(Type?, params string[])
+  nameWithType: ProjectFileDataAttribute.ProjectFileDataAttribute(Type?, params string[])
+  fullName: Songhay.Tests.ProjectFileDataAttribute.ProjectFileDataAttribute(System.Type?, params string[])
   type: Constructor
   source:
     remote:
       path: SonghayCore.xUnit/ProjectFileDataAttribute.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: .ctor
     path: ../SonghayCore.xUnit/ProjectFileDataAttribute.cs
-    startLine: 13
+    startLine: 51
   assemblies:
   - SonghayCore.xUnit
   namespace: Songhay.Tests
   summary: Initializes a new instance of the <xref href="Songhay.Tests.ProjectFileDataAttribute" data-throw-if-not-resolved="false"></xref> class.
+  remarks: >-
+    Each relative path maps to a <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref> argument that must be specified in the test method.
+
+    Each path is relative to assembly location of the <code>typeInAssembly</code>.
+
+    For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
   example: []
   syntax:
-    content: public ProjectFileDataAttribute(Type typeInAssembly, params string[] relativePaths)
+    content: public ProjectFileDataAttribute(Type? typeInAssembly, params string[] relativePaths)
     parameters:
     - id: typeInAssembly
       type: System.Type
       description: The type in assembly.
     - id: relativePaths
       type: System.String[]
-      description: The relative paths.
+      description: The relative paths, mapping to <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref> test-method arguments.
     content.vb: Public Sub New(typeInAssembly As Type, ParamArray relativePaths As String())
   overload: Songhay.Tests.ProjectFileDataAttribute.#ctor*
   nameWithType.vb: ProjectFileDataAttribute.New(Type, ParamArray String())
@@ -132,39 +229,46 @@ items:
   langs:
   - csharp
   - vb
-  name: ProjectFileDataAttribute(Type, object[], params string[])
-  nameWithType: ProjectFileDataAttribute.ProjectFileDataAttribute(Type, object[], params string[])
-  fullName: Songhay.Tests.ProjectFileDataAttribute.ProjectFileDataAttribute(System.Type, object[], params string[])
+  name: ProjectFileDataAttribute(Type?, object[], params string[])
+  nameWithType: ProjectFileDataAttribute.ProjectFileDataAttribute(Type?, object[], params string[])
+  fullName: Songhay.Tests.ProjectFileDataAttribute.ProjectFileDataAttribute(System.Type?, object[], params string[])
   type: Constructor
   source:
     remote:
       path: SonghayCore.xUnit/ProjectFileDataAttribute.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: .ctor
     path: ../SonghayCore.xUnit/ProjectFileDataAttribute.cs
-    startLine: 31
+    startLine: 69
   assemblies:
   - SonghayCore.xUnit
   namespace: Songhay.Tests
   summary: Initializes a new instance of the <xref href="Songhay.Tests.ProjectFileDataAttribute" data-throw-if-not-resolved="false"></xref> class.
   remarks: >-
+    Each relative path maps to a <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref> argument that must be specified in the test method.
+
+    Each path is relative to assembly location of the <code>typeInAssembly</code>.
+
+    For detail, see [ https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore.Tests/ProjectFileDataAttributeTests.cs ]
+
+
     The order of elements in <code>inlineData</code> must have the order of args.
 
     So <code>new object[] { 1, "two" }</code> must have <code>int one, string two,</code>.
   example: []
   syntax:
-    content: public ProjectFileDataAttribute(Type typeInAssembly, object[] inlineData, params string[] relativePaths)
+    content: public ProjectFileDataAttribute(Type? typeInAssembly, object[] inlineData, params string[] relativePaths)
     parameters:
     - id: typeInAssembly
       type: System.Type
       description: The type in assembly.
     - id: inlineData
       type: System.Object[]
-      description: The inline data.
+      description: The inline data of <xref href="Xunit.InlineDataAttribute" data-throw-if-not-resolved="false"></xref> conventions.
     - id: relativePaths
       type: System.String[]
-      description: The relative paths.
+      description: The relative paths, mapping to <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref> test-method arguments.
     content.vb: Public Sub New(typeInAssembly As Type, inlineData As Object(), ParamArray relativePaths As String())
   overload: Songhay.Tests.ProjectFileDataAttribute.#ctor*
   nameWithType.vb: ProjectFileDataAttribute.New(Type, Object(), ParamArray String())
@@ -184,11 +288,11 @@ items:
   source:
     remote:
       path: SonghayCore.xUnit/ProjectFileDataAttribute.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetData
     path: ../SonghayCore.xUnit/ProjectFileDataAttribute.cs
-    startLine: 43
+    startLine: 81
   assemblies:
   - SonghayCore.xUnit
   namespace: Songhay.Tests
@@ -209,6 +313,21 @@ items:
   overridden: Xunit.Sdk.DataAttribute.GetData(System.Reflection.MethodInfo)
   overload: Songhay.Tests.ProjectFileDataAttribute.GetData*
 references:
+- uid: Xunit.Sdk.DataAttribute
+  commentId: T:Xunit.Sdk.DataAttribute
+  parent: Xunit.Sdk
+  isExternal: true
+  name: DataAttribute
+  nameWithType: DataAttribute
+  fullName: Xunit.Sdk.DataAttribute
+- uid: System.IO.FileInfo
+  commentId: T:System.IO.FileInfo
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.fileinfo
+  name: FileInfo
+  nameWithType: FileInfo
+  fullName: System.IO.FileInfo
 - uid: Songhay.Tests
   commentId: N:Songhay.Tests
   href: Songhay.html
@@ -250,13 +369,6 @@ references:
   name: Attribute
   nameWithType: Attribute
   fullName: System.Attribute
-- uid: Xunit.Sdk.DataAttribute
-  commentId: T:Xunit.Sdk.DataAttribute
-  parent: Xunit.Sdk
-  isExternal: true
-  name: DataAttribute
-  nameWithType: DataAttribute
-  fullName: Xunit.Sdk.DataAttribute
 - uid: Xunit.Sdk.DataAttribute.Skip
   commentId: P:Xunit.Sdk.DataAttribute.Skip
   parent: Xunit.Sdk.DataAttribute
@@ -2352,13 +2464,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Xunit.Sdk
   commentId: N:Xunit.Sdk
   isExternal: true
@@ -2381,6 +2486,40 @@ references:
   - uid: Xunit.Sdk
     name: Sdk
     isExternal: true
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
   commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
   href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
@@ -2742,21 +2881,13 @@ references:
   fullName: Songhay.Tests.ProjectFileDataAttribute
 - uid: Songhay.Tests.ProjectFileDataAttribute.#ctor*
   commentId: Overload:Songhay.Tests.ProjectFileDataAttribute.#ctor
-  href: Songhay.Tests.ProjectFileDataAttribute.html#Songhay_Tests_ProjectFileDataAttribute__ctor_System_Type_System_String___
+  href: Songhay.Tests.ProjectFileDataAttribute.html#Songhay_Tests_ProjectFileDataAttribute__ctor_System_String___
   name: ProjectFileDataAttribute
   nameWithType: ProjectFileDataAttribute.ProjectFileDataAttribute
   fullName: Songhay.Tests.ProjectFileDataAttribute.ProjectFileDataAttribute
   nameWithType.vb: ProjectFileDataAttribute.New
   fullName.vb: Songhay.Tests.ProjectFileDataAttribute.New
   name.vb: New
-- uid: System.Type
-  commentId: T:System.Type
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: Type
-  nameWithType: Type
-  fullName: System.Type
 - uid: System.String[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.string
@@ -2780,6 +2911,12 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: (
   - name: )
+- uid: Xunit.InlineDataAttribute
+  commentId: T:Xunit.InlineDataAttribute
+  isExternal: true
+  name: InlineDataAttribute
+  nameWithType: InlineDataAttribute
+  fullName: Xunit.InlineDataAttribute
 - uid: System.Object[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.object
@@ -2803,6 +2940,14 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: (
   - name: )
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
 - uid: Xunit.Sdk.DataAttribute.GetData(System.Reflection.MethodInfo)
   commentId: M:Xunit.Sdk.DataAttribute.GetData(System.Reflection.MethodInfo)
   parent: Xunit.Sdk.DataAttribute

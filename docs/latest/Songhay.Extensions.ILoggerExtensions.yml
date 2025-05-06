@@ -22,11 +22,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/ILoggerExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ILoggerExtensions
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -34,7 +34,13 @@ items:
     Extensions of <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
 
     to assist with “structured logging.”
-  remarks: "For a video overview, see https://www.youtube.com/watch?v=NlBjVJPkT6M \U0001F3A5"
+  remarks: >-
+    For a video overview of “structured logging,” see https://www.youtube.com/watch?v=NlBjVJPkT6M 🎥
+
+
+    To prevent passing null instances of <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref> into these methods,
+
+    use <xref href="Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public static class ILoggerExtensions
@@ -57,25 +63,25 @@ items:
   langs:
   - csharp
   - vb
-  name: LogErrorForMissingData(ILogger?, string)
-  nameWithType: ILoggerExtensions.LogErrorForMissingData(ILogger?, string)
-  fullName: Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData(Microsoft.Extensions.Logging.ILogger?, string)
+  name: LogErrorForMissingData(ILogger, string)
+  nameWithType: ILoggerExtensions.LogErrorForMissingData(ILogger, string)
+  fullName: Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData(Microsoft.Extensions.Logging.ILogger, string)
   type: Method
   source:
     remote:
       path: SonghayCore/Extensions/ILoggerExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogErrorForMissingData
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 22
+    startLine: 23
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: Calls <xref href="Microsoft.Extensions.Logging.LoggerExtensions.LogError(Microsoft.Extensions.Logging.ILogger%2cSystem.String%2cSystem.Object%5b%5d)" data-throw-if-not-resolved="false"></xref> for missing data.
   example: []
   syntax:
-    content: public static void LogErrorForMissingData(this ILogger? logger, string caption)
+    content: public static void LogErrorForMissingData(this ILogger logger, string caption)
     parameters:
     - id: logger
       type: Microsoft.Extensions.Logging.ILogger
@@ -96,25 +102,25 @@ items:
   langs:
   - csharp
   - vb
-  name: LogErrorForMissingData<TData>(ILogger?)
-  nameWithType: ILoggerExtensions.LogErrorForMissingData<TData>(ILogger?)
-  fullName: Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData<TData>(Microsoft.Extensions.Logging.ILogger?)
+  name: LogErrorForMissingData<TData>(ILogger)
+  nameWithType: ILoggerExtensions.LogErrorForMissingData<TData>(ILogger)
+  fullName: Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData<TData>(Microsoft.Extensions.Logging.ILogger)
   type: Method
   source:
     remote:
       path: SonghayCore/Extensions/ILoggerExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogErrorForMissingData
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 32
+    startLine: 33
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: Calls <xref href="Microsoft.Extensions.Logging.LoggerExtensions.LogError(Microsoft.Extensions.Logging.ILogger%2cSystem.String%2cSystem.Object%5b%5d)" data-throw-if-not-resolved="false"></xref> for missing data.
   example: []
   syntax:
-    content: public static void LogErrorForMissingData<TData>(this ILogger? logger)
+    content: public static void LogErrorForMissingData<TData>(this ILogger logger)
     parameters:
     - id: logger
       type: Microsoft.Extensions.Logging.ILogger
@@ -135,25 +141,25 @@ items:
   langs:
   - csharp
   - vb
-  name: LogNewLine(ILogger?, LogLevel)
-  nameWithType: ILoggerExtensions.LogNewLine(ILogger?, LogLevel)
-  fullName: Songhay.Extensions.ILoggerExtensions.LogNewLine(Microsoft.Extensions.Logging.ILogger?, Microsoft.Extensions.Logging.LogLevel)
+  name: LogNewLine(ILogger, LogLevel)
+  nameWithType: ILoggerExtensions.LogNewLine(ILogger, LogLevel)
+  fullName: Songhay.Extensions.ILoggerExtensions.LogNewLine(Microsoft.Extensions.Logging.ILogger, Microsoft.Extensions.Logging.LogLevel)
   type: Method
   source:
     remote:
       path: SonghayCore/Extensions/ILoggerExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogNewLine
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 44
+    startLine: 45
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: Logs <xref href="System.Environment.NewLine" data-throw-if-not-resolved="false"></xref> for human readability.
   example: []
   syntax:
-    content: public static void LogNewLine(this ILogger? logger, LogLevel level)
+    content: public static void LogNewLine(this ILogger logger, LogLevel level)
     parameters:
     - id: logger
       type: Microsoft.Extensions.Logging.ILogger
@@ -163,9 +169,6 @@ items:
       description: The level.
     content.vb: Public Shared Sub LogNewLine(logger As ILogger, level As LogLevel)
   overload: Songhay.Extensions.ILoggerExtensions.LogNewLine*
-  nameWithType.vb: ILoggerExtensions.LogNewLine(ILogger, LogLevel)
-  fullName.vb: Songhay.Extensions.ILoggerExtensions.LogNewLine(Microsoft.Extensions.Logging.ILogger, Microsoft.Extensions.Logging.LogLevel)
-  name.vb: LogNewLine(ILogger, LogLevel)
 - uid: Songhay.Extensions.ILoggerExtensions.LogInformationNewLine(Microsoft.Extensions.Logging.ILogger)
   commentId: M:Songhay.Extensions.ILoggerExtensions.LogInformationNewLine(Microsoft.Extensions.Logging.ILogger)
   id: LogInformationNewLine(Microsoft.Extensions.Logging.ILogger)
@@ -174,18 +177,18 @@ items:
   langs:
   - csharp
   - vb
-  name: LogInformationNewLine(ILogger?)
-  nameWithType: ILoggerExtensions.LogInformationNewLine(ILogger?)
-  fullName: Songhay.Extensions.ILoggerExtensions.LogInformationNewLine(Microsoft.Extensions.Logging.ILogger?)
+  name: LogInformationNewLine(ILogger)
+  nameWithType: ILoggerExtensions.LogInformationNewLine(ILogger)
+  fullName: Songhay.Extensions.ILoggerExtensions.LogInformationNewLine(Microsoft.Extensions.Logging.ILogger)
   type: Method
   source:
     remote:
       path: SonghayCore/Extensions/ILoggerExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogInformationNewLine
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 77
+    startLine: 78
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -195,16 +198,13 @@ items:
     for <xref href="Microsoft.Extensions.Logging.LogLevel.Information" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public static void LogInformationNewLine(this ILogger? logger)
+    content: public static void LogInformationNewLine(this ILogger logger)
     parameters:
     - id: logger
       type: Microsoft.Extensions.Logging.ILogger
       description: The logger.
     content.vb: Public Shared Sub LogInformationNewLine(logger As ILogger)
   overload: Songhay.Extensions.ILoggerExtensions.LogInformationNewLine*
-  nameWithType.vb: ILoggerExtensions.LogInformationNewLine(ILogger)
-  fullName.vb: Songhay.Extensions.ILoggerExtensions.LogInformationNewLine(Microsoft.Extensions.Logging.ILogger)
-  name.vb: LogInformationNewLine(ILogger)
 - uid: Songhay.Extensions.ILoggerExtensions.LogTraceDataTypeAndValue``1(Microsoft.Extensions.Logging.ILogger,``0)
   commentId: M:Songhay.Extensions.ILoggerExtensions.LogTraceDataTypeAndValue``1(Microsoft.Extensions.Logging.ILogger,``0)
   id: LogTraceDataTypeAndValue``1(Microsoft.Extensions.Logging.ILogger,``0)
@@ -213,18 +213,18 @@ items:
   langs:
   - csharp
   - vb
-  name: LogTraceDataTypeAndValue<TData>(ILogger?, TData?)
-  nameWithType: ILoggerExtensions.LogTraceDataTypeAndValue<TData>(ILogger?, TData?)
-  fullName: Songhay.Extensions.ILoggerExtensions.LogTraceDataTypeAndValue<TData>(Microsoft.Extensions.Logging.ILogger?, TData?)
+  name: LogTraceDataTypeAndValue<TData>(ILogger, TData?)
+  nameWithType: ILoggerExtensions.LogTraceDataTypeAndValue<TData>(ILogger, TData?)
+  fullName: Songhay.Extensions.ILoggerExtensions.LogTraceDataTypeAndValue<TData>(Microsoft.Extensions.Logging.ILogger, TData?)
   type: Method
   source:
     remote:
       path: SonghayCore/Extensions/ILoggerExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogTraceDataTypeAndValue
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 88
+    startLine: 89
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -232,7 +232,7 @@ items:
   remarks: For the best results, ensure that the <xref href="System.Object.ToString" data-throw-if-not-resolved="false"></xref> method is properly overridden.
   example: []
   syntax:
-    content: public static void LogTraceDataTypeAndValue<TData>(this ILogger? logger, TData? data)
+    content: public static void LogTraceDataTypeAndValue<TData>(this ILogger logger, TData? data)
     parameters:
     - id: logger
       type: Microsoft.Extensions.Logging.ILogger
@@ -256,18 +256,18 @@ items:
   langs:
   - csharp
   - vb
-  name: LogTraceNewLine(ILogger?)
-  nameWithType: ILoggerExtensions.LogTraceNewLine(ILogger?)
-  fullName: Songhay.Extensions.ILoggerExtensions.LogTraceNewLine(Microsoft.Extensions.Logging.ILogger?)
+  name: LogTraceNewLine(ILogger)
+  nameWithType: ILoggerExtensions.LogTraceNewLine(ILogger)
+  fullName: Songhay.Extensions.ILoggerExtensions.LogTraceNewLine(Microsoft.Extensions.Logging.ILogger)
   type: Method
   source:
     remote:
       path: SonghayCore/Extensions/ILoggerExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogTraceNewLine
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 99
+    startLine: 100
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -277,16 +277,13 @@ items:
     for <xref href="Microsoft.Extensions.Logging.LogLevel.Trace" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public static void LogTraceNewLine(this ILogger? logger)
+    content: public static void LogTraceNewLine(this ILogger logger)
     parameters:
     - id: logger
       type: Microsoft.Extensions.Logging.ILogger
       description: The logger.
     content.vb: Public Shared Sub LogTraceNewLine(logger As ILogger)
   overload: Songhay.Extensions.ILoggerExtensions.LogTraceNewLine*
-  nameWithType.vb: ILoggerExtensions.LogTraceNewLine(ILogger)
-  fullName.vb: Songhay.Extensions.ILoggerExtensions.LogTraceNewLine(Microsoft.Extensions.Logging.ILogger)
-  name.vb: LogTraceNewLine(ILogger)
 - uid: Songhay.Extensions.ILoggerExtensions.LogTraceMethodCall(Microsoft.Extensions.Logging.ILogger,System.String)
   commentId: M:Songhay.Extensions.ILoggerExtensions.LogTraceMethodCall(Microsoft.Extensions.Logging.ILogger,System.String)
   id: LogTraceMethodCall(Microsoft.Extensions.Logging.ILogger,System.String)
@@ -295,25 +292,25 @@ items:
   langs:
   - csharp
   - vb
-  name: LogTraceMethodCall(ILogger?, string?)
-  nameWithType: ILoggerExtensions.LogTraceMethodCall(ILogger?, string?)
-  fullName: Songhay.Extensions.ILoggerExtensions.LogTraceMethodCall(Microsoft.Extensions.Logging.ILogger?, string?)
+  name: LogTraceMethodCall(ILogger, string?)
+  nameWithType: ILoggerExtensions.LogTraceMethodCall(ILogger, string?)
+  fullName: Songhay.Extensions.ILoggerExtensions.LogTraceMethodCall(Microsoft.Extensions.Logging.ILogger, string?)
   type: Method
   source:
     remote:
       path: SonghayCore/Extensions/ILoggerExtensions.cs
-      branch: dev/version-8.0.0
+      branch: dev/version-8.0.1
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogTraceMethodCall
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 106
+    startLine: 107
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: Conventional trace of the specified method call.
   example: []
   syntax:
-    content: public static void LogTraceMethodCall(this ILogger? logger, string? methodName)
+    content: public static void LogTraceMethodCall(this ILogger logger, string? methodName)
     parameters:
     - id: logger
       type: Microsoft.Extensions.Logging.ILogger
@@ -335,6 +332,33 @@ references:
   name: ILogger
   nameWithType: ILogger
   fullName: Microsoft.Extensions.Logging.ILogger
+- uid: Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)
+  isExternal: true
+  href: Songhay.ILoggerUtility.html#Songhay_ILoggerUtility_AsInstanceOrNullLogger_Microsoft_Extensions_Logging_ILogger_
+  name: AsInstanceOrNullLogger(ILogger)
+  nameWithType: ILoggerUtility.AsInstanceOrNullLogger(ILogger)
+  fullName: Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)
+  spec.csharp:
+  - uid: Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)
+    name: AsInstanceOrNullLogger
+    href: Songhay.ILoggerUtility.html#Songhay_ILoggerUtility_AsInstanceOrNullLogger_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+  spec.vb:
+  - uid: Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)
+    name: AsInstanceOrNullLogger
+    href: Songhay.ILoggerUtility.html#Songhay_ILoggerUtility_AsInstanceOrNullLogger_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
 - uid: Songhay.Extensions
   commentId: N:Songhay.Extensions
   href: Songhay.html

@@ -1,0 +1,556 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.JsonNodeUtility
+  commentId: T:Songhay.JsonNodeUtility
+  id: JsonNodeUtility
+  parent: Songhay
+  children:
+  - Songhay.JsonNodeUtility.ConvertToJsonNode(System.Object)
+  - Songhay.JsonNodeUtility.ParseJsonObject(System.String,Microsoft.Extensions.Logging.ILogger)
+  langs:
+  - csharp
+  - vb
+  name: JsonNodeUtility
+  nameWithType: JsonNodeUtility
+  fullName: Songhay.JsonNodeUtility
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/JsonNodeUtility.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: JsonNodeUtility
+    path: ../SonghayCore/JsonNodeUtility.cs
+    startLine: 7
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Shared routines for <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static class JsonNodeUtility
+    content.vb: Public Module JsonNodeUtility
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.JsonNodeUtility.ConvertToJsonNode(System.Object)
+  commentId: M:Songhay.JsonNodeUtility.ConvertToJsonNode(System.Object)
+  id: ConvertToJsonNode(System.Object)
+  parent: Songhay.JsonNodeUtility
+  langs:
+  - csharp
+  - vb
+  name: ConvertToJsonNode(object?)
+  nameWithType: JsonNodeUtility.ConvertToJsonNode(object?)
+  fullName: Songhay.JsonNodeUtility.ConvertToJsonNode(object?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/JsonNodeUtility.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ConvertToJsonNode
+    path: ../SonghayCore/JsonNodeUtility.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Converts the specified <xref href="System.Object" data-throw-if-not-resolved="false"></xref>
+
+    to a <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    The primary inspiration for this member is
+
+    to transform an anonymous object to a <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static JsonNode? ConvertToJsonNode(object? data)
+    parameters:
+    - id: data
+      type: System.Object
+      description: any <xref href="System.Object" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.Text.Json.Nodes.JsonNode
+    content.vb: Public Shared Function ConvertToJsonNode(data As Object) As JsonNode
+  overload: Songhay.JsonNodeUtility.ConvertToJsonNode*
+  nameWithType.vb: JsonNodeUtility.ConvertToJsonNode(Object)
+  fullName.vb: Songhay.JsonNodeUtility.ConvertToJsonNode(Object)
+  name.vb: ConvertToJsonNode(Object)
+- uid: Songhay.JsonNodeUtility.ParseJsonObject(System.String,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.JsonNodeUtility.ParseJsonObject(System.String,Microsoft.Extensions.Logging.ILogger)
+  id: ParseJsonObject(System.String,Microsoft.Extensions.Logging.ILogger)
+  parent: Songhay.JsonNodeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseJsonObject(string, ILogger)
+  nameWithType: JsonNodeUtility.ParseJsonObject(string, ILogger)
+  fullName: Songhay.JsonNodeUtility.ParseJsonObject(string, Microsoft.Extensions.Logging.ILogger)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/JsonNodeUtility.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseJsonObject
+    path: ../SonghayCore/JsonNodeUtility.cs
+    startLine: 32
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: A wrapper for <xref href="System.Text.Json.Nodes.JsonNode.Parse(System.IO.Stream%2cSystem.Nullable%7bSystem.Text.Json.Nodes.JsonNodeOptions%7d%2cSystem.Text.Json.JsonDocumentOptions)" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static JsonObject? ParseJsonObject(string json, ILogger logger)
+    parameters:
+    - id: json
+      type: System.String
+      description: the JSON to parse
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.Text.Json.Nodes.JsonObject
+    content.vb: Public Shared Function ParseJsonObject(json As String, logger As ILogger) As JsonObject
+  overload: Songhay.JsonNodeUtility.ParseJsonObject*
+  nameWithType.vb: JsonNodeUtility.ParseJsonObject(String, ILogger)
+  fullName.vb: Songhay.JsonNodeUtility.ParseJsonObject(String, Microsoft.Extensions.Logging.ILogger)
+  name.vb: ParseJsonObject(String, ILogger)
+references:
+- uid: System.Text.Json.Nodes.JsonNode
+  commentId: T:System.Text.Json.Nodes.JsonNode
+  parent: System.Text.Json.Nodes
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonnode
+  name: JsonNode
+  nameWithType: JsonNode
+  fullName: System.Text.Json.Nodes.JsonNode
+- uid: Songhay
+  commentId: N:Songhay
+  href: Songhay.html
+  name: Songhay
+  nameWithType: Songhay
+  fullName: Songhay
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Text.Json.Nodes
+  commentId: N:System.Text.Json.Nodes
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text.Json.Nodes
+  nameWithType: System.Text.Json.Nodes
+  fullName: System.Text.Json.Nodes
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+  - name: .
+  - uid: System.Text.Json.Nodes
+    name: Nodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+  - name: .
+  - uid: System.Text.Json.Nodes
+    name: Nodes
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.JsonNodeUtility.ConvertToJsonNode*
+  commentId: Overload:Songhay.JsonNodeUtility.ConvertToJsonNode
+  href: Songhay.JsonNodeUtility.html#Songhay_JsonNodeUtility_ConvertToJsonNode_System_Object_
+  name: ConvertToJsonNode
+  nameWithType: JsonNodeUtility.ConvertToJsonNode
+  fullName: Songhay.JsonNodeUtility.ConvertToJsonNode
+- uid: System.Text.Json.Nodes.JsonNode.Parse(System.IO.Stream,System.Nullable{System.Text.Json.Nodes.JsonNodeOptions},System.Text.Json.JsonDocumentOptions)
+  commentId: M:System.Text.Json.Nodes.JsonNode.Parse(System.IO.Stream,System.Nullable{System.Text.Json.Nodes.JsonNodeOptions},System.Text.Json.JsonDocumentOptions)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonnode.parse#system-text-json-nodes-jsonnode-parse(system-io-stream-system-nullable((system-text-json-nodes-jsonnodeoptions))-system-text-json-jsondocumentoptions)
+  name: Parse(Stream, JsonNodeOptions?, JsonDocumentOptions)
+  nameWithType: JsonNode.Parse(Stream, JsonNodeOptions?, JsonDocumentOptions)
+  fullName: System.Text.Json.Nodes.JsonNode.Parse(System.IO.Stream, System.Text.Json.Nodes.JsonNodeOptions?, System.Text.Json.JsonDocumentOptions)
+  spec.csharp:
+  - uid: System.Text.Json.Nodes.JsonNode.Parse(System.IO.Stream,System.Nullable{System.Text.Json.Nodes.JsonNodeOptions},System.Text.Json.JsonDocumentOptions)
+    name: Parse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonnode.parse#system-text-json-nodes-jsonnode-parse(system-io-stream-system-nullable((system-text-json-nodes-jsonnodeoptions))-system-text-json-jsondocumentoptions)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Text.Json.Nodes.JsonNodeOptions
+    name: JsonNodeOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonnodeoptions
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Text.Json.JsonDocumentOptions
+    name: JsonDocumentOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.jsondocumentoptions
+  - name: )
+  spec.vb:
+  - uid: System.Text.Json.Nodes.JsonNode.Parse(System.IO.Stream,System.Nullable{System.Text.Json.Nodes.JsonNodeOptions},System.Text.Json.JsonDocumentOptions)
+    name: Parse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonnode.parse#system-text-json-nodes-jsonnode-parse(system-io-stream-system-nullable((system-text-json-nodes-jsonnodeoptions))-system-text-json-jsondocumentoptions)
+  - name: (
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: ','
+  - name: " "
+  - uid: System.Text.Json.Nodes.JsonNodeOptions
+    name: JsonNodeOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonnodeoptions
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Text.Json.JsonDocumentOptions
+    name: JsonDocumentOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.jsondocumentoptions
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger
+  commentId: T:Microsoft.Extensions.Logging.ILogger
+  parent: Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  name: ILogger
+  nameWithType: ILogger
+  fullName: Microsoft.Extensions.Logging.ILogger
+- uid: Songhay.JsonNodeUtility.ParseJsonObject*
+  commentId: Overload:Songhay.JsonNodeUtility.ParseJsonObject
+  href: Songhay.JsonNodeUtility.html#Songhay_JsonNodeUtility_ParseJsonObject_System_String_Microsoft_Extensions_Logging_ILogger_
+  name: ParseJsonObject
+  nameWithType: JsonNodeUtility.ParseJsonObject
+  fullName: Songhay.JsonNodeUtility.ParseJsonObject
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Text.Json.Nodes.JsonObject
+  commentId: T:System.Text.Json.Nodes.JsonObject
+  parent: System.Text.Json.Nodes
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.nodes.jsonobject
+  name: JsonObject
+  nameWithType: JsonObject
+  fullName: System.Text.Json.Nodes.JsonObject
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging

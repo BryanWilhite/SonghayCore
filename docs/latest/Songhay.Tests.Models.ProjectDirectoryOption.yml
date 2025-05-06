@@ -1,0 +1,641 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Tests.Models.ProjectDirectoryOption
+  commentId: T:Songhay.Tests.Models.ProjectDirectoryOption
+  id: ProjectDirectoryOption
+  parent: Songhay.Tests.Models
+  children:
+  - Songhay.Tests.Models.ProjectDirectoryOption.AppendNothing
+  - Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixAndTestTypeName
+  - Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixOnly
+  - Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixTestTypeNameAndTestMethodName
+  - Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameAndPathSuffix
+  - Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameAndTestMethodName
+  - Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameOnly
+  - Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameTestMethodNameAndPathSuffix
+  langs:
+  - csharp
+  - vb
+  name: ProjectDirectoryOption
+  nameWithType: ProjectDirectoryOption
+  fullName: Songhay.Tests.Models.ProjectDirectoryOption
+  type: Enum
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ProjectDirectoryOption
+    path: ../SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+    startLine: 7
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: >-
+    Enumerates the appending strategies
+
+    for generating the project <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>
+
+    of <xref href="Songhay.Tests.ProjectDirectoryDataAttribute" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum ProjectDirectoryOption
+    content.vb: Public Enum ProjectDirectoryOption
+  extensionMethods:
+  - Songhay.Tests.Models.ProjectDirectoryOption.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Tests.Models.ProjectDirectoryOption.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - System.Enum.Songhay.Extensions.EnumExtensions.GetEnumDescription
+  - System.Enum.Songhay.Extensions.EnumExtensions.GetEnumValues
+- uid: Songhay.Tests.Models.ProjectDirectoryOption.AppendNothing
+  commentId: F:Songhay.Tests.Models.ProjectDirectoryOption.AppendNothing
+  id: AppendNothing
+  parent: Songhay.Tests.Models.ProjectDirectoryOption
+  langs:
+  - csharp
+  - vb
+  name: AppendNothing
+  nameWithType: ProjectDirectoryOption.AppendNothing
+  fullName: Songhay.Tests.Models.ProjectDirectoryOption.AppendNothing
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AppendNothing
+    path: ../SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+    startLine: 12
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: append nothing for generating the project <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: AppendNothing = 0
+    return:
+      type: Songhay.Tests.Models.ProjectDirectoryOption
+- uid: Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixAndTestTypeName
+  commentId: F:Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixAndTestTypeName
+  id: AppendPathSuffixAndTestTypeName
+  parent: Songhay.Tests.Models.ProjectDirectoryOption
+  langs:
+  - csharp
+  - vb
+  name: AppendPathSuffixAndTestTypeName
+  nameWithType: ProjectDirectoryOption.AppendPathSuffixAndTestTypeName
+  fullName: Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixAndTestTypeName
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AppendPathSuffixAndTestTypeName
+    path: ../SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+    startLine: 17
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: append <code>pathSuffix</code> + <code>methodType.Name</code> for generating the project <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: AppendPathSuffixAndTestTypeName = 1
+    return:
+      type: Songhay.Tests.Models.ProjectDirectoryOption
+- uid: Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixOnly
+  commentId: F:Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixOnly
+  id: AppendPathSuffixOnly
+  parent: Songhay.Tests.Models.ProjectDirectoryOption
+  langs:
+  - csharp
+  - vb
+  name: AppendPathSuffixOnly
+  nameWithType: ProjectDirectoryOption.AppendPathSuffixOnly
+  fullName: Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixOnly
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AppendPathSuffixOnly
+    path: ../SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+    startLine: 22
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: append <code>pathSuffix</code> only for generating the project <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: AppendPathSuffixOnly = 2
+    return:
+      type: Songhay.Tests.Models.ProjectDirectoryOption
+- uid: Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixTestTypeNameAndTestMethodName
+  commentId: F:Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixTestTypeNameAndTestMethodName
+  id: AppendPathSuffixTestTypeNameAndTestMethodName
+  parent: Songhay.Tests.Models.ProjectDirectoryOption
+  langs:
+  - csharp
+  - vb
+  name: AppendPathSuffixTestTypeNameAndTestMethodName
+  nameWithType: ProjectDirectoryOption.AppendPathSuffixTestTypeNameAndTestMethodName
+  fullName: Songhay.Tests.Models.ProjectDirectoryOption.AppendPathSuffixTestTypeNameAndTestMethodName
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AppendPathSuffixTestTypeNameAndTestMethodName
+    path: ../SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+    startLine: 27
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: append <code>pathSuffix</code> + <code>methodType.Name</code> + <code>testMethod.Name</code> for generating the project <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: AppendPathSuffixTestTypeNameAndTestMethodName = 3
+    return:
+      type: Songhay.Tests.Models.ProjectDirectoryOption
+- uid: Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameAndPathSuffix
+  commentId: F:Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameAndPathSuffix
+  id: AppendTestTypeNameAndPathSuffix
+  parent: Songhay.Tests.Models.ProjectDirectoryOption
+  langs:
+  - csharp
+  - vb
+  name: AppendTestTypeNameAndPathSuffix
+  nameWithType: ProjectDirectoryOption.AppendTestTypeNameAndPathSuffix
+  fullName: Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameAndPathSuffix
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AppendTestTypeNameAndPathSuffix
+    path: ../SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+    startLine: 32
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: append <code>methodType.Name</code> + <code>pathSuffix</code> for generating the project <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: AppendTestTypeNameAndPathSuffix = 4
+    return:
+      type: Songhay.Tests.Models.ProjectDirectoryOption
+- uid: Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameAndTestMethodName
+  commentId: F:Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameAndTestMethodName
+  id: AppendTestTypeNameAndTestMethodName
+  parent: Songhay.Tests.Models.ProjectDirectoryOption
+  langs:
+  - csharp
+  - vb
+  name: AppendTestTypeNameAndTestMethodName
+  nameWithType: ProjectDirectoryOption.AppendTestTypeNameAndTestMethodName
+  fullName: Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameAndTestMethodName
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AppendTestTypeNameAndTestMethodName
+    path: ../SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+    startLine: 37
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: append <code>methodType.Name</code> + <code>testMethod.Name</code> for generating the project <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: AppendTestTypeNameAndTestMethodName = 5
+    return:
+      type: Songhay.Tests.Models.ProjectDirectoryOption
+- uid: Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameOnly
+  commentId: F:Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameOnly
+  id: AppendTestTypeNameOnly
+  parent: Songhay.Tests.Models.ProjectDirectoryOption
+  langs:
+  - csharp
+  - vb
+  name: AppendTestTypeNameOnly
+  nameWithType: ProjectDirectoryOption.AppendTestTypeNameOnly
+  fullName: Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameOnly
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AppendTestTypeNameOnly
+    path: ../SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+    startLine: 42
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: append <code>methodType.Name</code> only for generating the project <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: AppendTestTypeNameOnly = 6
+    return:
+      type: Songhay.Tests.Models.ProjectDirectoryOption
+- uid: Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameTestMethodNameAndPathSuffix
+  commentId: F:Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameTestMethodNameAndPathSuffix
+  id: AppendTestTypeNameTestMethodNameAndPathSuffix
+  parent: Songhay.Tests.Models.ProjectDirectoryOption
+  langs:
+  - csharp
+  - vb
+  name: AppendTestTypeNameTestMethodNameAndPathSuffix
+  nameWithType: ProjectDirectoryOption.AppendTestTypeNameTestMethodNameAndPathSuffix
+  fullName: Songhay.Tests.Models.ProjectDirectoryOption.AppendTestTypeNameTestMethodNameAndPathSuffix
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+      branch: dev/version-8.0.1
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AppendTestTypeNameTestMethodNameAndPathSuffix
+    path: ../SonghayCore.xUnit/Models/ProjectDirectoryOption.cs
+    startLine: 47
+  assemblies:
+  - SonghayCore.xUnit
+  namespace: Songhay.Tests.Models
+  summary: append <code>methodType.Name</code> + <code>testMethod.Name</code> + <code>pathSuffix</code> for generating the project <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: AppendTestTypeNameTestMethodNameAndPathSuffix = 7
+    return:
+      type: Songhay.Tests.Models.ProjectDirectoryOption
+references:
+- uid: System.IO.DirectoryInfo
+  commentId: T:System.IO.DirectoryInfo
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.directoryinfo
+  name: DirectoryInfo
+  nameWithType: DirectoryInfo
+  fullName: System.IO.DirectoryInfo
+- uid: Songhay.Tests.ProjectDirectoryDataAttribute
+  commentId: T:Songhay.Tests.ProjectDirectoryDataAttribute
+  href: Songhay.Tests.ProjectDirectoryDataAttribute.html
+  name: ProjectDirectoryDataAttribute
+  nameWithType: ProjectDirectoryDataAttribute
+  fullName: Songhay.Tests.ProjectDirectoryDataAttribute
+- uid: Songhay.Tests.Models
+  commentId: N:Songhay.Tests.Models
+  href: Songhay.html
+  name: Songhay.Tests.Models
+  nameWithType: Songhay.Tests.Models
+  fullName: Songhay.Tests.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Tests
+    name: Tests
+    href: Songhay.Tests.html
+  - name: .
+  - uid: Songhay.Tests.Models
+    name: Models
+    href: Songhay.Tests.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Tests
+    name: Tests
+    href: Songhay.Tests.html
+  - name: .
+  - uid: Songhay.Tests.Models
+    name: Models
+    href: Songhay.Tests.Models.html
+- uid: Songhay.Tests.Models.ProjectDirectoryOption.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<ProjectDirectoryOption>(ProjectDirectoryOption)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<ProjectDirectoryOption>(ProjectDirectoryOption)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Tests.Models.ProjectDirectoryOption>(Songhay.Tests.Models.ProjectDirectoryOption)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of ProjectDirectoryOption)(ProjectDirectoryOption)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Tests.Models.ProjectDirectoryOption)(Songhay.Tests.Models.ProjectDirectoryOption)
+  name.vb: IsAssignableToISerializable(Of ProjectDirectoryOption)(ProjectDirectoryOption)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Tests.Models.ProjectDirectoryOption)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Tests.Models.ProjectDirectoryOption
+    name: ProjectDirectoryOption
+    href: Songhay.Tests.Models.ProjectDirectoryOption.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Tests.Models.ProjectDirectoryOption
+    name: ProjectDirectoryOption
+    href: Songhay.Tests.Models.ProjectDirectoryOption.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Tests.Models.ProjectDirectoryOption)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Tests.Models.ProjectDirectoryOption
+    name: ProjectDirectoryOption
+    href: Songhay.Tests.Models.ProjectDirectoryOption.html
+  - name: )
+  - name: (
+  - uid: Songhay.Tests.Models.ProjectDirectoryOption
+    name: ProjectDirectoryOption
+    href: Songhay.Tests.Models.ProjectDirectoryOption.html
+  - name: )
+- uid: Songhay.Tests.Models.ProjectDirectoryOption.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<ProjectDirectoryOption>(ProjectDirectoryOption)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<ProjectDirectoryOption>(ProjectDirectoryOption)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Tests.Models.ProjectDirectoryOption>(Songhay.Tests.Models.ProjectDirectoryOption)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of ProjectDirectoryOption)(ProjectDirectoryOption)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Tests.Models.ProjectDirectoryOption)(Songhay.Tests.Models.ProjectDirectoryOption)
+  name.vb: ToObjectOrDbNull(Of ProjectDirectoryOption)(ProjectDirectoryOption)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Tests.Models.ProjectDirectoryOption)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Tests.Models.ProjectDirectoryOption
+    name: ProjectDirectoryOption
+    href: Songhay.Tests.Models.ProjectDirectoryOption.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Tests.Models.ProjectDirectoryOption
+    name: ProjectDirectoryOption
+    href: Songhay.Tests.Models.ProjectDirectoryOption.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Tests.Models.ProjectDirectoryOption)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Tests.Models.ProjectDirectoryOption
+    name: ProjectDirectoryOption
+    href: Songhay.Tests.Models.ProjectDirectoryOption.html
+  - name: )
+  - name: (
+  - uid: Songhay.Tests.Models.ProjectDirectoryOption
+    name: ProjectDirectoryOption
+    href: Songhay.Tests.Models.ProjectDirectoryOption.html
+  - name: )
+- uid: System.Enum.Songhay.Extensions.EnumExtensions.GetEnumDescription
+  commentId: M:Songhay.Extensions.EnumExtensions.GetEnumDescription(System.Enum)
+  parent: Songhay.Extensions.EnumExtensions
+  definition: Songhay.Extensions.EnumExtensions.GetEnumDescription(System.Enum)
+  href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumDescription_System_Enum_
+  name: GetEnumDescription(Enum)
+  nameWithType: EnumExtensions.GetEnumDescription(Enum)
+  fullName: Songhay.Extensions.EnumExtensions.GetEnumDescription(System.Enum)
+  spec.csharp:
+  - uid: Songhay.Extensions.EnumExtensions.GetEnumDescription(System.Enum)
+    name: GetEnumDescription
+    href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumDescription_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.EnumExtensions.GetEnumDescription(System.Enum)
+    name: GetEnumDescription
+    href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumDescription_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: System.Enum.Songhay.Extensions.EnumExtensions.GetEnumValues
+  commentId: M:Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)
+  parent: Songhay.Extensions.EnumExtensions
+  definition: Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)
+  href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumValues_System_Enum_
+  name: GetEnumValues(Enum)
+  nameWithType: EnumExtensions.GetEnumValues(Enum)
+  fullName: Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)
+  spec.csharp:
+  - uid: Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)
+    name: GetEnumValues
+    href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumValues_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)
+    name: GetEnumValues
+    href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumValues_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.EnumExtensions.GetEnumDescription(System.Enum)
+  commentId: M:Songhay.Extensions.EnumExtensions.GetEnumDescription(System.Enum)
+  isExternal: true
+  href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumDescription_System_Enum_
+  name: GetEnumDescription(Enum)
+  nameWithType: EnumExtensions.GetEnumDescription(Enum)
+  fullName: Songhay.Extensions.EnumExtensions.GetEnumDescription(System.Enum)
+  spec.csharp:
+  - uid: Songhay.Extensions.EnumExtensions.GetEnumDescription(System.Enum)
+    name: GetEnumDescription
+    href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumDescription_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.EnumExtensions.GetEnumDescription(System.Enum)
+    name: GetEnumDescription
+    href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumDescription_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: Songhay.Extensions.EnumExtensions
+  commentId: T:Songhay.Extensions.EnumExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.EnumExtensions.html
+  name: EnumExtensions
+  nameWithType: EnumExtensions
+  fullName: Songhay.Extensions.EnumExtensions
+- uid: Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)
+  commentId: M:Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)
+  isExternal: true
+  href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumValues_System_Enum_
+  name: GetEnumValues(Enum)
+  nameWithType: EnumExtensions.GetEnumValues(Enum)
+  fullName: Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)
+  spec.csharp:
+  - uid: Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)
+    name: GetEnumValues
+    href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumValues_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.EnumExtensions.GetEnumValues(System.Enum)
+    name: GetEnumValues
+    href: Songhay.Extensions.EnumExtensions.html#Songhay_Extensions_EnumExtensions_GetEnumValues_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Tests.Models.ProjectDirectoryOption
+  commentId: T:Songhay.Tests.Models.ProjectDirectoryOption
+  parent: Songhay.Tests.Models
+  href: Songhay.Tests.Models.ProjectDirectoryOption.html
+  name: ProjectDirectoryOption
+  nameWithType: ProjectDirectoryOption
+  fullName: Songhay.Tests.Models.ProjectDirectoryOption
