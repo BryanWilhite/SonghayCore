@@ -21,8 +21,7 @@ public class RestApiMetadataExtensionsTests(ITestOutputHelper helper)
         ]
     ];
 
-    [Theory]
-    [MemberData(nameof(MetaData))]
+    [Theory, MemberData(nameof(MetaData))]
     public void ToUri_Test(string key, RestApiMetadata meta, string[] input, string expected)
     {
         Uri actual = meta.ToUri(key, input).ToReferenceTypeValueOrThrow();
@@ -30,8 +29,7 @@ public class RestApiMetadataExtensionsTests(ITestOutputHelper helper)
         Assert.Equal(expected, actual.OriginalString);
     }
 
-    [Theory]
-    [ProjectFileData("../../../content/json/studio-metadata.json")]
+    [Theory, ProjectFileData("../../../content/json/studio-metadata.json")]
     public void ToAzureActiveDirectoryAccessTokenData_Test(FileInfo metaInfo)
     {
         var json = File.ReadAllText(metaInfo.FullName);
@@ -41,8 +39,7 @@ public class RestApiMetadataExtensionsTests(ITestOutputHelper helper)
         Assert.NotEmpty(actual);
     }
 
-    [Theory]
-    [ProjectFileData(
+    [Theory, ProjectFileData(
         [
             "https://login.microsoftonline.com/active-directory-registration-app-directory-id/oauth2/v2.0/token"
         ],
@@ -57,8 +54,7 @@ public class RestApiMetadataExtensionsTests(ITestOutputHelper helper)
         Assert.Equal(expected, actual.OriginalString);
     }
 
-    [Theory]
-    [ProjectFileData(
+    [Theory, ProjectFileData(
         [
             "secretNameForMySecret",
             "https://your-secrets.vault.azure.net:443/secrets/my-secret?api-version=2016-10-01"
