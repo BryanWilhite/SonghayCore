@@ -7,7 +7,7 @@ namespace Songhay.Net;
 /// </summary>
 /// <param name="instanceTag">maps to <see cref="ITaggedInstance.InstanceTag"/></param>
 /// <param name="pipeline">the <see cref="ResiliencePipeline"/></param>
-public class BlobStreamApiEndpoint(string? instanceTag, ResiliencePipeline? pipeline) : IBlobStreamApiEndpoint
+public class BlobStreamApiEndpoint(ResiliencePipeline? pipeline, string? instanceTag) : IBlobStreamApiEndpoint
 {
     /// <summary>
     /// Returns the conventional ID or tag of this instance.

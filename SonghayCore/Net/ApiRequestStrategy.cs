@@ -5,8 +5,8 @@ namespace Songhay.Net;
 /// </summary>
 /// <param name="instanceTag">sets <see cref="ITaggedInstance.InstanceTag"/></param>
 /// <param name="messageGetter">optional getter of <see cref="HttpRequestMessage"/> based on <see cref="HttpRequestOptions"/></param>
-public class ApiRequestStrategy(string? instanceTag,
-    Func<HttpRequestOptions, HttpRequestMessage>? messageGetter) : IApiRequestStrategy
+public class ApiRequestStrategy(
+    Func<HttpRequestOptions, HttpRequestMessage>? messageGetter, string? instanceTag) : IApiRequestStrategy
 {
     /// <summary>
     /// Returns the conventional ID or tag of this instance.

@@ -148,6 +148,44 @@
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
         </member>
+        <member name="T:Songhay.Abstractions.IApiEndpoint">
+            <summary>
+            Defines how an API should be accessed.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.IApiEndpoint.DownloadStringAsync``1(Songhay.Abstractions.IApiRequestStrategy,``0)">
+            <summary>
+            Download into a <see cref="T:System.String"/>
+            from the API endpoint
+            </summary>
+            <param name="requestStrategy">the <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/> required for the endpoint</param>
+            <param name="requestData">the data that is conventionally passed through to <see cref="M:Songhay.Abstractions.IApiRequestStrategy.GenerateHttpRequestMessage``1(``0)"/></param>
+        </member>
+        <member name="T:Songhay.Abstractions.IApiRequestStrategy">
+            <summary>
+            Defines that an <see cref="T:System.Net.Http.HttpRequestMessage"/> needs to be generated.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.IApiRequestStrategy.GenerateHttpRequestMessage``1(``0)">
+            <summary>
+            Returns an <see cref="T:System.Net.Http.HttpRequestMessage"/> needed to call the API
+            </summary>
+            <param name="requestData">the data used to build a new request</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IBlobStreamApiEndpoint">
+            <summary>
+            Defines the retrieval of a remote BLOB as a <see cref="T:System.IO.Stream"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.IBlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})">
+            <summary>
+            Downloads a BLOB with the specified name
+            into a <see cref="T:System.IO.Stream"/>
+            </summary>
+            <param name="requestStrategy">the <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/> required for the endpoint</param>
+            <param name="streamAction">The action to take with the <see cref="T:System.IO.Stream"/> associated with the BLOB</param>
+            <param name="path">any <see cref="P:System.Uri.PathAndQuery"/> and/or <see cref="P:System.Uri.Fragment"/></param>
+        </member>
         <member name="T:Songhay.Abstractions.IColorable">
             <summary>
             Defines a colorable visual.
@@ -310,6 +348,23 @@
             <summary>
             Gets the syndication item.
             </summary>
+        </member>
+        <member name="T:Songhay.Abstractions.ITaggedInstance">
+            <summary>
+            Tags instances for DI with keyed services.
+            </summary>
+            <remarks>
+            This contract helps extension methods verify that a specific implementation is being operated upon.
+            </remarks>
+        </member>
+        <member name="P:Songhay.Abstractions.ITaggedInstance.InstanceTag">
+            <summary>
+            Returns the conventional ID or tag of this instance.
+            </summary>
+            <remarks>
+            This identifier is intended for asserting that an expected ID is present
+            which is useful for ensuring that an extension method is operating on the expected instance.
+            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.ITemporal">
             <summary>
@@ -6420,6 +6475,143 @@
             <summary>
             DOCTYPE XHTML Transitional declaration.
             </summary>
+        </member>
+        <member name="T:Songhay.Net.ApiEndpoint">
+            <summary>
+            Defines a REST API endpoint
+            </summary>
+            <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
+            <remarks>
+            The output of <c>httpRequestMessageGetter</c> will be inside a <c>using</c> block.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Net.ApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)">
+            <summary>
+            Defines a REST API endpoint
+            </summary>
+            <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
+            <remarks>
+            The output of <c>httpRequestMessageGetter</c> will be inside a <c>using</c> block.
+            </remarks>
+        </member>
+        <member name="P:Songhay.Net.ApiEndpoint.InstanceTag">
+            <summary>
+            Returns the conventional ID or tag of this instance.
+            </summary>
+        </member>
+        <member name="M:Songhay.Net.ApiEndpoint.DownloadStringAsync``1(Songhay.Abstractions.IApiRequestStrategy,``0)">
+            <summary>
+            Download into a <see cref="T:System.String"/>
+            from the API endpoint
+            </summary>
+            <param name="requestStrategy">the <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/></param>
+            <param name="requestData">the data that is conventionally passed through to <see cref="M:Songhay.Abstractions.IApiRequestStrategy.GenerateHttpRequestMessage``1(``0)"/></param>
+        </member>
+        <member name="T:Songhay.Net.ApiRequestStrategy">
+            <summary>
+            The default implementation of <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/>.
+            </summary>
+            <param name="instanceTag">sets <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="messageGetter">optional getter of <see cref="T:System.Net.Http.HttpRequestMessage"/> based on <see cref="T:System.Net.Http.HttpRequestOptions"/></param>
+        </member>
+        <member name="M:Songhay.Net.ApiRequestStrategy.#ctor(System.Func{System.Net.Http.HttpRequestOptions,System.Net.Http.HttpRequestMessage},System.String)">
+            <summary>
+            The default implementation of <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/>.
+            </summary>
+            <param name="instanceTag">sets <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="messageGetter">optional getter of <see cref="T:System.Net.Http.HttpRequestMessage"/> based on <see cref="T:System.Net.Http.HttpRequestOptions"/></param>
+        </member>
+        <member name="P:Songhay.Net.ApiRequestStrategy.InstanceTag">
+            <summary>
+            Returns the conventional ID or tag of this instance.
+            </summary>
+            <remarks>
+            This identifier is intended for asserting that an expected ID is present
+            which is useful for ensuring that an extension method is operating on the expected instance.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Net.ApiRequestStrategy.GenerateHttpRequestMessage``1(``0)">
+             <summary>
+             Returns an <see cref="T:System.Net.Http.HttpRequestMessage"/> needed to call the API
+             </summary>
+             <param name="requestData">the data used to build a new request</param>
+             <remarks>
+             This member supports the following <c>TData</c> types:
+            
+             - <see cref="T:System.String"/>
+             - <see cref="T:System.Net.Http.HttpRequestOptions"/> for the specified <c>messageGetter</c>
+             - <see cref="T:System.Uri"/>
+             - <see cref="T:System.UriBuilder"/>
+             - 2 tuples of <see cref="T:System.Net.Http.HttpMethod"/> and the previously mentioned types
+             
+             </remarks>
+        </member>
+        <member name="T:Songhay.Net.AzureBlobApiRequestStrategy">
+            <summary>
+            The default implementation of <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/>
+            for Azure Storage BLOBs.
+            </summary>
+            <remarks>
+            This implementation may seem like overkill but day-job experience informs me
+            that many C# developers are not comfortable with <see cref="T:System.Func`1"/>.
+            So this class serves as a wrapper for this more functional approach.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Net.AzureBlobApiRequestStrategy.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            The default implementation of <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/>
+            for Azure Storage BLOBs.
+            </summary>
+            <remarks>
+            This implementation may seem like overkill but day-job experience informs me
+            that many C# developers are not comfortable with <see cref="T:System.Func`1"/>.
+            So this class serves as a wrapper for this more functional approach.
+            </remarks>
+        </member>
+        <member name="P:Songhay.Net.AzureBlobApiRequestStrategy.InstanceTag">
+            <summary>
+            Returns the conventional ID or tag of this instance.
+            </summary>
+            <remarks>
+            This identifier is intended for asserting that an expected ID is present
+            which is useful for ensuring that an extension method is operating on the expected instance.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Net.AzureBlobApiRequestStrategy.GenerateHttpRequestMessage``1(``0)">
+            <summary>
+            Returns an <see cref="T:System.Net.Http.HttpRequestMessage"/> needed to call the API
+            </summary>
+        </member>
+        <member name="T:Songhay.Net.BlobStreamApiEndpoint">
+            <summary>
+            Defines the default implementation of <see cref="T:Songhay.Abstractions.IBlobStreamApiEndpoint"/>
+            </summary>
+            <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
+        </member>
+        <member name="M:Songhay.Net.BlobStreamApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)">
+            <summary>
+            Defines the default implementation of <see cref="T:Songhay.Abstractions.IBlobStreamApiEndpoint"/>
+            </summary>
+            <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
+        </member>
+        <member name="P:Songhay.Net.BlobStreamApiEndpoint.InstanceTag">
+            <summary>
+            Returns the conventional ID or tag of this instance.
+            </summary>
+        </member>
+        <member name="M:Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})">
+            <summary>
+            Download into a <see cref="T:System.String"/>
+            from the API endpoint
+            </summary>
+            <param name="requestStrategy">the <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/></param>
+            <param name="path">the path to the BLOB resource</param>
+            <param name="streamAction">the strategy for receiving the BLOB stream</param>
+            <exception cref="T:System.Net.Http.HttpRequestException"></exception>
         </member>
         <member name="T:Songhay.Net.SmtpUtility">
             <summary>
