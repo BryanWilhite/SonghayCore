@@ -1800,11 +1800,20 @@
         </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.String)">
             <summary>
-            
+            Adds conventional help text to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            under the specified key.
             </summary>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
             <param name="key">the key to add</param>
             <param name="helpText">the help text to add</param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.BindNewInstance``1(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Calls <see cref="M:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Object)"/>
+            to return an instance of <c>T</c>
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <typeparam name="T">the type of the desired instance</typeparam>
         </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -2252,6 +2261,19 @@
             <param name="logger">The logger.</param>
             <param name="methodName">Name of the method.</param>
         </member>
+        <member name="T:Songhay.Extensions.ILoggerProviderExtensions">
+            <summary>
+            Extensions of <see cref="T:Microsoft.Extensions.Logging.ILoggerProvider"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.ILoggerProviderExtensions.GenerateLogger``1(Microsoft.Extensions.Logging.ILoggerProvider)">
+            <summary>
+            Generates <see cref="T:Microsoft.Extensions.Logging.ILogger`1"/>
+            from the specified <see cref="T:Microsoft.Extensions.Logging.ILoggerProvider"/>.
+            </summary>
+            <param name="provider">the <see cref="T:Microsoft.Extensions.Logging.ILoggerProvider"/></param>
+            <typeparam name="TCategory">the logging category</typeparam>
+        </member>
         <member name="T:Songhay.Extensions.IPrincipalExtensions">
             <summary>
             Extensions of <see cref="T:System.Security.Principal.IPrincipal"/>
@@ -2264,6 +2286,39 @@
             <param name="principal">The principal.</param>
             <param name="defaultUserName">Default name of the user.</param>
             <returns></returns>
+        </member>
+        <member name="T:Songhay.Extensions.IServiceCollectionExtensions">
+            <summary>
+            Extensions of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IServiceCollectionExtensions.AddProgramMetadata(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds the conventional <see cref="T:Songhay.Models.ProgramMetadata"/> instance as a singleton.
+            </summary>
+            <param name="services">the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="T:Songhay.Extensions.ITaggedInstanceExtensions">
+            <summary>
+            Extensions of <see cref="T:Songhay.Abstractions.ITaggedInstance"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)">
+            <summary>
+            Throws <see cref="T:System.Configuration.ConfigurationErrorsException"/>
+            when <see cref="M:Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)"/> returns <c>false</c>.
+            </summary>
+            <param name="instance">the <see cref="T:Songhay.Abstractions.ITaggedInstance"/></param>
+            <param name="instanceTag">the conventional identifier</param>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)">
+            <summary>
+            Returns <c>true</c> when <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/> equals the specified identifier.
+            </summary>
+            <param name="instance">the <see cref="T:Songhay.Abstractions.ITaggedInstance"/></param>
+            <param name="instanceTag">the conventional identifier</param>
         </member>
         <member name="T:Songhay.Extensions.ITemporalExtensions">
             <summary>
@@ -2579,6 +2634,16 @@
             </summary>
             <param name="node">The <see cref="T:System.Text.Json.Nodes.JsonNode"/>.</param>
             <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject,System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Returns the <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            of the specified target property name
+            or <c>null</c>.
+            </summary>
+            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="targetPropertyName">the target property name</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
             <summary>
@@ -4288,6 +4353,21 @@
             <returns>
             A <see cref="T:System.String" /> that represents this instance.
             </returns>
+        </member>
+        <member name="T:Songhay.Models.DependencyInjectionScalars">
+            <summary>
+            Centralizes conventional values used for DI.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.DependencyInjectionScalars.AppConfigurationVariableName">
+            <summary>
+            The name of the conventional environment variable name for app configuration
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.DependencyInjectionScalars.DefaultApiEndPointKey">
+            <summary>
+            The default REST API key used for DI
+            </summary>
         </member>
         <member name="T:Songhay.Models.DeploymentEnvironment">
             <summary>
