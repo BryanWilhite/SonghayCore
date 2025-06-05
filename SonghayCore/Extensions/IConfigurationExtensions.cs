@@ -7,7 +7,8 @@ namespace Songhay.Extensions;
 public static class IConfigurationExtensions
 {
     /// <summary>
-    /// 
+    /// Adds conventional help text to <see cref="IConfiguration"/>
+    /// under the specified key.
     /// </summary>
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
     /// <param name="key">the key to add</param>
@@ -17,6 +18,23 @@ public static class IConfigurationExtensions
         if (configuration == null) return;
 
         configuration[key.ToConfigurationKey().WithConfigurationHelpTextSuffix()] = helpText;
+    }
+
+    /// <summary>
+    /// Calls <see cref="ConfigurationBinder.Bind(IConfiguration, string, object?)"/>
+    /// to return an instance of <c>T</c>
+    /// </summary>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    /// <typeparam name="T">the type of the desired instance</typeparam>
+    public static T BindNewInstance<T>(this IConfiguration configuration) where T : class, new()
+    {
+        ArgumentNullException.ThrowIfNull(configuration);
+
+        T instance = new();
+        Type type = typeof(T);
+        configuration.Bind(type.Name, instance);
+
+        return instance;
     }
 
     /// <summary>

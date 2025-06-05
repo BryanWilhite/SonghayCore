@@ -1,4 +1,5 @@
 using Songhay.Abstractions;
+using Songhay.Models;
 using Songhay.Net;
 
 namespace Songhay.Tests.Net;
@@ -9,7 +10,7 @@ public class ApiRequestStrategyTests
     [InlineData("https://microsoft.com/build")]
     public void GenerateHttpRequestMessage_String_Test(string location)
     {
-        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: "default");
+        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: DependencyInjectionScalars.DefaultApiEndPointKey);
 
         HttpRequestMessage actual = strategy.GenerateHttpRequestMessage(location);
 
@@ -22,7 +23,7 @@ public class ApiRequestStrategyTests
     {
         Uri uri = new(location);
 
-        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: "default");
+        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: DependencyInjectionScalars.DefaultApiEndPointKey);
 
         HttpRequestMessage actual = strategy.GenerateHttpRequestMessage(uri);
 
@@ -35,7 +36,7 @@ public class ApiRequestStrategyTests
     {
         UriBuilder builder = new(location);
 
-        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: "default");
+        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: DependencyInjectionScalars.DefaultApiEndPointKey);
 
         HttpRequestMessage actual = strategy.GenerateHttpRequestMessage(builder);
 
@@ -47,7 +48,7 @@ public class ApiRequestStrategyTests
     public void GenerateHttpRequestMessage_StringTuple_Test(string location)
     {
         var t = new Tuple<HttpMethod, string>(HttpMethod.Patch, location);
-        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: "default");
+        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: DependencyInjectionScalars.DefaultApiEndPointKey);
 
         HttpRequestMessage actual = strategy.GenerateHttpRequestMessage(t);
 
@@ -60,7 +61,7 @@ public class ApiRequestStrategyTests
     public void GenerateHttpRequestMessage_StringValueTuple_Test(string location)
     {
         (HttpMethod method, string loc) t = (HttpMethod.Patch, location);
-        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: "default");
+        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: DependencyInjectionScalars.DefaultApiEndPointKey);
 
         HttpRequestMessage actual = strategy.GenerateHttpRequestMessage(t);
 
@@ -73,7 +74,7 @@ public class ApiRequestStrategyTests
     public void GenerateHttpRequestMessage_UriValueTuple_Test(string location)
     {
         (HttpMethod method, Uri uri) t = (HttpMethod.Patch, new Uri(location));
-        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: "default");
+        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: DependencyInjectionScalars.DefaultApiEndPointKey);
 
         HttpRequestMessage actual = strategy.GenerateHttpRequestMessage(t);
 
@@ -86,7 +87,7 @@ public class ApiRequestStrategyTests
     public void GenerateHttpRequestMessage_UriBuilderValueTuple_Test(string location)
     {
         (HttpMethod method, UriBuilder builder) t = (HttpMethod.Patch, new UriBuilder(location));
-        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: "default");
+        IApiRequestStrategy strategy = new ApiRequestStrategy(messageGetter: null, instanceTag: DependencyInjectionScalars.DefaultApiEndPointKey);
 
         HttpRequestMessage actual = strategy.GenerateHttpRequestMessage(t);
 
