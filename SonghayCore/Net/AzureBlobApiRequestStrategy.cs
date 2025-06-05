@@ -13,7 +13,8 @@ public class AzureBlobApiRequestStrategy(
     string? accountName,
     string? accountKey,
     string? containerName,
-    string? apiVersion) : IApiRequestStrategy
+    string? apiVersion,
+    string? instanceTag) : IApiRequestStrategy
 {
 
     /// <summary>
@@ -23,7 +24,7 @@ public class AzureBlobApiRequestStrategy(
     /// This identifier is intended for asserting that an expected ID is present
     /// which is useful for ensuring that an extension method is operating on the expected instance.
     /// </remarks>
-    public string InstanceTag { get; } = containerName.ToReferenceTypeValueOrThrow();
+    public string InstanceTag { get; } = instanceTag.ToReferenceTypeValueOrThrow();
 
     /// <summary>
     /// Returns an <see cref="HttpRequestMessage"/> needed to call the API
