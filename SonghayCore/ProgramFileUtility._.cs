@@ -10,10 +10,23 @@ public static partial class ProgramFileUtility
         Backslash = '\\';
         ForwardSlash = '/';
         IsForwardSlashSystemField = Path.DirectorySeparatorChar.Equals(ForwardSlash);
-        TraceSource = TraceSources.Instance.GetConfiguredTraceSource();
     }
 
-    static readonly TraceSource? TraceSource;
+    /// <summary>
+    /// Copies the specified <see cref="Stream"/>
+    /// to a new <see cref="FileStream"/>
+    /// of the specified output path.
+    /// </summary>
+    /// <param name="stream">the <see cref="Stream"/></param>
+    /// <param name="outputPath"></param>
+    public static void CopyToFileStream(Stream stream, string? outputPath)
+    {
+        outputPath.ThrowWhenNullOrWhiteSpace();
+
+        using FileStream fileStream = File.Create(outputPath);
+        stream.Seek(0L, SeekOrigin.Begin);
+        stream.CopyTo(fileStream);
+    }
 
     /// <summary>
     /// Counts the parent directory chars.
@@ -69,7 +82,7 @@ public static partial class ProgramFileUtility
         levels = Math.Abs(levels);
         --levels;
 
-        var hasNoMoreLevels = (levels == 0);
+        var hasNoMoreLevels = levels == 0;
 
         return hasNoMoreLevels ? null : FindParentDirectoryInfo(info.Parent?.FullName, parentName, levels);
     }
