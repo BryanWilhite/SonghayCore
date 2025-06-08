@@ -29,6 +29,19 @@ public static partial class ProgramFileUtility
     }
 
     /// <summary>
+    /// Copies the specified <see cref="Stream"/>
+    /// to a new <see cref="MemoryStream"/>.
+    /// </summary>
+    /// <param name="stream">the <see cref="Stream"/></param>
+    public static byte[] CopyToMemoryStream(Stream stream)
+    {
+        using MemoryStream memoryStream = new();
+        stream.CopyTo(memoryStream);
+
+        return memoryStream.ToArray();
+    }
+
+    /// <summary>
     /// Counts the parent directory chars.
     /// </summary>
     /// <param name="path">The path.</param>
