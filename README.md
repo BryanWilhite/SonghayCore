@@ -2,13 +2,11 @@
 
 [![Build Status](https://songhay.visualstudio.com/SonghaySystem/_apis/build/status/songhay-core-yaml-build?branchName=master)](https://songhay.visualstudio.com/SonghaySystem/_build/latest?definitionId=16&branchName=master)
 
-The _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/SonghayCore/) for all of my studio Solutions. Anyone who may be reading this 👀 is free to do the same. This package is based on [a project file](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/SonghayCore.csproj) that supports [multi-targeting](http://gigi.nullneuron.net/gigilabs/multi-targeting-net-standard-class-libraries/), declaring support for `net8.0`.
+Here is the _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/SonghayCore/) for all of my studio Solutions. Anyone who may be reading this 👀 is free to do the same. This package is based on `net8.0`.
 
 **NuGet package 📦:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
 
 **documentation 📚:** [`SonghayCore` API](https://bryanwilhite.github.io/SonghayCore/)
-
-**coverlet test coverage 🔬☔:** [[report](https://bryanwilhite.github.io/SonghayCore/coverlet/)]
 
 ## _core_ reusable, opinionated concerns
 
@@ -76,6 +74,27 @@ The “core” of the _Core_ is concern for XML. The Songhay System started out 
 
 **Documentation 📚:** [`Songhay.Xml`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Xml/)
 
+## fundamental boundary-crossing abstractions
+
+This _Core_ features the ‘boundary-crossing abstractions’ (and default implementations) needed for the enterprise work based on my historical needs:
+
+- [`IApiEndpoint`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IApiEndpoint.cs) — defines the conventional way to access distributed data (default implementation: [`ApiEndpoint`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Net/ApiEndpoint.cs)).
+- [`IApiRequestStrategy`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IApiRequestStrategy.cs) — defines the conventional way to request data from an endpoint (default implementations: [`ApiRequestStrategy`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Net/ApiRequestStrategy.cs) and [`AzureBlobApiRequestStrategy`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Net/AzureBlobApiRequestStrategy.cs)).
+- [`IBlobStreamApiEndpoint`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IBlobStreamApiEndpoint.cs) — defines the conventional way to request BLOB data from an endpoint (default implementation: [`BlobStreamApiEndpoint`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Net/BlobStreamApiEndpoint.cs)).
+
+Dependency-injecting these ‘boundary-crossing abstractions’ are far more mockable than, say, using `HttpRequestMessage` directly.
+
+## the _core_ Activity concept
+
+This _Core_ features the concept of the Activity which is a way to formally recognize that all line of business applications can be thought of as a ‘tree’ of inputs and outputs. It follows that each ‘node’ of this ‘tree’ can be called an Activity. The following abstractions classify the Activities needed so far:
+
+- [`IActivity`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IActivity.cs) — defines the conventional, synchronous, input-output Activities
+- [`IActivityOutputOnly`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IActivityOutputOnly.cs) — defines the conventional, synchronous Activities with output only (input usually comes from `IConfiguration` in this case)
+- [`IActivityOutputOnlyTask`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IActivityOutputOnlyTask.cs) — defines the conventional, asynchronous Activities with output only (input usually comes from `IConfiguration` in this case)
+- [`IActivityTask`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IActivityTask.cs) — defines the conventional, asynchronous, input-output Activities
+
+This Activity concept which I regard as _fundamental_ is the least likely architectural reality that would be shared by my peers 😐 From the Microsoft point of view, my Activity concept would be buried under [Windows Workflow Foundation](https://en.wikipedia.org/wiki/Windows_Workflow_Foundation) or [BizTalk Server](https://en.wikipedia.org/wiki/Microsoft_BizTalk_Server).
+
 ## satellite packages
 
 ### `SonghayCore.xUnit`
@@ -99,12 +118,12 @@ Core reusable, opinionated Newtonsoft concerns for my C# projects.
 ```mermaid
 graph BT
     netstandard2[.NET Standard 2.0]
-    net6[.NET 6.0]
+    net8[.NET 8.0]
 
     1[SonghayCore]
     2[SonghayCore.Newtonsoft]
 
-    net6-->1
+    net8-->1
     netstandard2-->2
     2-..->|optional addition|1
 

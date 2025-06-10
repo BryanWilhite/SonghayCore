@@ -8,6 +8,7 @@ items:
   - Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)
   - Songhay.Extensions.JsonNodeExtensions.GetJsonValueKind(System.Text.Json.Nodes.JsonNode)
   - Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode,System.String)
+  - Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject,System.String,Microsoft.Extensions.Logging.ILogger)
   - Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull(System.Text.Json.Nodes.JsonNode,System.String)
   - Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)
   - Songhay.Extensions.JsonNodeExtensions.GetPropertyValue``1(System.Text.Json.Nodes.JsonNode,System.String)
@@ -30,7 +31,7 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: JsonNodeExtensions
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
@@ -72,7 +73,7 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: DisplayTopProperties
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
@@ -116,7 +117,7 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetPropertyJsonArrayOrNull
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
@@ -162,7 +163,7 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetPropertyJsonObjectOrNull
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
@@ -193,6 +194,55 @@ items:
   nameWithType.vb: JsonNodeExtensions.GetPropertyJsonObjectOrNull(JsonNode, String)
   fullName.vb: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull(System.Text.Json.Nodes.JsonNode, String)
   name.vb: GetPropertyJsonObjectOrNull(JsonNode, String)
+- uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject,System.String,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject,System.String,Microsoft.Extensions.Logging.ILogger)
+  id: GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject,System.String,Microsoft.Extensions.Logging.ILogger)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.JsonNodeExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyJsonNodeOrNull(JsonObject?, string, ILogger)
+  nameWithType: JsonNodeExtensions.GetPropertyJsonNodeOrNull(JsonObject?, string, ILogger)
+  fullName: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject?, string, Microsoft.Extensions.Logging.ILogger)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/JsonNodeExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetPropertyJsonNodeOrNull
+    path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
+    startLine: 98
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns the <xref href="System.Text.Json.Nodes.JsonNode" data-throw-if-not-resolved="false"></xref>
+
+    of the specified target property name
+
+    or <code>null</code>.
+  example: []
+  syntax:
+    content: public static JsonNode? GetPropertyJsonNodeOrNull(this JsonObject? jObject, string targetPropertyName, ILogger logger)
+    parameters:
+    - id: jObject
+      type: System.Text.Json.Nodes.JsonObject
+      description: the <xref href="System.Text.Json.Nodes.JsonObject" data-throw-if-not-resolved="false"></xref>
+    - id: targetPropertyName
+      type: System.String
+      description: the target property name
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.Text.Json.Nodes.JsonNode
+    content.vb: Public Shared Function GetPropertyJsonNodeOrNull(jObject As JsonObject, targetPropertyName As String, logger As ILogger) As JsonNode
+  overload: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull*
+  nameWithType.vb: JsonNodeExtensions.GetPropertyJsonNodeOrNull(JsonObject, String, ILogger)
+  fullName.vb: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject, String, Microsoft.Extensions.Logging.ILogger)
+  name.vb: GetPropertyJsonNodeOrNull(JsonObject, String, ILogger)
 - uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)
   commentId: M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)
   id: GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)
@@ -208,11 +258,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetPropertyJsonValueOrNull
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 104
+    startLine: 133
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -264,11 +314,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetPropertyValue
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 120
+    startLine: 149
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -320,11 +370,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetJsonValueKind
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 143
+    startLine: 172
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -371,11 +421,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: HasProperty
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 160
+    startLine: 189
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -412,11 +462,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: IsExpectedObject
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 175
+    startLine: 204
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -459,11 +509,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToJsonArray
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 210
+    startLine: 239
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -504,11 +554,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToJsonObject
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 235
+    startLine: 264
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -548,11 +598,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: RemoveFromParent
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 260
+    startLine: 289
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -590,11 +640,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: RemoveFromParent
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 269
+    startLine: 298
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -635,11 +685,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: RemoveProperty
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 316
+    startLine: 345
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -677,11 +727,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: RemoveProperty
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 327
+    startLine: 356
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -726,11 +776,11 @@ items:
   source:
     remote:
       path: SonghayCore/Extensions/JsonNodeExtensions.cs
-      branch: dev/version-8.0.1
+      branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WithPropertiesRenamed
     path: ../SonghayCore/Extensions/JsonNodeExtensions.cs
-    startLine: 366
+    startLine: 395
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -1223,6 +1273,12 @@ references:
   name: GetPropertyJsonObjectOrNull
   nameWithType: JsonNodeExtensions.GetPropertyJsonObjectOrNull
   fullName: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonObjectOrNull
+- uid: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull*
+  commentId: Overload:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull
+  href: Songhay.Extensions.JsonNodeExtensions.html#Songhay_Extensions_JsonNodeExtensions_GetPropertyJsonNodeOrNull_System_Text_Json_Nodes_JsonObject_System_String_Microsoft_Extensions_Logging_ILogger_
+  name: GetPropertyJsonNodeOrNull
+  nameWithType: JsonNodeExtensions.GetPropertyJsonNodeOrNull
+  fullName: Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull
 - uid: System.Text.Json.JsonValueKind.String
   commentId: F:System.Text.Json.JsonValueKind.String
   isExternal: true

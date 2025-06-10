@@ -68,6 +68,15 @@ items:
   - uid: Songhay.Abstractions.IActivity`2
     name: IActivity<TInput, TOutput>
     type: Interface
+  - uid: Songhay.Abstractions.IApiEndpoint
+    name: IApiEndpoint
+    type: Interface
+  - uid: Songhay.Abstractions.IApiRequestStrategy
+    name: IApiRequestStrategy
+    type: Interface
+  - uid: Songhay.Abstractions.IBlobStreamApiEndpoint
+    name: IBlobStreamApiEndpoint
+    type: Interface
   - uid: Songhay.Abstractions.IColorable
     name: IColorable
     type: Interface
@@ -88,6 +97,9 @@ items:
     type: Interface
   - uid: Songhay.Abstractions.ISyndicatable
     name: ISyndicatable
+    type: Interface
+  - uid: Songhay.Abstractions.ITaggedInstance
+    name: ITaggedInstance
     type: Interface
   - uid: Songhay.Abstractions.ITemporal
     name: ITemporal
@@ -176,8 +188,17 @@ items:
   - uid: Songhay.Extensions.ILoggerExtensions
     name: ILoggerExtensions
     type: Class
+  - uid: Songhay.Extensions.ILoggerProviderExtensions
+    name: ILoggerProviderExtensions
+    type: Class
   - uid: Songhay.Extensions.IPrincipalExtensions
     name: IPrincipalExtensions
+    type: Class
+  - uid: Songhay.Extensions.IServiceCollectionExtensions
+    name: IServiceCollectionExtensions
+    type: Class
+  - uid: Songhay.Extensions.ITaggedInstanceExtensions
+    name: ITaggedInstanceExtensions
     type: Class
   - uid: Songhay.Extensions.ITemporalExtensions
     name: ITemporalExtensions
@@ -281,6 +302,9 @@ items:
   - uid: Songhay.Models.DbmsMetadata
     name: DbmsMetadata
     type: Class
+  - uid: Songhay.Models.DependencyInjectionScalars
+    name: DependencyInjectionScalars
+    type: Class
   - uid: Songhay.Models.DeploymentEnvironment
     name: DeploymentEnvironment
     type: Class
@@ -372,6 +396,18 @@ items:
   name: Songhay.Net
   type: Namespace
   items:
+  - uid: Songhay.Net.ApiEndpoint
+    name: ApiEndpoint
+    type: Class
+  - uid: Songhay.Net.ApiRequestStrategy
+    name: ApiRequestStrategy
+    type: Class
+  - uid: Songhay.Net.AzureBlobApiRequestStrategy
+    name: AzureBlobApiRequestStrategy
+    type: Class
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    type: Class
   - uid: Songhay.Net.SmtpUtility
     name: SmtpUtility
     type: Class

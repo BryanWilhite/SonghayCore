@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/dev/version-8.0.1/apiSpec/new?filename=Songhay_ProgramFileUtility.md&amp;value=---%0Auid%3A%20Songhay.ProgramFileUtility%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/main/apiSpec/new?filename=Songhay_ProgramFileUtility.md&amp;value=---%0Auid%3A%20Songhay.ProgramFileUtility%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Songhay_ProgramFileUtility" data-uid="Songhay.ProgramFileUtility" class="text-break">
-Class ProgramFileUtility  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class ProgramFileUtility  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -153,11 +153,87 @@ Class ProgramFileUtility  <a class="header-action link-secondary" title="View so
 </h2>
 
 
+  <a id="Songhay_ProgramFileUtility_CopyToFileStream_" data-uid="Songhay.ProgramFileUtility.CopyToFileStream*"></a>
+
+  <h3 id="Songhay_ProgramFileUtility_CopyToFileStream_System_IO_Stream_System_String_" data-uid="Songhay.ProgramFileUtility.CopyToFileStream(System.IO.Stream,System.String)">
+  CopyToFileStream(Stream, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a>
+to a new <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a>
+of the specified output path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CopyToFileStream(Stream stream, string? outputPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></p>
+</dd>
+    <dt><code>outputPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_ProgramFileUtility_CopyToMemoryStream_" data-uid="Songhay.ProgramFileUtility.CopyToMemoryStream*"></a>
+
+  <h3 id="Songhay_ProgramFileUtility_CopyToMemoryStream_System_IO_Stream_" data-uid="Songhay.ProgramFileUtility.CopyToMemoryStream(System.IO.Stream)">
+  CopyToMemoryStream(Stream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a>
+to a new <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.memorystream">MemoryStream</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] CopyToMemoryStream(Stream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Songhay_ProgramFileUtility_CountParentDirectoryChars_" data-uid="Songhay.ProgramFileUtility.CountParentDirectoryChars*"></a>
 
   <h3 id="Songhay_ProgramFileUtility_CountParentDirectoryChars_System_String_" data-uid="Songhay.ProgramFileUtility.CountParentDirectoryChars(System.String)">
   CountParentDirectoryChars(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Counts the parent directory chars.</p>
@@ -200,7 +276,7 @@ in cross-platform scenarios.</p>
 
   <h3 id="Songhay_ProgramFileUtility_FindParentDirectory_System_String_System_String_System_Int32_" data-uid="Songhay.ProgramFileUtility.FindParentDirectory(System.String,System.String,System.Int32)">
   FindParentDirectory(string?, string?, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Finds the parent directory.</p>
@@ -244,7 +320,7 @@ in cross-platform scenarios.</p>
 
   <h3 id="Songhay_ProgramFileUtility_FindParentDirectoryInfo_System_String_System_String_System_Int32_" data-uid="Songhay.ProgramFileUtility.FindParentDirectoryInfo(System.String,System.String,System.Int32)">
   FindParentDirectoryInfo(string?, string?, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Finds the parent <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.directoryinfo">DirectoryInfo</a>.</p>
@@ -288,7 +364,7 @@ in cross-platform scenarios.</p>
 
   <h3 id="Songhay_ProgramFileUtility_GetCombinedPath_System_String_System_String_" data-uid="Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String)">
   GetCombinedPath(string?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L114"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Combines path and root based
@@ -337,7 +413,7 @@ of the current OS.</p>
 
   <h3 id="Songhay_ProgramFileUtility_GetCombinedPath_System_String_System_String_System_Boolean_" data-uid="Songhay.ProgramFileUtility.GetCombinedPath(System.String,System.String,System.Boolean)">
   GetCombinedPath(string?, string?, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L143"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Combines path and root based
@@ -392,7 +468,7 @@ when combined path is not a directory</p>
 
   <h3 id="Songhay_ProgramFileUtility_GetEncodedString_System_String_" data-uid="Songhay.ProgramFileUtility.GetEncodedString(System.String)">
   GetEncodedString(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.GetEncodedString.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.GetEncodedString.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the UTF-8 encoded string from.</p>
@@ -430,7 +506,7 @@ when combined path is not a directory</p>
 
   <h3 id="Songhay_ProgramFileUtility_GetEncodedString_System_String_System_Text_Encoding_" data-uid="Songhay.ProgramFileUtility.GetEncodedString(System.String,System.Text.Encoding)">
   GetEncodedString(string?, Encoding?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.GetEncodedString.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.GetEncodedString.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the encoded <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
@@ -477,7 +553,7 @@ See: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.text.unicodeenc
 
   <h3 id="Songhay_ProgramFileUtility_GetParentDirectory_System_String_System_Int32_" data-uid="Songhay.ProgramFileUtility.GetParentDirectory(System.String,System.Int32)">
   GetParentDirectory(string?, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L169"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the parent directory.</p>
@@ -521,7 +597,7 @@ See: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.text.unicodeenc
 
   <h3 id="Songhay_ProgramFileUtility_GetParentDirectoryInfo_System_String_System_Int32_" data-uid="Songhay.ProgramFileUtility.GetParentDirectoryInfo(System.String,System.Int32)">
   GetParentDirectoryInfo(string?, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L193"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the parent <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.directoryinfo">DirectoryInfo</a>.</p>
@@ -565,7 +641,7 @@ See: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.text.unicodeenc
 
   <h3 id="Songhay_ProgramFileUtility_GetRelativePath_System_String_" data-uid="Songhay.ProgramFileUtility.GetRelativePath(System.String)">
   GetRelativePath(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L222"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the relative path from the specified file segment
@@ -613,7 +689,7 @@ without leading dots (<code>.</code>) or <a class="xref" href="https://learn.mic
 
   <h3 id="Songhay_ProgramFileUtility_IsForwardSlashSystem" data-uid="Songhay.ProgramFileUtility.IsForwardSlashSystem">
   IsForwardSlashSystem()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L238"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns <code>true</code> when the current OS
@@ -646,7 +722,7 @@ uses forward-slash (<code>/</code>) paths or not.</p>
 
   <h3 id="Songhay_ProgramFileUtility_NormalizePath_System_String_" data-uid="Songhay.ProgramFileUtility.NormalizePath(System.String)">
   NormalizePath(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L245"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Normalizes the specified path with respect
@@ -685,7 +761,7 @@ to the ambient value of <a class="xref" href="https://learn.microsoft.com/dotnet
 
   <h3 id="Songhay_ProgramFileUtility_ReadZipArchiveEntries_System_IO_FileInfo_System_Action_System_String__" data-uid="Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String})">
   ReadZipArchiveEntries(FileInfo?, Action&lt;string&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.Compression.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.Compression.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Read zip archive entries.</p>
@@ -724,7 +800,7 @@ to the ambient value of <a class="xref" href="https://learn.microsoft.com/dotnet
 
   <h3 id="Songhay_ProgramFileUtility_ReadZipArchiveEntries_System_IO_FileInfo_System_Action_System_String__System_Func_System_Collections_ObjectModel_ReadOnlyCollection_System_IO_Compression_ZipArchiveEntry__System_Collections_Generic_IEnumerable_System_IO_Compression_ZipArchiveEntry___" data-uid="Songhay.ProgramFileUtility.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
   ReadZipArchiveEntries(FileInfo?, Action&lt;string&gt;?, Func&lt;ReadOnlyCollection&lt;ZipArchiveEntry&gt;, IEnumerable&lt;ZipArchiveEntry&gt;&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.Compression.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.Compression.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Read zip archive entries.</p>
@@ -766,7 +842,7 @@ to the ambient value of <a class="xref" href="https://learn.microsoft.com/dotnet
 
   <h3 id="Songhay_ProgramFileUtility_ReadZipArchiveEntriesByLine_System_IO_FileInfo_System_Action_System_Int32_System_String__" data-uid="Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String})">
   ReadZipArchiveEntriesByLine(FileInfo?, Action&lt;int, string&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.Compression.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.Compression.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Read zip archive entries as strings, line by line.</p>
@@ -806,7 +882,7 @@ The <code>fileAction</code> includes the line number and the current line.</p>
 
   <h3 id="Songhay_ProgramFileUtility_ReadZipArchiveEntriesByLine_System_IO_FileInfo_System_Action_System_Int32_System_String__System_Func_System_Collections_ObjectModel_ReadOnlyCollection_System_IO_Compression_ZipArchiveEntry__System_Collections_Generic_IEnumerable_System_IO_Compression_ZipArchiveEntry___" data-uid="Songhay.ProgramFileUtility.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
   ReadZipArchiveEntriesByLine(FileInfo?, Action&lt;int, string&gt;?, Func&lt;ReadOnlyCollection&lt;ZipArchiveEntry&gt;, IEnumerable&lt;ZipArchiveEntry&gt;&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.Compression.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.Compression.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Read zip archive entries as strings, line by line.</p>
@@ -849,7 +925,7 @@ The <code>fileAction</code> includes the line number and the current line.</p>
 
   <h3 id="Songhay_ProgramFileUtility_RemoveBackslashPrefixes_System_String_" data-uid="Songhay.ProgramFileUtility.RemoveBackslashPrefixes(System.String)">
   RemoveBackslashPrefixes(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L259"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes conventional Directory prefixes
@@ -888,7 +964,7 @@ for relative paths, e.g. <code>..&lt;/code&gt; or <code>.&lt;/code&gt;</code></c
 
   <h3 id="Songhay_ProgramFileUtility_RemoveConventionalPrefixes_System_String_" data-uid="Songhay.ProgramFileUtility.RemoveConventionalPrefixes(System.String)">
   RemoveConventionalPrefixes(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L271"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes conventional Directory prefixes
@@ -928,7 +1004,7 @@ of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.path.d
 
   <h3 id="Songhay_ProgramFileUtility_RemoveForwardslashPrefixes_System_String_" data-uid="Songhay.ProgramFileUtility.RemoveForwardslashPrefixes(System.String)">
   RemoveForwardslashPrefixes(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L281"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes conventional Directory prefixes
@@ -967,7 +1043,7 @@ for relative paths, e.g. <code>../</code> or <code>./</code>.</p>
 
   <h3 id="Songhay_ProgramFileUtility_TrimLeadingDirectorySeparatorChars_System_String_" data-uid="Songhay.ProgramFileUtility.TrimLeadingDirectorySeparatorChars(System.String)">
   TrimLeadingDirectorySeparatorChars(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L269"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L295"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Trims the leading directory separator chars.</p>
@@ -1009,7 +1085,7 @@ formatting relative paths for <a class="xref" href="https://learn.microsoft.com/
 
   <h3 id="Songhay_ProgramFileUtility_UseZipArchive_System_IO_FileInfo_System_Action_System_IO_Compression_ZipArchive__" data-uid="Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})">
   UseZipArchive(FileInfo?, Action&lt;ZipArchive?&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.Compression.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.Compression.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Centralizes the use of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchive">ZipArchive</a>
@@ -1046,7 +1122,7 @@ in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compre
 
   <h3 id="Songhay_ProgramFileUtility_UseZipArchive_System_IO_FileInfo_System_Action_System_IO_Compression_ZipArchive__System_IO_Compression_ZipArchiveMode_" data-uid="Songhay.ProgramFileUtility.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive},System.IO.Compression.ZipArchiveMode)">
   UseZipArchive(FileInfo?, Action&lt;ZipArchive?&gt;?, ZipArchiveMode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.Compression.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.Compression.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Centralizes the use of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchive">ZipArchive</a></p>
@@ -1085,7 +1161,7 @@ in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compre
 
   <h3 id="Songhay_ProgramFileUtility_UseZipArchiveEntries_System_IO_FileInfo_System_Action_System_Collections_ObjectModel_ReadOnlyCollection_System_IO_Compression_ZipArchiveEntry___" data-uid="Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
   UseZipArchiveEntries(FileInfo?, Action&lt;ReadOnlyCollection&lt;ZipArchiveEntry&gt;&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.Compression.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.Compression.cs/#L109"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Centralizes the use of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1">ReadOnlyCollection&lt;T&gt;</a>.</p>
@@ -1121,7 +1197,7 @@ in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compre
 
   <h3 id="Songhay_ProgramFileUtility_UseZipArchiveEntries_System_IO_FileInfo_System_Action_System_Collections_ObjectModel_ReadOnlyCollection_System_IO_Compression_ZipArchiveEntry___System_Func_System_Collections_ObjectModel_ReadOnlyCollection_System_IO_Compression_ZipArchiveEntry__System_Collections_Generic_IEnumerable_System_IO_Compression_ZipArchiveEntry___" data-uid="Songhay.ProgramFileUtility.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})">
   UseZipArchiveEntries(FileInfo?, Action&lt;ReadOnlyCollection&lt;ZipArchiveEntry&gt;&gt;?, Func&lt;ReadOnlyCollection&lt;ZipArchiveEntry&gt;, IEnumerable&lt;ZipArchiveEntry&gt;&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.Compression.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.Compression.cs/#L119"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Centralizes the use of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1">ReadOnlyCollection&lt;T&gt;</a>.</p>
@@ -1160,7 +1236,7 @@ in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compre
 
   <h3 id="Songhay_ProgramFileUtility_WriteZipArchiveEntry_System_IO_FileInfo_System_IO_FileInfo_" data-uid="Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo)">
   WriteZipArchiveEntry(FileInfo?, FileInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.Compression.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.Compression.cs/#L141"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Write zip archive entry with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.compressionlevel#system-io-compression-compressionlevel-optimal">Optimal</a>.</p>
@@ -1196,7 +1272,7 @@ in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compre
 
   <h3 id="Songhay_ProgramFileUtility_WriteZipArchiveEntry_System_IO_FileInfo_System_IO_FileInfo_System_IO_Compression_CompressionLevel_" data-uid="Songhay.ProgramFileUtility.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo,System.IO.Compression.CompressionLevel)">
   WriteZipArchiveEntry(FileInfo?, FileInfo, CompressionLevel)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility.Compression.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility.Compression.cs/#L150"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Write zip archive entry.</p>
@@ -1235,7 +1311,7 @@ in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compre
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/ProgramFileUtility._.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/ProgramFileUtility._.cs/#L6" class="edit-link">Edit this page</a>
         </div>
 
 

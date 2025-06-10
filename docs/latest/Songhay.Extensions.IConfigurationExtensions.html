@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/dev/version-8.0.1/apiSpec/new?filename=Songhay_Extensions_IConfigurationExtensions.md&amp;value=---%0Auid%3A%20Songhay.Extensions.IConfigurationExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/main/apiSpec/new?filename=Songhay_Extensions_IConfigurationExtensions.md&amp;value=---%0Auid%3A%20Songhay.Extensions.IConfigurationExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="Songhay_Extensions_IConfigurationExtensions" data-uid="Songhay.Extensions.IConfigurationExtensions" class="text-break">
-Class IConfigurationExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L7"><i class="bi bi-code-slash"></i></a>
+Class IConfigurationExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -157,10 +157,12 @@ Class IConfigurationExtensions  <a class="header-action link-secondary" title="V
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_AddHelpDisplayText_Microsoft_Extensions_Configuration_IConfiguration_System_String_System_String_" data-uid="Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.String)">
   AddHelpDisplayText(IConfiguration?, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds conventional help text to <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a>
+under the specified key.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -191,16 +193,61 @@ Class IConfigurationExtensions  <a class="header-action link-secondary" title="V
 
 
 
+  <a id="Songhay_Extensions_IConfigurationExtensions_BindNewInstance_" data-uid="Songhay.Extensions.IConfigurationExtensions.BindNewInstance*"></a>
+
+  <h3 id="Songhay_Extensions_IConfigurationExtensions_BindNewInstance__1_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Songhay.Extensions.IConfigurationExtensions.BindNewInstance``1(Microsoft.Extensions.Configuration.IConfiguration)">
+  BindNewInstance&lt;T&gt;(IConfiguration)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calls <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.configurationbinder.bind#microsoft-extensions-configuration-configurationbinder-bind(microsoft-extensions-configuration-iconfiguration-system-string-system-object)">Bind(IConfiguration, string, object)</a>
+to return an instance of <code>T</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T BindNewInstance&lt;T&gt;(this IConfiguration configuration) where T : class, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configuration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></dt>
+    <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>the type of the desired instance</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="Songhay_Extensions_IConfigurationExtensions_GetBasePathValue_" data-uid="Songhay.Extensions.IConfigurationExtensions.GetBasePathValue*"></a>
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_GetBasePathValue_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)">
   GetBasePathValue(IConfiguration?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns the value of the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_BaseDirectory">BaseDirectory</a><code>arg</code>
+  <div class="markdown level1 summary"><p>Returns the value of the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_BaseDirectory">BaseDirectory</a> <code>arg</code>
 or throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.directorynotfoundexception">DirectoryNotFoundException</a>
-when the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_BaseDirectoryRequired">BaseDirectoryRequired</a><code>arg</code> is present.</p>
+when the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_BaseDirectoryRequired">BaseDirectoryRequired</a> <code>arg</code> is present.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -235,7 +282,7 @@ when the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.ht
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_GetCommandLineArgValue_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
   GetCommandLineArgValue(IConfiguration?, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a value from the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a>
@@ -282,12 +329,12 @@ to convert a console argument to <a class="xref" href="https://learn.microsoft.c
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_GetOutputPath_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Songhay.Extensions.IConfigurationExtensions.GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration)">
   GetOutputPath(IConfiguration?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns the value of the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_OutputFile">OutputFile</a><code>arg</code>
-and will prefix it with the value of the <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_BaseDirectory">BaseDirectory</a><code>arg</code>
-when the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_OutputUnderBasePath">OutputUnderBasePath</a><code>arg</code> is present.</p>
+  <div class="markdown level1 summary"><p>Returns the value of the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_OutputFile">OutputFile</a> <code>arg</code>
+and will prefix it with the value of the <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_BaseDirectory">BaseDirectory</a> <code>arg</code>
+when the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_OutputUnderBasePath">OutputUnderBasePath</a> <code>arg</code> is present.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -322,10 +369,10 @@ when the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.ht
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_GetSettingsFilePath_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Songhay.Extensions.IConfigurationExtensions.GetSettingsFilePath(Microsoft.Extensions.Configuration.IConfiguration)">
   GetSettingsFilePath(IConfiguration?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L118"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns the value of the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_SettingsFile">SettingsFile</a><code>arg</code>
+  <div class="markdown level1 summary"><p>Returns the value of the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_SettingsFile">SettingsFile</a> <code>arg</code>
 which should be a path to a text file.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -361,7 +408,7 @@ which should be a path to a text file.</p>
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_HasKey_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
   HasKey(IConfiguration?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L141"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns <code>true</code> when the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a>
@@ -407,7 +454,7 @@ to convert a console argument to <a class="xref" href="https://learn.microsoft.c
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_HasKey_Microsoft_Extensions_Configuration_IConfiguration_System_String_System_Boolean_" data-uid="Songhay.Extensions.IConfigurationExtensions.HasKey(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Boolean)">
   HasKey(IConfiguration?, string?, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L159"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns <code>true</code> when the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a>
@@ -460,7 +507,7 @@ For more detail, [ see https://github.com/BryanWilhite/SonghayCore/issues/177 ]<
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_IsDryRun_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Songhay.Extensions.IConfigurationExtensions.IsDryRun(Microsoft.Extensions.Configuration.IConfiguration)">
   IsDryRun(IConfiguration?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L175"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines whether <code>args</code> contain the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_DryRun">DryRun</a> flag.</p>
@@ -498,7 +545,7 @@ For more detail, [ see https://github.com/BryanWilhite/SonghayCore/issues/177 ]<
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_IsHelpRequest_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Songhay.Extensions.IConfigurationExtensions.IsHelpRequest(Microsoft.Extensions.Configuration.IConfiguration)">
   IsHelpRequest(IConfiguration?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L181"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines whether <code>args</code> contain the conventional <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_Help">Help</a> flag.</p>
@@ -536,7 +583,7 @@ For more detail, [ see https://github.com/BryanWilhite/SonghayCore/issues/177 ]<
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_ReadSettings_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Songhay.Extensions.IConfigurationExtensions.ReadSettings(Microsoft.Extensions.Configuration.IConfiguration)">
   ReadSettings(IConfiguration?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L188"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Reads the settings data in the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_SettingsFile">SettingsFile</a>
@@ -575,7 +622,7 @@ which could be a relative or absolute path.</p>
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_ReadStringInput_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Songhay.Extensions.IConfigurationExtensions.ReadStringInput(Microsoft.Extensions.Configuration.IConfiguration)">
   ReadStringInput(IConfiguration?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L203"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Reads the input data in the inline <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
@@ -620,7 +667,7 @@ which could be a relative or absolute path.</p>
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_ToHelpDisplayText_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration)">
   ToHelpDisplayText(IConfiguration?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L218"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L236"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a>
@@ -658,7 +705,7 @@ to any keys ending with <a class="xref" href="Songhay.Models.ConsoleArgsScalars.
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_ToHelpDisplayText_Microsoft_Extensions_Configuration_IConfiguration_System_Int32_" data-uid="Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)">
   ToHelpDisplayText(IConfiguration?, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L244"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a>
@@ -699,7 +746,7 @@ to any keys ending with <a class="xref" href="Songhay.Models.ConsoleArgsScalars.
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_ToKeys_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Songhay.Extensions.IConfigurationExtensions.ToKeys(Microsoft.Extensions.Configuration.IConfiguration)">
   ToKeys(IConfiguration?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L267"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L285"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a>
@@ -738,7 +785,7 @@ to a collection of its underlying keys.</p>
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WithDefaultHelpText_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText(Microsoft.Extensions.Configuration.IConfiguration)">
   WithDefaultHelpText(IConfiguration?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L278"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L296"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a> with the conventional, console, <code>args</code> help text
@@ -777,7 +824,7 @@ for <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html">ConsoleArgsSca
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFile_Microsoft_Extensions_Configuration_IConfiguration_System_Byte___" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])">
   WriteOutputToFile(IConfiguration?, byte[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L345"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L363"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> array output
@@ -814,7 +861,7 @@ to the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFile_Microsoft_Extensions_Configuration_IConfiguration_System_IO_Stream_" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)">
   WriteOutputToFile(IConfiguration?, Stream)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L378"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L396"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a> output
@@ -854,7 +901,7 @@ to the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFile_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
   WriteOutputToFile(IConfiguration?, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L315"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L333"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> output
@@ -891,7 +938,7 @@ to the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFileAsync_Microsoft_Extensions_Configuration_IConfiguration_System_Byte___" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])">
   WriteOutputToFileAsync(IConfiguration?, byte[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L360"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L378"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> array output
@@ -933,7 +980,7 @@ to the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFileAsync_Microsoft_Extensions_Configuration_IConfiguration_System_IO_Stream_" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)">
   WriteOutputToFileAsync(IConfiguration?, Stream)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L399"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L417"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a> output
@@ -978,7 +1025,7 @@ to the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFileAsync_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
   WriteOutputToFileAsync(IConfiguration?, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L330"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L348"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> output
@@ -1020,7 +1067,7 @@ to the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/BryanWilhite/SonghayCore/blob/dev/version-8.0.1/SonghayCore/Extensions/IConfigurationExtensions.cs/#L7" class="edit-link">Edit this page</a>
+          <a href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L7" class="edit-link">Edit this page</a>
         </div>
 
 

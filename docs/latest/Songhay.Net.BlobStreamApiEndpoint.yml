@@ -1,0 +1,1152 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Net.BlobStreamApiEndpoint
+  commentId: T:Songhay.Net.BlobStreamApiEndpoint
+  id: BlobStreamApiEndpoint
+  parent: Songhay.Net
+  children:
+  - Songhay.Net.BlobStreamApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)
+  - Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})
+  - Songhay.Net.BlobStreamApiEndpoint.InstanceTag
+  langs:
+  - csharp
+  - vb
+  name: BlobStreamApiEndpoint
+  nameWithType: BlobStreamApiEndpoint
+  fullName: Songhay.Net.BlobStreamApiEndpoint
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Net/BlobStreamApiEndpoint.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: BlobStreamApiEndpoint
+    path: ../SonghayCore/Net/BlobStreamApiEndpoint.cs
+    startLine: 9
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Net
+  summary: Defines the default implementation of <xref href="Songhay.Abstractions.IBlobStreamApiEndpoint" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: 'public class BlobStreamApiEndpoint : IBlobStreamApiEndpoint, ITaggedInstance'
+    content.vb: Public Class BlobStreamApiEndpoint Implements IBlobStreamApiEndpoint, ITaggedInstance
+  inheritance:
+  - System.Object
+  implements:
+  - Songhay.Abstractions.IBlobStreamApiEndpoint
+  - Songhay.Abstractions.ITaggedInstance
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Songhay.Abstractions.ITaggedInstance.Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(System.String)
+  - Songhay.Abstractions.ITaggedInstance.Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(System.String)
+  - Songhay.Net.BlobStreamApiEndpoint.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Net.BlobStreamApiEndpoint.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Net.BlobStreamApiEndpoint.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+- uid: Songhay.Net.BlobStreamApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)
+  commentId: M:Songhay.Net.BlobStreamApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)
+  id: '#ctor(Polly.ResiliencePipeline,System.String)'
+  parent: Songhay.Net.BlobStreamApiEndpoint
+  langs:
+  - csharp
+  - vb
+  name: BlobStreamApiEndpoint(ResiliencePipeline?, string?)
+  nameWithType: BlobStreamApiEndpoint.BlobStreamApiEndpoint(ResiliencePipeline?, string?)
+  fullName: Songhay.Net.BlobStreamApiEndpoint.BlobStreamApiEndpoint(Polly.ResiliencePipeline?, string?)
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore/Net/BlobStreamApiEndpoint.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: ../SonghayCore/Net/BlobStreamApiEndpoint.cs
+    startLine: 9
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Net
+  summary: Defines the default implementation of <xref href="Songhay.Abstractions.IBlobStreamApiEndpoint" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public BlobStreamApiEndpoint(ResiliencePipeline? pipeline, string? instanceTag)
+    parameters:
+    - id: pipeline
+      type: Polly.ResiliencePipeline
+      description: the <xref href="Polly.ResiliencePipeline" data-throw-if-not-resolved="false"></xref>
+    - id: instanceTag
+      type: System.String
+      description: maps to <xref href="Songhay.Abstractions.ITaggedInstance.InstanceTag" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Sub New(pipeline As ResiliencePipeline, instanceTag As String)
+  overload: Songhay.Net.BlobStreamApiEndpoint.#ctor*
+  nameWithType.vb: BlobStreamApiEndpoint.New(ResiliencePipeline, String)
+  fullName.vb: Songhay.Net.BlobStreamApiEndpoint.New(Polly.ResiliencePipeline, String)
+  name.vb: New(ResiliencePipeline, String)
+- uid: Songhay.Net.BlobStreamApiEndpoint.InstanceTag
+  commentId: P:Songhay.Net.BlobStreamApiEndpoint.InstanceTag
+  id: InstanceTag
+  parent: Songhay.Net.BlobStreamApiEndpoint
+  langs:
+  - csharp
+  - vb
+  name: InstanceTag
+  nameWithType: BlobStreamApiEndpoint.InstanceTag
+  fullName: Songhay.Net.BlobStreamApiEndpoint.InstanceTag
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Net/BlobStreamApiEndpoint.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: InstanceTag
+    path: ../SonghayCore/Net/BlobStreamApiEndpoint.cs
+    startLine: 14
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Net
+  summary: Returns the conventional ID or tag of this instance.
+  example: []
+  syntax:
+    content: public string InstanceTag { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property InstanceTag As String
+  overload: Songhay.Net.BlobStreamApiEndpoint.InstanceTag*
+  implements:
+  - Songhay.Abstractions.ITaggedInstance.InstanceTag
+- uid: Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})
+  commentId: M:Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})
+  id: DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})
+  parent: Songhay.Net.BlobStreamApiEndpoint
+  langs:
+  - csharp
+  - vb
+  name: DownloadStreamAsync(IApiRequestStrategy?, string?, Action<Stream>?)
+  nameWithType: BlobStreamApiEndpoint.DownloadStreamAsync(IApiRequestStrategy?, string?, Action<Stream>?)
+  fullName: Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy?, string?, System.Action<System.IO.Stream>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Net/BlobStreamApiEndpoint.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DownloadStreamAsync
+    path: ../SonghayCore/Net/BlobStreamApiEndpoint.cs
+    startLine: 24
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Net
+  summary: >-
+    Download into a <xref href="System.String" data-throw-if-not-resolved="false"></xref>
+
+    from the API endpoint
+  example: []
+  syntax:
+    content: public Task DownloadStreamAsync(IApiRequestStrategy? requestStrategy, string? path, Action<Stream>? streamAction)
+    parameters:
+    - id: requestStrategy
+      type: Songhay.Abstractions.IApiRequestStrategy
+      description: the <xref href="Songhay.Abstractions.IApiRequestStrategy" data-throw-if-not-resolved="false"></xref>
+    - id: path
+      type: System.String
+      description: the path to the BLOB resource
+    - id: streamAction
+      type: System.Action{System.IO.Stream}
+      description: the strategy for receiving the BLOB stream
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function DownloadStreamAsync(requestStrategy As IApiRequestStrategy, path As String, streamAction As Action(Of Stream)) As Task
+  overload: Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync*
+  exceptions:
+  - type: System.Net.Http.HttpRequestException
+    commentId: T:System.Net.Http.HttpRequestException
+    description: ''
+  implements:
+  - Songhay.Abstractions.IBlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})
+  nameWithType.vb: BlobStreamApiEndpoint.DownloadStreamAsync(IApiRequestStrategy, String, Action(Of Stream))
+  fullName.vb: Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy, String, System.Action(Of System.IO.Stream))
+  name.vb: DownloadStreamAsync(IApiRequestStrategy, String, Action(Of Stream))
+references:
+- uid: Songhay.Abstractions.IBlobStreamApiEndpoint
+  commentId: T:Songhay.Abstractions.IBlobStreamApiEndpoint
+  parent: Songhay.Abstractions
+  href: Songhay.Abstractions.IBlobStreamApiEndpoint.html
+  name: IBlobStreamApiEndpoint
+  nameWithType: IBlobStreamApiEndpoint
+  fullName: Songhay.Abstractions.IBlobStreamApiEndpoint
+- uid: Songhay.Abstractions.ITaggedInstance.InstanceTag
+  commentId: P:Songhay.Abstractions.ITaggedInstance.InstanceTag
+  parent: Songhay.Abstractions.ITaggedInstance
+  href: Songhay.Abstractions.ITaggedInstance.html#Songhay_Abstractions_ITaggedInstance_InstanceTag
+  name: InstanceTag
+  nameWithType: ITaggedInstance.InstanceTag
+  fullName: Songhay.Abstractions.ITaggedInstance.InstanceTag
+- uid: Polly.ResiliencePipeline
+  commentId: T:Polly.ResiliencePipeline
+  parent: Polly
+  isExternal: true
+  href: https://github.com/App-vNext/Polly/blob/a953ba8119074d7f63cc69643d4ef1d1de52ee3f/src/Polly.Core/ResiliencePipeline.Async.cs
+  name: ResiliencePipeline
+  nameWithType: ResiliencePipeline
+  fullName: Polly.ResiliencePipeline
+- uid: Songhay.Net
+  commentId: N:Songhay.Net
+  href: Songhay.html
+  name: Songhay.Net
+  nameWithType: Songhay.Net
+  fullName: Songhay.Net
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Net
+    name: Net
+    href: Songhay.Net.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Net
+    name: Net
+    href: Songhay.Net.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Songhay.Abstractions.ITaggedInstance
+  commentId: T:Songhay.Abstractions.ITaggedInstance
+  parent: Songhay.Abstractions
+  href: Songhay.Abstractions.ITaggedInstance.html
+  name: ITaggedInstance
+  nameWithType: ITaggedInstance
+  fullName: Songhay.Abstractions.ITaggedInstance
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Abstractions.ITaggedInstance.Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(System.String)
+  commentId: M:Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+  parent: Songhay.Extensions.ITaggedInstanceExtensions
+  definition: Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+  href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_EnsureExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  name: EnsureExpectedInstance(ITaggedInstance, string)
+  nameWithType: ITaggedInstanceExtensions.EnsureExpectedInstance(ITaggedInstance, string)
+  fullName: Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance, string)
+  nameWithType.vb: ITaggedInstanceExtensions.EnsureExpectedInstance(ITaggedInstance, String)
+  fullName.vb: Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance, String)
+  name.vb: EnsureExpectedInstance(ITaggedInstance, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+    name: EnsureExpectedInstance
+    href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_EnsureExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  - name: (
+  - uid: Songhay.Abstractions.ITaggedInstance
+    name: ITaggedInstance
+    href: Songhay.Abstractions.ITaggedInstance.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+    name: EnsureExpectedInstance
+    href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_EnsureExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  - name: (
+  - uid: Songhay.Abstractions.ITaggedInstance
+    name: ITaggedInstance
+    href: Songhay.Abstractions.ITaggedInstance.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Abstractions.ITaggedInstance.Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(System.String)
+  commentId: M:Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+  parent: Songhay.Extensions.ITaggedInstanceExtensions
+  definition: Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+  href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_IsExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  name: IsExpectedInstance(ITaggedInstance, string)
+  nameWithType: ITaggedInstanceExtensions.IsExpectedInstance(ITaggedInstance, string)
+  fullName: Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance, string)
+  nameWithType.vb: ITaggedInstanceExtensions.IsExpectedInstance(ITaggedInstance, String)
+  fullName.vb: Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance, String)
+  name.vb: IsExpectedInstance(ITaggedInstance, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+    name: IsExpectedInstance
+    href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_IsExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  - name: (
+  - uid: Songhay.Abstractions.ITaggedInstance
+    name: ITaggedInstance
+    href: Songhay.Abstractions.ITaggedInstance.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+    name: IsExpectedInstance
+    href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_IsExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  - name: (
+  - uid: Songhay.Abstractions.ITaggedInstance
+    name: ITaggedInstance
+    href: Songhay.Abstractions.ITaggedInstance.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Net.BlobStreamApiEndpoint.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<BlobStreamApiEndpoint>(BlobStreamApiEndpoint)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<BlobStreamApiEndpoint>(BlobStreamApiEndpoint)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Net.BlobStreamApiEndpoint>(Songhay.Net.BlobStreamApiEndpoint)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of BlobStreamApiEndpoint)(BlobStreamApiEndpoint)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Net.BlobStreamApiEndpoint)(Songhay.Net.BlobStreamApiEndpoint)
+  name.vb: IsAssignableToISerializable(Of BlobStreamApiEndpoint)(BlobStreamApiEndpoint)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Net.BlobStreamApiEndpoint)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Net.BlobStreamApiEndpoint)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: )
+  - name: (
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: )
+- uid: Songhay.Net.BlobStreamApiEndpoint.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<BlobStreamApiEndpoint>(BlobStreamApiEndpoint)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<BlobStreamApiEndpoint>(BlobStreamApiEndpoint)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Net.BlobStreamApiEndpoint>(Songhay.Net.BlobStreamApiEndpoint)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of BlobStreamApiEndpoint)(BlobStreamApiEndpoint)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Net.BlobStreamApiEndpoint)(Songhay.Net.BlobStreamApiEndpoint)
+  name.vb: ToObjectOrDbNull(Of BlobStreamApiEndpoint)(BlobStreamApiEndpoint)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Net.BlobStreamApiEndpoint)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Net.BlobStreamApiEndpoint)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: )
+  - name: (
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: )
+- uid: Songhay.Net.BlobStreamApiEndpoint.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<BlobStreamApiEndpoint>(BlobStreamApiEndpoint, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<BlobStreamApiEndpoint>(BlobStreamApiEndpoint, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Net.BlobStreamApiEndpoint>(Songhay.Net.BlobStreamApiEndpoint, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of BlobStreamApiEndpoint)(BlobStreamApiEndpoint, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Net.BlobStreamApiEndpoint)(Songhay.Net.BlobStreamApiEndpoint, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of BlobStreamApiEndpoint)(BlobStreamApiEndpoint, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Net.BlobStreamApiEndpoint,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Net.BlobStreamApiEndpoint,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: )
+  - name: (
+  - uid: Songhay.Net.BlobStreamApiEndpoint
+    name: BlobStreamApiEndpoint
+    href: Songhay.Net.BlobStreamApiEndpoint.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Abstractions
+  commentId: N:Songhay.Abstractions
+  href: Songhay.html
+  name: Songhay.Abstractions
+  nameWithType: Songhay.Abstractions
+  fullName: Songhay.Abstractions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+- uid: Polly
+  commentId: N:Polly
+  isExternal: true
+  name: Polly
+  nameWithType: Polly
+  fullName: Polly
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+  commentId: M:Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+  isExternal: true
+  href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_EnsureExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  name: EnsureExpectedInstance(ITaggedInstance, string)
+  nameWithType: ITaggedInstanceExtensions.EnsureExpectedInstance(ITaggedInstance, string)
+  fullName: Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance, string)
+  nameWithType.vb: ITaggedInstanceExtensions.EnsureExpectedInstance(ITaggedInstance, String)
+  fullName.vb: Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance, String)
+  name.vb: EnsureExpectedInstance(ITaggedInstance, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+    name: EnsureExpectedInstance
+    href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_EnsureExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  - name: (
+  - uid: Songhay.Abstractions.ITaggedInstance
+    name: ITaggedInstance
+    href: Songhay.Abstractions.ITaggedInstance.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+    name: EnsureExpectedInstance
+    href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_EnsureExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  - name: (
+  - uid: Songhay.Abstractions.ITaggedInstance
+    name: ITaggedInstance
+    href: Songhay.Abstractions.ITaggedInstance.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions.ITaggedInstanceExtensions
+  commentId: T:Songhay.Extensions.ITaggedInstanceExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.ITaggedInstanceExtensions.html
+  name: ITaggedInstanceExtensions
+  nameWithType: ITaggedInstanceExtensions
+  fullName: Songhay.Extensions.ITaggedInstanceExtensions
+- uid: Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+  commentId: M:Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+  isExternal: true
+  href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_IsExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  name: IsExpectedInstance(ITaggedInstance, string)
+  nameWithType: ITaggedInstanceExtensions.IsExpectedInstance(ITaggedInstance, string)
+  fullName: Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance, string)
+  nameWithType.vb: ITaggedInstanceExtensions.IsExpectedInstance(ITaggedInstance, String)
+  fullName.vb: Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance, String)
+  name.vb: IsExpectedInstance(ITaggedInstance, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+    name: IsExpectedInstance
+    href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_IsExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  - name: (
+  - uid: Songhay.Abstractions.ITaggedInstance
+    name: ITaggedInstance
+    href: Songhay.Abstractions.ITaggedInstance.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)
+    name: IsExpectedInstance
+    href: Songhay.Extensions.ITaggedInstanceExtensions.html#Songhay_Extensions_ITaggedInstanceExtensions_IsExpectedInstance_Songhay_Abstractions_ITaggedInstance_System_String_
+  - name: (
+  - uid: Songhay.Abstractions.ITaggedInstance
+    name: ITaggedInstance
+    href: Songhay.Abstractions.ITaggedInstance.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Net.BlobStreamApiEndpoint.#ctor*
+  commentId: Overload:Songhay.Net.BlobStreamApiEndpoint.#ctor
+  href: Songhay.Net.BlobStreamApiEndpoint.html#Songhay_Net_BlobStreamApiEndpoint__ctor_Polly_ResiliencePipeline_System_String_
+  name: BlobStreamApiEndpoint
+  nameWithType: BlobStreamApiEndpoint.BlobStreamApiEndpoint
+  fullName: Songhay.Net.BlobStreamApiEndpoint.BlobStreamApiEndpoint
+  nameWithType.vb: BlobStreamApiEndpoint.New
+  fullName.vb: Songhay.Net.BlobStreamApiEndpoint.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Songhay.Net.BlobStreamApiEndpoint.InstanceTag*
+  commentId: Overload:Songhay.Net.BlobStreamApiEndpoint.InstanceTag
+  href: Songhay.Net.BlobStreamApiEndpoint.html#Songhay_Net_BlobStreamApiEndpoint_InstanceTag
+  name: InstanceTag
+  nameWithType: BlobStreamApiEndpoint.InstanceTag
+  fullName: Songhay.Net.BlobStreamApiEndpoint.InstanceTag
+- uid: Songhay.Abstractions.IApiRequestStrategy
+  commentId: T:Songhay.Abstractions.IApiRequestStrategy
+  parent: Songhay.Abstractions
+  href: Songhay.Abstractions.IApiRequestStrategy.html
+  name: IApiRequestStrategy
+  nameWithType: IApiRequestStrategy
+  fullName: Songhay.Abstractions.IApiRequestStrategy
+- uid: System.Net.Http.HttpRequestException
+  commentId: T:System.Net.Http.HttpRequestException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httprequestexception
+  name: HttpRequestException
+  nameWithType: HttpRequestException
+  fullName: System.Net.Http.HttpRequestException
+- uid: Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync*
+  commentId: Overload:Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync
+  href: Songhay.Net.BlobStreamApiEndpoint.html#Songhay_Net_BlobStreamApiEndpoint_DownloadStreamAsync_Songhay_Abstractions_IApiRequestStrategy_System_String_System_Action_System_IO_Stream__
+  name: DownloadStreamAsync
+  nameWithType: BlobStreamApiEndpoint.DownloadStreamAsync
+  fullName: Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync
+- uid: Songhay.Abstractions.IBlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})
+  commentId: M:Songhay.Abstractions.IBlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})
+  parent: Songhay.Abstractions.IBlobStreamApiEndpoint
+  isExternal: true
+  href: Songhay.Abstractions.IBlobStreamApiEndpoint.html#Songhay_Abstractions_IBlobStreamApiEndpoint_DownloadStreamAsync_Songhay_Abstractions_IApiRequestStrategy_System_String_System_Action_System_IO_Stream__
+  name: DownloadStreamAsync(IApiRequestStrategy, string, Action<Stream>)
+  nameWithType: IBlobStreamApiEndpoint.DownloadStreamAsync(IApiRequestStrategy, string, Action<Stream>)
+  fullName: Songhay.Abstractions.IBlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy, string, System.Action<System.IO.Stream>)
+  nameWithType.vb: IBlobStreamApiEndpoint.DownloadStreamAsync(IApiRequestStrategy, String, Action(Of Stream))
+  fullName.vb: Songhay.Abstractions.IBlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy, String, System.Action(Of System.IO.Stream))
+  name.vb: DownloadStreamAsync(IApiRequestStrategy, String, Action(Of Stream))
+  spec.csharp:
+  - uid: Songhay.Abstractions.IBlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})
+    name: DownloadStreamAsync
+    href: Songhay.Abstractions.IBlobStreamApiEndpoint.html#Songhay_Abstractions_IBlobStreamApiEndpoint_DownloadStreamAsync_Songhay_Abstractions_IApiRequestStrategy_System_String_System_Action_System_IO_Stream__
+  - name: (
+  - uid: Songhay.Abstractions.IApiRequestStrategy
+    name: IApiRequestStrategy
+    href: Songhay.Abstractions.IApiRequestStrategy.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Abstractions.IBlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})
+    name: DownloadStreamAsync
+    href: Songhay.Abstractions.IBlobStreamApiEndpoint.html#Songhay_Abstractions_IBlobStreamApiEndpoint_DownloadStreamAsync_Songhay_Abstractions_IApiRequestStrategy_System_String_System_Action_System_IO_Stream__
+  - name: (
+  - uid: Songhay.Abstractions.IApiRequestStrategy
+    name: IApiRequestStrategy
+    href: Songhay.Abstractions.IApiRequestStrategy.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+  - name: )
+- uid: System.Action{System.IO.Stream}
+  commentId: T:System.Action{System.IO.Stream}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<Stream>
+  nameWithType: Action<Stream>
+  fullName: System.Action<System.IO.Stream>
+  nameWithType.vb: Action(Of Stream)
+  fullName.vb: System.Action(Of System.IO.Stream)
+  name.vb: Action(Of Stream)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
