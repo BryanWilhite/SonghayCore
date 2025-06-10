@@ -27,7 +27,6 @@ public static partial class ProgramFileUtility
         UseZipArchiveEntries(archiveInfo,
             entries => entries.ForEachInEnumerable(i =>
             {
-                TraceSource?.TraceVerbose(i.FullName);
                 using var entryStream = new StreamReader(i.Open());
                 var s = entryStream.ReadToEnd();
                 fileAction?.Invoke(s);
@@ -62,7 +61,6 @@ public static partial class ProgramFileUtility
         UseZipArchiveEntries(archiveInfo,
             entries => entries.ForEachInEnumerable(i =>
             {
-                TraceSource?.TraceVerbose(i.FullName);
                 using var entryStream = new StreamReader(i.Open());
                 string? line;
                 var lineNumber = 0;

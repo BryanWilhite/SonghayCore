@@ -148,6 +148,44 @@
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
         </member>
+        <member name="T:Songhay.Abstractions.IApiEndpoint">
+            <summary>
+            Defines how an API should be accessed.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.IApiEndpoint.DownloadStringAsync``1(Songhay.Abstractions.IApiRequestStrategy,``0)">
+            <summary>
+            Download into a <see cref="T:System.String"/>
+            from the API endpoint
+            </summary>
+            <param name="requestStrategy">the <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/> required for the endpoint</param>
+            <param name="requestData">the data that is conventionally passed through to <see cref="M:Songhay.Abstractions.IApiRequestStrategy.GenerateHttpRequestMessage``1(``0)"/></param>
+        </member>
+        <member name="T:Songhay.Abstractions.IApiRequestStrategy">
+            <summary>
+            Defines that an <see cref="T:System.Net.Http.HttpRequestMessage"/> needs to be generated.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.IApiRequestStrategy.GenerateHttpRequestMessage``1(``0)">
+            <summary>
+            Returns an <see cref="T:System.Net.Http.HttpRequestMessage"/> needed to call the API
+            </summary>
+            <param name="requestData">the data used to build a new request</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IBlobStreamApiEndpoint">
+            <summary>
+            Defines the retrieval of a remote BLOB as a <see cref="T:System.IO.Stream"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Abstractions.IBlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})">
+            <summary>
+            Downloads a BLOB with the specified name
+            into a <see cref="T:System.IO.Stream"/>
+            </summary>
+            <param name="requestStrategy">the <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/> required for the endpoint</param>
+            <param name="streamAction">The action to take with the <see cref="T:System.IO.Stream"/> associated with the BLOB</param>
+            <param name="path">any <see cref="P:System.Uri.PathAndQuery"/> and/or <see cref="P:System.Uri.Fragment"/></param>
+        </member>
         <member name="T:Songhay.Abstractions.IColorable">
             <summary>
             Defines a colorable visual.
@@ -310,6 +348,23 @@
             <summary>
             Gets the syndication item.
             </summary>
+        </member>
+        <member name="T:Songhay.Abstractions.ITaggedInstance">
+            <summary>
+            Tags instances for DI with keyed services.
+            </summary>
+            <remarks>
+            This contract helps extension methods verify that a specific implementation is being operated upon.
+            </remarks>
+        </member>
+        <member name="P:Songhay.Abstractions.ITaggedInstance.InstanceTag">
+            <summary>
+            Returns the conventional ID or tag of this instance.
+            </summary>
+            <remarks>
+            This identifier is intended for asserting that an expected ID is present
+            which is useful for ensuring that an extension method is operating on the expected instance.
+            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.ITemporal">
             <summary>
@@ -1745,11 +1800,20 @@
         </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.String)">
             <summary>
-            
+            Adds conventional help text to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            under the specified key.
             </summary>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
             <param name="key">the key to add</param>
             <param name="helpText">the help text to add</param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.BindNewInstance``1(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Calls <see cref="M:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Object)"/>
+            to return an instance of <c>T</c>
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <typeparam name="T">the type of the desired instance</typeparam>
         </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -2197,6 +2261,19 @@
             <param name="logger">The logger.</param>
             <param name="methodName">Name of the method.</param>
         </member>
+        <member name="T:Songhay.Extensions.ILoggerProviderExtensions">
+            <summary>
+            Extensions of <see cref="T:Microsoft.Extensions.Logging.ILoggerProvider"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.ILoggerProviderExtensions.GenerateLogger``1(Microsoft.Extensions.Logging.ILoggerProvider)">
+            <summary>
+            Generates <see cref="T:Microsoft.Extensions.Logging.ILogger`1"/>
+            from the specified <see cref="T:Microsoft.Extensions.Logging.ILoggerProvider"/>.
+            </summary>
+            <param name="provider">the <see cref="T:Microsoft.Extensions.Logging.ILoggerProvider"/></param>
+            <typeparam name="TCategory">the logging category</typeparam>
+        </member>
         <member name="T:Songhay.Extensions.IPrincipalExtensions">
             <summary>
             Extensions of <see cref="T:System.Security.Principal.IPrincipal"/>
@@ -2209,6 +2286,39 @@
             <param name="principal">The principal.</param>
             <param name="defaultUserName">Default name of the user.</param>
             <returns></returns>
+        </member>
+        <member name="T:Songhay.Extensions.IServiceCollectionExtensions">
+            <summary>
+            Extensions of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IServiceCollectionExtensions.AddProgramMetadata(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds the conventional <see cref="T:Songhay.Models.ProgramMetadata"/> instance as a singleton.
+            </summary>
+            <param name="services">the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="T:Songhay.Extensions.ITaggedInstanceExtensions">
+            <summary>
+            Extensions of <see cref="T:Songhay.Abstractions.ITaggedInstance"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)">
+            <summary>
+            Throws <see cref="T:System.Configuration.ConfigurationErrorsException"/>
+            when <see cref="M:Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)"/> returns <c>false</c>.
+            </summary>
+            <param name="instance">the <see cref="T:Songhay.Abstractions.ITaggedInstance"/></param>
+            <param name="instanceTag">the conventional identifier</param>
+            <exception cref="T:System.Configuration.ConfigurationErrorsException"></exception>
+        </member>
+        <member name="M:Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(Songhay.Abstractions.ITaggedInstance,System.String)">
+            <summary>
+            Returns <c>true</c> when <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/> equals the specified identifier.
+            </summary>
+            <param name="instance">the <see cref="T:Songhay.Abstractions.ITaggedInstance"/></param>
+            <param name="instanceTag">the conventional identifier</param>
         </member>
         <member name="T:Songhay.Extensions.ITemporalExtensions">
             <summary>
@@ -2524,6 +2634,16 @@
             </summary>
             <param name="node">The <see cref="T:System.Text.Json.Nodes.JsonNode"/>.</param>
             <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject,System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Returns the <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            of the specified target property name
+            or <c>null</c>.
+            </summary>
+            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="targetPropertyName">the target property name</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
             <summary>
@@ -4233,6 +4353,21 @@
             <returns>
             A <see cref="T:System.String" /> that represents this instance.
             </returns>
+        </member>
+        <member name="T:Songhay.Models.DependencyInjectionScalars">
+            <summary>
+            Centralizes conventional values used for DI.
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.DependencyInjectionScalars.AppConfigurationVariableName">
+            <summary>
+            The name of the conventional environment variable name for app configuration
+            </summary>
+        </member>
+        <member name="F:Songhay.Models.DependencyInjectionScalars.DefaultApiEndPointKey">
+            <summary>
+            The default REST API key used for DI
+            </summary>
         </member>
         <member name="T:Songhay.Models.DeploymentEnvironment">
             <summary>
@@ -6421,6 +6556,143 @@
             DOCTYPE XHTML Transitional declaration.
             </summary>
         </member>
+        <member name="T:Songhay.Net.ApiEndpoint">
+            <summary>
+            Defines a REST API endpoint
+            </summary>
+            <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
+            <remarks>
+            The output of <c>httpRequestMessageGetter</c> will be inside a <c>using</c> block.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Net.ApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)">
+            <summary>
+            Defines a REST API endpoint
+            </summary>
+            <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
+            <remarks>
+            The output of <c>httpRequestMessageGetter</c> will be inside a <c>using</c> block.
+            </remarks>
+        </member>
+        <member name="P:Songhay.Net.ApiEndpoint.InstanceTag">
+            <summary>
+            Returns the conventional ID or tag of this instance.
+            </summary>
+        </member>
+        <member name="M:Songhay.Net.ApiEndpoint.DownloadStringAsync``1(Songhay.Abstractions.IApiRequestStrategy,``0)">
+            <summary>
+            Download into a <see cref="T:System.String"/>
+            from the API endpoint
+            </summary>
+            <param name="requestStrategy">the <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/></param>
+            <param name="requestData">the data that is conventionally passed through to <see cref="M:Songhay.Abstractions.IApiRequestStrategy.GenerateHttpRequestMessage``1(``0)"/></param>
+        </member>
+        <member name="T:Songhay.Net.ApiRequestStrategy">
+            <summary>
+            The default implementation of <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/>.
+            </summary>
+            <param name="instanceTag">sets <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="messageGetter">optional getter of <see cref="T:System.Net.Http.HttpRequestMessage"/> based on <see cref="T:System.Net.Http.HttpRequestOptions"/></param>
+        </member>
+        <member name="M:Songhay.Net.ApiRequestStrategy.#ctor(System.Func{System.Net.Http.HttpRequestOptions,System.Net.Http.HttpRequestMessage},System.String)">
+            <summary>
+            The default implementation of <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/>.
+            </summary>
+            <param name="instanceTag">sets <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="messageGetter">optional getter of <see cref="T:System.Net.Http.HttpRequestMessage"/> based on <see cref="T:System.Net.Http.HttpRequestOptions"/></param>
+        </member>
+        <member name="P:Songhay.Net.ApiRequestStrategy.InstanceTag">
+            <summary>
+            Returns the conventional ID or tag of this instance.
+            </summary>
+            <remarks>
+            This identifier is intended for asserting that an expected ID is present
+            which is useful for ensuring that an extension method is operating on the expected instance.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Net.ApiRequestStrategy.GenerateHttpRequestMessage``1(``0)">
+             <summary>
+             Returns an <see cref="T:System.Net.Http.HttpRequestMessage"/> needed to call the API
+             </summary>
+             <param name="requestData">the data used to build a new request</param>
+             <remarks>
+             This member supports the following <c>TData</c> types:
+            
+             - <see cref="T:System.String"/>
+             - <see cref="T:System.Net.Http.HttpRequestOptions"/> for the specified <c>messageGetter</c>
+             - <see cref="T:System.Uri"/>
+             - <see cref="T:System.UriBuilder"/>
+             - 2 tuples of <see cref="T:System.Net.Http.HttpMethod"/> and the previously mentioned types
+             
+             </remarks>
+        </member>
+        <member name="T:Songhay.Net.AzureBlobApiRequestStrategy">
+            <summary>
+            The default implementation of <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/>
+            for Azure Storage BLOBs.
+            </summary>
+            <remarks>
+            This implementation may seem like overkill but day-job experience informs me
+            that many C# developers are not comfortable with <see cref="T:System.Func`1"/>.
+            So this class serves as a wrapper for this more functional approach.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Net.AzureBlobApiRequestStrategy.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            The default implementation of <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/>
+            for Azure Storage BLOBs.
+            </summary>
+            <remarks>
+            This implementation may seem like overkill but day-job experience informs me
+            that many C# developers are not comfortable with <see cref="T:System.Func`1"/>.
+            So this class serves as a wrapper for this more functional approach.
+            </remarks>
+        </member>
+        <member name="P:Songhay.Net.AzureBlobApiRequestStrategy.InstanceTag">
+            <summary>
+            Returns the conventional ID or tag of this instance.
+            </summary>
+            <remarks>
+            This identifier is intended for asserting that an expected ID is present
+            which is useful for ensuring that an extension method is operating on the expected instance.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Net.AzureBlobApiRequestStrategy.GenerateHttpRequestMessage``1(``0)">
+            <summary>
+            Returns an <see cref="T:System.Net.Http.HttpRequestMessage"/> needed to call the API
+            </summary>
+        </member>
+        <member name="T:Songhay.Net.BlobStreamApiEndpoint">
+            <summary>
+            Defines the default implementation of <see cref="T:Songhay.Abstractions.IBlobStreamApiEndpoint"/>
+            </summary>
+            <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
+        </member>
+        <member name="M:Songhay.Net.BlobStreamApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)">
+            <summary>
+            Defines the default implementation of <see cref="T:Songhay.Abstractions.IBlobStreamApiEndpoint"/>
+            </summary>
+            <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
+            <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
+        </member>
+        <member name="P:Songhay.Net.BlobStreamApiEndpoint.InstanceTag">
+            <summary>
+            Returns the conventional ID or tag of this instance.
+            </summary>
+        </member>
+        <member name="M:Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})">
+            <summary>
+            Download into a <see cref="T:System.String"/>
+            from the API endpoint
+            </summary>
+            <param name="requestStrategy">the <see cref="T:Songhay.Abstractions.IApiRequestStrategy"/></param>
+            <param name="path">the path to the BLOB resource</param>
+            <param name="streamAction">the strategy for receiving the BLOB stream</param>
+            <exception cref="T:System.Net.Http.HttpRequestException"></exception>
+        </member>
         <member name="T:Songhay.Net.SmtpUtility">
             <summary>
             SMTP Utility
@@ -6667,6 +6939,22 @@
             encoding of strings in .NET.
             See: https://docs.microsoft.com/en-us/dotnet/api/system.text.unicodeencoding
             </remarks>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.CopyToFileStream(System.IO.Stream,System.String)">
+            <summary>
+            Copies the specified <see cref="T:System.IO.Stream"/>
+            to a new <see cref="T:System.IO.FileStream"/>
+            of the specified output path.
+            </summary>
+            <param name="stream">the <see cref="T:System.IO.Stream"/></param>
+            <param name="outputPath"></param>
+        </member>
+        <member name="M:Songhay.ProgramFileUtility.CopyToMemoryStream(System.IO.Stream)">
+            <summary>
+            Copies the specified <see cref="T:System.IO.Stream"/>
+            to a new <see cref="T:System.IO.MemoryStream"/>.
+            </summary>
+            <param name="stream">the <see cref="T:System.IO.Stream"/></param>
         </member>
         <member name="M:Songhay.ProgramFileUtility.CountParentDirectoryChars(System.String)">
             <summary>

@@ -89,6 +89,35 @@ public static class JsonNodeExtensions
     }
 
     /// <summary>
+    /// Returns the <see cref="JsonNode"/>
+    /// of the specified target property name
+    /// or <c>null</c>.
+    /// </summary>
+    /// <param name="jObject">the <see cref="JsonObject"/></param>
+    /// <param name="targetPropertyName">the target property name</param>
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    public static JsonNode? GetPropertyJsonNodeOrNull(this JsonObject? jObject, string targetPropertyName, ILogger logger)
+    {
+        logger.LogTraceMethodCall(nameof(GetPropertyJsonNodeOrNull));
+
+        if (jObject == null)
+        {
+            logger.LogDebug("The expected parent object of node, `{Name}`, is not here.", targetPropertyName);
+
+            return null;
+        }
+
+        if (!jObject.TryGetPropertyValue(targetPropertyName, out JsonNode? targetNode) || targetNode == null)
+        {
+            logger.LogDebug("The expected node, `{Name}`, is not here.", targetPropertyName);
+
+            return null;
+        }
+
+        return targetNode;
+    }
+
+    /// <summary>
     /// Gets the <see cref="JsonValue"/> of the specified <see cref="JsonNode"/>
     /// or defaults to null.
     /// </summary>
