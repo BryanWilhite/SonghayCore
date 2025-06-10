@@ -21,21 +21,22 @@ public class BlobStreamApiEndpointTests(ITestOutputHelper helper)
     public async Task ShouldCopyToFileStreamAsync(DirectoryInfo projectDirectoryInfo, string containerName, string blobName)
     {
         //arrange:
-        const string PlayerYouTubeApiMetaKey = "PlayerYouTube";
-        const string PlayerYouTubeApiMetaYtContainerKey = "b-roll-video-container";
-        const string ClaimStorageSetContainer = "storage-set-container";
-        const string ClaimStorageSetEndpointKey = "storage-set-endpoint-key";
+        const string playerYouTubeApiMetaKey = "PlayerYouTube";
+        const string playerYouTubeApiMetaYtContainerKey = "b-roll-video-container";
+        const string claimStorageSetContainer = "storage-set-container";
+        const string claimStorageSetEndpointKey = "storage-set-endpoint-key";
 
         ProgramMetadata programMetadata = GetProgramMetadata();
 
         var (accountName, accountKey, _, apiVersion) = GetCloudStorageMetadata(
                                                             programMetadata,
-                                                            PlayerYouTubeApiMetaKey,
-                                                            ClaimStorageSetContainer,
-                                                            ClaimStorageSetEndpointKey);
+                                                            playerYouTubeApiMetaKey,
+                                                            claimStorageSetContainer,
+                                                            claimStorageSetEndpointKey);
 
         string extension = blobName.Split('.').Last();
         string outputPath = projectDirectoryInfo
+            .FindDirectory("content")
             .FindDirectory(extension)
             .FindDirectory(nameof(BlobStreamApiEndpointTests))
             .FindDirectory(nameof(ShouldCopyToFileStreamAsync))
@@ -48,7 +49,7 @@ public class BlobStreamApiEndpointTests(ITestOutputHelper helper)
             accountKey,
             containerName,
             apiVersion,
-            PlayerYouTubeApiMetaYtContainerKey);
+            playerYouTubeApiMetaYtContainerKey);
 
         BlobStreamApiEndpoint endpoint = new(ResiliencePipeline.Empty, "default");
 
