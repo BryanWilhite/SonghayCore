@@ -9,17 +9,17 @@ public class ProgramMetadata
     /// Gets or sets the cloud storage set.
     /// </summary>
     [Obsolete("See https://github.com/BryanWilhite/SonghayCore/issues/176")]
-    public Dictionary<string, Dictionary<string, string>> CloudStorageSet { get; init; } = new();
+    public Dictionary<string, Dictionary<string, string>> CloudStorageSet { get; init; } = [];
 
     /// <summary>
     /// Gets or sets the DBMS set.
     /// </summary>
-    public Dictionary<string, DbmsMetadata> DbmsSet { get; init; } = new();
+    public Dictionary<string, DbmsMetadata> DbmsSet { get; init; } = [];
 
     /// <summary>
     /// Gets or sets the REST API metadata set.
     /// </summary>
-    public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; init; } = new();
+    public Dictionary<string, RestApiMetadata> RestApiMetadataSet { get; init; } = [];
 
     /// <summary>
     /// Represents this instance as a <c>string</c>.
@@ -28,7 +28,7 @@ public class ProgramMetadata
     {
         var sb = new StringBuilder();
 
-        if (DbmsSet.Any())
+        if (DbmsSet.Count > 0)
         {
             sb.AppendLine($"{nameof(DbmsSet)}:");
             foreach (var item in DbmsSet)
@@ -38,7 +38,7 @@ public class ProgramMetadata
             }
         }
 
-        if (RestApiMetadataSet.Any())
+        if (RestApiMetadataSet.Count > 0)
         {
             sb.AppendLine($"{nameof(RestApiMetadataSet)}:");
             foreach (var item in RestApiMetadataSet)

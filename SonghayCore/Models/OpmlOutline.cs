@@ -29,7 +29,7 @@ public class OpmlOutline
         Justification = "Used for XML serialization.")]
     [XmlElement(ElementName = "outline")]
     [JsonPropertyName("outline")]
-    public OpmlOutline[] Outlines { get; set; } = Enumerable.Empty<OpmlOutline>().ToArray();
+    public OpmlOutline[] Outlines { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the text.

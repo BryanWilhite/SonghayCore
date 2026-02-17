@@ -63,7 +63,7 @@ public class RestApiMetadata
     {
         var sb = new StringBuilder();
 
-        if (ApiBase != null) sb.AppendFormat("ApiBase: {0}", ApiBase);
+        if (ApiBase != null) sb.Append($"ApiBase: {ApiBase}");
         if (!string.IsNullOrWhiteSpace(ApiKey)) sb.Append($" ApiKey: {ApiKey}");
 
         if (ClaimsSet is {Count: > 0})

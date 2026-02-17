@@ -13,7 +13,7 @@ public static class SmtpUtility
     /// <param name="path">The path.</param>
     public static Attachment GetAttachment(string? path)
     {
-        if (!File.Exists(path)) throw new FileNotFoundException($"“{path}” was not found.");
+        if (!File.Exists(path)) throw new FileNotFoundException($"`{path}` was not found.");
 
         var attachment = new Attachment(path);
         return attachment;
@@ -25,8 +25,8 @@ public static class SmtpUtility
     /// <param name="paths">The paths.</param>
     public static ICollection<Attachment> GetAttachment(IEnumerable<string>? paths) =>
         paths == null
-            ? Enumerable.Empty<Attachment>().ToList()
-            : paths.Select(GetAttachment).ToList();
+            ? []
+            : [.. paths.Select(GetAttachment)];
 
     /// <summary>
     /// Returns <see cref="MailMessage" />
@@ -37,7 +37,7 @@ public static class SmtpUtility
     /// <param name="subject">the email message subject</param>
     /// <param name="message">the email message</param>
     public static MailMessage GetMailMessage(string from, string to, string subject, string message) =>
-        GetMailMessage(from, subject, message, new[] {to}, attachments: null);
+        GetMailMessage(from, subject, message, [to], attachments: null);
 
     /// <summary>
     /// Returns <see cref="MailMessage" />
@@ -52,7 +52,7 @@ public static class SmtpUtility
         ICollection<Attachment> attachments) =>
         !string.IsNullOrWhiteSpace(to)
             ? throw new NullReferenceException(nameof(to))
-            : GetMailMessage(from, subject, message, new[] {to}, attachments);
+            : GetMailMessage(from, subject, message, [to], attachments);
 
     /// <summary>
     /// Returns <see cref="MailMessage" />

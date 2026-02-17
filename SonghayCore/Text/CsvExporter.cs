@@ -14,7 +14,7 @@ public class CsvExporter<T> where T : class
     /// </summary>
     /// <param name="rows">The rows.</param>
     public CsvExporter(IEnumerable<T>? rows)
-        : this(rows, null)
+        : this(rows, [])
     {
     }
 
@@ -23,21 +23,21 @@ public class CsvExporter<T> where T : class
     /// </summary>
     /// <param name="rows">The rows.</param>
     /// <param name="columns">The columns.</param>
-    public CsvExporter(IEnumerable<T>? rows, IEnumerable<string>? columns)
+    public CsvExporter(IEnumerable<T>? rows, IEnumerable<string> columns)
     {
-        Rows = rows ?? Enumerable.Empty<T>();
-        Columns = columns ?? Enumerable.Empty<string>();
+        Rows = rows ?? [];
+        Columns = columns;
     }
 
     /// <summary>
     /// Gets the columns.
     /// </summary>
-    public IEnumerable<string> Columns { get; private set; }
+    public IEnumerable<string> Columns { get; }
 
     /// <summary>
     /// Gets the rows.
     /// </summary>
-    public IEnumerable<T> Rows { get; private set; }
+    public IEnumerable<T> Rows { get; }
 
     /// <summary>
     /// Exports this instance.
@@ -111,13 +111,14 @@ public class CsvExporter<T> where T : class
     /// </summary>
     public byte[] ExportToBytes() => Encoding.UTF8.GetBytes(Export());
 
-    static string MakeCsvText(object? value)
+    private static string MakeCsvText(object? value)
     {
-        if (value == null) return string.Empty;
-
-        if (value is DateTime time)
+        switch (value)
         {
-            return time.ToString(time.TimeOfDay.TotalSeconds == 0 ? "yyyy-MM-dd" : "yyyy-MM-dd HH:mm:ss");
+            case null:
+                return string.Empty;
+            case DateTime time:
+                return time.ToString(time.TimeOfDay.TotalSeconds == 0 ? "yyyy-MM-dd" : "yyyy-MM-dd HH:mm:ss");
         }
 
         string output = value.ToString()!;

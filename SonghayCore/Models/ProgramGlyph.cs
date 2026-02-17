@@ -6,22 +6,22 @@
 public readonly record struct ProgramGlyph
 {
     /// <summary>
-    /// Gets or sets the unicode point.
+    /// Gets or sets the Unicode point.
     /// </summary>
     public string UnicodePoint { get; init; }
 
     /// <summary>
-    /// Gets or sets the unicode integer.
+    /// Gets or sets the Unicode integer.
     /// </summary>
     public int UnicodeInteger => string.IsNullOrWhiteSpace(UnicodePoint) ? 0 : Convert.ToInt32(UnicodePoint, 16);
 
     /// <summary>
-    /// Gets or sets the unicode group.
+    /// Gets or sets the Unicode group.
     /// </summary>
     public string UnicodeGroup { get; init; }
 
     /// <summary>
-    /// Gets or sets the name of the unicode.
+    /// Gets or sets the name of the Unicode.
     /// </summary>
     public string UnicodeName { get; init; }
 

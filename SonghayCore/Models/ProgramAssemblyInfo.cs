@@ -129,5 +129,5 @@ public class ProgramAssemblyInfo : IProgramAssemblyInfo
         return s;
     }
 
-    readonly Assembly _dll;
+    private readonly Assembly _dll;
 }

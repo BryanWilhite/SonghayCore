@@ -6,6 +6,7 @@
 /// <remarks>
 /// Reference: “HTTP request methods” [https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods]
 /// </remarks>
+[Obsolete("Use `System.Net.Http.HttpMethod` class instead.")]
 public static class HttpMethods
 {
     /// <summary>

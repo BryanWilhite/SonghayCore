@@ -48,7 +48,7 @@ public static class TextInfoUtility
     /// [http://www.cumbrowski.com/CarstenC/articles/20070623_Title_Capitalization_in_the_English_Language.asp]
     /// </summary>
     public static ReadOnlyCollection<string> EnglishWordsNotCapitalized =>
-        new ReadOnlyCollection<string>(new List<string>
+        new(new List<string>
         {
             //Articles:
             "a", "an", "the",

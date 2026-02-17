@@ -83,6 +83,6 @@ public class OpmlHead
     [JsonPropertyName("ownerEmail")]
     public string? OwnerEmail { get; set; }
 
-    DateTime? _dateCreated;
-    DateTime? _dateModified;
+    private DateTime? _dateCreated;
+    private DateTime? _dateModified;
 }
