@@ -23,7 +23,7 @@ public class HttpResponseMessageExtensionsTests(ITestOutputHelper helper)
     }
 
     [Theory]
-    [InlineData("https://songhaystorage.blob.core.windows.net/studio-dash/app.json", "../../../json")]
+    [InlineData("https://songhaystorage.blob.core.windows.net/studio-dash/app.json", "../../../content/json")]
     public async Task DownloadStringToFile_Test(string location, string target)
     {
         var root = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, target);
