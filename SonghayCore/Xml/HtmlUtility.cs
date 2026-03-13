@@ -29,7 +29,7 @@ public static partial class HtmlUtility
         {
             //An opening input element has been found.
             string strReplace = mTag.Value;
-            foreach (Match mAttr in MatchHtmlAttribute().Matches(strReplace))
+            foreach (Match mAttr in MatchXhtmlAttribute().Matches(strReplace))
             {
                 //XHTML minimization found (e.g. foo="foo").
                 strReplace
@@ -173,14 +173,14 @@ public static partial class HtmlUtility
         string.Format(CultureInfo.InvariantCulture, "<!DOCTYPE {0} PUBLIC \"{1}\" \"{2}\">",
             rootElement, publicIdentifier, resourceReference);
 
-    [GeneratedRegex(RegexScalars.XhtmlAttribute)]
-    private static partial Regex MatchHtmlAttribute();
-
     [GeneratedRegex(RegexScalars.HtmlTagContents)]
     private static partial Regex MatchHtmlTagContents();
 
     [GeneratedRegex(RegexScalars.HtmlTagWithAnyAttributes, RegexOptions.IgnoreCase)]
     private static partial Regex MatchHtmlTagWithAnyAttributes();
+
+    [GeneratedRegex(RegexScalars.XhtmlAttribute)]
+    private static partial Regex MatchXhtmlAttribute();
 
     [GeneratedRegex(RegexScalars.XhtmlEndTagsThatShouldBeMinimized, RegexOptions.IgnoreCase)]
     private static partial Regex MatchXhtmlEndTagsThatShouldBeMinimized();

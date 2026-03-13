@@ -9,7 +9,7 @@ public static class RegexScalars
     public const string HtmlTagContents = "<[^/][^>]*>";
  
     /// <summary><see cref="Regex"/> pattern</summary>
-    public const string HtmlTagWithAnyAttributes = "<html*>";
+    public const string HtmlTagWithAnyAttributes = "<html [^>]*>";
 
     /// <summary><see cref="Regex"/> pattern</summary>
     /// <remarks>This expression intends to match XHTML-style attributes like <c>foo="foo"</c></remarks>
