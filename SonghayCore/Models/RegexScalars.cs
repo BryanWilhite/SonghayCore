@@ -6,6 +6,35 @@ namespace Songhay.Models;
 public static class RegexScalars
 {
     /// <summary><see cref="Regex"/> pattern</summary>
+    public const string AllCharactersInQuotes = @"([""'])(?:(?=(\\?))\2.)*?\1";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string AllSpaceCharactersRepeatedTwoOrMoreTimes = " {2,}";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string AllWords = @"(\b[^\s]+\b)";
+ 
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string HtmlAttributes = """([^\"\s]+)(\s*=\s*)([^\"\s]+)\s""";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string HtmlBooleanAttributes = @"<\s*[^>]+\s(checked|nobreak|nosave|selected)[^=>]*\/*>";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string HtmlClosingTagCharacters = @"\<\s*/";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string HtmlElementsThatShouldNotBeMinimized = @"<(a|iframe|td|th|script)\s+[^>]*\s*(\/>)";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string HtmlHrefOrSrcAttributes = """
+                                             (href|src)\s*=\s*"[^"]+"
+                                             """;  
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string HtmlStartTags = @"<[^>\/]+>";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
     public const string HtmlTagContents = "<[^/][^>]*>";
  
     /// <summary><see cref="Regex"/> pattern</summary>
@@ -18,8 +47,14 @@ public static class RegexScalars
                                         """;
 
     /// <summary><see cref="Regex"/> pattern</summary>
-    public const string XhtmlEndTagsThatShouldBeMinimized = "</(base|isindex|link|meta)>";
+    public const string XhtmlEndTagsThatShouldBeMinimized = @"\s*</(base|isindex|link|meta)\s*>";
 
     /// <summary><see cref="Regex"/> pattern</summary>
     public const string XhtmlMinimizedEndChars = @"\s*/>";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string XhtmlSelfClosingTags = @"<\s*(br|hr|img|link|meta)([^>]*)(>)";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string XmlNamespaceAttributes = """\s*xmlns\s*=\s*"[^"]+"\s*""";
 }

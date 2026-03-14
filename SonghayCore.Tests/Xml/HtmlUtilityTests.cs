@@ -6,6 +6,7 @@ public class HtmlUtilityTests
 {
     [Theory]
     [InlineData("<base></base>", "<base>")]
+    [InlineData("<base>  </base>", "<base>")]
     [InlineData("<base target=\"_top\" href=\"https://example.com/\"></base>",
         "<base target=\"_top\" href=\"https://example.com/\">")]
     [InlineData("<isindex></isindex>", "<isindex>")]
@@ -78,6 +79,30 @@ public class HtmlUtilityTests
     public void ConvertToHtml_Test(string input, string expected)
     {
         string? actual = HtmlUtility.ConvertToHtml(input);
+
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
+    [InlineData("<html xmlns=\"http://www.w3.org/1999/xhtml\">", "<html>")]
+    [InlineData("<html  xmlns=\"http://www.w3.org/1999/xhtml\"  >", "<html>")]
+    [InlineData("<option selected>", "<option selected=\"selected\">")]
+    [InlineData("<br>", "<br />")]
+    [InlineData("<br >", "<br />")]
+    [InlineData("<br />", "<br />")]
+    [InlineData("<hr>", "<hr />")]
+    [InlineData("<hr class\"foo\">", "<hr class\"foo\" />")]
+    [InlineData("<hr   />", "<hr />")]
+    [InlineData("<img src=\"https://myserver.org/images-engine/foo.jpg?m=42&t=y\">",
+        "<img src=\"https://myserver.org/images-engine/foo.jpg?m=42&amp;t=y\" />")]
+    [InlineData("<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css?a=42&b=true\">",
+        "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css?a=42&amp;b=true\" />")]
+    [InlineData("<meta>", "<meta />")]
+    [InlineData("<meta >", "<meta />")]
+    [InlineData("<meta />", "<meta />")]
+    public void ConvertToXml_Test(string input, string expected)
+    {
+        string? actual = HtmlUtility.ConvertToXml(input);
 
         Assert.Equal(expected, actual);
     }
