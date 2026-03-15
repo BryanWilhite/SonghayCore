@@ -12,10 +12,10 @@ public static class RegexScalars
     public const string AllSpaceCharactersRepeatedTwoOrMoreTimes = " {2,}";
 
     /// <summary><see cref="Regex"/> pattern</summary>
-    public const string AllWords = @"(\b[^\s]+\b)";
+    public const string AllWords = @"\w+";
  
     /// <summary><see cref="Regex"/> pattern</summary>
-    public const string HtmlAttributes = """([^\"\s]+)(\s*=\s*)([^\"\s]+)\s""";
+    public const string HtmlAttributesWithoutQuotes = """\s([^'\"\s]+)(\s*=\s*)([^'\"\s]+)\s""";
 
     /// <summary><see cref="Regex"/> pattern</summary>
     public const string HtmlBooleanAttributes = @"<\s*[^>]+\s(checked|nobreak|nosave|selected)[^=>]*\/*>";
@@ -24,11 +24,11 @@ public static class RegexScalars
     public const string HtmlClosingTagCharacters = @"\<\s*/";
 
     /// <summary><see cref="Regex"/> pattern</summary>
-    public const string HtmlElementsThatShouldNotBeMinimized = @"<(a|iframe|td|th|script)\s+[^>]*\s*(\/>)";
+    public const string HtmlElementsThatShouldNotBeMinimized = @"<(a|iframe|td|th|script)\s+([^>]*)(/>)";
 
     /// <summary><see cref="Regex"/> pattern</summary>
     public const string HtmlHrefOrSrcAttributes = """
-                                             (href|src)\s*=\s*"[^"]+"
+                                             (href|src)\s*=\s*['"][^"]+['"]
                                              """;  
 
     /// <summary><see cref="Regex"/> pattern</summary>

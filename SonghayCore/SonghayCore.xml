@@ -5202,7 +5202,7 @@
         <member name="F:Songhay.Models.RegexScalars.AllWords">
             <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
         </member>
-        <member name="F:Songhay.Models.RegexScalars.HtmlAttributes">
+        <member name="F:Songhay.Models.RegexScalars.HtmlAttributesWithoutQuotes">
             <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
         </member>
         <member name="F:Songhay.Models.RegexScalars.HtmlBooleanAttributes">
@@ -7722,10 +7722,48 @@
         <member name="M:Songhay.RegexUtility.GetInnerXmlPattern(System.String)">
             <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern getter</summary>
         </member>
-        <member name="M:Songhay.RegexUtility.GetLinesStartingWithWhitespaceCharacters(System.String,System.Byte)">
+        <member name="M:Songhay.RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern(System.String,System.Byte)">
             <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern getter</summary>
             <param name="newLine">the conventional <see cref="P:System.Environment.NewLine"/> characters of the lines</param>
             <param name="numberOfChars">the number of white space characters to remove</param>
+        </member>
+        <member name="M:Songhay.RegexUtility.MatchAllCharactersInQuotes">
+            <remarks>
+            Pattern:<br/>
+            <code>(["'])(?:(?=(\\\\?))\\2.)*?\\1</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ 1st capture group.<br/>
+                ○ Match a character in the set ["'].<br/>
+            ○ Loop lazily any number of times.<br/>
+                ○ Zero-width positive lookahead.<br/>
+                    ○ 2nd capture group.<br/>
+                        ○ Match '\\' atomically, optionally.<br/>
+                ○ Match the same text as matched by the 2nd capture group.<br/>
+                ○ Match any character other than '\n'.<br/>
+            ○ Match the same text as matched by the 1st capture group.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Songhay.RegexUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes">
+            <remarks>
+            Pattern:<br/>
+            <code> {2,}</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match ' ' atomically at least twice.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Songhay.RegexUtility.MatchAllWords">
+            <remarks>
+            Pattern:<br/>
+            <code>\\w+</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match a word character atomically at least once.<br/>
+            </code>
+            </remarks>
         </member>
         <member name="T:Songhay.TaskUtility">
             <summary>
@@ -7805,122 +7843,30 @@
             <summary>
             Static members for HTML text processing.
             </summary>
-        </member>
-        <member name="M:Songhay.Xml.HtmlUtility.ConvertToHtml(System.String)">
             <summary>
-            Returns a string of marked up text compatible
-            with browsers that do not support XHTML
-            (loosely towards HTML 4.x W3C standard).
+            Static members for HTML text processing.
             </summary>
-            <param name="input">A <see cref="T:System.String"/> of markup.</param>
         </member>
-        <member name="M:Songhay.Xml.HtmlUtility.ConvertToXml(System.String)">
-            <summary>
-            Attempts to convert HTML to well-formed XML.
-            </summary>
-            <param name="html">An HTML <see cref="T:System.String"/>.</param>
-            <remarks>This method is simpler than converting to XHTML.</remarks>
+        <member name="M:Songhay.Xml.HtmlUtility.GetHtmlBooleanAttributesPattern">
+            <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern getter</summary>
         </member>
-        <member name="M:Songhay.Xml.HtmlUtility.FormatXhtmlElements(System.String)">
-            <summary>
-            Returns an XHTML string derived from a .NET procedure.
-            </summary>
-            <param name="xmlFragment">
-            A well-formed <see cref="T:System.String"/> of XML.
-            </param>
-            <remarks>
-            This member addresses certain quirks
-            that well-formed XML cannot have in a contemporary Web browser.
-            </remarks>
-        </member>
-        <member name="M:Songhay.Xml.HtmlUtility.GetInnerXml(System.String,System.String,System.String,System.Byte)">
-            <summary>
-            Returns the …inner… fragment of XML
-            from the specified unique element.
-            </summary>
-            <param name="xmlFragment">
-            A well-formed <see cref="T:System.String"/> of XML.
-            </param>
-            <param name="elementName">
-            The local name of the element in the XML string.
-            </param>
-            <param name="newLine">the conventional <see cref="P:System.Environment.NewLine"/> characters of the lines</param>
-            <param name="numberOfChars">the number of white space characters to remove</param>
-        </member>
-        <member name="M:Songhay.Xml.HtmlUtility.PublicDocType(System.String,System.String,System.String)">
-            <summary>
-            Emits a public <c>DOCTYPE</c> tag.
-            </summary>
-            <param name="rootElement">
-            The root element of the DTD.
-            </param>
-            <param name="publicIdentifier">
-            The public identifier of the DTD.
-            </param>
-            <param name="resourceReference">
-            The link to reference material of the DTD.
-            </param>
-            <returns>
-            A public <c>DOCTYPE</c> tag.
-            </returns>
-        </member>
-        <member name="M:Songhay.Xml.HtmlUtility.MatchAllCharactersInQuotes">
+        <member name="M:Songhay.Xml.HtmlUtility.MatchHtmlAttributesWithoutQuotes">
             <remarks>
             Pattern:<br/>
-            <code>(["'])(?:(?=(\\\\?))\\2.)*?\\1</code><br/>
-            Explanation:<br/>
-            <code>
-            ○ 1st capture group.<br/>
-                ○ Match a character in the set ["'].<br/>
-            ○ Loop lazily any number of times.<br/>
-                ○ Zero-width positive lookahead.<br/>
-                    ○ 2nd capture group.<br/>
-                        ○ Match '\\' atomically, optionally.<br/>
-                ○ Match the same text as matched by the 2nd capture group.<br/>
-                ○ Match any character other than '\n'.<br/>
-            ○ Match the same text as matched by the 1st capture group.<br/>
-            </code>
-            </remarks>
-        </member>
-        <member name="M:Songhay.Xml.HtmlUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes">
-            <remarks>
-            Pattern:<br/>
-            <code> {2,}</code><br/>
-            Explanation:<br/>
-            <code>
-            ○ Match ' ' atomically at least twice.<br/>
-            </code>
-            </remarks>
-        </member>
-        <member name="M:Songhay.Xml.HtmlUtility.MatchAllWords">
-            <remarks>
-            Pattern:<br/>
-            <code>(\\b[^\\s]+\\b)</code><br/>
-            Explanation:<br/>
-            <code>
-            ○ 1st capture group.<br/>
-                ○ Match if at a word boundary.<br/>
-                ○ Match any character other than a whitespace character greedily at least once.<br/>
-                ○ Match if at a word boundary.<br/>
-            </code>
-            </remarks>
-        </member>
-        <member name="M:Songhay.Xml.HtmlUtility.MatchHtmlAttributes">
-            <remarks>
-            Pattern:<br/>
-            <code>([^\\"\\s]+)(\\s*=\\s*)([^\\"\\s]+)\\s</code><br/>
+            <code>\\s([^'\\"\\s]+)(\\s*=\\s*)([^'\\"\\s]+)\\s</code><br/>
             Options:<br/>
             <code>RegexOptions.IgnoreCase</code><br/>
             Explanation:<br/>
             <code>
+            ○ Match a whitespace character.<br/>
             ○ 1st capture group.<br/>
-                ○ Match a character in the set [^"\s] greedily at least once.<br/>
+                ○ Match a character in the set [^"'\s] greedily at least once.<br/>
             ○ 2nd capture group.<br/>
                 ○ Match a whitespace character atomically any number of times.<br/>
                 ○ Match '='.<br/>
                 ○ Match a whitespace character greedily any number of times.<br/>
             ○ 3rd capture group.<br/>
-                ○ Match a character in the set [^"\s] greedily at least once.<br/>
+                ○ Match a character in the set [^"'\s] greedily at least once.<br/>
             ○ Match a whitespace character.<br/>
             </code>
             </remarks>
@@ -7992,7 +7938,7 @@
         <member name="M:Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized">
             <remarks>
             Pattern:<br/>
-            <code>&lt;(a|iframe|td|th|script)\\s+[^&gt;]*\\s*(\\/&gt;)</code><br/>
+            <code>&lt;(a|iframe|td|th|script)\\s+([^&gt;]*)(/&gt;)</code><br/>
             Options:<br/>
             <code>RegexOptions.IgnoreCase</code><br/>
             Explanation:<br/>
@@ -8022,9 +7968,9 @@
                         ○ Match a character in the set [Pp].<br/>
                         ○ Match a character in the set [Tt].<br/>
             ○ Match a whitespace character greedily at least once.<br/>
-            ○ Match a character other than '&gt;' greedily any number of times.<br/>
-            ○ Match a whitespace character atomically any number of times.<br/>
             ○ 2nd capture group.<br/>
+                ○ Match a character other than '&gt;' greedily any number of times.<br/>
+            ○ 3rd capture group.<br/>
                 ○ Match the string "/&gt;".<br/>
             </code>
             </remarks>
@@ -8032,7 +7978,7 @@
         <member name="M:Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes">
             <remarks>
             Pattern:<br/>
-            <code>(href|src)\\s*=\\s*"[^"]+"</code><br/>
+            <code>(href|src)\\s*=\\s*['"][^"]+['"]</code><br/>
             Options:<br/>
             <code>RegexOptions.IgnoreCase</code><br/>
             Explanation:<br/>
@@ -8051,9 +7997,9 @@
             ○ Match a whitespace character atomically any number of times.<br/>
             ○ Match '='.<br/>
             ○ Match a whitespace character atomically any number of times.<br/>
-            ○ Match '"'.<br/>
-            ○ Match a character other than '"' atomically at least once.<br/>
-            ○ Match '"'.<br/>
+            ○ Match a character in the set ["'].<br/>
+            ○ Match a character other than '"' greedily at least once.<br/>
+            ○ Match a character in the set ["'].<br/>
             </code>
             </remarks>
         </member>
@@ -8226,6 +8172,83 @@
             ○ Match a whitespace character atomically any number of times.<br/>
             </code>
             </remarks>
+        </member>
+        <member name="M:Songhay.Xml.HtmlUtility.ConvertToHtml(System.String)">
+            <summary>
+            Returns a string of marked up text compatible
+            with browsers that do not support XHTML
+            (loosely towards HTML 4.x W3C standard).
+            </summary>
+            <param name="input">A <see cref="T:System.String"/> of markup.</param>
+        </member>
+        <member name="M:Songhay.Xml.HtmlUtility.ConvertToXml(System.String)">
+             <summary>
+             Attempts to convert HTML to well-formed XML
+             with a conventional set of <see cref="T:System.Text.RegularExpressions.Regex"/> strategies.
+             </summary>
+             <param name="html">An HTML <see cref="T:System.String"/>.</param>
+             <remarks>
+             This method is simpler than converting to XHTML.
+            
+             This member uses the following <see cref="T:System.Text.RegularExpressions.Regex"/> strategies:
+            
+             - <see cref="M:Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes"/>
+             - <see cref="M:Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags"/>
+             - <see cref="M:Songhay.Xml.HtmlUtility.MatchHtmlStartTags"/>
+             - <see cref="M:Songhay.Xml.HtmlUtility.MatchHtmlBooleanAttributes"/>
+             - <see cref="M:Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes"/>
+            
+             </remarks>
+        </member>
+        <member name="M:Songhay.Xml.HtmlUtility.FormatXhtmlElements(System.String)">
+             <summary>
+             Formats the specified fragment
+             with a conventional set of <see cref="T:System.Text.RegularExpressions.Regex"/> strategies.
+             </summary>
+             <param name="xmlFragment">
+             A well-formed <see cref="T:System.String"/> of XML.
+             </param>
+             <remarks>
+             This member uses the following <see cref="T:System.Text.RegularExpressions.Regex"/> strategy:
+            
+             - <see cref="M:Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized"/>
+            
+             </remarks>
+        </member>
+        <member name="M:Songhay.Xml.HtmlUtility.GetBooleanAttributes">
+            <summary>Returns all known HTML Boolean attributes</summary>
+            <remarks>See https://meiert.com/blog/boolean-attributes-of-html/</remarks>
+        </member>
+        <member name="M:Songhay.Xml.HtmlUtility.GetInnerXml(System.String,System.String,System.String,System.Byte)">
+            <summary>
+            Returns the …inner… fragment of XML
+            from the specified unique element.
+            </summary>
+            <param name="xmlFragment">
+            A well-formed <see cref="T:System.String"/> of XML.
+            </param>
+            <param name="elementName">
+            The local name of the element in the XML string.
+            </param>
+            <param name="newLine">the conventional <see cref="P:System.Environment.NewLine"/> characters of the lines</param>
+            <param name="numberOfChars">the number of white space characters to remove</param>
+        </member>
+        <member name="M:Songhay.Xml.HtmlUtility.PublicDocType(System.String,System.String,System.String)">
+            <summary>
+            Emits a public <c>DOCTYPE</c> tag.
+            </summary>
+            <param name="rootElement">
+            The root element of the DTD.
+            </param>
+            <param name="publicIdentifier">
+            The public identifier of the DTD.
+            </param>
+            <param name="resourceReference">
+            The link to reference material of the DTD.
+            </param>
+            <returns>
+            A public <c>DOCTYPE</c> tag.
+            </returns>
         </member>
         <member name="T:Songhay.Xml.LatinGlyphsUtility">
             <summary>
@@ -9508,34 +9531,34 @@
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlAttributes_3">
-            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchHtmlAttributes method.</summary>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlAttributesWithoutQuotes_3">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchHtmlAttributesWithoutQuotes method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlAttributes_3.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlAttributesWithoutQuotes_3.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlAttributes_3.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlAttributesWithoutQuotes_3.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlAttributes_3.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlAttributesWithoutQuotes_3.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlAttributes_3.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlAttributesWithoutQuotes_3.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlAttributes_3.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlAttributesWithoutQuotes_3.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlAttributes_3.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlAttributesWithoutQuotes_3.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlAttributes_3.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlAttributesWithoutQuotes_3.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlAttributes_3.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlAttributesWithoutQuotes_3.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
@@ -9933,15 +9956,11 @@
         <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_hasTimeout">
             <summary>Whether <see cref="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout"/> is non-infinite.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.Utilities.IndexOfNonAsciiOrAny_9ED5CC728362FAABA8FE9C3564A21F5D68D3C42823C725DD2D353E659B9E8416(System.ReadOnlySpan{System.Char})">
-            <summary>Finds the next index of any character that matches a character in the set [^"\s].</summary>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.IndexOfAnyWordChar(System.ReadOnlySpan{System.Char})">
+            <summary>Finds the next index of any character that matches a word character.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.Utilities.IsBoundary(System.ReadOnlySpan{System.Char},System.Int32)">
-            <summary>Determines whether the specified index is a boundary.</summary>
-        </member>
-        <member name="M:System.Text.RegularExpressions.Generated.Utilities.IsBoundaryWordChar(System.Char)">
-            <summary>Determines whether the specified index is a boundary word character.</summary>
-            <remarks>This is the same as \w plus U+200C ZERO WIDTH NON-JOINER and U+200D ZERO WIDTH JOINER.</remarks>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.IsWordChar(System.Char)">
+            <summary>Determines whether the character is part of the [\w] set.</summary>
         </member>
         <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32,System.Int32)">
             <summary>Pushes 2 values onto the backtracking stack.</summary>
@@ -9952,8 +9971,8 @@
         <member name="P:System.Text.RegularExpressions.Generated.Utilities.WordCharBitmap">
             <summary>Gets a bitmap for whether each character 0 through 127 is in [\w]</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_ascii_3E0000050000000000000000000000">
-            <summary>Supports searching for characters in or not in "\t\n\v\f\r \"".</summary>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_asciiExceptWordChars">
+            <summary>Supports searching for characters in or not in "\0\u0001\u0002\u0003\u0004\u0005\u0006\a\b\t\n\v\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^`{|}~\u007f".</summary>
         </member>
         <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_indexOfAnyStrings_OrdinalIgnoreCase_C804C12D58FD3623AF413AA299E8AC7DADACD43B8E4D2D0CDA250EF106FCC0B3">
             <summary>Supports searching for the specified strings.</summary>
