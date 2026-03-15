@@ -18,9 +18,6 @@ public static class RegexScalars
     public const string HtmlAttributesWithoutQuotes = """\s([^'\"\s]+)(\s*=\s*)([^'\"\s]+)\s""";
 
     /// <summary><see cref="Regex"/> pattern</summary>
-    public const string HtmlBooleanAttributes = @"<\s*[^>]+\s(checked|nobreak|nosave|selected)[^=>]*\/*>";
-
-    /// <summary><see cref="Regex"/> pattern</summary>
     public const string HtmlClosingTagCharacters = @"\<\s*/";
 
     /// <summary><see cref="Regex"/> pattern</summary>

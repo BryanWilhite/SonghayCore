@@ -18,9 +18,6 @@ public static partial class HtmlUtility
     [GeneratedRegex(RegexScalars.HtmlAttributesWithoutQuotes, RegexOptions.IgnoreCase)]
     public static partial Regex MatchHtmlAttributesWithoutQuotes();
 
-    [GeneratedRegex(RegexScalars.HtmlBooleanAttributes, RegexOptions.IgnoreCase)]
-    public static partial Regex MatchHtmlBooleanAttributes();
-
     [GeneratedRegex(RegexScalars.HtmlClosingTagCharacters)]
     public static partial Regex MatchHtmlClosingTagCharacters();
 
@@ -63,21 +60,6 @@ public static partial class HtmlUtility
         return s.Contains('"')
             ? s
             : $""" {match.Groups[1].Value.Trim()}="{match.Groups[3].Value.Trim()}" """;
-    }
-
-    private static string EvaluateBooleanAttribute(Match match)
-    {
-        var s = match.Value;
-
-        if (match.Groups.Count != 2) return s;
-
-        var group1Value = match.Groups[1].Value;
-        s = match.Groups[0].Value.Replace(group1Value,
-            string.Format(CultureInfo.InvariantCulture, """
-                                                        {0}="{0}"
-                                                        """, group1Value));
-
-        return s;
     }
 
     private static string EvaluateElementForMalformedAttribute(Match match) => 

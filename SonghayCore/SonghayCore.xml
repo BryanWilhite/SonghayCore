@@ -8184,18 +8184,17 @@
         <member name="M:Songhay.Xml.HtmlUtility.ConvertToXml(System.String)">
              <summary>
              Attempts to convert HTML to well-formed XML
-             with a conventional set of <see cref="T:System.Text.RegularExpressions.Regex"/> strategies.
+             with a conventional set of <see cref="T:System.Text.RegularExpressions.Regex"/> methods.
              </summary>
              <param name="html">An HTML <see cref="T:System.String"/>.</param>
              <remarks>
              This method is simpler than converting to XHTML.
             
-             This member uses the following <see cref="T:System.Text.RegularExpressions.Regex"/> strategies:
+             This member uses the following <see cref="T:System.Text.RegularExpressions.Regex"/> methods:
             
              - <see cref="M:Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes"/>
              - <see cref="M:Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags"/>
-             - <see cref="M:Songhay.Xml.HtmlUtility.MatchHtmlStartTags"/>
-             - <see cref="M:Songhay.Xml.HtmlUtility.MatchHtmlBooleanAttributes"/>
+             - <see cref="M:Songhay.Xml.HtmlUtility.MatchHtmlStartTags"/> (for two different evaluations)
              - <see cref="M:Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes"/>
             
              </remarks>
@@ -8203,13 +8202,13 @@
         <member name="M:Songhay.Xml.HtmlUtility.FormatXhtmlElements(System.String)">
              <summary>
              Formats the specified fragment
-             with a conventional set of <see cref="T:System.Text.RegularExpressions.Regex"/> strategies.
+             with a conventional set of <see cref="T:System.Text.RegularExpressions.Regex"/> methods.
              </summary>
              <param name="xmlFragment">
              A well-formed <see cref="T:System.String"/> of XML.
              </param>
              <remarks>
-             This member uses the following <see cref="T:System.Text.RegularExpressions.Regex"/> strategy:
+             This member uses the following <see cref="T:System.Text.RegularExpressions.Regex"/> method:
             
              - <see cref="M:Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized"/>
             

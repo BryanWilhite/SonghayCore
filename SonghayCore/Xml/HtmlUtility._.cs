@@ -45,24 +45,26 @@ public static partial class HtmlUtility
 
     /// <summary>
     /// Attempts to convert HTML to well-formed XML
-    /// with a conventional set of <see cref="Regex"/> strategies.
+    /// with a conventional set of <see cref="Regex"/> methods.
     /// </summary>
     /// <param name="html">An HTML <see cref="string"/>.</param>
     /// <remarks>
     /// This method is simpler than converting to XHTML.
     ///
-    /// This member uses the following <see cref="Regex"/> strategies:
+    /// This member uses the following <see cref="Regex"/> methods:
     ///
     /// - <see cref="MatchXmlNamespaceAttributes"/>
     /// - <see cref="MatchXhtmlSelfClosingTags"/>
-    /// - <see cref="MatchHtmlStartTags"/>
-    /// - <see cref="MatchHtmlBooleanAttributes"/>
+    /// - <see cref="MatchHtmlStartTags"/> (for two different evaluations)
     /// - <see cref="MatchHtmlHrefOrSrcAttributes"/>
     ///
     /// </remarks>
     public static string? ConvertToXml(string? html)
     {
         if (string.IsNullOrWhiteSpace(html)) return null;
+
+        const string ampersand = "&";
+        const string ampEntity = "&amp;";
 
         //Remove xmlns attributes:
         html = MatchXmlNamespaceAttributes().Replace(html, string.Empty);
@@ -76,13 +78,11 @@ public static partial class HtmlUtility
         //Find attributes without quotes:
         html = MatchHtmlStartTags().Replace(html, EvaluateElementForMalformedAttribute);
 
-        //Generate attributes:
-        html = MatchHtmlBooleanAttributes().Replace(html, EvaluateBooleanAttribute);
-
         //Look for Query strings with raw ampersands:
         foreach (Match m in MatchHtmlHrefOrSrcAttributes().Matches(html))
         {
-            if (!m.Value.Contains("&amp;")) html = html.Replace(m.Value, m.Value.Replace("&", "&amp;"));
+            if (!m.Value.Contains(ampEntity))
+                html = html.Replace(m.Value, m.Value.Replace(ampersand, ampEntity));
         }
 
         //Replace the CDATA "xmlns" with "x…mlns" (adds a soft-hyphen):
@@ -93,13 +93,13 @@ public static partial class HtmlUtility
 
     /// <summary>
     /// Formats the specified fragment
-    /// with a conventional set of <see cref="Regex"/> strategies.
+    /// with a conventional set of <see cref="Regex"/> methods.
     /// </summary>
     /// <param name="xmlFragment">
     /// A well-formed <see cref="string"/> of XML.
     /// </param>
     /// <remarks>
-    /// This member uses the following <see cref="Regex"/> strategy:
+    /// This member uses the following <see cref="Regex"/> method:
     ///
     /// - <see cref="MatchHtmlElementsThatShouldNotBeMinimized"/>
     ///
