@@ -292,25 +292,25 @@ public static partial class XmlUtility
                         p = bool.Parse(p.ToString() ?? string.Empty);
                         break;
                     case byte:
-                        p = Byte.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        p = byte.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
                         break;
                     case DateTime:
                         p = DateTime.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
                         break;
                     case decimal:
-                        p = Decimal.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        p = decimal.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
                         break;
                     case double:
-                        p = Double.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        p = double.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
                         break;
                     case short:
-                        p = Int16.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        p = short.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
                         break;
                     case int:
-                        p = Int32.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        p = int.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
                         break;
                     case long:
-                        p = Int64.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
+                        p = long.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
                         break;
                     default:
                     {
