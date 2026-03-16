@@ -53,10 +53,10 @@ public static partial class ProgramFileUtility
     /// </remarks>
     public static int CountParentDirectoryChars(string? path)
     {
-        if (string.IsNullOrWhiteSpace(path)) return default;
+        if (string.IsNullOrWhiteSpace(path)) return 0;
 
-        var parentDirectoryCharsPattern = $@"\.\.\{Path.DirectorySeparatorChar}";
-        var matches = Regex.Matches(path, parentDirectoryCharsPattern);
+        string parentDirectoryCharsPattern = $@"\.\.\{Path.DirectorySeparatorChar}";
+        MatchCollection matches = Regex.Matches(path, parentDirectoryCharsPattern);
 
         return matches.Count;
     }
@@ -81,11 +81,11 @@ public static partial class ProgramFileUtility
         if (string.IsNullOrWhiteSpace(path))
             throw new DirectoryNotFoundException("The expected directory is not here.");
 
-        var info = new DirectoryInfo(path);
+        DirectoryInfo info = new DirectoryInfo(path);
 
-        var isParent = (info.Name == parentName);
-        var hasNullParent = (info.Parent == null);
-        var hasTargetParent = !hasNullParent && (info.Parent?.Name == parentName);
+        bool isParent = (info.Name == parentName);
+        bool hasNullParent = (info.Parent == null);
+        bool hasTargetParent = !hasNullParent && (info.Parent?.Name == parentName);
 
         if (!info.Exists) return null;
         if (isParent) return info;
@@ -95,7 +95,7 @@ public static partial class ProgramFileUtility
         levels = Math.Abs(levels);
         --levels;
 
-        var hasNoMoreLevels = levels == 0;
+        bool hasNoMoreLevels = levels == 0;
 
         return hasNoMoreLevels ? null : FindParentDirectoryInfo(info.Parent?.FullName, parentName, levels);
     }
@@ -142,7 +142,7 @@ public static partial class ProgramFileUtility
     /// </remarks>
     public static string GetCombinedPath(string? root, string? path, bool fileIsExpected)
     {
-        var combinedPath = GetCombinedPath(root, path);
+        string combinedPath = GetCombinedPath(root, path);
 
         if (fileIsExpected)
         {
@@ -173,7 +173,7 @@ public static partial class ProgramFileUtility
         levels = Math.Abs(levels);
         if (levels == 0) return path;
 
-        var info = Directory.GetParent(path);
+        DirectoryInfo? info = Directory.GetParent(path);
         if (info == null) return path;
         path = info.FullName;
 
@@ -194,7 +194,7 @@ public static partial class ProgramFileUtility
     {
         path.ThrowWhenNullOrWhiteSpace();
 
-        var info = new DirectoryInfo(path);
+        DirectoryInfo info = new DirectoryInfo(path);
 
         levels = Math.Abs(levels);
         if (levels == 0) return info;
@@ -295,7 +295,7 @@ public static partial class ProgramFileUtility
     public static string? TrimLeadingDirectorySeparatorChars(string? path) =>
         string.IsNullOrWhiteSpace(path) ? path : path.TrimStart(Backslash, ForwardSlash);
 
-    static readonly bool IsForwardSlashSystemField;
-    static readonly char Backslash;
-    static readonly char ForwardSlash;
+    private static readonly bool IsForwardSlashSystemField;
+    private static readonly char Backslash;
+    private static readonly char ForwardSlash;
 }

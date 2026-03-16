@@ -6,125 +6,12 @@
 public static class LatinGlyphsUtility
 {
     /// <summary>
-    /// Condenses selected decimal entities
-    /// into their Latin glyph equivalent.
+    /// A collection of <see cref="ProgramGlyph"/>,
+    /// representing the Latin Glyphs of the Basic Latin Unicode group.
     /// </summary>
-    /// <param name="input">
-    /// The input <see cref="string"/> containing the decimal entities.
-    /// </param>
-    /// <param name="basicLatinOnly">
-    /// When <c>true</c>, process input for <see cref="ProgramGlyph"/> array
-    /// where <c>UnicodeInteger &lt; 128</c>.
-    /// </param>
-    /// <returns>
-    /// Returns a <see cref="string"/> with Latin glyphs.
-    /// </returns>
-    public static string? Condense(string? input, bool basicLatinOnly)
-    {
-        if (string.IsNullOrEmpty(input)) return input;
-
-        var subset = GetGlyphs(basicLatinOnly)
-            .Where(g => !string.IsNullOrWhiteSpace(g.HtmlEntityName)
-                        && (input.Contains(g.HtmlEntityName) || input.Contains(g.XmlEntityNumber)))
-            .ToArray();
-
-        foreach (var datum in subset)
-        {
-            if (datum.HtmlEntityName.Length > 0 && input.Contains(datum.HtmlEntityName))
-                input = Regex.Replace(input, Regex.Escape(datum.HtmlEntityName), datum.Character,
-                    RegexOptions.IgnoreCase);
-
-            if (input.Contains(datum.XmlEntityNumber))
-                input = Regex.Replace(input, Regex.Escape(datum.XmlEntityNumber), datum.Character,
-                    RegexOptions.IgnoreCase);
-        }
-
-        return input;
-    }
-
-    /// <summary>
-    /// Expands selected Latin glyphs
-    /// into their decimal entity equivalent.
-    /// </summary>
-    /// <param name="input">
-    /// The input <see cref="string"/> containing the glyphs.
-    /// </param>
-    /// <param name="basicLatinOnly">
-    /// When <c>true</c>, process input for array of <see cref="ProgramGlyph"/>
-    /// where <c>UnicodeInteger &lt; 128</c>.
-    /// </param>
-    /// <returns>
-    /// Returns a <see cref="string"/> with decimal entities.
-    /// </returns>
-    public static string? Expand(string? input, bool basicLatinOnly)
-    {
-        if (string.IsNullOrEmpty(input)) return input;
-
-        var subset = GetGlyphs(basicLatinOnly)
-            .Where(g => !string.IsNullOrWhiteSpace(g.HtmlEntityName) && input.Contains(g.Character))
-            .ToArray();
-
-        foreach (var datum in subset)
-        {
-            if(string.IsNullOrEmpty(datum.Character)) continue;
-            if (!input.Contains(datum.Character)) continue;
-
-            input = input.Replace(datum.Character, datum.XmlEntityNumber);
-        }
-
-        return input;
-    }
-
-    /// <summary>
-    /// Gets the array of <see cref="ProgramGlyph"/>.
-    /// </summary>
-    public static ProgramGlyph[] GetGlyphs(bool basicLatinOnly) =>
-        basicLatinOnly ? BasicLatinGlyphs.Value : BasicLatinGlyphs.Value.Union(BeyondBasicLatinGlyphs.Value).ToArray();
-
-    /// <summary>
-    /// Replaces any <see cref="ProgramGlyph.Utf8UrlEncoding"/>
-    /// found in the input with <see cref="string.Empty"/>.
-    /// </summary>
-    /// <param name="input">The input.</param>
-    /// <param name="basicLatinOnly">
-    /// When <c>true</c>, process input for array of <see cref="ProgramGlyph"/>
-    /// where <c>UnicodeInteger &lt; 128</c>.
-    /// </param>
-    public static string RemoveUrlEncodings(string input, bool basicLatinOnly) =>
-        RemoveUrlEncodings(input, includeWindows1252UrlEncoding: false, basicLatinOnly);
-
-    /// <summary>
-    /// Replaces any <see cref="ProgramGlyph.Utf8UrlEncoding"/>
-    /// found in the input with <see cref="string.Empty"/>.
-    /// </summary>
-    /// <param name="input">The input.</param>
-    /// <param name="includeWindows1252UrlEncoding">
-    /// When <c>true</c>, search for <see cref="ProgramGlyph.Windows1252UrlEncoding"/> strings
-    /// in the input.
-    /// </param>
-    /// <param name="basicLatinOnly">
-    /// When <c>true</c>, process input for array of <see cref="ProgramGlyph"/>
-    /// where <c>UnicodeInteger &lt; 128</c>.
-    /// </param>
-    public static string RemoveUrlEncodings(string input, bool includeWindows1252UrlEncoding, bool basicLatinOnly)
-    {
-        foreach (var glyph in GetGlyphs(basicLatinOnly))
-        {
-            input = Regex.Replace(input, Regex.Escape(glyph.Utf8UrlEncoding), string.Empty, RegexOptions.IgnoreCase);
-
-            if (includeWindows1252UrlEncoding)
-            {
-                input = Regex.Replace(input, Regex.Escape(glyph.Windows1252UrlEncoding), string.Empty,
-                    RegexOptions.IgnoreCase);
-            }
-        }
-
-        return input;
-    }
-
-    static readonly Lazy<ProgramGlyph[]> BasicLatinGlyphs =
-        new(() => new ProgramGlyph[]
-            {
+    public static readonly Lazy<ProgramGlyph[]> BasicLatinGlyphs =
+        new(() =>
+            [
                 new()
                 {
                     UnicodePoint = "20",
@@ -1180,13 +1067,18 @@ public static class LatinGlyphsUtility
                     Utf8UrlEncoding = "%7F",
                     HtmlEntityName = "",
                     XmlEntityNumber = "&#127;"
-                },
-            }
+                }
+            ]
         );
 
-    static readonly Lazy<ProgramGlyph[]> BeyondBasicLatinGlyphs =
-        new(() => new ProgramGlyph[]
-            {
+    /// <summary>
+    /// A collection of <see cref="ProgramGlyph"/>,
+    /// representing the Latin Glyphs
+    /// of the General Punctuation, Latin Extended-B, etc. Unicode groups.
+    /// </summary>
+    public static readonly Lazy<ProgramGlyph[]> BeyondBasicLatinGlyphs =
+        new(() =>
+            [
                 new()
                 {
                     UnicodePoint = "201a",
@@ -2614,7 +2506,124 @@ public static class LatinGlyphsUtility
                     Utf8UrlEncoding = "%E2%82%B9",
                     HtmlEntityName = "",
                     XmlEntityNumber = "&#8377;"
-                },
-            }
+                }
+            ]
         );
+
+    /// <summary>
+    /// Condenses selected decimal entities
+    /// into their Latin glyph equivalent.
+    /// </summary>
+    /// <param name="input">
+    /// The input <see cref="string"/> containing the decimal entities.
+    /// </param>
+    /// <param name="basicLatinOnly">
+    /// When <c>true</c>, process input for <see cref="ProgramGlyph"/> array
+    /// where <c>UnicodeInteger &lt; 128</c>.
+    /// </param>
+    /// <returns>
+    /// Returns a <see cref="string"/> with Latin glyphs.
+    /// </returns>
+    public static string? Condense(string? input, bool basicLatinOnly)
+    {
+        if (string.IsNullOrEmpty(input)) return input;
+
+        ProgramGlyph[] subset = GetGlyphs(basicLatinOnly)
+            .Where(g => !string.IsNullOrWhiteSpace(g.HtmlEntityName)
+                        && (input.Contains(g.HtmlEntityName) || input.Contains(g.XmlEntityNumber)))
+            .ToArray();
+
+        foreach (ProgramGlyph datum in subset)
+        {
+            if (datum.HtmlEntityName.Length > 0 && input.Contains(datum.HtmlEntityName))
+                input = Regex.Replace(input, Regex.Escape(datum.HtmlEntityName), datum.Character,
+                    RegexOptions.IgnoreCase);
+
+            if (input.Contains(datum.XmlEntityNumber))
+                input = Regex.Replace(input, Regex.Escape(datum.XmlEntityNumber), datum.Character,
+                    RegexOptions.IgnoreCase);
+        }
+
+        return input;
+    }
+
+    /// <summary>
+    /// Expands selected Latin glyphs
+    /// into their decimal entity equivalent.
+    /// </summary>
+    /// <param name="input">
+    /// The input <see cref="string"/> containing the glyphs.
+    /// </param>
+    /// <param name="basicLatinOnly">
+    /// When <c>true</c>, process input for array of <see cref="ProgramGlyph"/>
+    /// where <c>UnicodeInteger &lt; 128</c>.
+    /// </param>
+    /// <returns>
+    /// Returns a <see cref="string"/> with decimal entities.
+    /// </returns>
+    public static string? Expand(string? input, bool basicLatinOnly)
+    {
+        if (string.IsNullOrEmpty(input)) return input;
+
+        ProgramGlyph[] subset = GetGlyphs(basicLatinOnly)
+            .Where(g => !string.IsNullOrWhiteSpace(g.HtmlEntityName) && input.Contains(g.Character))
+            .ToArray();
+
+        foreach (ProgramGlyph datum in subset)
+        {
+            if(string.IsNullOrEmpty(datum.Character)) continue;
+            if (!input.Contains(datum.Character)) continue;
+
+            input = input.Replace(datum.Character, datum.XmlEntityNumber);
+        }
+
+        return input;
+    }
+
+    /// <summary>
+    /// Gets the array of <see cref="ProgramGlyph"/>.
+    /// </summary>
+    public static ProgramGlyph[] GetGlyphs(bool basicLatinOnly) =>
+        basicLatinOnly ? BasicLatinGlyphs.Value : BasicLatinGlyphs.Value.Union(BeyondBasicLatinGlyphs.Value).ToArray();
+
+    /// <summary>
+    /// Replaces any <see cref="ProgramGlyph.Utf8UrlEncoding"/>
+    /// found in the input with <see cref="string.Empty"/>.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    /// <param name="basicLatinOnly">
+    /// When <c>true</c>, process input for array of <see cref="ProgramGlyph"/>
+    /// where <c>UnicodeInteger &lt; 128</c>.
+    /// </param>
+    public static string RemoveUrlEncodings(string input, bool basicLatinOnly) =>
+        RemoveUrlEncodings(input, includeWindows1252UrlEncoding: false, basicLatinOnly);
+
+    /// <summary>
+    /// Replaces any <see cref="ProgramGlyph.Utf8UrlEncoding"/>
+    /// found in the input with <see cref="string.Empty"/>.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    /// <param name="includeWindows1252UrlEncoding">
+    /// When <c>true</c>, search for <see cref="ProgramGlyph.Windows1252UrlEncoding"/> strings
+    /// in the input.
+    /// </param>
+    /// <param name="basicLatinOnly">
+    /// When <c>true</c>, process input for array of <see cref="ProgramGlyph"/>
+    /// where <c>UnicodeInteger &lt; 128</c>.
+    /// </param>
+    public static string RemoveUrlEncodings(string input, bool includeWindows1252UrlEncoding, bool basicLatinOnly)
+    {
+        foreach (ProgramGlyph glyph in GetGlyphs(basicLatinOnly))
+        {
+            input = Regex.Replace(input, Regex.Escape(glyph.Utf8UrlEncoding), string.Empty, RegexOptions.IgnoreCase);
+
+            if (includeWindows1252UrlEncoding)
+            {
+                input = Regex.Replace(input, Regex.Escape(glyph.Windows1252UrlEncoding), string.Empty,
+                    RegexOptions.IgnoreCase);
+            }
+        }
+
+        return input;
+    }
 }

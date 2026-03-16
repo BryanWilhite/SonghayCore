@@ -220,8 +220,7 @@ public static partial class StringExtensions
     ///  📚 https://en.wikipedia.org/wiki/Path_(computing)#Uniform_Naming_Convention
     /// </remarks>
     public static bool IsUnc(this string? input) =>
-        !string.IsNullOrWhiteSpace(input) &&
-        Regex.IsMatch(input, @"^(\\(\\[^\s\\]+)+|([A-Za-z]:(\\)?|[A-z]:(\\[^\s\\]+)+))(\\)?$");
+        !string.IsNullOrWhiteSpace(input) && RegexUtility.MatchAllThatLooksLikeUnc().IsMatch(input);
 
     /// <summary>
     /// Determines whether the specified input looks like an email address.
@@ -237,8 +236,7 @@ public static partial class StringExtensions
     /// [http://stackoverflow.com/questions/201323/how-to-use-a-regular-expression-to-validate-an-email-addresses]
     /// </remarks>
     public static bool LooksLikeEmailAddress(this string? input) =>
-        !string.IsNullOrWhiteSpace(input) &&
-        Regex.IsMatch(input, @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
+        !string.IsNullOrWhiteSpace(input) && RegexUtility.MatchAllThatLooksLikeEmailAddress().IsMatch(input);
 
     /// <summary>
     /// Remove “accent characters” from strings 

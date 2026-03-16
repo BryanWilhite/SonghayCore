@@ -6,10 +6,25 @@ namespace Songhay.Models;
 public static class RegexScalars
 {
     /// <summary><see cref="Regex"/> pattern</summary>
+    public const string AllCharactersIndicatingParentDirectory = @"\.\./|\.\.\\";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
     public const string AllCharactersInQuotes = @"([""'])(?:(?=(\\?))\2.)*?\1";
 
     /// <summary><see cref="Regex"/> pattern</summary>
+    public const string AllCharactersNotAlphanumeric = "[^a-z^0-9]";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string AllCharactersNotNumeric = @"\D";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
     public const string AllSpaceCharactersRepeatedTwoOrMoreTimes = " {2,}";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string AllThatLooksLikeEmailAddress = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string AllThatLooksLikeUnc = @"^(\\(\\[^\s\\]+)+|([A-Za-z]:(\\)?|[A-z]:(\\[^\s\\]+)+))(\\)?$";
 
     /// <summary><see cref="Regex"/> pattern</summary>
     public const string AllThatLooksLikeXmlMarkup = @"<([^>]+)>(.*?</(\1)>|[^>]*/>)";
@@ -19,6 +34,11 @@ public static class RegexScalars
 
     /// <summary><see cref="Regex"/> pattern</summary>
     public const string AllWords = @"\w+";
+
+    /// <summary><see cref="Regex"/> pattern</summary> 
+    public const string CommandLineArgumentInQuotesFollowedByOtherArguments = """
+                                                                              "[^"]+"|\s+.+
+                                                                              """;
  
     /// <summary><see cref="Regex"/> pattern</summary>
     public const string HtmlAttributesWithoutQuotes = """\s([^'\"\s]+)(\s*=\s*)([^'\"\s]+)\s""";
@@ -62,6 +82,9 @@ public static class RegexScalars
     public const string XhtmlSelfClosingTags = @"<\s*(br|hr|img|link|meta)([^>]*)(>)";
 
     /// <summary><see cref="Regex"/> pattern</summary>
+    public const string XmlNamedEntities = @"\&\w+\;";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
     public const string XmlNamespaceAttributes = """\s*xmlns\s*=\s*"[^"]+"\s*""";
 
     /// <summary><see cref="Regex"/> pattern</summary>
@@ -72,4 +95,7 @@ public static class RegexScalars
 
     /// <summary><see cref="Regex"/> pattern</summary>
     public const string XmlNamespaceSchemaLocationAttributes = """\s*([a-zA-z0-9:]*schemaLocation\s*=["][^"]*["])\s*""";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string XmlNumericEntities = @"\&\#\d+\;";
 }

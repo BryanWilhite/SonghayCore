@@ -15,12 +15,30 @@ public static partial class RegexUtility
     public static string GetLinesStartingWithWhitespaceCharactersPattern(string newLine = "\r\n", byte numberOfChars = 4) =>
         $@"{newLine}\W{{{numberOfChars}}}";
 
+    [GeneratedRegex(RegexScalars.AllCharactersIndicatingParentDirectory)]
+    public static partial Regex MatchAllCharactersIndicatingParentDirectory();
+
     [GeneratedRegex(RegexScalars.AllCharactersInQuotes)]
     public static partial Regex MatchAllCharactersInQuotes();
+
+    [GeneratedRegex(RegexScalars.AllCharactersNotAlphanumeric, RegexOptions.IgnoreCase)]
+    public static partial Regex MatchAllCharactersNotAlphanumeric();
+
+    [GeneratedRegex(RegexScalars.AllCharactersNotNumeric)]
+    public static partial Regex MatchAllCharactersNotNumeric();
 
     [GeneratedRegex(RegexScalars.AllSpaceCharactersRepeatedTwoOrMoreTimes)]
     public static partial Regex MatchAllSpaceCharactersRepeatedTwoOrMoreTimes();
 
+    [GeneratedRegex(RegexScalars.AllThatLooksLikeEmailAddress)]
+    public static partial Regex MatchAllThatLooksLikeEmailAddress();
+
+    [GeneratedRegex(RegexScalars.AllThatLooksLikeUnc)]
+    public static partial Regex MatchAllThatLooksLikeUnc();
+
     [GeneratedRegex(RegexScalars.AllWords)]
     public static partial Regex MatchAllWords();
+
+    [GeneratedRegex(RegexScalars.CommandLineArgumentInQuotesFollowedByOtherArguments)]
+    public static partial Regex MatchCommandLineArgumentInQuotesFollowedByOtherArguments();
 }

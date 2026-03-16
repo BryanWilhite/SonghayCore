@@ -12,6 +12,9 @@ public static partial class XmlUtility
     [GeneratedRegex(RegexScalars.XhtmlDocTypeDeclaration)]
     public static partial Regex MatchXhtmlDocTypeDeclaration();
 
+    [GeneratedRegex(RegexScalars.XmlNamedEntities, RegexOptions.IgnoreCase)]
+    public static partial Regex MatchXmlNamedEntities();
+
     [GeneratedRegex(RegexScalars.XmlNamespaceDeclarations, RegexOptions.IgnoreCase)]
     public static partial Regex MatchXmlNamespaceDeclarations();
 
@@ -20,4 +23,7 @@ public static partial class XmlUtility
 
     [GeneratedRegex(RegexScalars.XmlNamespaceSchemaLocationAttributes, RegexOptions.IgnoreCase)]
     public static partial Regex MatchXmlNamespaceSchemaLocationAttributes();
+
+    [GeneratedRegex(RegexScalars.XmlNumericEntities)]
+    public static partial Regex MatchXmlNumericEntities();
 }

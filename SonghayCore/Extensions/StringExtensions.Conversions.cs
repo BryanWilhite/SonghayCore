@@ -44,22 +44,23 @@ public static partial class StringExtensions
 
         const int asciiDecimalMaximum = 127;
 
-        int GetAsciiDecimal(char c)
-        {
-            int i = c;
-            return i;
-        }
-
-        var chars = input
+        char[] chars = input
             .Where(c => GetAsciiDecimal(c) <= asciiDecimalMaximum)
             .ToArray();
 
         if (spacer == '\0')
         {
-            return chars.Any() ? new string(chars.ToArray()) : null;
+            return chars.Length > 0 ? new string(chars.ToArray()) : null;
         }
 
-        return chars.Any() ? new string(chars.ToArray()).Trim(new[] {spacer}) : null;
+        return chars.Length > 0 ? new string(chars.ToArray()).Trim([spacer]) : null;
+
+        int GetAsciiDecimal(char c)
+        {
+            int i = c;
+
+            return i;
+        }
     }
 
     /// <summary>
@@ -72,19 +73,19 @@ public static partial class StringExtensions
 
         // Remove/replace entities:
         input = input.Replace("&amp;", "and");
-        input = Regex.Replace(input, @"\&\w+\;", string.Empty, RegexOptions.IgnoreCase);
-        input = Regex.Replace(input, @"\&\#\d+\;", string.Empty, RegexOptions.IgnoreCase);
+        input = XmlUtility.MatchXmlNamedEntities().Replace(input, string.Empty);
+        input = XmlUtility.MatchXmlNumericEntities().Replace(input, string.Empty);
 
         // Replace any characters that are not alphanumeric with hyphen:
-        input = Regex.Replace(input, "[^a-z^0-9]", "-", RegexOptions.IgnoreCase);
+        input = RegexUtility.MatchAllCharactersNotAlphanumeric().Replace(input, "-");
 
         // Replace all double hyphens with single hyphen
-        var pattern = "--";
+        string pattern = "--";
         while (Regex.IsMatch(input, pattern)) input = Regex.Replace(input, pattern, "-", RegexOptions.IgnoreCase);
 
         // Remove leading and trailing hyphens ("-")
         pattern = "^-|-$";
-        input = Regex.Replace(input, pattern, "", RegexOptions.IgnoreCase);
+        input = Regex.Replace(input, pattern, string.Empty, RegexOptions.IgnoreCase);
 
         return input.ToLower();
     }
@@ -117,9 +118,7 @@ public static partial class StringExtensions
     {
         if (string.IsNullOrWhiteSpace(input)) return null;
 
-        var digitsOnly = new Regex(@"[^\d]");
-
-        return digitsOnly.Replace(input, string.Empty);
+        return RegexUtility.MatchAllCharactersNotNumeric().Replace(input, string.Empty);
     }
 
     /// <summary>
@@ -137,16 +136,14 @@ public static partial class StringExtensions
     {
         if (input == null) return null;
 
-        var output = defaultValue;
-        var array = input.Split('.');
+        string? output = defaultValue;
+        string[] array = input.Split('.');
 
-        if (array.Length == 0) return output;
-        if (string.IsNullOrWhiteSpace(array[0].Trim())) return output;
+        if (array.Length == 0 || string.IsNullOrWhiteSpace(array[0].Trim())) return output;
 
         output = array[0].ToDigitsOnly();
-        if (string.IsNullOrWhiteSpace(output)) return defaultValue;
 
-        return output;
+        return string.IsNullOrWhiteSpace(output) ? defaultValue : output;
     }
 
     /// <summary>
@@ -158,7 +155,7 @@ public static partial class StringExtensions
     {
         if (string.IsNullOrWhiteSpace(path)) return 0;
 
-        var matches = Regex.Matches(path, @"\.\./|\.\.\\");
+        MatchCollection matches = RegexUtility.MatchAllCharactersIndicatingParentDirectory().Matches(path);
 
         return matches.Count;
     }
@@ -190,14 +187,14 @@ public static partial class StringExtensions
     {
         if (string.IsNullOrWhiteSpace(input)) return defaultValue;
 
-        bool IsNumericChar(char i) => char.IsDigit(i)
-            || i.Equals('.')
-            || i.Equals('-')
-            ;
-
         return string.IsNullOrWhiteSpace(input)
             ? defaultValue
             : new string(input.Trim().Where(IsNumericChar).ToArray());
+
+        bool IsNumericChar(char i) => char.IsDigit(i)
+                                      || i.Equals('.')
+                                      || i.Equals('-')
+        ;
     }
 
     /// <summary>
@@ -235,28 +232,27 @@ public static partial class StringExtensions
     /// <param name="contextLength">Length of the context.</param>
     public static string? ToSubstringInContext(this string? input, string? searchText, int contextLength)
     {
-        if (string.IsNullOrWhiteSpace(input)) return input;
-        if (string.IsNullOrWhiteSpace(searchText)) return input;
+        if (string.IsNullOrWhiteSpace(input) || string.IsNullOrWhiteSpace(searchText)) return input;
 
         if (input.Contains(searchText))
         {
             if (searchText.Length >= contextLength)
                 return searchText[..contextLength];
 
-            var edgesLength = Convert.ToInt32(Math.Ceiling((contextLength - searchText.Length) / 2d));
+            int edgesLength = Convert.ToInt32(Math.Ceiling((contextLength - searchText.Length) / 2d));
 
-            var i0 = input.IndexOf(searchText, StringComparison.Ordinal) - edgesLength;
+            int i0 = input.IndexOf(searchText, StringComparison.Ordinal) - edgesLength;
             if (i0 < 0) i0 = 0;
 
-            var i1 = i0 + searchText.Length + edgesLength;
+            int i1 = i0 + searchText.Length + edgesLength;
             if (i1 > (input.Length - 1)) i1 = input.Length;
 
             return input.Substring(i0, i1);
         }
         else
         {
-            var i0 = 0;
-            var i1 = contextLength - 1;
+            const int i0 = 0;
+            int i1 = contextLength - 1;
             if (i1 > (input.Length - 1)) i1 = input.Length;
 
             return input.Substring(i0, i1);
@@ -284,8 +280,8 @@ public static partial class StringExtensions
     /// <param name="ellipsis"></param>
     public static string? Truncate(this string? input, int length, string ellipsis)
     {
-        if (string.IsNullOrWhiteSpace(input)) return input;
-        if (input.Length <= length) return input;
+        if (string.IsNullOrWhiteSpace(input) || input.Length <= length) return input;
+
         if (length <= 0) length = 0;
 
         return string.Concat(input[..length].TrimEnd(), ellipsis);

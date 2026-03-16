@@ -23,8 +23,10 @@ public partial class StringExtensionsTests
     public void ToBlogSlug_Test(string input, string expectedOutput)
     {
         var slug = input.ToBlogSlug();
+
         helper.WriteLine("slug: {0}", slug);
-        Assert.True(slug.EqualsInvariant(expectedOutput));
+
+        Assert.Equal(expectedOutput, slug);
     }
 
     [Theory]
