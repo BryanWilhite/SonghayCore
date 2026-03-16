@@ -183,8 +183,8 @@ public class HtmlUtilityTests
     }
 
     [Theory]
-    [InlineData("<a href=\"#\">link</a><span>text</span>", "a", "\r\n", 4, "link")]
-    [InlineData("<a href=\"#\">link</a><span>text</span>", "span", "\r\n", 4, "text")]
+    [InlineData("<a href=\"#\">link</a><span>text</span>", "a", "\n", 4, "link")]
+    [InlineData("<a href=\"#\">link</a><span>text</span>", "span", "\n", 4, "text")]
     [InlineData(
         """
         <body>

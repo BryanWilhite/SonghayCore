@@ -2756,6 +2756,25 @@
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
             <param name="operations">specifies which <see cref="T:System.Text.Json.Nodes.JsonObject"/> properties to rename</param>
         </member>
+        <member name="T:Songhay.Extensions.MemoryStreamExtensions">
+            <summary>
+            Extensions of <see cref="T:System.IO.MemoryStream"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.MemoryStreamExtensions.ToUtf8String(System.IO.MemoryStream)">
+            <summary>
+            Converts the specified <see cref="T:System.IO.MemoryStream"/>
+            into a <see cref="P:System.Text.Encoding.UTF8"/> string.
+            </summary>
+            <param name="stream"><see cref="T:System.IO.MemoryStream"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.MemoryStreamExtensions.ToUtf32String(System.IO.MemoryStream)">
+            <summary>
+            Converts the specified <see cref="T:System.IO.MemoryStream"/>
+            into a <see cref="P:System.Text.Encoding.UTF32"/> string.
+            </summary>
+            <param name="stream"><see cref="T:System.IO.MemoryStream"/></param>
+        </member>
         <member name="T:Songhay.Extensions.MenuDisplayItemModelExtensions">
             <summary>
             Extensions of <see cref="T:Songhay.Models.MenuDisplayItemModel"/>
@@ -3438,18 +3457,26 @@
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.RemoveDiacritics(System.String)">
             <summary>
-            Remove accent from strings 
+            Remove “accent characters” from strings 
             </summary>
             <example>
              input:  "Příliš žluťoučký kůň úpěl ďábelské ódy."
              result: "Prilis zlutoucky kun upel dabelske ody."
             </example>
-            <param name="input">The input.</param>
+            <param name="input">the input</param>
             <remarks>
             From Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
             Also, see http://stackoverflow.com/questions/249087/how-do-i-remove-diacritics-accents-from-a-string-in-net
             </remarks>
             <returns><see cref="T:System.String"/> without accents</returns>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.RemoveNullTerminatorCharacters(System.String)">
+            <summary>
+            Removes the “null characters” (C/C++ string terminator characters)
+            from the specified string.
+            </summary>
+            <param name="input">the input</param>
+            <remarks>For more detail, see https://stackoverflow.com/a/2292866/22944</remarks>
         </member>
         <member name="T:Songhay.Extensions.TimeSpanExtensions">
             <summary>
@@ -5199,13 +5226,16 @@
         <member name="F:Songhay.Models.RegexScalars.AllSpaceCharactersRepeatedTwoOrMoreTimes">
             <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
         </member>
+        <member name="F:Songhay.Models.RegexScalars.AllThatLooksLikeXmlMarkup">
+            <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
+        </member>
+        <member name="F:Songhay.Models.RegexScalars.AllThatLooksLikeXmlSelfClosingTags">
+            <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
+        </member>
         <member name="F:Songhay.Models.RegexScalars.AllWords">
             <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
         </member>
         <member name="F:Songhay.Models.RegexScalars.HtmlAttributesWithoutQuotes">
-            <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
-        </member>
-        <member name="F:Songhay.Models.RegexScalars.HtmlBooleanAttributes">
             <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
         </member>
         <member name="F:Songhay.Models.RegexScalars.HtmlClosingTagCharacters">
@@ -5230,6 +5260,9 @@
             <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
             <remarks>This expression intends to match XHTML-style attributes like <c>foo="foo"</c></remarks>
         </member>
+        <member name="F:Songhay.Models.RegexScalars.XhtmlDocTypeDeclaration">
+            <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
+        </member>
         <member name="F:Songhay.Models.RegexScalars.XhtmlEndTagsThatShouldBeMinimized">
             <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
         </member>
@@ -5240,6 +5273,15 @@
             <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
         </member>
         <member name="F:Songhay.Models.RegexScalars.XmlNamespaceAttributes">
+            <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
+        </member>
+        <member name="F:Songhay.Models.RegexScalars.XmlNamespaceDeclarations">
+            <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
+        </member>
+        <member name="F:Songhay.Models.RegexScalars.XmlNamespacePrefixes">
+            <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
+        </member>
+        <member name="F:Songhay.Models.RegexScalars.XmlNamespaceSchemaLocationAttributes">
             <summary><see cref="T:System.Text.RegularExpressions.Regex"/> pattern</summary>
         </member>
         <member name="T:Songhay.Models.RestApiMetadata">
@@ -7871,58 +7913,6 @@
             </code>
             </remarks>
         </member>
-        <member name="M:Songhay.Xml.HtmlUtility.MatchHtmlBooleanAttributes">
-            <remarks>
-            Pattern:<br/>
-            <code>&lt;\\s*[^&gt;]+\\s(checked|nobreak|nosave|selected)[^=&gt;]*\\/*&gt;</code><br/>
-            Options:<br/>
-            <code>RegexOptions.IgnoreCase</code><br/>
-            Explanation:<br/>
-            <code>
-            ○ Match '&lt;'.<br/>
-            ○ Match a whitespace character greedily any number of times.<br/>
-            ○ Match a character other than '&gt;' greedily at least once.<br/>
-            ○ Match a whitespace character.<br/>
-            ○ 1st capture group.<br/>
-                ○ Match with 3 alternative expressions.<br/>
-                    ○ Match a sequence of expressions.<br/>
-                        ○ Match a character in the set [Cc].<br/>
-                        ○ Match a character in the set [Hh].<br/>
-                        ○ Match a character in the set [Ee].<br/>
-                        ○ Match a character in the set [Cc].<br/>
-                        ○ Match a character in the set [Kk\u212A].<br/>
-                        ○ Match a character in the set [Ee].<br/>
-                        ○ Match a character in the set [Dd].<br/>
-                    ○ Match a sequence of expressions.<br/>
-                        ○ Match a character in the set [Nn].<br/>
-                        ○ Match a character in the set [Oo].<br/>
-                        ○ Match with 2 alternative expressions.<br/>
-                            ○ Match a sequence of expressions.<br/>
-                                ○ Match a character in the set [Bb].<br/>
-                                ○ Match a character in the set [Rr].<br/>
-                                ○ Match a character in the set [Ee].<br/>
-                                ○ Match a character in the set [Aa].<br/>
-                                ○ Match a character in the set [Kk\u212A].<br/>
-                            ○ Match a sequence of expressions.<br/>
-                                ○ Match a character in the set [Ss].<br/>
-                                ○ Match a character in the set [Aa].<br/>
-                                ○ Match a character in the set [Vv].<br/>
-                                ○ Match a character in the set [Ee].<br/>
-                    ○ Match a sequence of expressions.<br/>
-                        ○ Match a character in the set [Ss].<br/>
-                        ○ Match a character in the set [Ee].<br/>
-                        ○ Match a character in the set [Ll].<br/>
-                        ○ Match a character in the set [Ee].<br/>
-                        ○ Match a character in the set [Cc].<br/>
-                        ○ Match a character in the set [Tt].<br/>
-                        ○ Match a character in the set [Ee].<br/>
-                        ○ Match a character in the set [Dd].<br/>
-            ○ Match a character in the set [^=&gt;] greedily any number of times.<br/>
-            ○ Match '/' atomically any number of times.<br/>
-            ○ Match '&gt;'.<br/>
-            </code>
-            </remarks>
-        </member>
         <member name="M:Songhay.Xml.HtmlUtility.MatchHtmlClosingTagCharacters">
             <remarks>
             Pattern:<br/>
@@ -8428,39 +8418,6 @@
             <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
         </member>
-        <member name="M:Songhay.Xml.XmlUtility.CombineNavigableDocuments(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
-            <summary>
-            Combines two <see cref="T:System.Xml.XPath.IXPathNavigable"/> documents.
-            </summary>
-            <param name="parentDocument">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> “hosting” document.</param>
-            <param name="childDocument">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> child document.</param>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.CombineNavigableDocuments(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable,System.String)">
-            <summary>
-            Combines two <see cref="T:System.Xml.XPath.IXPathNavigable"/> documents.
-            </summary>
-            <param name="parentDocument">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> “hosting” document.</param>
-            <param name="childDocument">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> child document.</param>
-            <param name="nodeQuery">The XPath query to the child document location in the “hosting” document. </param>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.GetInstance``1(System.String)">
-            <summary>
-            Deserializes based on the specified XML file.
-            </summary>
-            <typeparam name="T">
-            The specified type to deserialize.
-            </typeparam>
-            <param name="xmlPath">The XML file path.</param>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.GetInstanceRaw``1(System.String)">
-            <summary>
-            Deserializes based on the specified raw XML.
-            </summary>
-            <typeparam name="T">
-            The specified type to deserialize.
-            </typeparam>
-            <param name="xmlFragment">The raw XML.</param>
-        </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String)">
             <summary>
             Returns an XML <see cref="T:System.String"/>
@@ -8545,6 +8502,178 @@
             <param name="messageHeader">Message header.</param>
             <param name="messageCode">Message code for errors, exceptions or faults</param>
             <param name="messageLines">Message lines.</param>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.MatchAllThatLooksLikeXmlMarkup">
+            <remarks>
+            Pattern:<br/>
+            <code>&lt;([^&gt;]+)&gt;(.*?&lt;/(\\1)&gt;|[^&gt;]*/&gt;)</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match '&lt;'.<br/>
+            ○ 1st capture group.<br/>
+                ○ Match a character other than '&gt;' atomically at least once.<br/>
+            ○ Match '&gt;'.<br/>
+            ○ 2nd capture group.<br/>
+                ○ Match with 2 alternative expressions, atomically.<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match a character other than '\n' lazily any number of times.<br/>
+                        ○ Match the string "&lt;/".<br/>
+                        ○ 3rd capture group.<br/>
+                            ○ Match the same text as matched by the 1st capture group.<br/>
+                        ○ Match '&gt;'.<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match a character other than '&gt;' greedily any number of times.<br/>
+                        ○ Match the string "/&gt;".<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.MatchAllThatLooksLikeXmlSelfClosingTags">
+            <remarks>
+            Pattern:<br/>
+            <code>&lt;([^&gt;]+)/&gt;</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match '&lt;'.<br/>
+            ○ 1st capture group.<br/>
+                ○ Match a character other than '&gt;' greedily at least once.<br/>
+            ○ Match the string "/&gt;".<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.MatchXhtmlDocTypeDeclaration">
+            <remarks>
+            Pattern:<br/>
+            <code>\\&lt;\\!DOCTYPE [^&lt;]+\\&gt;</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match the string "&lt;!DOCTYPE ".<br/>
+            ○ Match a character other than '&lt;' greedily at least once.<br/>
+            ○ Match '&gt;'.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.MatchXmlNamespaceDeclarations">
+            <remarks>
+            Pattern:<br/>
+            <code>\\s*(xmlns:?[^=]*=["][^"]*["])\\s*</code><br/>
+            Options:<br/>
+            <code>RegexOptions.IgnoreCase</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match a whitespace character atomically any number of times.<br/>
+            ○ 1st capture group.<br/>
+                ○ Match a character in the set [Xx].<br/>
+                ○ Match a character in the set [Mm].<br/>
+                ○ Match a character in the set [Ll].<br/>
+                ○ Match a character in the set [Nn].<br/>
+                ○ Match a character in the set [Ss].<br/>
+                ○ Match ':' greedily, optionally.<br/>
+                ○ Match a character other than '=' atomically any number of times.<br/>
+                ○ Match the string "=\"".<br/>
+                ○ Match a character other than '"' atomically any number of times.<br/>
+                ○ Match '"'.<br/>
+            ○ Match a whitespace character atomically any number of times.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.MatchXmlNamespacePrefixes">
+            <remarks>
+            Pattern:<br/>
+            <code>\\s*xmlns:?([^=]*)=["][^"]*["]\\s*</code><br/>
+            Options:<br/>
+            <code>RegexOptions.IgnoreCase | RegexOptions.Multiline</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match a whitespace character atomically any number of times.<br/>
+            ○ Match a character in the set [Xx].<br/>
+            ○ Match a character in the set [Mm].<br/>
+            ○ Match a character in the set [Ll].<br/>
+            ○ Match a character in the set [Nn].<br/>
+            ○ Match a character in the set [Ss].<br/>
+            ○ Match ':' greedily, optionally.<br/>
+            ○ 1st capture group.<br/>
+                ○ Match a character other than '=' atomically any number of times.<br/>
+            ○ Match the string "=\"".<br/>
+            ○ Match a character other than '"' atomically any number of times.<br/>
+            ○ Match '"'.<br/>
+            ○ Match a whitespace character atomically any number of times.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.MatchXmlNamespaceSchemaLocationAttributes">
+            <remarks>
+            Pattern:<br/>
+            <code>\\s*([a-zA-z0-9:]*schemaLocation\\s*=["][^"]*["])\\s*</code><br/>
+            Options:<br/>
+            <code>RegexOptions.IgnoreCase</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match a whitespace character atomically any number of times.<br/>
+            ○ 1st capture group.<br/>
+                ○ Match a character in the set [0-:A-z\u212A] greedily any number of times.<br/>
+                ○ Match a character in the set [Ss].<br/>
+                ○ Match a character in the set [Cc].<br/>
+                ○ Match a character in the set [Hh].<br/>
+                ○ Match a character in the set [Ee].<br/>
+                ○ Match a character in the set [Mm].<br/>
+                ○ Match a character in the set [Aa].<br/>
+                ○ Match a character in the set [Ll].<br/>
+                ○ Match a character in the set [Oo].<br/>
+                ○ Match a character in the set [Cc].<br/>
+                ○ Match a character in the set [Aa].<br/>
+                ○ Match a character in the set [Tt].<br/>
+                ○ Match a character in the set [Ii].<br/>
+                ○ Match a character in the set [Oo].<br/>
+                ○ Match a character in the set [Nn].<br/>
+                ○ Match a whitespace character atomically any number of times.<br/>
+                ○ Match the string "=\"".<br/>
+                ○ Match a character other than '"' atomically any number of times.<br/>
+                ○ Match '"'.<br/>
+            ○ Match a whitespace character atomically any number of times.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.GetXmlSchema(System.Xml.XPath.IXPathNavigable,System.Xml.Schema.ValidationEventHandler)">
+            <summary>
+            Returns an <see cref="T:System.Xml.Schema.XmlSchema"/> based
+            on the specified navigable set and validation event handler.
+            </summary>
+            <param name="navigable">
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
+            </param>
+            <param name="eventHandler">
+            The <see cref="T:System.Xml.Schema.ValidationEventHandler"/>
+            with signature MyHandler(object sender, ValidationEventArgs args).
+            </param>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.LoadXmlSchema(System.String,System.Xml.Schema.ValidationEventHandler)">
+            <summary>
+            Loads an <see cref="T:System.Xml.Schema.XmlSchema"/> based
+            on the specified navigable set and validation event handler.
+            </summary>
+            <param name="pathToSchema">
+            The valid path to an XML Schema file.
+            </param>
+            <param name="eventHandler">
+            The <see cref="T:System.Xml.Schema.ValidationEventHandler"/>
+            with signature MyHandler(object sender, ValidationEventArgs args).
+            </param>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.ValidateNavigableNode(System.Xml.XPath.IXPathNavigable,System.Xml.Schema.XmlSchema,System.Xml.Schema.ValidationEventHandler)">
+            <summary>
+            Validates the specified navigable set
+            with the specified schema and validation event handler.
+            </summary>
+            <param name="navigable">
+            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
+            </param>
+            <param name="schema">
+            The <see cref="T:System.Xml.Schema.XmlSchema"/>.
+            </param>
+            <param name="eventHandler">
+            The <see cref="T:System.Xml.Schema.ValidationEventHandler"/>
+            with signature MyHandler(object sender, ValidationEventArgs args).
+            </param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetNamespaceManager(System.Xml.XPath.IXPathNavigable)">
             <summary>
@@ -8703,12 +8832,20 @@
             </param>
             <typeparam name="T">The type to parse from the node value.</typeparam>
         </member>
-        <member name="M:Songhay.Xml.XmlUtility.GetText(System.IO.MemoryStream)">
+        <member name="M:Songhay.Xml.XmlUtility.CombineNavigableDocuments(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
             <summary>
-            “Cleans” XML data returning
-            in a <see cref="T:System.IO.MemoryStream"/>.
+            Combines two <see cref="T:System.Xml.XPath.IXPathNavigable"/> documents.
             </summary>
-            <param name="ramStream"><see cref="T:System.IO.MemoryStream"/></param>
+            <param name="parentDocument">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> “hosting” document.</param>
+            <param name="childDocument">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> child document.</param>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.CombineNavigableDocuments(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable,System.String)">
+            <summary>
+            Combines two <see cref="T:System.Xml.XPath.IXPathNavigable"/> documents.
+            </summary>
+            <param name="parentDocument">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> “hosting” document.</param>
+            <param name="childDocument">The <see cref="T:System.Xml.XPath.IXPathNavigable"/> child document.</param>
+            <param name="nodeQuery">The XPath query to the child document location in the “hosting” document. </param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetXslResult(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable)">
             <summary>
@@ -8850,12 +8987,6 @@
             <param name="nodeQuery">The node query <see cref="T:System.String"/>.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
         </member>
-        <member name="M:Songhay.Xml.XmlUtility.IsXml(System.String)">
-            <summary>
-            Returns <c>true</c> when the fragment is XML-like.
-            </summary>
-            <param name="fragment">The fragment to test.</param>
-        </member>
         <member name="M:Songhay.Xml.XmlUtility.LoadXslTransform(System.String,System.String)">
             <summary>
             Returns a <see cref="T:System.String"/>
@@ -8982,39 +9113,6 @@
             <see cref="T:System.String"/>, <see cref="T:System.Xml.XmlDocument"/> or <see cref="T:System.Xml.XPath.XPathDocument"/>.
             </remarks>
         </member>
-        <member name="M:Songhay.Xml.XmlUtility.StripNamespaces(System.String)">
-            <summary>
-            Strip the namespaces from specified <see cref="T:System.String"/>.
-            </summary>
-            <param name="xml">
-            The source <see cref="T:System.String"/>.
-            </param>
-            <remarks>
-            WARNING: Stripping namespaces “flattens” the document
-            and can cause local-name collisions.
-            
-            This routine does not remove namespace prefixes.
-            
-            </remarks>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.StripNamespaces(System.String,System.Boolean)">
-            <summary>
-            Strip the namespaces from specified <see cref="T:System.String"/>.
-            </summary>
-            <param name="xml">
-            The source <see cref="T:System.String"/>.
-            </param>
-            <param name="removeDocType">
-            When <c>true</c>, removes any DOCTYPE preambles.
-            </param>
-            <remarks>
-            WARNING: Stripping namespaces “flattens” the document
-            and can cause local-name collisions.
-            
-            This routine does not remove namespace prefixes.
-            
-            </remarks>
-        </member>
         <member name="M:Songhay.Xml.XmlUtility.StripNamespaces(System.Xml.XPath.IXPathNavigable)">
             <summary>
             Strip the namespaces from specified document.
@@ -9048,63 +9146,6 @@
             
             </remarks>
         </member>
-        <member name="M:Songhay.Xml.XmlUtility.GetXmlSchema(System.Xml.XPath.IXPathNavigable,System.Xml.Schema.ValidationEventHandler)">
-            <summary>
-            Returns an <see cref="T:System.Xml.Schema.XmlSchema"/> based
-            on the specified navigable set and validation event handler.
-            </summary>
-            <param name="navigable">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
-            </param>
-            <param name="eventHandler">
-            The <see cref="T:System.Xml.Schema.ValidationEventHandler"/>
-            with signature MyHandler(object sender, ValidationEventArgs args).
-            </param>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.LoadXmlSchema(System.String,System.Xml.Schema.ValidationEventHandler)">
-            <summary>
-            Loads an <see cref="T:System.Xml.Schema.XmlSchema"/> based
-            on the specified navigable set and validation event handler.
-            </summary>
-            <param name="pathToSchema">
-            The valid path to an XML Schema file.
-            </param>
-            <param name="eventHandler">
-            The <see cref="T:System.Xml.Schema.ValidationEventHandler"/>
-            with signature MyHandler(object sender, ValidationEventArgs args).
-            </param>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.ValidateNavigableNode(System.Xml.XPath.IXPathNavigable,System.Xml.Schema.XmlSchema,System.Xml.Schema.ValidationEventHandler)">
-            <summary>
-            Validates the specified navigable set
-            with the specified schema and validation event handler.
-            </summary>
-            <param name="navigable">
-            The source <see cref="T:System.Xml.XPath.IXPathNavigable"/> document.
-            </param>
-            <param name="schema">
-            The <see cref="T:System.Xml.Schema.XmlSchema"/>.
-            </param>
-            <param name="eventHandler">
-            The <see cref="T:System.Xml.Schema.ValidationEventHandler"/>
-            with signature MyHandler(object sender, ValidationEventArgs args).
-            </param>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.Write``1(``0,System.String)">
-            <summary>
-            Serializes and writes to the specified path.
-            </summary>
-            <typeparam name="T">The type of the instance.</typeparam>
-            <param name="instance">The instance.</param>
-            <param name="path">The path.</param>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.WriteReader(System.Xml.XmlReader,System.Xml.XmlWriter)">
-            <summary>
-            Transfers the data in the Source to the Destination.
-            </summary>
-            <param name="readerSource">The <see cref="T:System.Xml.XmlReader"/>.</param>
-            <param name="writerDestination">The <see cref="T:System.Xml.XmlWriter"/>.</param>
-        </member>
         <member name="M:Songhay.Xml.XmlUtility.WriteXslTransform(System.Xml.XPath.IXPathNavigable,System.Xml.XPath.IXPathNavigable,System.String)">
             <summary>
             Transforms the specified navigable documents
@@ -9135,6 +9176,78 @@
             The conventional HTML entities mapped to their respective glyphs.
             </summary>
         </member>
+        <member name="M:Songhay.Xml.XmlUtility.GetInstance``1(System.String)">
+            <summary>
+            Deserializes based on the specified XML file.
+            </summary>
+            <typeparam name="T">
+            The specified type to deserialize.
+            </typeparam>
+            <param name="xmlPath">The XML file path.</param>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.GetInstanceRaw``1(System.String)">
+            <summary>
+            Deserializes based on the specified raw XML.
+            </summary>
+            <typeparam name="T">
+            The specified type to deserialize.
+            </typeparam>
+            <param name="xmlFragment">The raw XML.</param>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.IsXml(System.String)">
+            <summary>
+            Returns <c>true</c> when the fragment is XML-like.
+            </summary>
+            <param name="fragment">The fragment to test.</param>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.StripNamespaces(System.String)">
+            <summary>
+            Strip the namespaces from specified <see cref="T:System.String"/>.
+            </summary>
+            <param name="xml">
+            The source <see cref="T:System.String"/>.
+            </param>
+            <remarks>
+            WARNING: Stripping namespaces “flattens” the document
+            and can cause local-name collisions.
+            
+            This routine does not remove namespace prefixes.
+            
+            </remarks>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.StripNamespaces(System.String,System.Boolean)">
+            <summary>
+            Strip the namespaces from specified <see cref="T:System.String"/>.
+            </summary>
+            <param name="xml">
+            The source <see cref="T:System.String"/>.
+            </param>
+            <param name="removeDocType">
+            When <c>true</c>, removes any DOCTYPE preambles.
+            </param>
+            <remarks>
+            WARNING: Stripping namespaces “flattens” the document
+            and can cause local-name collisions.
+            
+            This routine does not remove namespace prefixes.
+            
+            </remarks>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.Write``1(``0,System.String)">
+            <summary>
+            Serializes and writes to the specified path.
+            </summary>
+            <typeparam name="T">The type of the instance.</typeparam>
+            <param name="instance">The instance.</param>
+            <param name="path">The path.</param>
+        </member>
+        <member name="M:Songhay.Xml.XmlUtility.WriteReader(System.Xml.XmlReader,System.Xml.XmlWriter)">
+            <summary>
+            Transfers the data in the Source to the Destination.
+            </summary>
+            <param name="readerSource">The <see cref="T:System.Xml.XmlReader"/>.</param>
+            <param name="writerDestination">The <see cref="T:System.Xml.XmlWriter"/>.</param>
+        </member>
         <member name="M:Songhay.Xml.XmlUtility.XmlEncode(System.String)">
             <summary>
             Transforms selected XML glyphs
@@ -9160,57 +9273,6 @@
             These definitions are biased toward emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
             However, many accept any input implementing the <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
             </remarks>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XElement)">
-            <summary>
-            Get the CDATA value from the specified <see cref="T:System.Xml.Linq.XElement"/>.
-            </summary>
-            <param name="element">The <see cref="T:System.Xml.Linq.XElement"/>.</param>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XNode)">
-            <summary>
-            Get the CDATA value from the specified <see cref="T:System.Xml.Linq.XNode"/>.
-            </summary>
-            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/>.</param>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String)">
-            <summary>
-            Gets the <see cref="T:System.Xml.Linq.XNode" /> into a <c>local-name()</c>, XPath-predicate query.
-            </summary>
-            <param name="childElementName">Name of the child element.</param>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String)">
-            <summary>
-            Gets the <see cref="T:System.Xml.Linq.XNode" /> into a <c>local-name()</c>, XPath-predicate query.
-            </summary>
-            <param name="namespacePrefixOrUri">The namespace prefix or URI.</param>
-            <param name="childElementName">Name of the child element.</param>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String,System.String)">
-            <summary>
-            Gets the <see cref="T:System.Xml.Linq.XNode" /> into a <c>local-name()</c>, XPath-predicate query.
-            </summary>
-            <param name="namespacePrefixOrUri">The namespace prefix or URI.</param>
-            <param name="childElementName">Name of the child element.</param>
-            <param name="childAttributeName">Name of the child attribute.</param>
-            <remarks>
-            This routine is useful when namespace-resolving is not desirable or available.
-            </remarks>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String)">
-            <summary>
-            Gets the element or attribute value of the specified element.
-            </summary>
-            <param name="currentNode">The current element.</param>
-            <param name="query">The xpath query.</param>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String,System.Boolean)">
-            <summary>
-            Gets the element or attribute value of the current element.
-            </summary>
-            <param name="currentNode">The current <see cref="T:System.Xml.Linq.XNode"/>.</param>
-            <param name="query">The xpath query.</param>
-            <param name="throwException">if set to <c>true</c> throw exception.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXAttributeValue(System.Xml.Linq.XNode,System.String,System.Boolean)">
             <summary>
@@ -9271,39 +9333,6 @@
             <param name="defaultValue">Return a boxing <see cref="T:System.Object"/> for “zero-length” text nodes.</param>
             <param name="resolver">The <see cref="T:System.Xml.IXmlNamespaceResolver"/> to use to resolve prefixes.</param>
         </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetXDeclaration">
-            <summary>
-            Gets the <see cref="T:System.Xml.Linq.XDeclaration"/>.
-            </summary>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetXDeclaration(System.String,System.Boolean)">
-            <summary>
-            Gets the <see cref="T:System.Xml.Linq.XDeclaration"/>.
-            </summary>
-            <param name="encoding">The encoding (<see cref="F:Songhay.Models.XEncoding.Utf08"/> by default).</param>
-            <param name="isStandAlone">When <c>true</c> document is stand-alone (<c>true</c> by default).</param>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetXElement(System.String,System.Object)">
-            <summary>
-            Gets the <see cref="T:System.Xml.Linq.XElement" />.
-            </summary>
-            <param name="rootElement">The root element name.</param>
-            <param name="innerXml">The inner XML.</param>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetXElement(System.Xml.Linq.XNode,System.String)">
-            <summary>
-            Gets the <see cref="T:System.Xml.Linq.XElement" />.
-            </summary>
-            <param name="root">The root <see cref="T:System.Xml.Linq.XNode"/>.</param>
-            <param name="pathToElement">The XPath to element.</param>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.GetXElements(System.Xml.Linq.XNode,System.String)">
-            <summary>
-            Gets the <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
-            </summary>
-            <param name="currentElement">The current element.</param>
-            <param name="query">The xpath query.</param>
-        </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXNode(System.Xml.Linq.XNode,System.String)">
             <summary>
             Gets the <see cref="T:System.Xml.Linq.XNode"/> from the specified XPath query.
@@ -9351,6 +9380,121 @@
             <param name="nodeQuery">The node query.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="resolver">The resolver.</param>
+        </member>
+        <member name="F:Songhay.Xml.XObjectUtility.GlyphNonBreakingSpace">
+            <summary>
+            Glyph: Non-Breaking Space
+            </summary>
+        </member>
+        <member name="P:Songhay.Xml.XObjectUtility.XTextNonBreakingSpace">
+            <summary>
+            <see cref="T:System.Xml.Linq.XText"/>: Non-Breaking Space
+            </summary>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement)">
+            <summary>
+            Joins the flattened <see cref="T:System.Xml.Linq.XText"/> nodes.
+            </summary>
+            <param name="rootElement">The root element.</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean)">
+            <summary>
+            Joins the flattened <see cref="T:System.Xml.Linq.XText"/> nodes.
+            </summary>
+            <param name="rootElement">The root element.</param>
+            <param name="includeRootElement">When <c>true</c> include root element.</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean,System.String)">
+            <summary>
+            Joins the flattened <see cref="T:System.Xml.Linq.XText"/> nodes.
+            </summary>
+            <param name="rootElement">The root element.</param>
+            <param name="includeRootElement">When <c>true</c> include root element.</param>
+            <param name="joinDelimiter">The join delimiter.</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XElement)">
+            <summary>
+            Get the CDATA value from the specified <see cref="T:System.Xml.Linq.XElement"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Xml.Linq.XElement"/>.</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetCDataValue(System.Xml.Linq.XNode)">
+            <summary>
+            Get the CDATA value from the specified <see cref="T:System.Xml.Linq.XNode"/>.
+            </summary>
+            <param name="node">The <see cref="T:System.Xml.Linq.XNode"/>.</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String)">
+            <summary>
+            Gets the <see cref="T:System.Xml.Linq.XNode" /> into a <c>local-name()</c>, XPath-predicate query.
+            </summary>
+            <param name="childElementName">Name of the child element.</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String)">
+            <summary>
+            Gets the <see cref="T:System.Xml.Linq.XNode" /> into a <c>local-name()</c>, XPath-predicate query.
+            </summary>
+            <param name="namespacePrefixOrUri">The namespace prefix or URI.</param>
+            <param name="childElementName">Name of the child element.</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetLocalNameXPathQuery(System.String,System.String,System.String)">
+            <summary>
+            Gets the <see cref="T:System.Xml.Linq.XNode" /> into a <c>local-name()</c>, XPath-predicate query.
+            </summary>
+            <param name="namespacePrefixOrUri">The namespace prefix or URI.</param>
+            <param name="childElementName">Name of the child element.</param>
+            <param name="childAttributeName">Name of the child attribute.</param>
+            <remarks>
+            This routine is useful when namespace-resolving is not desirable or available.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String)">
+            <summary>
+            Gets the element or attribute value of the specified element.
+            </summary>
+            <param name="currentNode">The current element.</param>
+            <param name="query">The xpath query.</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetValue(System.Xml.Linq.XNode,System.String,System.Boolean)">
+            <summary>
+            Gets the element or attribute value of the current element.
+            </summary>
+            <param name="currentNode">The current <see cref="T:System.Xml.Linq.XNode"/>.</param>
+            <param name="query">The xpath query.</param>
+            <param name="throwException">if set to <c>true</c> throw exception.</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetXDeclaration">
+            <summary>
+            Gets the <see cref="T:System.Xml.Linq.XDeclaration"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetXDeclaration(System.String,System.Boolean)">
+            <summary>
+            Gets the <see cref="T:System.Xml.Linq.XDeclaration"/>.
+            </summary>
+            <param name="encoding">The encoding (<see cref="F:Songhay.Models.XEncoding.Utf08"/> by default).</param>
+            <param name="isStandAlone">When <c>true</c> document is stand-alone (<c>true</c> by default).</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetXElement(System.String,System.Object)">
+            <summary>
+            Gets the <see cref="T:System.Xml.Linq.XElement" />.
+            </summary>
+            <param name="rootElement">The root element name.</param>
+            <param name="innerXml">The inner XML.</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetXElement(System.Xml.Linq.XNode,System.String)">
+            <summary>
+            Gets the <see cref="T:System.Xml.Linq.XElement" />.
+            </summary>
+            <param name="root">The root <see cref="T:System.Xml.Linq.XNode"/>.</param>
+            <param name="pathToElement">The XPath to element.</param>
+        </member>
+        <member name="M:Songhay.Xml.XObjectUtility.GetXElements(System.Xml.Linq.XNode,System.String)">
+            <summary>
+            Gets the <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+            <param name="currentElement">The current element.</param>
+            <param name="query">The xpath query.</param>
         </member>
         <member name="M:Songhay.Xml.XObjectUtility.GetXObject(System.Xml.Linq.XNode,System.String)">
             <summary>
@@ -9402,37 +9546,6 @@
             <param name="nodeQuery">The node query.</param>
             <param name="throwException">When <code>true</code>, throw an exception for null nodes.</param>
             <param name="resolver">The resolver.</param>
-        </member>
-        <member name="F:Songhay.Xml.XObjectUtility.GlyphNonBreakingSpace">
-            <summary>
-            Glyph: Non-Breaking Space
-            </summary>
-        </member>
-        <member name="P:Songhay.Xml.XObjectUtility.XTextNonBreakingSpace">
-            <summary>
-            <see cref="T:System.Xml.Linq.XText"/>: Non-Breaking Space
-            </summary>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement)">
-            <summary>
-            Joins the flattened <see cref="T:System.Xml.Linq.XText"/> nodes.
-            </summary>
-            <param name="rootElement">The root element.</param>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean)">
-            <summary>
-            Joins the flattened <see cref="T:System.Xml.Linq.XText"/> nodes.
-            </summary>
-            <param name="rootElement">The root element.</param>
-            <param name="includeRootElement">When <c>true</c> include root element.</param>
-        </member>
-        <member name="M:Songhay.Xml.XObjectUtility.JoinFlattenedXTextNodes(System.Xml.Linq.XElement,System.Boolean,System.String)">
-            <summary>
-            Joins the flattened <see cref="T:System.Xml.Linq.XText"/> nodes.
-            </summary>
-            <param name="rootElement">The root element.</param>
-            <param name="includeRootElement">When <c>true</c> include root element.</param>
-            <param name="joinDelimiter">The join delimiter.</param>
         </member>
         <member name="T:System.Text.RegularExpressions.Generated.MatchAllCharactersInQuotes_0">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchAllCharactersInQuotes method.</summary>
@@ -9562,386 +9675,546 @@
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlBooleanAttributes_4">
-            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchHtmlBooleanAttributes method.</summary>
-        </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlBooleanAttributes_4.Instance">
-            <summary>Cached, thread-safe singleton instance.</summary>
-        </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlBooleanAttributes_4.#ctor">
-            <summary>Initializes the instance.</summary>
-        </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlBooleanAttributes_4.RunnerFactory">
-            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
-        </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlBooleanAttributes_4.RunnerFactory.CreateInstance">
-            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
-        </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlBooleanAttributes_4.RunnerFactory.Runner">
-            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
-        </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlBooleanAttributes_4.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
-            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
-            <param name="inputSpan">The text being scanned by the regular expression.</param>
-        </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlBooleanAttributes_4.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
-            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
-            <param name="inputSpan">The text being scanned by the regular expression.</param>
-            <returns>true if a possible match was found; false if no more matches are possible.</returns>
-        </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlBooleanAttributes_4.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
-            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
-            <param name="inputSpan">The text being scanned by the regular expression.</param>
-            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
-        </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_5">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_4">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchHtmlClosingTagCharacters method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_5.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_4.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_5.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_4.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_5.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_4.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_5.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_4.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_5.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_4.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_5.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_4.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_5.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_4.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_5.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlClosingTagCharacters_4.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_6">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_5">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchHtmlElementsThatShouldNotBeMinimized method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_6.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_5.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_6.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_5.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_6.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_5.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_6.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_5.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_6.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_5.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_6.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_5.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_6.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_5.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_6.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlElementsThatShouldNotBeMinimized_5.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_7">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_6">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchHtmlHrefOrSrcAttributes method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_7.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_6.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_7.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_6.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_7.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_6.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_7.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_6.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_7.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_6.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_7.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_6.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_7.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_6.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_7.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlHrefOrSrcAttributes_6.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_8">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_7">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchHtmlStartTags method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_8.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_7.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_8.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_7.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_8.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_7.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_8.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_7.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_8.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_7.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_8.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_7.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_8.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_7.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_8.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlStartTags_7.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_9">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_8">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchHtmlTagContents method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_9.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_8.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_9.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_8.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_9.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_8.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_9.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_8.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_9.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_8.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_9.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_8.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_9.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_8.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_9.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagContents_8.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_10">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_9">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchHtmlTagWithAnyAttributes method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_10.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_9.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_10.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_9.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_10.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_9.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_10.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_9.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_10.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_9.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_10.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_9.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_10.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_9.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_10.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchHtmlTagWithAnyAttributes_9.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_11">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_10">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchXhtmlAttribute method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_11.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_10.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_11.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_10.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_11.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_10.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_11.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_10.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_11.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_10.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_11.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_10.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_11.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_10.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_11.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlAttribute_10.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_12">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_11">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchXhtmlEndTagsThatShouldBeMinimized method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_12.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_11.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_12.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_11.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_12.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_11.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_12.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_11.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_12.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_11.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_12.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_11.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_12.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_11.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_12.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlEndTagsThatShouldBeMinimized_11.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_13">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_12">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchXhtmlMinimizedEndChars method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_13.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_12.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_13.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_12.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_13.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_12.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_13.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_12.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_13.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_12.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_13.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_12.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_13.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_12.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_13.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlMinimizedEndChars_12.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_14">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_13">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchXhtmlSelfClosingTags method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_14.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_13.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_14.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_13.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_14.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_13.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_14.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_13.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_14.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_13.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_14.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_13.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_14.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_13.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_14.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlSelfClosingTags_13.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_15">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_14">
             <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchXmlNamespaceAttributes method.</summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_15.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_14.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_15.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_14.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_15.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_14.RunnerFactory">
             <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_15.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_14.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_15.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_14.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_15.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_14.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_15.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_14.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_15.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceAttributes_14.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlMarkup_15">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchAllThatLooksLikeXmlMarkup method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlMarkup_15.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlMarkup_15.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlMarkup_15.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlMarkup_15.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlMarkup_15.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlMarkup_15.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlMarkup_15.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlMarkup_15.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlSelfClosingTags_16">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchAllThatLooksLikeXmlSelfClosingTags method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlSelfClosingTags_16.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlSelfClosingTags_16.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlSelfClosingTags_16.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlSelfClosingTags_16.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlSelfClosingTags_16.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlSelfClosingTags_16.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlSelfClosingTags_16.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchAllThatLooksLikeXmlSelfClosingTags_16.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlDocTypeDeclaration_17">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchXhtmlDocTypeDeclaration method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.MatchXhtmlDocTypeDeclaration_17.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlDocTypeDeclaration_17.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlDocTypeDeclaration_17.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlDocTypeDeclaration_17.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXhtmlDocTypeDeclaration_17.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlDocTypeDeclaration_17.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlDocTypeDeclaration_17.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXhtmlDocTypeDeclaration_17.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceDeclarations_18">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchXmlNamespaceDeclarations method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.MatchXmlNamespaceDeclarations_18.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceDeclarations_18.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceDeclarations_18.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceDeclarations_18.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceDeclarations_18.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceDeclarations_18.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceDeclarations_18.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceDeclarations_18.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespacePrefixes_19">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchXmlNamespacePrefixes method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.MatchXmlNamespacePrefixes_19.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespacePrefixes_19.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespacePrefixes_19.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespacePrefixes_19.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespacePrefixes_19.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespacePrefixes_19.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespacePrefixes_19.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespacePrefixes_19.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceSchemaLocationAttributes_20">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the MatchXmlNamespaceSchemaLocationAttributes method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.MatchXmlNamespaceSchemaLocationAttributes_20.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceSchemaLocationAttributes_20.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceSchemaLocationAttributes_20.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceSchemaLocationAttributes_20.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.MatchXmlNamespaceSchemaLocationAttributes_20.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceSchemaLocationAttributes_20.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceSchemaLocationAttributes_20.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.MatchXmlNamespaceSchemaLocationAttributes_20.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
             <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
@@ -9958,6 +10231,9 @@
         <member name="M:System.Text.RegularExpressions.Generated.Utilities.IndexOfAnyWordChar(System.ReadOnlySpan{System.Char})">
             <summary>Finds the next index of any character that matches a word character.</summary>
         </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.IndexOfNonAsciiOrAny_9790A99E3C3B753450C86FEF7C8FF2DD4C99353D26114114D6D425AD301F56C5(System.ReadOnlySpan{System.Char})">
+            <summary>Finds the next index of any character that matches a character in the set [0-:A-z\u212A\s].</summary>
+        </member>
         <member name="M:System.Text.RegularExpressions.Generated.Utilities.IsWordChar(System.Char)">
             <summary>Determines whether the character is part of the [\w] set.</summary>
         </member>
@@ -9973,11 +10249,20 @@
         <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_asciiExceptWordChars">
             <summary>Supports searching for characters in or not in "\0\u0001\u0002\u0003\u0004\u0005\u0006\a\b\t\n\v\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^`{|}~\u007f".</summary>
         </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_ascii_FFC1FFFFFEFF00F801000000000000F8">
+            <summary>Supports searching for characters in or not in "\0\u0001\u0002\u0003\u0004\u0005\u0006\a\b\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f!\"#$%&amp;'()*+,-./;&lt;=&gt;?@{|}~\u007f".</summary>
+        </member>
         <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_indexOfAnyStrings_OrdinalIgnoreCase_C804C12D58FD3623AF413AA299E8AC7DADACD43B8E4D2D0CDA250EF106FCC0B3">
             <summary>Supports searching for the specified strings.</summary>
         </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_indexOfString_1B25087859830ECCE3F63890F3BCCAD3AC43CC19A3CCC6BFFD10908766E3F8E0">
+            <summary>Supports searching for the string "&lt;!DOCTYPE ".</summary>
+        </member>
         <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_indexOfString_4DF02EB6A8B26A8E8AE968B0C6D57D7D5175C6C3C4EBD7238C244D8A4C1ADD4E">
             <summary>Supports searching for the string "  ".</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_nonAscii_2BF1044E4F890ABB15EA946D9BE2B8EAB12090301B8EB7D8D9E0609BB20D4FBC">
+            <summary>Supports searching for characters in or not in "0123456789:ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyzK".</summary>
         </member>
         <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_whitespace">
             <summary>Supports searching for characters in or not in "\t\n\v\f\r \u0085             \u2028\u2029  　".</summary>

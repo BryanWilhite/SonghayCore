@@ -241,13 +241,13 @@ public static partial class StringExtensions
         Regex.IsMatch(input, @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
 
     /// <summary>
-    /// Remove accent from strings 
+    /// Remove “accent characters” from strings 
     /// </summary>
     /// <example>
     ///  input:  "Příliš žluťoučký kůň úpěl ďábelské ódy."
     ///  result: "Prilis zlutoucky kun upel dabelske ody."
     /// </example>
-    /// <param name="input">The input.</param>
+    /// <param name="input">the input</param>
     /// <remarks>
     /// From Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
     /// Also, see http://stackoverflow.com/questions/249087/how-do-i-remove-diacritics-accents-from-a-string-in-net
@@ -258,15 +258,25 @@ public static partial class StringExtensions
         string stFormD = input.Normalize(NormalizationForm.FormD);
         StringBuilder sb = new StringBuilder();
 
-        foreach (var t in stFormD)
+        foreach (var t in from t in stFormD let uc = CharUnicodeInfo.GetUnicodeCategory(t) where uc != UnicodeCategory.NonSpacingMark select t)
         {
-            UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(t);
-            if (uc != UnicodeCategory.NonSpacingMark)
-            {
-                sb.Append(t);
-            }
+            sb.Append(t);
         }
 
         return sb.ToString().Normalize(NormalizationForm.FormC);
+    }
+
+    /// <summary>
+    /// Removes the “null characters” (C/C++ string terminator characters)
+    /// from the specified string.
+    /// </summary>
+    /// <param name="input">the input</param>
+    /// <remarks>For more detail, see https://stackoverflow.com/a/2292866/22944</remarks>
+    public static string RemoveNullTerminatorCharacters(this string input)
+    {
+        if (!string.IsNullOrWhiteSpace(input))
+            input = input.Trim().Replace("\0", string.Empty);
+
+        return input;
     }
 }

@@ -12,6 +12,12 @@ public static class RegexScalars
     public const string AllSpaceCharactersRepeatedTwoOrMoreTimes = " {2,}";
 
     /// <summary><see cref="Regex"/> pattern</summary>
+    public const string AllThatLooksLikeXmlMarkup = @"<([^>]+)>(.*?</(\1)>|[^>]*/>)";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string AllThatLooksLikeXmlSelfClosingTags = "<([^>]+)/>";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
     public const string AllWords = @"\w+";
  
     /// <summary><see cref="Regex"/> pattern</summary>
@@ -44,6 +50,9 @@ public static class RegexScalars
                                         """;
 
     /// <summary><see cref="Regex"/> pattern</summary>
+    public const string XhtmlDocTypeDeclaration = @"\<\!DOCTYPE [^<]+\>";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
     public const string XhtmlEndTagsThatShouldBeMinimized = @"\s*</(base|isindex|link|meta)\s*>";
 
     /// <summary><see cref="Regex"/> pattern</summary>
@@ -54,4 +63,13 @@ public static class RegexScalars
 
     /// <summary><see cref="Regex"/> pattern</summary>
     public const string XmlNamespaceAttributes = """\s*xmlns\s*=\s*"[^"]+"\s*""";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string XmlNamespaceDeclarations = """\s*(xmlns:?[^=]*=["][^"]*["])\s*""";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string XmlNamespacePrefixes = """\s*xmlns:?([^=]*)=["][^"]*["]\s*""";
+
+    /// <summary><see cref="Regex"/> pattern</summary>
+    public const string XmlNamespaceSchemaLocationAttributes = """\s*([a-zA-z0-9:]*schemaLocation\s*=["][^"]*["])\s*""";
 }

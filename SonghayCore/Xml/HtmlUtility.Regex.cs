@@ -1,9 +1,9 @@
+// ReSharper disable MemberCanBePrivate.Global
 namespace Songhay.Xml;
 
 /// <summary>
 /// Static members for HTML text processing.
 /// </summary>
-[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 public static partial class HtmlUtility
 {
     /// <summary><see cref="Regex"/> pattern getter</summary>

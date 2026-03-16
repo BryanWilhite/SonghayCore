@@ -5,7 +5,7 @@ public static partial class XObjectUtility
     /// <summary>
     /// Glyph: Non-Breaking Space
     /// </summary>
-    public static readonly string GlyphNonBreakingSpace = " ";
+    public const string GlyphNonBreakingSpace = " ";
 
     /// <summary>
     /// <see cref="XText"/>: Non-Breaking Space

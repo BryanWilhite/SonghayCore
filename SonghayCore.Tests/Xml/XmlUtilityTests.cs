@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Xml;
+using System.Xml.XPath;
 using Songhay.Xml;
 
 namespace Songhay.Tests.Xml;
@@ -9,10 +10,11 @@ public class XmlUtilityTests
     [Fact]
     public void ShouldGetNavigableDocument()
     {
-        var ms = new MemoryStream();
+        MemoryStream ms = new();
+
         try
         {
-            using (var writer = XmlWriter.Create(ms, new XmlWriterSettings
+            using (XmlWriter writer = XmlWriter.Create(ms, new XmlWriterSettings
                    {
                        Encoding = Encoding.UTF8
                    }))
@@ -24,10 +26,10 @@ public class XmlUtilityTests
                 writer.Flush();
             }
 
-            var doc = XmlUtility.GetNavigableDocument(ms);
+            XPathDocument? doc = XmlUtility.GetNavigableDocument(ms);
             Assert.NotNull(doc);
 
-            var nav = doc!.CreateNavigator();
+            XPathNavigator nav = doc!.CreateNavigator();
             nav.MoveToFirstChild();
             Assert.Equal("DocumentData", nav.LocalName);
         }
@@ -43,7 +45,7 @@ public class XmlUtilityTests
     [InlineData("&lt;one/&gt;", "<one/>")]
     public void XmlDecode_Test(string? input, string? expected)
     {
-        var actual = XmlUtility.XmlDecode(input);
+        string? actual = XmlUtility.XmlDecode(input);
 
         Assert.Equal(expected, actual);
     }
@@ -54,7 +56,7 @@ public class XmlUtilityTests
     [InlineData("<one/>", "&lt;one/&gt;")]
     public void XmlEncode_Test(string? input, string? expected)
     {
-        var actual = XmlUtility.XmlEncode(input);
+        string? actual = XmlUtility.XmlEncode(input);
 
         Assert.Equal(expected, actual);
     }
