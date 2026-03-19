@@ -30,11 +30,23 @@ public static partial class XmlUtility
     /// The specified type to deserialize.
     /// </typeparam>
     /// <param name="xmlPath">The XML file path.</param>
+    /// <remarks>
+    /// This member does not support <see cref="XPathDocument"/>
+    /// and will return <c>null</c> when the type parameter is set
+    /// to <see cref="XPathDocument"/>.
+    /// </remarks>
     public static T? GetInstance<T>(string? xmlPath) where T : class
     {
+        if (typeof(T).IsAssignableFrom(typeof(XPathDocument)))
+        {
+            return null;
+        }
+
+        xmlPath.ThrowWhenNullOrWhiteSpace();
+
         XmlSerializer serializer = new(typeof(T));
 
-        using XmlReader reader = XmlReader.Create(xmlPath!);
+        using XmlReader reader = XmlReader.Create(xmlPath);
         T? instance = serializer.Deserialize(reader) as T;
 
         return instance;
@@ -47,8 +59,18 @@ public static partial class XmlUtility
     /// The specified type to deserialize.
     /// </typeparam>
     /// <param name="xmlFragment">The raw XML.</param>
+    /// <remarks>
+    /// This member does not support <see cref="XPathDocument"/>
+    /// and will return <c>null</c> when the type parameter is set
+    /// to <see cref="XPathDocument"/>.
+    /// </remarks>
     public static T? GetInstanceRaw<T>(string? xmlFragment) where T : class
     {
+        if (typeof(T).IsAssignableFrom(typeof(XPathDocument)))
+        {
+            return null;
+        }
+
         xmlFragment.ThrowWhenNullOrWhiteSpace();
 
         XmlSerializer serializer = new XmlSerializer(typeof(T));

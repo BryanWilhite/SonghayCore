@@ -414,25 +414,23 @@ public static partial class XmlUtility
     {
         if (input == null) return null;
 
-        TIn? stronglyOfTIn = null;
-
-        switch (stronglyOfTIn)
+        if (typeof(TIn).IsAssignableFrom(typeof(XmlDocument)))
         {
-            case XmlDocument:
-                return GetNavigableDocument(input as XmlDocument);
-
-            case XPathDocument:
-                return input as XPathDocument;
-
-            default:
-                if (!typeof(TIn).IsAssignableFrom(typeof(string))) return null;
-
-                string? s = input as string;
-                s = HtmlUtility.ConvertToXml(s);
-                s = LatinGlyphsUtility.Condense(s, basicLatinOnly: false);
-
-                return GetNavigableDocument(s);
+            return GetNavigableDocument(input as XmlDocument);
         }
+
+        if (typeof(TIn).IsAssignableFrom(typeof(XPathDocument)))
+        {
+            return input as XPathDocument;
+        }
+
+        if (!typeof(TIn).IsAssignableFrom(typeof(string))) return null;
+
+        string? s = input as string;
+        s = HtmlUtility.ConvertToXml(s);
+        s = LatinGlyphsUtility.Condense(s, basicLatinOnly: false);
+
+        return GetNavigableDocument(s);
     }
 
     /// <summary>
@@ -554,26 +552,30 @@ public static partial class XmlUtility
     /// This member only supports <c>TIn</c> as
     /// <see cref="string"/>, <see cref="XmlDocument"/> or <see cref="XPathDocument"/>.
     /// </remarks>
+    [SuppressMessage("ReSharper", "PreferConcreteValueOverDefault")]
     public static TOut? OutputAs<TOut>(IXPathNavigable? navigableDocument) where TOut : class
     {
-        if (navigableDocument == null) return default;
+        if (navigableDocument == null) return null;
 
         if (typeof(TOut).IsAssignableFrom(typeof(string)))
         {
             return navigableDocument.CreateNavigator()?.OuterXml as TOut;
         }
 
-        TOut? stronglyOfTOut = default(TOut);
-        switch (stronglyOfTOut)
+        if (typeof(TOut).IsAssignableFrom(typeof(XmlDocument)))
         {
-            case XmlDocument:
-                XmlDocument dom = new();
-                dom.LoadXml(navigableDocument.ToString()!);
+            string? outerXml = navigableDocument.CreateNavigator()?.OuterXml;
+            if (string.IsNullOrWhiteSpace(outerXml)) return null;
 
-                return dom as TOut;
+            XmlDocument dom = new();
+            dom.LoadXml(outerXml);
 
-            case XPathDocument:
-                return navigableDocument as TOut;
+            return dom as TOut;
+        }
+
+        if (typeof(TOut).IsAssignableFrom(typeof(XPathDocument)))
+        {
+            return navigableDocument as TOut;
         }
 
         return default;

@@ -5,7 +5,7 @@ using Songhay.Xml;
 
 namespace Songhay.Tests.Xml;
 
-public class XmlUtilityTests
+public class XmlUtilityTests(ITestOutputHelper helper)
 {
     private const string Xml =
         """
@@ -33,6 +33,65 @@ public class XmlUtilityTests
           </projects>
         </Wikimedia>
         """;
+
+    private const string XmlWithNamespaces =
+        """
+        <PurchaseOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <ItemsOrders>
+                <Item>
+                    <ItemID>aaa111</ItemID>
+                    <ItemPrice>34.22</ItemPrice>
+                </Item>
+                <Item>
+                    <ItemID>bbb222</ItemID>
+                    <ItemPrice>2.89</ItemPrice>
+                </Item>
+            </ItemsOrders>
+        </PurchaseOrder>
+        """;
+
+    ///<remarks>
+    /// [Ask Bing, Does XmlSerializer support XPathDocument?]
+    ///
+    /// The XmlSerializer in .NET is designed to work with objects (POCOs) and streams/readers that contain XML
+    /// in a serializable form. It expects either:
+    ///
+    /// - A Stream, TextReader, or XmlReader containing XML data
+    /// - Or an object instance to serialize
+    ///
+    /// XPathDocument is a read-only, XPath-optimized in-memory representation of XML,
+    /// not a serializable object model.
+    /// It does not expose public settable properties for XmlSerializer to populate,
+    /// and it is not intended for serialization/deserialization.
+    ///</remarks>
+    [Fact]
+    public void GetInstanceRaw_XPathDocument_Test()
+    {
+        // act:
+        XPathDocument? actual = XmlUtility.GetInstanceRaw<XPathDocument>(Xml);
+
+        // assert:
+        Assert.Null(actual);
+    }
+
+    [Fact]
+    public void GetNamespaceManager_Test()
+    {
+        // arrange:
+        XPathDocument document = XmlUtility.GetNavigableDocument(XmlWithNamespaces).ToReferenceTypeValueOrThrow();
+
+        // act:
+        XmlNamespaceManager? nsm = XmlUtility.GetNamespaceManager(document);
+        IDictionary<string, string> actual = nsm?.GetNamespacesInScope(XmlNamespaceScope.Local) ?? new Dictionary<string, string>();
+
+        foreach (KeyValuePair<string, string> pair in actual)
+        {
+            helper.WriteLine($"{pair.Key}: {pair.Value}");
+        }
+
+        // assert:
+        Assert.Equal(2, actual.Count);
+    }
 
     [Theory]
     [InlineData(
@@ -103,7 +162,7 @@ public class XmlUtilityTests
         XPathDocument document = XmlUtility.GetNavigableDocument(Xml).ToReferenceTypeValueOrThrow();
 
         // act:
-        var actual = XmlUtility.GetNodeValue(document, nodeQuery, false, defaultValue);
+        object? actual = XmlUtility.GetNodeValue(document, nodeQuery, false, defaultValue);
 
         // assert:
         Assert.Equal(expected, actual);
@@ -132,6 +191,82 @@ public class XmlUtilityTests
 
         // assert:
         Assert.Equal(DateTime.Parse(dateString), (DateTime)actual!);
+    }
+
+    [Fact]
+    public void InputAs_string_Test()
+    {
+        // act:
+        XPathDocument? actual = XmlUtility.InputAs(Xml);
+        helper.WriteLine(actual?.CreateNavigator().OuterXml);
+
+        // assert:
+        Assert.NotNull(actual);
+    }
+
+    [Fact]
+    public void InputAs_XmlDocument_Test()
+    {
+        // arrange:
+        XmlDocument? document = XmlUtility.GetInstanceRaw<XmlDocument>(Xml);
+
+        // act:
+        XPathDocument? actual = XmlUtility.InputAs(document);
+        helper.WriteLine(actual?.CreateNavigator().OuterXml);
+
+        // assert:
+        Assert.NotNull(actual);
+    }
+
+    [Fact]
+    public void InputAs_XPathDocument_Test()
+    {
+        // arrange:
+        XPathDocument document = XmlUtility.GetNavigableDocument(Xml).ToReferenceTypeValueOrThrow();
+
+        // act:
+        XPathDocument? actual = XmlUtility.InputAs(document);
+        helper.WriteLine(actual?.CreateNavigator().OuterXml);
+
+        // assert:
+        Assert.NotNull(actual);
+    }
+
+    [Theory]
+    [InlineData("<e stamp=\"2001-02-14\" />", ".//@stamp", "2001-02-14", true)]
+    [InlineData("<e stamp=\"2001-02-14\" />", ".//@stamp", "frankie", false)]
+    public void IsNodeValue_Test(string input, string? nodeQuery, string? testValue, bool expected)
+    {
+        // arrange:
+        XPathDocument document = XmlUtility.GetNavigableDocument(input).ToReferenceTypeValueOrThrow();
+
+        // act:
+        bool actual = XmlUtility.IsNodeValue(document, nodeQuery, false, testValue);
+
+        // assert:
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void OutputAs_XmlDocument_Test()
+    {
+        // act:
+        XmlDocument? actual = XmlUtility.OutputAs<XmlDocument>(Xml);
+        helper.WriteLine(actual?.OuterXml);
+
+        // assert:
+        Assert.NotNull(actual);
+    }
+
+    [Fact]
+    public void OutputAs_XPathDocument_Test()
+    {
+        // act:
+        XPathDocument? actual = XmlUtility.OutputAs<XPathDocument>(Xml);
+        helper.WriteLine(actual?.CreateNavigator().OuterXml);
+
+        // assert:
+        Assert.NotNull(actual);
     }
 
     [Fact]
@@ -164,6 +299,22 @@ public class XmlUtilityTests
         {
             ms.Dispose();
         }
+    }
+
+    [Fact]
+    public void StripNamespaces_Test()
+    {
+        // arrange:
+        XPathDocument document = XmlUtility.GetNavigableDocument(XmlWithNamespaces).ToReferenceTypeValueOrThrow();
+
+        // act:
+        document = XmlUtility.StripNamespaces(document).ToReferenceTypeValueOrThrow();
+        string actual = document.CreateNavigator().OuterXml;
+
+        helper.WriteLine(actual);
+
+        // assert:
+        Assert.DoesNotContain("xmlns", actual);
     }
 
     [Theory]
