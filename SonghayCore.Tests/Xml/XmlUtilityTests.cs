@@ -86,6 +86,54 @@ public class XmlUtilityTests
         Assert.Equal(expected, actual);
     }
 
+    [Theory]
+    [InlineData(
+        "/Wikimedia/projects/project[@name='Wikipedia']/editions/edition/text()",
+        null,
+        "en.wikipedia.org"
+    )]
+    [InlineData(
+        "/Wikimedia/projects/project[@name='Wikipedia']/editions/wrong/text()",
+        "hello world!",
+        "hello world!"
+    )]
+    public void GetNodeValue_Test(string? nodeQuery, object? defaultValue, string? expected)
+    {
+        // arrange:
+        XPathDocument document = XmlUtility.GetNavigableDocument(Xml).ToReferenceTypeValueOrThrow();
+
+        // act:
+        var actual = XmlUtility.GetNodeValue(document, nodeQuery, false, defaultValue);
+
+        // assert:
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
+    [InlineData("/Wikimedia/projects/project[@name='Wikipedia']/editions/wrong/text()")]
+    public void GetNodeValue_Exception_Test(string? nodeQuery)
+    {
+        // arrange:
+        XPathDocument document = XmlUtility.GetNavigableDocument(Xml).ToReferenceTypeValueOrThrow();
+
+        // assert:
+        Assert.Throws<XmlException>(() => XmlUtility.GetNodeValue(document, nodeQuery, true));
+    }
+
+    [Theory]
+    [InlineData("<e stamp=\"2001-02-14\" />", ".//@stamp", "2001-02-14")]
+    public void GetNodeValueAndParse_DateTime_Test(string input, string? nodeQuery, string dateString)
+    {
+        // arrange:
+        XPathDocument document = XmlUtility.GetNavigableDocument(input).ToReferenceTypeValueOrThrow();
+
+        // act:
+        object? actual = XmlUtility.GetNodeValueAndParse(document, nodeQuery, false, DateTime.Now);
+
+        // assert:
+        Assert.Equal(DateTime.Parse(dateString), (DateTime)actual!);
+    }
+
     [Fact]
     public void ShouldGetNavigableDocument()
     {
