@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Xml;
+using System.Xml.Serialization;
 using System.Xml.XPath;
 using Songhay.Xml;
 
@@ -49,6 +50,36 @@ public class XmlUtilityTests(ITestOutputHelper helper)
             </ItemsOrders>
         </PurchaseOrder>
         """;
+
+    private const string XmlForDictionary =
+        """
+        <Dictionary>
+            <Item>
+                <Key>Name</Key>
+                <Value>Alice</Value>
+            </Item>
+            <Item>
+                <Key>Age</Key>
+                <Value>30</Value>
+            </Item>
+            <Item>
+                <Key>Country</Key>
+                <Value>USA</Value>
+            </Item>
+        </Dictionary>
+        """;
+
+    ///<remarks>
+    ///</remarks>
+    [Fact]
+    public void GetInstanceRaw_Dictionary_Failure_Test()
+    {
+        // act:
+        Dictionary<string, string>? actual = XmlUtility.GetInstanceRaw<Dictionary<string, string>>(XmlForDictionary);
+
+        // assert:
+        Assert.Null(actual);
+    }
 
     ///<remarks>
     /// [Ask Bing, Does XmlSerializer support XPathDocument?]
@@ -299,6 +330,61 @@ public class XmlUtilityTests(ITestOutputHelper helper)
         {
             ms.Dispose();
         }
+    }
+
+    /// <remarks>
+    /// This is flamboyantly outrageous that this is still a problem after over 15 years!
+    /// [see https://stackoverflow.com/questions/3671259/how-to-xml-serialize-a-dictionary]
+    /// </remarks>
+    [Fact]
+    public void ShouldNotSerializeGenericDictionary() =>
+        Assert.Throws<NotSupportedException>(() => new XmlSerializer(typeof(Dictionary<string, string>)));
+
+    /// <remarks>
+    /// .NET tuples cannot be serialized to XML because they do not have parameterless constructors.
+    /// </remarks>
+    [Fact]
+    public void ShouldNotSerializeGenericTuple() =>
+        Assert.Throws<InvalidOperationException>(() => new XmlSerializer(typeof(Tuple<string, string>[])));
+
+    /// <remarks>
+    /// This is even more flamboyantly outrageous that this is still a problem after over 15 years:
+    /// As of today, here in the 21st century, the following output is expected:
+    ///
+    /// - the root XML element will be called <c>ArrayOfKeyValuePairOfStringString</c>
+    /// - there will be child elements, named <c>KeyValuePairOfStringString</c>, matching the number of dictionary entries
+    /// - the <c>KeyValuePairOfStringString</c> elements will be completely empty!
+    ///
+    /// [see https://stackoverflow.com/questions/2658916/serializing-a-list-of-key-value-pairs-to-xml]
+    /// </remarks>
+    [Fact]
+    public void ShouldSerializeGenericKeyValuePairBadly()
+    {
+        Dictionary<string, string> d = new()
+        {
+            {"Name","Alice"},
+            {"Age","30"},
+            {"Country","USA"},
+        };
+
+        XmlSerializer serializer = new XmlSerializer(typeof(KeyValuePair<string, string>[]));
+
+        using MemoryStream stream = new();
+        serializer.Serialize(stream, d.Select(kvp => kvp).ToArray());
+
+        string? xml = stream.ToUtf8String();
+
+        helper.WriteLine(xml);
+
+        XPathDocument document = XmlUtility.GetNavigableDocument(xml).ToReferenceTypeValueOrThrow();
+        XmlNamespaceManager xnm = XmlUtility.GetNamespaceManager(document).ToReferenceTypeValueOrThrow();
+        XPathNavigator? rootNode = XmlUtility.GetNavigableNode(document, "./ArrayOfKeyValuePairOfStringString", xnm);
+        XPathNodeIterator? iterator = XmlUtility.GetNavigableNodes(document, ".//KeyValuePairOfStringString");
+        XPathNavigator?[] docs = iterator?.OfType<XPathNavigator?>().ToArray() ?? [];
+
+        Assert.NotNull(rootNode);
+        Assert.Equal(3, docs.Length);
+        Assert.All(docs, doc => Assert.Equal(string.Empty, doc?.InnerXml.Trim()));
     }
 
     [Fact]
