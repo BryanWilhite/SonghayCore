@@ -43,6 +43,15 @@ public static partial class StringExtensions
             .Split(' ').Where(i => !string.IsNullOrWhiteSpace(i));
 
     /// <summary>
+    /// Deserializes to a class instance based on the specified raw XML.
+    /// </summary>
+    /// <typeparam name="T">
+    /// The specified type to deserialize.
+    /// </typeparam>
+    /// <param name="input">The input.</param>
+    public static T? GetInstanceRaw<T>(this string? input) where T : class => XmlUtility.GetInstanceRaw<T>(input);
+
+    /// <summary>
     /// Determines whether the specified input is in the comma-delimited values.
     /// </summary>
     /// <param name="input">The input.</param>
@@ -221,6 +230,12 @@ public static partial class StringExtensions
     /// </remarks>
     public static bool IsUnc(this string? input) =>
         !string.IsNullOrWhiteSpace(input) && RegexUtility.MatchAllThatLooksLikeUnc().IsMatch(input);
+
+    /// <summary>
+    /// Returns <c>true</c> when the specified input is XML-like.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    public static bool IsXml(this string? input) => XmlUtility.IsXml(input);
 
     /// <summary>
     /// Determines whether the specified input looks like an email address.

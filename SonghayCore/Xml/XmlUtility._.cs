@@ -24,7 +24,7 @@ public static partial class XmlUtility
     };
 
     /// <summary>
-    /// Deserializes based on the specified XML file.
+    /// Deserializes to a class instance based on the specified XML file.
     /// </summary>
     /// <typeparam name="T">
     /// The specified type to deserialize.
@@ -53,7 +53,7 @@ public static partial class XmlUtility
     }
 
     /// <summary>
-    /// Deserializes based on the specified raw XML.
+    /// Deserializes to a class instance based on the specified raw XML.
     /// </summary>
     /// <typeparam name="T">
     /// The specified type to deserialize.
