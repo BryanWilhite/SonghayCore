@@ -277,4 +277,17 @@ public static partial class StringExtensions
 
         return input;
     }
+
+    
+    /// <summary>
+    /// Removes any zero width no-break space (ZWNBSP) character
+    /// from the beginning of the specified string.
+    /// </summary>
+    /// <param name="input">the input</param>
+    /// <remarks>
+    /// The ZWNBSP at the beginning of a string has been traditionally called the byte order mark (BOM).
+    /// For more detail, see https://unicode-explorer.com/c/FEFF
+    /// </remarks>
+    public static string RemoveLeadingZeroWidthNoBreakSpace(this string input) =>
+        input.TrimStart('﻿');
 }

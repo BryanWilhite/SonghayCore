@@ -111,7 +111,7 @@ public static partial class XmlUtility
         using (StringReader sr = new(navigator.OuterXml))
         {
             XmlReader reader = XmlReader.Create(sr);
-            XmlWriter writer = (settings != null) ? XmlWriter.Create(ms, settings) : XmlWriter.Create(ms);
+            XmlWriter writer = settings != null ? XmlWriter.Create(ms, settings) : XmlWriter.Create(ms);
             xslt.Transform(reader, xslArgs, writer, null);
         }
 

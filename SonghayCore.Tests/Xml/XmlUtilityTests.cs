@@ -219,6 +219,69 @@ public class XmlUtilityTests(ITestOutputHelper helper)
         Assert.Equal(DateTime.Parse(dateString), (DateTime)actual!);
     }
 
+    [Theory]
+    [InlineData(
+        """
+        <?xml version="1.0" encoding="utf-8" ?>
+        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+            <xsl:output
+                method="xml"
+                encoding="utf-8"
+                indent="yes"
+                media-type="text/xml"
+                omit-xml-declaration="yes"
+                standalone="yes" />
+
+            <xsl:template match="/" >
+                <details>
+                    <summary>Overview for <xsl:value-of select="/DocumentData/Title" /></summary>
+                    <ul>
+                        <li><label>File Name:</label> <span><xsl:value-of select="/DocumentData/FileName" /></span></li>
+                        <li><label>Total Hits:</label> <span><xsl:value-of select="/DocumentData/TotalHits" /></span></li>
+                        <li><label>Hit-History:</label> <span>From <xsl:value-of select="/DocumentData/HitHistory/@Start" /> to <xsl:value-of select="/DocumentData/HitHistory/@End" /></span></li>
+                    </ul>
+                </details>
+            </xsl:template>
+        </xsl:stylesheet>
+        """,
+        """
+        <?xml version="1.0" encoding="utf-8"?>
+        <DocumentData>
+          <TimeStamp>Sunday, Mar 1, 2026 12:43:01 PM</TimeStamp>
+          <Title>kintespace.com</Title>
+          <FileName>khits.html</FileName>
+          <TotalHits>10494789</TotalHits>
+          <HitHistory Start="02/08/1998" End="02/28/2026" />
+          <Hits Total="1320301" Average="31" />
+        </DocumentData>
+        """,
+        "/details/summary/text();Overview for kintespace.com",
+        "/details/ul/li[position() = 3]/label/text();Hit-History:",
+        "/details/ul/li[position() = 3]/span/text();From 02/08/1998 to 02/28/2026"
+        )]
+    public void GetXslString_Test(string xslString, string xmlString, params string[] expectations)
+    {
+        // arrange:
+        XPathDocument xsl = XmlUtility.GetNavigableDocument(xslString).ToReferenceTypeValueOrThrow();
+        XPathDocument xml = XmlUtility.GetNavigableDocument(xmlString).ToReferenceTypeValueOrThrow();
+
+        // act:
+        string? output = XmlUtility.GetXslString(xsl, xml);
+
+        helper.WriteLine(output);
+
+        XPathDocument? actual = XmlUtility.GetNavigableDocument(output);
+
+        // assert:
+        Assert.All(expectations, s =>
+            {
+                string[] a = s.Split(';');
+                string expected = a.Last();
+                string xPath = a[0];
+                Assert.Equal(expected, XmlUtility.GetNodeValue(actual, xPath, throwException: false));
+            });
+    }
+
     [Fact]
     public void InputAs_string_Test()
     {

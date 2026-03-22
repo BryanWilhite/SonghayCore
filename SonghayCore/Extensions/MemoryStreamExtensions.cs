@@ -16,7 +16,9 @@ public static class MemoryStreamExtensions
 
         string s = Encoding.UTF8.GetString(stream.ToArray());
 
-        return s.RemoveNullTerminatorCharacters();
+        return s
+            .RemoveLeadingZeroWidthNoBreakSpace()
+            .RemoveNullTerminatorCharacters();
     }
 
     /// <summary>
@@ -30,6 +32,8 @@ public static class MemoryStreamExtensions
 
         string s = Encoding.UTF32.GetString(stream.ToArray());
 
-        return s.RemoveNullTerminatorCharacters();
+        return s
+            .RemoveLeadingZeroWidthNoBreakSpace()
+            .RemoveNullTerminatorCharacters();
     }
 }
