@@ -2,6 +2,8 @@
 using System.Xml;
 using System.Xml.Serialization;
 using System.Xml.XPath;
+
+using Songhay.Models;
 using Songhay.Xml;
 
 namespace Songhay.Tests.Xml;
@@ -51,31 +53,24 @@ public class XmlUtilityTests(ITestOutputHelper helper)
         </PurchaseOrder>
         """;
 
-    private const string XmlForDictionary =
-        """
-        <Dictionary>
-            <Item>
-                <Key>Name</Key>
-                <Value>Alice</Value>
-            </Item>
-            <Item>
-                <Key>Age</Key>
-                <Value>30</Value>
-            </Item>
-            <Item>
-                <Key>Country</Key>
-                <Value>USA</Value>
-            </Item>
-        </Dictionary>
-        """;
+    [Theory]
+    [ProjectFileData("../../../content/xml/feedly.opml")]
+    public void GetInstance_Test(FileInfo opmlInfo)
+    {
+        // act:
+        OpmlDocument? actual = XmlUtility.GetInstance<OpmlDocument>(opmlInfo.FullName);
 
-    ///<remarks>
-    ///</remarks>
+        helper.WriteLine($"{actual}");
+
+        // assert:
+        Assert.NotNull(actual);
+    }
+
     [Fact]
     public void GetInstanceRaw_Dictionary_Failure_Test()
     {
         // act:
-        Dictionary<string, string>? actual = XmlUtility.GetInstanceRaw<Dictionary<string, string>>(XmlForDictionary);
+        Dictionary<string, string>? actual = XmlUtility.GetInstanceRaw<Dictionary<string, string>>("<not.a.dictionary />");
 
         // assert:
         Assert.Null(actual);
