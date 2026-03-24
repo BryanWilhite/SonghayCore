@@ -2042,6 +2042,22 @@
             <param name="key">The key.</param>
             <param name="throwException">When <c>true</c>, throw an exception when retrieval fails.</param>
         </member>
+        <member name="M:Songhay.Extensions.IDictionaryExtensions.UnionAsDictionary``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+            Invokes the <see cref="M:System.Linq.Enumerable.Union``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})"/> method
+            with the specified dictionaries and calls <see cref="M:System.Linq.Enumerable.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})"/>
+            on the result.
+            </summary>
+            <param name="dictionary1"></param>
+            <param name="dictionary2"></param>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <remarks>
+            When <see cref="M:System.Linq.Enumerable.Union``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})"/> is called
+            .NET returns a collection of <see cref="T:System.Collections.Generic.KeyValuePair`2"/> to avoid losing dictionary entries with the same key.
+            This member disregards this danger and ensures a dictionary is returned.
+            </remarks>
+        </member>
         <member name="M:Songhay.Extensions.IDictionaryExtensions.WithPair``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
             <summary>
             Returns the <see cref="T:System.Collections.Generic.IDictionary`2"/>
@@ -2062,6 +2078,18 @@
             <typeparam name="TValue">The type of the value.</typeparam>
             <param name="dictionary">the <see cref="T:System.Collections.Generic.IDictionary`2"/></param>
             <param name="pair">the <see cref="T:System.Collections.Generic.KeyValuePair`2"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IDictionaryExtensions.WithPair``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1,System.Func{System.Boolean})">
+            <summary>
+            Returns the <see cref="T:System.Collections.Generic.IDictionary`2" />
+            with the specified pair.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="dictionary">the <see cref="T:System.Collections.Generic.IDictionary`2" /></param>
+            <param name="key">the key</param>
+            <param name="value">the value</param>
+            <param name="condition">The condition.</param>
         </member>
         <member name="M:Songhay.Extensions.IDictionaryExtensions.WithPairs``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
             <summary>
@@ -3173,6 +3201,15 @@
             </summary>
             <param name="input">The input.</param>
         </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToInstanceFromXml``1(System.String)">
+            <summary>
+            Deserializes to a class instance based on the specified raw XML.
+            </summary>
+            <typeparam name="T">
+            The specified type to deserialize.
+            </typeparam>
+            <param name="input">The input.</param>
+        </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToIntString(System.String)">
             <summary>
             Prepares a string to be converted to <c>int</c>.
@@ -3439,6 +3476,12 @@
              📚 https://stackoverflow.com/a/47531093/22944
              📚 https://en.wikipedia.org/wiki/Path_(computing)#Uniform_Naming_Convention
             </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.IsXml(System.String)">
+            <summary>
+            Returns <c>true</c> when the specified input is XML-like.
+            </summary>
+            <param name="input">The input.</param>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.LooksLikeEmailAddress(System.String)">
             <summary>
@@ -9385,7 +9428,7 @@
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInstance``1(System.String)">
             <summary>
-            Deserializes based on the specified XML file.
+            Deserializes to a class instance based on the specified XML file.
             </summary>
             <typeparam name="T">
             The specified type to deserialize.
@@ -9399,7 +9442,7 @@
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInstanceRaw``1(System.String)">
             <summary>
-            Deserializes based on the specified raw XML.
+            Deserializes to a class instance based on the specified raw XML.
             </summary>
             <typeparam name="T">
             The specified type to deserialize.

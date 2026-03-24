@@ -87,7 +87,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
             };
 
             var actual = dictionary.TryGetValueWithKey(4);
-            Assert.Equal(default, actual);
+            Assert.Null(actual);
         }
 
         void TestValue()
@@ -103,7 +103,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
             };
 
             var actual = dictionary.TryGetValueWithKey("four");
-            Assert.Equal(default(int), actual);
+            Assert.Equal(0, actual);
         }
 
         #endregion
@@ -123,7 +123,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
             ["three"] = 3,
         };
 
-        var actual = dictionary.ToShallowClone();
+        IDictionary<string, int> actual = dictionary.ToShallowClone();
 
         Assert.Equal(dictionary.Sum(pair => pair.Value), actual.Sum(pair => pair.Value));
         Assert.Equal(
@@ -133,10 +133,36 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
     }
 
     [Fact]
+    public void UnionAsDictionary_Test()
+    {
+        var dictionary1 = new Dictionary<string, int>
+        {
+            ["one"] = 1,
+            ["two"] = 2,
+            ["three"] = 3,
+        };
+
+        var dictionary2 = new Dictionary<string, int>
+        {
+            ["three"] = 36,
+            ["four"] = 4,
+            ["five"] = 5,
+        };
+
+        IDictionary<string, int>? actual = dictionary1.UnionAsDictionary(dictionary2);
+
+        Assert.NotNull(actual);
+        Assert.Equal(5, actual.Count);
+
+        helper.WriteLine($"{actual["three"]}");
+    }
+
+    [Fact]
     public void WithPair_Test()
     {
         var dictionary = new Dictionary<string, int>().WithPair("one", 1);
 
+        Assert.NotNull(dictionary);
         Assert.NotEmpty(dictionary);
         Assert.Equal("one", dictionary.First().Key);
         Assert.Equal(1, dictionary.First().Value);
@@ -152,6 +178,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
     {
         var dictionary = new Dictionary<string, int>().WithPair(new KeyValuePair<string, int>("one", 1));
 
+        Assert.NotNull(dictionary);
         Assert.NotEmpty(dictionary);
         Assert.Equal("one", dictionary.First().Key);
         Assert.Equal(1, dictionary.First().Value);
@@ -165,6 +192,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
 
         var dictionary = new Dictionary<string, int>().WithPairs(pairs);
 
+        Assert.NotNull(dictionary);
         Assert.Equal(2, dictionary.Count);
         Assert.Equal("two", dictionary.Last().Key);
         Assert.Equal(2, dictionary.Last().Value);
