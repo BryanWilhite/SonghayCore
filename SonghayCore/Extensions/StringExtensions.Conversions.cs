@@ -122,6 +122,15 @@ public static partial class StringExtensions
     }
 
     /// <summary>
+    /// Deserializes to a class instance based on the specified raw XML.
+    /// </summary>
+    /// <typeparam name="T">
+    /// The specified type to deserialize.
+    /// </typeparam>
+    /// <param name="input">The input.</param>
+    public static T? ToInstanceFromXml<T>(this string? input) where T : class => XmlUtility.GetInstanceRaw<T>(input);
+
+    /// <summary>
     /// Prepares a string to be converted to <c>int</c>.
     /// </summary>
     /// <param name="input">The input.</param>

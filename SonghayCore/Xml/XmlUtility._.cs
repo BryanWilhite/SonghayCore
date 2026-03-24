@@ -71,7 +71,7 @@ public static partial class XmlUtility
             return null;
         }
 
-        xmlFragment.ThrowWhenNullOrWhiteSpace();
+        if(!IsXml(xmlFragment)) return null;
 
         XmlSerializer serializer = new XmlSerializer(typeof(T));
 
@@ -85,7 +85,7 @@ public static partial class XmlUtility
     /// Returns <c>true</c> when the fragment is XML-like.
     /// </summary>
     /// <param name="fragment">The fragment to test.</param>
-    public static bool IsXml(string? fragment)
+    public static bool IsXml([NotNullWhen(true)]string? fragment)
     {
         if (string.IsNullOrWhiteSpace(fragment)) return false;
 
