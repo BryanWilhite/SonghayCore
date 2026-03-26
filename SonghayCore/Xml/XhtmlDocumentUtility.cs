@@ -3,7 +3,7 @@
 /// <summary>
 /// Static members for XHTML Documents.
 /// </summary>
-public static partial class XhtmlDocumentUtility
+public static class XhtmlDocumentUtility
 {
     /// <summary>
     /// XHTML Namespace

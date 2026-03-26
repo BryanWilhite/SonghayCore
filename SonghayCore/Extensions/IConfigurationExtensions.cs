@@ -26,15 +26,33 @@ public static class IConfigurationExtensions
     /// </summary>
     /// <param name="configuration">the <see cref="IConfiguration"/></param>
     /// <typeparam name="T">the type of the desired instance</typeparam>
-    public static T BindNewInstance<T>(this IConfiguration configuration) where T : class, new()
+    public static T? BindNewInstance<T>(this IConfiguration? configuration) where T : class, new()
     {
-        ArgumentNullException.ThrowIfNull(configuration);
+        if (configuration == null) return null;
 
         T instance = new();
         Type type = typeof(T);
         configuration.Bind(type.Name, instance);
 
         return instance;
+    }
+
+    /// <summary>
+    /// Gets all the entries in the specified <see cref="IConfiguration"/>
+    /// as a textual list.
+    /// </summary>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    /// <param name="indentation">indentation chars for the entries</param>
+    public static string GetAllEntries(this IConfiguration? configuration, string indentation = "")
+    {
+        StringBuilder sb = new();
+
+        if (configuration == null) return sb.ToString();
+
+        IReadOnlyCollection<string> keys = configuration.ToKeys().Order().ToArray();
+        foreach (string key in keys) sb.AppendLine($"{indentation}{key}: `{configuration[key]}`");
+
+        return sb.ToString();
     }
 
     /// <summary>

@@ -7,6 +7,26 @@ namespace Songhay.Tests.Extensions;
 // ReSharper disable once InconsistentNaming
 public class IConfigurationExtensionsTests(ITestOutputHelper helper)
 {
+    [Fact]
+    public void GetAllEntries_Test()
+    {
+        // arrange:
+        IConfiguration configuration = new ConfigurationBuilder()
+            .AddEnvironmentVariables()
+            .AddInMemoryCollection(new Dictionary<string, string?>()
+            {
+                [nameof(GetAllEntries_Test)] = "Hello World!"
+            })
+            .Build();
+
+        //act:
+        string actual = configuration.GetAllEntries();
+        helper.WriteLine(actual);
+
+        //assert:
+        Assert.Contains(nameof(GetAllEntries_Test), actual);
+    }
+
     [Theory]
     [InlineData(ConsoleArgsScalars.DryRun,ConsoleArgsScalars.DryRun, ConsoleArgsScalars.Help)]
     public void GetCommandLineArgValue_ArgumentException_Test(string key, params string[] args)
