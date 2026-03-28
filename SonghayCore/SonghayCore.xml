@@ -2258,6 +2258,13 @@
             <typeparam name="TData">The type of the data.</typeparam>
             <param name="logger">The logger.</param>
         </member>
+        <member name="M:Songhay.Extensions.ILoggerExtensions.LogException(Microsoft.Extensions.Logging.ILogger,System.Exception)">
+            <summary>
+            The conventional logging of the specified <see cref="T:System.Exception"/>.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="ex">the <see cref="T:System.Exception"/></param>
+        </member>
         <member name="M:Songhay.Extensions.ILoggerExtensions.LogNewLine(Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Logging.LogLevel)">
             <summary>
             Logs <see cref="P:System.Environment.NewLine"/> for human readability.
@@ -4151,6 +4158,26 @@
             </summary>
             <typeparam name="TCategory">logging category by type</typeparam>
             <param name="logger">the specified <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="T:Songhay.JsonElementUtility">
+            <summary>
+            Shared methods for <see cref="T:System.Text.Json.JsonElement"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.JsonElementUtility.GetNullJsonElement">
+            <summary>
+            Gets a <see cref="T:System.Text.Json.JsonElement"/> where <see cref="T:System.Text.Json.JsonValueKind"/>
+            is <see cref="F:System.Text.Json.JsonValueKind.Null"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.JsonElementUtility.ParseJson(System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Parses the specified JSON
+            or returns a <see cref="T:System.Text.Json.JsonElement"/> where <see cref="T:System.Text.Json.JsonValueKind"/>
+            is <see cref="F:System.Text.Json.JsonValueKind.Null"/>.
+            </summary>
+            <param name="json">the JSON</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="T:Songhay.JsonNodeUtility">
             <summary>
