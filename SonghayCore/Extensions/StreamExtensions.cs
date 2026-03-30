@@ -5,7 +5,7 @@ namespace Songhay.Extensions;
 /// </summary>
 /// <remarks>
 /// The stream-reader methods in this class work well
-/// with <c>Microsoft.AspNetCore.Http.HttpRequest</c>.
+/// with <c>Microsoft.AspNetCore.Http.HttpRequest.Body</c>.
 /// </remarks>
 public static class StreamExtensions
 {
@@ -17,7 +17,7 @@ public static class StreamExtensions
     /// </summary>
     /// <param name="stream">the <see cref="Stream"/></param>
     /// <param name="logger">The logger.</param>
-    public static async Task<Dictionary<string, string>?> ReadStreamIntoDictionaryAsync(this Stream stream, ILogger logger)
+    public static async Task<Dictionary<string, string?>?> ReadStreamIntoDictionaryAsync(this Stream stream, ILogger logger)
     {
         string? json = await stream.ReadStreamAsStringAsync();
 
@@ -28,11 +28,11 @@ public static class StreamExtensions
             return null;
         }
 
-        Dictionary<string, string>? args = null;
+        Dictionary<string, string?>? args = null;
 
         try
         {
-            args = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
+            args = JsonSerializer.Deserialize<Dictionary<string, string?>>(json);
         }
         catch (Exception ex)
         {
