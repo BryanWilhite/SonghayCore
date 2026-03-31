@@ -3098,6 +3098,46 @@
             <param name="uriTemplateKey">The URI template key.</param>
             <param name="bindByPositionValues">The bind by position values.</param>
         </member>
+        <member name="T:Songhay.Extensions.StreamExtensions">
+            <summary>
+            Extensions of <see cref="T:System.IO.Stream"/>
+            </summary>
+            <remarks>
+            The stream-reader methods in this class work well
+            with <c>Microsoft.AspNetCore.Http.HttpRequest.Body</c>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.StreamExtensions.ReadStreamIntoDictionaryAsync(System.IO.Stream,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Reads the specified <see cref="T:System.IO.Stream"/> with <see cref="M:Songhay.Extensions.StreamExtensions.ReadStreamAsStringAsync(System.IO.Stream)"/>,
+            expecting a <see cref="T:System.String"/> that can be deserialized as a <see cref="T:System.Collections.Generic.Dictionary`2"/>
+            where <c>TKey</c> and <c>TValue</c> are <see cref="T:System.String"/> 
+            or the specified <see cref="T:Microsoft.Extensions.Logging.ILogger"/> will record an exception.
+            </summary>
+            <param name="stream">the <see cref="T:System.IO.Stream"/></param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:Songhay.Extensions.StreamExtensions.ReadStreamIntoJsonElementAsync(System.IO.Stream,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Reads the specified <see cref="T:System.IO.Stream"/> with <see cref="M:Songhay.Extensions.StreamExtensions.ReadStreamAsStringAsync(System.IO.Stream)"/>,
+            expecting a <see cref="T:System.String"/> that can be parsed into a <see cref="T:System.Text.Json.JsonElement"/>
+            or the specified <see cref="T:Microsoft.Extensions.Logging.ILogger"/> will record an exception.
+            </summary>
+            <param name="stream">the <see cref="T:System.IO.Stream"/></param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:Songhay.Extensions.StreamExtensions.ReadStreamAsStringAsync(System.IO.Stream)">
+            <summary>
+            Reads the specified <see cref="T:System.IO.Stream"/>,
+            optimistically calling <see cref="M:System.IO.StreamReader.ReadToEndAsync"/>
+            </summary>
+            <param name="stream">the <see cref="T:System.IO.Stream"/></param>
+            <remarks>
+            This member is likely more memory intensive
+            than we should see when we look at the Microsoft source code
+            for <see cref="M:System.Net.Http.HttpContent.ReadAsStringAsync"/>.
+            </remarks>
+        </member>
         <member name="T:Songhay.Extensions.StreamReaderExtensions">
             <summary>
             Extensions of <see cref="T:System.IO.StreamReader"/>.
@@ -8765,24 +8805,15 @@
         <member name="M:Songhay.Xml.XmlUtility.MatchAllThatLooksLikeXmlMarkup">
             <remarks>
             Pattern:<br/>
-            <code>&lt;([^&gt;]+)&gt;(.*?&lt;/(\\1)&gt;|[^&gt;]*/&gt;)</code><br/>
+            <code>&lt;\\s*([^&gt;]+)\\s*&gt;</code><br/>
             Explanation:<br/>
             <code>
             ○ Match '&lt;'.<br/>
+            ○ Match a whitespace character greedily any number of times.<br/>
             ○ 1st capture group.<br/>
-                ○ Match a character other than '&gt;' atomically at least once.<br/>
+                ○ Match a character other than '&gt;' greedily at least once.<br/>
+            ○ Match a whitespace character atomically any number of times.<br/>
             ○ Match '&gt;'.<br/>
-            ○ 2nd capture group.<br/>
-                ○ Match with 2 alternative expressions, atomically.<br/>
-                    ○ Match a sequence of expressions.<br/>
-                        ○ Match a character other than '\n' lazily any number of times.<br/>
-                        ○ Match the string "&lt;/".<br/>
-                        ○ 3rd capture group.<br/>
-                            ○ Match the same text as matched by the 1st capture group.<br/>
-                        ○ Match '&gt;'.<br/>
-                    ○ Match a sequence of expressions.<br/>
-                        ○ Match a character other than '&gt;' greedily any number of times.<br/>
-                        ○ Match the string "/&gt;".<br/>
             </code>
             </remarks>
         </member>

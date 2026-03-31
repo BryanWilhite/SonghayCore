@@ -27,7 +27,7 @@ public static class RegexScalars
     public const string AllThatLooksLikeUnc = @"^(\\(\\[^\s\\]+)+|([A-Za-z]:(\\)?|[A-z]:(\\[^\s\\]+)+))(\\)?$";
 
     /// <summary><see cref="Regex"/> pattern</summary>
-    public const string AllThatLooksLikeXmlMarkup = @"<([^>]+)>(.*?</(\1)>|[^>]*/>)";
+    public const string AllThatLooksLikeXmlMarkup = @"<\s*([^>]+)\s*>";
 
     /// <summary><see cref="Regex"/> pattern</summary>
     public const string AllThatLooksLikeXmlSelfClosingTags = "<([^>]+)/>";

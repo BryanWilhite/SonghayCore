@@ -301,10 +301,11 @@ public class XmlUtilityTests(ITestOutputHelper helper)
 
         // act:
         XPathDocument? actual = XmlUtility.InputAs(document);
-        helper.WriteLine(actual?.CreateNavigator().OuterXml);
 
         // assert:
         Assert.NotNull(actual);
+
+        helper.WriteLine(actual?.CreateNavigator().OuterXml);
     }
 
     [Fact]
@@ -315,10 +316,11 @@ public class XmlUtilityTests(ITestOutputHelper helper)
 
         // act:
         XPathDocument? actual = XmlUtility.InputAs(document);
-        helper.WriteLine(actual?.CreateNavigator().OuterXml);
 
         // assert:
         Assert.NotNull(actual);
+
+        helper.WriteLine(actual?.CreateNavigator().OuterXml);
     }
 
     [Theory]

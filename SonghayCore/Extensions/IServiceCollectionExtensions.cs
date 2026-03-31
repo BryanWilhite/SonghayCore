@@ -18,7 +18,7 @@ public static class IServiceCollectionExtensions
         ArgumentNullException.ThrowIfNull(services);
         ArgumentNullException.ThrowIfNull(configuration);
 
-        ProgramMetadata programMetadata = configuration.BindNewInstance<ProgramMetadata>();
+        ProgramMetadata? programMetadata = configuration.BindNewInstance<ProgramMetadata>();
         programMetadata.EnsureProgramMetadata();
 
         services.AddSingleton(programMetadata);
