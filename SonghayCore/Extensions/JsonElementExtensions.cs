@@ -31,7 +31,7 @@ public static class JsonElementExtensions
                 case JsonValueKind.Number:
                 case JsonValueKind.String:
                 case JsonValueKind.True:
-                    sb.AppendLine($"{property.Name}: {property.Value.ToStringValue()}");
+                    sb.AppendLine($"{property.Name}: {property.Value.ToStringOrNull()}");
                     break;
 
                 case JsonValueKind.Null:
@@ -142,14 +142,14 @@ public static class JsonElementExtensions
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
     /// <param name="supportBitStrings">When <c>true</c>, support "1" and "0" as Boolean strings.</param>
-    public static bool? ToBoolean(this JsonElement? elementOrNull, bool supportBitStrings) => elementOrNull?.ToBoolean(supportBitStrings);
+    public static bool? ToBooleanOrNull(this JsonElement? elementOrNull, bool supportBitStrings) => elementOrNull?.ToBooleanOrNull(supportBitStrings);
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="bool"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
     /// <param name="supportBitStrings">When <c>true</c>, support "1" and "0" as Boolean strings.</param>
-    public static bool? ToBoolean(this JsonElement element, bool supportBitStrings) =>
+    public static bool? ToBooleanOrNull(this JsonElement element, bool supportBitStrings) =>
         element.ValueKind != JsonValueKind.False
         && element.ValueKind != JsonValueKind.True
         && element.ValueKind != JsonValueKind.String
@@ -160,13 +160,13 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="byte"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
-    public static byte? ToByte(this JsonElement? elementOrNull) => elementOrNull?.ToByte();
+    public static byte? ToByteOrNull(this JsonElement? elementOrNull) => elementOrNull?.ToByteOrNull();
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="byte"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static byte? ToByte(this JsonElement element)
+    public static byte? ToByteOrNull(this JsonElement element)
     {
         if (element.ValueKind != JsonValueKind.Number) return null;
         if (!element.TryGetByte(out byte value)) return null;
@@ -178,49 +178,49 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="DateTime"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
-    public static DateTime? ToDateTime(this JsonElement? elementOrNull) => elementOrNull?.ToDateTime();
+    public static DateTime? ToDateTimeOrNull(this JsonElement? elementOrNull) => elementOrNull?.ToDateTimeOrNull();
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="bool"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static DateTime? ToDateTime(this JsonElement element) => ProgramTypeUtility.ParseDateTime(element.ToString());
+    public static DateTime? ToDateTimeOrNull(this JsonElement element) => ProgramTypeUtility.ParseDateTime(element.ToString());
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="bool"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
-    public static decimal? ToDecimal(this JsonElement? elementOrNull) => elementOrNull?.ToDecimal();
+    public static decimal? ToDecimalOrNull(this JsonElement? elementOrNull) => elementOrNull?.ToDecimalOrNull();
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="Decimal"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static decimal? ToDecimal(this JsonElement element) => ProgramTypeUtility.ParseDecimal(element.ToString());
+    public static decimal? ToDecimalOrNull(this JsonElement element) => ProgramTypeUtility.ParseDecimal(element.ToString());
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="bool"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
-    public static double? ToDouble(this JsonElement? elementOrNull) => elementOrNull?.ToDouble();
+    public static double? ToDoubleOrNull(this JsonElement? elementOrNull) => elementOrNull?.ToDoubleOrNull();
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="Double"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static double? ToDouble(this JsonElement element) => ProgramTypeUtility.ParseDouble(element.ToString());
+    public static double? ToDoubleOrNull(this JsonElement element) => ProgramTypeUtility.ParseDouble(element.ToString());
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="Guid"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
-    public static Guid? ToGuid(this JsonElement? elementOrNull) => elementOrNull?.ToGuid();
+    public static Guid? ToGuidOrNull(this JsonElement? elementOrNull) => elementOrNull?.ToGuidOrNull();
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="Guid"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static Guid? ToGuid(this JsonElement element)
+    public static Guid? ToGuidOrNull(this JsonElement element)
     {
         if (element.ValueKind != JsonValueKind.String) return null;
         if (!element.TryGetGuid(out Guid value)) return null;
@@ -232,13 +232,13 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="int"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
-    public static int? ToInt(this JsonElement? elementOrNull) => elementOrNull?.ToInt();
+    public static int? ToIntOrNull(this JsonElement? elementOrNull) => elementOrNull?.ToIntOrNull();
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="int"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static int? ToInt(this JsonElement element)
+    public static int? ToIntOrNull(this JsonElement element)
     {
         if (element.ValueKind != JsonValueKind.Number) return null;
         if (!element.TryGetInt32(out int value)) return null;
@@ -267,13 +267,13 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="long"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
-    public static long? ToLong(this JsonElement? elementOrNull) => elementOrNull?.ToLong();
+    public static long? ToLongOrNull(this JsonElement? elementOrNull) => elementOrNull?.ToLongOrNull();
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="long"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static long? ToLong(this JsonElement element)
+    public static long? ToLongOrNull(this JsonElement element)
     {
         if (!element.TryGetInt64(out long value)) return null;
 
@@ -285,23 +285,25 @@ public static class JsonElementExtensions
     /// to <c>TObject</c>.
     /// </summary>
     /// <param name="elementOrNull">the specified <see cref="JsonElement"/></param>
-    /// <typeparam name="TObject">the type to convert to</typeparam>
+    /// <typeparam name="TObject">the reference type to convert to</typeparam>
     /// <remarks>
-    /// To return value types, use <see cref="ToScalarValue{T}(JsonElement?)"/>.
+    /// To clearly express the intent to return value types,
+    /// use <see cref="ToValueTypeOrNull{T}(JsonElement?)"/>.
     /// </remarks>
-    public static TObject? ToObject<TObject>(this JsonElement? elementOrNull) where TObject : class =>
-        elementOrNull?.ToObject<TObject>();
+    public static TObject? ToInstanceOrNull<TObject>(this JsonElement? elementOrNull) where TObject : class =>
+        elementOrNull?.ToInstanceOrNull<TObject>();
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement"/>
     /// to <c>TObject</c>.
     /// </summary>
     /// <param name="element">the specified <see cref="JsonElement"/></param>
-    /// <typeparam name="TObject">the type to convert to</typeparam>
+    /// <typeparam name="TObject">the reference type to convert to</typeparam>
     /// <remarks>
-    /// To return value types, use <see cref="ToScalarValue{T}(JsonElement)"/>.
+    /// To clearly express the intent to return value types,
+    /// use <see cref="ToValueTypeOrNull{T}(JsonElement)"/>.
     /// </remarks>
-    public static TObject? ToObject<TObject>(this JsonElement element) where TObject : class => 
+    public static TObject? ToInstanceOrNull<TObject>(this JsonElement element) where TObject : class => 
         element.ValueKind != JsonValueKind.Object ? null : element.Deserialize<TObject>();
 
     /// <summary>
@@ -320,7 +322,7 @@ public static class JsonElementExtensions
     {
         JsonElement[] elements = element.ToJsonElementArray();
 
-        return elements.Select(el => el.ToStringValue()).ToArray();
+        return elements.Select(el => el.ToStringOrNull()).ToArray();
     }
 
     /// <summary>
@@ -350,13 +352,13 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="short"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
-    public static short? ToShort(this JsonElement? elementOrNull) => elementOrNull?.ToShort();
+    public static short? ToShortOrNull(this JsonElement? elementOrNull) => elementOrNull?.ToShortOrNull();
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="short"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static short? ToShort(this JsonElement element)
+    public static short? ToShortOrNull(this JsonElement element)
     {
         if (!element.TryGetInt16(out short value)) return null;
 
@@ -367,13 +369,13 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="string"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
-    public static string? ToStringValue(this JsonElement? elementOrNull) => elementOrNull?.ToStringValue(); 
+    public static string? ToStringOrNull(this JsonElement? elementOrNull) => elementOrNull?.ToStringOrNull(); 
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="string"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static string? ToStringValue(this JsonElement element) =>
+    public static string? ToStringOrNull(this JsonElement element) =>
         element.ValueKind switch
         {
             JsonValueKind.True or JsonValueKind.False => element.ToString(),
@@ -387,29 +389,33 @@ public static class JsonElementExtensions
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
     /// <remarks>
-    /// To de-serialize a class, use <see cref="ToObject{TObject}(JsonElement?)"/>.
+    /// This member supports structs, including record structs.
+    ///
+    /// To clearly express the intent to return reference types,
+    /// use <see cref="ToInstanceOrNull{T}(JsonElement?)"/>.
     /// </remarks>
-    public static T? ToScalarValue<T>(this JsonElement? elementOrNull) where T : struct => elementOrNull?.ToScalarValue<T>();
+    public static T? ToValueTypeOrNull<T>(this JsonElement? elementOrNull) where T : struct => elementOrNull?.ToValueTypeOrNull<T>();
 
     /// <summary>
-    /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="string"/>.
+    /// Converts the specified <see cref="JsonElement" /> into a nullable <c>struct</c> value type.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
     /// <remarks>
     /// This member supports structs, including record structs.
     ///
-    /// To de-serialize a class, use <see cref="ToObject{TObject}(JsonElement)"/>.
+    /// To clearly express the intent to return reference types,
+    /// use <see cref="ToInstanceOrNull{T}(JsonElement)"/>.
     ///
     /// BTW: I am 98% certain that Microsoft did not design generics to be used with object boxing
     /// which kind of defeats the fundamental purpose of generics.
     /// For higher performance, use methods
-    /// like <see cref="ToBoolean(System.Text.Json.JsonElement?,bool)"/> instead.
+    /// like <see cref="ToBooleanOrNull(JsonElement?,bool)"/> instead.
     /// </remarks>
-    public static T? ToScalarValue<T>(this JsonElement element) where T : struct
+    public static T? ToValueTypeOrNull<T>(this JsonElement element) where T : struct
     {
         return Type.GetTypeCode(typeof(T)) switch
         {
-            TypeCode.Boolean => (T?)(object?)element.ToBoolean(supportBitStrings: true),
+            TypeCode.Boolean => (T?)(object?)element.ToBooleanOrNull(supportBitStrings: true),
             _ => element.Deserialize<T>()
         };
     }

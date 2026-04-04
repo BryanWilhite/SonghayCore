@@ -90,10 +90,10 @@ public class JsonElementExtensionsTests(ITestOutputHelper helper)
 
     [Theory]
     [InlineData("{ \"one\": \"uno\", \"two\": \"two\", \"three\": \"tres\" }", 3)]
-    public void ToObject_Dictionary_Test(string input, int expectedNumberOfKeys)
+    public void ToInstanceOrNull_Dictionary_Test(string input, int expectedNumberOfKeys)
     {
         using var jDoc = JsonDocument.Parse(input);
-        Dictionary<string, string>? actual = jDoc.RootElement.ToObject<Dictionary<string, string>>();
+        Dictionary<string, string>? actual = jDoc.RootElement.ToInstanceOrNull<Dictionary<string, string>>();
         Assert.NotNull(actual);
         Assert.Equal(expectedNumberOfKeys, actual.Keys.Count);
     }
@@ -120,7 +120,7 @@ public class JsonElementExtensionsTests(ITestOutputHelper helper)
         using var jDoc = JsonDocument.Parse(input);
         IReadOnlyCollection<int?> actual = jDoc.RootElement
             .GetJsonChildElementOrNull(propertyName)
-            .ToReadOnlyCollection(el => el.ToInt());
+            .ToReadOnlyCollection(el => el.ToIntOrNull());
         Assert.Equal(expectedOutput, actual);
     }
 
@@ -150,7 +150,7 @@ public class JsonElementExtensionsTests(ITestOutputHelper helper)
 
     [Theory]
     [MemberData(nameof(ShouldConvertJsonTextData))]
-    public void ToScalarValue_Test(string jsonText, object? expectedBox)
+    public void ToValueTypeOrNull_Test(string jsonText, object? expectedBox)
     {
         // arrange:
         JsonElement jE = JsonElement.Parse(jsonText);
@@ -158,18 +158,18 @@ public class JsonElementExtensionsTests(ITestOutputHelper helper)
         // act:
         object? actual = expectedBox switch
         {
-            DateTime => jE.ToScalarValue<DateTime>(),
-            Guid => jE.ToScalarValue<Guid>(),
-            double => jE.ToScalarValue<double>(),
-            decimal => jE.ToScalarValue<decimal>(),
-            short => jE.ToScalarValue<short>(),
-            long => jE.ToScalarValue<long>(),
-            int => jE.ToScalarValue<int>(),
-            byte => jE.ToScalarValue<byte>(),
-            char => jE.ToScalarValue<char>(),
-            bool => jE.ToScalarValue<bool>(),
-            string => jE.ToStringValue(), // string is not a struct 🧐
-            MyRecordStruct => jE.ToScalarValue<MyRecordStruct>(),
+            DateTime => jE.ToValueTypeOrNull<DateTime>(),
+            Guid => jE.ToValueTypeOrNull<Guid>(),
+            double => jE.ToValueTypeOrNull<double>(),
+            decimal => jE.ToValueTypeOrNull<decimal>(),
+            short => jE.ToValueTypeOrNull<short>(),
+            long => jE.ToValueTypeOrNull<long>(),
+            int => jE.ToValueTypeOrNull<int>(),
+            byte => jE.ToValueTypeOrNull<byte>(),
+            char => jE.ToValueTypeOrNull<char>(),
+            bool => jE.ToValueTypeOrNull<bool>(),
+            string => jE.ToStringOrNull(), // string is not a struct 🧐
+            MyRecordStruct => jE.ToValueTypeOrNull<MyRecordStruct>(),
 
             _ => null
         };
@@ -185,12 +185,12 @@ public class JsonElementExtensionsTests(ITestOutputHelper helper)
     [Theory]
     [InlineData("{ \"my-property\": \"2022-07-23T18:59:41.183Z\" }", "my-property", "2022-07-23T18:59:41.183Z")]
     [InlineData("{ \"my-property\": null }", "my-not-property", null)]
-    public void ToScalarValue_DateTime_Test(string input, string propertyName, string? expectedOutput)
+    public void ToValueTypeOrNull_DateTime_Test(string input, string propertyName, string? expectedOutput)
     {
         using var jDoc = JsonDocument.Parse(input);
         DateTime? actual = jDoc
             .RootElement.GetJsonChildElementOrNull(propertyName)
-            .ToScalarValue<DateTime>();
+            .ToValueTypeOrNull<DateTime>();
 
         Assert.Equal(
             string.IsNullOrWhiteSpace(expectedOutput) ?
@@ -205,12 +205,12 @@ public class JsonElementExtensionsTests(ITestOutputHelper helper)
     [InlineData("{ \"my-property\": \"1\" }", "my-property", true)]
     [InlineData("{ \"my-property\": 0 }", "my-property", null)]
     [InlineData("{ \"my-property\": 42 }", "my-not-property", null)]
-    public void ToScalarValue_Boolean_Test(string input, string propertyName, bool? expectedOutput)
+    public void ToValueTypeOrNull_Boolean_Test(string input, string propertyName, bool? expectedOutput)
     {
         using var jDoc = JsonDocument.Parse(input);
         bool? actual = jDoc
             .RootElement.GetJsonChildElementOrNull(propertyName)
-            .ToScalarValue<bool>();
+            .ToValueTypeOrNull<bool>();
 
         Assert.Equal(expectedOutput, actual);
     }
@@ -218,12 +218,12 @@ public class JsonElementExtensionsTests(ITestOutputHelper helper)
     [Theory]
     [InlineData("{ \"my-property\": 42 }", "my-property", 42)]
     [InlineData("{ \"my-property\": 42 }", "my-not-property", null)]
-    public void ToScalarValue_Int32_Test(string input, string propertyName, int? expectedOutput)
+    public void ToValueTypeOrNull_Int32_Test(string input, string propertyName, int? expectedOutput)
     {
         using var jDoc = JsonDocument.Parse(input);
         int? actual = jDoc
             .RootElement.GetJsonChildElementOrNull(propertyName)
-            .ToScalarValue<int>();
+            .ToValueTypeOrNull<int>();
 
         Assert.Equal(expectedOutput, actual);
     }
@@ -235,12 +235,12 @@ public class JsonElementExtensionsTests(ITestOutputHelper helper)
     [InlineData("{ \"my-property\": null }", "my-property", null)]
     [InlineData("{ \"my-property\": [] }", "my-property", null)]
     [InlineData("{ \"my-property\": \"two\" }", "my-other-property", null)]
-    public void ToStringValue_Test(string input, string propertyName, string? expectedOutput)
+    public void ToStringOrNull_Test(string input, string propertyName, string? expectedOutput)
     {
         using var jDoc = JsonDocument.Parse(input);
         string? actual = jDoc
             .RootElement.GetJsonChildElementOrNull(propertyName)
-            .ToStringValue();
+            .ToStringOrNull();
 
         Assert.Equal(expectedOutput, actual);
     }
