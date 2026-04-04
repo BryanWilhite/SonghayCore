@@ -2647,12 +2647,14 @@
              </summary>
              <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
              <remarks>
+             This member supports structs, including record structs.
+            
              To de-serialize a class, use <see cref="M:Songhay.Extensions.JsonElementExtensions.ToObject``1(System.Text.Json.JsonElement)"/>.
             
              BTW: I am 98% certain that Microsoft did not design generics to be used with object boxing
-             which kind of defeats the fundamental purpose of generics, their use with generic collections.
-             For higher performance, use methods like <see cref="M:Songhay.Extensions.JsonElementExtensions.ToBoolean(System.Nullable{System.Text.Json.JsonElement},System.Boolean)"/>
-             or <see cref="M:Songhay.Extensions.JsonElementExtensions.ToDecimal(System.Text.Json.JsonElement)"/> instead.
+             which kind of defeats the fundamental purpose of generics.
+             For higher performance, use methods
+             like <see cref="M:Songhay.Extensions.JsonElementExtensions.ToBoolean(System.Nullable{System.Text.Json.JsonElement},System.Boolean)"/> instead.
              </remarks>
         </member>
         <member name="T:Songhay.Extensions.JsonNodeExtensions">

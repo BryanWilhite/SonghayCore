@@ -376,8 +376,7 @@ public static class JsonElementExtensions
     public static string? ToStringValue(this JsonElement element) =>
         element.ValueKind switch
         {
-            JsonValueKind.True or
-                JsonValueKind.False => element.ToString(),
+            JsonValueKind.True or JsonValueKind.False => element.ToString(),
             JsonValueKind.Number => element.GetRawText(),
             JsonValueKind.String => element.GetString(),
             _ => null
@@ -397,12 +396,14 @@ public static class JsonElementExtensions
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
     /// <remarks>
+    /// This member supports structs, including record structs.
+    ///
     /// To de-serialize a class, use <see cref="ToObject{TObject}(JsonElement)"/>.
     ///
     /// BTW: I am 98% certain that Microsoft did not design generics to be used with object boxing
-    /// which kind of defeats the fundamental purpose of generics, their use with generic collections.
-    /// For higher performance, use methods like <see cref="ToBoolean(System.Text.Json.JsonElement?,bool)"/>
-    /// or <see cref="ToDecimal(System.Text.Json.JsonElement)"/> instead.
+    /// which kind of defeats the fundamental purpose of generics.
+    /// For higher performance, use methods
+    /// like <see cref="ToBoolean(System.Text.Json.JsonElement?,bool)"/> instead.
     /// </remarks>
     public static T? ToScalarValue<T>(this JsonElement element) where T : struct
     {

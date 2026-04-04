@@ -1,6 +1,6 @@
 namespace Songhay.Tests.Extensions;
 
-public class JsonElementExtensionsTests
+public class JsonElementExtensionsTests(ITestOutputHelper helper)
 {
     [Theory]
     [InlineData("""
@@ -173,6 +173,10 @@ public class JsonElementExtensionsTests
 
             _ => null
         };
+        helper.WriteLine($"""
+                         expected: `{expectedBox}`
+                         {nameof(actual)}: `{actual}`
+                         """);
 
         // assert:
         Assert.Equal($"{expectedBox}", $"{actual}");
