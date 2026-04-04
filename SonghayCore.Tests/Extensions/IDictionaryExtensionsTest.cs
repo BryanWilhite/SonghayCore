@@ -1,4 +1,6 @@
-﻿namespace Songhay.Tests.Extensions;
+﻿using System.Collections.Specialized;
+
+namespace Songhay.Tests.Extensions;
 
 // ReSharper disable once InconsistentNaming
 public class IDictionaryExtensionsTest(ITestOutputHelper helper)
@@ -29,7 +31,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
             { 3, "three" },
         };
 
-        var set = dictionary.ToNameValueCollection();
+        NameValueCollection set = dictionary.ToNameValueCollection();
         Assert.True(set.Count > 0, "The expected set items are not here.");
 
         /*

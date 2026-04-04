@@ -34,11 +34,11 @@ public static partial class ProgramTypeUtility
     /// </returns>
     public static bool? ParseBoolean(object? value, bool supportBitStrings)
     {
-        string? s = (value != null) ? value.ToString() : string.Empty;
+        string? s = value != null ? value.ToString() : string.Empty;
 
         if (supportBitStrings)
         {
-            switch (s?.Trim(' ', '"'))
+            switch (s?.Trim(' ', '"').ToBitString())
             {
                 case "0":
                     return false;
@@ -47,7 +47,7 @@ public static partial class ProgramTypeUtility
             }
         }
 
-        return bool.TryParse(s, out var bln) ? bln : default(bool?);
+        return bool.TryParse(s, out var bln) ? bln : null;
     }
 
     /// <summary>

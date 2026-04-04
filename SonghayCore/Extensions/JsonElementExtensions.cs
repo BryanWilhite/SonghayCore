@@ -66,8 +66,8 @@ public static class JsonElementExtensions
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
     /// <param name="elementName">The <see cref="JsonElement" /> name.</param>
-    public static JsonElement? GetJsonPropertyOrNull(this JsonElement? elementOrNull, string? elementName) =>
-        elementOrNull?.GetJsonPropertyOrNull(elementName);
+    public static JsonElement? GetJsonChildElementOrNull(this JsonElement? elementOrNull, string? elementName) =>
+        elementOrNull?.GetJsonChildElementOrNull(elementName);
 
     /// <summary>
     /// Tries to return the <see cref="JsonElement" /> property
@@ -75,7 +75,7 @@ public static class JsonElementExtensions
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
     /// <param name="elementName">The <see cref="JsonElement" /> name.</param>
-    public static JsonElement? GetJsonPropertyOrNull(this JsonElement element, string? elementName)
+    public static JsonElement? GetJsonChildElementOrNull(this JsonElement element, string? elementName)
     {
         if (element.ValueKind != JsonValueKind.Object) return null;
         if (string.IsNullOrWhiteSpace(elementName)) return null;
@@ -98,7 +98,7 @@ public static class JsonElementExtensions
     /// </summary>
     /// <param name="element">the <see cref="JsonElement"/></param>
     /// <param name="propertyName">the property name</param>
-    public static bool HasProperty(this JsonElement element, string? propertyName) => element.GetJsonPropertyOrNull(propertyName) != null;
+    public static bool HasProperty(this JsonElement element, string? propertyName) => element.GetJsonChildElementOrNull(propertyName) != null;
 
     /// <summary>
     /// Determines whether the specified <see cref="JsonElement"/>
@@ -149,14 +149,12 @@ public static class JsonElementExtensions
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
     /// <param name="supportBitStrings">When <c>true</c>, support "1" and "0" as Boolean strings.</param>
-    public static bool? ToBoolean(this JsonElement element, bool supportBitStrings)
-    {
-        if (element.ValueKind != JsonValueKind.False
-            && element.ValueKind != JsonValueKind.True
-            && element.ValueKind != JsonValueKind.String) return null;
-
-        return ProgramTypeUtility.ParseBoolean(element.ToString(), supportBitStrings);
-    }
+    public static bool? ToBoolean(this JsonElement element, bool supportBitStrings) =>
+        element.ValueKind != JsonValueKind.False
+        && element.ValueKind != JsonValueKind.True
+        && element.ValueKind != JsonValueKind.String
+            ? null
+            : ProgramTypeUtility.ParseBoolean(element.ToString(), supportBitStrings);
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="byte"/>.
@@ -303,14 +301,8 @@ public static class JsonElementExtensions
     /// <remarks>
     /// To return value types, use <see cref="ToScalarValue{T}(JsonElement)"/>.
     /// </remarks>
-    public static TObject? ToObject<TObject>(this JsonElement element) where TObject : class
-    {
-        if (element.ValueKind != JsonValueKind.Object) return null;
-
-        string json = element.GetRawText();
-
-        return JsonSerializer.Deserialize<TObject>(json);
-    }
+    public static TObject? ToObject<TObject>(this JsonElement element) where TObject : class => 
+        element.ValueKind != JsonValueKind.Object ? null : element.Deserialize<TObject>();
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> array
@@ -355,6 +347,23 @@ public static class JsonElementExtensions
     }
 
     /// <summary>
+    /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="short"/>.
+    /// </summary>
+    /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
+    public static short? ToShort(this JsonElement? elementOrNull) => elementOrNull?.ToShort();
+
+    /// <summary>
+    /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="short"/>.
+    /// </summary>
+    /// <param name="element">The <see cref="JsonElement" />.</param>
+    public static short? ToShort(this JsonElement element)
+    {
+        if (!element.TryGetInt16(out short value)) return null;
+
+        return value;
+    }
+
+    /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="string"/>.
     /// </summary>
     /// <param name="elementOrNull">The <see cref="JsonElement" />.</param>
@@ -364,17 +373,15 @@ public static class JsonElementExtensions
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="string"/>.
     /// </summary>
     /// <param name="element">The <see cref="JsonElement" />.</param>
-    public static string? ToStringValue(this JsonElement element)
-    {
-        return element.ValueKind switch
+    public static string? ToStringValue(this JsonElement element) =>
+        element.ValueKind switch
         {
             JsonValueKind.True or
-            JsonValueKind.False => element.ToString(),
+                JsonValueKind.False => element.ToString(),
             JsonValueKind.Number => element.GetRawText(),
             JsonValueKind.String => element.GetString(),
             _ => null
         };
-    }
 
     /// <summary>
     /// Converts the specified <see cref="JsonElement" /> into a nullable <see cref="string"/>.
@@ -399,28 +406,10 @@ public static class JsonElementExtensions
     /// </remarks>
     public static T? ToScalarValue<T>(this JsonElement element) where T : struct
     {
-        object? boxedScalar = element.ValueKind switch
+        return Type.GetTypeCode(typeof(T)) switch
         {
-            JsonValueKind.True or
-            JsonValueKind.False => element.ToBoolean(supportBitStrings: false),
-            JsonValueKind.Number => Type.GetTypeCode(typeof(T)) switch
-            {
-                TypeCode.Byte => element.ToByte(),
-                TypeCode.Decimal => element.ToDecimal(),
-                TypeCode.Double => element.ToDouble(),
-                TypeCode.Int32 => element.ToInt(),
-                TypeCode.Int64 => element.ToLong(),
-                _ => null
-            },
-            JsonValueKind.String => Type.GetTypeCode(typeof(T)) switch
-            {
-                TypeCode.DateTime => element.GetDateTime(),
-                TypeCode.Boolean => element.ToBoolean(supportBitStrings: true),
-                _ => null
-            },
-            _ => null
+            TypeCode.Boolean => (T?)(object?)element.ToBoolean(supportBitStrings: true),
+            _ => element.Deserialize<T>()
         };
-
-        return boxedScalar == null ? null : (T)boxedScalar;
     }
 }

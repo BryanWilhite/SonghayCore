@@ -2396,7 +2396,7 @@
             <param name="element">the <see cref="T:System.Text.Json.JsonElement"/></param>
             <param name="truncationLength">the number of characters to display for each property</param>
         </member>
-        <member name="M:Songhay.Extensions.JsonElementExtensions.GetJsonPropertyOrNull(System.Nullable{System.Text.Json.JsonElement},System.String)">
+        <member name="M:Songhay.Extensions.JsonElementExtensions.GetJsonChildElementOrNull(System.Nullable{System.Text.Json.JsonElement},System.String)">
             <summary>
             Tries to return the <see cref="T:System.Text.Json.JsonElement" /> property
             of the specified <see cref="T:System.Text.Json.JsonElement" /> object.
@@ -2404,7 +2404,7 @@
             <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
             <param name="elementName">The <see cref="T:System.Text.Json.JsonElement" /> name.</param>
         </member>
-        <member name="M:Songhay.Extensions.JsonElementExtensions.GetJsonPropertyOrNull(System.Text.Json.JsonElement,System.String)">
+        <member name="M:Songhay.Extensions.JsonElementExtensions.GetJsonChildElementOrNull(System.Text.Json.JsonElement,System.String)">
             <summary>
             Tries to return the <see cref="T:System.Text.Json.JsonElement" /> property
             of the specified <see cref="T:System.Text.Json.JsonElement" /> object.
@@ -2607,6 +2607,18 @@
             </summary>
             <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
             <param name="converter">the specified converter</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToShort(System.Nullable{System.Text.Json.JsonElement})">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Int16"/>.
+            </summary>
+            <param name="elementOrNull">The <see cref="T:System.Text.Json.JsonElement" />.</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonElementExtensions.ToShort(System.Text.Json.JsonElement)">
+            <summary>
+            Converts the specified <see cref="T:System.Text.Json.JsonElement" /> into a nullable <see cref="T:System.Int16"/>.
+            </summary>
+            <param name="element">The <see cref="T:System.Text.Json.JsonElement" />.</param>
         </member>
         <member name="M:Songhay.Extensions.JsonElementExtensions.ToStringValue(System.Nullable{System.Text.Json.JsonElement})">
             <summary>
@@ -3228,6 +3240,18 @@
             <remarks>
             📖 https://en.wikipedia.org/wiki/ASCII
             📖 https://stackoverflow.com/a/7826216/22944
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.StringExtensions.ToBitString(System.String)">
+            <summary>
+            Converts conventional Boolean magic strings
+            to either <c>"1"</c> or <c>"0"</c>.
+            </summary>
+            <param name="input">The input.</param>
+            <remarks>
+            Conventional Boolean magic strings:
+            - <c>"yes"</c> or <c>"y"</c>
+            - <c>"no"</c> or <c>"n"</c>
             </remarks>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToBlogSlug(System.String)">

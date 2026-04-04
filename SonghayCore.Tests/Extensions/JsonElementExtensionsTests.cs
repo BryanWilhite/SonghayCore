@@ -42,21 +42,21 @@ public class JsonElementExtensionsTests
     [InlineData("{ \"my-property\": \"two\" }", "my-property", "two")]
     [InlineData("{ \"my-property\": null }", "my-property", "")]
     [InlineData("{ \"my-property\": false }", "my-property", "False")]
-    public void GetJsonPropertyOrNull_Test(string input, string propertyName, string? expectedOutput)
+    public void GetJsonChildElementOrNull_Test(string input, string propertyName, string? expectedOutput)
     {
         using var jDoc = JsonDocument.Parse(input);
-        JsonElement? actual = jDoc.RootElement.GetJsonPropertyOrNull(propertyName);
+        JsonElement? actual = jDoc.RootElement.GetJsonChildElementOrNull(propertyName);
         Assert.Equal(expectedOutput, actual?.ToString());
     }
 
     [Theory]
     [InlineData("{ \"my-property\": { \"my-nested-property\": true} }", "my-property", "my-nested-property", "True")]
-    public void GetJsonPropertyOrNull_Nested_Test(string input, string propertyName, string nestedPropertyName, string? expectedOutput)
+    public void GetJsonChildElementOrNull_Nested_Test(string input, string propertyName, string nestedPropertyName, string? expectedOutput)
     {
         using var jDoc = JsonDocument.Parse(input);
         JsonElement? actual = jDoc.RootElement
-            .GetJsonPropertyOrNull(propertyName)
-            .GetJsonPropertyOrNull(nestedPropertyName);
+            .GetJsonChildElementOrNull(propertyName)
+            .GetJsonChildElementOrNull(nestedPropertyName);
         Assert.Equal(expectedOutput, actual?.ToString());
     }
 
@@ -81,7 +81,7 @@ public class JsonElementExtensionsTests
     {
         using var jDoc = JsonDocument.Parse(input);
         JsonElement[] actual = jDoc
-            .RootElement.GetJsonPropertyOrNull(propertyName)
+            .RootElement.GetJsonChildElementOrNull(propertyName)
             .ToJsonElementArray();
 
         if(isNotEmpty) Assert.NotEmpty(actual);
@@ -106,7 +106,7 @@ public class JsonElementExtensionsTests
     {
         using var jDoc = JsonDocument.Parse(input);
         IReadOnlyCollection<string?> actual = jDoc.RootElement
-            .GetJsonPropertyOrNull(propertyName)
+            .GetJsonChildElementOrNull(propertyName)
             .ToReadOnlyCollection();
         Assert.Equal(expectedOutput, actual);
     }
@@ -119,9 +119,63 @@ public class JsonElementExtensionsTests
     {
         using var jDoc = JsonDocument.Parse(input);
         IReadOnlyCollection<int?> actual = jDoc.RootElement
-            .GetJsonPropertyOrNull(propertyName)
+            .GetJsonChildElementOrNull(propertyName)
             .ToReadOnlyCollection(el => el.ToInt());
         Assert.Equal(expectedOutput, actual);
+    }
+
+    public record struct MyRecordStruct(string One, string Two);
+
+    public static readonly TheoryData<string, object?> ShouldConvertJsonTextData =
+        new()
+        {
+            { "\"hello world!\"", "hello world!" },
+            { "\"2022-07-23T18:59:41.183Z\"", DateTime.Parse("2022-07-23T18:59:41.183Z").ToUniversalTime() },
+            { "1", 1 },
+            { "\"0\"", false },
+            { "\"y\"", true },
+            { "123444000.01", 123444000.01d }, // double
+            { "123444000.01", 123444000.01m }, // decimal
+            { "2.99792458e8", 2.99792458e8 },
+            { "15000000000", 15000000000L },
+            { "255", (byte)255 },
+            { "-32768", (short)-32768 },
+            { "\"5\"", '5' },
+            { "true", true },
+            { "false", false },
+            { "\"00000000-0000-0000-0000-000000000000\"", new Guid("00000000-0000-0000-0000-000000000000") },
+            { """{ "One": "uno", "Two": "dos" }""", new MyRecordStruct("uno", "dos")},
+            { "null", null }
+        };
+
+    [Theory]
+    [MemberData(nameof(ShouldConvertJsonTextData))]
+    public void ToScalarValue_Test(string jsonText, object? expectedBox)
+    {
+        // arrange:
+        JsonElement jE = JsonElement.Parse(jsonText);
+
+        // act:
+        object? actual = expectedBox switch
+        {
+            DateTime => jE.ToScalarValue<DateTime>(),
+            Guid => jE.ToScalarValue<Guid>(),
+            double => jE.ToScalarValue<double>(),
+            decimal => jE.ToScalarValue<decimal>(),
+            short => jE.ToScalarValue<short>(),
+            long => jE.ToScalarValue<long>(),
+            int => jE.ToScalarValue<int>(),
+            byte => jE.ToScalarValue<byte>(),
+            char => jE.ToScalarValue<char>(),
+            bool => jE.ToScalarValue<bool>(),
+            string => jE.ToStringValue(), // string is not a struct 🧐
+            MyRecordStruct => jE.ToScalarValue<MyRecordStruct>(),
+
+            _ => null
+        };
+
+        // assert:
+        Assert.Equal($"{expectedBox}", $"{actual}");
     }
 
     [Theory]
@@ -131,7 +185,7 @@ public class JsonElementExtensionsTests
     {
         using var jDoc = JsonDocument.Parse(input);
         DateTime? actual = jDoc
-            .RootElement.GetJsonPropertyOrNull(propertyName)
+            .RootElement.GetJsonChildElementOrNull(propertyName)
             .ToScalarValue<DateTime>();
 
         Assert.Equal(
@@ -151,7 +205,7 @@ public class JsonElementExtensionsTests
     {
         using var jDoc = JsonDocument.Parse(input);
         bool? actual = jDoc
-            .RootElement.GetJsonPropertyOrNull(propertyName)
+            .RootElement.GetJsonChildElementOrNull(propertyName)
             .ToScalarValue<bool>();
 
         Assert.Equal(expectedOutput, actual);
@@ -164,7 +218,7 @@ public class JsonElementExtensionsTests
     {
         using var jDoc = JsonDocument.Parse(input);
         int? actual = jDoc
-            .RootElement.GetJsonPropertyOrNull(propertyName)
+            .RootElement.GetJsonChildElementOrNull(propertyName)
             .ToScalarValue<int>();
 
         Assert.Equal(expectedOutput, actual);
@@ -181,7 +235,7 @@ public class JsonElementExtensionsTests
     {
         using var jDoc = JsonDocument.Parse(input);
         string? actual = jDoc
-            .RootElement.GetJsonPropertyOrNull(propertyName)
+            .RootElement.GetJsonChildElementOrNull(propertyName)
             .ToStringValue();
 
         Assert.Equal(expectedOutput, actual);

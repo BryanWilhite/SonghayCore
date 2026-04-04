@@ -64,6 +64,26 @@ public static partial class StringExtensions
     }
 
     /// <summary>
+    /// Converts conventional Boolean magic strings
+    /// to either <c>"1"</c> or <c>"0"</c>.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    /// <remarks>
+    /// Conventional Boolean magic strings:
+    /// - <c>"yes"</c> or <c>"y"</c>
+    /// - <c>"no"</c> or <c>"n"</c>
+    /// </remarks>
+    public static string? ToBitString(this string? input)
+    {
+        return input?.ToLowerInvariant() switch
+        {
+            "yes" or "y" or "1" => "1",
+            "no" or "n" or "0" => "0",
+            _ => null
+        };
+    }
+
+    /// <summary>
     /// Converts the <see cref="String"/> into a blog slug.
     /// </summary>
     /// <param name="input">The input.</param>

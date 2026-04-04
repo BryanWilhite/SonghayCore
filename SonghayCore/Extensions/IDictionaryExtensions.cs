@@ -16,11 +16,13 @@ public static class IDictionaryExtensions
     /// <remarks>
     /// For detail, see https://stackoverflow.com/a/7230446/22944
     /// </remarks>
-    public static NameValueCollection ToNameValueCollection<TKey, TValue>(this IDictionary<TKey, TValue?> dictionary)
+    public static NameValueCollection ToNameValueCollection<TKey, TValue>(this IDictionary<TKey, TValue>? dictionary)
     {
+        if (dictionary == null) return [];
+
         NameValueCollection nameValueCollection = [];
 
-        foreach (KeyValuePair<TKey, TValue?> kvp in dictionary)
+        foreach (KeyValuePair<TKey, TValue> kvp in dictionary)
         {
             string key = $"{kvp.Key}";
             string? value = (kvp.Value != null) ? $"{kvp.Value}" : null;
