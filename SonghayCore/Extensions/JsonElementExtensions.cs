@@ -411,12 +411,10 @@ public static class JsonElementExtensions
     /// For higher performance, use methods
     /// like <see cref="ToBooleanOrNull(JsonElement?,bool)"/> instead.
     /// </remarks>
-    public static T? ToValueTypeOrNull<T>(this JsonElement element) where T : struct
-    {
-        return Type.GetTypeCode(typeof(T)) switch
+    public static T? ToValueTypeOrNull<T>(this JsonElement element) where T : struct =>
+        Type.GetTypeCode(typeof(T)) switch
         {
             TypeCode.Boolean => (T?)(object?)element.ToBooleanOrNull(supportBitStrings: true),
             _ => element.Deserialize<T>()
         };
-    }
 }
