@@ -37,7 +37,7 @@ public static partial class XmlUtility
     /// </remarks>
     public static T? GetInstance<T>(string? xmlPath) where T : class
     {
-        if (typeof(T).IsAssignableFrom(typeof(XPathDocument)))
+        if (typeof(T).IsAssignableFrom(typeof(IXPathNavigable)))
         {
             return null;
         }
@@ -66,7 +66,7 @@ public static partial class XmlUtility
     /// </remarks>
     public static T? GetInstanceRaw<T>(string? xmlFragment) where T : class
     {
-        if (typeof(T).IsAssignableFrom(typeof(XPathDocument)))
+        if (typeof(T).IsAssignableFrom(typeof(IXPathNavigable)))
         {
             return null;
         }

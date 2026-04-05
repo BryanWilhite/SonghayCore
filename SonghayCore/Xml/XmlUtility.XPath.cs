@@ -332,69 +332,44 @@ public static partial class XmlUtility
     public static object? GetNodeValueAndParse<T>(IXPathNavigable? node, string? nodeQuery, bool throwException,
         T? defaultValue, XmlNamespaceManager? nsMan)
     {
-        object? p = GetNodeValue(node, nodeQuery, throwException, nsMan);
+        XPathNavigator? navigator = GetNavigableNode(node, nodeQuery, nsMan);
+        if (throwException && navigator == null) throw new NullReferenceException("The expected is not here.");
+
+        if (navigator == null || string.IsNullOrWhiteSpace(navigator.ToString().Trim()))
+        {
+            return defaultValue;
+        }
 
         try
         {
             T? stronglyOfT = default(T);
 
-            if (p == null || string.IsNullOrWhiteSpace(p.ToString()?.Trim()))
+            switch (stronglyOfT)
             {
-                p = defaultValue;
-            }
-            else
-                switch (stronglyOfT)
+                case DateTime: return ProgramTypeUtility.ParseDateTime(navigator.Value);
+                case decimal: return ProgramTypeUtility.ParseDecimal(navigator.Value);
+                case double: return ProgramTypeUtility.ParseDouble(navigator.Value);
+                case long: return ProgramTypeUtility.ParseInt64(navigator.Value);
+                case int: return ProgramTypeUtility.ParseInt32(navigator.Value);
+                case short: return ProgramTypeUtility.ParseInt16(navigator.Value);
+                case byte: return ProgramTypeUtility.ParseByte(navigator.Value);
+                case bool: return ProgramTypeUtility.ParseBoolean(navigator.Value);
+                case string: return navigator.Value;
+                default:
                 {
-                    case bool:
-                        p = bool.Parse(p.ToString() ?? string.Empty);
-                        break;
-                    case byte:
-                        p = byte.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                        break;
-                    case DateTime:
-                        p = DateTime.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                        break;
-                    case decimal:
-                        p = decimal.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                        break;
-                    case double:
-                        p = double.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                        break;
-                    case short:
-                        p = short.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                        break;
-                    case int:
-                        p = int.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                        break;
-                    case long:
-                        p = long.Parse(p.ToString() ?? string.Empty, CultureInfo.CurrentCulture);
-                        break;
-                    default:
-                    {
-                        if (typeof(T).IsAssignableFrom(typeof(string)))
-                        {
-                            p = p.ToString();
-                        }
-                        else
-                        {
-                            Type t = typeof(T);
-                            throw new ArgumentException(string.Format(CultureInfo.CurrentCulture,
-                                "The specified type, “{0},” is not supported.", t.FullName));
-                        }
+                    Type t = typeof(T);
 
-                        break;
-                    }
+                    throw new NotSupportedException($"The specified type, `{t.FullName},` is not supported.");
                 }
+            }
         }
         catch (Exception ex)
         {
             Type t = typeof(T);
-            string errMsg =
-                $"Parse for “{t.FullName}” fails for element in “{nodeQuery}.” Value to parse: “{((p == null) ? "Null" : p.ToString())}.” Default Message: “{ex.Message}.”";
+            string errMsg = $"Parse for `{t.FullName}` fails for element in `{nodeQuery}.` Value to parse: “{navigator}.” Default Message: “{ex.Message}.”";
+
             throw new XmlException(errMsg);
         }
-
-        return p;
     }
 
     /// <summary>
@@ -412,25 +387,22 @@ public static partial class XmlUtility
         Justification = "Specific functionality provided by the concrete type may be required.")]
     public static XPathDocument? InputAs<TIn>(TIn? input) where TIn: class
     {
-        if (input == null) return null;
-
-        if (typeof(TIn).IsAssignableFrom(typeof(XmlDocument)))
+        switch (input)
         {
-            return GetNavigableDocument(input as XmlDocument);
+            case null:
+                return null;
+            case XmlDocument xmlDocument:
+                return GetNavigableDocument(xmlDocument);
+            case XPathDocument xPathDocument:
+                return xPathDocument;
         }
 
-        if (typeof(TIn).IsAssignableFrom(typeof(XPathDocument)))
-        {
-            return input as XPathDocument;
-        }
+        if (input is not string s) return null;
 
-        if (!typeof(TIn).IsAssignableFrom(typeof(string))) return null;
+        s = HtmlUtility.ConvertToXml(s) ?? string.Empty;
+        s = LatinGlyphsUtility.Condense(s, basicLatinOnly: false) ?? string.Empty;
 
-        string? s = input as string;
-        s = HtmlUtility.ConvertToXml(s);
-        s = LatinGlyphsUtility.Condense(s, basicLatinOnly: false);
-
-        return GetNavigableDocument(s);
+        return string.IsNullOrWhiteSpace(s) ? null : GetNavigableDocument(s);
     }
 
     /// <summary>
