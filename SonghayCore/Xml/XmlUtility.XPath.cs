@@ -385,6 +385,7 @@ public static partial class XmlUtility
     /// </remarks>
     [SuppressMessage("Microsoft.Design", "CA1059:MembersShouldNotExposeCertainConcreteTypes",
         Justification = "Specific functionality provided by the concrete type may be required.")]
+    [Obsolete("Use `ToOuterXmlString` and/or `ToXmlDocument` in `IXPathNavigableExtensions` with perhaps `XmlUtility.GetNavigableDocument` instead.")]
     public static XPathDocument? InputAs<TIn>(TIn? input) where TIn: class
     {
         switch (input)
@@ -502,6 +503,7 @@ public static partial class XmlUtility
     /// This member only supports <c>TIn</c> as
     /// <see cref="string"/>, <see cref="XmlDocument"/> or <see cref="XPathDocument"/>.
     /// </remarks>
+    [Obsolete("Use `ToOuterXmlString` and/or `ToXmlDocument` in `IXPathNavigableExtensions` with perhaps `XmlUtility.GetNavigableDocument` instead.")]
     public static TOut? OutputAs<TOut>(string xmlFragment) where TOut : class
     {
         if (typeof(TOut).IsAssignableFrom(typeof(string)))
@@ -525,6 +527,7 @@ public static partial class XmlUtility
     /// <see cref="string"/>, <see cref="XmlDocument"/> or <see cref="XPathDocument"/>.
     /// </remarks>
     [SuppressMessage("ReSharper", "PreferConcreteValueOverDefault")]
+    [Obsolete("Use `ToOuterXmlString` and/or `ToXmlDocument` in `IXPathNavigableExtensions` with perhaps `XmlUtility.GetNavigableDocument` instead.")]
     public static TOut? OutputAs<TOut>(IXPathNavigable? navigableDocument) where TOut : class
     {
         if (navigableDocument == null) return null;
