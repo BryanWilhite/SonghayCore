@@ -52,6 +52,30 @@ public static class IDictionaryExtensions
     }
 
     /// <summary>
+    /// Converts the specified dictionary
+    /// into a <see cref="Uri.Query"/> string.
+    /// </summary>
+    /// <typeparam name="TKey">The type of the key.</typeparam>
+    /// <typeparam name="TValue">The type of the value.</typeparam>
+    /// <param name="dictionary">the <see cref="IDictionary{TKey, TValue}"/></param>
+    /// <remarks>
+    /// No URI encoding logic is used by this method.
+    /// </remarks>
+    public static string ToUriQueryString<TKey, TValue>(this IDictionary<TKey, TValue?>? dictionary)
+    {
+        if (dictionary == null || dictionary.Count == 0) return string.Empty;
+
+        string[] queryData =
+            [
+                ..
+
+                dictionary.Select(kvp => $"{kvp.Key}={kvp.Value?.ToString() ?? "MISSING"}")
+            ];
+
+        return string.Concat("?", string.Join('&', queryData));
+    }
+
+    /// <summary>
     /// Tries to get value with the specified key.
     /// </summary>
     /// <typeparam name="TKey">The type of the key.</typeparam>

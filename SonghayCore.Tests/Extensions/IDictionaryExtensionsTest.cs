@@ -134,6 +134,67 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
         );
     }
 
+    public static readonly TheoryData<Dictionary<string, int?>?, string> ToUriQueryString_dictionary_string_int_TestData =
+        new()
+        {
+            {
+                new Dictionary<string, int?>
+                {
+                    { "one", null },
+                    { "two", 2 },
+                },
+                "?one=MISSING&two=2"
+            },
+            {
+                new Dictionary<string, int?>(),
+                string.Empty
+            },
+            {
+                null,
+                string.Empty
+            },
+        };
+
+    [Theory]
+    [MemberData(nameof(ToUriQueryString_dictionary_string_int_TestData))]
+    public void ToUriQueryString_dictionary_string_int_Test(Dictionary<string, int?>? input, string expected)
+    {
+        // act:
+        string actual = input.ToUriQueryString();
+
+        helper.WriteLine($"{nameof(actual)}: `{actual}`");
+
+        // assert:
+        Assert.Equal(expected, actual);
+    }
+
+    // ReSharper disable once InconsistentNaming
+    public static readonly TheoryData<Dictionary<string, string?>?, string> ToUriQueryString_dictionary_string_string_TestData =
+        new()
+        {
+            {
+                new Dictionary<string, string?>
+                {
+                    { "one", "uno" },
+                    { "two", "this one needs to be encoded" },
+                },
+                "?one=uno&two=this one needs to be encoded"
+            }
+        };
+
+    [Theory]
+    [MemberData(nameof(ToUriQueryString_dictionary_string_string_TestData))]
+    public void ToUriQueryString_dictionary_string_string_Test(Dictionary<string, string?>? input, string expected)
+    {
+        // act:
+        string actual = input.ToUriQueryString();
+
+        helper.WriteLine($"{nameof(actual)}: `{actual}`");
+
+        // assert:
+        Assert.Equal(expected, actual);
+    }
+
     [Fact]
     public void UnionAsDictionary_Test()
     {
