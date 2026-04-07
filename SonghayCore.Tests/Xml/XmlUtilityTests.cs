@@ -58,7 +58,8 @@ public class XmlUtilityTests(ITestOutputHelper helper)
     public void GetInstance_Test(FileInfo opmlInfo)
     {
         // act:
-        OpmlDocument? actual = XmlUtility.GetInstance<OpmlDocument>(opmlInfo.FullName);
+        ILogger logger = _loggerProvider.CreateLogger(nameof(GetInstance_Test));
+        OpmlDocument? actual = XmlUtility.GetInstance<OpmlDocument>(opmlInfo.FullName, logger);
 
         helper.WriteLine($"{actual}");
 
@@ -70,7 +71,8 @@ public class XmlUtilityTests(ITestOutputHelper helper)
     public void GetInstanceRaw_Dictionary_Failure_Test()
     {
         // act:
-        Dictionary<string, string>? actual = XmlUtility.GetInstanceRaw<Dictionary<string, string>>("<not.a.dictionary />");
+        ILogger logger = _loggerProvider.CreateLogger(nameof(GetInstanceRaw_Dictionary_Failure_Test));
+        Dictionary<string, string>? actual = XmlUtility.GetInstanceRaw<Dictionary<string, string>>("<not.a.dictionary />", logger);
 
         // assert:
         Assert.Null(actual);
@@ -94,7 +96,8 @@ public class XmlUtilityTests(ITestOutputHelper helper)
     public void GetInstanceRaw_XPathDocument_Test()
     {
         // act:
-        XPathDocument? actual = XmlUtility.GetInstanceRaw<XPathDocument>(Xml);
+        ILogger logger = _loggerProvider.CreateLogger(nameof(GetInstanceRaw_XPathDocument_Test));
+        XPathDocument? actual = XmlUtility.GetInstanceRaw<XPathDocument>(Xml, logger);
 
         // assert:
         Assert.Null(actual);
@@ -297,7 +300,8 @@ public class XmlUtilityTests(ITestOutputHelper helper)
     public void InputAs_XmlDocument_Test()
     {
         // arrange:
-        XmlDocument? document = XmlUtility.GetInstanceRaw<XmlDocument>(Xml);
+        ILogger logger = _loggerProvider.CreateLogger(nameof(InputAs_XmlDocument_Test));
+        XmlDocument? document = XmlUtility.GetInstanceRaw<XmlDocument>(Xml, logger);
 
         // act:
         XPathDocument? actual = XmlUtility.InputAs(document);
@@ -484,4 +488,6 @@ public class XmlUtilityTests(ITestOutputHelper helper)
 
         Assert.Equal(expected, actual);
     }
+
+    private readonly XUnitLoggerProvider _loggerProvider = new(helper);
 }

@@ -148,7 +148,8 @@ public static partial class StringExtensions
     /// The specified type to deserialize.
     /// </typeparam>
     /// <param name="input">The input.</param>
-    public static T? ToInstanceFromXml<T>(this string? input) where T : class => XmlUtility.GetInstanceRaw<T>(input);
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    public static T? ToInstanceFromXml<T>(this string? input, ILogger logger) where T : class => XmlUtility.GetInstanceRaw<T>(input, logger);
 
     /// <summary>
     /// Prepares a string to be converted to <c>int</c>.

@@ -3,12 +3,6 @@
 /// <summary>
 /// Static helper members for XML-related routines.
 /// </summary>
-/// <remarks>
-/// These definitions are biased toward
-/// emitting <see cref="XPathDocument"/> documents.
-/// However, many accept any input implementing the
-/// <see cref="IXPathNavigable"/> interface.
-/// </remarks>
 public static partial class XmlUtility
 {
     /// <summary>
@@ -30,24 +24,24 @@ public static partial class XmlUtility
     /// The specified type to deserialize.
     /// </typeparam>
     /// <param name="xmlPath">The XML file path.</param>
-    /// <remarks>
-    /// This member does not support <see cref="XPathDocument"/>
-    /// and will return <c>null</c> when the type parameter is set
-    /// to <see cref="XPathDocument"/>.
-    /// </remarks>
-    public static T? GetInstance<T>(string? xmlPath) where T : class
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    public static T? GetInstance<T>(string? xmlPath, ILogger logger) where T : class
     {
-        if (typeof(T).IsAssignableFrom(typeof(IXPathNavigable)))
+        if(string.IsNullOrWhiteSpace(xmlPath)) return null;
+
+        T? instance = null;
+
+        try
         {
-            return null;
+            XmlSerializer serializer = new(typeof(T));
+
+            using XmlReader reader = XmlReader.Create(xmlPath);
+            instance = serializer.Deserialize(reader) as T;
         }
-
-        xmlPath.ThrowWhenNullOrWhiteSpace();
-
-        XmlSerializer serializer = new(typeof(T));
-
-        using XmlReader reader = XmlReader.Create(xmlPath);
-        T? instance = serializer.Deserialize(reader) as T;
+        catch (Exception ex)
+        {
+            logger.LogException(ex);
+        }
 
         return instance;
     }
@@ -59,24 +53,24 @@ public static partial class XmlUtility
     /// The specified type to deserialize.
     /// </typeparam>
     /// <param name="xmlFragment">The raw XML.</param>
-    /// <remarks>
-    /// This member does not support <see cref="XPathDocument"/>
-    /// and will return <c>null</c> when the type parameter is set
-    /// to <see cref="XPathDocument"/>.
-    /// </remarks>
-    public static T? GetInstanceRaw<T>(string? xmlFragment) where T : class
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    public static T? GetInstanceRaw<T>(string? xmlFragment, ILogger logger) where T : class
     {
-        if (typeof(T).IsAssignableFrom(typeof(IXPathNavigable)))
-        {
-            return null;
-        }
-
         if(!IsXml(xmlFragment)) return null;
 
-        XmlSerializer serializer = new XmlSerializer(typeof(T));
+        T? instance = null;
 
-        using StringReader reader = new StringReader(xmlFragment);
-        T? instance = serializer.Deserialize(reader) as T;
+        try
+        {
+            XmlSerializer serializer = new (typeof(T));
+
+            using StringReader reader = new (xmlFragment);
+            instance = serializer.Deserialize(reader) as T;
+        }
+        catch (Exception ex)
+        {
+            logger.LogException(ex);
+        }
 
         return instance;
     }
@@ -200,6 +194,14 @@ public static partial class XmlUtility
     }
 
     /// <summary>
+    /// Transforms selected HTML entities
+    /// into their respective glyphs.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    /// <seealso cref="LatinGlyphsUtility.Condense"/>
+    public static string? XmlDecode(string? value) => string.IsNullOrWhiteSpace(value) ? value : ConventionalHtmlEntities.Aggregate(value, (current, pair) => current.Replace(pair.Key, pair.Value));
+
+    /// <summary>
     /// Transforms selected XML glyphs
     /// into their respective HTML entities.
     /// </summary>
@@ -219,12 +221,4 @@ public static partial class XmlUtility
 
         return value;
     }
-
-    /// <summary>
-    /// Transforms selected HTML entities
-    /// into their respective glyphs.
-    /// </summary>
-    /// <param name="value">The value.</param>
-    /// <seealso cref="LatinGlyphsUtility.Condense"/>
-    public static string? XmlDecode(string? value) => string.IsNullOrWhiteSpace(value) ? value : ConventionalHtmlEntities.Aggregate(value, (current, pair) => current.Replace(pair.Key, pair.Value));
 }

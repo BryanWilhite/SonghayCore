@@ -3319,7 +3319,7 @@
             </summary>
             <param name="input">The input.</param>
         </member>
-        <member name="M:Songhay.Extensions.StringExtensions.ToInstanceFromXml``1(System.String)">
+        <member name="M:Songhay.Extensions.StringExtensions.ToInstanceFromXml``1(System.String,Microsoft.Extensions.Logging.ILogger)">
             <summary>
             Deserializes to a class instance based on the specified raw XML.
             </summary>
@@ -3327,6 +3327,7 @@
             The specified type to deserialize.
             </typeparam>
             <param name="input">The input.</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="M:Songhay.Extensions.StringExtensions.ToIntString(System.String)">
             <summary>
@@ -8773,12 +8774,6 @@
             <summary>
             Static helper members for XML-related routines.
             </summary>
-            <remarks>
-            These definitions are biased toward
-            emitting <see cref="T:System.Xml.XPath.XPathDocument"/> documents.
-            However, many accept any input implementing the
-            <see cref="T:System.Xml.XPath.IXPathNavigable"/> interface.
-            </remarks>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.GetInternalMessage(System.String)">
             <summary>
@@ -9555,7 +9550,7 @@
             The conventional HTML entities mapped to their respective glyphs.
             </summary>
         </member>
-        <member name="M:Songhay.Xml.XmlUtility.GetInstance``1(System.String)">
+        <member name="M:Songhay.Xml.XmlUtility.GetInstance``1(System.String,Microsoft.Extensions.Logging.ILogger)">
             <summary>
             Deserializes to a class instance based on the specified XML file.
             </summary>
@@ -9563,13 +9558,9 @@
             The specified type to deserialize.
             </typeparam>
             <param name="xmlPath">The XML file path.</param>
-            <remarks>
-            This member does not support <see cref="T:System.Xml.XPath.XPathDocument"/>
-            and will return <c>null</c> when the type parameter is set
-            to <see cref="T:System.Xml.XPath.XPathDocument"/>.
-            </remarks>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
-        <member name="M:Songhay.Xml.XmlUtility.GetInstanceRaw``1(System.String)">
+        <member name="M:Songhay.Xml.XmlUtility.GetInstanceRaw``1(System.String,Microsoft.Extensions.Logging.ILogger)">
             <summary>
             Deserializes to a class instance based on the specified raw XML.
             </summary>
@@ -9577,11 +9568,7 @@
             The specified type to deserialize.
             </typeparam>
             <param name="xmlFragment">The raw XML.</param>
-            <remarks>
-            This member does not support <see cref="T:System.Xml.XPath.XPathDocument"/>
-            and will return <c>null</c> when the type parameter is set
-            to <see cref="T:System.Xml.XPath.XPathDocument"/>.
-            </remarks>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="M:Songhay.Xml.XmlUtility.IsXml(System.String)">
             <summary>
@@ -9637,6 +9624,14 @@
             <param name="readerSource">The <see cref="T:System.Xml.XmlReader"/>.</param>
             <param name="writerDestination">The <see cref="T:System.Xml.XmlWriter"/>.</param>
         </member>
+        <member name="M:Songhay.Xml.XmlUtility.XmlDecode(System.String)">
+            <summary>
+            Transforms selected HTML entities
+            into their respective glyphs.
+            </summary>
+            <param name="value">The value.</param>
+            <seealso cref="M:Songhay.Xml.LatinGlyphsUtility.Condense(System.String,System.Boolean)"/>
+        </member>
         <member name="M:Songhay.Xml.XmlUtility.XmlEncode(System.String)">
             <summary>
             Transforms selected XML glyphs
@@ -9645,14 +9640,6 @@
             <param name="value">The value.</param>
             <seealso cref="M:Songhay.Xml.LatinGlyphsUtility.Expand(System.String,System.Boolean)"/>
             <remarks>This member will preserve HTML comments.</remarks>
-        </member>
-        <member name="M:Songhay.Xml.XmlUtility.XmlDecode(System.String)">
-            <summary>
-            Transforms selected HTML entities
-            into their respective glyphs.
-            </summary>
-            <param name="value">The value.</param>
-            <seealso cref="M:Songhay.Xml.LatinGlyphsUtility.Condense(System.String,System.Boolean)"/>
         </member>
         <member name="T:Songhay.Xml.XObjectUtility">
             <summary>
