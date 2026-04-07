@@ -16,8 +16,8 @@ public static partial class StringExtensions
     {
         if (string.IsNullOrWhiteSpace(source)) return null;
 
-        List<string> splitString = new();
-        List<int> slashesToRemove = new();
+        List<string> splitString = [];
+        List<int> slashesToRemove = [];
         State state = State.AtBeginningOfToken;
         char[] sourceCharArray = source.ToCharArray();
         int tokenStart = 0;
@@ -30,13 +30,13 @@ public static partial class StringExtensions
                     if (sourceCharArray[i] == '"')
                     {
                         state = State.InQuotedToken;
-                        slashesToRemove = new List<int>();
+                        slashesToRemove = [];
                         continue;
                     }
 
                     if (sourceCharArray[i] == ',')
                     {
-                        splitString.Add("");
+                        splitString.Add(string.Empty);
                         tokenStart = i + 1;
                         continue;
                     }
@@ -115,7 +115,7 @@ public static partial class StringExtensions
         throw new CsvParseException("Unexpected error");
     }
 
-    enum State
+    private enum State
     {
         AtBeginningOfToken,
         InNonQuotedToken,

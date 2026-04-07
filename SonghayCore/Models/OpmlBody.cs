@@ -14,5 +14,22 @@ public class OpmlBody
     [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays",
         Justification = "Used for XML serialization.")]
     [JsonPropertyName("outline")]
-    public OpmlOutline[] Outlines { get; set; } = Enumerable.Empty<OpmlOutline>().ToArray();
+    public OpmlOutline[] Outlines { get; set; } = [];
+
+    /// <summary>
+    /// Converts the value of this instance to a <see cref="string"/>.
+    /// </summary>
+    public override string ToString()
+    {
+        StringBuilder sb = new();
+
+        sb.AppendLine($", {nameof(Outlines)}: {Outlines.Length}");
+
+        foreach (OpmlOutline outline in Outlines)
+        {
+            sb.AppendLine($"{outline}");
+        }
+
+        return sb.ToString();
+    }
 }

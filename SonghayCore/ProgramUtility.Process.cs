@@ -21,7 +21,8 @@ public static partial class ProgramUtility
         else
         {
             //Look for file and arg’s:
-            MatchCollection matches = Regex.Matches(command, @"""[^""]+""|\s+.+");
+            MatchCollection matches = RegexUtility.MatchCommandLineArgumentInQuotesFollowedByOtherArguments().Matches(command);
+
             if (matches.Count > 0)
             {
                 if (File.Exists(matches[0].Value))

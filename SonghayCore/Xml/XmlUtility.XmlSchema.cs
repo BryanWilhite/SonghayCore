@@ -24,7 +24,7 @@ public static partial class XmlUtility
         if (navigator == null) throw new NullReferenceException("The expected XPath Navigator is not here.");
 
         using StringReader s = new StringReader(navigator.OuterXml);
-        var schema = XmlSchema.Read(s, eventHandler);
+        XmlSchema? schema = XmlSchema.Read(s, eventHandler);
 
         return schema;
     }
@@ -49,7 +49,7 @@ public static partial class XmlUtility
         ArgumentNullException.ThrowIfNull(eventHandler);
 
         using XmlTextReader x = new XmlTextReader(pathToSchema);
-        var schema = XmlSchema.Read(x, eventHandler);
+        XmlSchema? schema = XmlSchema.Read(x, eventHandler);
 
         return schema;
     }
@@ -83,7 +83,7 @@ public static partial class XmlUtility
         XPathNavigator? navigator = navigable.CreateNavigator();
         if (navigator == null) throw new NullReferenceException("The expected XPath Navigator is not here.");
 
-        using var s = new StringReader(navigator.OuterXml);
+        using StringReader s = new StringReader(navigator.OuterXml);
 
         XmlReader.Create(s, settings);
     }

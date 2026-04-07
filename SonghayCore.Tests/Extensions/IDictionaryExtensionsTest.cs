@@ -1,4 +1,6 @@
-﻿namespace Songhay.Tests.Extensions;
+﻿using System.Collections.Specialized;
+
+namespace Songhay.Tests.Extensions;
 
 // ReSharper disable once InconsistentNaming
 public class IDictionaryExtensionsTest(ITestOutputHelper helper)
@@ -29,7 +31,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
             { 3, "three" },
         };
 
-        var set = dictionary.ToNameValueCollection();
+        NameValueCollection set = dictionary.ToNameValueCollection();
         Assert.True(set.Count > 0, "The expected set items are not here.");
 
         /*
@@ -87,7 +89,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
             };
 
             var actual = dictionary.TryGetValueWithKey(4);
-            Assert.Equal(default, actual);
+            Assert.Null(actual);
         }
 
         void TestValue()
@@ -103,7 +105,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
             };
 
             var actual = dictionary.TryGetValueWithKey("four");
-            Assert.Equal(default(int), actual);
+            Assert.Equal(0, actual);
         }
 
         #endregion
@@ -123,7 +125,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
             ["three"] = 3,
         };
 
-        var actual = dictionary.ToShallowClone();
+        IDictionary<string, int> actual = dictionary.ToShallowClone();
 
         Assert.Equal(dictionary.Sum(pair => pair.Value), actual.Sum(pair => pair.Value));
         Assert.Equal(
@@ -132,11 +134,98 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
         );
     }
 
+    public static readonly TheoryData<Dictionary<string, int?>?, string> ToUriQueryString_dictionary_string_int_TestData =
+        new()
+        {
+            {
+                new Dictionary<string, int?>
+                {
+                    { "one", null },
+                    { "two", 2 },
+                },
+                "?one=MISSING&two=2"
+            },
+            {
+                new Dictionary<string, int?>(),
+                string.Empty
+            },
+            {
+                null,
+                string.Empty
+            },
+        };
+
+    [Theory]
+    [MemberData(nameof(ToUriQueryString_dictionary_string_int_TestData))]
+    public void ToUriQueryString_dictionary_string_int_Test(Dictionary<string, int?>? input, string expected)
+    {
+        // act:
+        string actual = input.ToUriQueryString();
+
+        helper.WriteLine($"{nameof(actual)}: `{actual}`");
+
+        // assert:
+        Assert.Equal(expected, actual);
+    }
+
+    // ReSharper disable once InconsistentNaming
+    public static readonly TheoryData<Dictionary<string, string?>?, string> ToUriQueryString_dictionary_string_string_TestData =
+        new()
+        {
+            {
+                new Dictionary<string, string?>
+                {
+                    { "one", "uno" },
+                    { "two", "this one needs to be encoded" },
+                },
+                "?one=uno&two=this one needs to be encoded"
+            }
+        };
+
+    [Theory]
+    [MemberData(nameof(ToUriQueryString_dictionary_string_string_TestData))]
+    public void ToUriQueryString_dictionary_string_string_Test(Dictionary<string, string?>? input, string expected)
+    {
+        // act:
+        string actual = input.ToUriQueryString();
+
+        helper.WriteLine($"{nameof(actual)}: `{actual}`");
+
+        // assert:
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void UnionAsDictionary_Test()
+    {
+        var dictionary1 = new Dictionary<string, int>
+        {
+            ["one"] = 1,
+            ["two"] = 2,
+            ["three"] = 3,
+        };
+
+        var dictionary2 = new Dictionary<string, int>
+        {
+            ["three"] = 36,
+            ["four"] = 4,
+            ["five"] = 5,
+        };
+
+        IDictionary<string, int>? actual = dictionary1.UnionAsDictionary(dictionary2);
+
+        Assert.NotNull(actual);
+        Assert.Equal(5, actual.Count);
+
+        helper.WriteLine($"{actual["three"]}");
+    }
+
     [Fact]
     public void WithPair_Test()
     {
         var dictionary = new Dictionary<string, int>().WithPair("one", 1);
 
+        Assert.NotNull(dictionary);
         Assert.NotEmpty(dictionary);
         Assert.Equal("one", dictionary.First().Key);
         Assert.Equal(1, dictionary.First().Value);
@@ -152,6 +241,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
     {
         var dictionary = new Dictionary<string, int>().WithPair(new KeyValuePair<string, int>("one", 1));
 
+        Assert.NotNull(dictionary);
         Assert.NotEmpty(dictionary);
         Assert.Equal("one", dictionary.First().Key);
         Assert.Equal(1, dictionary.First().Value);
@@ -165,6 +255,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
 
         var dictionary = new Dictionary<string, int>().WithPairs(pairs);
 
+        Assert.NotNull(dictionary);
         Assert.Equal(2, dictionary.Count);
         Assert.Equal("two", dictionary.Last().Key);
         Assert.Equal(2, dictionary.Last().Value);

@@ -48,8 +48,8 @@ public class DefaultHostedService: IHostedService
         return Task.CompletedTask;
     }
 
-    readonly IHostApplicationLifetime _hostApplicationLifetime;
-    readonly ILogger<DefaultHostedService> _logger;
+    private readonly IHostApplicationLifetime _hostApplicationLifetime;
+    private readonly ILogger<DefaultHostedService> _logger;
 
-    int? _exitCode;
+    private int? _exitCode;
 }

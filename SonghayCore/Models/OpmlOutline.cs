@@ -29,7 +29,7 @@ public class OpmlOutline
         Justification = "Used for XML serialization.")]
     [XmlElement(ElementName = "outline")]
     [JsonPropertyName("outline")]
-    public OpmlOutline[] Outlines { get; set; } = Enumerable.Empty<OpmlOutline>().ToArray();
+    public OpmlOutline[] Outlines { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the text.
@@ -69,4 +69,22 @@ public class OpmlOutline
     [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings",
         Justification = "OPML does not recognize the concept of the System.Uri.")]
     public string? XmlUrl { get; set; }
-}
+
+    /// <summary>
+    /// Converts the value of this instance to a <see cref="string"/>.
+    /// </summary>
+    public override string ToString()
+    {
+        StringBuilder sb = new();
+
+        sb.Append($"{nameof(Category)}: `{Category}`");
+        sb.Append($", {nameof(Id)}: `{Id}`");
+        sb.Append($", {nameof(Title)}: `{Title}`");
+        sb.Append($", {nameof(Text)}: `{Text}`");
+        sb.Append($", {nameof(OutlineType)}: `{OutlineType}`");
+        sb.Append($", {nameof(Url)}: `{Url.Truncate(32)}`");
+        sb.Append($", {nameof(XmlUrl)}: `{XmlUrl.Truncate(32)}`");
+        sb.Append($", {nameof(Outlines)}: {Outlines.Length}");
+
+        return sb.ToString();
+    }}

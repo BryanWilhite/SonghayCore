@@ -3,7 +3,7 @@
 /// <summary>
 /// Static members for XHTML Documents.
 /// </summary>
-public static partial class XhtmlDocumentUtility
+public static class XhtmlDocumentUtility
 {
     /// <summary>
     /// XHTML Namespace
@@ -28,7 +28,7 @@ public static partial class XhtmlDocumentUtility
     {
         if (document == null) return null;
 
-        var heading = useXhtmlNamespace
+        XElement? heading = useXhtmlNamespace
             ? document.Root?
                 .Element(Xhtml + "body")?
                 .Element(Xhtml + "h1")
@@ -36,7 +36,7 @@ public static partial class XhtmlDocumentUtility
                 .Element("body")?
                 .Element("h1");
 
-        var title = useXhtmlNamespace
+        string? title = useXhtmlNamespace
             ? document.Root?
                 .Element(Xhtml + "head")?
                 .Element(Xhtml + "title")?
@@ -46,7 +46,7 @@ public static partial class XhtmlDocumentUtility
                 .Element("title")?
                 .Value;
 
-        var d = new XhtmlDocument
+        XhtmlDocument d = new XhtmlDocument
         {
             Header = heading?.Value,
             Location = webPath,
@@ -63,9 +63,9 @@ public static partial class XhtmlDocumentUtility
     /// <param name="webPath">The public web path.</param>
     public static XhtmlDocument? LoadDocument(string? pathToDocument, string? webPath)
     {
-        var xd = XDocument.Load(pathToDocument!);
-        var hasAttributes = (xd.Root?.HasAttributes).GetValueOrDefault();
-        var hasXhtmlNamespace = false;
+        XDocument xd = XDocument.Load(pathToDocument!);
+        bool hasAttributes = (xd.Root?.HasAttributes).GetValueOrDefault();
+        bool hasXhtmlNamespace = false;
         if (hasAttributes) hasXhtmlNamespace = (xd.Root?.Attributes("xmlns") ?? Array.Empty<XAttribute>()).Any();
         if (hasAttributes && hasXhtmlNamespace)
         {
@@ -87,8 +87,9 @@ public static partial class XhtmlDocumentUtility
         string? indexTitle, string? publicRoot,
         string? pathToDirectory, string? pathToOutput)
     {
-        var directory = new DirectoryInfo(pathToDirectory!);
-        var list = new List<XhtmlDocument>();
+        List<XhtmlDocument> list = [];
+        DirectoryInfo directory = new (pathToDirectory!);
+
         directory.GetFiles()
             .ForEachInEnumerable(f =>
             {
@@ -97,9 +98,9 @@ public static partial class XhtmlDocumentUtility
                 if (d != null) list.Add(d);
             });
 
-        var serializer = new XmlSerializer(typeof(XhtmlDocuments));
+        XmlSerializer serializer = new (typeof(XhtmlDocuments));
 
-        using var writer = new XmlTextWriter(string.Concat(pathToOutput, indexFileName), Encoding.UTF8);
+        using XmlTextWriter writer = new (string.Concat(pathToOutput, indexFileName), Encoding.UTF8);
 
         var documents = new XhtmlDocuments
         {

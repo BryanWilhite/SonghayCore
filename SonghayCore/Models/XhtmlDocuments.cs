@@ -12,7 +12,7 @@ public class XhtmlDocuments
     [XmlElement("XhtmlDocument")]
     [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays",
         Justification = "Used for XML serialization.")]
-    public XhtmlDocument[] Documents { get; set; } = Enumerable.Empty<XhtmlDocument>().ToArray();
+    public XhtmlDocument[] Documents { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the title.

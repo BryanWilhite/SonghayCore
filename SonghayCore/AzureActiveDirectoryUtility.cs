@@ -35,7 +35,7 @@ namespace Songhay;
 ///
 /// For security reasons, a very small precaution, this class will not hold any fields.
 /// </remarks>
-public class AzureActiveDirectoryUtility
+public static class AzureActiveDirectoryUtility
 {
     /// <summary>
     /// Returns the <see cref="RestApiMetadata"/> corresponding

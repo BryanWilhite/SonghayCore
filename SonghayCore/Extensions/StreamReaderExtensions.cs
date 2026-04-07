@@ -20,9 +20,8 @@ public static class StreamReaderExtensions
     {
         ArgumentNullException.ThrowIfNull(reader);
 
-        while(!reader.EndOfStream)
+        while (await reader.ReadLineAsync() is { } line)
         {
-            var line = await reader.ReadLineAsync();
             var shouldContinueReadingLines = lineAction?.Invoke(line) ?? false;
 
             if(!shouldContinueReadingLines) break;

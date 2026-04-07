@@ -15,7 +15,7 @@ public class StreamReaderExtensionsTests
 
         await reader.ReadLinesAsync(line => {
 
-            var actual = line?.Split(',').Count() ?? 0;
+            var actual = line?.Split(',').Length ?? 0;
 
             Assert.Equal(8, actual);
 

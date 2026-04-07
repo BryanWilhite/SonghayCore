@@ -13,7 +13,7 @@ public static class ILoggerUtility
     /// <param name="logger">the specified <see cref="ILogger"/></param>
     public static ILogger AsInstanceOrNullLogger([NotNull]ILogger? logger)
     {
-        if (logger == null) logger = NullLogger.Instance;
+        logger ??= NullLogger.Instance;
 
         return  logger;
     }
@@ -27,7 +27,7 @@ public static class ILoggerUtility
     /// <param name="logger">the specified <see cref="ILogger"/></param>
     public static ILogger<TCategory> AsInstanceOrNullLogger<TCategory>([NotNull]ILogger<TCategory>? logger)
     {
-        if (logger == null) logger = NullLogger<TCategory>.Instance;
+        logger ??= NullLogger<TCategory>.Instance;
 
         return logger;
     }

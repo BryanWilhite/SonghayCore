@@ -83,6 +83,20 @@ public class OpmlHead
     [JsonPropertyName("ownerEmail")]
     public string? OwnerEmail { get; set; }
 
-    DateTime? _dateCreated;
-    DateTime? _dateModified;
+    /// <summary>
+    /// Converts the value of this instance to a <see cref="string"/>.
+    /// </summary>
+    public override string ToString()
+    {
+        StringBuilder sb = new();
+
+        sb.Append($"{nameof(Title)}: `{Title}`");
+        sb.Append($", {nameof(OwnerName)}: `{OwnerName}`");
+        sb.Append($", {nameof(OwnerEmail)}: `{OwnerEmail}`");
+
+        return sb.ToString();
+    }
+
+    private DateTime? _dateCreated;
+    private DateTime? _dateModified;
 }

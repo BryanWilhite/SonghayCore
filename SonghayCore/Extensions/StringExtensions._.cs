@@ -220,8 +220,13 @@ public static partial class StringExtensions
     ///  📚 https://en.wikipedia.org/wiki/Path_(computing)#Uniform_Naming_Convention
     /// </remarks>
     public static bool IsUnc(this string? input) =>
-        !string.IsNullOrWhiteSpace(input) &&
-        Regex.IsMatch(input, @"^(\\(\\[^\s\\]+)+|([A-Za-z]:(\\)?|[A-z]:(\\[^\s\\]+)+))(\\)?$");
+        !string.IsNullOrWhiteSpace(input) && RegexUtility.MatchAllThatLooksLikeUnc().IsMatch(input);
+
+    /// <summary>
+    /// Returns <c>true</c> when the specified input is XML-like.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    public static bool IsXml(this string? input) => XmlUtility.IsXml(input);
 
     /// <summary>
     /// Determines whether the specified input looks like an email address.
@@ -237,17 +242,16 @@ public static partial class StringExtensions
     /// [http://stackoverflow.com/questions/201323/how-to-use-a-regular-expression-to-validate-an-email-addresses]
     /// </remarks>
     public static bool LooksLikeEmailAddress(this string? input) =>
-        !string.IsNullOrWhiteSpace(input) &&
-        Regex.IsMatch(input, @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
+        !string.IsNullOrWhiteSpace(input) && RegexUtility.MatchAllThatLooksLikeEmailAddress().IsMatch(input);
 
     /// <summary>
-    /// Remove accent from strings 
+    /// Remove “accent characters” from strings 
     /// </summary>
     /// <example>
     ///  input:  "Příliš žluťoučký kůň úpěl ďábelské ódy."
     ///  result: "Prilis zlutoucky kun upel dabelske ody."
     /// </example>
-    /// <param name="input">The input.</param>
+    /// <param name="input">the input</param>
     /// <remarks>
     /// From Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
     /// Also, see http://stackoverflow.com/questions/249087/how-do-i-remove-diacritics-accents-from-a-string-in-net
@@ -258,15 +262,38 @@ public static partial class StringExtensions
         string stFormD = input.Normalize(NormalizationForm.FormD);
         StringBuilder sb = new StringBuilder();
 
-        foreach (var t in stFormD)
+        foreach (var t in from t in stFormD let uc = CharUnicodeInfo.GetUnicodeCategory(t) where uc != UnicodeCategory.NonSpacingMark select t)
         {
-            UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(t);
-            if (uc != UnicodeCategory.NonSpacingMark)
-            {
-                sb.Append(t);
-            }
+            sb.Append(t);
         }
 
         return sb.ToString().Normalize(NormalizationForm.FormC);
     }
+
+    /// <summary>
+    /// Removes the “null characters” (C/C++ string terminator characters)
+    /// from the specified string.
+    /// </summary>
+    /// <param name="input">the input</param>
+    /// <remarks>For more detail, see https://stackoverflow.com/a/2292866/22944</remarks>
+    public static string RemoveNullTerminatorCharacters(this string input)
+    {
+        if (!string.IsNullOrWhiteSpace(input))
+            input = input.Trim().Replace("\0", string.Empty);
+
+        return input;
+    }
+
+    
+    /// <summary>
+    /// Removes any zero width no-break space (ZWNBSP) character
+    /// from the beginning of the specified string.
+    /// </summary>
+    /// <param name="input">the input</param>
+    /// <remarks>
+    /// The ZWNBSP at the beginning of a string has been traditionally called the byte order mark (BOM).
+    /// For more detail, see https://unicode-explorer.com/c/FEFF
+    /// </remarks>
+    public static string RemoveLeadingZeroWidthNoBreakSpace(this string input) =>
+        input.TrimStart('﻿');
 }

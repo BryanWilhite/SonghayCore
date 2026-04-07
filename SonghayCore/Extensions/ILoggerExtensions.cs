@@ -39,6 +39,23 @@ public static class ILoggerExtensions
     }
 
     /// <summary>
+    /// The conventional logging of the specified <see cref="Exception"/>.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <param name="ex">the <see cref="Exception"/></param>
+    public static void LogException(this ILogger logger, Exception ex)
+    {
+        logger.LogError(ex, message:
+            $"""
+            {nameof(ex.Message)}: {ex.Message}
+
+            {nameof(ex.StackTrace)}:
+
+            {ex.StackTrace}
+            """);
+    }
+
+    /// <summary>
     /// Logs <see cref="Environment.NewLine"/> for human readability.
     /// </summary>
     /// <param name="logger">The logger.</param>

@@ -32,23 +32,25 @@ public static class AzureBlobStorageRestApiUtility
             ConnectionString = connectionString
         };
 
-        var values = new[] { "AccountName", "AccountKey" }.Select(key =>
-        {
-            if (!builder.ContainsKey(key))
+        string[] values = new[] { "AccountName", "AccountKey" }
+            .Select(key =>
             {
-                throw new NullReferenceException($"The expected connection string key, `{key}`, is not here.");
-            }
+                if (!builder.ContainsKey(key))
+                {
+                    throw new NullReferenceException($"The expected connection string key, `{key}`, is not here.");
+                }
 
-            var value = builder[key] as string;
+                var value = builder[key] as string;
 
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new NullReferenceException($"The expected connection string value for key, `{key}`, is not here.");
-            }
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new NullReferenceException($"The expected connection string value for key, `{key}`, is not here.");
+                }
 
-            return value;
+                return value;
 
-        }).ToArray();
+            })
+            .ToArray();
 
         if (values.Length < 2) throw new DataException("The expected connection string values are not here.");
 

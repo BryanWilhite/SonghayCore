@@ -54,12 +54,10 @@ public class TimeoutHandler : DelegatingHandler
             // No need to create a CTS if there's no timeout
             return null;
         }
-        else
-        {
-            var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-            cts.CancelAfter(RequestTimeout);
 
-            return cts;
-        }
+        var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+        cts.CancelAfter(RequestTimeout);
+
+        return cts;
     }
 }

@@ -133,7 +133,7 @@ public static class OpmlUtility
         return data.ToArray();
     }
 
-    static OpmlBody? GetBody(XContainer? root)
+    private static OpmlBody? GetBody(XContainer? root)
     {
         if (root == null) return null;
 
@@ -145,7 +145,7 @@ public static class OpmlUtility
         return data;
     }
 
-    static OpmlHead GetHead(XContainer? root, XName? ownerEmail, XName? ownerName, XName? title, XName? dateCreated,
+    private static OpmlHead GetHead(XContainer? root, XName? ownerEmail, XName? ownerName, XName? title, XName? dateCreated,
         XName? dateModified)
     {
         var data = new OpmlHead
@@ -166,7 +166,7 @@ public static class OpmlUtility
         return data;
     }
 
-    static OpmlDocument? GetRawDocument(XContainer? root)
+    private static OpmlDocument? GetRawDocument(XContainer? root)
     {
         if (root == null) return null;
 
@@ -180,7 +180,7 @@ public static class OpmlUtility
         return data;
     }
 
-    static OpmlOutline GetOutline(XElement? root)
+    private static OpmlOutline GetOutline(XElement? root)
     {
         var data = new OpmlOutline
         {
@@ -201,7 +201,7 @@ public static class OpmlUtility
         return data;
     }
 
-    static OpmlOutline[] GetOutlines(XContainer? root)
+    private static OpmlOutline[] GetOutlines(XContainer? root)
     {
         if (root == null) return Enumerable.Empty<OpmlOutline>().ToArray();
 

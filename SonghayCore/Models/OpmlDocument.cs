@@ -9,7 +9,7 @@
 /// http://www.opml.org/about
 /// </remarks>
 [Serializable]
-[XmlRoot(ElementName = "opml", Namespace = "http://songhaysystem.com/schemas/opml.xsd")]
+[XmlRoot(ElementName = "opml")]
 [DataContract(Name = "opml")]
 [JsonSourceGenerationOptions(PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase, WriteIndented = true)]
 public class OpmlDocument
@@ -55,4 +55,17 @@ public class OpmlDocument
     [XmlElement(ElementName = "body")]
     [JsonPropertyName("body")]
     public OpmlBody? OpmlBody { get; set; }
+
+    /// <summary>
+    /// Converts the value of this instance to a <see cref="string"/>.
+    /// </summary>
+    public override string ToString()
+    {
+        StringBuilder sb = new();
+
+        sb.AppendLine($"{nameof(OpmlHead)}: {OpmlHead}");
+        sb.AppendLine($"{nameof(OpmlBody)}: {OpmlBody}");
+
+        return sb.ToString();
+    }
 }

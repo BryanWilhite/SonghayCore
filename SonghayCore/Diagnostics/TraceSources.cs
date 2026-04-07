@@ -21,10 +21,10 @@ public class TraceSources
     /// </summary>
     public static string? ConfiguredTraceSourceName
     {
-        get => _configuredTraceSourceName;
+        get;
         set
         {
-            _configuredTraceSourceName = value;
+            field = value;
             IsConfiguredTraceSourceNameLoaded = true;
         }
     }
@@ -79,6 +79,4 @@ public class TraceSources
     {
         internal static readonly TraceSources NestedInstance = new();
     }
-
-    static string? _configuredTraceSourceName;
 }

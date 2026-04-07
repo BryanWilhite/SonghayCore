@@ -112,7 +112,7 @@ public static partial class HttpRequestMessageExtensions
     /// <param name="encoding">The encoding.</param>
     /// <param name="mediaType">Type of the media.</param>
     public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request,
-        string? requestBody, Encoding encoding, string mediaType) => await request.SendBodyAsync(requestBody,
+        string? requestBody, Encoding encoding, string? mediaType) => await request.SendBodyAsync(requestBody,
         encoding, mediaType, requestMessageAction: null, optionalClientGetter: null);
 
     /// <summary>
@@ -125,7 +125,7 @@ public static partial class HttpRequestMessageExtensions
     /// <param name="mediaType">Type of the media.</param>
     /// <param name="requestMessageAction">The request message action.</param>
     public static async Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request,
-        string? requestBody, Encoding encoding, string mediaType,
+        string? requestBody, Encoding encoding, string? mediaType,
         Action<HttpRequestMessage> requestMessageAction) => await request.SendBodyAsync(requestBody, encoding,
         mediaType, requestMessageAction, optionalClientGetter: null);
 
