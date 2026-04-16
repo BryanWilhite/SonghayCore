@@ -118,12 +118,12 @@ Core reusable, opinionated Newtonsoft concerns for my C# projects.
 ```mermaid
 graph BT
     netstandard2[.NET Standard 2.0]
-    net8[.NET 8.0]
+    net10[.NET 10.0]
 
     1[SonghayCore]
     2[SonghayCore.Newtonsoft]
 
-    net8-->1
+    net10-->1
     netstandard2-->2
     2-..->|optional addition|1
 
@@ -134,4 +134,4 @@ graph BT
     1-->7[Songhay.Social]
 ```
 
-@[BryanWilhite](https://twitter.com/BryanWilhite)
+[Bryan Wilhite is on LinkedIn](https://www.linkedin.com/in/wilhite)🇺🇸💼
