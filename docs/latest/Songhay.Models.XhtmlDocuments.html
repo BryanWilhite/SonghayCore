@@ -179,7 +179,8 @@ public class XhtmlDocuments</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public XhtmlDocument[] Documents { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Performance&quot;, &quot;CA1819:PropertiesShouldNotReturnArrays&quot;, Justification = &quot;Used for XML serialization.&quot;)]
+public XhtmlDocument[] Documents { get; set; }</code></pre>
   </div>
 
 

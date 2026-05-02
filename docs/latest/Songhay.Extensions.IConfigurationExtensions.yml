@@ -7,6 +7,7 @@ items:
   children:
   - Songhay.Extensions.IConfigurationExtensions.AddHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.String)
   - Songhay.Extensions.IConfigurationExtensions.BindNewInstance``1(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.GetAllEntries(Microsoft.Extensions.Configuration.IConfiguration,System.String)
   - Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)
   - Songhay.Extensions.IConfigurationExtensions.GetCommandLineArgValue(Microsoft.Extensions.Configuration.IConfiguration,System.String)
   - Songhay.Extensions.IConfigurationExtensions.GetOutputPath(Microsoft.Extensions.Configuration.IConfiguration)
@@ -113,9 +114,9 @@ items:
   langs:
   - csharp
   - vb
-  name: BindNewInstance<T>(IConfiguration)
-  nameWithType: IConfigurationExtensions.BindNewInstance<T>(IConfiguration)
-  fullName: Songhay.Extensions.IConfigurationExtensions.BindNewInstance<T>(Microsoft.Extensions.Configuration.IConfiguration)
+  name: BindNewInstance<T>(IConfiguration?)
+  nameWithType: IConfigurationExtensions.BindNewInstance<T>(IConfiguration?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.BindNewInstance<T>(Microsoft.Extensions.Configuration.IConfiguration?)
   type: Method
   source:
     remote:
@@ -134,7 +135,7 @@ items:
     to return an instance of <code>T</code>
   example: []
   syntax:
-    content: 'public static T BindNewInstance<T>(this IConfiguration configuration) where T : class, new()'
+    content: 'public static T? BindNewInstance<T>(this IConfiguration? configuration) where T : class, new()'
     parameters:
     - id: configuration
       type: Microsoft.Extensions.Configuration.IConfiguration
@@ -149,6 +150,50 @@ items:
   nameWithType.vb: IConfigurationExtensions.BindNewInstance(Of T)(IConfiguration)
   fullName.vb: Songhay.Extensions.IConfigurationExtensions.BindNewInstance(Of T)(Microsoft.Extensions.Configuration.IConfiguration)
   name.vb: BindNewInstance(Of T)(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.GetAllEntries(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.GetAllEntries(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  id: GetAllEntries(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetAllEntries(IConfiguration?, string)
+  nameWithType: IConfigurationExtensions.GetAllEntries(IConfiguration?, string)
+  fullName: Songhay.Extensions.IConfigurationExtensions.GetAllEntries(Microsoft.Extensions.Configuration.IConfiguration?, string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetAllEntries
+    path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 45
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Gets all the entries in the specified <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+
+    as a textual list.
+  example: []
+  syntax:
+    content: public static string GetAllEntries(this IConfiguration? configuration, string indentation = "")
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: indentation
+      type: System.String
+      description: indentation chars for the entries
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetAllEntries(configuration As IConfiguration, indentation As String = "") As String
+  overload: Songhay.Extensions.IConfigurationExtensions.GetAllEntries*
+  nameWithType.vb: IConfigurationExtensions.GetAllEntries(IConfiguration, String)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.GetAllEntries(Microsoft.Extensions.Configuration.IConfiguration, String)
+  name.vb: GetAllEntries(IConfiguration, String)
 - uid: Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)
   commentId: M:Songhay.Extensions.IConfigurationExtensions.GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)
   id: GetBasePathValue(Microsoft.Extensions.Configuration.IConfiguration)
@@ -168,7 +213,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetBasePathValue
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 45
+    startLine: 63
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -211,7 +256,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetCommandLineArgValue
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 71
+    startLine: 89
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -261,7 +306,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetOutputPath
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 89
+    startLine: 107
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -304,7 +349,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetSettingsFilePath
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 117
+    startLine: 135
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -345,7 +390,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: HasKey
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 140
+    startLine: 158
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -393,7 +438,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: HasKey
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 158
+    startLine: 176
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -453,7 +498,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: IsDryRun
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 174
+    startLine: 192
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -491,7 +536,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: IsHelpRequest
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 180
+    startLine: 198
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -529,7 +574,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ReadSettings
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 187
+    startLine: 205
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -570,7 +615,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ReadStringInput
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 202
+    startLine: 220
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -619,7 +664,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToHelpDisplayText
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 235
+    startLine: 253
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -660,7 +705,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToHelpDisplayText
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 243
+    startLine: 261
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -704,7 +749,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToKeys
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 284
+    startLine: 302
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -745,7 +790,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WithDefaultHelpText
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 295
+    startLine: 313
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -786,7 +831,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFile
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 332
+    startLine: 350
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -828,7 +873,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFileAsync
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 347
+    startLine: 365
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -872,7 +917,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFile
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 362
+    startLine: 380
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -914,7 +959,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFileAsync
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 377
+    startLine: 395
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -958,7 +1003,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFile
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 395
+    startLine: 413
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -1001,7 +1046,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFileAsync
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 416
+    startLine: 434
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -1421,6 +1466,12 @@ references:
   name: T
   nameWithType: T
   fullName: T
+- uid: Songhay.Extensions.IConfigurationExtensions.GetAllEntries*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.GetAllEntries
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_GetAllEntries_Microsoft_Extensions_Configuration_IConfiguration_System_String_
+  name: GetAllEntries
+  nameWithType: IConfigurationExtensions.GetAllEntries
+  fullName: Songhay.Extensions.IConfigurationExtensions.GetAllEntries
 - uid: Songhay.Models.ConsoleArgsScalars.BaseDirectory
   commentId: F:Songhay.Models.ConsoleArgsScalars.BaseDirectory
   href: Songhay.Models.ConsoleArgsScalars.html#Songhay_Models_ConsoleArgsScalars_BaseDirectory
@@ -1834,7 +1885,6 @@ references:
   spec.csharp:
   - uid: System
     name: System
-    isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system
   - name: .
   - uid: System.IO
@@ -1844,7 +1894,6 @@ references:
   spec.vb:
   - uid: System
     name: System
-    isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system
   - name: .
   - uid: System.IO

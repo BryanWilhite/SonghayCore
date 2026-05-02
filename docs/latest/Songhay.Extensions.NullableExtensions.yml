@@ -172,6 +172,10 @@ items:
     - id: enumerable
       type: System.Collections.Generic.IEnumerable{{T}}
       description: the <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref>
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor
+        arguments: []
     - id: paramName
       type: System.String
       description: the name of the variable holding the <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref>
@@ -234,6 +238,10 @@ items:
     - id: nullable
       type: System.String
       description: the nullable <xref href="System.String" data-throw-if-not-resolved="false"></xref>
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor
+        arguments: []
     - id: paramName
       type: System.String
       description: the name of the variable holding the <xref href="System.String" data-throw-if-not-resolved="false"></xref>
@@ -338,6 +346,10 @@ items:
     - id: nullable
       type: '{T}'
       description: the nullable
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor
+        arguments: []
     - id: paramName
       type: System.String
       description: the name of the variable holding the nullable
@@ -404,6 +416,10 @@ items:
     - id: nullable
       type: System.Nullable{{T}}
       description: the nullable
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor
+        arguments: []
     - id: paramName
       type: System.String
       description: the name of the variable holding the nullable
@@ -1024,6 +1040,7 @@ references:
   - name: )
 - uid: System.Diagnostics.CodeAnalysis.NotNullAttribute
   commentId: T:System.Diagnostics.CodeAnalysis.NotNullAttribute
+  parent: System.Diagnostics.CodeAnalysis
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.diagnostics.codeanalysis.notnullattribute
   name: NotNullAttribute
@@ -1035,6 +1052,43 @@ references:
   name: ThrowWhenNullOrWhiteSpace
   nameWithType: NullableExtensions.ThrowWhenNullOrWhiteSpace
   fullName: Songhay.Extensions.NullableExtensions.ThrowWhenNullOrWhiteSpace
+- uid: System.Diagnostics.CodeAnalysis
+  commentId: N:System.Diagnostics.CodeAnalysis
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Diagnostics.CodeAnalysis
+  nameWithType: System.Diagnostics.CodeAnalysis
+  fullName: System.Diagnostics.CodeAnalysis
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Diagnostics
+    name: Diagnostics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.diagnostics
+  - name: .
+  - uid: System.Diagnostics.CodeAnalysis
+    name: CodeAnalysis
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.diagnostics.codeanalysis
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Diagnostics
+    name: Diagnostics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.diagnostics
+  - name: .
+  - uid: System.Diagnostics.CodeAnalysis
+    name: CodeAnalysis
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.diagnostics.codeanalysis
 - uid: System.DBNull
   commentId: T:System.DBNull
   parent: System

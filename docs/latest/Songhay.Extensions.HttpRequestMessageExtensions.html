@@ -447,7 +447,7 @@ and <a class="xref" href="Songhay.Models.MimeTypes.html#Songhay_Models_MimeTypes
   <a id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*"></a>
 
   <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_System_Text_Encoding_System_String_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)">
-  SendBodyAsync(HttpRequestMessage?, string?, Encoding, string)
+  SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?)
   <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L114"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -457,7 +457,7 @@ with the specified request body.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string mediaType)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string? mediaType)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -495,7 +495,7 @@ with the specified request body.</p>
   <a id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*"></a>
 
   <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_System_Text_Encoding_System_String_System_Action_System_Net_Http_HttpRequestMessage__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
-  SendBodyAsync(HttpRequestMessage?, string?, Encoding, string, Action&lt;HttpRequestMessage&gt;)
+  SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?, Action&lt;HttpRequestMessage&gt;)
   <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L127"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -505,7 +505,7 @@ with the specified request body.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string mediaType, Action&lt;HttpRequestMessage&gt; requestMessageAction)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string? mediaType, Action&lt;HttpRequestMessage&gt; requestMessageAction)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>

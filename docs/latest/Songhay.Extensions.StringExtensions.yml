@@ -26,15 +26,20 @@ items:
   - Songhay.Extensions.StringExtensions.IsLong(System.String,System.Predicate{System.Int64})
   - Songhay.Extensions.StringExtensions.IsTelephoneNumber(System.String)
   - Songhay.Extensions.StringExtensions.IsUnc(System.String)
+  - Songhay.Extensions.StringExtensions.IsXml(System.String)
   - Songhay.Extensions.StringExtensions.LooksLikeEmailAddress(System.String)
   - Songhay.Extensions.StringExtensions.RemoveDiacritics(System.String)
+  - Songhay.Extensions.StringExtensions.RemoveLeadingZeroWidthNoBreakSpace(System.String)
+  - Songhay.Extensions.StringExtensions.RemoveNullTerminatorCharacters(System.String)
   - Songhay.Extensions.StringExtensions.Reverse(System.String)
   - Songhay.Extensions.StringExtensions.ToAsciiLettersWithSpacer(System.String)
   - Songhay.Extensions.StringExtensions.ToAsciiLettersWithSpacer(System.String,System.Char)
+  - Songhay.Extensions.StringExtensions.ToBitString(System.String)
   - Songhay.Extensions.StringExtensions.ToBlogSlug(System.String)
   - Songhay.Extensions.StringExtensions.ToCamelCase(System.String)
   - Songhay.Extensions.StringExtensions.ToConfigurationKey(System.String)
   - Songhay.Extensions.StringExtensions.ToDigitsOnly(System.String)
+  - Songhay.Extensions.StringExtensions.ToInstanceFromXml``1(System.String,Microsoft.Extensions.Logging.ILogger)
   - Songhay.Extensions.StringExtensions.ToIntString(System.String)
   - Songhay.Extensions.StringExtensions.ToIntString(System.String,System.String)
   - Songhay.Extensions.StringExtensions.ToNumberOfDirectoryLevels(System.String)
@@ -246,6 +251,53 @@ items:
   nameWithType.vb: StringExtensions.ToAsciiLettersWithSpacer(String, Char)
   fullName.vb: Songhay.Extensions.StringExtensions.ToAsciiLettersWithSpacer(String, Char)
   name.vb: ToAsciiLettersWithSpacer(String, Char)
+- uid: Songhay.Extensions.StringExtensions.ToBitString(System.String)
+  commentId: M:Songhay.Extensions.StringExtensions.ToBitString(System.String)
+  id: ToBitString(System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.StringExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToBitString(string?)
+  nameWithType: StringExtensions.ToBitString(string?)
+  fullName: Songhay.Extensions.StringExtensions.ToBitString(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/StringExtensions.Conversions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToBitString
+    path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
+    startLine: 75
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts conventional Boolean magic strings
+
+    to either <code>"1"</code> or <code>"0"</code>.
+  remarks: >-
+    Conventional Boolean magic strings:
+
+    - <code>"yes"</code> or <code>"y"</code>
+
+    - <code>"no"</code> or <code>"n"</code>
+  example: []
+  syntax:
+    content: public static string? ToBitString(this string? input)
+    parameters:
+    - id: input
+      type: System.String
+      description: The input.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToBitString(input As String) As String
+  overload: Songhay.Extensions.StringExtensions.ToBitString*
+  nameWithType.vb: StringExtensions.ToBitString(String)
+  fullName.vb: Songhay.Extensions.StringExtensions.ToBitString(String)
+  name.vb: ToBitString(String)
 - uid: Songhay.Extensions.StringExtensions.ToBlogSlug(System.String)
   commentId: M:Songhay.Extensions.StringExtensions.ToBlogSlug(System.String)
   id: ToBlogSlug(System.String)
@@ -265,7 +317,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToBlogSlug
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 68
+    startLine: 89
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -303,7 +355,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToCamelCase
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 96
+    startLine: 117
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -344,7 +396,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToConfigurationKey
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 105
+    startLine: 126
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -385,7 +437,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToDigitsOnly
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 115
+    startLine: 136
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -404,6 +456,50 @@ items:
   nameWithType.vb: StringExtensions.ToDigitsOnly(String)
   fullName.vb: Songhay.Extensions.StringExtensions.ToDigitsOnly(String)
   name.vb: ToDigitsOnly(String)
+- uid: Songhay.Extensions.StringExtensions.ToInstanceFromXml``1(System.String,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.Extensions.StringExtensions.ToInstanceFromXml``1(System.String,Microsoft.Extensions.Logging.ILogger)
+  id: ToInstanceFromXml``1(System.String,Microsoft.Extensions.Logging.ILogger)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.StringExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToInstanceFromXml<T>(string?, ILogger)
+  nameWithType: StringExtensions.ToInstanceFromXml<T>(string?, ILogger)
+  fullName: Songhay.Extensions.StringExtensions.ToInstanceFromXml<T>(string?, Microsoft.Extensions.Logging.ILogger)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/StringExtensions.Conversions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToInstanceFromXml
+    path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
+    startLine: 151
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Deserializes to a class instance based on the specified raw XML.
+  example: []
+  syntax:
+    content: 'public static T? ToInstanceFromXml<T>(this string? input, ILogger logger) where T : class'
+    parameters:
+    - id: input
+      type: System.String
+      description: The input.
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    typeParameters:
+    - id: T
+      description: The specified type to deserialize.
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function ToInstanceFromXml(Of T As Class)(input As String, logger As ILogger) As T
+  overload: Songhay.Extensions.StringExtensions.ToInstanceFromXml*
+  nameWithType.vb: StringExtensions.ToInstanceFromXml(Of T)(String, ILogger)
+  fullName.vb: Songhay.Extensions.StringExtensions.ToInstanceFromXml(Of T)(String, Microsoft.Extensions.Logging.ILogger)
+  name.vb: ToInstanceFromXml(Of T)(String, ILogger)
 - uid: Songhay.Extensions.StringExtensions.ToIntString(System.String)
   commentId: M:Songhay.Extensions.StringExtensions.ToIntString(System.String)
   id: ToIntString(System.String)
@@ -423,7 +519,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToIntString
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 128
+    startLine: 157
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -461,7 +557,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToIntString
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 135
+    startLine: 164
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -502,7 +598,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToNumberOfDirectoryLevels
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 156
+    startLine: 183
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -543,7 +639,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToNumericString
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 175
+    startLine: 202
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -583,7 +679,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToNumericString
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 188
+    startLine: 215
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -626,7 +722,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToPascalCase
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 207
+    startLine: 234
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -667,7 +763,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToSnakeCase
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 217
+    startLine: 244
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -710,7 +806,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToSubstringInContext
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 235
+    startLine: 262
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -757,7 +853,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Truncate
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 269
+    startLine: 295
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -797,7 +893,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Truncate
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 276
+    startLine: 302
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -841,7 +937,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Truncate
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 284
+    startLine: 310
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -885,7 +981,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WithConfigurationHelpTextSuffix
     path: ../SonghayCore/Extensions/StringExtensions.Conversions.cs
-    startLine: 298
+    startLine: 324
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -1721,6 +1817,44 @@ items:
   nameWithType.vb: StringExtensions.IsUnc(String)
   fullName.vb: Songhay.Extensions.StringExtensions.IsUnc(String)
   name.vb: IsUnc(String)
+- uid: Songhay.Extensions.StringExtensions.IsXml(System.String)
+  commentId: M:Songhay.Extensions.StringExtensions.IsXml(System.String)
+  id: IsXml(System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.StringExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsXml(string?)
+  nameWithType: StringExtensions.IsXml(string?)
+  fullName: Songhay.Extensions.StringExtensions.IsXml(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/StringExtensions._.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: IsXml
+    path: ../SonghayCore/Extensions/StringExtensions._.cs
+    startLine: 228
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Returns <code>true</code> when the specified input is XML-like.
+  example: []
+  syntax:
+    content: public static bool IsXml(this string? input)
+    parameters:
+    - id: input
+      type: System.String
+      description: The input.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsXml(input As String) As Boolean
+  overload: Songhay.Extensions.StringExtensions.IsXml*
+  nameWithType.vb: StringExtensions.IsXml(String)
+  fullName.vb: Songhay.Extensions.StringExtensions.IsXml(String)
+  name.vb: IsXml(String)
 - uid: Songhay.Extensions.StringExtensions.LooksLikeEmailAddress(System.String)
   commentId: M:Songhay.Extensions.StringExtensions.LooksLikeEmailAddress(System.String)
   id: LooksLikeEmailAddress(System.String)
@@ -1740,7 +1874,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LooksLikeEmailAddress
     path: ../SonghayCore/Extensions/StringExtensions._.cs
-    startLine: 238
+    startLine: 243
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -1787,11 +1921,11 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: RemoveDiacritics
     path: ../SonghayCore/Extensions/StringExtensions._.cs
-    startLine: 255
+    startLine: 259
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
-  summary: Remove accent from strings
+  summary: Remove “accent characters” from strings
   remarks: >-
     From Tomas Kubes, http://www.codeproject.com/Articles/31050/String-Extension-Collection-for-C
 
@@ -1806,7 +1940,7 @@ items:
     parameters:
     - id: input
       type: System.String
-      description: The input.
+      description: the input
     return:
       type: System.String
       description: <xref href="System.String" data-throw-if-not-resolved="false"></xref> without accents
@@ -1815,6 +1949,93 @@ items:
   nameWithType.vb: StringExtensions.RemoveDiacritics(String)
   fullName.vb: Songhay.Extensions.StringExtensions.RemoveDiacritics(String)
   name.vb: RemoveDiacritics(String)
+- uid: Songhay.Extensions.StringExtensions.RemoveNullTerminatorCharacters(System.String)
+  commentId: M:Songhay.Extensions.StringExtensions.RemoveNullTerminatorCharacters(System.String)
+  id: RemoveNullTerminatorCharacters(System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.StringExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveNullTerminatorCharacters(string)
+  nameWithType: StringExtensions.RemoveNullTerminatorCharacters(string)
+  fullName: Songhay.Extensions.StringExtensions.RemoveNullTerminatorCharacters(string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/StringExtensions._.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RemoveNullTerminatorCharacters
+    path: ../SonghayCore/Extensions/StringExtensions._.cs
+    startLine: 278
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Removes the “null characters” (C/C++ string terminator characters)
+
+    from the specified string.
+  remarks: For more detail, see https://stackoverflow.com/a/2292866/22944
+  example: []
+  syntax:
+    content: public static string RemoveNullTerminatorCharacters(this string input)
+    parameters:
+    - id: input
+      type: System.String
+      description: the input
+    return:
+      type: System.String
+    content.vb: Public Shared Function RemoveNullTerminatorCharacters(input As String) As String
+  overload: Songhay.Extensions.StringExtensions.RemoveNullTerminatorCharacters*
+  nameWithType.vb: StringExtensions.RemoveNullTerminatorCharacters(String)
+  fullName.vb: Songhay.Extensions.StringExtensions.RemoveNullTerminatorCharacters(String)
+  name.vb: RemoveNullTerminatorCharacters(String)
+- uid: Songhay.Extensions.StringExtensions.RemoveLeadingZeroWidthNoBreakSpace(System.String)
+  commentId: M:Songhay.Extensions.StringExtensions.RemoveLeadingZeroWidthNoBreakSpace(System.String)
+  id: RemoveLeadingZeroWidthNoBreakSpace(System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.StringExtensions
+  langs:
+  - csharp
+  - vb
+  name: RemoveLeadingZeroWidthNoBreakSpace(string)
+  nameWithType: StringExtensions.RemoveLeadingZeroWidthNoBreakSpace(string)
+  fullName: Songhay.Extensions.StringExtensions.RemoveLeadingZeroWidthNoBreakSpace(string)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/StringExtensions._.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RemoveLeadingZeroWidthNoBreakSpace
+    path: ../SonghayCore/Extensions/StringExtensions._.cs
+    startLine: 296
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Removes any zero width no-break space (ZWNBSP) character
+
+    from the beginning of the specified string.
+  remarks: >-
+    The ZWNBSP at the beginning of a string has been traditionally called the byte order mark (BOM).
+
+    For more detail, see https://unicode-explorer.com/c/FEFF
+  example: []
+  syntax:
+    content: public static string RemoveLeadingZeroWidthNoBreakSpace(this string input)
+    parameters:
+    - id: input
+      type: System.String
+      description: the input
+    return:
+      type: System.String
+    content.vb: Public Shared Function RemoveLeadingZeroWidthNoBreakSpace(input As String) As String
+  overload: Songhay.Extensions.StringExtensions.RemoveLeadingZeroWidthNoBreakSpace*
+  nameWithType.vb: StringExtensions.RemoveLeadingZeroWidthNoBreakSpace(String)
+  fullName.vb: Songhay.Extensions.StringExtensions.RemoveLeadingZeroWidthNoBreakSpace(String)
+  name.vb: RemoveLeadingZeroWidthNoBreakSpace(String)
 references:
 - uid: System.String
   commentId: T:System.String
@@ -2115,6 +2336,12 @@ references:
   name: ToAsciiLettersWithSpacer
   nameWithType: StringExtensions.ToAsciiLettersWithSpacer
   fullName: Songhay.Extensions.StringExtensions.ToAsciiLettersWithSpacer
+- uid: Songhay.Extensions.StringExtensions.ToBitString*
+  commentId: Overload:Songhay.Extensions.StringExtensions.ToBitString
+  href: Songhay.Extensions.StringExtensions.html#Songhay_Extensions_StringExtensions_ToBitString_System_String_
+  name: ToBitString
+  nameWithType: StringExtensions.ToBitString
+  fullName: Songhay.Extensions.StringExtensions.ToBitString
 - uid: Songhay.Extensions.StringExtensions.ToBlogSlug*
   commentId: Overload:Songhay.Extensions.StringExtensions.ToBlogSlug
   href: Songhay.Extensions.StringExtensions.html#Songhay_Extensions_StringExtensions_ToBlogSlug_System_String_
@@ -2190,6 +2417,67 @@ references:
   name: ToDigitsOnly
   nameWithType: StringExtensions.ToDigitsOnly
   fullName: Songhay.Extensions.StringExtensions.ToDigitsOnly
+- uid: Microsoft.Extensions.Logging.ILogger
+  commentId: T:Microsoft.Extensions.Logging.ILogger
+  parent: Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  name: ILogger
+  nameWithType: ILogger
+  fullName: Microsoft.Extensions.Logging.ILogger
+- uid: Songhay.Extensions.StringExtensions.ToInstanceFromXml*
+  commentId: Overload:Songhay.Extensions.StringExtensions.ToInstanceFromXml
+  href: Songhay.Extensions.StringExtensions.html#Songhay_Extensions_StringExtensions_ToInstanceFromXml__1_System_String_Microsoft_Extensions_Logging_ILogger_
+  name: ToInstanceFromXml
+  nameWithType: StringExtensions.ToInstanceFromXml
+  fullName: Songhay.Extensions.StringExtensions.ToInstanceFromXml
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
 - uid: Songhay.Extensions.StringExtensions.ToIntString*
   commentId: Overload:Songhay.Extensions.StringExtensions.ToIntString
   href: Songhay.Extensions.StringExtensions.html#Songhay_Extensions_StringExtensions_ToIntString_System_String_
@@ -2728,6 +3016,12 @@ references:
   name: IsUnc
   nameWithType: StringExtensions.IsUnc
   fullName: Songhay.Extensions.StringExtensions.IsUnc
+- uid: Songhay.Extensions.StringExtensions.IsXml*
+  commentId: Overload:Songhay.Extensions.StringExtensions.IsXml
+  href: Songhay.Extensions.StringExtensions.html#Songhay_Extensions_StringExtensions_IsXml_System_String_
+  name: IsXml
+  nameWithType: StringExtensions.IsXml
+  fullName: Songhay.Extensions.StringExtensions.IsXml
 - uid: Songhay.Extensions.StringExtensions.LooksLikeEmailAddress*
   commentId: Overload:Songhay.Extensions.StringExtensions.LooksLikeEmailAddress
   href: Songhay.Extensions.StringExtensions.html#Songhay_Extensions_StringExtensions_LooksLikeEmailAddress_System_String_
@@ -2740,3 +3034,15 @@ references:
   name: RemoveDiacritics
   nameWithType: StringExtensions.RemoveDiacritics
   fullName: Songhay.Extensions.StringExtensions.RemoveDiacritics
+- uid: Songhay.Extensions.StringExtensions.RemoveNullTerminatorCharacters*
+  commentId: Overload:Songhay.Extensions.StringExtensions.RemoveNullTerminatorCharacters
+  href: Songhay.Extensions.StringExtensions.html#Songhay_Extensions_StringExtensions_RemoveNullTerminatorCharacters_System_String_
+  name: RemoveNullTerminatorCharacters
+  nameWithType: StringExtensions.RemoveNullTerminatorCharacters
+  fullName: Songhay.Extensions.StringExtensions.RemoveNullTerminatorCharacters
+- uid: Songhay.Extensions.StringExtensions.RemoveLeadingZeroWidthNoBreakSpace*
+  commentId: Overload:Songhay.Extensions.StringExtensions.RemoveLeadingZeroWidthNoBreakSpace
+  href: Songhay.Extensions.StringExtensions.html#Songhay_Extensions_StringExtensions_RemoveLeadingZeroWidthNoBreakSpace_System_String_
+  name: RemoveLeadingZeroWidthNoBreakSpace
+  nameWithType: StringExtensions.RemoveLeadingZeroWidthNoBreakSpace
+  fullName: Songhay.Extensions.StringExtensions.RemoveLeadingZeroWidthNoBreakSpace

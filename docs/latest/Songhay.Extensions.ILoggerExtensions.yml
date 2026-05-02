@@ -7,6 +7,7 @@ items:
   children:
   - Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData(Microsoft.Extensions.Logging.ILogger,System.String)
   - Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData``1(Microsoft.Extensions.Logging.ILogger)
+  - Songhay.Extensions.ILoggerExtensions.LogException(Microsoft.Extensions.Logging.ILogger,System.Exception)
   - Songhay.Extensions.ILoggerExtensions.LogInformationNewLine(Microsoft.Extensions.Logging.ILogger)
   - Songhay.Extensions.ILoggerExtensions.LogNewLine(Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Logging.LogLevel)
   - Songhay.Extensions.ILoggerExtensions.LogTraceDataTypeAndValue``1(Microsoft.Extensions.Logging.ILogger,``0)
@@ -133,6 +134,42 @@ items:
   nameWithType.vb: ILoggerExtensions.LogErrorForMissingData(Of TData)(ILogger)
   fullName.vb: Songhay.Extensions.ILoggerExtensions.LogErrorForMissingData(Of TData)(Microsoft.Extensions.Logging.ILogger)
   name.vb: LogErrorForMissingData(Of TData)(ILogger)
+- uid: Songhay.Extensions.ILoggerExtensions.LogException(Microsoft.Extensions.Logging.ILogger,System.Exception)
+  commentId: M:Songhay.Extensions.ILoggerExtensions.LogException(Microsoft.Extensions.Logging.ILogger,System.Exception)
+  id: LogException(Microsoft.Extensions.Logging.ILogger,System.Exception)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.ILoggerExtensions
+  langs:
+  - csharp
+  - vb
+  name: LogException(ILogger, Exception)
+  nameWithType: ILoggerExtensions.LogException(ILogger, Exception)
+  fullName: Songhay.Extensions.ILoggerExtensions.LogException(Microsoft.Extensions.Logging.ILogger, System.Exception)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/ILoggerExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: LogException
+    path: ../SonghayCore/Extensions/ILoggerExtensions.cs
+    startLine: 45
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: The conventional logging of the specified <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void LogException(this ILogger logger, Exception ex)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: The logger.
+    - id: ex
+      type: System.Exception
+      description: the <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Shared Sub LogException(logger As ILogger, ex As Exception)
+  overload: Songhay.Extensions.ILoggerExtensions.LogException*
 - uid: Songhay.Extensions.ILoggerExtensions.LogNewLine(Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Logging.LogLevel)
   commentId: M:Songhay.Extensions.ILoggerExtensions.LogNewLine(Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Logging.LogLevel)
   id: LogNewLine(Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Logging.LogLevel)
@@ -152,7 +189,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogNewLine
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 45
+    startLine: 62
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -188,7 +225,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogInformationNewLine
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 78
+    startLine: 95
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -224,7 +261,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogTraceDataTypeAndValue
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 89
+    startLine: 106
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -267,7 +304,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogTraceNewLine
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 100
+    startLine: 117
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -303,7 +340,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: LogTraceMethodCall
     path: ../SonghayCore/Extensions/ILoggerExtensions.cs
-    startLine: 107
+    startLine: 124
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -736,6 +773,20 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: Songhay.Extensions.ILoggerExtensions.LogException*
+  commentId: Overload:Songhay.Extensions.ILoggerExtensions.LogException
+  href: Songhay.Extensions.ILoggerExtensions.html#Songhay_Extensions_ILoggerExtensions_LogException_Microsoft_Extensions_Logging_ILogger_System_Exception_
+  name: LogException
+  nameWithType: ILoggerExtensions.LogException
+  fullName: Songhay.Extensions.ILoggerExtensions.LogException
 - uid: System.Environment.NewLine
   commentId: P:System.Environment.NewLine
   isExternal: true

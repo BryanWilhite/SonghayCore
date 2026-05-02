@@ -77,6 +77,10 @@ items:
     - id: meta
       type: Songhay.Models.ProgramMetadata
       description: The <xref href="Songhay.Models.ProgramMetadata" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor
+        arguments: []
     content.vb: Public Shared Sub EnsureProgramMetadata(meta As ProgramMetadata)
   overload: Songhay.Extensions.ProgramMetadataExtensions.EnsureProgramMetadata*
   exceptions:

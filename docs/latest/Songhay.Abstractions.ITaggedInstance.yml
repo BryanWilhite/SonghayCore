@@ -30,6 +30,11 @@ items:
   syntax:
     content: public interface ITaggedInstance
     content.vb: Public Interface ITaggedInstance
+  derivedClasses:
+  - Songhay.Net.ApiEndpoint
+  - Songhay.Net.ApiRequestStrategy
+  - Songhay.Net.AzureBlobApiRequestStrategy
+  - Songhay.Net.BlobStreamApiEndpoint
   extensionMethods:
   - Songhay.Abstractions.ITaggedInstance.Songhay.Extensions.ITaggedInstanceExtensions.EnsureExpectedInstance(System.String)
   - Songhay.Abstractions.ITaggedInstance.Songhay.Extensions.ITaggedInstanceExtensions.IsExpectedInstance(System.String)

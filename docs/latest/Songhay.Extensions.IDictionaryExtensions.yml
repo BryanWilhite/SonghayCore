@@ -7,10 +7,13 @@ items:
   children:
   - Songhay.Extensions.IDictionaryExtensions.ToNameValueCollection``2(System.Collections.Generic.IDictionary{``0,``1})
   - Songhay.Extensions.IDictionaryExtensions.ToShallowClone``2(System.Collections.Generic.IDictionary{``0,``1})
+  - Songhay.Extensions.IDictionaryExtensions.ToUriQueryString``2(System.Collections.Generic.IDictionary{``0,``1})
   - Songhay.Extensions.IDictionaryExtensions.TryGetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0)
   - Songhay.Extensions.IDictionaryExtensions.TryGetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Boolean)
+  - Songhay.Extensions.IDictionaryExtensions.UnionAsDictionary``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``1})
   - Songhay.Extensions.IDictionaryExtensions.WithPair``2(System.Collections.Generic.IDictionary{``0,``1},System.Nullable{System.Collections.Generic.KeyValuePair{``0,``1}})
   - Songhay.Extensions.IDictionaryExtensions.WithPair``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)
+  - Songhay.Extensions.IDictionaryExtensions.WithPair``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1,System.Func{System.Boolean})
   - Songhay.Extensions.IDictionaryExtensions.WithPairs``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})
   langs:
   - csharp
@@ -53,9 +56,9 @@ items:
   langs:
   - csharp
   - vb
-  name: ToNameValueCollection<TKey, TValue>(IDictionary<TKey, TValue>)
-  nameWithType: IDictionaryExtensions.ToNameValueCollection<TKey, TValue>(IDictionary<TKey, TValue>)
-  fullName: Songhay.Extensions.IDictionaryExtensions.ToNameValueCollection<TKey, TValue>(System.Collections.Generic.IDictionary<TKey, TValue>)
+  name: ToNameValueCollection<TKey, TValue>(IDictionary<TKey, TValue>?)
+  nameWithType: IDictionaryExtensions.ToNameValueCollection<TKey, TValue>(IDictionary<TKey, TValue>?)
+  fullName: Songhay.Extensions.IDictionaryExtensions.ToNameValueCollection<TKey, TValue>(System.Collections.Generic.IDictionary<TKey, TValue>?)
   type: Method
   source:
     remote:
@@ -75,7 +78,7 @@ items:
   remarks: For detail, see https://stackoverflow.com/a/7230446/22944
   example: []
   syntax:
-    content: public static NameValueCollection ToNameValueCollection<TKey, TValue>(this IDictionary<TKey, TValue> dictionary)
+    content: public static NameValueCollection ToNameValueCollection<TKey, TValue>(this IDictionary<TKey, TValue>? dictionary)
     parameters:
     - id: dictionary
       type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
@@ -111,7 +114,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToShallowClone
     path: ../SonghayCore/Extensions/IDictionaryExtensions.cs
-    startLine: 45
+    startLine: 46
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -142,6 +145,53 @@ items:
   nameWithType.vb: IDictionaryExtensions.ToShallowClone(Of TKey, TValue)(IDictionary(Of TKey, TValue))
   fullName.vb: Songhay.Extensions.IDictionaryExtensions.ToShallowClone(Of TKey, TValue)(System.Collections.Generic.IDictionary(Of TKey, TValue))
   name.vb: ToShallowClone(Of TKey, TValue)(IDictionary(Of TKey, TValue))
+- uid: Songhay.Extensions.IDictionaryExtensions.ToUriQueryString``2(System.Collections.Generic.IDictionary{``0,``1})
+  commentId: M:Songhay.Extensions.IDictionaryExtensions.ToUriQueryString``2(System.Collections.Generic.IDictionary{``0,``1})
+  id: ToUriQueryString``2(System.Collections.Generic.IDictionary{``0,``1})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IDictionaryExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToUriQueryString<TKey, TValue>(IDictionary<TKey, TValue?>?)
+  nameWithType: IDictionaryExtensions.ToUriQueryString<TKey, TValue>(IDictionary<TKey, TValue?>?)
+  fullName: Songhay.Extensions.IDictionaryExtensions.ToUriQueryString<TKey, TValue>(System.Collections.Generic.IDictionary<TKey, TValue?>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IDictionaryExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToUriQueryString
+    path: ../SonghayCore/Extensions/IDictionaryExtensions.cs
+    startLine: 63
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified dictionary
+
+    into a <xref href="System.Uri.Query" data-throw-if-not-resolved="false"></xref> string.
+  remarks: No URI encoding logic is used by this method.
+  example: []
+  syntax:
+    content: public static string ToUriQueryString<TKey, TValue>(this IDictionary<TKey, TValue?>? dictionary)
+    parameters:
+    - id: dictionary
+      type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
+      description: the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>
+    typeParameters:
+    - id: TKey
+      description: The type of the key.
+    - id: TValue
+      description: The type of the value.
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToUriQueryString(Of TKey, TValue)(dictionary As IDictionary(Of TKey, TValue)) As String
+  overload: Songhay.Extensions.IDictionaryExtensions.ToUriQueryString*
+  nameWithType.vb: IDictionaryExtensions.ToUriQueryString(Of TKey, TValue)(IDictionary(Of TKey, TValue))
+  fullName.vb: Songhay.Extensions.IDictionaryExtensions.ToUriQueryString(Of TKey, TValue)(System.Collections.Generic.IDictionary(Of TKey, TValue))
+  name.vb: ToUriQueryString(Of TKey, TValue)(IDictionary(Of TKey, TValue))
 - uid: Songhay.Extensions.IDictionaryExtensions.TryGetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0)
   commentId: M:Songhay.Extensions.IDictionaryExtensions.TryGetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0)
   id: TryGetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0)
@@ -161,7 +211,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: TryGetValueWithKey
     path: ../SonghayCore/Extensions/IDictionaryExtensions.cs
-    startLine: 59
+    startLine: 84
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -207,7 +257,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: TryGetValueWithKey
     path: ../SonghayCore/Extensions/IDictionaryExtensions.cs
-    startLine: 70
+    startLine: 95
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -237,6 +287,63 @@ items:
   nameWithType.vb: IDictionaryExtensions.TryGetValueWithKey(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey, Boolean)
   fullName.vb: Songhay.Extensions.IDictionaryExtensions.TryGetValueWithKey(Of TKey, TValue)(System.Collections.Generic.IDictionary(Of TKey, TValue), TKey, Boolean)
   name.vb: TryGetValueWithKey(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey, Boolean)
+- uid: Songhay.Extensions.IDictionaryExtensions.UnionAsDictionary``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``1})
+  commentId: M:Songhay.Extensions.IDictionaryExtensions.UnionAsDictionary``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``1})
+  id: UnionAsDictionary``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``1})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IDictionaryExtensions
+  langs:
+  - csharp
+  - vb
+  name: UnionAsDictionary<TKey, TValue>(IDictionary<TKey, TValue?>?, IDictionary<TKey, TValue?>?)
+  nameWithType: IDictionaryExtensions.UnionAsDictionary<TKey, TValue>(IDictionary<TKey, TValue?>?, IDictionary<TKey, TValue?>?)
+  fullName: Songhay.Extensions.IDictionaryExtensions.UnionAsDictionary<TKey, TValue>(System.Collections.Generic.IDictionary<TKey, TValue?>?, System.Collections.Generic.IDictionary<TKey, TValue?>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IDictionaryExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: UnionAsDictionary
+    path: ../SonghayCore/Extensions/IDictionaryExtensions.cs
+    startLine: 134
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Invokes the <xref href="System.Linq.Enumerable.Union%60%601(System.Collections.Generic.IEnumerable%7b%60%600%7d%2cSystem.Collections.Generic.IEnumerable%7b%60%600%7d)" data-throw-if-not-resolved="false"></xref> method
+
+    with the specified dictionaries and calls <xref href="System.Linq.Enumerable.ToDictionary%60%602(System.Collections.Generic.IEnumerable%7bSystem.Collections.Generic.KeyValuePair%7b%60%600%2c%60%601%7d%7d)" data-throw-if-not-resolved="false"></xref>
+
+    on the result.
+  remarks: >-
+    When <xref href="System.Linq.Enumerable.Union%60%601(System.Collections.Generic.IEnumerable%7b%60%600%7d%2cSystem.Collections.Generic.IEnumerable%7b%60%600%7d)" data-throw-if-not-resolved="false"></xref> is called
+
+    .NET returns a collection of <xref href="System.Collections.Generic.KeyValuePair%602" data-throw-if-not-resolved="false"></xref> to avoid losing dictionary entries with the same key.
+
+    This member disregards this danger and ensures a dictionary is returned.
+  example: []
+  syntax:
+    content: 'public static IDictionary<TKey, TValue?>? UnionAsDictionary<TKey, TValue>(this IDictionary<TKey, TValue?>? dictionary1, IDictionary<TKey, TValue?>? dictionary2) where TKey : notnull'
+    parameters:
+    - id: dictionary1
+      type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
+      description: ''
+    - id: dictionary2
+      type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
+      description: ''
+    typeParameters:
+    - id: TKey
+      description: The type of the key.
+    - id: TValue
+      description: The type of the value.
+    return:
+      type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
+    content.vb: Public Shared Function UnionAsDictionary(Of TKey, TValue)(dictionary1 As IDictionary(Of TKey, TValue), dictionary2 As IDictionary(Of TKey, TValue)) As IDictionary(Of TKey, TValue)
+  overload: Songhay.Extensions.IDictionaryExtensions.UnionAsDictionary*
+  nameWithType.vb: IDictionaryExtensions.UnionAsDictionary(Of TKey, TValue)(IDictionary(Of TKey, TValue), IDictionary(Of TKey, TValue))
+  fullName.vb: Songhay.Extensions.IDictionaryExtensions.UnionAsDictionary(Of TKey, TValue)(System.Collections.Generic.IDictionary(Of TKey, TValue), System.Collections.Generic.IDictionary(Of TKey, TValue))
+  name.vb: UnionAsDictionary(Of TKey, TValue)(IDictionary(Of TKey, TValue), IDictionary(Of TKey, TValue))
 - uid: Songhay.Extensions.IDictionaryExtensions.WithPair``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)
   commentId: M:Songhay.Extensions.IDictionaryExtensions.WithPair``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)
   id: WithPair``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)
@@ -256,7 +363,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WithPair
     path: ../SonghayCore/Extensions/IDictionaryExtensions.cs
-    startLine: 95
+    startLine: 153
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -266,7 +373,7 @@ items:
     with the specified pair.
   example: []
   syntax:
-    content: 'public static IDictionary<TKey, TValue?> WithPair<TKey, TValue>(this IDictionary<TKey, TValue?>? dictionary, TKey? key, TValue? value) where TKey : notnull'
+    content: 'public static IDictionary<TKey, TValue?>? WithPair<TKey, TValue>(this IDictionary<TKey, TValue?>? dictionary, TKey? key, TValue? value) where TKey : notnull'
     parameters:
     - id: dictionary
       type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
@@ -308,7 +415,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WithPair
     path: ../SonghayCore/Extensions/IDictionaryExtensions.cs
-    startLine: 112
+    startLine: 168
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -318,7 +425,7 @@ items:
     with the specified pair.
   example: []
   syntax:
-    content: 'public static IDictionary<TKey, TValue?> WithPair<TKey, TValue>(this IDictionary<TKey, TValue?>? dictionary, KeyValuePair<TKey, TValue?>? pair) where TKey : notnull'
+    content: 'public static IDictionary<TKey, TValue?>? WithPair<TKey, TValue>(this IDictionary<TKey, TValue?>? dictionary, KeyValuePair<TKey, TValue?>? pair) where TKey : notnull'
     parameters:
     - id: dictionary
       type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
@@ -338,6 +445,61 @@ items:
   nameWithType.vb: IDictionaryExtensions.WithPair(Of TKey, TValue)(IDictionary(Of TKey, TValue), KeyValuePair(Of TKey, TValue)?)
   fullName.vb: Songhay.Extensions.IDictionaryExtensions.WithPair(Of TKey, TValue)(System.Collections.Generic.IDictionary(Of TKey, TValue), System.Collections.Generic.KeyValuePair(Of TKey, TValue)?)
   name.vb: WithPair(Of TKey, TValue)(IDictionary(Of TKey, TValue), KeyValuePair(Of TKey, TValue)?)
+- uid: Songhay.Extensions.IDictionaryExtensions.WithPair``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1,System.Func{System.Boolean})
+  commentId: M:Songhay.Extensions.IDictionaryExtensions.WithPair``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1,System.Func{System.Boolean})
+  id: WithPair``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1,System.Func{System.Boolean})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IDictionaryExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithPair<TKey, TValue>(IDictionary<TKey, TValue?>?, TKey?, TValue?, Func<bool>?)
+  nameWithType: IDictionaryExtensions.WithPair<TKey, TValue>(IDictionary<TKey, TValue?>?, TKey?, TValue?, Func<bool>?)
+  fullName: Songhay.Extensions.IDictionaryExtensions.WithPair<TKey, TValue>(System.Collections.Generic.IDictionary<TKey, TValue?>?, TKey?, TValue?, System.Func<bool>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IDictionaryExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithPair
+    path: ../SonghayCore/Extensions/IDictionaryExtensions.cs
+    startLine: 182
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Returns the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>
+
+    with the specified pair.
+  example: []
+  syntax:
+    content: 'public static IDictionary<TKey, TValue?>? WithPair<TKey, TValue>(this IDictionary<TKey, TValue?>? dictionary, TKey? key, TValue? value, Func<bool>? condition) where TKey : notnull'
+    parameters:
+    - id: dictionary
+      type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
+      description: the <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref>
+    - id: key
+      type: '{TKey}'
+      description: the key
+    - id: value
+      type: '{TValue}'
+      description: the value
+    - id: condition
+      type: System.Func{System.Boolean}
+      description: The condition.
+    typeParameters:
+    - id: TKey
+      description: The type of the key.
+    - id: TValue
+      description: The type of the value.
+    return:
+      type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
+    content.vb: Public Shared Function WithPair(Of TKey, TValue)(dictionary As IDictionary(Of TKey, TValue), key As TKey, value As TValue, condition As Func(Of Boolean)) As IDictionary(Of TKey, TValue)
+  overload: Songhay.Extensions.IDictionaryExtensions.WithPair*
+  nameWithType.vb: IDictionaryExtensions.WithPair(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey, TValue, Func(Of Boolean))
+  fullName.vb: Songhay.Extensions.IDictionaryExtensions.WithPair(Of TKey, TValue)(System.Collections.Generic.IDictionary(Of TKey, TValue), TKey, TValue, System.Func(Of Boolean))
+  name.vb: WithPair(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey, TValue, Func(Of Boolean))
 - uid: Songhay.Extensions.IDictionaryExtensions.WithPairs``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})
   commentId: M:Songhay.Extensions.IDictionaryExtensions.WithPairs``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})
   id: WithPairs``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})
@@ -357,7 +519,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WithPairs
     path: ../SonghayCore/Extensions/IDictionaryExtensions.cs
-    startLine: 128
+    startLine: 199
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -367,7 +529,7 @@ items:
     with the specified pairs.
   example: []
   syntax:
-    content: 'public static IDictionary<TKey, TValue?> WithPairs<TKey, TValue>(this IDictionary<TKey, TValue?>? dictionary, IEnumerable<KeyValuePair<TKey, TValue?>>? pairs) where TKey : notnull'
+    content: 'public static IDictionary<TKey, TValue?>? WithPairs<TKey, TValue>(this IDictionary<TKey, TValue?>? dictionary, IEnumerable<KeyValuePair<TKey, TValue?>>? pairs) where TKey : notnull'
     parameters:
     - id: dictionary
       type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
@@ -810,6 +972,30 @@ references:
   name: ToShallowClone
   nameWithType: IDictionaryExtensions.ToShallowClone
   fullName: Songhay.Extensions.IDictionaryExtensions.ToShallowClone
+- uid: System.Uri.Query
+  commentId: P:System.Uri.Query
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uri.query
+  name: Query
+  nameWithType: Uri.Query
+  fullName: System.Uri.Query
+- uid: Songhay.Extensions.IDictionaryExtensions.ToUriQueryString*
+  commentId: Overload:Songhay.Extensions.IDictionaryExtensions.ToUriQueryString
+  href: Songhay.Extensions.IDictionaryExtensions.html#Songhay_Extensions_IDictionaryExtensions_ToUriQueryString__2_System_Collections_Generic_IDictionary___0___1__
+  name: ToUriQueryString
+  nameWithType: IDictionaryExtensions.ToUriQueryString
+  fullName: Songhay.Extensions.IDictionaryExtensions.ToUriQueryString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: Songhay.Extensions.IDictionaryExtensions.TryGetValueWithKey*
   commentId: Overload:Songhay.Extensions.IDictionaryExtensions.TryGetValueWithKey
   href: Songhay.Extensions.IDictionaryExtensions.html#Songhay_Extensions_IDictionaryExtensions_TryGetValueWithKey__2_System_Collections_Generic_IDictionary___0___1____0_
@@ -847,12 +1033,148 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Songhay.Extensions.IDictionaryExtensions.WithPair*
-  commentId: Overload:Songhay.Extensions.IDictionaryExtensions.WithPair
-  href: Songhay.Extensions.IDictionaryExtensions.html#Songhay_Extensions_IDictionaryExtensions_WithPair__2_System_Collections_Generic_IDictionary___0___1____0___1_
-  name: WithPair
-  nameWithType: IDictionaryExtensions.WithPair
-  fullName: Songhay.Extensions.IDictionaryExtensions.WithPair
+- uid: System.Linq.Enumerable.Union``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})
+  commentId: M:System.Linq.Enumerable.Union``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.enumerable.union#system-linq-enumerable-union-1(system-collections-generic-ienumerable((-0))-system-collections-generic-ienumerable((-0)))
+  name: Union<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+  nameWithType: Enumerable.Union<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+  fullName: System.Linq.Enumerable.Union<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Collections.Generic.IEnumerable<TSource>)
+  nameWithType.vb: Enumerable.Union(Of TSource)(IEnumerable(Of TSource), IEnumerable(Of TSource))
+  fullName.vb: System.Linq.Enumerable.Union(Of TSource)(System.Collections.Generic.IEnumerable(Of TSource), System.Collections.Generic.IEnumerable(Of TSource))
+  name.vb: Union(Of TSource)(IEnumerable(Of TSource), IEnumerable(Of TSource))
+  spec.csharp:
+  - uid: System.Linq.Enumerable.Union``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})
+    name: Union
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.enumerable.union#system-linq-enumerable-union-1(system-collections-generic-ienumerable((-0))-system-collections-generic-ienumerable((-0)))
+  - name: <
+  - name: TSource
+  - name: '>'
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: System.Linq.Enumerable.Union``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})
+    name: Union
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.enumerable.union#system-linq-enumerable-union-1(system-collections-generic-ienumerable((-0))-system-collections-generic-ienumerable((-0)))
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+  - name: )
+- uid: System.Linq.Enumerable.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})
+  commentId: M:System.Linq.Enumerable.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.enumerable.todictionary#system-linq-enumerable-todictionary-2(system-collections-generic-ienumerable((system-collections-generic-keyvaluepair((-0-1)))))
+  name: ToDictionary<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>>)
+  nameWithType: Enumerable.ToDictionary<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>>)
+  fullName: System.Linq.Enumerable.ToDictionary<TKey, TValue>(System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<TKey, TValue>>)
+  nameWithType.vb: Enumerable.ToDictionary(Of TKey, TValue)(IEnumerable(Of KeyValuePair(Of TKey, TValue)))
+  fullName.vb: System.Linq.Enumerable.ToDictionary(Of TKey, TValue)(System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of TKey, TValue)))
+  name.vb: ToDictionary(Of TKey, TValue)(IEnumerable(Of KeyValuePair(Of TKey, TValue)))
+  spec.csharp:
+  - uid: System.Linq.Enumerable.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})
+    name: ToDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.enumerable.todictionary#system-linq-enumerable-todictionary-2(system-collections-generic-ienumerable((system-collections-generic-keyvaluepair((-0-1)))))
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: System.Linq.Enumerable.ToDictionary``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})
+    name: ToDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.enumerable.todictionary#system-linq-enumerable-todictionary-2(system-collections-generic-ienumerable((system-collections-generic-keyvaluepair((-0-1)))))
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+  - name: )
 - uid: System.Collections.Generic.KeyValuePair`2
   commentId: T:System.Collections.Generic.KeyValuePair`2
   isExternal: true
@@ -887,6 +1209,18 @@ references:
   - name: " "
   - name: TValue
   - name: )
+- uid: Songhay.Extensions.IDictionaryExtensions.UnionAsDictionary*
+  commentId: Overload:Songhay.Extensions.IDictionaryExtensions.UnionAsDictionary
+  href: Songhay.Extensions.IDictionaryExtensions.html#Songhay_Extensions_IDictionaryExtensions_UnionAsDictionary__2_System_Collections_Generic_IDictionary___0___1__System_Collections_Generic_IDictionary___0___1__
+  name: UnionAsDictionary
+  nameWithType: IDictionaryExtensions.UnionAsDictionary
+  fullName: Songhay.Extensions.IDictionaryExtensions.UnionAsDictionary
+- uid: Songhay.Extensions.IDictionaryExtensions.WithPair*
+  commentId: Overload:Songhay.Extensions.IDictionaryExtensions.WithPair
+  href: Songhay.Extensions.IDictionaryExtensions.html#Songhay_Extensions_IDictionaryExtensions_WithPair__2_System_Collections_Generic_IDictionary___0___1____0___1_
+  name: WithPair
+  nameWithType: IDictionaryExtensions.WithPair
+  fullName: Songhay.Extensions.IDictionaryExtensions.WithPair
 - uid: System.Nullable{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}
   commentId: T:System.Nullable{System.Collections.Generic.KeyValuePair{``0,``1}}
   parent: System
@@ -951,6 +1285,69 @@ references:
   - name: Of
   - name: " "
   - name: T
+  - name: )
+- uid: System.Func{System.Boolean}
+  commentId: T:System.Func{System.Boolean}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<bool>
+  nameWithType: Func<bool>
+  fullName: System.Func<bool>
+  nameWithType.vb: Func(Of Boolean)
+  fullName.vb: System.Func(Of Boolean)
+  name.vb: Func(Of Boolean)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
   - name: )
 - uid: Songhay.Extensions.IDictionaryExtensions.WithPairs*
   commentId: Overload:Songhay.Extensions.IDictionaryExtensions.WithPairs

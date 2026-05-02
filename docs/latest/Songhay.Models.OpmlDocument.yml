@@ -9,6 +9,7 @@ items:
   - Songhay.Models.OpmlDocument.OpmlBody
   - Songhay.Models.OpmlDocument.OpmlHead
   - Songhay.Models.OpmlDocument.RxOpmlSchema
+  - Songhay.Models.OpmlDocument.ToString
   - Songhay.Models.OpmlDocument.Version
   - Songhay.Models.OpmlDocument.XsiSchemaLocation
   langs:
@@ -63,7 +64,6 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
   extensionMethods:
   - Songhay.Models.OpmlDocument.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
   - Songhay.Models.OpmlDocument.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
@@ -321,6 +321,37 @@ items:
     arguments:
     - type: System.String
       value: body
+- uid: Songhay.Models.OpmlDocument.ToString
+  commentId: M:Songhay.Models.OpmlDocument.ToString
+  id: ToString
+  parent: Songhay.Models.OpmlDocument
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: OpmlDocument.ToString()
+  fullName: Songhay.Models.OpmlDocument.ToString()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Models/OpmlDocument.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToString
+    path: ../SonghayCore/Models/OpmlDocument.cs
+    startLine: 61
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Converts the value of this instance to a <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Songhay.Models.OpmlDocument.ToString*
 references:
 - uid: Songhay.Models
   commentId: N:Songhay.Models
@@ -549,30 +580,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
   - name: )
 - uid: Songhay.Models.OpmlDocument.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
   commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
@@ -916,3 +923,33 @@ references:
   name: OpmlBody
   nameWithType: OpmlBody
   fullName: Songhay.Models.OpmlBody
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Models.OpmlDocument.ToString*
+  commentId: Overload:Songhay.Models.OpmlDocument.ToString
+  href: Songhay.Models.OpmlDocument.html#Songhay_Models_OpmlDocument_ToString
+  name: ToString
+  nameWithType: OpmlDocument.ToString
+  fullName: Songhay.Models.OpmlDocument.ToString

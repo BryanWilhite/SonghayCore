@@ -99,9 +99,9 @@ items:
   langs:
   - csharp
   - vb
-  name: CsvExporter(IEnumerable<T>?, IEnumerable<string>?)
-  nameWithType: CsvExporter<T>.CsvExporter(IEnumerable<T>?, IEnumerable<string>?)
-  fullName: Songhay.Text.CsvExporter<T>.CsvExporter(System.Collections.Generic.IEnumerable<T>?, System.Collections.Generic.IEnumerable<string>?)
+  name: CsvExporter(IEnumerable<T>?, IEnumerable<string>)
+  nameWithType: CsvExporter<T>.CsvExporter(IEnumerable<T>?, IEnumerable<string>)
+  fullName: Songhay.Text.CsvExporter<T>.CsvExporter(System.Collections.Generic.IEnumerable<T>?, System.Collections.Generic.IEnumerable<string>)
   type: Constructor
   source:
     remote:
@@ -117,7 +117,7 @@ items:
   summary: Initializes a new instance of the <xref href="Songhay.Text.CsvExporter%601" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public CsvExporter(IEnumerable<T>? rows, IEnumerable<string>? columns)
+    content: public CsvExporter(IEnumerable<T>? rows, IEnumerable<string> columns)
     parameters:
     - id: rows
       type: System.Collections.Generic.IEnumerable{{T}}
@@ -159,7 +159,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{System.String}
-    content.vb: Public Property Columns As IEnumerable(Of String)
+    content.vb: Public ReadOnly Property Columns As IEnumerable(Of String)
   overload: Songhay.Text.CsvExporter`1.Columns*
   nameWithType.vb: CsvExporter(Of T).Columns
   fullName.vb: Songhay.Text.CsvExporter(Of T).Columns
@@ -192,7 +192,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{{T}}
-    content.vb: Public Property Rows As IEnumerable(Of T)
+    content.vb: Public ReadOnly Property Rows As IEnumerable(Of T)
   overload: Songhay.Text.CsvExporter`1.Rows*
   nameWithType.vb: CsvExporter(Of T).Rows
   fullName.vb: Songhay.Text.CsvExporter(Of T).Rows

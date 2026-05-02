@@ -5,6 +5,8 @@ items:
   id: LatinGlyphsUtility
   parent: Songhay.Xml
   children:
+  - Songhay.Xml.LatinGlyphsUtility.BasicLatinGlyphs
+  - Songhay.Xml.LatinGlyphsUtility.BeyondBasicLatinGlyphs
   - Songhay.Xml.LatinGlyphsUtility.Condense(System.String,System.Boolean)
   - Songhay.Xml.LatinGlyphsUtility.Expand(System.String,System.Boolean)
   - Songhay.Xml.LatinGlyphsUtility.GetGlyphs(System.Boolean)
@@ -43,6 +45,72 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: Songhay.Xml.LatinGlyphsUtility.BasicLatinGlyphs
+  commentId: F:Songhay.Xml.LatinGlyphsUtility.BasicLatinGlyphs
+  id: BasicLatinGlyphs
+  parent: Songhay.Xml.LatinGlyphsUtility
+  langs:
+  - csharp
+  - vb
+  name: BasicLatinGlyphs
+  nameWithType: LatinGlyphsUtility.BasicLatinGlyphs
+  fullName: Songhay.Xml.LatinGlyphsUtility.BasicLatinGlyphs
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Xml/LatinGlyphsUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: BasicLatinGlyphs
+    path: ../SonghayCore/Xml/LatinGlyphsUtility.cs
+    startLine: 11
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: >-
+    A collection of <xref href="Songhay.Models.ProgramGlyph" data-throw-if-not-resolved="false"></xref>,
+
+    representing the Latin Glyphs of the Basic Latin Unicode group.
+  example: []
+  syntax:
+    content: public static readonly Lazy<ProgramGlyph[]> BasicLatinGlyphs
+    return:
+      type: System.Lazy{Songhay.Models.ProgramGlyph[]}
+    content.vb: Public Shared ReadOnly BasicLatinGlyphs As Lazy(Of ProgramGlyph())
+- uid: Songhay.Xml.LatinGlyphsUtility.BeyondBasicLatinGlyphs
+  commentId: F:Songhay.Xml.LatinGlyphsUtility.BeyondBasicLatinGlyphs
+  id: BeyondBasicLatinGlyphs
+  parent: Songhay.Xml.LatinGlyphsUtility
+  langs:
+  - csharp
+  - vb
+  name: BeyondBasicLatinGlyphs
+  nameWithType: LatinGlyphsUtility.BeyondBasicLatinGlyphs
+  fullName: Songhay.Xml.LatinGlyphsUtility.BeyondBasicLatinGlyphs
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Xml/LatinGlyphsUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: BeyondBasicLatinGlyphs
+    path: ../SonghayCore/Xml/LatinGlyphsUtility.cs
+    startLine: 1078
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: >-
+    A collection of <xref href="Songhay.Models.ProgramGlyph" data-throw-if-not-resolved="false"></xref>,
+
+    representing the Latin Glyphs
+
+    of the General Punctuation, Latin Extended-B, etc. Unicode groups.
+  example: []
+  syntax:
+    content: public static readonly Lazy<ProgramGlyph[]> BeyondBasicLatinGlyphs
+    return:
+      type: System.Lazy{Songhay.Models.ProgramGlyph[]}
+    content.vb: Public Shared ReadOnly BeyondBasicLatinGlyphs As Lazy(Of ProgramGlyph())
 - uid: Songhay.Xml.LatinGlyphsUtility.Condense(System.String,System.Boolean)
   commentId: M:Songhay.Xml.LatinGlyphsUtility.Condense(System.String,System.Boolean)
   id: Condense(System.String,System.Boolean)
@@ -61,7 +129,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Condense
     path: ../SonghayCore/Xml/LatinGlyphsUtility.cs
-    startLine: 21
+    startLine: 2526
   assemblies:
   - SonghayCore
   namespace: Songhay.Xml
@@ -108,7 +176,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Expand
     path: ../SonghayCore/Xml/LatinGlyphsUtility.cs
-    startLine: 58
+    startLine: 2563
   assemblies:
   - SonghayCore
   namespace: Songhay.Xml
@@ -155,7 +223,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetGlyphs
     path: ../SonghayCore/Xml/LatinGlyphsUtility.cs
-    startLine: 80
+    startLine: 2585
   assemblies:
   - SonghayCore
   namespace: Songhay.Xml
@@ -191,7 +259,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: RemoveUrlEncodings
     path: ../SonghayCore/Xml/LatinGlyphsUtility.cs
-    startLine: 92
+    startLine: 2597
   assemblies:
   - SonghayCore
   namespace: Songhay.Xml
@@ -237,7 +305,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: RemoveUrlEncodings
     path: ../SonghayCore/Xml/LatinGlyphsUtility.cs
-    startLine: 108
+    startLine: 2613
   assemblies:
   - SonghayCore
   namespace: Songhay.Xml
@@ -531,6 +599,77 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Songhay.Models.ProgramGlyph
+  commentId: T:Songhay.Models.ProgramGlyph
+  href: Songhay.Models.ProgramGlyph.html
+  name: ProgramGlyph
+  nameWithType: ProgramGlyph
+  fullName: Songhay.Models.ProgramGlyph
+- uid: System.Lazy{Songhay.Models.ProgramGlyph[]}
+  commentId: T:System.Lazy{Songhay.Models.ProgramGlyph[]}
+  parent: System
+  definition: System.Lazy`1
+  href: https://learn.microsoft.com/dotnet/api/system.lazy-1
+  name: Lazy<ProgramGlyph[]>
+  nameWithType: Lazy<ProgramGlyph[]>
+  fullName: System.Lazy<Songhay.Models.ProgramGlyph[]>
+  nameWithType.vb: Lazy(Of ProgramGlyph())
+  fullName.vb: System.Lazy(Of Songhay.Models.ProgramGlyph())
+  name.vb: Lazy(Of ProgramGlyph())
+  spec.csharp:
+  - uid: System.Lazy`1
+    name: Lazy
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.lazy-1
+  - name: <
+  - uid: Songhay.Models.ProgramGlyph
+    name: ProgramGlyph
+    href: Songhay.Models.ProgramGlyph.html
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Lazy`1
+    name: Lazy
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.lazy-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.ProgramGlyph
+    name: ProgramGlyph
+    href: Songhay.Models.ProgramGlyph.html
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Lazy`1
+  commentId: T:System.Lazy`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.lazy-1
+  name: Lazy<T>
+  nameWithType: Lazy<T>
+  fullName: System.Lazy<T>
+  nameWithType.vb: Lazy(Of T)
+  fullName.vb: System.Lazy(Of T)
+  name.vb: Lazy(Of T)
+  spec.csharp:
+  - uid: System.Lazy`1
+    name: Lazy
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.lazy-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Lazy`1
+    name: Lazy
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.lazy-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -542,12 +681,6 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: Songhay.Models.ProgramGlyph
-  commentId: T:Songhay.Models.ProgramGlyph
-  href: Songhay.Models.ProgramGlyph.html
-  name: ProgramGlyph
-  nameWithType: ProgramGlyph
-  fullName: Songhay.Models.ProgramGlyph
 - uid: Songhay.Xml.LatinGlyphsUtility.Condense*
   commentId: Overload:Songhay.Xml.LatinGlyphsUtility.Condense
   href: Songhay.Xml.LatinGlyphsUtility.html#Songhay_Xml_LatinGlyphsUtility_Condense_System_String_System_Boolean_

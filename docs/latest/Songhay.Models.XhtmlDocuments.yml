@@ -79,12 +79,30 @@ items:
   summary: Gets or sets the documents.
   example: []
   syntax:
-    content: public XhtmlDocument[] Documents { get; set; }
+    content: >-
+      [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays", Justification = "Used for XML serialization.")]
+
+      public XhtmlDocument[] Documents { get; set; }
     parameters: []
     return:
       type: Songhay.Models.XhtmlDocument[]
-    content.vb: Public Property Documents As XhtmlDocument()
+    content.vb: >-
+      <SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays", Justification:="Used for XML serialization.")>
+
+      Public Property Documents As XhtmlDocument()
   overload: Songhay.Models.XhtmlDocuments.Documents*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Microsoft.Performance
+    - type: System.String
+      value: CA1819:PropertiesShouldNotReturnArrays
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: Used for XML serialization.
 - uid: Songhay.Models.XhtmlDocuments.Title
   commentId: P:Songhay.Models.XhtmlDocuments.Title
   id: Title

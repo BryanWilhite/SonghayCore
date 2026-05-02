@@ -203,7 +203,8 @@ to add support for articles, conjunctions and prepositions.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ToTitleCase(string input)</code></pre>
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Globalization&quot;, &quot;CA1308:NormalizeStringsToUppercase&quot;, Justification = &quot;This member is not making a security decision based on the result.&quot;)]
+public static string ToTitleCase(string input)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>

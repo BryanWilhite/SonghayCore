@@ -11,6 +11,7 @@ items:
   - Songhay.Models.OpmlOutline.Outlines
   - Songhay.Models.OpmlOutline.Text
   - Songhay.Models.OpmlOutline.Title
+  - Songhay.Models.OpmlOutline.ToString
   - Songhay.Models.OpmlOutline.Url
   - Songhay.Models.OpmlOutline.XmlUrl
   langs:
@@ -55,7 +56,6 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
   extensionMethods:
   - Songhay.Models.OpmlOutline.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
   - Songhay.Models.OpmlOutline.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
@@ -183,6 +183,8 @@ items:
   example: []
   syntax:
     content: >-
+      [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays", Justification = "Used for XML serialization.")]
+
       [JsonPropertyName("outline")]
 
       public OpmlOutline[] Outlines { get; set; }
@@ -190,11 +192,24 @@ items:
     return:
       type: Songhay.Models.OpmlOutline[]
     content.vb: >-
+      <SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays", Justification:="Used for XML serialization.")>
+
       <JsonPropertyName("outline")>
 
       Public Property Outlines As OpmlOutline()
   overload: Songhay.Models.OpmlOutline.Outlines*
   attributes:
+  - type: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Microsoft.Performance
+    - type: System.String
+      value: CA1819:PropertiesShouldNotReturnArrays
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: Used for XML serialization.
   - type: System.Text.Json.Serialization.JsonPropertyNameAttribute
     ctor: System.Text.Json.Serialization.JsonPropertyNameAttribute.#ctor(System.String)
     arguments:
@@ -357,12 +372,16 @@ items:
     content: >-
       [JsonPropertyName("url")]
 
+      [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "OPML does not recognize the concept of the System.Uri.")]
+
       public string? Url { get; set; }
     parameters: []
     return:
       type: System.String
     content.vb: >-
       <JsonPropertyName("url")>
+
+      <SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification:="OPML does not recognize the concept of the System.Uri.")>
 
       Public Property Url As String
   overload: Songhay.Models.OpmlOutline.Url*
@@ -372,6 +391,17 @@ items:
     arguments:
     - type: System.String
       value: url
+  - type: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Microsoft.Design
+    - type: System.String
+      value: CA1056:UriPropertiesShouldNotBeStrings
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: OPML does not recognize the concept of the System.Uri.
 - uid: Songhay.Models.OpmlOutline.XmlUrl
   commentId: P:Songhay.Models.OpmlOutline.XmlUrl
   id: XmlUrl
@@ -400,12 +430,16 @@ items:
     content: >-
       [JsonPropertyName("xmlUrl")]
 
+      [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "OPML does not recognize the concept of the System.Uri.")]
+
       public string? XmlUrl { get; set; }
     parameters: []
     return:
       type: System.String
     content.vb: >-
       <JsonPropertyName("xmlUrl")>
+
+      <SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification:="OPML does not recognize the concept of the System.Uri.")>
 
       Public Property XmlUrl As String
   overload: Songhay.Models.OpmlOutline.XmlUrl*
@@ -415,6 +449,48 @@ items:
     arguments:
     - type: System.String
       value: xmlUrl
+  - type: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Microsoft.Design
+    - type: System.String
+      value: CA1056:UriPropertiesShouldNotBeStrings
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: OPML does not recognize the concept of the System.Uri.
+- uid: Songhay.Models.OpmlOutline.ToString
+  commentId: M:Songhay.Models.OpmlOutline.ToString
+  id: ToString
+  parent: Songhay.Models.OpmlOutline
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: OpmlOutline.ToString()
+  fullName: Songhay.Models.OpmlOutline.ToString()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Models/OpmlOutline.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToString
+    path: ../SonghayCore/Models/OpmlOutline.cs
+    startLine: 75
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Converts the value of this instance to a <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Songhay.Models.OpmlOutline.ToString*
 references:
 - uid: Songhay.Models
   commentId: N:Songhay.Models
@@ -643,30 +719,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
   - name: )
 - uid: Songhay.Models.OpmlOutline.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
   commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
@@ -1025,3 +1077,33 @@ references:
   name: XmlUrl
   nameWithType: OpmlOutline.XmlUrl
   fullName: Songhay.Models.OpmlOutline.XmlUrl
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Models.OpmlOutline.ToString*
+  commentId: Overload:Songhay.Models.OpmlOutline.ToString
+  href: Songhay.Models.OpmlOutline.html#Songhay_Models_OpmlOutline_ToString
+  name: ToString
+  nameWithType: OpmlOutline.ToString
+  fullName: Songhay.Models.OpmlOutline.ToString

@@ -73,6 +73,10 @@ items:
     - id: logger
       type: Microsoft.Extensions.Logging.ILogger
       description: the specified <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor
+        arguments: []
     return:
       type: Microsoft.Extensions.Logging.ILogger
     content.vb: Public Shared Function AsInstanceOrNullLogger(logger As ILogger) As ILogger
@@ -113,6 +117,10 @@ items:
     - id: logger
       type: Microsoft.Extensions.Logging.ILogger{{TCategory}}
       description: the specified <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor
+        arguments: []
     typeParameters:
     - id: TCategory
       description: logging category by type

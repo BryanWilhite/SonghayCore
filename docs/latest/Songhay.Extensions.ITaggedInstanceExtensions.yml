@@ -74,6 +74,10 @@ items:
     - id: instance
       type: Songhay.Abstractions.ITaggedInstance
       description: the <xref href="Songhay.Abstractions.ITaggedInstance" data-throw-if-not-resolved="false"></xref>
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor
+        arguments: []
     - id: instanceTag
       type: System.String
       description: the conventional identifier
@@ -117,6 +121,12 @@ items:
     - id: instance
       type: Songhay.Abstractions.ITaggedInstance
       description: the <xref href="Songhay.Abstractions.ITaggedInstance" data-throw-if-not-resolved="false"></xref>
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.NotNullWhenAttribute
+        ctor: System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)
+        arguments:
+        - type: System.Boolean
+          value: true
     - id: instanceTag
       type: System.String
       description: the conventional identifier

@@ -46,8 +46,14 @@ items:
     use <xref href="Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public static class JsonNodeExtensions
-    content.vb: Public Module JsonNodeExtensions
+    content: >-
+      [SuppressMessage("ReSharper", "LogMessageIsSentenceProblem")]
+
+      public static class JsonNodeExtensions
+    content.vb: >-
+      <SuppressMessage("ReSharper", "LogMessageIsSentenceProblem")>
+
+      Public Module JsonNodeExtensions
   inheritance:
   - System.Object
   inheritedMembers:
@@ -58,6 +64,14 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: ReSharper
+    - type: System.String
+      value: LogMessageIsSentenceProblem
 - uid: Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)
   commentId: M:Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)
   id: DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)

@@ -76,12 +76,14 @@ items:
 
     This member also saves one line of code for the following scoped <code>ServiceProvider</code> pattern:
 
+
     <pre><code class="lang-csharp">using IServiceScope scope = _factory.Services.CreateScope();
 
 
     IMyRepo myRepo = scope.ServiceProvider.GetRequiredService{IMyRepo}();
 
     Assert.NotNull(myRepo);</code></pre>
+
 
     where <code>_factory</code> is an instance of an xUnit fixture
 

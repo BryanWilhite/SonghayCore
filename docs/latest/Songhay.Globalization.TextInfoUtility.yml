@@ -68,15 +68,33 @@ items:
     to add support for articles, conjunctions and prepositions.
   example: []
   syntax:
-    content: public static string ToTitleCase(string input)
+    content: >-
+      [SuppressMessage("Microsoft.Globalization", "CA1308:NormalizeStringsToUppercase", Justification = "This member is not making a security decision based on the result.")]
+
+      public static string ToTitleCase(string input)
     parameters:
     - id: input
       type: System.String
       description: The input.
     return:
       type: System.String
-    content.vb: Public Shared Function ToTitleCase(input As String) As String
+    content.vb: >-
+      <SuppressMessage("Microsoft.Globalization", "CA1308:NormalizeStringsToUppercase", Justification:="This member is not making a security decision based on the result.")>
+
+      Public Shared Function ToTitleCase(input As String) As String
   overload: Songhay.Globalization.TextInfoUtility.ToTitleCase*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.SuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Microsoft.Globalization
+    - type: System.String
+      value: CA1308:NormalizeStringsToUppercase
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: This member is not making a security decision based on the result.
   nameWithType.vb: TextInfoUtility.ToTitleCase(String)
   fullName.vb: Songhay.Globalization.TextInfoUtility.ToTitleCase(String)
   name.vb: ToTitleCase(String)

@@ -1,0 +1,1227 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Models.RegexScalars
+  commentId: T:Songhay.Models.RegexScalars
+  id: RegexScalars
+  parent: Songhay.Models
+  children:
+  - Songhay.Models.RegexScalars.AllCharactersInQuotes
+  - Songhay.Models.RegexScalars.AllCharactersIndicatingParentDirectory
+  - Songhay.Models.RegexScalars.AllCharactersNotAlphanumeric
+  - Songhay.Models.RegexScalars.AllCharactersNotNumeric
+  - Songhay.Models.RegexScalars.AllSpaceCharactersRepeatedTwoOrMoreTimes
+  - Songhay.Models.RegexScalars.AllThatLooksLikeEmailAddress
+  - Songhay.Models.RegexScalars.AllThatLooksLikeUnc
+  - Songhay.Models.RegexScalars.AllThatLooksLikeXmlMarkup
+  - Songhay.Models.RegexScalars.AllThatLooksLikeXmlSelfClosingTags
+  - Songhay.Models.RegexScalars.AllWords
+  - Songhay.Models.RegexScalars.CommandLineArgumentInQuotesFollowedByOtherArguments
+  - Songhay.Models.RegexScalars.HtmlAttributesWithoutQuotes
+  - Songhay.Models.RegexScalars.HtmlClosingTagCharacters
+  - Songhay.Models.RegexScalars.HtmlElementsThatShouldNotBeMinimized
+  - Songhay.Models.RegexScalars.HtmlHrefOrSrcAttributes
+  - Songhay.Models.RegexScalars.HtmlStartTags
+  - Songhay.Models.RegexScalars.HtmlTagContents
+  - Songhay.Models.RegexScalars.HtmlTagWithAnyAttributes
+  - Songhay.Models.RegexScalars.XhtmlAttribute
+  - Songhay.Models.RegexScalars.XhtmlDocTypeDeclaration
+  - Songhay.Models.RegexScalars.XhtmlEndTagsThatShouldBeMinimized
+  - Songhay.Models.RegexScalars.XhtmlMinimizedEndChars
+  - Songhay.Models.RegexScalars.XhtmlSelfClosingTags
+  - Songhay.Models.RegexScalars.XmlNamedEntities
+  - Songhay.Models.RegexScalars.XmlNamespaceAttributes
+  - Songhay.Models.RegexScalars.XmlNamespaceDeclarations
+  - Songhay.Models.RegexScalars.XmlNamespacePrefixes
+  - Songhay.Models.RegexScalars.XmlNamespaceSchemaLocationAttributes
+  - Songhay.Models.RegexScalars.XmlNumericEntities
+  langs:
+  - csharp
+  - vb
+  name: RegexScalars
+  nameWithType: RegexScalars
+  fullName: Songhay.Models.RegexScalars
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RegexScalars
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Centralizes all <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> strings
+  example: []
+  syntax:
+    content: public static class RegexScalars
+    content.vb: Public Module RegexScalars
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.Models.RegexScalars.AllCharactersIndicatingParentDirectory
+  commentId: F:Songhay.Models.RegexScalars.AllCharactersIndicatingParentDirectory
+  id: AllCharactersIndicatingParentDirectory
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: AllCharactersIndicatingParentDirectory
+  nameWithType: RegexScalars.AllCharactersIndicatingParentDirectory
+  fullName: Songhay.Models.RegexScalars.AllCharactersIndicatingParentDirectory
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AllCharactersIndicatingParentDirectory
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 8
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string AllCharactersIndicatingParentDirectory = "\\.\\./|\\.\\.\\\\"
+    return:
+      type: System.String
+    content.vb: Public Const AllCharactersIndicatingParentDirectory As String = "\.\./|\.\.\\"
+- uid: Songhay.Models.RegexScalars.AllCharactersInQuotes
+  commentId: F:Songhay.Models.RegexScalars.AllCharactersInQuotes
+  id: AllCharactersInQuotes
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: AllCharactersInQuotes
+  nameWithType: RegexScalars.AllCharactersInQuotes
+  fullName: Songhay.Models.RegexScalars.AllCharactersInQuotes
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AllCharactersInQuotes
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 11
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string AllCharactersInQuotes = "([\"'])(?:(?=(\\\\?))\\2.)*?\\1"
+    return:
+      type: System.String
+    content.vb: Public Const AllCharactersInQuotes As String = "([""'])(?:(?=(\\?))\2.)*?\1"
+- uid: Songhay.Models.RegexScalars.AllCharactersNotAlphanumeric
+  commentId: F:Songhay.Models.RegexScalars.AllCharactersNotAlphanumeric
+  id: AllCharactersNotAlphanumeric
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: AllCharactersNotAlphanumeric
+  nameWithType: RegexScalars.AllCharactersNotAlphanumeric
+  fullName: Songhay.Models.RegexScalars.AllCharactersNotAlphanumeric
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AllCharactersNotAlphanumeric
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 14
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string AllCharactersNotAlphanumeric = "[^a-z^0-9]"
+    return:
+      type: System.String
+    content.vb: Public Const AllCharactersNotAlphanumeric As String = "[^a-z^0-9]"
+- uid: Songhay.Models.RegexScalars.AllCharactersNotNumeric
+  commentId: F:Songhay.Models.RegexScalars.AllCharactersNotNumeric
+  id: AllCharactersNotNumeric
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: AllCharactersNotNumeric
+  nameWithType: RegexScalars.AllCharactersNotNumeric
+  fullName: Songhay.Models.RegexScalars.AllCharactersNotNumeric
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AllCharactersNotNumeric
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 17
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string AllCharactersNotNumeric = "\\D"
+    return:
+      type: System.String
+    content.vb: Public Const AllCharactersNotNumeric As String = "\D"
+- uid: Songhay.Models.RegexScalars.AllSpaceCharactersRepeatedTwoOrMoreTimes
+  commentId: F:Songhay.Models.RegexScalars.AllSpaceCharactersRepeatedTwoOrMoreTimes
+  id: AllSpaceCharactersRepeatedTwoOrMoreTimes
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: AllSpaceCharactersRepeatedTwoOrMoreTimes
+  nameWithType: RegexScalars.AllSpaceCharactersRepeatedTwoOrMoreTimes
+  fullName: Songhay.Models.RegexScalars.AllSpaceCharactersRepeatedTwoOrMoreTimes
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AllSpaceCharactersRepeatedTwoOrMoreTimes
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 20
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string AllSpaceCharactersRepeatedTwoOrMoreTimes = " {2,}"
+    return:
+      type: System.String
+    content.vb: Public Const AllSpaceCharactersRepeatedTwoOrMoreTimes As String = " {2,}"
+- uid: Songhay.Models.RegexScalars.AllThatLooksLikeEmailAddress
+  commentId: F:Songhay.Models.RegexScalars.AllThatLooksLikeEmailAddress
+  id: AllThatLooksLikeEmailAddress
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: AllThatLooksLikeEmailAddress
+  nameWithType: RegexScalars.AllThatLooksLikeEmailAddress
+  fullName: Songhay.Models.RegexScalars.AllThatLooksLikeEmailAddress
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AllThatLooksLikeEmailAddress
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 23
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string AllThatLooksLikeEmailAddress = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*"
+    return:
+      type: System.String
+    content.vb: Public Const AllThatLooksLikeEmailAddress As String = "\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+- uid: Songhay.Models.RegexScalars.AllThatLooksLikeUnc
+  commentId: F:Songhay.Models.RegexScalars.AllThatLooksLikeUnc
+  id: AllThatLooksLikeUnc
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: AllThatLooksLikeUnc
+  nameWithType: RegexScalars.AllThatLooksLikeUnc
+  fullName: Songhay.Models.RegexScalars.AllThatLooksLikeUnc
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AllThatLooksLikeUnc
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 26
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string AllThatLooksLikeUnc = "^(\\\\(\\\\[^\\s\\\\]+)+|([A-Za-z]:(\\\\)?|[A-z]:(\\\\[^\\s\\\\]+)+))(\\\\)?$"
+    return:
+      type: System.String
+    content.vb: Public Const AllThatLooksLikeUnc As String = "^(\\(\\[^\s\\]+)+|([A-Za-z]:(\\)?|[A-z]:(\\[^\s\\]+)+))(\\)?$"
+- uid: Songhay.Models.RegexScalars.AllThatLooksLikeXmlMarkup
+  commentId: F:Songhay.Models.RegexScalars.AllThatLooksLikeXmlMarkup
+  id: AllThatLooksLikeXmlMarkup
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: AllThatLooksLikeXmlMarkup
+  nameWithType: RegexScalars.AllThatLooksLikeXmlMarkup
+  fullName: Songhay.Models.RegexScalars.AllThatLooksLikeXmlMarkup
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AllThatLooksLikeXmlMarkup
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 29
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string AllThatLooksLikeXmlMarkup = "<\\s*([^>]+)\\s*>"
+    return:
+      type: System.String
+    content.vb: Public Const AllThatLooksLikeXmlMarkup As String = "<\s*([^>]+)\s*>"
+- uid: Songhay.Models.RegexScalars.AllThatLooksLikeXmlSelfClosingTags
+  commentId: F:Songhay.Models.RegexScalars.AllThatLooksLikeXmlSelfClosingTags
+  id: AllThatLooksLikeXmlSelfClosingTags
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: AllThatLooksLikeXmlSelfClosingTags
+  nameWithType: RegexScalars.AllThatLooksLikeXmlSelfClosingTags
+  fullName: Songhay.Models.RegexScalars.AllThatLooksLikeXmlSelfClosingTags
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AllThatLooksLikeXmlSelfClosingTags
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 32
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string AllThatLooksLikeXmlSelfClosingTags = "<([^>]+)/>"
+    return:
+      type: System.String
+    content.vb: Public Const AllThatLooksLikeXmlSelfClosingTags As String = "<([^>]+)/>"
+- uid: Songhay.Models.RegexScalars.AllWords
+  commentId: F:Songhay.Models.RegexScalars.AllWords
+  id: AllWords
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: AllWords
+  nameWithType: RegexScalars.AllWords
+  fullName: Songhay.Models.RegexScalars.AllWords
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AllWords
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 35
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string AllWords = "\\w+"
+    return:
+      type: System.String
+    content.vb: Public Const AllWords As String = "\w+"
+- uid: Songhay.Models.RegexScalars.CommandLineArgumentInQuotesFollowedByOtherArguments
+  commentId: F:Songhay.Models.RegexScalars.CommandLineArgumentInQuotesFollowedByOtherArguments
+  id: CommandLineArgumentInQuotesFollowedByOtherArguments
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: CommandLineArgumentInQuotesFollowedByOtherArguments
+  nameWithType: RegexScalars.CommandLineArgumentInQuotesFollowedByOtherArguments
+  fullName: Songhay.Models.RegexScalars.CommandLineArgumentInQuotesFollowedByOtherArguments
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: CommandLineArgumentInQuotesFollowedByOtherArguments
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 38
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string CommandLineArgumentInQuotesFollowedByOtherArguments = "\"[^\"]+\"|\\s+.+"
+    return:
+      type: System.String
+    content.vb: Public Const CommandLineArgumentInQuotesFollowedByOtherArguments As String = """[^""]+""|\s+.+"
+- uid: Songhay.Models.RegexScalars.HtmlAttributesWithoutQuotes
+  commentId: F:Songhay.Models.RegexScalars.HtmlAttributesWithoutQuotes
+  id: HtmlAttributesWithoutQuotes
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: HtmlAttributesWithoutQuotes
+  nameWithType: RegexScalars.HtmlAttributesWithoutQuotes
+  fullName: Songhay.Models.RegexScalars.HtmlAttributesWithoutQuotes
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HtmlAttributesWithoutQuotes
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 43
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string HtmlAttributesWithoutQuotes = "\\s([^'\\\"\\s]+)(\\s*=\\s*)([^'\\\"\\s]+)\\s"
+    return:
+      type: System.String
+    content.vb: Public Const HtmlAttributesWithoutQuotes As String = "\s([^'\""\s]+)(\s*=\s*)([^'\""\s]+)\s"
+- uid: Songhay.Models.RegexScalars.HtmlClosingTagCharacters
+  commentId: F:Songhay.Models.RegexScalars.HtmlClosingTagCharacters
+  id: HtmlClosingTagCharacters
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: HtmlClosingTagCharacters
+  nameWithType: RegexScalars.HtmlClosingTagCharacters
+  fullName: Songhay.Models.RegexScalars.HtmlClosingTagCharacters
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HtmlClosingTagCharacters
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 46
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string HtmlClosingTagCharacters = "\\<\\s*/"
+    return:
+      type: System.String
+    content.vb: Public Const HtmlClosingTagCharacters As String = "\<\s*/"
+- uid: Songhay.Models.RegexScalars.HtmlElementsThatShouldNotBeMinimized
+  commentId: F:Songhay.Models.RegexScalars.HtmlElementsThatShouldNotBeMinimized
+  id: HtmlElementsThatShouldNotBeMinimized
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: HtmlElementsThatShouldNotBeMinimized
+  nameWithType: RegexScalars.HtmlElementsThatShouldNotBeMinimized
+  fullName: Songhay.Models.RegexScalars.HtmlElementsThatShouldNotBeMinimized
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HtmlElementsThatShouldNotBeMinimized
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 49
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string HtmlElementsThatShouldNotBeMinimized = "<(a|iframe|td|th|script)\\s+([^>]*)(/>)"
+    return:
+      type: System.String
+    content.vb: Public Const HtmlElementsThatShouldNotBeMinimized As String = "<(a|iframe|td|th|script)\s+([^>]*)(/>)"
+- uid: Songhay.Models.RegexScalars.HtmlHrefOrSrcAttributes
+  commentId: F:Songhay.Models.RegexScalars.HtmlHrefOrSrcAttributes
+  id: HtmlHrefOrSrcAttributes
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: HtmlHrefOrSrcAttributes
+  nameWithType: RegexScalars.HtmlHrefOrSrcAttributes
+  fullName: Songhay.Models.RegexScalars.HtmlHrefOrSrcAttributes
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HtmlHrefOrSrcAttributes
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 52
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string HtmlHrefOrSrcAttributes = "(href|src)\\s*=\\s*['\"][^\"]+['\"]"
+    return:
+      type: System.String
+    content.vb: Public Const HtmlHrefOrSrcAttributes As String = "(href|src)\s*=\s*['""][^""]+['""]"
+- uid: Songhay.Models.RegexScalars.HtmlStartTags
+  commentId: F:Songhay.Models.RegexScalars.HtmlStartTags
+  id: HtmlStartTags
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: HtmlStartTags
+  nameWithType: RegexScalars.HtmlStartTags
+  fullName: Songhay.Models.RegexScalars.HtmlStartTags
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HtmlStartTags
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 57
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string HtmlStartTags = "<[^>\\/]+>"
+    return:
+      type: System.String
+    content.vb: Public Const HtmlStartTags As String = "<[^>\/]+>"
+- uid: Songhay.Models.RegexScalars.HtmlTagContents
+  commentId: F:Songhay.Models.RegexScalars.HtmlTagContents
+  id: HtmlTagContents
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: HtmlTagContents
+  nameWithType: RegexScalars.HtmlTagContents
+  fullName: Songhay.Models.RegexScalars.HtmlTagContents
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HtmlTagContents
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 60
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string HtmlTagContents = "<[^/][^>]*>"
+    return:
+      type: System.String
+    content.vb: Public Const HtmlTagContents As String = "<[^/][^>]*>"
+- uid: Songhay.Models.RegexScalars.HtmlTagWithAnyAttributes
+  commentId: F:Songhay.Models.RegexScalars.HtmlTagWithAnyAttributes
+  id: HtmlTagWithAnyAttributes
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: HtmlTagWithAnyAttributes
+  nameWithType: RegexScalars.HtmlTagWithAnyAttributes
+  fullName: Songhay.Models.RegexScalars.HtmlTagWithAnyAttributes
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HtmlTagWithAnyAttributes
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 63
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string HtmlTagWithAnyAttributes = "<html [^>]*>"
+    return:
+      type: System.String
+    content.vb: Public Const HtmlTagWithAnyAttributes As String = "<html [^>]*>"
+- uid: Songhay.Models.RegexScalars.XhtmlAttribute
+  commentId: F:Songhay.Models.RegexScalars.XhtmlAttribute
+  id: XhtmlAttribute
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: XhtmlAttribute
+  nameWithType: RegexScalars.XhtmlAttribute
+  fullName: Songhay.Models.RegexScalars.XhtmlAttribute
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XhtmlAttribute
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 67
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  remarks: This expression intends to match XHTML-style attributes like <code>foo="foo"</code>
+  example: []
+  syntax:
+    content: public const string XhtmlAttribute = "\\s+(.+)\\s*=\\s*\"\\1\""
+    return:
+      type: System.String
+    content.vb: Public Const XhtmlAttribute As String = "\s+(.+)\s*=\s*""\1"""
+- uid: Songhay.Models.RegexScalars.XhtmlDocTypeDeclaration
+  commentId: F:Songhay.Models.RegexScalars.XhtmlDocTypeDeclaration
+  id: XhtmlDocTypeDeclaration
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: XhtmlDocTypeDeclaration
+  nameWithType: RegexScalars.XhtmlDocTypeDeclaration
+  fullName: Songhay.Models.RegexScalars.XhtmlDocTypeDeclaration
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XhtmlDocTypeDeclaration
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 72
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string XhtmlDocTypeDeclaration = "\\<\\!DOCTYPE [^<]+\\>"
+    return:
+      type: System.String
+    content.vb: Public Const XhtmlDocTypeDeclaration As String = "\<\!DOCTYPE [^<]+\>"
+- uid: Songhay.Models.RegexScalars.XhtmlEndTagsThatShouldBeMinimized
+  commentId: F:Songhay.Models.RegexScalars.XhtmlEndTagsThatShouldBeMinimized
+  id: XhtmlEndTagsThatShouldBeMinimized
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: XhtmlEndTagsThatShouldBeMinimized
+  nameWithType: RegexScalars.XhtmlEndTagsThatShouldBeMinimized
+  fullName: Songhay.Models.RegexScalars.XhtmlEndTagsThatShouldBeMinimized
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XhtmlEndTagsThatShouldBeMinimized
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 75
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string XhtmlEndTagsThatShouldBeMinimized = "\\s*</(base|isindex|link|meta)\\s*>"
+    return:
+      type: System.String
+    content.vb: Public Const XhtmlEndTagsThatShouldBeMinimized As String = "\s*</(base|isindex|link|meta)\s*>"
+- uid: Songhay.Models.RegexScalars.XhtmlMinimizedEndChars
+  commentId: F:Songhay.Models.RegexScalars.XhtmlMinimizedEndChars
+  id: XhtmlMinimizedEndChars
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: XhtmlMinimizedEndChars
+  nameWithType: RegexScalars.XhtmlMinimizedEndChars
+  fullName: Songhay.Models.RegexScalars.XhtmlMinimizedEndChars
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XhtmlMinimizedEndChars
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 78
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string XhtmlMinimizedEndChars = "\\s*/>"
+    return:
+      type: System.String
+    content.vb: Public Const XhtmlMinimizedEndChars As String = "\s*/>"
+- uid: Songhay.Models.RegexScalars.XhtmlSelfClosingTags
+  commentId: F:Songhay.Models.RegexScalars.XhtmlSelfClosingTags
+  id: XhtmlSelfClosingTags
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: XhtmlSelfClosingTags
+  nameWithType: RegexScalars.XhtmlSelfClosingTags
+  fullName: Songhay.Models.RegexScalars.XhtmlSelfClosingTags
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XhtmlSelfClosingTags
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 81
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string XhtmlSelfClosingTags = "<\\s*(br|hr|img|link|meta)([^>]*)(>)"
+    return:
+      type: System.String
+    content.vb: Public Const XhtmlSelfClosingTags As String = "<\s*(br|hr|img|link|meta)([^>]*)(>)"
+- uid: Songhay.Models.RegexScalars.XmlNamedEntities
+  commentId: F:Songhay.Models.RegexScalars.XmlNamedEntities
+  id: XmlNamedEntities
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: XmlNamedEntities
+  nameWithType: RegexScalars.XmlNamedEntities
+  fullName: Songhay.Models.RegexScalars.XmlNamedEntities
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XmlNamedEntities
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 84
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string XmlNamedEntities = "\\&\\w+\\;"
+    return:
+      type: System.String
+    content.vb: Public Const XmlNamedEntities As String = "\&\w+\;"
+- uid: Songhay.Models.RegexScalars.XmlNamespaceAttributes
+  commentId: F:Songhay.Models.RegexScalars.XmlNamespaceAttributes
+  id: XmlNamespaceAttributes
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: XmlNamespaceAttributes
+  nameWithType: RegexScalars.XmlNamespaceAttributes
+  fullName: Songhay.Models.RegexScalars.XmlNamespaceAttributes
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XmlNamespaceAttributes
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 87
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string XmlNamespaceAttributes = "\\s*xmlns\\s*=\\s*\"[^\"]+\"\\s*"
+    return:
+      type: System.String
+    content.vb: Public Const XmlNamespaceAttributes As String = "\s*xmlns\s*=\s*""[^""]+""\s*"
+- uid: Songhay.Models.RegexScalars.XmlNamespaceDeclarations
+  commentId: F:Songhay.Models.RegexScalars.XmlNamespaceDeclarations
+  id: XmlNamespaceDeclarations
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: XmlNamespaceDeclarations
+  nameWithType: RegexScalars.XmlNamespaceDeclarations
+  fullName: Songhay.Models.RegexScalars.XmlNamespaceDeclarations
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XmlNamespaceDeclarations
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 90
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string XmlNamespaceDeclarations = "\\s*(xmlns:?[^=]*=[\"][^\"]*[\"])\\s*"
+    return:
+      type: System.String
+    content.vb: Public Const XmlNamespaceDeclarations As String = "\s*(xmlns:?[^=]*=[""][^""]*[""])\s*"
+- uid: Songhay.Models.RegexScalars.XmlNamespacePrefixes
+  commentId: F:Songhay.Models.RegexScalars.XmlNamespacePrefixes
+  id: XmlNamespacePrefixes
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: XmlNamespacePrefixes
+  nameWithType: RegexScalars.XmlNamespacePrefixes
+  fullName: Songhay.Models.RegexScalars.XmlNamespacePrefixes
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XmlNamespacePrefixes
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 93
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string XmlNamespacePrefixes = "\\s*xmlns:?([^=]*)=[\"][^\"]*[\"]\\s*"
+    return:
+      type: System.String
+    content.vb: Public Const XmlNamespacePrefixes As String = "\s*xmlns:?([^=]*)=[""][^""]*[""]\s*"
+- uid: Songhay.Models.RegexScalars.XmlNamespaceSchemaLocationAttributes
+  commentId: F:Songhay.Models.RegexScalars.XmlNamespaceSchemaLocationAttributes
+  id: XmlNamespaceSchemaLocationAttributes
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: XmlNamespaceSchemaLocationAttributes
+  nameWithType: RegexScalars.XmlNamespaceSchemaLocationAttributes
+  fullName: Songhay.Models.RegexScalars.XmlNamespaceSchemaLocationAttributes
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XmlNamespaceSchemaLocationAttributes
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 96
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string XmlNamespaceSchemaLocationAttributes = "\\s*([a-zA-z0-9:]*schemaLocation\\s*=[\"][^\"]*[\"])\\s*"
+    return:
+      type: System.String
+    content.vb: Public Const XmlNamespaceSchemaLocationAttributes As String = "\s*([a-zA-z0-9:]*schemaLocation\s*=[""][^""]*[""])\s*"
+- uid: Songhay.Models.RegexScalars.XmlNumericEntities
+  commentId: F:Songhay.Models.RegexScalars.XmlNumericEntities
+  id: XmlNumericEntities
+  parent: Songhay.Models.RegexScalars
+  langs:
+  - csharp
+  - vb
+  name: XmlNumericEntities
+  nameWithType: RegexScalars.XmlNumericEntities
+  fullName: Songhay.Models.RegexScalars.XmlNumericEntities
+  type: Field
+  source:
+    remote:
+      path: SonghayCore/Models/RegexScalars.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: XmlNumericEntities
+    path: ../SonghayCore/Models/RegexScalars.cs
+    startLine: 99
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern
+  example: []
+  syntax:
+    content: public const string XmlNumericEntities = "\\&\\#\\d+\\;"
+    return:
+      type: System.String
+    content.vb: Public Const XmlNumericEntities As String = "\&\#\d+\;"
+references:
+- uid: System.Text.RegularExpressions.Regex
+  commentId: T:System.Text.RegularExpressions.Regex
+  parent: System.Text.RegularExpressions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex
+  name: Regex
+  nameWithType: Regex
+  fullName: System.Text.RegularExpressions.Regex
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Text.RegularExpressions
+  commentId: N:System.Text.RegularExpressions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text.RegularExpressions
+  nameWithType: System.Text.RegularExpressions
+  fullName: System.Text.RegularExpressions
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.RegularExpressions
+    name: RegularExpressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.regularexpressions
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.RegularExpressions
+    name: RegularExpressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.regularexpressions
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

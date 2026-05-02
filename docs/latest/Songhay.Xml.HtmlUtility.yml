@@ -8,7 +8,21 @@ items:
   - Songhay.Xml.HtmlUtility.ConvertToHtml(System.String)
   - Songhay.Xml.HtmlUtility.ConvertToXml(System.String)
   - Songhay.Xml.HtmlUtility.FormatXhtmlElements(System.String)
-  - Songhay.Xml.HtmlUtility.GetInnerXml(System.String,System.String)
+  - Songhay.Xml.HtmlUtility.GetBooleanAttributes
+  - Songhay.Xml.HtmlUtility.GetHtmlBooleanAttributesPattern
+  - Songhay.Xml.HtmlUtility.GetInnerXml(System.String,System.String,System.String,System.Byte)
+  - Songhay.Xml.HtmlUtility.MatchHtmlAttributesWithoutQuotes
+  - Songhay.Xml.HtmlUtility.MatchHtmlClosingTagCharacters
+  - Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized
+  - Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes
+  - Songhay.Xml.HtmlUtility.MatchHtmlStartTags
+  - Songhay.Xml.HtmlUtility.MatchHtmlTagContents
+  - Songhay.Xml.HtmlUtility.MatchHtmlTagWithAnyAttributes
+  - Songhay.Xml.HtmlUtility.MatchXhtmlAttribute
+  - Songhay.Xml.HtmlUtility.MatchXhtmlEndTagsThatShouldBeMinimized
+  - Songhay.Xml.HtmlUtility.MatchXhtmlMinimizedEndChars
+  - Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags
+  - Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes
   - Songhay.Xml.HtmlUtility.PublicDocType(System.String,System.String,System.String)
   langs:
   - csharp
@@ -18,13 +32,9 @@ items:
   fullName: Songhay.Xml.HtmlUtility
   type: Class
   source:
-    remote:
-      path: SonghayCore/Xml/HtmlUtility.cs
-      branch: main
-      repo: git@github.com:BryanWilhite/SonghayCore.git
     id: HtmlUtility
-    path: ../SonghayCore/Xml/HtmlUtility.cs
-    startLine: 5
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.RegularExpressions.Generator/System.Text.RegularExpressions.Generator.RegexGenerator/RegexGenerator.g.cs
+    startLine: 550
   assemblies:
   - SonghayCore
   namespace: Songhay.Xml
@@ -43,6 +53,794 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: Songhay.Xml.HtmlUtility.GetHtmlBooleanAttributesPattern
+  commentId: M:Songhay.Xml.HtmlUtility.GetHtmlBooleanAttributesPattern
+  id: GetHtmlBooleanAttributesPattern
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: GetHtmlBooleanAttributesPattern()
+  nameWithType: HtmlUtility.GetHtmlBooleanAttributesPattern()
+  fullName: Songhay.Xml.HtmlUtility.GetHtmlBooleanAttributesPattern()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetHtmlBooleanAttributesPattern
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 9
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern getter
+  example: []
+  syntax:
+    content: public static string GetHtmlBooleanAttributesPattern()
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetHtmlBooleanAttributesPattern() As String
+  overload: Songhay.Xml.HtmlUtility.GetHtmlBooleanAttributesPattern*
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlAttributesWithoutQuotes
+  commentId: M:Songhay.Xml.HtmlUtility.MatchHtmlAttributesWithoutQuotes
+  id: MatchHtmlAttributesWithoutQuotes
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchHtmlAttributesWithoutQuotes()
+  nameWithType: HtmlUtility.MatchHtmlAttributesWithoutQuotes()
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlAttributesWithoutQuotes()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchHtmlAttributesWithoutQuotes
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 17
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">\\s([^'\\"\\s]+)(\\s*=\\s*)([^'\\"\\s]+)\\s</code></pre><br />
+        Options:<br />
+        <pre><code class="lang-csharp">RegexOptions.IgnoreCase</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match a whitespace character.
+    ○ 1st capture group.
+        ○ Match a character in the set [^"'\s] greedily at least once.
+    ○ 2nd capture group.
+        ○ Match a whitespace character atomically any number of times.
+        ○ Match '='.
+        ○ Match a whitespace character greedily any number of times.
+    ○ 3rd capture group.
+        ○ Match a character in the set [^"'\s] greedily at least once.
+    ○ Match a whitespace character.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("\\s([^'\\\"\\s]+)(\\s*=\\s*)([^'\\\"\\s]+)\\s", RegexOptions.IgnoreCase)]
+
+      public static Regex MatchHtmlAttributesWithoutQuotes()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("\s([^'\""\s]+)(\s*=\s*)([^'\""\s]+)\s", RegexOptions.IgnoreCase)>
+
+      Public Shared Function MatchHtmlAttributesWithoutQuotes() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchHtmlAttributesWithoutQuotes*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String,System.Text.RegularExpressions.RegexOptions)
+    arguments:
+    - type: System.String
+      value: \s([^'\"\s]+)(\s*=\s*)([^'\"\s]+)\s
+    - type: System.Text.RegularExpressions.RegexOptions
+      value: 1
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlClosingTagCharacters
+  commentId: M:Songhay.Xml.HtmlUtility.MatchHtmlClosingTagCharacters
+  id: MatchHtmlClosingTagCharacters
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchHtmlClosingTagCharacters()
+  nameWithType: HtmlUtility.MatchHtmlClosingTagCharacters()
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlClosingTagCharacters()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchHtmlClosingTagCharacters
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 20
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">\\&lt;\\s*/</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match '<'.
+    ○ Match a whitespace character atomically any number of times.
+
+    ○ Match '/'.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("\\<\\s*/")]
+
+      public static Regex MatchHtmlClosingTagCharacters()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("\<\s*/")>
+
+      Public Shared Function MatchHtmlClosingTagCharacters() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchHtmlClosingTagCharacters*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: \<\s*/
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized
+  commentId: M:Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized
+  id: MatchHtmlElementsThatShouldNotBeMinimized
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchHtmlElementsThatShouldNotBeMinimized()
+  nameWithType: HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized()
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchHtmlElementsThatShouldNotBeMinimized
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 23
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">&lt;(a|iframe|td|th|script)\\s+([^&gt;]*)(/&gt;)</code></pre><br />
+        Options:<br />
+        <pre><code class="lang-csharp">RegexOptions.IgnoreCase</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match '<'.
+    ○ 1st capture group.
+        ○ Match with 5 alternative expressions.
+            ○ Match a character in the set [Aa].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Ii].
+                ○ Match a character in the set [Ff].
+                ○ Match a character in the set [Rr].
+                ○ Match a character in the set [Aa].
+                ○ Match a character in the set [Mm].
+                ○ Match a character in the set [Ee].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Tt].
+                ○ Match a character in the set [Dd].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Tt].
+                ○ Match a character in the set [Hh].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Ss].
+                ○ Match a character in the set [Cc].
+                ○ Match a character in the set [Rr].
+                ○ Match a character in the set [Ii].
+                ○ Match a character in the set [Pp].
+                ○ Match a character in the set [Tt].
+    ○ Match a whitespace character greedily at least once.
+
+    ○ 2nd capture group.
+        ○ Match a character other than '&gt;' greedily any number of times.
+    ○ 3rd capture group.
+        ○ Match the string "/&gt;".</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("<(a|iframe|td|th|script)\\s+([^>]*)(/>)", RegexOptions.IgnoreCase)]
+
+      public static Regex MatchHtmlElementsThatShouldNotBeMinimized()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("<(a|iframe|td|th|script)\s+([^>]*)(/>)", RegexOptions.IgnoreCase)>
+
+      Public Shared Function MatchHtmlElementsThatShouldNotBeMinimized() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String,System.Text.RegularExpressions.RegexOptions)
+    arguments:
+    - type: System.String
+      value: <(a|iframe|td|th|script)\s+([^>]*)(/>)
+    - type: System.Text.RegularExpressions.RegexOptions
+      value: 1
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes
+  commentId: M:Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes
+  id: MatchHtmlHrefOrSrcAttributes
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchHtmlHrefOrSrcAttributes()
+  nameWithType: HtmlUtility.MatchHtmlHrefOrSrcAttributes()
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchHtmlHrefOrSrcAttributes
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 26
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">(href|src)\\s*=\\s*['"][^"]+['"]</code></pre><br />
+        Options:<br />
+        <pre><code class="lang-csharp">RegexOptions.IgnoreCase</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ 1st capture group.
+        ○ Match with 2 alternative expressions.
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Hh].
+                ○ Match a character in the set [Rr].
+                ○ Match a character in the set [Ee].
+                ○ Match a character in the set [Ff].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Ss].
+                ○ Match a character in the set [Rr].
+                ○ Match a character in the set [Cc].
+    ○ Match a whitespace character atomically any number of times.
+
+    ○ Match '='.
+
+    ○ Match a whitespace character atomically any number of times.
+
+    ○ Match a character in the set ["'].
+
+    ○ Match a character other than '"' greedily at least once.
+
+    ○ Match a character in the set ["'].</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("(href|src)\\s*=\\s*['\"][^\"]+['\"]", RegexOptions.IgnoreCase)]
+
+      public static Regex MatchHtmlHrefOrSrcAttributes()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("(href|src)\s*=\s*['""][^""]+['""]", RegexOptions.IgnoreCase)>
+
+      Public Shared Function MatchHtmlHrefOrSrcAttributes() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String,System.Text.RegularExpressions.RegexOptions)
+    arguments:
+    - type: System.String
+      value: (href|src)\s*=\s*['"][^"]+['"]
+    - type: System.Text.RegularExpressions.RegexOptions
+      value: 1
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlStartTags
+  commentId: M:Songhay.Xml.HtmlUtility.MatchHtmlStartTags
+  id: MatchHtmlStartTags
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchHtmlStartTags()
+  nameWithType: HtmlUtility.MatchHtmlStartTags()
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlStartTags()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchHtmlStartTags
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 29
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">&lt;[^&gt;\\/]+&gt;</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match '<'.
+    ○ Match a character in the set [^/&gt;] atomically at least once.
+
+    ○ Match '&gt;'.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("<[^>\\/]+>")]
+
+      public static Regex MatchHtmlStartTags()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("<[^>\/]+>")>
+
+      Public Shared Function MatchHtmlStartTags() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchHtmlStartTags*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: <[^>\/]+>
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlTagContents
+  commentId: M:Songhay.Xml.HtmlUtility.MatchHtmlTagContents
+  id: MatchHtmlTagContents
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchHtmlTagContents()
+  nameWithType: HtmlUtility.MatchHtmlTagContents()
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlTagContents()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchHtmlTagContents
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 32
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">&lt;[^/][^&gt;]*&gt;</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match '<'.
+    ○ Match any character other than '/'.
+
+    ○ Match a character other than '&gt;' atomically any number of times.
+
+    ○ Match '&gt;'.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("<[^/][^>]*>")]
+
+      public static Regex MatchHtmlTagContents()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("<[^/][^>]*>")>
+
+      Public Shared Function MatchHtmlTagContents() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchHtmlTagContents*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: <[^/][^>]*>
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlTagWithAnyAttributes
+  commentId: M:Songhay.Xml.HtmlUtility.MatchHtmlTagWithAnyAttributes
+  id: MatchHtmlTagWithAnyAttributes
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchHtmlTagWithAnyAttributes()
+  nameWithType: HtmlUtility.MatchHtmlTagWithAnyAttributes()
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlTagWithAnyAttributes()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchHtmlTagWithAnyAttributes
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 35
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">&lt;html [^&gt;]*&gt;</code></pre><br />
+        Options:<br />
+        <pre><code class="lang-csharp">RegexOptions.IgnoreCase</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match '<'.
+    ○ Match a character in the set [Hh].
+
+    ○ Match a character in the set [Tt].
+
+    ○ Match a character in the set [Mm].
+
+    ○ Match a character in the set [Ll].
+
+    ○ Match ' '.
+
+    ○ Match a character other than '&gt;' atomically any number of times.
+
+    ○ Match '&gt;'.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("<html [^>]*>", RegexOptions.IgnoreCase)]
+
+      public static Regex MatchHtmlTagWithAnyAttributes()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("<html [^>]*>", RegexOptions.IgnoreCase)>
+
+      Public Shared Function MatchHtmlTagWithAnyAttributes() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchHtmlTagWithAnyAttributes*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String,System.Text.RegularExpressions.RegexOptions)
+    arguments:
+    - type: System.String
+      value: <html [^>]*>
+    - type: System.Text.RegularExpressions.RegexOptions
+      value: 1
+- uid: Songhay.Xml.HtmlUtility.MatchXhtmlAttribute
+  commentId: M:Songhay.Xml.HtmlUtility.MatchXhtmlAttribute
+  id: MatchXhtmlAttribute
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchXhtmlAttribute()
+  nameWithType: HtmlUtility.MatchXhtmlAttribute()
+  fullName: Songhay.Xml.HtmlUtility.MatchXhtmlAttribute()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchXhtmlAttribute
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 38
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">\\s+(.+)\\s*=\\s*"\\1"</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match a whitespace character greedily at least once.
+    ○ 1st capture group.
+        ○ Match a character other than '\n' greedily at least once.
+    ○ Match a whitespace character atomically any number of times.
+
+    ○ Match '='.
+
+    ○ Match a whitespace character atomically any number of times.
+
+    ○ Match '"'.
+
+    ○ Match the same text as matched by the 1st capture group.
+
+    ○ Match '"'.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("\\s+(.+)\\s*=\\s*\"\\1\"")]
+
+      public static Regex MatchXhtmlAttribute()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("\s+(.+)\s*=\s*""\1""")>
+
+      Public Shared Function MatchXhtmlAttribute() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchXhtmlAttribute*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: \s+(.+)\s*=\s*"\1"
+- uid: Songhay.Xml.HtmlUtility.MatchXhtmlEndTagsThatShouldBeMinimized
+  commentId: M:Songhay.Xml.HtmlUtility.MatchXhtmlEndTagsThatShouldBeMinimized
+  id: MatchXhtmlEndTagsThatShouldBeMinimized
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchXhtmlEndTagsThatShouldBeMinimized()
+  nameWithType: HtmlUtility.MatchXhtmlEndTagsThatShouldBeMinimized()
+  fullName: Songhay.Xml.HtmlUtility.MatchXhtmlEndTagsThatShouldBeMinimized()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchXhtmlEndTagsThatShouldBeMinimized
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 41
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">\\s*&lt;/(base|isindex|link|meta)\\s*&gt;</code></pre><br />
+        Options:<br />
+        <pre><code class="lang-csharp">RegexOptions.IgnoreCase</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match a whitespace character atomically any number of times.
+    ○ Match the string "&lt;/".
+
+    ○ 1st capture group.
+        ○ Match with 4 alternative expressions.
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Bb].
+                ○ Match a character in the set [Aa].
+                ○ Match a character in the set [Ss].
+                ○ Match a character in the set [Ee].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Ii].
+                ○ Match a character in the set [Ss].
+                ○ Match a character in the set [Ii].
+                ○ Match a character in the set [Nn].
+                ○ Match a character in the set [Dd].
+                ○ Match a character in the set [Ee].
+                ○ Match a character in the set [Xx].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Ll].
+                ○ Match a character in the set [Ii].
+                ○ Match a character in the set [Nn].
+                ○ Match a character in the set [Kk\u212A].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Mm].
+                ○ Match a character in the set [Ee].
+                ○ Match a character in the set [Tt].
+                ○ Match a character in the set [Aa].
+    ○ Match a whitespace character atomically any number of times.
+
+    ○ Match '&gt;'.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("\\s*</(base|isindex|link|meta)\\s*>", RegexOptions.IgnoreCase)]
+
+      public static Regex MatchXhtmlEndTagsThatShouldBeMinimized()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("\s*</(base|isindex|link|meta)\s*>", RegexOptions.IgnoreCase)>
+
+      Public Shared Function MatchXhtmlEndTagsThatShouldBeMinimized() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchXhtmlEndTagsThatShouldBeMinimized*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String,System.Text.RegularExpressions.RegexOptions)
+    arguments:
+    - type: System.String
+      value: \s*</(base|isindex|link|meta)\s*>
+    - type: System.Text.RegularExpressions.RegexOptions
+      value: 1
+- uid: Songhay.Xml.HtmlUtility.MatchXhtmlMinimizedEndChars
+  commentId: M:Songhay.Xml.HtmlUtility.MatchXhtmlMinimizedEndChars
+  id: MatchXhtmlMinimizedEndChars
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchXhtmlMinimizedEndChars()
+  nameWithType: HtmlUtility.MatchXhtmlMinimizedEndChars()
+  fullName: Songhay.Xml.HtmlUtility.MatchXhtmlMinimizedEndChars()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchXhtmlMinimizedEndChars
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 44
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">\\s*/&gt;</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match a whitespace character atomically any number of times.
+    ○ Match the string "/&gt;".</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("\\s*/>")]
+
+      public static Regex MatchXhtmlMinimizedEndChars()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("\s*/>")>
+
+      Public Shared Function MatchXhtmlMinimizedEndChars() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchXhtmlMinimizedEndChars*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: \s*/>
+- uid: Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags
+  commentId: M:Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags
+  id: MatchXhtmlSelfClosingTags
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchXhtmlSelfClosingTags()
+  nameWithType: HtmlUtility.MatchXhtmlSelfClosingTags()
+  fullName: Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchXhtmlSelfClosingTags
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 47
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">&lt;\\s*(br|hr|img|link|meta)([^&gt;]*)(&gt;)</code></pre><br />
+        Options:<br />
+        <pre><code class="lang-csharp">RegexOptions.IgnoreCase</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match '<'.
+    ○ Match a whitespace character atomically any number of times.
+
+    ○ 1st capture group.
+        ○ Match with 5 alternative expressions.
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Bb].
+                ○ Match a character in the set [Rr].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Hh].
+                ○ Match a character in the set [Rr].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Ii].
+                ○ Match a character in the set [Mm].
+                ○ Match a character in the set [Gg].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Ll].
+                ○ Match a character in the set [Ii].
+                ○ Match a character in the set [Nn].
+                ○ Match a character in the set [Kk\u212A].
+            ○ Match a sequence of expressions.
+                ○ Match a character in the set [Mm].
+                ○ Match a character in the set [Ee].
+                ○ Match a character in the set [Tt].
+                ○ Match a character in the set [Aa].
+    ○ 2nd capture group.
+        ○ Match a character other than '&gt;' atomically any number of times.
+    ○ 3rd capture group.
+        ○ Match '&gt;'.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("<\\s*(br|hr|img|link|meta)([^>]*)(>)", RegexOptions.IgnoreCase)]
+
+      public static Regex MatchXhtmlSelfClosingTags()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("<\s*(br|hr|img|link|meta)([^>]*)(>)", RegexOptions.IgnoreCase)>
+
+      Public Shared Function MatchXhtmlSelfClosingTags() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String,System.Text.RegularExpressions.RegexOptions)
+    arguments:
+    - type: System.String
+      value: <\s*(br|hr|img|link|meta)([^>]*)(>)
+    - type: System.Text.RegularExpressions.RegexOptions
+      value: 1
+- uid: Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes
+  commentId: M:Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes
+  id: MatchXmlNamespaceAttributes
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchXmlNamespaceAttributes()
+  nameWithType: HtmlUtility.MatchXmlNamespaceAttributes()
+  fullName: Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility.Regex.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchXmlNamespaceAttributes
+    path: ../SonghayCore/Xml/HtmlUtility.Regex.cs
+    startLine: 50
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">\\s*xmlns\\s*=\\s*"[^"]+"\\s*</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match a whitespace character atomically any number of times.
+    ○ Match the string "xmlns".
+
+    ○ Match a whitespace character atomically any number of times.
+
+    ○ Match '='.
+
+    ○ Match a whitespace character atomically any number of times.
+
+    ○ Match '"'.
+
+    ○ Match a character other than '"' atomically at least once.
+
+    ○ Match '"'.
+
+    ○ Match a whitespace character atomically any number of times.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("\\s*xmlns\\s*=\\s*\"[^\"]+\"\\s*")]
+
+      public static Regex MatchXmlNamespaceAttributes()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("\s*xmlns\s*=\s*""[^""]+""\s*")>
+
+      Public Shared Function MatchXmlNamespaceAttributes() As Regex
+  overload: Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: \s*xmlns\s*=\s*"[^"]+"\s*
 - uid: Songhay.Xml.HtmlUtility.ConvertToHtml(System.String)
   commentId: M:Songhay.Xml.HtmlUtility.ConvertToHtml(System.String)
   id: ConvertToHtml(System.String)
@@ -56,11 +854,11 @@ items:
   type: Method
   source:
     remote:
-      path: SonghayCore/Xml/HtmlUtility.cs
+      path: SonghayCore/Xml/HtmlUtility._.cs
       branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ConvertToHtml
-    path: ../SonghayCore/Xml/HtmlUtility.cs
+    path: ../SonghayCore/Xml/HtmlUtility._.cs
     startLine: 13
   assemblies:
   - SonghayCore
@@ -98,17 +896,33 @@ items:
   type: Method
   source:
     remote:
-      path: SonghayCore/Xml/HtmlUtility.cs
+      path: SonghayCore/Xml/HtmlUtility._.cs
       branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ConvertToXml
-    path: ../SonghayCore/Xml/HtmlUtility.cs
-    startLine: 54
+    path: ../SonghayCore/Xml/HtmlUtility._.cs
+    startLine: 61
   assemblies:
   - SonghayCore
   namespace: Songhay.Xml
-  summary: Attempts to convert HTML to well-formed XML.
-  remarks: This task is simpler than converting to XHTML.
+  summary: >-
+    Attempts to convert HTML to well-formed XML
+
+    with a conventional set of <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> methods.
+  remarks: >-
+    This method is simpler than converting to XHTML.
+
+
+    This member uses the following <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> methods:
+
+
+    - <xref href="Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes" data-throw-if-not-resolved="false"></xref>
+
+    - <xref href="Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags" data-throw-if-not-resolved="false"></xref>
+
+    - <xref href="Songhay.Xml.HtmlUtility.MatchHtmlStartTags" data-throw-if-not-resolved="false"></xref> (for two different evaluations)
+
+    - <xref href="Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes" data-throw-if-not-resolved="false"></xref>
   example: []
   syntax:
     content: public static string? ConvertToXml(string? html)
@@ -136,20 +950,24 @@ items:
   type: Method
   source:
     remote:
-      path: SonghayCore/Xml/HtmlUtility.cs
+      path: SonghayCore/Xml/HtmlUtility._.cs
       branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: FormatXhtmlElements
-    path: ../SonghayCore/Xml/HtmlUtility.cs
-    startLine: 110
+    path: ../SonghayCore/Xml/HtmlUtility._.cs
+    startLine: 106
   assemblies:
   - SonghayCore
   namespace: Songhay.Xml
-  summary: Returns an XHTML string derived from a .NET procedure.
-  remarks: >-
-    This member addresses certain quirks
+  summary: >-
+    Formats the specified fragment
 
-    that well-formed XML cannot have in a contemporary Web browser.
+    with a conventional set of <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> methods.
+  remarks: >-
+    This member uses the following <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> method:
+
+
+    - <xref href="Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized" data-throw-if-not-resolved="false"></xref>
   example: []
   syntax:
     content: public static string? FormatXhtmlElements(string? xmlFragment)
@@ -164,25 +982,56 @@ items:
   nameWithType.vb: HtmlUtility.FormatXhtmlElements(String)
   fullName.vb: Songhay.Xml.HtmlUtility.FormatXhtmlElements(String)
   name.vb: FormatXhtmlElements(String)
-- uid: Songhay.Xml.HtmlUtility.GetInnerXml(System.String,System.String)
-  commentId: M:Songhay.Xml.HtmlUtility.GetInnerXml(System.String,System.String)
-  id: GetInnerXml(System.String,System.String)
+- uid: Songhay.Xml.HtmlUtility.GetBooleanAttributes
+  commentId: M:Songhay.Xml.HtmlUtility.GetBooleanAttributes
+  id: GetBooleanAttributes
   parent: Songhay.Xml.HtmlUtility
   langs:
   - csharp
   - vb
-  name: GetInnerXml(string?, string?)
-  nameWithType: HtmlUtility.GetInnerXml(string?, string?)
-  fullName: Songhay.Xml.HtmlUtility.GetInnerXml(string?, string?)
+  name: GetBooleanAttributes()
+  nameWithType: HtmlUtility.GetBooleanAttributes()
+  fullName: Songhay.Xml.HtmlUtility.GetBooleanAttributes()
   type: Method
   source:
     remote:
-      path: SonghayCore/Xml/HtmlUtility.cs
+      path: SonghayCore/Xml/HtmlUtility._.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetBooleanAttributes
+    path: ../SonghayCore/Xml/HtmlUtility._.cs
+    startLine: 130
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Xml
+  summary: Returns all known HTML Boolean attributes
+  remarks: See https://meiert.com/blog/boolean-attributes-of-html/
+  example: []
+  syntax:
+    content: public static string[] GetBooleanAttributes()
+    return:
+      type: System.String[]
+    content.vb: Public Shared Function GetBooleanAttributes() As String()
+  overload: Songhay.Xml.HtmlUtility.GetBooleanAttributes*
+- uid: Songhay.Xml.HtmlUtility.GetInnerXml(System.String,System.String,System.String,System.Byte)
+  commentId: M:Songhay.Xml.HtmlUtility.GetInnerXml(System.String,System.String,System.String,System.Byte)
+  id: GetInnerXml(System.String,System.String,System.String,System.Byte)
+  parent: Songhay.Xml.HtmlUtility
+  langs:
+  - csharp
+  - vb
+  name: GetInnerXml(string?, string?, string, byte)
+  nameWithType: HtmlUtility.GetInnerXml(string?, string?, string, byte)
+  fullName: Songhay.Xml.HtmlUtility.GetInnerXml(string?, string?, string, byte)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Xml/HtmlUtility._.cs
       branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetInnerXml
-    path: ../SonghayCore/Xml/HtmlUtility.cs
-    startLine: 139
+    path: ../SonghayCore/Xml/HtmlUtility._.cs
+    startLine: 175
   assemblies:
   - SonghayCore
   namespace: Songhay.Xml
@@ -192,7 +1041,7 @@ items:
     from the specified unique element.
   example: []
   syntax:
-    content: public static string? GetInnerXml(string? xmlFragment, string? elementName)
+    content: public static string? GetInnerXml(string? xmlFragment, string? elementName, string newLine = "\r\n", byte numberOfChars = 4)
     parameters:
     - id: xmlFragment
       type: System.String
@@ -200,13 +1049,19 @@ items:
     - id: elementName
       type: System.String
       description: The local name of the element in the XML string.
+    - id: newLine
+      type: System.String
+      description: the conventional <xref href="System.Environment.NewLine" data-throw-if-not-resolved="false"></xref> characters of the lines
+    - id: numberOfChars
+      type: System.Byte
+      description: the number of white space characters to remove
     return:
       type: System.String
-    content.vb: Public Shared Function GetInnerXml(xmlFragment As String, elementName As String) As String
+    content.vb: Public Shared Function GetInnerXml(xmlFragment As String, elementName As String, newLine As String = vbCrLf, numberOfChars As Byte = 4) As String
   overload: Songhay.Xml.HtmlUtility.GetInnerXml*
-  nameWithType.vb: HtmlUtility.GetInnerXml(String, String)
-  fullName.vb: Songhay.Xml.HtmlUtility.GetInnerXml(String, String)
-  name.vb: GetInnerXml(String, String)
+  nameWithType.vb: HtmlUtility.GetInnerXml(String, String, String, Byte)
+  fullName.vb: Songhay.Xml.HtmlUtility.GetInnerXml(String, String, String, Byte)
+  name.vb: GetInnerXml(String, String, String, Byte)
 - uid: Songhay.Xml.HtmlUtility.PublicDocType(System.String,System.String,System.String)
   commentId: M:Songhay.Xml.HtmlUtility.PublicDocType(System.String,System.String,System.String)
   id: PublicDocType(System.String,System.String,System.String)
@@ -220,12 +1075,12 @@ items:
   type: Method
   source:
     remote:
-      path: SonghayCore/Xml/HtmlUtility.cs
+      path: SonghayCore/Xml/HtmlUtility._.cs
       branch: main
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: PublicDocType
-    path: ../SonghayCore/Xml/HtmlUtility.cs
-    startLine: 173
+    path: ../SonghayCore/Xml/HtmlUtility._.cs
+    startLine: 209
   assemblies:
   - SonghayCore
   namespace: Songhay.Xml
@@ -511,6 +1366,20 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Text.RegularExpressions.Regex
+  commentId: T:System.Text.RegularExpressions.Regex
+  parent: System.Text.RegularExpressions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex
+  name: Regex
+  nameWithType: Regex
+  fullName: System.Text.RegularExpressions.Regex
+- uid: Songhay.Xml.HtmlUtility.GetHtmlBooleanAttributesPattern*
+  commentId: Overload:Songhay.Xml.HtmlUtility.GetHtmlBooleanAttributesPattern
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_GetHtmlBooleanAttributesPattern
+  name: GetHtmlBooleanAttributesPattern
+  nameWithType: HtmlUtility.GetHtmlBooleanAttributesPattern
+  fullName: Songhay.Xml.HtmlUtility.GetHtmlBooleanAttributesPattern
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -522,30 +1391,276 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: System.Text.RegularExpressions
+  commentId: N:System.Text.RegularExpressions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text.RegularExpressions
+  nameWithType: System.Text.RegularExpressions
+  fullName: System.Text.RegularExpressions
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.RegularExpressions
+    name: RegularExpressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.regularexpressions
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.RegularExpressions
+    name: RegularExpressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.regularexpressions
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlAttributesWithoutQuotes*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchHtmlAttributesWithoutQuotes
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlAttributesWithoutQuotes
+  name: MatchHtmlAttributesWithoutQuotes
+  nameWithType: HtmlUtility.MatchHtmlAttributesWithoutQuotes
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlAttributesWithoutQuotes
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlClosingTagCharacters*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchHtmlClosingTagCharacters
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlClosingTagCharacters
+  name: MatchHtmlClosingTagCharacters
+  nameWithType: HtmlUtility.MatchHtmlClosingTagCharacters
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlClosingTagCharacters
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlElementsThatShouldNotBeMinimized
+  name: MatchHtmlElementsThatShouldNotBeMinimized
+  nameWithType: HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlHrefOrSrcAttributes
+  name: MatchHtmlHrefOrSrcAttributes
+  nameWithType: HtmlUtility.MatchHtmlHrefOrSrcAttributes
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlStartTags*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchHtmlStartTags
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlStartTags
+  name: MatchHtmlStartTags
+  nameWithType: HtmlUtility.MatchHtmlStartTags
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlStartTags
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlTagContents*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchHtmlTagContents
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlTagContents
+  name: MatchHtmlTagContents
+  nameWithType: HtmlUtility.MatchHtmlTagContents
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlTagContents
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlTagWithAnyAttributes*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchHtmlTagWithAnyAttributes
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlTagWithAnyAttributes
+  name: MatchHtmlTagWithAnyAttributes
+  nameWithType: HtmlUtility.MatchHtmlTagWithAnyAttributes
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlTagWithAnyAttributes
+- uid: Songhay.Xml.HtmlUtility.MatchXhtmlAttribute*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchXhtmlAttribute
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchXhtmlAttribute
+  name: MatchXhtmlAttribute
+  nameWithType: HtmlUtility.MatchXhtmlAttribute
+  fullName: Songhay.Xml.HtmlUtility.MatchXhtmlAttribute
+- uid: Songhay.Xml.HtmlUtility.MatchXhtmlEndTagsThatShouldBeMinimized*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchXhtmlEndTagsThatShouldBeMinimized
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchXhtmlEndTagsThatShouldBeMinimized
+  name: MatchXhtmlEndTagsThatShouldBeMinimized
+  nameWithType: HtmlUtility.MatchXhtmlEndTagsThatShouldBeMinimized
+  fullName: Songhay.Xml.HtmlUtility.MatchXhtmlEndTagsThatShouldBeMinimized
+- uid: Songhay.Xml.HtmlUtility.MatchXhtmlMinimizedEndChars*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchXhtmlMinimizedEndChars
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchXhtmlMinimizedEndChars
+  name: MatchXhtmlMinimizedEndChars
+  nameWithType: HtmlUtility.MatchXhtmlMinimizedEndChars
+  fullName: Songhay.Xml.HtmlUtility.MatchXhtmlMinimizedEndChars
+- uid: Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchXhtmlSelfClosingTags
+  name: MatchXhtmlSelfClosingTags
+  nameWithType: HtmlUtility.MatchXhtmlSelfClosingTags
+  fullName: Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags
+- uid: Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes*
+  commentId: Overload:Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchXmlNamespaceAttributes
+  name: MatchXmlNamespaceAttributes
+  nameWithType: HtmlUtility.MatchXmlNamespaceAttributes
+  fullName: Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes
 - uid: Songhay.Xml.HtmlUtility.ConvertToHtml*
   commentId: Overload:Songhay.Xml.HtmlUtility.ConvertToHtml
   href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_ConvertToHtml_System_String_
   name: ConvertToHtml
   nameWithType: HtmlUtility.ConvertToHtml
   fullName: Songhay.Xml.HtmlUtility.ConvertToHtml
+- uid: Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes
+  commentId: M:Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchXmlNamespaceAttributes
+  name: MatchXmlNamespaceAttributes()
+  nameWithType: HtmlUtility.MatchXmlNamespaceAttributes()
+  fullName: Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes()
+  spec.csharp:
+  - uid: Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes
+    name: MatchXmlNamespaceAttributes
+    href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchXmlNamespaceAttributes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Songhay.Xml.HtmlUtility.MatchXmlNamespaceAttributes
+    name: MatchXmlNamespaceAttributes
+    href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchXmlNamespaceAttributes
+  - name: (
+  - name: )
+- uid: Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags
+  commentId: M:Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchXhtmlSelfClosingTags
+  name: MatchXhtmlSelfClosingTags()
+  nameWithType: HtmlUtility.MatchXhtmlSelfClosingTags()
+  fullName: Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags()
+  spec.csharp:
+  - uid: Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags
+    name: MatchXhtmlSelfClosingTags
+    href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchXhtmlSelfClosingTags
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Songhay.Xml.HtmlUtility.MatchXhtmlSelfClosingTags
+    name: MatchXhtmlSelfClosingTags
+    href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchXhtmlSelfClosingTags
+  - name: (
+  - name: )
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlStartTags
+  commentId: M:Songhay.Xml.HtmlUtility.MatchHtmlStartTags
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlStartTags
+  name: MatchHtmlStartTags()
+  nameWithType: HtmlUtility.MatchHtmlStartTags()
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlStartTags()
+  spec.csharp:
+  - uid: Songhay.Xml.HtmlUtility.MatchHtmlStartTags
+    name: MatchHtmlStartTags
+    href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlStartTags
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Songhay.Xml.HtmlUtility.MatchHtmlStartTags
+    name: MatchHtmlStartTags
+    href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlStartTags
+  - name: (
+  - name: )
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes
+  commentId: M:Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlHrefOrSrcAttributes
+  name: MatchHtmlHrefOrSrcAttributes()
+  nameWithType: HtmlUtility.MatchHtmlHrefOrSrcAttributes()
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes()
+  spec.csharp:
+  - uid: Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes
+    name: MatchHtmlHrefOrSrcAttributes
+    href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlHrefOrSrcAttributes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Songhay.Xml.HtmlUtility.MatchHtmlHrefOrSrcAttributes
+    name: MatchHtmlHrefOrSrcAttributes
+    href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlHrefOrSrcAttributes
+  - name: (
+  - name: )
 - uid: Songhay.Xml.HtmlUtility.ConvertToXml*
   commentId: Overload:Songhay.Xml.HtmlUtility.ConvertToXml
   href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_ConvertToXml_System_String_
   name: ConvertToXml
   nameWithType: HtmlUtility.ConvertToXml
   fullName: Songhay.Xml.HtmlUtility.ConvertToXml
+- uid: Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized
+  commentId: M:Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlElementsThatShouldNotBeMinimized
+  name: MatchHtmlElementsThatShouldNotBeMinimized()
+  nameWithType: HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized()
+  fullName: Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized()
+  spec.csharp:
+  - uid: Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized
+    name: MatchHtmlElementsThatShouldNotBeMinimized
+    href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlElementsThatShouldNotBeMinimized
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Songhay.Xml.HtmlUtility.MatchHtmlElementsThatShouldNotBeMinimized
+    name: MatchHtmlElementsThatShouldNotBeMinimized
+    href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_MatchHtmlElementsThatShouldNotBeMinimized
+  - name: (
+  - name: )
 - uid: Songhay.Xml.HtmlUtility.FormatXhtmlElements*
   commentId: Overload:Songhay.Xml.HtmlUtility.FormatXhtmlElements
   href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_FormatXhtmlElements_System_String_
   name: FormatXhtmlElements
   nameWithType: HtmlUtility.FormatXhtmlElements
   fullName: Songhay.Xml.HtmlUtility.FormatXhtmlElements
+- uid: Songhay.Xml.HtmlUtility.GetBooleanAttributes*
+  commentId: Overload:Songhay.Xml.HtmlUtility.GetBooleanAttributes
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_GetBooleanAttributes
+  name: GetBooleanAttributes
+  nameWithType: HtmlUtility.GetBooleanAttributes
+  fullName: Songhay.Xml.HtmlUtility.GetBooleanAttributes
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: System.Environment.NewLine
+  commentId: P:System.Environment.NewLine
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.environment.newline
+  name: NewLine
+  nameWithType: Environment.NewLine
+  fullName: System.Environment.NewLine
 - uid: Songhay.Xml.HtmlUtility.GetInnerXml*
   commentId: Overload:Songhay.Xml.HtmlUtility.GetInnerXml
-  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_GetInnerXml_System_String_System_String_
+  href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_GetInnerXml_System_String_System_String_System_String_System_Byte_
   name: GetInnerXml
   nameWithType: HtmlUtility.GetInnerXml
   fullName: Songhay.Xml.HtmlUtility.GetInnerXml
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
 - uid: Songhay.Xml.HtmlUtility.PublicDocType*
   commentId: Overload:Songhay.Xml.HtmlUtility.PublicDocType
   href: Songhay.Xml.HtmlUtility.html#Songhay_Xml_HtmlUtility_PublicDocType_System_String_System_String_System_String_

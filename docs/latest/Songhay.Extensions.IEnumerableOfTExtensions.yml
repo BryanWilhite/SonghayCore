@@ -337,7 +337,9 @@ items:
 
     Here’s an example of how you'd use it:
 
+
     <pre><code class="lang-csharp">var query = list.SelectWithPrevious((prev, cur) =&gt; new { ID = cur.ID, Date = cur.Date, DateDiff = (cur.Date - prev.Date).Days);</code></pre>
+
 
     Note that this will include the final result of one ID with the first result of the next ID…
 

@@ -719,9 +719,9 @@ items:
   langs:
   - csharp
   - vb
-  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding, string)
-  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding, string)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding, string)
+  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?)
+  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding, string?)
   type: Method
   source:
     remote:
@@ -740,7 +740,7 @@ items:
     with the specified request body.
   example: []
   syntax:
-    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string mediaType)
+    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string? mediaType)
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
@@ -769,9 +769,9 @@ items:
   langs:
   - csharp
   - vb
-  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding, string, Action<HttpRequestMessage>)
-  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding, string, Action<HttpRequestMessage>)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding, string, System.Action<System.Net.Http.HttpRequestMessage>)
+  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?, Action<HttpRequestMessage>)
+  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?, Action<HttpRequestMessage>)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding, string?, System.Action<System.Net.Http.HttpRequestMessage>)
   type: Method
   source:
     remote:
@@ -790,7 +790,7 @@ items:
     with the specified request body.
   example: []
   syntax:
-    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string mediaType, Action<HttpRequestMessage> requestMessageAction)
+    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string? mediaType, Action<HttpRequestMessage> requestMessageAction)
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage

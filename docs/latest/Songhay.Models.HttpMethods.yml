@@ -34,8 +34,14 @@ items:
   remarks: 'Reference: “HTTP request methods” [https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods]'
   example: []
   syntax:
-    content: public static class HttpMethods
-    content.vb: Public Module HttpMethods
+    content: >-
+      [Obsolete("Use `System.Net.Http.HttpMethod` class instead.")]
+
+      public static class HttpMethods
+    content.vb: >-
+      <Obsolete("Use `System.Net.Http.HttpMethod` class instead.")>
+
+      Public Module HttpMethods
   inheritance:
   - System.Object
   inheritedMembers:
@@ -46,6 +52,12 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use `System.Net.Http.HttpMethod` class instead.
 - uid: Songhay.Models.HttpMethods.Delete
   commentId: F:Songhay.Models.HttpMethods.Delete
   id: Delete
@@ -64,7 +76,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Delete
     path: ../SonghayCore/Models/HttpMethods.cs
-    startLine: 13
+    startLine: 14
   assemblies:
   - SonghayCore
   namespace: Songhay.Models
@@ -93,7 +105,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Get
     path: ../SonghayCore/Models/HttpMethods.cs
-    startLine: 18
+    startLine: 19
   assemblies:
   - SonghayCore
   namespace: Songhay.Models
@@ -122,7 +134,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Head
     path: ../SonghayCore/Models/HttpMethods.cs
-    startLine: 23
+    startLine: 24
   assemblies:
   - SonghayCore
   namespace: Songhay.Models
@@ -151,7 +163,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Options
     path: ../SonghayCore/Models/HttpMethods.cs
-    startLine: 28
+    startLine: 29
   assemblies:
   - SonghayCore
   namespace: Songhay.Models
@@ -180,7 +192,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Post
     path: ../SonghayCore/Models/HttpMethods.cs
-    startLine: 33
+    startLine: 34
   assemblies:
   - SonghayCore
   namespace: Songhay.Models
@@ -209,7 +221,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Put
     path: ../SonghayCore/Models/HttpMethods.cs
-    startLine: 38
+    startLine: 39
   assemblies:
   - SonghayCore
   namespace: Songhay.Models
@@ -238,7 +250,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: Trace
     path: ../SonghayCore/Models/HttpMethods.cs
-    startLine: 43
+    startLine: 44
   assemblies:
   - SonghayCore
   namespace: Songhay.Models

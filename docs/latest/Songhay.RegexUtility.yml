@@ -1,0 +1,997 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.RegexUtility
+  commentId: T:Songhay.RegexUtility
+  id: RegexUtility
+  parent: Songhay
+  children:
+  - Songhay.RegexUtility.GetInnerXmlPattern(System.String)
+  - Songhay.RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern(System.String,System.Byte)
+  - Songhay.RegexUtility.MatchAllCharactersInQuotes
+  - Songhay.RegexUtility.MatchAllCharactersIndicatingParentDirectory
+  - Songhay.RegexUtility.MatchAllCharactersNotAlphanumeric
+  - Songhay.RegexUtility.MatchAllCharactersNotNumeric
+  - Songhay.RegexUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes
+  - Songhay.RegexUtility.MatchAllThatLooksLikeEmailAddress
+  - Songhay.RegexUtility.MatchAllThatLooksLikeUnc
+  - Songhay.RegexUtility.MatchAllWords
+  - Songhay.RegexUtility.MatchCommandLineArgumentInQuotesFollowedByOtherArguments
+  langs:
+  - csharp
+  - vb
+  name: RegexUtility
+  nameWithType: RegexUtility
+  fullName: Songhay.RegexUtility
+  type: Class
+  source:
+    id: RegexUtility
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.RegularExpressions.Generator/System.Text.RegularExpressions.Generator.RegexGenerator/RegexGenerator.g.cs
+    startLine: 196
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Shared routines for <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static class RegexUtility
+    content.vb: Public Module RegexUtility
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.RegexUtility.GetInnerXmlPattern(System.String)
+  commentId: M:Songhay.RegexUtility.GetInnerXmlPattern(System.String)
+  id: GetInnerXmlPattern(System.String)
+  parent: Songhay.RegexUtility
+  langs:
+  - csharp
+  - vb
+  name: GetInnerXmlPattern(string?)
+  nameWithType: RegexUtility.GetInnerXmlPattern(string?)
+  fullName: Songhay.RegexUtility.GetInnerXmlPattern(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/RegexUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetInnerXmlPattern
+    path: ../SonghayCore/RegexUtility.cs
+    startLine: 8
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern getter
+  example: []
+  syntax:
+    content: public static string GetInnerXmlPattern(string? elementName)
+    parameters:
+    - id: elementName
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetInnerXmlPattern(elementName As String) As String
+  overload: Songhay.RegexUtility.GetInnerXmlPattern*
+  nameWithType.vb: RegexUtility.GetInnerXmlPattern(String)
+  fullName.vb: Songhay.RegexUtility.GetInnerXmlPattern(String)
+  name.vb: GetInnerXmlPattern(String)
+- uid: Songhay.RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern(System.String,System.Byte)
+  commentId: M:Songhay.RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern(System.String,System.Byte)
+  id: GetLinesStartingWithWhitespaceCharactersPattern(System.String,System.Byte)
+  parent: Songhay.RegexUtility
+  langs:
+  - csharp
+  - vb
+  name: GetLinesStartingWithWhitespaceCharactersPattern(string, byte)
+  nameWithType: RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern(string, byte)
+  fullName: Songhay.RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern(string, byte)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/RegexUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetLinesStartingWithWhitespaceCharactersPattern
+    path: ../SonghayCore/RegexUtility.cs
+    startLine: 14
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: <xref href="System.Text.RegularExpressions.Regex" data-throw-if-not-resolved="false"></xref> pattern getter
+  example: []
+  syntax:
+    content: public static string GetLinesStartingWithWhitespaceCharactersPattern(string newLine = "\r\n", byte numberOfChars = 4)
+    parameters:
+    - id: newLine
+      type: System.String
+      description: the conventional <xref href="System.Environment.NewLine" data-throw-if-not-resolved="false"></xref> characters of the lines
+    - id: numberOfChars
+      type: System.Byte
+      description: the number of white space characters to remove
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetLinesStartingWithWhitespaceCharactersPattern(newLine As String = vbCrLf, numberOfChars As Byte = 4) As String
+  overload: Songhay.RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern*
+  nameWithType.vb: RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern(String, Byte)
+  fullName.vb: Songhay.RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern(String, Byte)
+  name.vb: GetLinesStartingWithWhitespaceCharactersPattern(String, Byte)
+- uid: Songhay.RegexUtility.MatchAllCharactersIndicatingParentDirectory
+  commentId: M:Songhay.RegexUtility.MatchAllCharactersIndicatingParentDirectory
+  id: MatchAllCharactersIndicatingParentDirectory
+  parent: Songhay.RegexUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchAllCharactersIndicatingParentDirectory()
+  nameWithType: RegexUtility.MatchAllCharactersIndicatingParentDirectory()
+  fullName: Songhay.RegexUtility.MatchAllCharactersIndicatingParentDirectory()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/RegexUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchAllCharactersIndicatingParentDirectory
+    path: ../SonghayCore/RegexUtility.cs
+    startLine: 17
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">\\.\\./|\\.\\.\\\\</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match the string "..".
+    ○ Match a character in the set [/\\].</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("\\.\\./|\\.\\.\\\\")]
+
+      public static Regex MatchAllCharactersIndicatingParentDirectory()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("\.\./|\.\.\\")>
+
+      Public Shared Function MatchAllCharactersIndicatingParentDirectory() As Regex
+  overload: Songhay.RegexUtility.MatchAllCharactersIndicatingParentDirectory*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: \.\./|\.\.\\
+- uid: Songhay.RegexUtility.MatchAllCharactersInQuotes
+  commentId: M:Songhay.RegexUtility.MatchAllCharactersInQuotes
+  id: MatchAllCharactersInQuotes
+  parent: Songhay.RegexUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchAllCharactersInQuotes()
+  nameWithType: RegexUtility.MatchAllCharactersInQuotes()
+  fullName: Songhay.RegexUtility.MatchAllCharactersInQuotes()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/RegexUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchAllCharactersInQuotes
+    path: ../SonghayCore/RegexUtility.cs
+    startLine: 20
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">(["'])(?:(?=(\\\\?))\\2.)*?\\1</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ 1st capture group.
+        ○ Match a character in the set ["'].
+    ○ Loop lazily any number of times.
+        ○ Zero-width positive lookahead.
+            ○ 2nd capture group.
+                ○ Match '\\' atomically, optionally.
+        ○ Match the same text as matched by the 2nd capture group.
+        ○ Match any character other than '\n'.
+    ○ Match the same text as matched by the 1st capture group.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("([\"'])(?:(?=(\\\\?))\\2.)*?\\1")]
+
+      public static Regex MatchAllCharactersInQuotes()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("([""'])(?:(?=(\\?))\2.)*?\1")>
+
+      Public Shared Function MatchAllCharactersInQuotes() As Regex
+  overload: Songhay.RegexUtility.MatchAllCharactersInQuotes*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: (["'])(?:(?=(\\?))\2.)*?\1
+- uid: Songhay.RegexUtility.MatchAllCharactersNotAlphanumeric
+  commentId: M:Songhay.RegexUtility.MatchAllCharactersNotAlphanumeric
+  id: MatchAllCharactersNotAlphanumeric
+  parent: Songhay.RegexUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchAllCharactersNotAlphanumeric()
+  nameWithType: RegexUtility.MatchAllCharactersNotAlphanumeric()
+  fullName: Songhay.RegexUtility.MatchAllCharactersNotAlphanumeric()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/RegexUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchAllCharactersNotAlphanumeric
+    path: ../SonghayCore/RegexUtility.cs
+    startLine: 23
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">[^a-z^0-9]</code></pre><br />
+        Options:<br />
+        <pre><code class="lang-csharp">RegexOptions.IgnoreCase</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match a character in the set [^0-9A-Z^a-z\u212A].</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("[^a-z^0-9]", RegexOptions.IgnoreCase)]
+
+      public static Regex MatchAllCharactersNotAlphanumeric()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("[^a-z^0-9]", RegexOptions.IgnoreCase)>
+
+      Public Shared Function MatchAllCharactersNotAlphanumeric() As Regex
+  overload: Songhay.RegexUtility.MatchAllCharactersNotAlphanumeric*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String,System.Text.RegularExpressions.RegexOptions)
+    arguments:
+    - type: System.String
+      value: '[^a-z^0-9]'
+    - type: System.Text.RegularExpressions.RegexOptions
+      value: 1
+- uid: Songhay.RegexUtility.MatchAllCharactersNotNumeric
+  commentId: M:Songhay.RegexUtility.MatchAllCharactersNotNumeric
+  id: MatchAllCharactersNotNumeric
+  parent: Songhay.RegexUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchAllCharactersNotNumeric()
+  nameWithType: RegexUtility.MatchAllCharactersNotNumeric()
+  fullName: Songhay.RegexUtility.MatchAllCharactersNotNumeric()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/RegexUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchAllCharactersNotNumeric
+    path: ../SonghayCore/RegexUtility.cs
+    startLine: 26
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">\\D</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match any character other than a Unicode digit.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("\\D")]
+
+      public static Regex MatchAllCharactersNotNumeric()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("\D")>
+
+      Public Shared Function MatchAllCharactersNotNumeric() As Regex
+  overload: Songhay.RegexUtility.MatchAllCharactersNotNumeric*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: \D
+- uid: Songhay.RegexUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes
+  commentId: M:Songhay.RegexUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes
+  id: MatchAllSpaceCharactersRepeatedTwoOrMoreTimes
+  parent: Songhay.RegexUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchAllSpaceCharactersRepeatedTwoOrMoreTimes()
+  nameWithType: RegexUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes()
+  fullName: Songhay.RegexUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/RegexUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchAllSpaceCharactersRepeatedTwoOrMoreTimes
+    path: ../SonghayCore/RegexUtility.cs
+    startLine: 29
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">{2,}</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match ' ' atomically at least twice.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex(" {2,}")]
+
+      public static Regex MatchAllSpaceCharactersRepeatedTwoOrMoreTimes()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex(" {2,}")>
+
+      Public Shared Function MatchAllSpaceCharactersRepeatedTwoOrMoreTimes() As Regex
+  overload: Songhay.RegexUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: " {2,}"
+- uid: Songhay.RegexUtility.MatchAllThatLooksLikeEmailAddress
+  commentId: M:Songhay.RegexUtility.MatchAllThatLooksLikeEmailAddress
+  id: MatchAllThatLooksLikeEmailAddress
+  parent: Songhay.RegexUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchAllThatLooksLikeEmailAddress()
+  nameWithType: RegexUtility.MatchAllThatLooksLikeEmailAddress()
+  fullName: Songhay.RegexUtility.MatchAllThatLooksLikeEmailAddress()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/RegexUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchAllThatLooksLikeEmailAddress
+    path: ../SonghayCore/RegexUtility.cs
+    startLine: 32
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match a word character greedily at least once.
+    ○ Loop greedily any number of times.
+        ○ 1st capture group.
+            ○ Match a character in the set ['+\-.].
+            ○ Match a word character atomically at least once.
+    ○ Match '@'.
+
+    ○ Match a word character greedily at least once.
+
+    ○ Loop greedily any number of times.
+        ○ 2nd capture group.
+            ○ Match a character in the set [\-.].
+            ○ Match a word character atomically at least once.
+    ○ Match '.'.
+
+    ○ Match a word character greedily at least once.
+
+    ○ Loop atomically any number of times.
+        ○ 3rd capture group.
+            ○ Match a character in the set [\-.].
+            ○ Match a word character atomically at least once.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*")]
+
+      public static Regex MatchAllThatLooksLikeEmailAddress()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")>
+
+      Public Shared Function MatchAllThatLooksLikeEmailAddress() As Regex
+  overload: Songhay.RegexUtility.MatchAllThatLooksLikeEmailAddress*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: \w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*
+- uid: Songhay.RegexUtility.MatchAllThatLooksLikeUnc
+  commentId: M:Songhay.RegexUtility.MatchAllThatLooksLikeUnc
+  id: MatchAllThatLooksLikeUnc
+  parent: Songhay.RegexUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchAllThatLooksLikeUnc()
+  nameWithType: RegexUtility.MatchAllThatLooksLikeUnc()
+  fullName: Songhay.RegexUtility.MatchAllThatLooksLikeUnc()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/RegexUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchAllThatLooksLikeUnc
+    path: ../SonghayCore/RegexUtility.cs
+    startLine: 35
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">^(\\\\(\\\\[^\\s\\\\]+)+|([A-Za-z]:(\\\\)?|[A-z]:(\\\\[^\\s\\\\]+)+))(\\\\)?$</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match if at the beginning of the string.
+    ○ 1st capture group.
+        ○ Match with 2 alternative expressions.
+            ○ Match a sequence of expressions.
+                ○ Match '\\'.
+                ○ Loop greedily at least once.
+                    ○ 2nd capture group.
+                        ○ Match '\\'.
+                        ○ Match a character in the set [^\\\s] greedily at least once.
+            ○ 3rd capture group.
+                ○ Match with 2 alternative expressions.
+                    ○ Match a sequence of expressions.
+                        ○ Match an ASCII letter.
+                        ○ Match ':'.
+                        ○ Optional (greedy).
+                            ○ 4th capture group.
+                                ○ Match '\\'.
+                    ○ Match a sequence of expressions.
+                        ○ Match a character in the set [A-z].
+                        ○ Match ':'.
+                        ○ Loop greedily at least once.
+                            ○ 5th capture group.
+                                ○ Match '\\'.
+                                ○ Match a character in the set [^\\\s] greedily at least once.
+    ○ Optional (greedy).
+        ○ 6th capture group.
+            ○ Match '\\'.
+    ○ Match if at the end of the string or if before an ending newline.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("^(\\\\(\\\\[^\\s\\\\]+)+|([A-Za-z]:(\\\\)?|[A-z]:(\\\\[^\\s\\\\]+)+))(\\\\)?$")]
+
+      public static Regex MatchAllThatLooksLikeUnc()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("^(\\(\\[^\s\\]+)+|([A-Za-z]:(\\)?|[A-z]:(\\[^\s\\]+)+))(\\)?$")>
+
+      Public Shared Function MatchAllThatLooksLikeUnc() As Regex
+  overload: Songhay.RegexUtility.MatchAllThatLooksLikeUnc*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ^(\\(\\[^\s\\]+)+|([A-Za-z]:(\\)?|[A-z]:(\\[^\s\\]+)+))(\\)?$
+- uid: Songhay.RegexUtility.MatchAllWords
+  commentId: M:Songhay.RegexUtility.MatchAllWords
+  id: MatchAllWords
+  parent: Songhay.RegexUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchAllWords()
+  nameWithType: RegexUtility.MatchAllWords()
+  fullName: Songhay.RegexUtility.MatchAllWords()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/RegexUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchAllWords
+    path: ../SonghayCore/RegexUtility.cs
+    startLine: 38
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">\\w+</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match a word character atomically at least once.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("\\w+")]
+
+      public static Regex MatchAllWords()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("\w+")>
+
+      Public Shared Function MatchAllWords() As Regex
+  overload: Songhay.RegexUtility.MatchAllWords*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: \w+
+- uid: Songhay.RegexUtility.MatchCommandLineArgumentInQuotesFollowedByOtherArguments
+  commentId: M:Songhay.RegexUtility.MatchCommandLineArgumentInQuotesFollowedByOtherArguments
+  id: MatchCommandLineArgumentInQuotesFollowedByOtherArguments
+  parent: Songhay.RegexUtility
+  langs:
+  - csharp
+  - vb
+  name: MatchCommandLineArgumentInQuotesFollowedByOtherArguments()
+  nameWithType: RegexUtility.MatchCommandLineArgumentInQuotesFollowedByOtherArguments()
+  fullName: Songhay.RegexUtility.MatchCommandLineArgumentInQuotesFollowedByOtherArguments()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/RegexUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: MatchCommandLineArgumentInQuotesFollowedByOtherArguments
+    path: ../SonghayCore/RegexUtility.cs
+    startLine: 41
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  remarks: >-
+    Pattern:<br />
+
+    <pre><code class="lang-csharp">"[^"]+"|\\s+.+</code></pre><br />
+        Explanation:<br />
+        <pre><code class="lang-csharp">○ Match with 2 alternative expressions, atomically.
+        ○ Match a sequence of expressions.
+            ○ Match '"'.
+            ○ Match a character other than '"' atomically at least once.
+            ○ Match '"'.
+        ○ Match a sequence of expressions.
+            ○ Match a whitespace character greedily at least once.
+            ○ Match a character other than '\n' atomically at least once.</code></pre>
+  example: []
+  syntax:
+    content: >-
+      [GeneratedRegex("\"[^\"]+\"|\\s+.+")]
+
+      public static Regex MatchCommandLineArgumentInQuotesFollowedByOtherArguments()
+    return:
+      type: System.Text.RegularExpressions.Regex
+    content.vb: >-
+      <GeneratedRegex("""[^""]+""|\s+.+")>
+
+      Public Shared Function MatchCommandLineArgumentInQuotesFollowedByOtherArguments() As Regex
+  overload: Songhay.RegexUtility.MatchCommandLineArgumentInQuotesFollowedByOtherArguments*
+  attributes:
+  - type: System.Text.RegularExpressions.GeneratedRegexAttribute
+    ctor: System.Text.RegularExpressions.GeneratedRegexAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: "\"[^\"]+\"|\\s+.+"
+references:
+- uid: System.Text.RegularExpressions.Regex
+  commentId: T:System.Text.RegularExpressions.Regex
+  parent: System.Text.RegularExpressions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex
+  name: Regex
+  nameWithType: Regex
+  fullName: System.Text.RegularExpressions.Regex
+- uid: Songhay
+  commentId: N:Songhay
+  href: Songhay.html
+  name: Songhay
+  nameWithType: Songhay
+  fullName: Songhay
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Text.RegularExpressions
+  commentId: N:System.Text.RegularExpressions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text.RegularExpressions
+  nameWithType: System.Text.RegularExpressions
+  fullName: System.Text.RegularExpressions
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.RegularExpressions
+    name: RegularExpressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.regularexpressions
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.RegularExpressions
+    name: RegularExpressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.regularexpressions
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.RegexUtility.GetInnerXmlPattern*
+  commentId: Overload:Songhay.RegexUtility.GetInnerXmlPattern
+  href: Songhay.RegexUtility.html#Songhay_RegexUtility_GetInnerXmlPattern_System_String_
+  name: GetInnerXmlPattern
+  nameWithType: RegexUtility.GetInnerXmlPattern
+  fullName: Songhay.RegexUtility.GetInnerXmlPattern
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Environment.NewLine
+  commentId: P:System.Environment.NewLine
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.environment.newline
+  name: NewLine
+  nameWithType: Environment.NewLine
+  fullName: System.Environment.NewLine
+- uid: Songhay.RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern*
+  commentId: Overload:Songhay.RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern
+  href: Songhay.RegexUtility.html#Songhay_RegexUtility_GetLinesStartingWithWhitespaceCharactersPattern_System_String_System_Byte_
+  name: GetLinesStartingWithWhitespaceCharactersPattern
+  nameWithType: RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern
+  fullName: Songhay.RegexUtility.GetLinesStartingWithWhitespaceCharactersPattern
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Songhay.RegexUtility.MatchAllCharactersIndicatingParentDirectory*
+  commentId: Overload:Songhay.RegexUtility.MatchAllCharactersIndicatingParentDirectory
+  href: Songhay.RegexUtility.html#Songhay_RegexUtility_MatchAllCharactersIndicatingParentDirectory
+  name: MatchAllCharactersIndicatingParentDirectory
+  nameWithType: RegexUtility.MatchAllCharactersIndicatingParentDirectory
+  fullName: Songhay.RegexUtility.MatchAllCharactersIndicatingParentDirectory
+- uid: Songhay.RegexUtility.MatchAllCharactersInQuotes*
+  commentId: Overload:Songhay.RegexUtility.MatchAllCharactersInQuotes
+  href: Songhay.RegexUtility.html#Songhay_RegexUtility_MatchAllCharactersInQuotes
+  name: MatchAllCharactersInQuotes
+  nameWithType: RegexUtility.MatchAllCharactersInQuotes
+  fullName: Songhay.RegexUtility.MatchAllCharactersInQuotes
+- uid: Songhay.RegexUtility.MatchAllCharactersNotAlphanumeric*
+  commentId: Overload:Songhay.RegexUtility.MatchAllCharactersNotAlphanumeric
+  href: Songhay.RegexUtility.html#Songhay_RegexUtility_MatchAllCharactersNotAlphanumeric
+  name: MatchAllCharactersNotAlphanumeric
+  nameWithType: RegexUtility.MatchAllCharactersNotAlphanumeric
+  fullName: Songhay.RegexUtility.MatchAllCharactersNotAlphanumeric
+- uid: Songhay.RegexUtility.MatchAllCharactersNotNumeric*
+  commentId: Overload:Songhay.RegexUtility.MatchAllCharactersNotNumeric
+  href: Songhay.RegexUtility.html#Songhay_RegexUtility_MatchAllCharactersNotNumeric
+  name: MatchAllCharactersNotNumeric
+  nameWithType: RegexUtility.MatchAllCharactersNotNumeric
+  fullName: Songhay.RegexUtility.MatchAllCharactersNotNumeric
+- uid: Songhay.RegexUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes*
+  commentId: Overload:Songhay.RegexUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes
+  href: Songhay.RegexUtility.html#Songhay_RegexUtility_MatchAllSpaceCharactersRepeatedTwoOrMoreTimes
+  name: MatchAllSpaceCharactersRepeatedTwoOrMoreTimes
+  nameWithType: RegexUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes
+  fullName: Songhay.RegexUtility.MatchAllSpaceCharactersRepeatedTwoOrMoreTimes
+- uid: Songhay.RegexUtility.MatchAllThatLooksLikeEmailAddress*
+  commentId: Overload:Songhay.RegexUtility.MatchAllThatLooksLikeEmailAddress
+  href: Songhay.RegexUtility.html#Songhay_RegexUtility_MatchAllThatLooksLikeEmailAddress
+  name: MatchAllThatLooksLikeEmailAddress
+  nameWithType: RegexUtility.MatchAllThatLooksLikeEmailAddress
+  fullName: Songhay.RegexUtility.MatchAllThatLooksLikeEmailAddress
+- uid: Songhay.RegexUtility.MatchAllThatLooksLikeUnc*
+  commentId: Overload:Songhay.RegexUtility.MatchAllThatLooksLikeUnc
+  href: Songhay.RegexUtility.html#Songhay_RegexUtility_MatchAllThatLooksLikeUnc
+  name: MatchAllThatLooksLikeUnc
+  nameWithType: RegexUtility.MatchAllThatLooksLikeUnc
+  fullName: Songhay.RegexUtility.MatchAllThatLooksLikeUnc
+- uid: Songhay.RegexUtility.MatchAllWords*
+  commentId: Overload:Songhay.RegexUtility.MatchAllWords
+  href: Songhay.RegexUtility.html#Songhay_RegexUtility_MatchAllWords
+  name: MatchAllWords
+  nameWithType: RegexUtility.MatchAllWords
+  fullName: Songhay.RegexUtility.MatchAllWords
+- uid: Songhay.RegexUtility.MatchCommandLineArgumentInQuotesFollowedByOtherArguments*
+  commentId: Overload:Songhay.RegexUtility.MatchCommandLineArgumentInQuotesFollowedByOtherArguments
+  href: Songhay.RegexUtility.html#Songhay_RegexUtility_MatchCommandLineArgumentInQuotesFollowedByOtherArguments
+  name: MatchCommandLineArgumentInQuotesFollowedByOtherArguments
+  nameWithType: RegexUtility.MatchCommandLineArgumentInQuotesFollowedByOtherArguments
+  fullName: Songhay.RegexUtility.MatchCommandLineArgumentInQuotesFollowedByOtherArguments
