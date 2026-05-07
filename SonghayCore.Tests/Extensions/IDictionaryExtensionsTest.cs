@@ -1,4 +1,5 @@
 ﻿using System.Collections.Specialized;
+using System.Text.Json.Nodes;
 
 namespace Songhay.Tests.Extensions;
 
@@ -113,6 +114,34 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
         TestException();
         TestRef();
         TestValue();
+    }
+
+    [Fact]
+    public void ShouldUnboxKeyValuePairs()
+    {
+        Dictionary<string, object> data = new()
+        {
+            { "one", 42 },
+            { "two", true },
+            { "three", "third" },
+        };
+
+        JsonObject jsonObject = new();
+
+        foreach (KeyValuePair<string, object> kvp in data)
+        {
+            jsonObject[kvp.Key] = JsonValue.Create(kvp.Value);
+        }
+
+        helper.WriteLine(jsonObject.ToJsonString());
+
+        JsonNode? one = jsonObject.GetPropertyJsonValueOrNull("one");
+        JsonNode? two = jsonObject.GetPropertyJsonValueOrNull("two");
+        JsonNode? three = jsonObject.GetPropertyJsonValueOrNull("three");
+
+        Assert.Equal(JsonValueKind.Number, one?.GetValueKind());
+        Assert.Equal(JsonValueKind.True, two?.GetValueKind());
+        Assert.Equal(JsonValueKind.String, three?.GetValueKind());
     }
 
     [Fact]
