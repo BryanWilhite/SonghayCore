@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text.Json.Nodes;
 
 namespace Songhay.Tests.Extensions;
@@ -225,6 +226,31 @@ public class JsonNodeExtensionsTests(ITestOutputHelper helper)
                 Assert.Fail("Kind is not supported.");
                 break;
         }
+    }
+
+    [Theory]
+    [InlineData("""
+                {
+                    "dateProperty": "2026-06-03T12:00:00.000Z"
+                }
+                """)]
+    public void ShouldReturnStringFromJsonValue(string input)
+    {
+        //arrange:
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ToJsonArray_Success_Test));
+        JsonObject? jO = JsonNode.Parse(input).ToJsonObject(logger);
+        JsonValue? jsonValue = jO.GetPropertyJsonValueOrNull("dateProperty");
+        string? expected = jsonValue?.GetValue<string?>();
+        helper.WriteLine($"date string: `{expected}`");
+
+        //act and assert:
+        Assert.True(DateTime.TryParse(expected,
+            CultureInfo.InvariantCulture,
+            DateTimeStyles.AdjustToUniversal, out DateTime actual));
+
+        helper.WriteLine(actual.ToIso8601String());
+
+        Assert.Equal(expected, actual.ToIso8601String());
     }
 
     [Theory]
