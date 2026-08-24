@@ -1,7 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
-using Songhay.Net;
-using System.Net;
+﻿using System.Net;
+using System.Text.Json.Nodes;
 using Tavis.UriTemplates;
+
+using Songhay.Net;
 
 namespace Songhay.Tests.Extensions;
 
@@ -72,19 +73,19 @@ public class HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
 
-        var body = JObject.FromObject(new { albumId }).ToString();
+        var body = new JsonObject { [nameof(albumId)] = albumId };
 
         var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
         var uri = template.BindByPosition($"{id}");
         var message = new HttpRequestMessage(HttpMethod.Patch, uri);
-        var response = await message.SendBodyAsync(body);
+        var response = await message.SendBodyAsync(body.ToJsonString());
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         var content = await response.Content.ReadAsStringAsync();
         helper.WriteLine(content);
-        var jO = JObject.Parse(content);
-        Assert.Equal(albumId, jO.GetValue(nameof(albumId))?.Value<int>());
+        var jO = JsonElement.Parse(content);
+        Assert.Equal(albumId, jO.GetJsonChildElementOrNull(nameof(albumId))?.GetInt32());
     }
 
     [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
@@ -94,26 +95,26 @@ public class HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
 
-        var body = JObject.FromObject(new
+        var body = new JsonObject
         {
-            id,
-            albumId,
-            thumbnailUrl = "https://via.placeholder.com/150/92c952",
-            title = "accusamus beatae ad facilis cum similique qui sunt",
-            url = "https://via.placeholder.com/600/92c952"
-        }).ToString();
+            [nameof(id)] = id,
+            [nameof(albumId)] = albumId,
+            ["thumbnailUrl"] = "https://via.placeholder.com/150/92c952",
+            ["title"] = "accusamus beatae ad facilis cum similique qui sunt",
+            ["url"] = "https://via.placeholder.com/600/92c952"
+        };
 
         var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
         var uri = template.BindByPosition($"{id}");
         var message = new HttpRequestMessage(HttpMethod.Put, uri);
-        var response = await message.SendBodyAsync(body);
+        var response = await message.SendBodyAsync(body.ToJsonString());
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         var content = await response.Content.ReadAsStringAsync();
         helper.WriteLine(content);
-        var jO = JObject.Parse(content);
-        Assert.Equal(albumId, jO.GetValue(nameof(albumId))?.Value<int>());
+        var jO = JsonElement.Parse(content);
+        Assert.Equal(albumId, jO.GetJsonChildElementOrNull(nameof(albumId))?.GetInt32());
     }
 
     [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationTest)]

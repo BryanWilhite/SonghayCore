@@ -1,6 +1,3 @@
-using Meziantou.Extensions.Logging.Xunit;
-using Microsoft.Extensions.Logging;
-
 namespace Songhay.Tests.Extensions;
 
 // ReSharper disable once InconsistentNaming

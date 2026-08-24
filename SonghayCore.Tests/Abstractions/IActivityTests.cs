@@ -1,7 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
-using Meziantou.Extensions.Logging.Xunit;
 using Songhay.Abstractions;
 
 namespace Songhay.Tests.Abstractions;
