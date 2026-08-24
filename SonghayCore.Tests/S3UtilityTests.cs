@@ -2,7 +2,6 @@ using System.Net;
 
 using Amazon.S3;
 using Amazon.S3.Model;
-
 using Songhay.Models;
 using SonghayCore.S3;
 using SonghayCore.S3.Extensions;
@@ -36,13 +35,51 @@ public class S3UtilityTests
     }
 
     [SkippableTheory]
+    [ProjectDirectoryData("Wasabi", "studio-public-region", "songhay/studio.rss.xml")]
+    public async Task ShouldDownloadFile(DirectoryInfo projectInfo, string setKey, string bucketMetaKey, string bucketKey)
+    {
+        Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
+
+        //arrange:
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
+
+        RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
+            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+
+        var (credentialsProfileName, bucketName, region, uriRoot) = wasabiMeta.ToS3Tuple(bucketMetaKey, logger);
+
+        logger.LogDebug("{Name}: {Value}", nameof(region), region);
+        logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+        logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+
+        AmazonS3Client s3Client = S3Utility
+            .GetAmazonS3Client(credentialsProfileName, uriRoot, nameof(ShouldGetPositiveHeadBucketResponse), logger)
+            .ToReferenceTypeValueOrThrow();
+
+        GetObjectRequest request = new() { BucketName = bucketName, Key = bucketKey};
+
+        //act:
+        GetObjectResponse actual = await s3Client.GetObjectAsync(request).ConfigureAwait(false);
+
+        //assert:
+        Assert.Equal(HttpStatusCode.OK, actual.HttpStatusCode);
+        Assert.True(actual.ContentLength > 0,
+            $"{nameof(GetObjectResponse)}.{nameof(GetObjectResponse.ContentLength)} should be greater than zero!");
+
+        //archive:
+        string path = projectInfo.ToCombinedPath($"content/xml/{actual.Key.Split('/').Last()}");
+        logger.LogDebug("Writing response to `{Path}`...", path);
+
+        await actual.WriteResponseStreamToFileAsync(path, append: false, cancellationToken: CancellationToken.None);
+    }
+
+    [SkippableTheory]
     [InlineData("Wasabi", "studio-public-region")]
     public async Task ShouldGetPositiveHeadBucketResponse(string setKey, string bucketMetaKey)
     {
         Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
 
         //arrange:
-        bool arrangeCompleted = true;
         ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
@@ -64,7 +101,78 @@ public class S3UtilityTests
         HeadBucketResponse actual = await s3Client.HeadBucketAsync(request).ConfigureAwait(false);
 
         //assert:
-        Assert.True(arrangeCompleted);
+        Assert.Equal(HttpStatusCode.OK, actual.HttpStatusCode);
+    }
+
+    [SkippableTheory]
+    [InlineData("Wasabi", "studio-public-region")]
+    public async Task ShouldListBucketObjects(string setKey, string bucketMetaKey)
+    {
+        Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
+
+        //arrange:
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
+
+        RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
+            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+
+        var (credentialsProfileName, bucketName, region, uriRoot) = wasabiMeta.ToS3Tuple(bucketMetaKey, logger);
+
+        logger.LogDebug("{Name}: {Value}", nameof(region), region);
+        logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+        logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+
+        AmazonS3Client s3Client = S3Utility
+            .GetAmazonS3Client(credentialsProfileName, uriRoot, nameof(ShouldGetPositiveHeadBucketResponse), logger)
+            .ToReferenceTypeValueOrThrow();
+
+        ListObjectsRequest request = new() { BucketName = bucketName };
+
+        //act:
+        ListObjectsResponse actual = await s3Client.ListObjectsAsync(request).ConfigureAwait(false);
+
+        //assert:
+        Assert.Equal(HttpStatusCode.OK, actual.HttpStatusCode);
+        Assert.NotEmpty(actual.S3Objects);
+        foreach (S3Object s3Object in actual.S3Objects)
+        {
+            logger.LogDebug("{ObjectName}.{PropertyName}: {Value}", nameof(S3Object), nameof(S3Object.Key), s3Object.Key);
+        }
+    }
+
+    [SkippableTheory]
+    [ProjectDirectoryData("Wasabi", "studio-public-region", "songhay/feedly.opml", "content/xml/feedly.opml")]
+    public async Task ShouldUploadFile(DirectoryInfo projectInfo, string setKey, string bucketMetaKey, string bucketKey, string localPath)
+    {
+        Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
+
+        //arrange:
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
+
+        RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
+            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+
+        var (credentialsProfileName, bucketName, region, uriRoot) = wasabiMeta.ToS3Tuple(bucketMetaKey, logger);
+
+        logger.LogDebug("{Name}: {Value}", nameof(region), region);
+        logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+        logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+
+        AmazonS3Client s3Client = S3Utility
+            .GetAmazonS3Client(credentialsProfileName, uriRoot, nameof(ShouldGetPositiveHeadBucketResponse), logger)
+            .ToReferenceTypeValueOrThrow();
+
+        PutObjectRequest request = new()
+        {
+            BucketName = bucketName,
+            Key = bucketKey,
+            FilePath = projectInfo.ToCombinedPath(localPath)
+        };
+
+        //act:
+        PutObjectResponse actual = await s3Client.PutObjectAsync(request).ConfigureAwait(false);
+
+        //assert:
         Assert.Equal(HttpStatusCode.OK, actual.HttpStatusCode);
     }
 
@@ -72,5 +180,4 @@ public class S3UtilityTests
 
     private readonly ProgramMetadata _programMetadata;
     private readonly XUnitLoggerProvider _loggerProvider;
-
 }
