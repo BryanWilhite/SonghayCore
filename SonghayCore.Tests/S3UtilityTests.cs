@@ -141,6 +141,47 @@ public class S3UtilityTests
     }
 
     [SkippableTheory]
+    [InlineData("Wasabi", "b-roll-player-video-region")]
+    public async Task ShouldListBucketObjectsWithPagination(string setKey, string bucketMetaKey)
+    {
+        Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
+
+        //arrange:
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
+
+        RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
+            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+
+        var (credentialsProfileName, bucketName, region, uriRoot) = wasabiMeta.ToS3Tuple(bucketMetaKey, logger);
+
+        logger.LogDebug("{Name}: {Value}", nameof(region), region);
+        logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+        logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+
+        AmazonS3Client s3Client = S3Utility
+            .GetAmazonS3Client(credentialsProfileName, uriRoot, nameof(ShouldGetPositiveHeadBucketResponse), logger)
+            .ToReferenceTypeValueOrThrow();
+
+        ListObjectsV2Request request = new()
+        {
+            BucketName = bucketName,
+            Prefix = string.Empty,
+            MaxKeys = 10
+        };
+
+        //act:
+        IReadOnlyCollection<S3Object> actual = await S3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
+
+        //assert:
+        Assert.NotEmpty(actual);
+
+        foreach (S3Object s3Object in actual)
+        {
+            logger.LogDebug("{ObjectName}.{PropertyName}: {Value}", nameof(S3Object), nameof(S3Object.Key), s3Object.Key);
+        }
+    }
+
+    [SkippableTheory]
     [ProjectDirectoryData("Wasabi", "studio-public-region", "songhay/feedly.opml", "content/xml/feedly.opml")]
     public async Task ShouldUploadFile(DirectoryInfo projectInfo, string setKey, string bucketMetaKey, string bucketKey, string localPath)
     {

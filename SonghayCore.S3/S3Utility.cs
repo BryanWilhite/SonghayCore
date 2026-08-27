@@ -3,6 +3,8 @@
 using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement;
 using Amazon.S3;
+using Amazon.S3.Model;
+using Songhay.Extensions;
 
 namespace SonghayCore.S3;
 
@@ -11,6 +13,46 @@ namespace SonghayCore.S3;
 /// </summary>
 public static class S3Utility
 {
+    /// <summary>
+    /// Collects the <see cref="S3Object"/> responses
+    /// from paginating through a bucker based
+    /// on the specified <see cref="ListObjectsV2Request.MaxKeys"/>.
+    /// </summary>
+    /// <param name="s3Client">the <see cref="AmazonS3Client"/></param>
+    /// <param name="request">the <see cref="ListObjectsV2Request"/></param>
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    public static async Task<IReadOnlyCollection<S3Object>> CollectS3ObjectsFromPaginationAsync(AmazonS3Client? s3Client, ListObjectsV2Request? request, ILogger logger)
+    {
+        List<S3Object> allS3Objects = [];
+
+        if (s3Client == null)
+        {
+            logger.LogErrorForMissingData<AmazonS3Client>();
+
+            return allS3Objects;
+        }
+
+        if (request == null)
+        {
+            logger.LogErrorForMissingData<ListObjectsV2Request>();
+
+            return allS3Objects;
+        }
+
+        ListObjectsV2Response response;
+        do
+        {
+            response = await s3Client.ListObjectsV2Async(request);
+
+            allS3Objects.AddRange(response.S3Objects);
+
+            request.ContinuationToken = response.NextContinuationToken;
+
+        } while (response.IsTruncated ?? false);
+
+        return allS3Objects;
+    }
+
     /// <summary>
     /// Returns an instance of <see cref="AmazonS3Client"/>
     /// or <c>null</c> when there is an error
