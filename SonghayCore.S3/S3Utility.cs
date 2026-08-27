@@ -4,7 +4,10 @@ using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement;
 using Amazon.S3;
 using Amazon.S3.Model;
+
 using Songhay.Extensions;
+using Songhay.Models;
+using SonghayCore.S3.Extensions;
 
 namespace SonghayCore.S3;
 
@@ -51,6 +54,30 @@ public static class S3Utility
         } while (response.IsTruncated ?? false);
 
         return allS3Objects;
+    }
+
+    /// <summary>
+    /// Returns an instance of <see cref="AmazonS3Client"/>
+    /// or <c>null</c> when there is an error
+    /// detailed by the <see cref="ILogger"/>
+    /// </summary>
+    /// <param name="restApiMetadata">the conventional <see cref="RestApiMetadata"/></param>
+    /// <param name="bucketMetaKey">a key in the <see cref="RestApiMetadata.ClaimsSet"/></param>
+    /// <param name="clientAppId">an optional ID to describe the <see cref="AmazonS3Client"/></param>
+    /// <param name="restApiMetadataAction">the action that reveals <see cref="RestApiMetadata"/> as a tuple</param>
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    public static AmazonS3Client? GetAmazonS3Client(RestApiMetadata restApiMetadata,
+        string? bucketMetaKey, string? clientAppId,
+        Action<(string? credentialsProfileName, string? bucketName, string? region, string? uriRoot)>? restApiMetadataAction, ILogger logger)
+    {
+
+        var (credentialsProfileName, bucketName, region, uriRoot) = restApiMetadata.ToS3Tuple(bucketMetaKey, logger);
+
+        restApiMetadataAction?.Invoke((credentialsProfileName, bucketName, region, uriRoot));
+
+        AmazonS3Client? s3Client = GetAmazonS3Client(credentialsProfileName, uriRoot, clientAppId, logger);
+
+        return s3Client;
     }
 
     /// <summary>

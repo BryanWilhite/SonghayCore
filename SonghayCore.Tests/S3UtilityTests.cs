@@ -2,9 +2,9 @@ using System.Net;
 
 using Amazon.S3;
 using Amazon.S3.Model;
+
 using Songhay.Models;
 using SonghayCore.S3;
-using SonghayCore.S3.Extensions;
 
 namespace Songhay.Tests;
 
@@ -46,14 +46,23 @@ public class S3UtilityTests
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
             .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
-        var (credentialsProfileName, bucketName, region, uriRoot) = wasabiMeta.ToS3Tuple(bucketMetaKey, logger);
 
-        logger.LogDebug("{Name}: {Value}", nameof(region), region);
-        logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
-        logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+        string? bucketName = null;
 
         AmazonS3Client s3Client = S3Utility
-            .GetAmazonS3Client(credentialsProfileName, uriRoot, nameof(ShouldGetPositiveHeadBucketResponse), logger)
+            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+                t =>
+                {
+                    var (credentialsProfileName, bN, region, uriRoot) = t;
+
+                    bucketName = bN;
+
+                    logger.LogDebug("{Name}: {Value}", nameof(credentialsProfileName), credentialsProfileName);
+                    logger.LogDebug("{Name}: {Value}", nameof(region), region);
+                    logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+                    logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+                    
+                }, logger)
             .ToReferenceTypeValueOrThrow();
 
         GetObjectRequest request = new() { BucketName = bucketName, Key = bucketKey};
@@ -85,14 +94,22 @@ public class S3UtilityTests
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
             .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
-        var (credentialsProfileName, bucketName, region, uriRoot) = wasabiMeta.ToS3Tuple(bucketMetaKey, logger);
-
-        logger.LogDebug("{Name}: {Value}", nameof(region), region);
-        logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
-        logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+        string? bucketName = null;
 
         AmazonS3Client s3Client = S3Utility
-            .GetAmazonS3Client(credentialsProfileName, uriRoot, nameof(ShouldGetPositiveHeadBucketResponse), logger)
+            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+                t =>
+                {
+                    var (credentialsProfileName, bN, region, uriRoot) = t;
+
+                    bucketName = bN;
+
+                    logger.LogDebug("{Name}: {Value}", nameof(credentialsProfileName), credentialsProfileName);
+                    logger.LogDebug("{Name}: {Value}", nameof(region), region);
+                    logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+                    logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+                    
+                }, logger)
             .ToReferenceTypeValueOrThrow();
 
         HeadBucketRequest request = new() { BucketName = bucketName };
@@ -116,14 +133,23 @@ public class S3UtilityTests
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
             .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
-        var (credentialsProfileName, bucketName, region, uriRoot) = wasabiMeta.ToS3Tuple(bucketMetaKey, logger);
 
-        logger.LogDebug("{Name}: {Value}", nameof(region), region);
-        logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
-        logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+        string? bucketName = null;
 
         AmazonS3Client s3Client = S3Utility
-            .GetAmazonS3Client(credentialsProfileName, uriRoot, nameof(ShouldGetPositiveHeadBucketResponse), logger)
+            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+                t =>
+                {
+                    var (credentialsProfileName, bN, region, uriRoot) = t;
+
+                    bucketName = bN;
+
+                    logger.LogDebug("{Name}: {Value}", nameof(credentialsProfileName), credentialsProfileName);
+                    logger.LogDebug("{Name}: {Value}", nameof(region), region);
+                    logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+                    logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+                    
+                }, logger)
             .ToReferenceTypeValueOrThrow();
 
         ListObjectsRequest request = new() { BucketName = bucketName };
@@ -152,14 +178,23 @@ public class S3UtilityTests
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
             .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
-        var (credentialsProfileName, bucketName, region, uriRoot) = wasabiMeta.ToS3Tuple(bucketMetaKey, logger);
 
-        logger.LogDebug("{Name}: {Value}", nameof(region), region);
-        logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
-        logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+        string? bucketName = null;
 
         AmazonS3Client s3Client = S3Utility
-            .GetAmazonS3Client(credentialsProfileName, uriRoot, nameof(ShouldGetPositiveHeadBucketResponse), logger)
+            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+                t =>
+                {
+                    var (credentialsProfileName, bN, region, uriRoot) = t;
+
+                    bucketName = bN;
+
+                    logger.LogDebug("{Name}: {Value}", nameof(credentialsProfileName), credentialsProfileName);
+                    logger.LogDebug("{Name}: {Value}", nameof(region), region);
+                    logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+                    logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+                    
+                }, logger)
             .ToReferenceTypeValueOrThrow();
 
         ListObjectsV2Request request = new()
@@ -193,14 +228,22 @@ public class S3UtilityTests
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
             .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
-        var (credentialsProfileName, bucketName, region, uriRoot) = wasabiMeta.ToS3Tuple(bucketMetaKey, logger);
-
-        logger.LogDebug("{Name}: {Value}", nameof(region), region);
-        logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
-        logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+        string? bucketName = null;
 
         AmazonS3Client s3Client = S3Utility
-            .GetAmazonS3Client(credentialsProfileName, uriRoot, nameof(ShouldGetPositiveHeadBucketResponse), logger)
+            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+                t =>
+                {
+                    var (credentialsProfileName, bN, region, uriRoot) = t;
+
+                    bucketName = bN;
+
+                    logger.LogDebug("{Name}: {Value}", nameof(credentialsProfileName), credentialsProfileName);
+                    logger.LogDebug("{Name}: {Value}", nameof(region), region);
+                    logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+                    logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+                    
+                }, logger)
             .ToReferenceTypeValueOrThrow();
 
         PutObjectRequest request = new()
