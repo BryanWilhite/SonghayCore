@@ -1,14 +1,3 @@
-using System.Net;
-using Microsoft.Extensions.Logging;
-
-using Amazon.S3;
-using Amazon.S3.Model;
-
-using Songhay;
-using Songhay.Abstractions;
-using Songhay.Extensions;
-using Songhay.Models;
-
 namespace SonghayCore.S3.Activities;
 
 public class AmazonS3DownloadToStringActivity(ProgramMetadata programMetadata, ILogger<AmazonS3DownloadToStringActivity>? logger) :
