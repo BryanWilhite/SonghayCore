@@ -66,7 +66,7 @@ public static class S3Utility
     /// <param name="clientAppId">an optional ID to describe the <see cref="AmazonS3Client"/></param>
     /// <param name="restApiMetadataAction">the action that reveals <see cref="RestApiMetadata"/> as a tuple</param>
     /// <param name="logger">the <see cref="ILogger"/></param>
-    public static AmazonS3Client? GetAmazonS3Client(RestApiMetadata restApiMetadata,
+    public static AmazonS3Client? GetAmazonS3Client(RestApiMetadata? restApiMetadata,
         string? bucketMetaKey, string? clientAppId,
         Action<(string? credentialsProfileName, string? bucketName, string? region, string? uriRoot)>? restApiMetadataAction, ILogger logger)
     {
