@@ -35,17 +35,18 @@ public class S3UtilityTests
     }
 
     [SkippableTheory]
-    [ProjectDirectoryData("Wasabi", "studio-public-region", "songhay/studio.rss.xml")]
-    public async Task ShouldDownloadFile(DirectoryInfo projectInfo, string setKey, string bucketMetaKey, string bucketKey)
+    [InlineData("Wasabi", "studio-public-region", "songhay/feedly-from-string.opml")]
+    public async Task ShouldDeleteS3Object(string setKey, string bucketMetaKey, string bucketKey)
     {
-        Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
+        const bool shouldSkip = false;
+
+        Skip.If(shouldSkip);
 
         //arrange:
         ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
             .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
-
 
         string? bucketName = null;
 
@@ -65,10 +66,53 @@ public class S3UtilityTests
                 }, logger)
             .ToReferenceTypeValueOrThrow();
 
-        GetObjectRequest request = new() { BucketName = bucketName, Key = bucketKey};
+        DeleteObjectRequest request = new()
+        {
+            BucketName = bucketName,
+            Key = bucketKey
+        };
 
         //act:
-        GetObjectResponse actual = await s3Client.GetObjectAsync(request).ConfigureAwait(false);
+        var actual = await s3Client.DeleteObjectAsync(request).ConfigureAwait(false);
+
+        //assert:
+        Assert.Equal(HttpStatusCode.NoContent, actual.HttpStatusCode);
+    }
+
+    [SkippableTheory]
+    [ProjectDirectoryData("Wasabi", "studio-public-region", "songhay/studio.rss.xml")]
+    public async Task ShouldDownloadFile(DirectoryInfo projectInfo, string setKey, string bucketMetaKey, string bucketKey)
+    {
+        Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
+
+        //arrange:
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
+
+        RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
+            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+
+        string? bucketName = null;
+
+        AmazonS3Client s3Client = S3Utility
+            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+                t =>
+                {
+                    var (credentialsProfileName, bN, region, uriRoot) = t;
+
+                    bucketName = bN;
+
+                    logger.LogDebug("{Name}: {Value}", nameof(credentialsProfileName), credentialsProfileName);
+                    logger.LogDebug("{Name}: {Value}", nameof(region), region);
+                    logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+                    logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+                    
+                }, logger)
+            .ToReferenceTypeValueOrThrow();
+
+        GetObjectRequest request = new() { BucketName = bucketName, Key = bucketKey };
+
+        //act:
+        using GetObjectResponse actual = await s3Client.GetObjectAsync(request).ConfigureAwait(false);
 
         //assert:
         Assert.Equal(HttpStatusCode.OK, actual.HttpStatusCode);
@@ -80,6 +124,49 @@ public class S3UtilityTests
         logger.LogDebug("Writing response to `{Path}`...", path);
 
         await actual.WriteResponseStreamToFileAsync(path, append: false, cancellationToken: CancellationToken.None);
+    }
+
+    [SkippableTheory]
+    [InlineData("Wasabi", "studio-public-region", "songhay/studio.rss.xml")]
+    public async Task ShouldDownloadString(string setKey, string bucketMetaKey, string bucketKey)
+    {
+        Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
+
+        //arrange:
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
+
+        RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
+            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+
+        string? bucketName = null;
+
+        AmazonS3Client s3Client = S3Utility
+            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+                t =>
+                {
+                    var (credentialsProfileName, bN, region, uriRoot) = t;
+
+                    bucketName = bN;
+
+                    logger.LogDebug("{Name}: {Value}", nameof(credentialsProfileName), credentialsProfileName);
+                    logger.LogDebug("{Name}: {Value}", nameof(region), region);
+                    logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+                    logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+                    
+                }, logger)
+            .ToReferenceTypeValueOrThrow();
+
+        GetObjectRequest request = new() { BucketName = bucketName, Key = bucketKey };
+
+        //act:
+        using GetObjectResponse actual = await s3Client.GetObjectAsync(request).ConfigureAwait(false);
+
+        //assert:
+        Assert.Equal(HttpStatusCode.OK, actual.HttpStatusCode);
+        Assert.True(actual.ContentLength > 0,
+            $"{nameof(GetObjectResponse)}.{nameof(GetObjectResponse.ContentLength)} should be greater than zero!");
+
+        logger.LogInformation("Downloaded: {S}", await actual.ResponseStream.ReadStreamAsStringAsync());
     }
 
     [SkippableTheory]
@@ -133,7 +220,6 @@ public class S3UtilityTests
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
             .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
-
         string? bucketName = null;
 
         AmazonS3Client s3Client = S3Utility
@@ -177,7 +263,6 @@ public class S3UtilityTests
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
             .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
-
 
         string? bucketName = null;
 
@@ -250,7 +335,53 @@ public class S3UtilityTests
         {
             BucketName = bucketName,
             Key = bucketKey,
-            FilePath = projectInfo.ToCombinedPath(localPath)
+            FilePath = projectInfo.ToCombinedPath(localPath),
+            ContentType = MimeTypes.ApplicationXml
+        };
+
+        //act:
+        PutObjectResponse actual = await s3Client.PutObjectAsync(request).ConfigureAwait(false);
+
+        //assert:
+        Assert.Equal(HttpStatusCode.OK, actual.HttpStatusCode);
+    }
+
+    [SkippableTheory]
+    [ProjectDirectoryData("Wasabi", "studio-public-region", "songhay/feedly-from-string.opml", "content/xml/feedly.opml")]
+    public async Task ShouldUploadString(DirectoryInfo projectInfo, string setKey, string bucketMetaKey, string bucketKey, string localPath)
+    {
+        Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
+
+        //arrange:
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
+
+        RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
+            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+
+        string? bucketName = null;
+
+        AmazonS3Client s3Client = S3Utility
+            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+                t =>
+                {
+                    var (credentialsProfileName, bN, region, uriRoot) = t;
+
+                    bucketName = bN;
+
+                    logger.LogDebug("{Name}: {Value}", nameof(credentialsProfileName), credentialsProfileName);
+                    logger.LogDebug("{Name}: {Value}", nameof(region), region);
+                    logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+                    logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+                    
+                }, logger)
+            .ToReferenceTypeValueOrThrow();
+
+        PutObjectRequest request = new()
+        {
+            BucketName = bucketName,
+            Key = bucketKey,
+            ContentBody = await File.ReadAllTextAsync(projectInfo.ToCombinedPath(localPath)),
+            ContentType = MimeTypes.ApplicationXml
         };
 
         //act:
