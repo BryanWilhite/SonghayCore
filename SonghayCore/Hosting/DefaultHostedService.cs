@@ -5,6 +5,7 @@ namespace Songhay.Hosting;
 /// <summary>
 /// Defines the conventional, default Hosted Service
 /// </summary>
+[Obsolete("Since 2018, this type was never needed. Use `BackgroundService` instead. (See issue #196).")]
 public class DefaultHostedService: IHostedService
 {
     /// <summary>
