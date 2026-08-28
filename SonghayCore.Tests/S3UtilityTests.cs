@@ -295,10 +295,9 @@ public class S3UtilityTests
         //assert:
         Assert.NotEmpty(actual);
 
-        foreach (S3Object s3Object in actual)
-        {
-            logger.LogDebug("{ObjectName}.{PropertyName}: {Value}", nameof(S3Object), nameof(S3Object.Key), s3Object.Key);
-        }
+        string json = JsonSerializer.Serialize(actual);
+
+        logger.LogInformation(json);
     }
 
     [SkippableTheory]

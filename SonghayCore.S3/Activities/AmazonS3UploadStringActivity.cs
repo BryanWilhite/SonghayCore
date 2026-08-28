@@ -1,20 +1,20 @@
 namespace SonghayCore.S3.Activities;
 
-public class AmazonS3DeleteS3Object(ProgramMetadata programMetadata, ILogger<AmazonS3DeleteS3Object>? logger) :
-    IActivityTask<(string setKey, string bucketMetaKey, string bucketKey)>
+public class AmazonS3UploadStringActivity(ProgramMetadata programMetadata, ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>? logger):
+    IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)>
 {
-    public async Task StartAsync((string setKey, string bucketMetaKey, string bucketKey) input)
+    public async Task StartAsync((string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType) input)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);
 
-        var(setKey, bucketMetaKey, bucketKey) = input;
+        var(setKey, bucketMetaKey, bucketKey, content, contentMimeType) = input;
 
         RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.TryGetValueWithKey(setKey);
 
         string? bucketName = null;
 
         AmazonS3Client? s3Client = S3Utility
-            .GetAmazonS3Client(s3Meta, bucketMetaKey, nameof(AmazonS3DeleteS3Object),
+            .GetAmazonS3Client(s3Meta, bucketMetaKey, nameof(AmazonS3DownloadToStringActivity),
                 t =>
                 {
                     var (credentialsProfileName, bN, region, uriRoot) = t;
@@ -35,15 +35,17 @@ public class AmazonS3DeleteS3Object(ProgramMetadata programMetadata, ILogger<Ama
             return;
         }
 
-        DeleteObjectRequest request = new()
+        PutObjectRequest request = new()
         {
             BucketName = bucketName,
-            Key = bucketKey
+            Key = bucketKey,
+            ContentBody = content,
+            ContentType = contentMimeType
         };
 
-        DeleteObjectResponse response = await s3Client.DeleteObjectAsync(request).ConfigureAwait(false);
+        PutObjectResponse response = await s3Client.PutObjectAsync(request).ConfigureAwait(false);
 
-        if (response.HttpStatusCode != HttpStatusCode.NoContent)
+        if (response.HttpStatusCode != HttpStatusCode.OK)
         {
             logger.LogError("The expected {Name} is not here: {Value}. Returning...", nameof(HttpStatusCode), response.HttpStatusCode);
         }
