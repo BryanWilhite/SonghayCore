@@ -15,7 +15,7 @@ public class AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata pro
 
         string? bucketName = null;
 
-        AmazonS3Client? s3Client = S3Utility
+        AmazonS3Client? s3Client = AmazonS3Utility
             .GetAmazonS3Client(s3Meta, bucketMetaKey, nameof(AmazonS3DownloadToStringActivity),
                 t =>
                 {
@@ -44,7 +44,7 @@ public class AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata pro
             MaxKeys = 10
         };
 
-        IReadOnlyCollection<S3Object> s3Objects = await S3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
+        IReadOnlyCollection<S3Object> s3Objects = await AmazonS3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
 
         if (s3Objects.Count <= 0)
         {

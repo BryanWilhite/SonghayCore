@@ -13,7 +13,7 @@ public class AmazonS3DeleteS3ObjectActivity(ProgramMetadata programMetadata, ILo
 
         string? bucketName = null;
 
-        AmazonS3Client? s3Client = S3Utility
+        AmazonS3Client? s3Client = AmazonS3Utility
             .GetAmazonS3Client(s3Meta, bucketMetaKey, nameof(AmazonS3DeleteS3ObjectActivity),
                 t =>
                 {

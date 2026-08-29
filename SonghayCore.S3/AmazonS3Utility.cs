@@ -14,7 +14,7 @@ namespace SonghayCore.S3;
 /// <summary>
 /// Shared routines for <see cref="Amazon.S3"/>
 /// </summary>
-public static class S3Utility
+public static class AmazonS3Utility
 {
     /// <summary>
     /// Collects the <see cref="S3Object"/> responses

@@ -4,7 +4,7 @@ using SonghayCore.S3.Abstractions;
 
 namespace SonghayCore.S3.Hosting;
 
-public class AmazonS3Service(IConfiguration configuration, IActivityGroup activityGroup, ILogger<AmazonS3Service> logger) : BackgroundService
+public class AmazonS3Service(IConfiguration configuration, IAmazonS3ActivityGroup amazonS3ActivityGroup, ILogger<AmazonS3Service> logger) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -26,7 +26,7 @@ public class AmazonS3Service(IConfiguration configuration, IActivityGroup activi
         string? activitySetKey = configuration.GetCommandLineArgValue(ConsoleArgsScalars.ActivityName);
         activitySetKey.ThrowWhenNullOrWhiteSpace();
 
-        string? output = await activityGroup.InvokeActivityAsync(activitySetKey, setKey, bucketMetaKey, bucketKey, content, contentMimeType);
+        string? output = await amazonS3ActivityGroup.InvokeActivityAsync(activitySetKey, setKey, bucketMetaKey, bucketKey, content, contentMimeType);
 
         string? path = configuration.GetOutputPath();
 

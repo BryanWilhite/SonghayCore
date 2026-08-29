@@ -8,9 +8,9 @@ using SonghayCore.S3;
 
 namespace Songhay.Tests;
 
-public class S3UtilityTests
+public class AmazonS3UtilityTests
 {
-    public S3UtilityTests(ITestOutputHelper testOutputHelper)
+    public AmazonS3UtilityTests(ITestOutputHelper testOutputHelper)
     {
         _loggerProvider = new XUnitLoggerProvider(testOutputHelper);
 
@@ -50,7 +50,7 @@ public class S3UtilityTests
 
         string? bucketName = null;
 
-        AmazonS3Client s3Client = S3Utility
+        AmazonS3Client s3Client = AmazonS3Utility
             .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
@@ -93,7 +93,7 @@ public class S3UtilityTests
 
         string? bucketName = null;
 
-        AmazonS3Client s3Client = S3Utility
+        AmazonS3Client s3Client = AmazonS3Utility
             .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
@@ -140,7 +140,7 @@ public class S3UtilityTests
 
         string? bucketName = null;
 
-        AmazonS3Client s3Client = S3Utility
+        AmazonS3Client s3Client = AmazonS3Utility
             .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
@@ -183,7 +183,7 @@ public class S3UtilityTests
 
         string? bucketName = null;
 
-        AmazonS3Client s3Client = S3Utility
+        AmazonS3Client s3Client = AmazonS3Utility
             .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
@@ -222,7 +222,7 @@ public class S3UtilityTests
 
         string? bucketName = null;
 
-        AmazonS3Client s3Client = S3Utility
+        AmazonS3Client s3Client = AmazonS3Utility
             .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
@@ -266,7 +266,7 @@ public class S3UtilityTests
 
         string? bucketName = null;
 
-        AmazonS3Client s3Client = S3Utility
+        AmazonS3Client s3Client = AmazonS3Utility
             .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
@@ -290,7 +290,7 @@ public class S3UtilityTests
         };
 
         //act:
-        IReadOnlyCollection<S3Object> actual = await S3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
+        IReadOnlyCollection<S3Object> actual = await AmazonS3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
 
         //assert:
         Assert.NotEmpty(actual);
@@ -314,7 +314,7 @@ public class S3UtilityTests
 
         string? bucketName = null;
 
-        AmazonS3Client s3Client = S3Utility
+        AmazonS3Client s3Client = AmazonS3Utility
             .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
@@ -359,7 +359,7 @@ public class S3UtilityTests
 
         string? bucketName = null;
 
-        AmazonS3Client s3Client = S3Utility
+        AmazonS3Client s3Client = AmazonS3Utility
             .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
