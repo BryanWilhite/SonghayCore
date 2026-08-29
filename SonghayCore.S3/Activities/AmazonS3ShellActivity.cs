@@ -35,6 +35,14 @@ public class AmazonS3ShellActivity(IConfiguration? configuration,
         string? content = configuration.ReadStringInput();
         string? contentMimeType = configuration.GetCommandLineArgValue(ArgBucketS3ObjectMimetype);
 
+        string? activitySetKey = configuration.GetCommandLineArgValue(ConsoleArgsScalars.ActivityName);
+        activitySetKey.ThrowWhenNullOrWhiteSpace();
+
+        return await InvokeActivityAsync(activitySetKey, setKey, bucketMetaKey, bucketKey, content, contentMimeType);
+    }
+
+    private async Task<string?> InvokeActivityAsync(string activitySetKey, string setKey, string bucketMetaKey, string? bucketKey, string? content, string? contentMimeType)
+    {
         InputForActivities input = (setKey, bucketMetaKey, bucketKey, content, contentMimeType) switch
         {
             (var s1, var s2, null, null, null) => (s1, s2),
@@ -42,14 +50,6 @@ public class AmazonS3ShellActivity(IConfiguration? configuration,
             var (s1, s2, s3, s4, s5) => (s1, s2, s3, s4, s5)
         };
 
-        string? activitySetKey = configuration.GetCommandLineArgValue(ConsoleArgsScalars.ActivityName);
-        activitySetKey.ThrowWhenNullOrWhiteSpace();
-
-        return await InvokeActivityAsync(activitySetKey, input);
-    }
-
-    private async Task<string?> InvokeActivityAsync(string activitySetKey, InputForActivities input)
-    {
         Func<InputForActivities, Task<string?>>? activity = ActivitySet.TryGetValueWithKey(activitySetKey);
 
         if (activity == null)
