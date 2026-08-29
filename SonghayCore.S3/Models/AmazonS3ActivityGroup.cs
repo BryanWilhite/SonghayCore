@@ -10,12 +10,12 @@ using SonghayCore.S3.Activities;
 
 namespace SonghayCore.S3.Models;
 
-public class AmazonS3AmazonS3ActivityGroup(
+public class AmazonS3ActivityGroup(
     [FromKeyedServices(nameof(AmazonS3DeleteS3ObjectActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey)> activityForAmazonS3DeleteS3Object,
     [FromKeyedServices(nameof(AmazonS3DownloadToStringActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey), string?> activityForAmazonS3DownloadToString,
     [FromKeyedServices(nameof(AmazonS3ListBucketObjectsWithPaginationActivity))] IActivityTask<(string setKey, string bucketMetaKey), string?> activityForAmazonS3ListBucketObjectsWithPagination,
     [FromKeyedServices(nameof(AmazonS3UploadStringActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)> activityForAmazonS3UploadString,
-    ILogger<AmazonS3AmazonS3ActivityGroup>logger
+    ILogger<AmazonS3ActivityGroup>logger
 ) : IAmazonS3ActivityGroup
 {
     public async Task<string?> InvokeActivityAsync(string activitySetKey, string setKey, string bucketMetaKey, string? bucketKey, string? content, string? contentMimeType)
