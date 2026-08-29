@@ -1,12 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
-
-using Amazon.Runtime;
+﻿using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement;
-using Amazon.S3;
-using Amazon.S3.Model;
 
-using Songhay.Extensions;
-using Songhay.Models;
 using SonghayCore.S3.Extensions;
 
 namespace SonghayCore.S3;
