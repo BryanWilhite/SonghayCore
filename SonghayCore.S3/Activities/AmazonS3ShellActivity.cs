@@ -1,14 +1,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using S3ShellInput =
-(
-    string setKey,
-    string bucketMetaKey,
-    string? bucketKey,
-    string? content,
-    string? contentMimeType
-);
+using InputForActivities = OneOf.OneOf<
+    (string setKey, string bucketMetaKey),
+    (string setKey, string bucketMetaKey, string? bucketKey),
+    (string setKey, string bucketMetaKey, string? bucketKey, string? content, string? contentMimeType)>;
 
 namespace SonghayCore.S3.Activities;
 
@@ -39,12 +35,17 @@ public class AmazonS3ShellActivity(IConfiguration? configuration,
         string? content = configuration.ReadStringInput();
         string? contentMimeType = configuration.GetCommandLineArgValue(ArgBucketS3ObjectMimetype);
 
-        S3ShellInput input = (setKey, bucketMetaKey, bucketKey, content, contentMimeType);
+        InputForActivities input = (setKey, bucketMetaKey, bucketKey, content, contentMimeType) switch
+        {
+            (var s1, var s2, null, null, null) => (s1, s2),
+            (var s1, var s2, var s3, null, null) => (s1, s2, s3),
+            var (s1, s2, s3, s4, s5) => (s1, s2, s3, s4, s5)
+        };
 
         string? activitySetKey = configuration.GetCommandLineArgValue(ConsoleArgsScalars.ActivityName);
         activitySetKey.ThrowWhenNullOrWhiteSpace();
 
-        Func<S3ShellInput, Task<string?>>? activity = ActivitySet.TryGetValueWithKey(activitySetKey);
+        Func<InputForActivities, Task<string?>>? activity = ActivitySet.TryGetValueWithKey(activitySetKey);
 
         if (activity == null)
         {
@@ -61,11 +62,11 @@ public class AmazonS3ShellActivity(IConfiguration? configuration,
     internal const string ArgBucketKey = "--bucket-key";
     internal const string ArgBucketS3ObjectMimetype = "--bucket-object-mime-type";
 
-    internal readonly Dictionary<string, Func<S3ShellInput, Task<string?>>> ActivitySet = new()
+    internal readonly Dictionary<string, Func<InputForActivities, Task<string?>>> ActivitySet = new()
     {
         [nameof(AmazonS3DeleteS3ObjectActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey, bucketKey, _, _) = input;
+            var (setKey, bucketMetaKey, bucketKey) = input.AsT1;
 
             bucketKey.ThrowWhenNullOrWhiteSpace();
 
@@ -75,7 +76,7 @@ public class AmazonS3ShellActivity(IConfiguration? configuration,
         },
         [nameof(AmazonS3DownloadToStringActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey, bucketKey, _, _) = input;
+            var (setKey, bucketMetaKey, bucketKey) = input.AsT1;
 
             bucketKey.ThrowWhenNullOrWhiteSpace();
 
@@ -85,7 +86,7 @@ public class AmazonS3ShellActivity(IConfiguration? configuration,
         },
         [nameof(AmazonS3ListBucketObjectsWithPaginationActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey, _, _, _) = input;
+            var (setKey, bucketMetaKey) = input.AsT0;
 
             string? output = await activityForAmazonS3ListBucketObjectsWithPagination.StartAsync((setKey, bucketMetaKey));
 
@@ -93,7 +94,7 @@ public class AmazonS3ShellActivity(IConfiguration? configuration,
         },
         [nameof(AmazonS3UploadStringActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey, bucketKey, content, contentMimeType) = input;
+            var (setKey, bucketMetaKey, bucketKey, content, contentMimeType) = input.AsT2;
 
             bucketKey.ThrowWhenNullOrWhiteSpace();
             content.ThrowWhenNullOrWhiteSpace();
