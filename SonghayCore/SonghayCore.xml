@@ -67,6 +67,30 @@
             Instead of calling <see cref="M:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)"/> more than once, return this member.
             </remarks>
         </member>
+        <member name="T:Songhay.Abstractions.IActivityKeyedTaskGroup">
+             <summary>
+             A lightweight façade in front of many <c>IActivity*</c> implementations.
+             </summary>
+             <remarks>
+             This abstraction uses the word <c>Keyed</c>
+             to indicate that the many <c>IActivity*</c> implementations
+             are identified by magic strings to avoid exposing formal classes
+             to consumers.
+            
+             To avoid magic strings, consider implementing <see cref="T:Songhay.Abstractions.IActivityTaskGroup"/> instead.
+             </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityKeyedTaskGroup.InvokeActivityAsync(System.String,System.String[])">
+            <summary>
+            Invokes the <c>IActivity*</c> implementation
+            identified by the specified key.
+            </summary>
+            <param name="activitySetKey">identifies the <c>IActivity*</c> implementation</param>
+            <param name="args">collects the stringified input arguments of the <c>IActivity*</c> implementation</param>
+            <returns>
+            Returns the stringified output of <c>IActivity*</c> implementation.
+            </returns>
+        </member>
         <member name="T:Songhay.Abstractions.IActivityOutputOnly`1">
             <summary>
             Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
@@ -147,6 +171,26 @@
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityTaskGroup">
+            <summary>
+            A lightweight façade in front of many <c>IActivity*</c> implementations.
+            </summary>
+            <remarks>
+            This abstraction exposes formal classes to consumers.
+            To avoid this exposure (coupling), consider implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup"/> instead.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityTaskGroup.InvokeActivityAsync``1(System.String[])">
+            <summary>
+            Invokes the <c>IActivity*</c> implementation
+            identified by the specified key.
+            </summary>
+            <typeparam name="TActivity">identifies the <c>IActivity*</c> implementation</typeparam>
+            <param name="args">collects the stringified input arguments of the <c>IActivity*</c> implementation</param>
+            <returns>
+            Returns the stringified output of <c>IActivity*</c> implementation.
+            </returns>
         </member>
         <member name="T:Songhay.Abstractions.IApiEndpoint">
             <summary>
