@@ -45,6 +45,11 @@ public class AmazonS3ShellActivity(IConfiguration? configuration,
         string? activitySetKey = configuration.GetCommandLineArgValue(ConsoleArgsScalars.ActivityName);
         activitySetKey.ThrowWhenNullOrWhiteSpace();
 
+        return await InvokeActivityAsync(activitySetKey, input);
+    }
+
+    private async Task<string?> InvokeActivityAsync(string activitySetKey, InputForActivities input)
+    {
         Func<InputForActivities, Task<string?>>? activity = ActivitySet.TryGetValueWithKey(activitySetKey);
 
         if (activity == null)
@@ -103,6 +108,6 @@ public class AmazonS3ShellActivity(IConfiguration? configuration,
             await activityForAmazonS3UploadString.StartAsync((setKey, bucketMetaKey, bucketKey, content, contentMimeType));
 
             return null;
-        },
+        }
     };
 }
