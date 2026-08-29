@@ -1,11 +1,24 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using SonghayCore.S3.Abstractions;
 
-namespace SonghayCore.S3.Hosting;
+using Songhay.S3.Abstractions;
 
+namespace Songhay.S3.Hosting;
+
+/// <summary>
+/// The domain-specific service for <see cref="Songhay.S3.Activities"/>.
+/// </summary>
+/// <remarks>
+/// This class is intended for collecting input from <see cref="IConfiguration"/>.
+/// To enter input directly, use an instance
+/// of <see cref="IAmazonS3ActivityGroup"/>.
+/// </remarks>
 public class AmazonS3Service(IConfiguration configuration, IAmazonS3ActivityGroup amazonS3ActivityGroup, ILogger<AmazonS3Service> logger) : BackgroundService
 {
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
+    /// <param name="stoppingToken"></param>
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         ArgumentNullException.ThrowIfNull(configuration);

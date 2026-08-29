@@ -1,10 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using SonghayCore.S3.Activities;
-using SonghayCore.S3.Hosting;
+using Songhay.S3.Activities;
+using Songhay.S3.Hosting;
 
-namespace SonghayCore.S3.Extensions;
+namespace Songhay.S3.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="IServiceCollection"/>
@@ -12,6 +12,15 @@ namespace SonghayCore.S3.Extensions;
 // ReSharper disable once InconsistentNaming
 public static class IServiceCollectionExtensions
 {
+    /// <summary>
+    /// Calls <see cref="AddS3HostedServiceDependencies{THostedService}(IServiceCollection)"/>
+    /// and <see cref="ServiceCollectionHostedServiceExtensions.AddHostedService{THostedService}(IServiceCollection)"/>
+    /// for the domain-specific class,
+    /// sub-classing <see cref="BackgroundService"/>.
+    /// </summary>
+    /// <typeparam name="THostedService">the domain-specific class,
+    /// sub-classing <see cref="BackgroundService"/></typeparam>
+    /// <param name="services">the ambient services collected</param>
     public static IServiceCollection AddS3HostedService<THostedService>(this IServiceCollection services) where THostedService : class, IHostedService
     {
         ArgumentNullException.ThrowIfNull(services);
@@ -23,6 +32,15 @@ public static class IServiceCollectionExtensions
         return services;
     }
 
+    /// <summary>
+    /// Adds the dependencies associated
+    /// with the domain-specific class,
+    /// sub-classing <see cref="BackgroundService"/>
+    /// by reading the name of this class.
+    /// </summary>
+    /// <typeparam name="THostedService">the domain-specific class,
+    /// sub-classing <see cref="BackgroundService"/></typeparam>
+    /// <param name="services">the ambient services collected</param>
     public static IServiceCollection AddS3HostedServiceDependencies<THostedService>(this IServiceCollection services) where THostedService : class, IHostedService
     {
         string procedureName = typeof(THostedService).Name;

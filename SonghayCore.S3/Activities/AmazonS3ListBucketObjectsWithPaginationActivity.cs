@@ -1,10 +1,17 @@
 using System.Text.Json;
 
-namespace SonghayCore.S3.Activities;
+namespace Songhay.S3.Activities;
 
+/// <summary>
+/// Retrieves a JSON-array of serialized <see cref="S3Object"/>
+/// of the specified <see cref="S3Bucket"/>.
+/// </summary>
 public class AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata programMetadata, ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>? logger):
     IActivityTask<(string setKey, string bucketMetaKey), string?>
 {
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public async Task<string?> StartAsync((string setKey, string bucketMetaKey) input)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);

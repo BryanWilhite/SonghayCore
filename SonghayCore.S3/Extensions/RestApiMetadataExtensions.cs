@@ -1,9 +1,4 @@
-using Microsoft.Extensions.Logging;
-
-using Songhay.Extensions;
-using Songhay.Models;
-
-namespace SonghayCore.S3.Extensions;
+namespace Songhay.S3.Extensions;
 
 /// <summary>
 /// Extensions of <see cref="RestApiMetadata"/>

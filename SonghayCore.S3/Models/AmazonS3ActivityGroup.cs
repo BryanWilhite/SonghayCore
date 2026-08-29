@@ -1,15 +1,20 @@
 using Microsoft.Extensions.DependencyInjection;
 
+using Songhay.S3.Abstractions;
+using Songhay.S3.Activities;
+
 using InputForActivities = OneOf.OneOf<
     (string setKey, string bucketMetaKey),
     (string setKey, string bucketMetaKey, string? bucketKey),
     (string setKey, string bucketMetaKey, string? bucketKey, string? content, string? contentMimeType)>;
 
-using SonghayCore.S3.Abstractions;
-using SonghayCore.S3.Activities;
+namespace Songhay.S3.Models;
 
-namespace SonghayCore.S3.Models;
-
+/// <summary>
+/// Maps <see cref="Songhay.S3.Activities"/>
+/// to their respective inputs
+/// based on the convention of using tuples for inputs.
+/// </summary>
 public class AmazonS3ActivityGroup(
     [FromKeyedServices(nameof(AmazonS3DeleteS3ObjectActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey)> activityForAmazonS3DeleteS3Object,
     [FromKeyedServices(nameof(AmazonS3DownloadToStringActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey), string?> activityForAmazonS3DownloadToString,
@@ -18,6 +23,9 @@ public class AmazonS3ActivityGroup(
     ILogger<AmazonS3ActivityGroup>logger
 ) : IAmazonS3ActivityGroup
 {
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public async Task<string?> InvokeActivityAsync(string activitySetKey, string setKey, string bucketMetaKey, string? bucketKey, string? content, string? contentMimeType)
     {
         InputForActivities input = (setKey, bucketMetaKey, bucketKey, content, contentMimeType) switch

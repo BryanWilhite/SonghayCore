@@ -4,7 +4,7 @@ using Amazon.S3;
 using Amazon.S3.Model;
 
 using Songhay.Models;
-using SonghayCore.S3;
+using Songhay.S3;
 
 namespace Songhay.Tests;
 

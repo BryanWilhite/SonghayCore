@@ -1,8 +1,15 @@
-namespace SonghayCore.S3.Activities;
+namespace Songhay.S3.Activities;
 
+/// <summary>
+/// Deletes the <see cref="S3Object"/>
+/// with the specified <see cref="S3Object.Key"/>.
+/// </summary>
 public class AmazonS3DeleteS3ObjectActivity(ProgramMetadata programMetadata, ILogger<AmazonS3DeleteS3ObjectActivity>? logger) :
     IActivityTask<(string setKey, string bucketMetaKey, string bucketKey)>
 {
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public async Task StartAsync((string setKey, string bucketMetaKey, string bucketKey) input)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);

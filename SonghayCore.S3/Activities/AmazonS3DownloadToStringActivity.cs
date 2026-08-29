@@ -1,8 +1,15 @@
-namespace SonghayCore.S3.Activities;
+namespace Songhay.S3.Activities;
 
+/// <summary>
+/// Downloads the <see cref="S3Object"/>
+/// with the specified <see cref="S3Object.Key"/>.
+/// </summary>
 public class AmazonS3DownloadToStringActivity(ProgramMetadata programMetadata, ILogger<AmazonS3DownloadToStringActivity>? logger) :
     IActivityTask<(string setKey, string bucketMetaKey, string bucketKey), string?>
 {
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public async Task<string?> StartAsync((string setKey, string bucketMetaKey, string bucketKey) input)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);

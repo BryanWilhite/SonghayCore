@@ -1,8 +1,15 @@
-namespace SonghayCore.S3.Activities;
+namespace Songhay.S3.Activities;
 
+/// <summary>
+/// Uploads the specified <see cref="S3Object"/>
+/// to the specified <see cref="S3Bucket"/>.
+/// </summary>
 public class AmazonS3UploadStringActivity(ProgramMetadata programMetadata, ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>? logger):
     IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)>
 {
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public async Task StartAsync((string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType) input)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);

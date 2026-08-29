@@ -1,9 +1,9 @@
 ﻿using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement;
 
-using SonghayCore.S3.Extensions;
+using Songhay.S3.Extensions;
 
-namespace SonghayCore.S3;
+namespace Songhay.S3;
 
 /// <summary>
 /// Shared routines for <see cref="Amazon.S3"/>
@@ -81,7 +81,7 @@ public static class AmazonS3Utility
     /// </summary>
     /// <param name="credentialsProfileName">the AWS credentials profile name</param>
     /// <param name="uriRoot">the base URI of the desired S3 bucket</param>
-    /// <param name="clientAppId">the value of <see cref="AmazonS3Config.ClientAppId"/></param>
+    /// <param name="clientAppId">the value of <see cref="ClientConfig.ClientAppId"/></param>
     /// <param name="logger">the <see cref="ILogger"/></param>
     public static AmazonS3Client? GetAmazonS3Client(string? credentialsProfileName, string? uriRoot, string? clientAppId, ILogger logger)
     {

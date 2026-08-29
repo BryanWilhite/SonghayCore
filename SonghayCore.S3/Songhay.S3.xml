@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SonghayCore.S3</name>
+    </assembly>
+    <members>
+        <member name="T:Songhay.S3.Abstractions.IAmazonS3ActivityGroup">
+            <summary>
+            Defines the domain-specific grouping of <c>AmazonS3*Activity</c> activities
+            and maps the input(s) of these Activities with its respective Activity.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Abstractions.IAmazonS3ActivityGroup.InvokeActivityAsync(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            The input invocations of <c>AmazonS3*Activity</c> activities.
+            </summary>
+            <param name="activitySetKey">the name of the activity type</param>
+            <param name="setKey">the name of the key for the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/></param>
+            <param name="bucketMetaKey">a key in the <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/></param>
+            <param name="bucketKey"><see cref="P:Amazon.S3.Model.S3Object.Key"/></param>
+            <param name="content"><see cref="P:Amazon.S3.Model.PutObjectRequest.ContentBody"/> or equivalent</param>
+            <param name="contentMimeType"><see cref="P:Amazon.S3.Model.PutObjectRequest.ContentType"/> or equivalent</param>
+            <remarks>
+            The arguments of this method represent a superset
+            of all the parameter-tuples used
+            for each <c>AmazonS3*Activity</c> activity.
+            </remarks>
+        </member>
+        <member name="T:Songhay.S3.Activities.AmazonS3DeleteS3ObjectActivity">
+            <summary>
+            Deletes the <see cref="T:Amazon.S3.Model.S3Object"/>
+            with the specified <see cref="P:Amazon.S3.Model.S3Object.Key"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Activities.AmazonS3DeleteS3ObjectActivity.#ctor(Songhay.Models.ProgramMetadata,Microsoft.Extensions.Logging.ILogger{Songhay.S3.Activities.AmazonS3DeleteS3ObjectActivity})">
+            <summary>
+            Deletes the <see cref="T:Amazon.S3.Model.S3Object"/>
+            with the specified <see cref="P:Amazon.S3.Model.S3Object.Key"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Activities.AmazonS3DeleteS3ObjectActivity.StartAsync(System.ValueTuple{System.String,System.String,System.String})">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="T:Songhay.S3.Activities.AmazonS3DownloadToStringActivity">
+            <summary>
+            Downloads the <see cref="T:Amazon.S3.Model.S3Object"/>
+            with the specified <see cref="P:Amazon.S3.Model.S3Object.Key"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Activities.AmazonS3DownloadToStringActivity.#ctor(Songhay.Models.ProgramMetadata,Microsoft.Extensions.Logging.ILogger{Songhay.S3.Activities.AmazonS3DownloadToStringActivity})">
+            <summary>
+            Downloads the <see cref="T:Amazon.S3.Model.S3Object"/>
+            with the specified <see cref="P:Amazon.S3.Model.S3Object.Key"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Activities.AmazonS3DownloadToStringActivity.StartAsync(System.ValueTuple{System.String,System.String,System.String})">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="T:Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity">
+            <summary>
+            Retrieves a JSON-array of serialized <see cref="T:Amazon.S3.Model.S3Object"/>
+            of the specified <see cref="T:Amazon.S3.Model.S3Bucket"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.#ctor(Songhay.Models.ProgramMetadata,Microsoft.Extensions.Logging.ILogger{Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity})">
+            <summary>
+            Retrieves a JSON-array of serialized <see cref="T:Amazon.S3.Model.S3Object"/>
+            of the specified <see cref="T:Amazon.S3.Model.S3Bucket"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync(System.ValueTuple{System.String,System.String})">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="T:Songhay.S3.Activities.AmazonS3UploadStringActivity">
+            <summary>
+            Uploads the specified <see cref="T:Amazon.S3.Model.S3Object"/>
+            to the specified <see cref="T:Amazon.S3.Model.S3Bucket"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Activities.AmazonS3UploadStringActivity.#ctor(Songhay.Models.ProgramMetadata,Microsoft.Extensions.Logging.ILogger{Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity})">
+            <summary>
+            Uploads the specified <see cref="T:Amazon.S3.Model.S3Object"/>
+            to the specified <see cref="T:Amazon.S3.Model.S3Bucket"/>.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Activities.AmazonS3UploadStringActivity.StartAsync(System.ValueTuple{System.String,System.String,System.String,System.String,System.String})">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="T:Songhay.S3.AmazonS3Utility">
+            <summary>
+            Shared routines for <see cref="N:Amazon.S3"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.AmazonS3Utility.CollectS3ObjectsFromPaginationAsync(Amazon.S3.AmazonS3Client,Amazon.S3.Model.ListObjectsV2Request,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Collects the <see cref="T:Amazon.S3.Model.S3Object"/> responses
+            from paginating through a bucker based
+            on the specified <see cref="P:Amazon.S3.Model.ListObjectsV2Request.MaxKeys"/>.
+            </summary>
+            <param name="s3Client">the <see cref="T:Amazon.S3.AmazonS3Client"/></param>
+            <param name="request">the <see cref="T:Amazon.S3.Model.ListObjectsV2Request"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.S3.AmazonS3Utility.GetAmazonS3Client(Songhay.Models.RestApiMetadata,System.String,System.String,System.Action{System.ValueTuple{System.String,System.String,System.String,System.String}},Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Returns an instance of <see cref="T:Amazon.S3.AmazonS3Client"/>
+            or <c>null</c> when there is an error
+            detailed by the <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+            </summary>
+            <param name="restApiMetadata">the conventional <see cref="T:Songhay.Models.RestApiMetadata"/></param>
+            <param name="bucketMetaKey">a key in the <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/></param>
+            <param name="clientAppId">an optional ID to describe the <see cref="T:Amazon.S3.AmazonS3Client"/></param>
+            <param name="restApiMetadataAction">the action that reveals <see cref="T:Songhay.Models.RestApiMetadata"/> as a tuple</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.S3.AmazonS3Utility.GetAmazonS3Client(System.String,System.String,System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Returns an instance of <see cref="T:Amazon.S3.AmazonS3Client"/>
+            or <c>null</c> when there is an error
+            detailed by the <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+            </summary>
+            <param name="credentialsProfileName">the AWS credentials profile name</param>
+            <param name="uriRoot">the base URI of the desired S3 bucket</param>
+            <param name="clientAppId">the value of <see cref="!:AmazonS3Config.ClientAppId"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="T:Songhay.S3.Extensions.IServiceCollectionExtensions">
+            <summary>
+            Extensions of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Extensions.IServiceCollectionExtensions.AddS3HostedService``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Calls <see cref="M:Songhay.S3.Extensions.IServiceCollectionExtensions.AddS3HostedServiceDependencies``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)"/>
+            and <see cref="M:Microsoft.Extensions.DependencyInjection.ServiceCollectionHostedServiceExtensions.AddHostedService``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)"/>
+            for the domain-specific class,
+            sub-classing <see cref="T:Microsoft.Extensions.Hosting.BackgroundService"/>.
+            </summary>
+            <typeparam name="THostedService">the domain-specific class,
+            sub-classing <see cref="T:Microsoft.Extensions.Hosting.BackgroundService"/></typeparam>
+            <param name="services">the ambient services collected</param>
+        </member>
+        <member name="M:Songhay.S3.Extensions.IServiceCollectionExtensions.AddS3HostedServiceDependencies``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the dependencies associated
+            with the domain-specific class,
+            sub-classing <see cref="T:Microsoft.Extensions.Hosting.BackgroundService"/>
+            by reading the name of this class.
+            </summary>
+            <typeparam name="THostedService">the domain-specific class,
+            sub-classing <see cref="T:Microsoft.Extensions.Hosting.BackgroundService"/></typeparam>
+            <param name="services">the ambient services collected</param>
+        </member>
+        <member name="T:Songhay.S3.Extensions.RestApiMetadataExtensions">
+            <summary>
+            Extensions of <see cref="T:Songhay.Models.RestApiMetadata"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)">
+             <summary>
+             Returns a tuple, decomposing the specified <see cref="T:Songhay.Models.RestApiMetadata"/>
+             into:
+            
+             - AWS credentials profile name (on Linux in the <c>~/.aws/credentials</c> file)
+             - the S3 bucket name
+             - the S3 bucket region
+             - the base URI of the bucket
+            
+             </summary>
+             <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata"/></param>
+             <param name="bucketMetaKey">the <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key</param>
+             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+             <remarks>
+             The JSON shaped like <see cref="T:Songhay.Models.RestApiMetadata"/> can look like this:
+             
+             <code>
+             "Wasabi": {
+                 "ClaimsSet": {
+                     "aws-credentials-profile-name": "???",
+                     "bucket-region-suffix": "-region",
+                     "public-key": "???",
+                     "private-key": "??",
+                     "bucket-location-template": "https://s3.{Region}.wasabisys.com/",
+                     "bucket-location-template-placeholder": "{Region}",
+                     "my-bucket-region": "us-central-1"
+                 }
+             }
+             </code>
+            
+             …where the name of the bucket, <c>my-bucket</c>, is ‘embedded’
+             in the <c>my-bucket-region</c> key-value pair.
+             </remarks>
+        </member>
+        <member name="T:Songhay.S3.Hosting.AmazonS3Service">
+            <summary>
+            The domain-specific service for <see cref="N:Songhay.S3.Activities"/>.
+            </summary>
+            <remarks>
+            This class is intended for collecting input from <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
+            To enter input directly, use an instance
+            of <see cref="T:Songhay.S3.Abstractions.IAmazonS3ActivityGroup"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.S3.Hosting.AmazonS3Service.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Songhay.S3.Abstractions.IAmazonS3ActivityGroup,Microsoft.Extensions.Logging.ILogger{Songhay.S3.Hosting.AmazonS3Service})">
+            <summary>
+            The domain-specific service for <see cref="N:Songhay.S3.Activities"/>.
+            </summary>
+            <remarks>
+            This class is intended for collecting input from <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
+            To enter input directly, use an instance
+            of <see cref="T:Songhay.S3.Abstractions.IAmazonS3ActivityGroup"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.S3.Hosting.AmazonS3Service.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+            <param name="stoppingToken"></param>
+        </member>
+        <member name="T:Songhay.S3.Models.AmazonS3ActivityGroup">
+            <summary>
+            Maps <see cref="N:Songhay.S3.Activities"/>
+            to their respective inputs
+            based on the convention of using tuples for inputs.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Models.AmazonS3ActivityGroup.#ctor(Songhay.Abstractions.IActivityTask{System.ValueTuple{System.String,System.String,System.String}},Songhay.Abstractions.IActivityTask{System.ValueTuple{System.String,System.String,System.String},System.String},Songhay.Abstractions.IActivityTask{System.ValueTuple{System.String,System.String},System.String},Songhay.Abstractions.IActivityTask{System.ValueTuple{System.String,System.String,System.String,System.String,System.String}},Microsoft.Extensions.Logging.ILogger{Songhay.S3.Models.AmazonS3ActivityGroup})">
+            <summary>
+            Maps <see cref="N:Songhay.S3.Activities"/>
+            to their respective inputs
+            based on the convention of using tuples for inputs.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Models.AmazonS3ActivityGroup.InvokeActivityAsync(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+    </members>
+</doc>
