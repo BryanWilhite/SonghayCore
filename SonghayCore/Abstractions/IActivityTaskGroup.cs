@@ -18,5 +18,5 @@ public interface IActivityTaskGroup
     /// <returns>
     /// Returns the stringified output of <c>IActivity*</c> implementation.
     /// </returns>
-    Task<string?> InvokeActivityAsync<TActivity>(params string[] args) where TActivity : class;
+    Task<string?> InvokeActivityAsync<TActivity>(params string?[] args) where TActivity : class;
 }

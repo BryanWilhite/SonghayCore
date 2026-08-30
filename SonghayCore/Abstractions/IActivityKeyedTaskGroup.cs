@@ -22,5 +22,5 @@ public interface IActivityKeyedTaskGroup
     /// <returns>
     /// Returns the stringified output of <c>IActivity*</c> implementation.
     /// </returns>
-    Task<string?> InvokeActivityAsync(string activitySetKey, params string[] args);
+    Task<string?> InvokeActivityAsync(string? activitySetKey, params string?[] args);
 }
