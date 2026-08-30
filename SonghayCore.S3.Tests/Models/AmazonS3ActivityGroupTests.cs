@@ -1,9 +1,9 @@
+using Songhay.Abstractions;
 using Songhay.S3.Activities;
 using Songhay.S3.Extensions;
 using Songhay.S3.Hosting;
-using Songhay.S3.Models;
 
-namespace Songhay.Tests.Models;
+namespace Songhay.S3.Tests.Models;
 
 public class AmazonS3ActivityGroupTests(ITestOutputHelper testOutputHelper)
 {
@@ -29,7 +29,7 @@ public class AmazonS3ActivityGroupTests(ITestOutputHelper testOutputHelper)
             .AddS3HostedService<AmazonS3Service>()
             .BuildServiceProvider();
 
-        AmazonS3ActivityGroup group = provider.GetRequiredService<AmazonS3ActivityGroup>();
+        IActivityKeyedTaskGroup group = provider.GetRequiredService<IActivityKeyedTaskGroup>();
 
         //act:
         string? actual = await group.InvokeActivityAsync(nameof(AmazonS3ListBucketObjectsWithPaginationActivity), setKey, bucketMetaKey, bucketKeyPrefix);

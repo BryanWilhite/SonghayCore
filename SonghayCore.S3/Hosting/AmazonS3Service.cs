@@ -29,17 +29,32 @@ public class AmazonS3Service(IConfiguration configuration, IActivityKeyedTaskGro
         logger.LogInformation("{ActivityName} starting...", nameof(AmazonS3Service));
 
         string? setKey = configuration.GetCommandLineArgValue(ArgSetKey);
-        setKey.ThrowWhenNullOrWhiteSpace();
+        if (string.IsNullOrWhiteSpace(setKey))
+        {
+            logger.LogInformation("{S}", GetHelpText());
+
+            return;
+        }
 
         string? bucketMetaKey = configuration.GetCommandLineArgValue(ArgBucketMetaKey);
-        bucketMetaKey.ThrowWhenNullOrWhiteSpace();
+        if (string.IsNullOrWhiteSpace(bucketMetaKey))
+        {
+            logger.LogInformation("{S}", GetHelpText());
+
+            return;
+        }
 
         string? bucketKey = configuration.GetCommandLineArgValue(ArgBucketKey);
         string? content = configuration.ReadStringInput();
         string? contentMimeType = configuration.GetCommandLineArgValue(ArgBucketS3ObjectMimetype);
 
         string? activitySetKey = configuration.GetCommandLineArgValue(ConsoleArgsScalars.ActivityName);
-        activitySetKey.ThrowWhenNullOrWhiteSpace();
+        if (string.IsNullOrWhiteSpace(activitySetKey))
+        {
+            logger.LogInformation("{S}", GetHelpText());
+
+            return;
+        }
 
         string? output = await amazonS3ActivityGroup.InvokeActivityAsync(activitySetKey, setKey, bucketMetaKey, bucketKey, content, contentMimeType);
 
@@ -53,8 +68,24 @@ public class AmazonS3Service(IConfiguration configuration, IActivityKeyedTaskGro
         }
     }
 
-    internal const string ArgSetKey = "--set-key";
-    internal const string ArgBucketMetaKey = "--bucket-meta-key";
-    internal const string ArgBucketKey = "--bucket-key";
-    internal const string ArgBucketS3ObjectMimetype = "--bucket-object-mime-type";
+    private string? GetHelpText()
+    {
+        if (!string.IsNullOrWhiteSpace(_cachedHelpText)) return _cachedHelpText;
+
+        configuration.AddHelpDisplayText(ArgSetKey, "a key in the conventional `ProgramMetadata.RestApiMetadataSet` dictionary");
+        configuration.AddHelpDisplayText(ArgBucketMetaKey, "a key in the conventional `RestApiMetadata.ClaimsSet` dictionary");
+        configuration.AddHelpDisplayText(ArgBucketKey, "the value of `S3Object.Key`");
+        configuration.AddHelpDisplayText(ArgBucketS3ObjectMimetype, "the value of `PutObjectRequest.ContentType` or its equivalent");
+
+        _cachedHelpText = configuration.WithDefaultHelpText().ToHelpDisplayText();
+
+        return _cachedHelpText;
+    }
+
+    private string? _cachedHelpText;
+
+    private const string ArgSetKey = "--set-key";
+    private const string ArgBucketMetaKey = "--bucket-meta-key";
+    private const string ArgBucketKey = "--bucket-key";
+    private const string ArgBucketS3ObjectMimetype = "--bucket-object-mime-type";
 }
