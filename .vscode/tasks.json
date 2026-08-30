@@ -185,6 +185,24 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "dotnet publish [Songhay.S3, linux-x64]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "publish",
+                "${workspaceFolder}/Songhay.S3/Songhay.S3.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "--configuration",
+                "Release",
+                "--self-contained",
+                "false",
+                "--runtime",
+                "linux-x64"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "dotnet build [SonghayCore.xUnit]",
             "command": "dotnet",
             "type": "shell",

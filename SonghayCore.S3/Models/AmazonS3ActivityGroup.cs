@@ -3,7 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Songhay.S3.Activities;
 
 using InputForActivities = OneOf.OneOf<
-    (string setKey, string bucketMetaKey),
     (string setKey, string bucketMetaKey, string? bucketKey),
     (string setKey, string bucketMetaKey, string? bucketKey, string? content, string? contentMimeType)>;
 
@@ -17,7 +16,7 @@ namespace Songhay.S3.Models;
 public class AmazonS3ActivityGroup(
     [FromKeyedServices(nameof(AmazonS3DeleteS3ObjectActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey)> activityForAmazonS3DeleteS3Object,
     [FromKeyedServices(nameof(AmazonS3DownloadToStringActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey), string?> activityForAmazonS3DownloadToString,
-    [FromKeyedServices(nameof(AmazonS3ListBucketObjectsWithPaginationActivity))] IActivityTask<(string setKey, string bucketMetaKey), string?> activityForAmazonS3ListBucketObjectsWithPagination,
+    [FromKeyedServices(nameof(AmazonS3ListBucketObjectsWithPaginationActivity))] IActivityTask<(string setKey, string bucketMetaKey, string? bucketKeyPrefix), string?> activityForAmazonS3ListBucketObjectsWithPagination,
     [FromKeyedServices(nameof(AmazonS3UploadStringActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)> activityForAmazonS3UploadString,
     ILogger<AmazonS3ActivityGroup>logger
 ) : IActivityKeyedTaskGroup
@@ -29,11 +28,11 @@ public class AmazonS3ActivityGroup(
     {
         activitySetKey.ThrowWhenNullOrWhiteSpace();
 
-        int expected = 5;
+        int minimumExpected = 2;
 
-        if (args.Length != expected)
+        if (args.Length < minimumExpected)
         {
-            logger.LogError("The expected number of Activity args ({No}) for `{Name}` is not here.", expected, activitySetKey);
+            logger.LogError("The minimum expected number of Activity args ({No}) for `{Name}` is not here.", minimumExpected, activitySetKey);
 
             return null;
         }
@@ -44,13 +43,12 @@ public class AmazonS3ActivityGroup(
         string? bucketMetaKey = args[1];
         bucketMetaKey.ThrowWhenNullOrWhiteSpace();
 
-        string? bucketKey = args[2];
-        string? content = args[3];
-        string? contentMimeType = args[4];
+        string? bucketKey = args.ElementAtOrDefault(2);
+        string? content = args.ElementAtOrDefault(3);
+        string? contentMimeType = args.ElementAtOrDefault(4);
 
         InputForActivities input = (setKey, bucketMetaKey, bucketKey, content, contentMimeType) switch
         {
-            (var s1, var s2, null, null, null) => (s1, s2),
             (var s1, var s2, var s3, null, null) => (s1, s2, s3),
             var (s1, s2, s3, s4, s5) => (s1, s2, s3, s4, s5)
         };
@@ -71,7 +69,7 @@ public class AmazonS3ActivityGroup(
     {
         [nameof(AmazonS3DeleteS3ObjectActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey, bucketKey) = input.AsT1;
+            var (setKey, bucketMetaKey, bucketKey) = input.AsT0;
 
             bucketKey.ThrowWhenNullOrWhiteSpace();
 
@@ -81,7 +79,7 @@ public class AmazonS3ActivityGroup(
         },
         [nameof(AmazonS3DownloadToStringActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey, bucketKey) = input.AsT1;
+            var (setKey, bucketMetaKey, bucketKey) = input.AsT0;
 
             bucketKey.ThrowWhenNullOrWhiteSpace();
 
@@ -91,15 +89,15 @@ public class AmazonS3ActivityGroup(
         },
         [nameof(AmazonS3ListBucketObjectsWithPaginationActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey) = input.AsT0;
+            var (setKey, bucketMetaKey, bucketKeyPrefix) = input.AsT0;
 
-            string? output = await activityForAmazonS3ListBucketObjectsWithPagination.StartAsync((setKey, bucketMetaKey));
+            string? output = await activityForAmazonS3ListBucketObjectsWithPagination.StartAsync((setKey, bucketMetaKey, bucketKeyPrefix));
 
             return output;
         },
         [nameof(AmazonS3UploadStringActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey, bucketKey, content, contentMimeType) = input.AsT2;
+            var (setKey, bucketMetaKey, bucketKey, content, contentMimeType) = input.AsT1;
 
             bucketKey.ThrowWhenNullOrWhiteSpace();
             content.ThrowWhenNullOrWhiteSpace();

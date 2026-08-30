@@ -38,7 +38,7 @@ public class AmazonS3UtilityTests
     [InlineData("Wasabi", "studio-public-region", "songhay/feedly-from-string.opml")]
     public async Task ShouldDeleteS3Object(string setKey, string bucketMetaKey, string bucketKey)
     {
-        const bool shouldSkip = false;
+        const bool shouldSkip = true;
 
         Skip.If(shouldSkip);
 

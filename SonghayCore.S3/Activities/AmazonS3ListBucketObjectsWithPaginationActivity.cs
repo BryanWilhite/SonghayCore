@@ -7,16 +7,16 @@ namespace Songhay.S3.Activities;
 /// of the specified <see cref="S3Bucket"/>.
 /// </summary>
 public class AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata programMetadata, ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>? logger):
-    IActivityTask<(string setKey, string bucketMetaKey), string?>
+    IActivityTask<(string setKey, string bucketMetaKey, string? bucketKeyPrefix), string?>
 {
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    public async Task<string?> StartAsync((string setKey, string bucketMetaKey) input)
+    public async Task<string?> StartAsync((string setKey, string bucketMetaKey, string? bucketKeyPrefix) input)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);
 
-        var(setKey, bucketMetaKey) = input;
+        var(setKey, bucketMetaKey, bucketKeyPrefix) = input;
 
         RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.TryGetValueWithKey(setKey);
 
@@ -47,7 +47,7 @@ public class AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata pro
         ListObjectsV2Request request = new()
         {
             BucketName = bucketName,
-            Prefix = string.Empty,
+            Prefix = bucketKeyPrefix ?? string.Empty,
             MaxKeys = 10
         };
 

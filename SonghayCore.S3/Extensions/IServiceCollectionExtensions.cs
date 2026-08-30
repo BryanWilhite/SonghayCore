@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 
 using Songhay.S3.Activities;
 using Songhay.S3.Hosting;
+using Songhay.S3.Models;
 
 namespace Songhay.S3.Extensions;
 
@@ -51,8 +52,9 @@ public static class IServiceCollectionExtensions
                 services
                     .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey)>, AmazonS3DeleteS3ObjectActivity>(nameof(AmazonS3DeleteS3ObjectActivity))
                     .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey), string?>, AmazonS3DownloadToStringActivity>(nameof(AmazonS3DownloadToStringActivity))
-                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey), string?>, AmazonS3ListBucketObjectsWithPaginationActivity>(nameof(AmazonS3ListBucketObjectsWithPaginationActivity))
-                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)>, AmazonS3UploadStringActivity>(nameof(AmazonS3UploadStringActivity));
+                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string? bucketKeyPrefix), string?>, AmazonS3ListBucketObjectsWithPaginationActivity>(nameof(AmazonS3ListBucketObjectsWithPaginationActivity))
+                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)>, AmazonS3UploadStringActivity>(nameof(AmazonS3UploadStringActivity))
+                    .AddTransient<AmazonS3ActivityGroup>();
 
                 break;
         }
