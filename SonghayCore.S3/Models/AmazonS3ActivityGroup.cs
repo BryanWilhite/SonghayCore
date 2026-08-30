@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 
-using Songhay.S3.Abstractions;
 using Songhay.S3.Activities;
 
 using InputForActivities = OneOf.OneOf<
@@ -21,13 +20,28 @@ public class AmazonS3ActivityGroup(
     [FromKeyedServices(nameof(AmazonS3ListBucketObjectsWithPaginationActivity))] IActivityTask<(string setKey, string bucketMetaKey), string?> activityForAmazonS3ListBucketObjectsWithPagination,
     [FromKeyedServices(nameof(AmazonS3UploadStringActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)> activityForAmazonS3UploadString,
     ILogger<AmazonS3ActivityGroup>logger
-) : IAmazonS3ActivityGroup
+) : IActivityKeyedTaskGroup
 {
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    public async Task<string?> InvokeActivityAsync(string activitySetKey, string setKey, string bucketMetaKey, string? bucketKey, string? content, string? contentMimeType)
+    public async Task<string?> InvokeActivityAsync(string activitySetKey, params string[] args )
     {
+        int expected = 5;
+
+        if (args.Length != expected)
+        {
+            logger.LogError("The expected number of Activity args ({No}) for `{Name}` is not here.", expected, activitySetKey);
+
+            return null;
+        }
+
+        string setKey = args[0];
+        string bucketMetaKey = args[1];
+        string bucketKey = args[2];
+        string content = args[3];
+        string contentMimeType = args[4];
+
         InputForActivities input = (setKey, bucketMetaKey, bucketKey, content, contentMimeType) switch
         {
             (var s1, var s2, null, null, null) => (s1, s2),

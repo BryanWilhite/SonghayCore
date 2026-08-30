@@ -1,19 +1,21 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
-using Songhay.S3.Abstractions;
+using Songhay.S3.Models;
 
 namespace Songhay.S3.Hosting;
 
 /// <summary>
 /// The domain-specific service for <see cref="Songhay.S3.Activities"/>.
 /// </summary>
+/// <param name="configuration">the <see cref="IConfiguration"/></param>
+/// <param name="amazonS3ActivityGroup">the abstraction that groups <see cref="Songhay.S3.Activities"/> input and invocation</param>
+/// <param name="logger">the <see cref="ILogger"/></param>
 /// <remarks>
 /// This class is intended for collecting input from <see cref="IConfiguration"/>.
-/// To enter input directly, use an instance
-/// of <see cref="IAmazonS3ActivityGroup"/>.
+/// To enter input directly, use <see cref="AmazonS3ActivityGroup.InvokeActivityAsync"/>.
 /// </remarks>
-public class AmazonS3Service(IConfiguration configuration, IAmazonS3ActivityGroup amazonS3ActivityGroup, ILogger<AmazonS3Service> logger) : BackgroundService
+public class AmazonS3Service(IConfiguration configuration, IActivityKeyedTaskGroup amazonS3ActivityGroup, ILogger<AmazonS3Service> logger) : BackgroundService
 {
     /// <summary>
     /// <inheritdoc/>
