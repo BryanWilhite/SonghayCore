@@ -25,8 +25,10 @@ public class AmazonS3ActivityGroup(
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    public async Task<string?> InvokeActivityAsync(string activitySetKey, params string[] args )
+    public async Task<string?> InvokeActivityAsync(string? activitySetKey, params string?[] args )
     {
+        activitySetKey.ThrowWhenNullOrWhiteSpace();
+
         int expected = 5;
 
         if (args.Length != expected)
@@ -36,11 +38,15 @@ public class AmazonS3ActivityGroup(
             return null;
         }
 
-        string setKey = args[0];
-        string bucketMetaKey = args[1];
-        string bucketKey = args[2];
-        string content = args[3];
-        string contentMimeType = args[4];
+        string? setKey = args[0];
+        setKey.ThrowWhenNullOrWhiteSpace();
+
+        string? bucketMetaKey = args[1];
+        bucketMetaKey.ThrowWhenNullOrWhiteSpace();
+
+        string? bucketKey = args[2];
+        string? content = args[3];
+        string? contentMimeType = args[4];
 
         InputForActivities input = (setKey, bucketMetaKey, bucketKey, content, contentMimeType) switch
         {
