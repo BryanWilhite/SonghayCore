@@ -1,9 +1,13 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Songhay;
 using Songhay.Extensions;
 using Songhay.S3.Extensions;
 using Songhay.S3.Hosting;
+
+DisplayCredits();
 
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 
@@ -17,3 +21,20 @@ builder.Services
 IHost host = builder.Build();
 
 host.Run();
+
+return;
+
+static void DisplayCredits()
+{
+    Console.Write(ProgramAssemblyUtility.GetAssemblyInfo(Assembly.GetExecutingAssembly(), true));
+
+    Console.WriteLine(string.Empty);
+
+    Console.WriteLine("Activities Assembly:");
+    Console.Write(ProgramAssemblyUtility.GetAssemblyInfo(typeof(AmazonS3Service).Assembly, true));
+
+    Console.WriteLine(string.Empty);
+
+    Console.WriteLine("IHost Assembly:");
+    Console.Write(ProgramAssemblyUtility.GetAssemblyInfo(typeof(IHost).Assembly, true));
+}

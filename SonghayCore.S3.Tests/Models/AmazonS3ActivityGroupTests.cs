@@ -1,6 +1,3 @@
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
 using Songhay.S3.Activities;
 using Songhay.S3.Extensions;
 using Songhay.S3.Hosting;

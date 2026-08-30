@@ -4,9 +4,8 @@ using Amazon.S3;
 using Amazon.S3.Model;
 
 using Songhay.Models;
-using Songhay.S3;
 
-namespace Songhay.Tests;
+namespace Songhay.S3.Tests;
 
 public class AmazonS3UtilityTests
 {
