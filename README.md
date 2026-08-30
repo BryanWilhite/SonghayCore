@@ -97,6 +97,12 @@ This Activity concept which I regard as _fundamental_ is the least likely archit
 
 ## satellite packages
 
+### `SonghayCore.S3`
+
+Amazon S3 routines for .NET Core.
+
+**NuGet package 📦:** [`SonghayCore.S3`](http://www.nuget.org/packages/SonghayCore.S3/)
+
 ### `SonghayCore.xUnit`
 
 Defines reusable class definitions for [xUnit](https://xunit.net/). Featured is the [`ProjectFileDataAttribute`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.xUnit/ProjectFileDataAttribute.cs), allowing test data files to be loaded from a relative path.

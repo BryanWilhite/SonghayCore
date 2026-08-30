@@ -145,6 +145,46 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "dotnet build [SonghayCore.S3]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "build",
+                "${workspaceFolder}/SonghayCore.S3/SonghayCore.S3.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "dotnet build [SonghayCore.S3, Release]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "build",
+                "${workspaceFolder}/SonghayCore.S3/SonghayCore.S3.csproj",
+                "--configuration",
+                "Release"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "dotnet pack [SonghayCore.S3, Debug]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "pack",
+                "${workspaceFolder}/SonghayCore.S3/SonghayCore.S3.csproj",
+                "--configuration",
+                "Debug",
+                "-p:NuspecFile=${workspaceFolder}/SonghayCore.S3/SonghayCore.S3.nuspec",
+                "-p:NuspecBasePath=${workspaceFolder}/SonghayCore.S3",
+                "--output",
+                "${workspaceFolder}/SonghayCore.S3",
+                "--verbosity",
+                "normal"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "dotnet build [SonghayCore.xUnit]",
             "command": "dotnet",
             "type": "shell",
