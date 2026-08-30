@@ -1,10 +1,19 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
+using Songhay.Extensions;
 using Songhay.S3.Extensions;
 using Songhay.S3.Hosting;
 
-var builder = Host.CreateApplicationBuilder(args);
-builder.Services.AddS3HostedService<AmazonS3Service>();
+HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 
-var host = builder.Build();
+builder.Configuration.AddConventionalJsonFile();
+
+builder.Services
+    .AddLogging()
+    .AddProgramMetadata(builder.Configuration)
+    .AddS3HostedService<AmazonS3Service>();
+
+IHost host = builder.Build();
+
 host.Run();

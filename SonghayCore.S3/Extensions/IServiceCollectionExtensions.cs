@@ -54,7 +54,7 @@ public static class IServiceCollectionExtensions
                     .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey), string?>, AmazonS3DownloadToStringActivity>(nameof(AmazonS3DownloadToStringActivity))
                     .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string? bucketKeyPrefix), string?>, AmazonS3ListBucketObjectsWithPaginationActivity>(nameof(AmazonS3ListBucketObjectsWithPaginationActivity))
                     .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)>, AmazonS3UploadStringActivity>(nameof(AmazonS3UploadStringActivity))
-                    .AddTransient<AmazonS3ActivityGroup>();
+                    .AddTransient<IActivityKeyedTaskGroup, AmazonS3ActivityGroup>();
 
                 break;
         }
