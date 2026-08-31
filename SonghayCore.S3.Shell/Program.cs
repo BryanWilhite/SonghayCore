@@ -16,6 +16,7 @@ builder.Configuration.AddConventionalJsonFile();
 builder.Services
     .AddLogging()
     .AddProgramMetadata(builder.Configuration)
+    .AddAnyConfiguredHostOptions(builder.Configuration)
     .AddS3HostedService<AmazonS3Service>();
 
 IHost host = builder.Build();

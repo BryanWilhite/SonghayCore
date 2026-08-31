@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -14,6 +15,24 @@ namespace Songhay.S3.Extensions;
 public static class IServiceCollectionExtensions
 {
     /// <summary>
+    /// Returns <see cref="IServiceCollection"/>
+    /// with any available <see cref="HostOptions"/>
+    /// configured in <c>appsettings.json</c>
+    /// </summary>
+    /// <param name="services">the <see cref="IServiceCollection"/></param>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    public static IServiceCollection AddAnyConfiguredHostOptions(this IServiceCollection services, IConfiguration configuration)
+    {
+        IConfigurationSection hostOptions = configuration.GetSection(nameof(HostOptions));
+
+        if (!hostOptions.Exists()) return services;
+
+        services.Configure<HostOptions>(hostOptions);
+
+        return services;
+    }
+
+    /// <summary>
     /// Calls <see cref="AddS3HostedServiceDependencies{THostedService}(IServiceCollection)"/>
     /// and <see cref="ServiceCollectionHostedServiceExtensions.AddHostedService{THostedService}(IServiceCollection)"/>
     /// for the domain-specific class,
@@ -21,7 +40,7 @@ public static class IServiceCollectionExtensions
     /// </summary>
     /// <typeparam name="THostedService">the domain-specific class,
     /// sub-classing <see cref="BackgroundService"/></typeparam>
-    /// <param name="services">the ambient services collected</param>
+    /// <param name="services">the <see cref="IServiceCollection"/></param>
     public static IServiceCollection AddS3HostedService<THostedService>(this IServiceCollection services) where THostedService : class, IHostedService
     {
         ArgumentNullException.ThrowIfNull(services);

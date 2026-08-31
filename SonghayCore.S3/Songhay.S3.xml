@@ -115,6 +115,15 @@
             Extensions of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
             </summary>
         </member>
+        <member name="M:Songhay.S3.Extensions.IServiceCollectionExtensions.AddAnyConfiguredHostOptions(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Returns <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
+            with any available <see cref="T:Microsoft.Extensions.Hosting.HostOptions"/>
+            configured in <c>appsettings.json</c>
+            </summary>
+            <param name="services">the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
         <member name="M:Songhay.S3.Extensions.IServiceCollectionExtensions.AddS3HostedService``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Calls <see cref="M:Songhay.S3.Extensions.IServiceCollectionExtensions.AddS3HostedServiceDependencies``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)"/>
@@ -124,7 +133,7 @@
             </summary>
             <typeparam name="THostedService">the domain-specific class,
             sub-classing <see cref="T:Microsoft.Extensions.Hosting.BackgroundService"/></typeparam>
-            <param name="services">the ambient services collected</param>
+            <param name="services">the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
         </member>
         <member name="M:Songhay.S3.Extensions.IServiceCollectionExtensions.AddS3HostedServiceDependencies``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
@@ -181,6 +190,7 @@
             <summary>
             The domain-specific service for <see cref="N:Songhay.S3.Activities"/>.
             </summary>
+            <param name="hostApplicationLifetime">the <see cref="T:Microsoft.Extensions.Hosting.IHostApplicationLifetime"/></param>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
             <param name="amazonS3ActivityGroup">the abstraction that groups <see cref="N:Songhay.S3.Activities"/> input and invocation</param>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
@@ -189,10 +199,11 @@
             To enter input directly, use <see cref="M:Songhay.S3.Models.AmazonS3ActivityGroup.InvokeActivityAsync(System.String,System.String[])"/>.
             </remarks>
         </member>
-        <member name="M:Songhay.S3.Hosting.AmazonS3Service.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Songhay.Abstractions.IActivityKeyedTaskGroup,Microsoft.Extensions.Logging.ILogger{Songhay.S3.Hosting.AmazonS3Service})">
+        <member name="M:Songhay.S3.Hosting.AmazonS3Service.#ctor(Microsoft.Extensions.Hosting.IHostApplicationLifetime,Microsoft.Extensions.Configuration.IConfiguration,Songhay.Abstractions.IActivityKeyedTaskGroup,Microsoft.Extensions.Logging.ILogger{Songhay.S3.Hosting.AmazonS3Service})">
             <summary>
             The domain-specific service for <see cref="N:Songhay.S3.Activities"/>.
             </summary>
+            <param name="hostApplicationLifetime">the <see cref="T:Microsoft.Extensions.Hosting.IHostApplicationLifetime"/></param>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
             <param name="amazonS3ActivityGroup">the abstraction that groups <see cref="N:Songhay.S3.Activities"/> input and invocation</param>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
