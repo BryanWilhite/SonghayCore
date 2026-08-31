@@ -8,6 +8,7 @@ namespace Songhay.S3.Hosting;
 /// <summary>
 /// The domain-specific service for <see cref="Songhay.S3.Activities"/>.
 /// </summary>
+/// <param name="hostApplicationLifetime">the <see cref="IHostApplicationLifetime"/></param>
 /// <param name="configuration">the <see cref="IConfiguration"/></param>
 /// <param name="amazonS3ActivityGroup">the abstraction that groups <see cref="Songhay.S3.Activities"/> input and invocation</param>
 /// <param name="logger">the <see cref="ILogger"/></param>
@@ -15,7 +16,7 @@ namespace Songhay.S3.Hosting;
 /// This class is intended for collecting input from <see cref="IConfiguration"/>.
 /// To enter input directly, use <see cref="AmazonS3ActivityGroup.InvokeActivityAsync"/>.
 /// </remarks>
-public class AmazonS3Service(IConfiguration configuration, IActivityKeyedTaskGroup amazonS3ActivityGroup, ILogger<AmazonS3Service> logger) : BackgroundService
+public class AmazonS3Service(IHostApplicationLifetime hostApplicationLifetime, IConfiguration configuration, IActivityKeyedTaskGroup amazonS3ActivityGroup, ILogger<AmazonS3Service> logger) : BackgroundService
 {
     /// <summary>
     /// <inheritdoc/>
@@ -28,43 +29,50 @@ public class AmazonS3Service(IConfiguration configuration, IActivityKeyedTaskGro
 
         logger.LogInformation("{ActivityName} starting...", nameof(AmazonS3Service));
 
-        string? setKey = configuration.GetCommandLineArgValue(ArgSetKey);
-        if (string.IsNullOrWhiteSpace(setKey))
+        try
         {
-            logger.LogInformation("{S}", GetHelpText());
+            string? setKey = configuration.GetCommandLineArgValue(ArgSetKey);
+            if (string.IsNullOrWhiteSpace(setKey))
+            {
+                logger.LogInformation("{S}", GetHelpText());
 
-            return;
+                return;
+            }
+
+            string? bucketMetaKey = configuration.GetCommandLineArgValue(ArgBucketMetaKey);
+            if (string.IsNullOrWhiteSpace(bucketMetaKey))
+            {
+                logger.LogInformation("{S}", GetHelpText());
+
+                return;
+            }
+
+            string? bucketKey = configuration.GetCommandLineArgValue(ArgBucketKey);
+            string? content = configuration.ReadStringInput();
+            string? contentMimeType = configuration.GetCommandLineArgValue(ArgBucketS3ObjectMimetype);
+
+            string? activitySetKey = configuration.GetCommandLineArgValue(ConsoleArgsScalars.ActivityName);
+            if (string.IsNullOrWhiteSpace(activitySetKey))
+            {
+                logger.LogInformation("{S}", GetHelpText());
+
+                return;
+            }
+
+            string? output = await amazonS3ActivityGroup.InvokeActivityAsync(activitySetKey, setKey, bucketMetaKey, bucketKey, content, contentMimeType);
+
+            string? path = configuration.GetOutputPath();
+
+            if (!string.IsNullOrWhiteSpace(path))
+            {
+                logger.LogInformation("Writing output to `{Path}`...", path);
+
+                await File.WriteAllTextAsync(path, output, stoppingToken);
+            }
         }
-
-        string? bucketMetaKey = configuration.GetCommandLineArgValue(ArgBucketMetaKey);
-        if (string.IsNullOrWhiteSpace(bucketMetaKey))
+        finally
         {
-            logger.LogInformation("{S}", GetHelpText());
-
-            return;
-        }
-
-        string? bucketKey = configuration.GetCommandLineArgValue(ArgBucketKey);
-        string? content = configuration.ReadStringInput();
-        string? contentMimeType = configuration.GetCommandLineArgValue(ArgBucketS3ObjectMimetype);
-
-        string? activitySetKey = configuration.GetCommandLineArgValue(ConsoleArgsScalars.ActivityName);
-        if (string.IsNullOrWhiteSpace(activitySetKey))
-        {
-            logger.LogInformation("{S}", GetHelpText());
-
-            return;
-        }
-
-        string? output = await amazonS3ActivityGroup.InvokeActivityAsync(activitySetKey, setKey, bucketMetaKey, bucketKey, content, contentMimeType);
-
-        string? path = configuration.GetOutputPath();
-
-        if (!string.IsNullOrWhiteSpace(path))
-        {
-            logger.LogInformation("Writing output to `{Path}`...", path);
-
-            await File.WriteAllTextAsync(path, output, stoppingToken);
+            hostApplicationLifetime.StopApplication();
         }
     }
 
