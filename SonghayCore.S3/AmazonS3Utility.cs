@@ -104,4 +104,53 @@ public static class AmazonS3Utility
 
         return s3Client;
     }
+
+    /// <summary>
+    /// Returns an instance of <see cref="AmazonS3Client"/>
+    /// or <c>null</c> when there is an error
+    /// detailed by the <see cref="ILogger"/>
+    /// </summary>
+    /// <param name="restApiMetadata">the conventional <see cref="RestApiMetadata"/></param>
+    /// <param name="bucketMetaKey">a key in the <see cref="RestApiMetadata.ClaimsSet"/></param>
+    /// <param name="clientAppId">the value of <see cref="ClientConfig.ClientAppId"/></param>
+    /// <param name="environmentVariableTarget">
+    ///     specifies that <see cref="RestApiMetadata"/> should be written with <see cref="Environment.SetEnvironmentVariable(string, string?, EnvironmentVariableTarget)"/>
+    /// </param>
+    /// <param name="restApiMetadataAction">the action that reveals <see cref="RestApiMetadata"/> as a tuple</param>
+    /// <param name="logger">the <see cref="ILogger"/></param>
+    /// <remarks>
+    /// There are security risks associated with this method.
+    /// See the remarks for <see cref="Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple"/>
+    /// for details.
+    /// </remarks>
+    public static AmazonS3Client GetAmazonS3ClientWithoutCredentialsChain(RestApiMetadata? restApiMetadata,
+        string? bucketMetaKey, string? clientAppId, EnvironmentVariableTarget? environmentVariableTarget,
+        Action<(bool areAnySecretsMissing, string? bucketName, string? region, string? uriRoot)>? restApiMetadataAction,
+        ILogger logger)
+    {
+
+        var (publicKey, privateKey, bucketName, region, uriRoot) = restApiMetadata.ToS3LessSecureTuple(bucketMetaKey, logger);
+
+        bool areAnySecretsMissing = string.IsNullOrWhiteSpace(publicKey) || string.IsNullOrWhiteSpace(privateKey);
+
+        if (environmentVariableTarget != null)
+        {
+            Environment.SetEnvironmentVariable("AWS_ACCESS_KEY_ID", publicKey, environmentVariableTarget.Value);
+            Environment.SetEnvironmentVariable("AWS_SECRET_ACCESS_KEY", privateKey, environmentVariableTarget.Value);
+            Environment.SetEnvironmentVariable("AWS_DEFAULT_REGION", region, environmentVariableTarget.Value);
+            Environment.SetEnvironmentVariable("AWS_ENDPOINT_URL", uriRoot, environmentVariableTarget.Value);
+        }
+
+        restApiMetadataAction?.Invoke((areAnySecretsMissing, bucketName, region, uriRoot));
+
+        AmazonS3Config s3Config = new()
+        {
+            ServiceURL = uriRoot,
+            ClientAppId = clientAppId
+        };
+
+        AmazonS3Client s3Client = new(s3Config);
+
+        return s3Client;
+    }
 }

@@ -209,6 +209,49 @@ public class AmazonS3UtilityTests
 
     [SkippableTheory]
     [InlineData("Wasabi", "studio-public-region")]
+    public async Task ShouldGetPositiveHeadBucketResponseWithoutCredentialsChain(string setKey, string bucketMetaKey)
+    {
+        Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
+
+        //arrange:
+        ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
+
+        RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
+            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+
+        string? bucketName = null;
+
+        AmazonS3Client s3Client = AmazonS3Utility
+            .GetAmazonS3ClientWithoutCredentialsChain(
+                wasabiMeta,
+                bucketMetaKey,
+                nameof(ShouldGetPositiveHeadBucketResponseWithoutCredentialsChain),
+                EnvironmentVariableTarget.Process,
+                t =>
+                {
+                    var (areAnySecretsMissing, bN, region, uriRoot) = t;
+
+                    bucketName = bN;
+
+                    logger.LogDebug("{Name}: {Value}", nameof(areAnySecretsMissing), areAnySecretsMissing);
+                    logger.LogDebug("{Name}: {Value}", nameof(region), region);
+                    logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
+                    logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
+                    
+                }, logger)
+            .ToReferenceTypeValueOrThrow();
+
+        HeadBucketRequest request = new() { BucketName = bucketName };
+
+        //act:
+        HeadBucketResponse actual = await s3Client.HeadBucketAsync(request).ConfigureAwait(false);
+
+        //assert:
+        Assert.Equal(HttpStatusCode.OK, actual.HttpStatusCode);
+    }
+
+    [SkippableTheory]
+    [InlineData("Wasabi", "studio-public-region")]
     public async Task ShouldListBucketObjects(string setKey, string bucketMetaKey)
     {
         Skip.If(string.IsNullOrWhiteSpace(SettingsPath));

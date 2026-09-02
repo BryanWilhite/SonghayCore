@@ -110,6 +110,26 @@
             <param name="clientAppId">the value of <see cref="P:Amazon.Runtime.ClientConfig.ClientAppId"/></param>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
+        <member name="M:Songhay.S3.AmazonS3Utility.GetAmazonS3ClientWithoutCredentialsChain(Songhay.Models.RestApiMetadata,System.String,System.String,System.Nullable{System.EnvironmentVariableTarget},System.Action{System.ValueTuple{System.Boolean,System.String,System.String,System.String}},Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Returns an instance of <see cref="T:Amazon.S3.AmazonS3Client"/>
+            or <c>null</c> when there is an error
+            detailed by the <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+            </summary>
+            <param name="restApiMetadata">the conventional <see cref="T:Songhay.Models.RestApiMetadata"/></param>
+            <param name="bucketMetaKey">a key in the <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/></param>
+            <param name="clientAppId">the value of <see cref="P:Amazon.Runtime.ClientConfig.ClientAppId"/></param>
+            <param name="environmentVariableTarget">
+                specifies that <see cref="T:Songhay.Models.RestApiMetadata"/> should be written with <see cref="M:System.Environment.SetEnvironmentVariable(System.String,System.String,System.EnvironmentVariableTarget)"/>
+            </param>
+            <param name="restApiMetadataAction">the action that reveals <see cref="T:Songhay.Models.RestApiMetadata"/> as a tuple</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+            <remarks>
+            There are security risks associated with this method.
+            See the remarks for <see cref="M:Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)"/>
+            for details.
+            </remarks>
+        </member>
         <member name="T:Songhay.S3.Extensions.IServiceCollectionExtensions">
             <summary>
             Extensions of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
@@ -150,6 +170,37 @@
             <summary>
             Extensions of <see cref="T:Songhay.Models.RestApiMetadata"/>
             </summary>
+        </member>
+        <member name="M:Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)">
+             <summary>
+             Returns a tuple, decomposing the specified <see cref="T:Songhay.Models.RestApiMetadata"/>
+             into:
+            
+             - the S3 ‘public’ key (<c>AWS_ACCESS_KEY_ID</c>)
+             - the S3 ‘private’ key (<c>AWS_SECRET_ACCESS_KEY</c>)
+             - the S3 bucket name
+             - the S3 bucket region
+             - the base URI of the bucket
+            
+             </summary>
+             <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata"/></param>
+             <param name="bucketMetaKey">the <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key</param>
+             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+             <remarks>
+             This transformation is called ‘less secure’
+             because the S3 ‘public’/‘private’ keys are exposed
+             to the developer/consumer explicitly
+             which encourages security risks.
+            
+             Surely, Amazon recommends using the <see cref="T:Amazon.Runtime.CredentialManagement.CredentialProfileStoreChain"/>
+             which can lead to leveraging an “underlying orchestration layer” (e.g. a layer with EKS Pod Identity)
+             instead of handling secrets explicitly.
+            
+             To use the <see cref="T:Songhay.Models.ProgramMetadata"/> convention of this Studio
+             without handling secrets explicitly, use <see cref="M:Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)"/> instead.
+            
+             See the remarks for <see cref="M:Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)"/>.
+             </remarks>
         </member>
         <member name="M:Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)">
              <summary>
