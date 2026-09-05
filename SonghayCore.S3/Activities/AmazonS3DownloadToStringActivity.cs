@@ -18,22 +18,13 @@ public class AmazonS3DownloadToStringActivity(ProgramMetadata programMetadata, I
 
         RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.TryGetValueWithKey(setKey);
 
-        string? bucketName = null;
-
-        AmazonS3Client? s3Client = AmazonS3Utility
-            .GetAmazonS3Client(s3Meta, bucketMetaKey, nameof(AmazonS3DownloadToStringActivity),
-                t =>
-                {
-                    var (credentialsProfileName, bN, region, uriRoot) = t;
-
-                    bucketName = bN;
-
-                    logger.LogDebug("{Name}: {Value}", nameof(credentialsProfileName), credentialsProfileName);
-                    logger.LogDebug("{Name}: {Value}", nameof(region), region);
-                    logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
-                    logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
-                    
-                }, logger);
+        AmazonS3Client? s3Client = AmazonS3Utility.GetAmazonS3Client(
+            s3Meta,
+            bucketMetaKey,
+            nameof(AmazonS3DownloadToStringActivity),
+            environmentVariableTarget: null,
+            out string? bucketName,
+            logger);
 
         if (s3Client == null)
         {

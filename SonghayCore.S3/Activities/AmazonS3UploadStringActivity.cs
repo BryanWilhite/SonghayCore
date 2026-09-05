@@ -4,7 +4,7 @@ namespace Songhay.S3.Activities;
 /// Uploads the specified <see cref="S3Object"/>
 /// to the specified <see cref="S3Bucket"/>.
 /// </summary>
-public class AmazonS3UploadStringActivity(ProgramMetadata programMetadata, ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>? logger):
+public class AmazonS3UploadStringActivity(ProgramMetadata programMetadata, ILogger<AmazonS3UploadStringActivity>? logger):
     IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)>
 {
     /// <summary>
@@ -18,22 +18,13 @@ public class AmazonS3UploadStringActivity(ProgramMetadata programMetadata, ILogg
 
         RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.TryGetValueWithKey(setKey);
 
-        string? bucketName = null;
-
-        AmazonS3Client? s3Client = AmazonS3Utility
-            .GetAmazonS3Client(s3Meta, bucketMetaKey, nameof(AmazonS3DownloadToStringActivity),
-                t =>
-                {
-                    var (credentialsProfileName, bN, region, uriRoot) = t;
-
-                    bucketName = bN;
-
-                    logger.LogDebug("{Name}: {Value}", nameof(credentialsProfileName), credentialsProfileName);
-                    logger.LogDebug("{Name}: {Value}", nameof(region), region);
-                    logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
-                    logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
-                    
-                }, logger);
+        AmazonS3Client? s3Client = AmazonS3Utility.GetAmazonS3Client(
+            s3Meta,
+            bucketMetaKey,
+            nameof(AmazonS3UploadStringActivity),
+            environmentVariableTarget: null,
+            out string? bucketName,
+            logger);
 
         if (s3Client == null)
         {

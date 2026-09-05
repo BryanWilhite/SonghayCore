@@ -50,7 +50,7 @@ public class AmazonS3UtilityTests
         string? bucketName = null;
 
         AmazonS3Client s3Client = AmazonS3Utility
-            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+            .GetAmazonS3ClientWithCredentialsChain(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
                     var (credentialsProfileName, bN, region, uriRoot) = t;
@@ -93,7 +93,7 @@ public class AmazonS3UtilityTests
         string? bucketName = null;
 
         AmazonS3Client s3Client = AmazonS3Utility
-            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+            .GetAmazonS3ClientWithCredentialsChain(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
                     var (credentialsProfileName, bN, region, uriRoot) = t;
@@ -140,7 +140,7 @@ public class AmazonS3UtilityTests
         string? bucketName = null;
 
         AmazonS3Client s3Client = AmazonS3Utility
-            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+            .GetAmazonS3ClientWithCredentialsChain(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
                     var (credentialsProfileName, bN, region, uriRoot) = t;
@@ -183,7 +183,7 @@ public class AmazonS3UtilityTests
         string? bucketName = null;
 
         AmazonS3Client s3Client = AmazonS3Utility
-            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+            .GetAmazonS3ClientWithCredentialsChain(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
                     var (credentialsProfileName, bN, region, uriRoot) = t;
@@ -265,7 +265,7 @@ public class AmazonS3UtilityTests
         string? bucketName = null;
 
         AmazonS3Client s3Client = AmazonS3Utility
-            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+            .GetAmazonS3ClientWithCredentialsChain(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
                     var (credentialsProfileName, bN, region, uriRoot) = t;
@@ -309,7 +309,7 @@ public class AmazonS3UtilityTests
         string? bucketName = null;
 
         AmazonS3Client s3Client = AmazonS3Utility
-            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+            .GetAmazonS3ClientWithCredentialsChain(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
                     var (credentialsProfileName, bN, region, uriRoot) = t;
@@ -357,7 +357,7 @@ public class AmazonS3UtilityTests
         string? bucketName = null;
 
         AmazonS3Client s3Client = AmazonS3Utility
-            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+            .GetAmazonS3ClientWithCredentialsChain(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
                     var (credentialsProfileName, bN, region, uriRoot) = t;
@@ -402,7 +402,7 @@ public class AmazonS3UtilityTests
         string? bucketName = null;
 
         AmazonS3Client s3Client = AmazonS3Utility
-            .GetAmazonS3Client(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
+            .GetAmazonS3ClientWithCredentialsChain(wasabiMeta, bucketMetaKey, nameof(ShouldGetPositiveHeadBucketResponse),
                 t =>
                 {
                     var (credentialsProfileName, bN, region, uriRoot) = t;
