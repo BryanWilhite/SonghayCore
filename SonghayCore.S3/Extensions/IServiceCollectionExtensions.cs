@@ -14,6 +14,36 @@ namespace Songhay.S3.Extensions;
 // ReSharper disable once InconsistentNaming
 public static class IServiceCollectionExtensions
 {
+
+    /// <summary>
+    /// Adds the dependencies associated
+    /// with the domain-specific class,
+    /// implementing <see cref="BackgroundService"/>
+    /// by reading the name of this class.
+    /// </summary>
+    /// <typeparam name="TActivityGroup">the domain-specific class,
+    /// sub-classing <see cref="BackgroundService"/></typeparam>
+    /// <param name="services">the ambient services collected</param>
+    public static IServiceCollection AddActivityGroup<TActivityGroup>(this IServiceCollection services) where TActivityGroup: class
+    {
+        string groupName = typeof(TActivityGroup).Name;
+        switch(groupName)
+        {
+            case nameof(AmazonS3ActivityGroup):
+
+                services
+                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey)>, AmazonS3DeleteS3ObjectActivity>(nameof(AmazonS3DeleteS3ObjectActivity))
+                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey), string?>, AmazonS3DownloadToStringActivity>(nameof(AmazonS3DownloadToStringActivity))
+                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string? bucketKeyPrefix), string?>, AmazonS3ListBucketObjectsWithPaginationActivity>(nameof(AmazonS3ListBucketObjectsWithPaginationActivity))
+                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)>, AmazonS3UploadStringActivity>(nameof(AmazonS3UploadStringActivity))
+                    .AddTransient<IActivityKeyedTaskGroup, AmazonS3ActivityGroup>();
+
+                break;
+        }
+
+        return services;
+    }
+
     /// <summary>
     /// Returns <see cref="IServiceCollection"/>
     /// with any available <see cref="HostOptions"/>
@@ -63,17 +93,13 @@ public static class IServiceCollectionExtensions
     /// <param name="services">the ambient services collected</param>
     public static IServiceCollection AddS3HostedServiceDependencies<THostedService>(this IServiceCollection services) where THostedService : class, IHostedService
     {
-        string procedureName = typeof(THostedService).Name;
+        string serviceName = typeof(THostedService).Name;
 
-        switch (procedureName)
+        switch (serviceName)
         {
             case nameof(AmazonS3Service):
-                services
-                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey)>, AmazonS3DeleteS3ObjectActivity>(nameof(AmazonS3DeleteS3ObjectActivity))
-                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey), string?>, AmazonS3DownloadToStringActivity>(nameof(AmazonS3DownloadToStringActivity))
-                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string? bucketKeyPrefix), string?>, AmazonS3ListBucketObjectsWithPaginationActivity>(nameof(AmazonS3ListBucketObjectsWithPaginationActivity))
-                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)>, AmazonS3UploadStringActivity>(nameof(AmazonS3UploadStringActivity))
-                    .AddTransient<IActivityKeyedTaskGroup, AmazonS3ActivityGroup>();
+
+                services.AddActivityGroup<AmazonS3ActivityGroup>();
 
                 break;
         }

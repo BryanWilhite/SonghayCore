@@ -203,6 +203,32 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "dotnet build [SonghayCore.S3.Tests, Release]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "build",
+                "${workspaceFolder}/SonghayCore.S3.Tests/SonghayCore.S3.Tests.csproj",
+                "--configuration",
+                "Release"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "dotnet test [SonghayCore.S3.Tests, filtered by selected text]",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "test",
+                "${workspaceFolder}/SonghayCore.S3.Tests/SonghayCore.S3.Tests.csproj",
+                "--filter:${selectedText}",
+                "--logger:trx",
+                "--results-directory:${workspaceFolder}/TestResults",
+                "--verbosity:normal"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "dotnet build [SonghayCore.xUnit]",
             "command": "dotnet",
             "type": "shell",

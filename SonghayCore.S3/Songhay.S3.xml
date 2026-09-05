@@ -135,6 +135,17 @@
             Extensions of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
             </summary>
         </member>
+        <member name="M:Songhay.S3.Extensions.IServiceCollectionExtensions.AddActivityGroup``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the dependencies associated
+            with the domain-specific class,
+            implementing <see cref="T:Microsoft.Extensions.Hosting.BackgroundService"/>
+            by reading the name of this class.
+            </summary>
+            <typeparam name="TActivityGroup">the domain-specific class,
+            sub-classing <see cref="T:Microsoft.Extensions.Hosting.BackgroundService"/></typeparam>
+            <param name="services">the ambient services collected</param>
+        </member>
         <member name="M:Songhay.S3.Extensions.IServiceCollectionExtensions.AddAnyConfiguredHostOptions(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Returns <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>

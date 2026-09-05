@@ -1,7 +1,7 @@
 using Songhay.Abstractions;
 using Songhay.S3.Activities;
 using Songhay.S3.Extensions;
-using Songhay.S3.Hosting;
+using Songhay.S3.Models;
 
 namespace Songhay.S3.Tests.Models;
 
@@ -26,7 +26,7 @@ public class AmazonS3ActivityGroupTests(ITestOutputHelper testOutputHelper)
             .AddSingleton(configuration)
             .AddLogging(builder => builder.AddProvider(_loggerProvider))
             .AddProgramMetadata(configuration)
-            .AddS3HostedService<AmazonS3Service>()
+            .AddActivityGroup<AmazonS3ActivityGroup>()
             .BuildServiceProvider();
 
         IActivityKeyedTaskGroup group = provider.GetRequiredService<IActivityKeyedTaskGroup>();
