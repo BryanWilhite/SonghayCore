@@ -22,7 +22,6 @@ public class AmazonS3DeleteS3ObjectActivity(ProgramMetadata programMetadata, ILo
             s3Meta,
             bucketMetaKey,
             nameof(AmazonS3DeleteS3ObjectActivity),
-            environmentVariableTarget: null,
             out string? bucketName,
             logger);
 

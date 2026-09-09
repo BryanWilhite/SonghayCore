@@ -87,17 +87,16 @@
             <param name="request">the <see cref="T:Amazon.S3.Model.ListObjectsV2Request"/></param>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
-        <member name="M:Songhay.S3.AmazonS3Utility.GetAmazonS3Client(Songhay.Models.RestApiMetadata,System.String,System.String,System.Nullable{System.EnvironmentVariableTarget},System.String@,Microsoft.Extensions.Logging.ILogger)">
+        <member name="M:Songhay.S3.AmazonS3Utility.GetAmazonS3Client(Songhay.Models.RestApiMetadata,System.String,System.String,System.String@,Microsoft.Extensions.Logging.ILogger)">
             <summary>
             Returns an instance of <see cref="T:Amazon.S3.AmazonS3Client"/>,
             trying <see cref="M:Songhay.S3.AmazonS3Utility.GetAmazonS3ClientWithCredentialsChain(Songhay.Models.RestApiMetadata,System.String,System.String,System.Action{System.ValueTuple{System.String,System.String,System.String,System.String}},Microsoft.Extensions.Logging.ILogger)"/> then <see cref="M:Songhay.S3.AmazonS3Utility.GetAmazonS3ClientWithoutCredentialsChain(Songhay.Models.RestApiMetadata,System.String,System.String,System.Nullable{System.EnvironmentVariableTarget},System.Action{System.ValueTuple{System.Boolean,System.String,System.String,System.String}},Microsoft.Extensions.Logging.ILogger)"/>,
             or <c>null</c> when there is an error
             detailed by the <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
             </summary>
-            <param name="restApiMetadata"></param>
-            <param name="bucketMetaKey"></param>
-            <param name="clientAppId"></param>
-            <param name="environmentVariableTarget"></param>
+            <param name="restApiMetadata">the conventional <see cref="T:Songhay.Models.RestApiMetadata"/></param>
+            <param name="bucketMetaKey">a key in the <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/></param>
+            <param name="clientAppId">an optional ID to describe the <see cref="T:Amazon.S3.AmazonS3Client"/></param>
             <param name="s3BucketName">returns the name of the S3 bucket derived from <see cref="T:Songhay.Models.RestApiMetadata"/></param>
             <param name="logger"></param>
         </member>

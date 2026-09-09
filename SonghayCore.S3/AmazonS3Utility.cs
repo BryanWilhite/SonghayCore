@@ -56,17 +56,15 @@ public static class AmazonS3Utility
     /// or <c>null</c> when there is an error
     /// detailed by the <see cref="ILogger"/>
     /// </summary>
-    /// <param name="restApiMetadata"></param>
-    /// <param name="bucketMetaKey"></param>
-    /// <param name="clientAppId"></param>
-    /// <param name="environmentVariableTarget"></param>
+    /// <param name="restApiMetadata">the conventional <see cref="RestApiMetadata"/></param>
+    /// <param name="bucketMetaKey">a key in the <see cref="RestApiMetadata.ClaimsSet"/></param>
+    /// <param name="clientAppId">an optional ID to describe the <see cref="AmazonS3Client"/></param>
     /// <param name="s3BucketName">returns the name of the S3 bucket derived from <see cref="RestApiMetadata"/></param>
     /// <param name="logger"></param>
     public static AmazonS3Client? GetAmazonS3Client(
         RestApiMetadata? restApiMetadata,
         string? bucketMetaKey,
         string? clientAppId,
-        EnvironmentVariableTarget? environmentVariableTarget,
         out string? s3BucketName,
         ILogger logger)
     {
@@ -96,7 +94,13 @@ public static class AmazonS3Utility
 
         if (s3Client != null)
         {
+            logger.LogDebug("{Name} found. Returning...", nameof(AmazonS3Client));
+
             return s3Client;
+        }
+        else
+        {
+            logger.LogDebug("{Name} not found. Attempting without credentials chain...", nameof(AmazonS3Client));
         }
 
         s3Client = AmazonS3Utility
@@ -104,7 +108,7 @@ public static class AmazonS3Utility
                 restApiMetadata,
                 bucketMetaKey,
                 clientAppId,
-                environmentVariableTarget,
+                EnvironmentVariableTarget.Process,
                 t =>
                 {
                     var (areAnySecretsMissing, bN, region, uriRoot) = t;
@@ -115,7 +119,7 @@ public static class AmazonS3Utility
                     logger.LogDebug("{Name}: {Value}", nameof(region), region);
                     logger.LogDebug("{Name}: {Value}", nameof(bucketName), bucketName);
                     logger.LogDebug("{Name}: {Value}", nameof(uriRoot), uriRoot);
-                    
+
                 }, logger);
 
         s3BucketName = bucketName;
@@ -197,7 +201,7 @@ public static class AmazonS3Utility
     /// See the remarks for <see cref="Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple"/>
     /// for details.
     /// </remarks>
-    public static AmazonS3Client GetAmazonS3ClientWithoutCredentialsChain(
+    public static AmazonS3Client? GetAmazonS3ClientWithoutCredentialsChain(
         RestApiMetadata? restApiMetadata,
         string? bucketMetaKey, string? clientAppId, EnvironmentVariableTarget? environmentVariableTarget,
         Action<(bool areAnySecretsMissing, string? bucketName, string? region, string? uriRoot)>? restApiMetadataAction,
@@ -214,6 +218,13 @@ public static class AmazonS3Utility
             Environment.SetEnvironmentVariable("AWS_SECRET_ACCESS_KEY", privateKey, environmentVariableTarget.Value);
             Environment.SetEnvironmentVariable("AWS_DEFAULT_REGION", region, environmentVariableTarget.Value);
             Environment.SetEnvironmentVariable("AWS_ENDPOINT_URL", uriRoot, environmentVariableTarget.Value);
+        }
+        else
+        {
+            logger.LogError("The expected {Name} is not here. AWS environment variables not set! Returning...",
+                nameof(environmentVariableTarget));
+
+            return null;
         }
 
         restApiMetadataAction?.Invoke((areAnySecretsMissing, bucketName, region, uriRoot));

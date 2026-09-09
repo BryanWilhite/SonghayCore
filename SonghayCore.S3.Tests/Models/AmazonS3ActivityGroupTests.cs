@@ -8,7 +8,7 @@ namespace Songhay.S3.Tests.Models;
 public class AmazonS3ActivityGroupTests(ITestOutputHelper testOutputHelper)
 {
     [SkippableTheory]
-    [InlineData("Wasabi", "b-roll-player-video-region", "youtube-channels")]
+    [InlineData("Wasabi1", "b-roll-player-video-region", "youtube-channels")]
     public async Task ShouldListBucketObjectsWithPaginationAndFiltering(string setKey, string bucketMetaKey, string? bucketKeyPrefix)
     {
         const bool shouldSkip = false;

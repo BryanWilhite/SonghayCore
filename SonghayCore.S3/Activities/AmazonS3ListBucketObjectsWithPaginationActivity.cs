@@ -24,7 +24,6 @@ public class AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata pro
             s3Meta,
             bucketMetaKey,
             nameof(AmazonS3ListBucketObjectsWithPaginationActivity),
-            environmentVariableTarget: null,
             out string? bucketName,
             logger);
 

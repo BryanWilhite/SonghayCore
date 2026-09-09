@@ -22,7 +22,6 @@ public class AmazonS3DownloadToStringActivity(ProgramMetadata programMetadata, I
             s3Meta,
             bucketMetaKey,
             nameof(AmazonS3DownloadToStringActivity),
-            environmentVariableTarget: null,
             out string? bucketName,
             logger);
 

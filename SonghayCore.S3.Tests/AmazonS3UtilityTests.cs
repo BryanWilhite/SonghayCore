@@ -34,7 +34,7 @@ public class AmazonS3UtilityTests
     }
 
     [SkippableTheory]
-    [InlineData("Wasabi", "studio-public-region", "songhay/feedly-from-string.opml")]
+    [InlineData("Wasabi1", "studio-public-region", "songhay/feedly-from-string.opml")]
     public async Task ShouldDeleteS3Object(string setKey, string bucketMetaKey, string bucketKey)
     {
         const bool shouldSkip = true;
@@ -79,7 +79,7 @@ public class AmazonS3UtilityTests
     }
 
     [SkippableTheory]
-    [ProjectDirectoryData("Wasabi", "studio-public-region", "songhay/studio.rss.xml")]
+    [ProjectDirectoryData("Wasabi1", "studio-public-region", "songhay/studio.rss.xml")]
     public async Task ShouldDownloadFile(DirectoryInfo projectInfo, string setKey, string bucketMetaKey, string bucketKey)
     {
         Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
@@ -126,7 +126,7 @@ public class AmazonS3UtilityTests
     }
 
     [SkippableTheory]
-    [InlineData("Wasabi", "studio-public-region", "songhay/studio.rss.xml")]
+    [InlineData("Wasabi1", "studio-public-region", "songhay/studio.rss.xml")]
     public async Task ShouldDownloadString(string setKey, string bucketMetaKey, string bucketKey)
     {
         Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
@@ -169,7 +169,7 @@ public class AmazonS3UtilityTests
     }
 
     [SkippableTheory]
-    [InlineData("Wasabi", "studio-public-region")]
+    [InlineData("Wasabi1", "studio-public-region")]
     public async Task ShouldGetPositiveHeadBucketResponse(string setKey, string bucketMetaKey)
     {
         Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
@@ -208,7 +208,7 @@ public class AmazonS3UtilityTests
     }
 
     [SkippableTheory]
-    [InlineData("Wasabi", "studio-public-region")]
+    [InlineData("Wasabi1", "studio-public-region")]
     public async Task ShouldGetPositiveHeadBucketResponseWithoutCredentialsChain(string setKey, string bucketMetaKey)
     {
         Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
@@ -251,7 +251,7 @@ public class AmazonS3UtilityTests
     }
 
     [SkippableTheory]
-    [InlineData("Wasabi", "studio-public-region")]
+    [InlineData("Wasabi1", "studio-public-region")]
     public async Task ShouldListBucketObjects(string setKey, string bucketMetaKey)
     {
         Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
@@ -295,7 +295,7 @@ public class AmazonS3UtilityTests
     }
 
     [SkippableTheory]
-    [InlineData("Wasabi", "b-roll-player-video-region")]
+    [InlineData("Wasabi1", "b-roll-player-video-region")]
     public async Task ShouldListBucketObjectsWithPagination(string setKey, string bucketMetaKey)
     {
         Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
@@ -343,7 +343,7 @@ public class AmazonS3UtilityTests
     }
 
     [SkippableTheory]
-    [ProjectDirectoryData("Wasabi", "studio-public-region", "songhay/feedly.opml", "content/xml/feedly.opml")]
+    [ProjectDirectoryData("Wasabi1", "studio-public-region", "songhay/feedly.opml", "content/xml/feedly.opml")]
     public async Task ShouldUploadFile(DirectoryInfo projectInfo, string setKey, string bucketMetaKey, string bucketKey, string localPath)
     {
         Skip.If(string.IsNullOrWhiteSpace(SettingsPath));
@@ -388,7 +388,7 @@ public class AmazonS3UtilityTests
     }
 
     [SkippableTheory]
-    [ProjectDirectoryData("Wasabi", "studio-public-region", "songhay/feedly-from-string.opml", "content/xml/feedly.opml")]
+    [ProjectDirectoryData("Wasabi1", "studio-public-region", "songhay/feedly-from-string.opml", "content/xml/feedly.opml")]
     public async Task ShouldUploadString(DirectoryInfo projectInfo, string setKey, string bucketMetaKey, string bucketKey, string localPath)
     {
         Skip.If(string.IsNullOrWhiteSpace(SettingsPath));

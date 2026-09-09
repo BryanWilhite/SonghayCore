@@ -22,7 +22,6 @@ public class AmazonS3UploadStringActivity(ProgramMetadata programMetadata, ILogg
             s3Meta,
             bucketMetaKey,
             nameof(AmazonS3UploadStringActivity),
-            environmentVariableTarget: null,
             out string? bucketName,
             logger);
 
