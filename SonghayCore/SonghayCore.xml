@@ -430,6 +430,86 @@
             Modification/editorial <see cref="T:System.DateTime"/> of the item.
             </summary>
         </member>
+        <member name="T:Songhay.Activities.ProgramFileDeleteActivity">
+            <summary>
+            Deletes from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3DeleteS3ObjectActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileDeleteActivity.#ctor(Microsoft.Extensions.Logging.ILogger{Songhay.Activities.ProgramFileDeleteActivity})">
+            <summary>
+            Deletes from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3DeleteS3ObjectActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileDeleteActivity.StartAsync(Songhay.Models.StorageActivityInput)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.Activities.ProgramFileListActivity">
+            <summary>
+            Reads the directory
+            from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3ListBucketObjectsWithPaginationActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileListActivity.#ctor(Microsoft.Extensions.Logging.ILogger{Songhay.Activities.ProgramFileListActivity})">
+            <summary>
+            Reads the directory
+            from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3ListBucketObjectsWithPaginationActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileListActivity.StartAsync(Songhay.Models.StorageActivityInput)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.Activities.ProgramFileReadActivity">
+            <summary>
+            Reads a string-content file
+            from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3DownloadToStringActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileReadActivity.#ctor(Microsoft.Extensions.Logging.ILogger{Songhay.Activities.ProgramFileReadActivity})">
+            <summary>
+            Reads a string-content file
+            from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3DownloadToStringActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileReadActivity.StartAsync(Songhay.Models.StorageActivityInput)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.Activities.ProgramFileSaveActivity">
+            <summary>
+            Saves to the local file system,
+            impersonating the input and output
+            of <c>AmazonS3UploadStringActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileSaveActivity.#ctor(Microsoft.Extensions.Logging.ILogger{Songhay.Activities.ProgramFileSaveActivity})">
+            <summary>
+            Saves to the local file system,
+            impersonating the input and output
+            of <c>AmazonS3UploadStringActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileSaveActivity.StartAsync(Songhay.Models.StorageActivityInput{System.String})">
+            <inheritdoc/>
+        </member>
         <member name="T:Songhay.AzureActiveDirectoryUtility">
              <summary>
              Shared routines for Azure Active Directory conventions.
@@ -1227,25 +1307,32 @@
             The <c>fileAction</c> includes the line number and the current line.
             </remarks>
         </member>
+        <member name="M:Songhay.Extensions.FileInfoExtensions.ToStorageObject(System.IO.FileInfo)">
+            <summary>
+            Transforms the specified <see cref="T:System.IO.FileInfo"/>
+            into <see cref="T:Songhay.Models.StorageObject"/>
+            </summary>
+            <param name="fileInfo">the <see cref="T:System.IO.FileInfo"/></param>
+        </member>
         <member name="M:Songhay.Extensions.FileInfoExtensions.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})">
             <summary>
             Centralizes the use of <see cref="T:System.IO.Compression.ZipArchive"/>
             </summary>
-            <param name="archiveInfo"></param>
-            <param name="archiveAction"></param>
+            <param name="archiveInfo">the <see cref="T:System.IO.FileInfo"/></param>
+            <param name="archiveAction">the action to perform on the <see cref="T:System.IO.Compression.ZipArchive"/></param>
         </member>
         <member name="M:Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
             <summary>
             Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
             </summary>
-            <param name="archiveInfo"></param>
-            <param name="entriesAction"></param>
+            <param name="archiveInfo">the <see cref="T:System.IO.FileInfo"/></param>
+            <param name="entriesAction">the action to perform on the collection of <see cref="T:System.IO.Compression.ZipArchiveEntry"/></param>
         </member>
         <member name="M:Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
             <summary>
             Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
             </summary>
-            <param name="archiveInfo"></param>
+            <param name="archiveInfo">the <see cref="T:System.IO.FileInfo"/></param>
             <param name="entriesAction"></param>
             <param name="entriesProjector"></param>
         </member>
@@ -3192,6 +3279,27 @@
             <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
             <param name="uriTemplateKey">The URI template key.</param>
             <param name="bindByPositionValues">The bind by position values.</param>
+        </member>
+        <member name="T:Songhay.Extensions.StorageActivityInputExtensions">
+            <summary>
+            Extensions of <see cref="T:Songhay.Models.StorageActivityInput"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Transforms <see cref="T:Songhay.Models.StorageActivityInput"/>
+            into <see cref="T:System.IO.FileInfo"/>
+            </summary>
+            <param name="input">the <see cref="T:Songhay.Models.StorageActivityInput"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Transforms <see cref="T:Songhay.Models.StorageActivityInput"/>
+            into a collection of <see cref="T:Songhay.Models.StorageObject"/>
+            </summary>
+            <param name="input">the <see cref="T:Songhay.Models.StorageActivityInput"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="T:Songhay.Extensions.StreamExtensions">
             <summary>
@@ -5683,6 +5791,226 @@
             <returns>
             A <see cref="T:System.String" /> that represents this instance.
             </returns>
+        </member>
+        <member name="T:Songhay.Models.StorageActivityInput">
+            <summary>
+            Defines the input for most storage operations.
+            </summary>
+            <param name="SetKey">
+                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
+                or the name of a directory under the root of a storage mirror
+            </param>
+            <param name="BucketMetaKey">
+                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
+                pointing to the region of the S3 Bucket
+            </param>
+            <param name="BucketKeyOrPrefix">
+                represents an entire <c>S3Object.Key</c>
+                or its prefix (used for filtering S3 bucket listing)
+            </param>
+        </member>
+        <member name="M:Songhay.Models.StorageActivityInput.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Defines the input for most storage operations.
+            </summary>
+            <param name="SetKey">
+                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
+                or the name of a directory under the root of a storage mirror
+            </param>
+            <param name="BucketMetaKey">
+                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
+                pointing to the region of the S3 Bucket
+            </param>
+            <param name="BucketKeyOrPrefix">
+                represents an entire <c>S3Object.Key</c>
+                or its prefix (used for filtering S3 bucket listing)
+            </param>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityInput.SetKey">
+            <summary>
+                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
+                or the name of a directory under the root of a storage mirror
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityInput.BucketMetaKey">
+            <summary>
+                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
+                pointing to the region of the S3 Bucket
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityInput.BucketKeyOrPrefix">
+            <summary>
+                represents an entire <c>S3Object.Key</c>
+                or its prefix (used for filtering S3 bucket listing)
+            </summary>
+        </member>
+        <member name="T:Songhay.Models.StorageActivityInput`1">
+            <summary>
+            Defines the input for most storage operations.
+            </summary>
+            <typeparam name="TContent">the type of the input content</typeparam>
+            <param name="SetKey">
+                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
+                or the name of a directory under the root of a storage mirror
+            </param>
+            <param name="BucketMetaKey">
+                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
+                pointing to the region of the S3 Bucket
+            </param>
+            <param name="BucketKeyOrPrefix">
+                represents an entire <c>S3Object.Key</c>
+                or its prefix (used for filtering S3 bucket listing)
+            </param>
+            <param name="Content">represents what will be transformed into an S3 <c>PutObjectRequest.ContentBody</c></param>
+            <param name="ContentMimeType">represents an S3 <c>PutObjectRequest.ContentType</c></param>
+        </member>
+        <member name="M:Songhay.Models.StorageActivityInput`1.#ctor(System.String,System.String,System.String,`0,System.String)">
+            <summary>
+            Defines the input for most storage operations.
+            </summary>
+            <typeparam name="TContent">the type of the input content</typeparam>
+            <param name="SetKey">
+                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
+                or the name of a directory under the root of a storage mirror
+            </param>
+            <param name="BucketMetaKey">
+                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
+                pointing to the region of the S3 Bucket
+            </param>
+            <param name="BucketKeyOrPrefix">
+                represents an entire <c>S3Object.Key</c>
+                or its prefix (used for filtering S3 bucket listing)
+            </param>
+            <param name="Content">represents what will be transformed into an S3 <c>PutObjectRequest.ContentBody</c></param>
+            <param name="ContentMimeType">represents an S3 <c>PutObjectRequest.ContentType</c></param>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityInput`1.SetKey">
+            <summary>
+                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
+                or the name of a directory under the root of a storage mirror
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityInput`1.BucketMetaKey">
+            <summary>
+                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
+                pointing to the region of the S3 Bucket
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityInput`1.BucketKeyOrPrefix">
+            <summary>
+                represents an entire <c>S3Object.Key</c>
+                or its prefix (used for filtering S3 bucket listing)
+            </summary>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityInput`1.Content">
+            <summary>represents what will be transformed into an S3 <c>PutObjectRequest.ContentBody</c></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityInput`1.ContentMimeType">
+            <summary>represents an S3 <c>PutObjectRequest.ContentType</c></summary>
+        </member>
+        <member name="T:Songhay.Models.StorageActivityResult`1">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <typeparam name="TContent">the type of the content returned in the response</typeparam>
+            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.StorageActivityResult`1.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+            <param name="Content">any content associated with the response</param>
+        </member>
+        <member name="M:Songhay.Models.StorageActivityResult`1.#ctor(System.Net.HttpStatusCode,System.String,System.String,`0)">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <typeparam name="TContent">the type of the content returned in the response</typeparam>
+            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.StorageActivityResult`1.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+            <param name="Content">any content associated with the response</param>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityResult`1.HttpStatusCode">
+            <summary>the <see cref="P:Songhay.Models.StorageActivityResult`1.HttpStatusCode"/></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityResult`1.RequestId">
+            <summary>the identifier of the request</summary>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityResult`1.ResponseMessage">
+            <summary>any message associated with the request</summary>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityResult`1.Content">
+            <summary>any content associated with the response</summary>
+        </member>
+        <member name="T:Songhay.Models.StorageActivityResult">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.StorageActivityResult.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+        </member>
+        <member name="M:Songhay.Models.StorageActivityResult.#ctor(System.Net.HttpStatusCode,System.String,System.String)">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.StorageActivityResult.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityResult.HttpStatusCode">
+            <summary>the <see cref="P:Songhay.Models.StorageActivityResult.HttpStatusCode"/></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityResult.RequestId">
+            <summary>the identifier of the request</summary>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityResult.ResponseMessage">
+            <summary>any message associated with the request</summary>
+        </member>
+        <member name="T:Songhay.Models.StorageObject">
+            <summary>
+            Defines an “intersection type” for the <c>S3Object</c> de facto standard
+            and <see cref="T:System.IO.FileInfo"/>
+            </summary>
+            <param name="BucketName">maps to <see cref="P:System.IO.FileInfo.DirectoryName"/></param>
+            <param name="ETag">represents <c>S3Object.ETag</c></param>
+            <param name="Key">represents <c>S3Object.Key</c></param>
+            <param name="LastWriteTimeUtc">maps to <c>S3Object.LastModified</c></param>
+            <param name="Size">maps to <see cref="P:System.IO.FileInfo.Length"/></param>
+            <param name="Extension">represents <see cref="P:System.IO.FileSystemInfo.Extension"/></param>
+            <param name="Name">represents <see cref="P:System.IO.FileInfo.Name"/></param>
+        </member>
+        <member name="M:Songhay.Models.StorageObject.#ctor(System.String,System.String,System.String,System.DateTime,System.Int64,System.String,System.String)">
+            <summary>
+            Defines an “intersection type” for the <c>S3Object</c> de facto standard
+            and <see cref="T:System.IO.FileInfo"/>
+            </summary>
+            <param name="BucketName">maps to <see cref="P:System.IO.FileInfo.DirectoryName"/></param>
+            <param name="ETag">represents <c>S3Object.ETag</c></param>
+            <param name="Key">represents <c>S3Object.Key</c></param>
+            <param name="LastWriteTimeUtc">maps to <c>S3Object.LastModified</c></param>
+            <param name="Size">maps to <see cref="P:System.IO.FileInfo.Length"/></param>
+            <param name="Extension">represents <see cref="P:System.IO.FileSystemInfo.Extension"/></param>
+            <param name="Name">represents <see cref="P:System.IO.FileInfo.Name"/></param>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.BucketName">
+            <summary>maps to <see cref="P:System.IO.FileInfo.DirectoryName"/></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.ETag">
+            <summary>represents <c>S3Object.ETag</c></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.Key">
+            <summary>represents <c>S3Object.Key</c></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.LastWriteTimeUtc">
+            <summary>maps to <c>S3Object.LastModified</c></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.Size">
+            <summary>maps to <see cref="P:System.IO.FileInfo.Length"/></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.Extension">
+            <summary>represents <see cref="P:System.IO.FileSystemInfo.Extension"/></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.Name">
+            <summary>represents <see cref="P:System.IO.FileInfo.Name"/></summary>
         </member>
         <member name="T:Songhay.Models.SystemErrorCodes">
             <summary>
