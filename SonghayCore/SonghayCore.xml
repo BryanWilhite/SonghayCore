@@ -1307,12 +1307,13 @@
             The <c>fileAction</c> includes the line number and the current line.
             </remarks>
         </member>
-        <member name="M:Songhay.Extensions.FileInfoExtensions.ToStorageObject(System.IO.FileInfo)">
+        <member name="M:Songhay.Extensions.FileInfoExtensions.ToStorageObject(System.IO.FileInfo,System.IO.DirectoryInfo)">
             <summary>
             Transforms the specified <see cref="T:System.IO.FileInfo"/>
             into <see cref="T:Songhay.Models.StorageObject"/>
             </summary>
             <param name="fileInfo">the <see cref="T:System.IO.FileInfo"/></param>
+            <param name="bucketDirectory">the <see cref="T:System.IO.DirectoryInfo"/> representing/mirroring the S3 bucket</param>
         </member>
         <member name="M:Songhay.Extensions.FileInfoExtensions.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})">
             <summary>
@@ -4457,6 +4458,17 @@
             </summary>
             <param name="json">the JSON to parse</param>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="T:Songhay.JsonSerializerOptionsUtility">
+            <summary>
+            Caches frequently-used <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            </summary>
+        </member>
+        <member name="P:Songhay.JsonSerializerOptionsUtility.JsonSerializerOptionsForIndentation">
+            <summary>
+            Returns <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            with <see cref="P:System.Text.Json.JsonSerializerOptions.WriteIndented"/> set to <c>true</c>
+            </summary>
         </member>
         <member name="T:Songhay.MathUtility">
             <summary>

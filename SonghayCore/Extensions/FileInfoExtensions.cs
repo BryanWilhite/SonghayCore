@@ -60,15 +60,18 @@ public static class FileInfoExtensions
     /// into <see cref="StorageObject"/>
     /// </summary>
     /// <param name="fileInfo">the <see cref="FileInfo"/></param>
-    public static StorageObject? ToStorageObject(this FileInfo? fileInfo)
+    /// <param name="bucketDirectory">the <see cref="DirectoryInfo"/> representing/mirroring the S3 bucket</param>
+    public static StorageObject? ToStorageObject(this FileInfo? fileInfo, DirectoryInfo bucketDirectory)
     {
         if (fileInfo == null) return null;
         if (string.IsNullOrWhiteSpace(fileInfo.DirectoryName)) return null;
 
         return new StorageObject(
-            fileInfo.DirectoryName,
+            bucketDirectory.FullName,
             null,
-            fileInfo.FullName,
+            fileInfo.FullName
+                    .Replace(bucketDirectory.FullName, string.Empty)
+                    .TrimStart(Path.DirectorySeparatorChar),
             fileInfo.LastWriteTimeUtc,
             fileInfo.Length,
             fileInfo.Extension,

@@ -65,7 +65,7 @@ public static class StorageActivityInputExtensions
 
         DirectoryInfo directoryInfo = new(input.SetKey);
 
-        string? filter = $"{input.BucketKeyOrPrefix}*";
+        string filter = $"{input.BucketKeyOrPrefix}*";
 
         FileSystemInfo[] filtered = directoryInfo.GetFileSystemInfos(filter);
 
@@ -74,8 +74,11 @@ public static class StorageActivityInputExtensions
                 filtered
                     .SelectMany(fi => fi switch
                     {
-                        FileInfo file => [file.ToStorageObject()],
-                        DirectoryInfo dir => dir.EnumerateFiles("*", SearchOption.AllDirectories).Select(file => file.ToStorageObject()),
+                        FileInfo file => [file.ToStorageObject(directoryInfo)],
+                        DirectoryInfo dir => dir
+                            .EnumerateFiles("*",
+                                SearchOption.AllDirectories)
+                                    .Select(file => file.ToStorageObject(directoryInfo)),
                         _ => []
                     })
                     .OfType<StorageObject>()
