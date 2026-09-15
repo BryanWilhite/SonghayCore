@@ -9,7 +9,7 @@ namespace Songhay.Activities;
 public class ProgramFileSaveActivity(ILogger<ProgramFileSaveActivity> logger) : IActivityTask<StorageActivityInput<string?>?, StorageActivityResult?>
 {
     /// <inheritdoc/>
-    public async Task<StorageActivityResult?> StartAsync(Models.StorageActivityInput<string?>? input)
+    public async Task<StorageActivityResult?> StartAsync(StorageActivityInput<string?>? input, CancellationToken cancellationToken)
     {
         if (input == null || !Directory.Exists(input.SetKey))
         {
@@ -25,7 +25,7 @@ public class ProgramFileSaveActivity(ILogger<ProgramFileSaveActivity> logger) : 
 
         DirectoryInfo directoryInfo = new(input.SetKey);
 
-        string? path = directoryInfo.ToCombinedPath(input.BucketKeyOrPrefix);
+        string path = directoryInfo.ToCombinedPath(input.BucketKeyOrPrefix);
 
         if (string.IsNullOrWhiteSpace(path))
         {
@@ -39,7 +39,7 @@ public class ProgramFileSaveActivity(ILogger<ProgramFileSaveActivity> logger) : 
                 message);
         }
 
-        await File.WriteAllTextAsync(path, input.Content);
+        await File.WriteAllTextAsync(path, input.Content, cancellationToken);
 
         return new StorageActivityResult(
             HttpStatusCode.OK,

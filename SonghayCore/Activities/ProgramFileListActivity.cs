@@ -10,9 +10,9 @@ namespace Songhay.Activities;
 public class ProgramFileListActivity(ILogger<ProgramFileListActivity> logger) : IActivityTask<StorageActivityInput?, StorageActivityResult<IReadOnlyCollection<StorageObject>>?>
 {
     /// <inheritdoc/>
-    public async Task<StorageActivityResult<IReadOnlyCollection<StorageObject>>?> StartAsync(StorageActivityInput? input)
+    public async Task<StorageActivityResult<IReadOnlyCollection<StorageObject>>?> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
     {
-        IReadOnlyCollection<StorageObject> storageObjects = await Task.Run(() => input.ToStorageObjects(logger));
+        IReadOnlyCollection<StorageObject> storageObjects = await Task.Run(() => input.ToStorageObjects(logger), cancellationToken);
         return
             storageObjects.Count > 0 ?
                 new StorageActivityResult<IReadOnlyCollection<StorageObject>>(

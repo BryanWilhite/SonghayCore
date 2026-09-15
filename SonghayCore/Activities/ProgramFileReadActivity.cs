@@ -10,7 +10,7 @@ namespace Songhay.Activities;
 public class ProgramFileReadActivity(ILogger<ProgramFileReadActivity> logger) : IActivityTask<StorageActivityInput?, StorageActivityResult<string?>?>
 {
     /// <inheritdoc/>
-    public async Task<StorageActivityResult<string?>?> StartAsync(StorageActivityInput? input)
+    public async Task<StorageActivityResult<string?>?> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
     {
         FileInfo? fileInfo = input.ToFileInfo(logger);
 
@@ -23,7 +23,7 @@ public class ProgramFileReadActivity(ILogger<ProgramFileReadActivity> logger) : 
                 null);
         }
 
-        string content = await File.ReadAllTextAsync(fileInfo.FullName);
+        string content = await File.ReadAllTextAsync(fileInfo.FullName, cancellationToken);
 
         return new StorageActivityResult<string?>(
             HttpStatusCode.OK,

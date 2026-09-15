@@ -118,10 +118,11 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync">
+        <member name="M:Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync(System.Threading.CancellationToken)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
             </summary>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
         </member>
         <member name="T:Songhay.Abstractions.IActivityTask">
             <summary>
@@ -133,10 +134,11 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityTask.StartAsync">
+        <member name="M:Songhay.Abstractions.IActivityTask.StartAsync(System.Threading.CancellationToken)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
         </member>
         <member name="T:Songhay.Abstractions.IActivityTask`1">
             <summary>
@@ -149,11 +151,12 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityTask`1.StartAsync(`0)">
+        <member name="M:Songhay.Abstractions.IActivityTask`1.StartAsync(`0,System.Threading.CancellationToken)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
             </summary>
             <param name="input">The input.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
         </member>
         <member name="T:Songhay.Abstractions.IActivityTask`2">
             <summary>
@@ -167,10 +170,12 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityTask`2.StartAsync(`0)">
+        <member name="M:Songhay.Abstractions.IActivityTask`2.StartAsync(`0,System.Threading.CancellationToken)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
+            <param name="input">The input.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
         </member>
         <member name="T:Songhay.Abstractions.IActivityTaskGroup">
             <summary>
@@ -191,6 +196,59 @@
             <returns>
             Returns the stringified output of <c>IActivity*</c> implementation.
             </returns>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityValueTask">
+            <summary>
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.ValueTask"/> support.
+            </summary>
+            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <remarks>
+            For detail around why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityValueTask.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
+            </summary>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityValueTask`1">
+            <summary>
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.ValueTask"/> support.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <remarks>
+            For detail around why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityValueTask`1.StartAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityValueTask`2">
+            <summary>
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.ValueTask"/> support.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <typeparam name="TOutput">The type of the output.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivity" />
+            <remarks>
+            For detail aound why this definition exists,
+            see https://github.com/BryanWilhite/SonghayCore/issues/83
+            </remarks>
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityValueTask`2.StartAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
         </member>
         <member name="T:Songhay.Abstractions.IApiEndpoint">
             <summary>
@@ -446,7 +504,7 @@
             </summary>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
-        <member name="M:Songhay.Activities.ProgramFileDeleteActivity.StartAsync(Songhay.Models.StorageActivityInput)">
+        <member name="M:Songhay.Activities.ProgramFileDeleteActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
         <member name="T:Songhay.Activities.ProgramFileListActivity">
@@ -467,7 +525,7 @@
             </summary>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
-        <member name="M:Songhay.Activities.ProgramFileListActivity.StartAsync(Songhay.Models.StorageActivityInput)">
+        <member name="M:Songhay.Activities.ProgramFileListActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
         <member name="T:Songhay.Activities.ProgramFileReadActivity">
@@ -488,7 +546,7 @@
             </summary>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
-        <member name="M:Songhay.Activities.ProgramFileReadActivity.StartAsync(Songhay.Models.StorageActivityInput)">
+        <member name="M:Songhay.Activities.ProgramFileReadActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
         <member name="T:Songhay.Activities.ProgramFileSaveActivity">
@@ -507,7 +565,7 @@
             </summary>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
-        <member name="M:Songhay.Activities.ProgramFileSaveActivity.StartAsync(Songhay.Models.StorageActivityInput{System.String})">
+        <member name="M:Songhay.Activities.ProgramFileSaveActivity.StartAsync(Songhay.Models.StorageActivityInput{System.String},System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
         <member name="T:Songhay.AzureActiveDirectoryUtility">

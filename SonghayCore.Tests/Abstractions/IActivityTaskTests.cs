@@ -1,14 +1,12 @@
-using Meziantou.Extensions.Logging.Xunit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Songhay.Abstractions;
 
 namespace Songhay.Tests.Abstractions;
 
 public class MyActivityTaskWithInput(IConfiguration configuration, ILogger<MyActivityTaskWithInput> logger) : IActivityTask<string>
 {
-    public async Task StartAsync(string? input)
+    public async Task StartAsync(string? input, CancellationToken cancellationToken)
     {
         await Task.Run(() =>
         {
@@ -23,7 +21,7 @@ public class MyActivityTaskWithInput(IConfiguration configuration, ILogger<MyAct
 
 public class MyActivityTaskWithInputAndOutput : IActivityTask<int, string>
 {
-    public async Task<string?> StartAsync(int input)
+    public async Task<string?> StartAsync(int input, CancellationToken cancellationToken)
     {
         return await Task.FromResult(input switch
         {
@@ -37,7 +35,7 @@ public class MyActivityTaskWithInputAndOutput : IActivityTask<int, string>
 
 public class MyOtherActivityTaskWithInputAndOutput : IActivityTask<int, string>
 {
-    public async Task<string?> StartAsync(int input)
+    public async Task<string?> StartAsync(int input, CancellationToken cancellationToken)
     {
         return await Task.FromResult(input switch
         {
@@ -55,15 +53,15 @@ public class MyOutputActivityTask(
     [FromKeyedServices(nameof(MyOtherActivityTaskWithInputAndOutput))]
     IActivityTask<int, string> otherIoActivity) : IActivityOutputOnlyTask<string[]>
 {
-    public async Task<string[]?> StartAsync()
+    public async Task<string[]?> StartAsync(CancellationToken cancellationToken)
     {
         var output = await Task.WhenAll(
-            otherIoActivity.StartAsync(4),
-            ioActivity.StartAsync(4),
-            ioActivity.StartAsync(16),
-            otherIoActivity.StartAsync(16),
-            otherIoActivity.StartAsync(42),
-            ioActivity.StartAsync(42)
+            otherIoActivity.StartAsync(4, cancellationToken),
+            ioActivity.StartAsync(4, cancellationToken),
+            ioActivity.StartAsync(16, cancellationToken),
+            otherIoActivity.StartAsync(16, cancellationToken),
+            otherIoActivity.StartAsync(42, cancellationToken),
+            ioActivity.StartAsync(4, cancellationToken)
         );
 
         return output.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray()!;
@@ -97,7 +95,7 @@ public class IActivityTaskTestsIActivityTests(ITestOutputHelper testOutputHelper
 
         IActivityTask<string> activity = provider.GetRequiredService<IActivityTask<string>>();
 
-        await activity.StartAsync(input);
+        await activity.StartAsync(input, CancellationToken.None);
 
         Assert.Equal(expected, configuration[actual]);
     }
@@ -114,7 +112,7 @@ public class IActivityTaskTestsIActivityTests(ITestOutputHelper testOutputHelper
         ServiceProvider provider = services.BuildServiceProvider();
 
         IActivityOutputOnlyTask<string[]> activity = provider.GetRequiredService<IActivityOutputOnlyTask<string[]>>();
-        var actual = await activity.StartAsync();
+        var actual = await activity.StartAsync(CancellationToken.None);
 
         Assert.NotNull(actual);
 

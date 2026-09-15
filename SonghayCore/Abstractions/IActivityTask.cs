@@ -15,7 +15,8 @@ public interface IActivityTask
     /// <summary>
     /// Starts the <see cref="IActivity"/> asynchronously.
     /// </summary>
-    Task StartAsync();
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
+    Task StartAsync(CancellationToken cancellationToken);
 }
 
 /// <summary>
@@ -33,7 +34,8 @@ public interface IActivityTask<in TInput>
     /// Starts the <see cref="IActivity" /> asynchronously.
     /// </summary>
     /// <param name="input">The input.</param>
-    Task StartAsync(TInput? input);
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
+    Task StartAsync(TInput? input, CancellationToken cancellationToken);
 }
 
 /// <summary>
@@ -51,5 +53,7 @@ public interface IActivityTask<in TInput, TOutput>
     /// <summary>
     /// Starts the <see cref="IActivity"/> asynchronously.
     /// </summary>
-    Task<TOutput?> StartAsync(TInput? input);
+    /// <param name="input">The input.</param>
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
+    Task<TOutput?> StartAsync(TInput? input, CancellationToken cancellationToken);
 }

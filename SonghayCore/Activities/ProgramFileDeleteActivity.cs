@@ -9,7 +9,7 @@ namespace Songhay.Activities;
 public class ProgramFileDeleteActivity(ILogger<ProgramFileDeleteActivity> logger) : IActivityTask<StorageActivityInput?, StorageActivityResult?>
 {
     /// <inheritdoc/>
-    public async Task<StorageActivityResult?> StartAsync(StorageActivityInput? input)
+    public async Task<StorageActivityResult?> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
     {
         FileInfo? fileInfo = input.ToFileInfo(logger);
 

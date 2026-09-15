@@ -22,7 +22,7 @@ public class ProgramFileActivitiesTests(ITestOutputHelper testOutputHelper)
         ProgramFileDeleteActivity activity = new(logger);
 
         //act:
-        var actual = await activity.StartAsync(input);
+        var actual = await activity.StartAsync(input, CancellationToken.None);
 
         //assert:
         Assert.NotNull(actual);
@@ -41,7 +41,7 @@ public class ProgramFileActivitiesTests(ITestOutputHelper testOutputHelper)
         ProgramFileListActivity activity = new(logger);
 
         //act:
-        var actual = await activity.StartAsync(input);
+        var actual = await activity.StartAsync(input, CancellationToken.None);
 
         //assert:
         Assert.NotNull(actual);
@@ -64,7 +64,7 @@ public class ProgramFileActivitiesTests(ITestOutputHelper testOutputHelper)
         ProgramFileListActivity activity = new(logger);
 
         //act:
-        var actual = await activity.StartAsync(input);
+        var actual = await activity.StartAsync(input, CancellationToken.None);
 
         //assert:
         Assert.NotNull(actual);
@@ -87,7 +87,7 @@ public class ProgramFileActivitiesTests(ITestOutputHelper testOutputHelper)
         ProgramFileListActivity activity = new(logger);
 
         //act:
-        var actual = await activity.StartAsync(input);
+        var actual = await activity.StartAsync(input, CancellationToken.None);
 
         //assert:
         Assert.NotNull(actual);
@@ -110,7 +110,7 @@ public class ProgramFileActivitiesTests(ITestOutputHelper testOutputHelper)
         ProgramFileListActivity activity = new(logger);
 
         //act:
-        var actual = await activity.StartAsync(input);
+        var actual = await activity.StartAsync(input, CancellationToken.None);
 
         //assert:
         Assert.NotNull(actual);
@@ -130,7 +130,7 @@ public class ProgramFileActivitiesTests(ITestOutputHelper testOutputHelper)
         ProgramFileSaveActivity activity = new(logger);
 
         //act:
-        var actual = await activity.StartAsync(input);
+        var actual = await activity.StartAsync(input, CancellationToken.None);
 
         //assert:
         Assert.NotNull(actual);

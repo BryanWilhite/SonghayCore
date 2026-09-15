@@ -15,7 +15,8 @@ public interface IActivityValueTask
     /// <summary>
     /// Starts the <see cref="IActivity"/> asynchronously.
     /// </summary>
-    ValueTask StartAsync();
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
+    ValueTask StartAsync(CancellationToken cancellationToken);
 }
 
 /// <summary>
@@ -33,7 +34,8 @@ public interface IActivityValueTask<in TInput>
     /// Starts the <see cref="IActivity" /> asynchronously.
     /// </summary>
     /// <param name="input">The input.</param>
-    ValueTask StartAsync(TInput? input);
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
+    ValueTask StartAsync(TInput? input, CancellationToken cancellationToken);
 }
 
 /// <summary>
@@ -51,5 +53,7 @@ public interface IActivityValueTask<in TInput, TOutput>
     /// <summary>
     /// Starts the <see cref="IActivity"/> asynchronously.
     /// </summary>
-    ValueTask<TOutput?> StartAsync(TInput? input);
+    /// <param name="input">The input.</param>
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
+    ValueTask<TOutput?> StartAsync(TInput? input, CancellationToken cancellationToken);
 }
