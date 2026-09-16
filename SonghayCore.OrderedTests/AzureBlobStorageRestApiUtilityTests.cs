@@ -14,12 +14,9 @@ public class AzureBlobStorageRestApiUtilityTests : OrderedTestBase
 
     static string? GetConnectionStringFromEnvironmentVariable()
     {
-        var path = Environment.GetEnvironmentVariable("SONGHAY_APP_SETTINGS_PATH");
+        var json = ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment();
 
-        if (string.IsNullOrWhiteSpace(path)) return null;
-
-        var json = File.ReadAllText(path);
-        Assert.False(string.IsNullOrWhiteSpace(json));
+        if (string.IsNullOrWhiteSpace(json)) return null;
 
         using var jDoc = JsonDocument.Parse(json);
         var actual = jDoc.RootElement

@@ -1982,6 +1982,7 @@
             with the conventional environment variable, <c>SONGHAY_APP_SETTINGS_PATH</c>.
             </summary>
             <param name="configurationBuilder">the <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/></param>
+            <see cref="T:Songhay.ProgramMetadataUtility"/>
         </member>
         <member name="T:Songhay.Extensions.IConfigurationExtensions">
             <summary>
@@ -7870,6 +7871,46 @@
             formatting relative paths for <see cref="M:System.IO.Path.Combine(System.String,System.String)"/>.
             </remarks>
         </member>
+        <member name="T:Songhay.ProgramMetadataUtility">
+            <summary>
+            Shared routines for <see cref="T:Songhay.Models.ProgramMetadata"/>
+            </summary>
+            <remarks>
+            This is the minimalist alternative to <see cref="M:Songhay.Extensions.IConfigurationBuilderExtensions.AddConventionalJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramMetadataUtility.GetProgramMetadataFromEnvironment">
+            <summary>
+            Returns an instance of <see cref="T:Songhay.Models.ProgramMetadata"/>
+            based on the presence of one of two conventional environment variables.
+            </summary>
+        </member>
+        <member name="M:Songhay.ProgramMetadataUtility.GetJsonDeserializerOptions">
+            <summary>
+            Returns <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            for <see cref="T:Songhay.Models.ProgramMetadata"/>
+            with explicit serializer context(s)
+            for AOT compiled apps.
+            </summary>
+        </member>
+        <member name="M:Songhay.ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment">
+             <summary>
+             Returns a JSON string or <c>null</c>
+             based on the presence of one of two conventional environment variables.
+             </summary>
+             <remarks>
+             Of the two expected environment variables,
+             The one with the <c>_PATH</c> suffix should lead to JSON of the form:
+            
+             <code>
+             {
+                 "ProgramMetadata": { … }
+             }
+             </code>
+            
+             …which conforms to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> conventions.
+             </remarks>
+        </member>
         <member name="T:Songhay.ProgramTypeUtility">
             <summary>
             Static members for type handling.
@@ -8598,6 +8639,207 @@
                     ○ Match a character other than '\n' atomically at least once.<br/>
             </code>
             </remarks>
+        </member>
+        <member name="T:Songhay.SerializerContexts.DbmsMetadataSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.DbmsMetadata"/> to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.DbmsMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.EncryptionMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DbmsMetadataSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DbmsMetadataSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DbmsMetadataSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.DictionarySerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="T:System.Collections.Generic.Dictionary`2"/>
+            where <c>TKey</c> and <c>TValue</c> are <see cref="T:System.String"/>
+            to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DictionarySerializerContext.DictionaryStringString">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DictionarySerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DictionarySerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DictionarySerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DictionarySerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DictionarySerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DictionarySerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.ProgramMetadataSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata"/> to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DbmsMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.EncryptionMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.RestApiMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringString">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.Uri">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ProgramMetadataSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.RestApiMetadataSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.RestApiMetadata"/> to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.RestApiMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.DictionaryStringString">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.Uri">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.RestApiMetadataSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.RestApiMetadataSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.RestApiMetadataSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
         </member>
         <member name="T:Songhay.TaskUtility">
             <summary>
