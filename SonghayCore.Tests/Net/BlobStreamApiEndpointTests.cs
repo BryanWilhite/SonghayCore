@@ -51,7 +51,7 @@ public class BlobStreamApiEndpointTests(ITestOutputHelper helper)
             apiVersion,
             playerYouTubeApiMetaYtContainerKey);
 
-        BlobStreamApiEndpoint endpoint = new(ResiliencePipeline.Empty, "default");
+        BlobStreamApiEndpoint endpoint = new(_httpClientFactory, ResiliencePipeline.Empty, "default");
 
         //act:
         await endpoint.DownloadStreamAsync(requestStrategy, blobName.Replace(" ", "%20"),
@@ -125,4 +125,7 @@ public class BlobStreamApiEndpointTests(ITestOutputHelper helper)
 
         return programMetadata;
     }
+
+    private readonly IHttpClientFactory _httpClientFactory =
+        ServiceCollectionUtility.GetHttpClientFactory(serviceCollection: null);
 }

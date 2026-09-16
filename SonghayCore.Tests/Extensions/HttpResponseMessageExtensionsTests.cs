@@ -1,64 +1,67 @@
-﻿using Songhay.Models;
-
-namespace Songhay.Tests.Extensions;
+﻿namespace Songhay.Tests.Extensions;
 
 public class HttpResponseMessageExtensionsTests(ITestOutputHelper helper)
 {
     [Theory]
-    [InlineData("https://songhaystorage.blob.core.windows.net/studio-public/songhay_icon.png", "../../../content")]
-    public async Task DownloadByteArrayToFile_Test(string location, string target)
+    [ProjectDirectoryData("https://placecats.com/300/200", "content/jpg/placecat.jpg")]
+    public async Task DownloadByteArrayToFile_Test(DirectoryInfo projectInfo, string location, string targetPath)
     {
-        var root = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, target);
-        var rootInfo = new DirectoryInfo(root);
-        Assert.True(rootInfo.Exists);
+        //arrange:
+        Uri uri = new Uri(location);
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, uri);
 
-        var uri = new Uri(location);
-        var request = new HttpRequestMessage(HttpMethod.Get, uri);
-        using var response = await request.SendAsync();
+        //act:
+        using HttpResponseMessage response = await request.SendAsync(() => _httpClientFactory.CreateClient(nameof(DownloadByteArrayToFile_Test)));
 
-        var targetInfo = new FileInfo(rootInfo.ToCombinedPath(uri.ToFileName()));
+        //archive:
+        FileInfo targetInfo = new FileInfo(projectInfo.ToCombinedPath(targetPath));
         helper.WriteLine($"Downloading to {targetInfo.FullName}...");
 
         await response.DownloadByteArrayToFileAsync(targetInfo);
     }
 
     [Theory]
-    [InlineData("https://songhaystorage.blob.core.windows.net/studio-dash/app.json", "../../../content/json")]
-    public async Task DownloadStringToFile_Test(string location, string target)
+    [ProjectDirectoryData("https://api.chucknorris.io/jokes/random", "content/json/chucknorris.json")]
+    public async Task DownloadStringToFile_Test(DirectoryInfo projectInfo, string location, string targetPath)
     {
-        var root = ProgramAssemblyUtility.GetPathFromAssembly(GetType().Assembly, target);
-        var rootInfo = new DirectoryInfo(root);
-        Assert.True(rootInfo.Exists);
+        //arrange:
+        Uri uri = new Uri(location);
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, uri);
 
-        var uri = new Uri(location);
-        var request = new HttpRequestMessage(HttpMethod.Get, uri);
-        using var response = await request.SendAsync();
+        //act:
+        using HttpResponseMessage response = await request.SendAsync(() => _httpClientFactory.CreateClient(nameof(DownloadStringToFile_Test)));
 
-        var targetInfo = new FileInfo(rootInfo.ToCombinedPath(uri.ToFileName()));
+        //archive:
+        FileInfo targetInfo = new FileInfo(projectInfo.ToCombinedPath(targetPath));
         helper.WriteLine($"Downloading to {targetInfo.FullName}...");
 
         await response.DownloadStringToFileAsync(targetInfo);
     }
 
     [Theory]
-    [InlineData("https://songhaystorage.blob.core.windows.net/studio-public/json-generator.json")]
+    [InlineData("https://api.chucknorris.io/jokes/random")]
     public async Task StreamToInstance_Test(string location)
     {
-        // https://next.json-generator.com/NyyaU2K8q
+        //arrange:
+        Uri uri = new Uri(location);
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, uri);
 
-        var uri = new Uri(location);
-        var request = new HttpRequestMessage(HttpMethod.Get, uri);
-
-        using var response = await request
+        //act:
+        using HttpResponseMessage response = await request
             .SendAsync(
-                requestMessageAction: null,
-                optionalClientGetter: null,
-                HttpCompletionOption.ResponseHeadersRead);
+                () => _httpClientFactory.CreateClient(nameof(StreamToInstance_Test)),
+                HttpCompletionOption.ResponseHeadersRead,
+                requestMessageAction: null);
 
-        var instance = await response
-            .StreamToInstanceAsync<DisplayItemModel[]>(options: null);
+        //assert:
+        Dictionary<string, object>? instance = await response
+            .StreamToInstanceAsync<Dictionary<string, object>>(options: null);
 
         Assert.NotNull(instance);
         Assert.NotEmpty(instance);
+        helper.WriteLine(instance.TryGetValueWithKey("value", throwException: true)!.ToString());
     }
+
+    private readonly IHttpClientFactory _httpClientFactory =
+        ServiceCollectionUtility.GetHttpClientFactory(serviceCollection: null);
 }

@@ -642,35 +642,38 @@
             <exception cref="T:System.NullReferenceException"></exception>
             <exception cref="T:System.Data.DataException"></exception>
         </member>
-        <member name="M:Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(System.String,System.String,System.String)">
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(System.String,System.String,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             <c>DELETE</c>s the BLOB of the specified ‘file’ name.
             </summary>
             <param name="connectionString">Azure BLOB Storage connection string</param>
             <param name="containerName">Azure BLOB Storage container name</param>
             <param name="fileName">BLOB ‘file’ name</param>
+            <param name="clientGetter">The required client getter.</param>
             <exception cref="T:System.Net.Http.HttpRequestException"></exception>
         </member>
-        <member name="M:Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(System.String,System.String,System.String)">
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(System.String,System.String,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             <c>GET</c>s the BLOB of the specified ‘file’ name.
             </summary>
             <param name="connectionString">Azure BLOB Storage connection string</param>
             <param name="containerName">Azure BLOB Storage container name</param>
             <param name="fileName">BLOB ‘file’ name</param>
+            <param name="clientGetter">The required client getter.</param>
             <returns>Returns the <see cref="T:System.String"/> contents of the file.</returns>
             <exception cref="T:System.Net.Http.HttpRequestException"></exception>
         </member>
-        <member name="M:Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(System.String,System.String)">
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(System.String,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Lists the contents of the specified BLOB container.
             </summary>
             <param name="connectionString">Azure BLOB Storage connection string</param>
             <param name="containerName">Azure BLOB Storage container name</param>
+            <param name="clientGetter">The required client getter.</param>
             <returns>Returns the contents of the container as an XML<see cref="T:System.String"/>.</returns>
             <exception cref="T:System.Net.Http.HttpRequestException"></exception>
         </member>
-        <member name="M:Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(System.String,System.String,System.String,System.String)">
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(System.String,System.String,System.String,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             <c>PUT</c>s the BLOB of the specified ‘file’ name.
             </summary>
@@ -678,6 +681,7 @@
             <param name="containerName">Azure BLOB Storage container name</param>
             <param name="fileName">BLOB ‘file’ name</param>
             <param name="content">The <see cref="T:System.String"/> contents of the ‘file.’</param>
+            <param name="clientGetter">The required client getter.</param>
             <exception cref="T:System.Net.Http.HttpRequestException"></exception>
         </member>
         <member name="T:Songhay.AzureKeyVaultRestApiUtility">
@@ -689,12 +693,13 @@
             [ https://www.c-sharpcorner.com/article/how-to-access-azure-key-vault-secrets-through-rest-api-using-postman/ ]
             </remarks>
         </member>
-        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})">
+        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})">
              <summary>
              Calls the specified REST endpoint, using OAuth to authenticate the specified access data.
              </summary>
              <param name="accessUri">the location of the Azure Active Directory endpoint</param>
              <param name="accessData">the data required to <c>POST</c> to the specified endpoint</param>
+             <param name="clientGetter">The required client getter.</param>
              <remarks>
              The conventional way to generate the <c>accessUri</c> is via <see cref="T:Songhay.Models.RestApiMetadata"/>,
              its <see cref="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)"/> method.
@@ -703,13 +708,14 @@
              its <see cref="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)"/> method.
              </remarks>
         </member>
-        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)">
+        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Calls REST endpoint under <c>{vaultName}.vault.azure.net</c>
             to get a secret from the specified vault.
             </summary>
-            <param name="accessToken">the JSON obtained from <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})" /></param>
+            <param name="accessToken">the JSON obtained from <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})" /></param>
             <param name="secretUri">the location of the Azure Key Vault endpoint</param>
+            <param name="clientGetter">The required client getter.</param>
             <remarks>
             The conventional way to generate the <c>secretUri</c> is via <see cref="T:Songhay.Models.RestApiMetadata"/>,
             its <see cref="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)"/> method.
@@ -1712,90 +1718,77 @@
              Provide an eTag, and it will only make changes to a blob if the current eTag matches, to ensure you don't overwrite someone else's changes.
              </remarks>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Gets a <see cref="T:System.String"/> from the derived <see cref="T:System.Net.Http.HttpResponseMessage"/>.
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpResponseMessage})">
             <summary>
             Gets a <see cref="T:System.String" /> from the derived <see cref="T:System.Net.Http.HttpResponseMessage" />.
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
             <param name="responseMessageAction">The response message action.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})">
-            <summary>
-            Gets a <see cref="T:System.String" /> from the derived <see cref="T:System.Net.Http.HttpResponseMessage" />.
-            </summary>
-            <param name="request">The request.</param>
-            <param name="responseMessageAction">The response message action.</param>
-            <param name="optionalClientGetter">The optional client getter.</param>
-        </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             </summary>
-            <param name="request"></param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
             <param name="requestMessageAction">The request message action.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             </summary>
-            <param name="request">The request.</param>
-            <param name="requestMessageAction">The request message action.</param>
-            <param name="optionalClientGetter">The optional client getter.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
             <param name="completionOption"> the <see cref="T:System.Net.Http.HttpCompletionOption"/>.</param>
+            <param name="requestMessageAction">The request message action.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             with the specified request body, <see cref="P:System.Text.Encoding.UTF8"/>
             and <see cref="F:Songhay.Models.MimeTypes.ApplicationJson"/>.
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
             <param name="requestBody">The request body.</param>
+            <param name="clientGetter">The required client getter.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             with the specified request body.
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
             <param name="requestBody">The request body.</param>
             <param name="encoding">The encoding.</param>
             <param name="mediaType">Type of the media.</param>
+            <param name="clientGetter">The required client getter.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             with the specified request body.
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
             <param name="requestBody">The request body.</param>
             <param name="encoding">The encoding.</param>
             <param name="mediaType">Type of the media.</param>
+            <param name="clientGetter">The required client getter.</param>
             <param name="requestMessageAction">The request message action.</param>
-        </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})">
-            <summary>
-            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
-            with the specified request body.
-            </summary>
-            <param name="request">The request.</param>
-            <param name="requestBody">The request body.</param>
-            <param name="encoding">The encoding.</param>
-            <param name="mediaType">Type of the media.</param>
-            <param name="requestMessageAction">The request message action.</param>
-            <param name="optionalClientGetter">The optional client getter.</param>
         </member>
         <member name="T:Songhay.Extensions.HttpResponseMessageExtensions">
             <summary>
@@ -3272,7 +3265,7 @@
         <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)">
              <summary>
              Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
-             to the data required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})"/>.
+             to the data required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})"/>.
              </summary>
              <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
              <remarks>
@@ -3295,7 +3288,7 @@
         <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)">
              <summary>
              Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
-             to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})"/>.
+             to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})"/>.
              </summary>
              <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
              <remarks>
@@ -3314,7 +3307,7 @@
         <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)">
              <summary>
              Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
-             to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)"/>.
+             to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri,System.Func{System.Net.Http.HttpClient})"/>.
              </summary>
              <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
              <param name="secretNameKey">the name of the Claim key that returns the Vault secret</param>
@@ -4110,24 +4103,26 @@
             </summary>
             <param name="input">The input.</param>
         </member>
-        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)">
+        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Converts the specified <see cref="T:System.Uri" />
             to its ‘expanded’ version.
             </summary>
             <param name="expandableUri">The expandable <see cref="T:System.Uri"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
             <remarks>
             This member will call itself recursively
             until <see cref="M:Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)"/> returns <c>true</c>
             or <see cref="P:System.Net.Http.Headers.HttpResponseHeaders.Location"/> is null.
             </remarks>
         </member>
-        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)">
+        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Converts the specified <see cref="T:System.Uri" />
             to its ‘expanded’ version.
             </summary>
             <param name="expandableUri">The expandable <see cref="T:System.Uri"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
         </member>
         <member name="M:Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)">
             <summary>
@@ -4523,10 +4518,32 @@
             Caches frequently-used <see cref="T:System.Text.Json.JsonSerializerOptions"/>
             </summary>
         </member>
+        <member name="P:Songhay.JsonSerializerOptionsCache.OptionsForCamelCaseOnly">
+            <summary>
+            Returns <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            with <see cref="P:System.Text.Json.JsonSerializerOptions.PropertyNamingPolicy"/> set
+            to <see cref="P:System.Text.Json.JsonNamingPolicy.CamelCase"/> 
+            </summary>
+        </member>
+        <member name="P:Songhay.JsonSerializerOptionsCache.OptionsForCamelCaseWithIndentation">
+            <summary>
+            Returns <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            with <see cref="P:System.Text.Json.JsonSerializerOptions.PropertyNamingPolicy"/> set
+            to <see cref="P:System.Text.Json.JsonNamingPolicy.CamelCase"/> 
+            and <see cref="P:System.Text.Json.JsonSerializerOptions.WriteIndented"/> set to <c>true</c>
+            </summary>
+        </member>
         <member name="P:Songhay.JsonSerializerOptionsCache.OptionsForIndentationOnly">
             <summary>
             Returns <see cref="T:System.Text.Json.JsonSerializerOptions"/>
             with <see cref="P:System.Text.Json.JsonSerializerOptions.WriteIndented"/> set to <c>true</c>
+            </summary>
+        </member>
+        <member name="P:Songhay.JsonSerializerOptionsCache.OptionsForIndentationWithSize4">
+            <summary>
+            Returns <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            with <see cref="P:System.Text.Json.JsonSerializerOptions.WriteIndented"/> set to <c>true</c>
+            and <see cref="P:System.Text.Json.JsonSerializerOptions.IndentSize"/> set to <c>4</c>
             </summary>
         </member>
         <member name="T:Songhay.MathUtility">
@@ -7336,16 +7353,18 @@
             <summary>
             Defines a REST API endpoint
             </summary>
+            <param name="clientFactory">the <see cref="T:System.Net.Http.IHttpClientFactory"/></param>
             <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
             <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
             <remarks>
             The output of <c>httpRequestMessageGetter</c> will be inside a <c>using</c> block.
             </remarks>
         </member>
-        <member name="M:Songhay.Net.ApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)">
+        <member name="M:Songhay.Net.ApiEndpoint.#ctor(System.Net.Http.IHttpClientFactory,Polly.ResiliencePipeline,System.String)">
             <summary>
             Defines a REST API endpoint
             </summary>
+            <param name="clientFactory">the <see cref="T:System.Net.Http.IHttpClientFactory"/></param>
             <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
             <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
             <remarks>
@@ -7444,13 +7463,15 @@
             <summary>
             Defines the default implementation of <see cref="T:Songhay.Abstractions.IBlobStreamApiEndpoint"/>
             </summary>
+            <param name="clientFactory">the <see cref="T:System.Net.Http.IHttpClientFactory"/></param>
             <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
             <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
         </member>
-        <member name="M:Songhay.Net.BlobStreamApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)">
+        <member name="M:Songhay.Net.BlobStreamApiEndpoint.#ctor(System.Net.Http.IHttpClientFactory,Polly.ResiliencePipeline,System.String)">
             <summary>
             Defines the default implementation of <see cref="T:Songhay.Abstractions.IBlobStreamApiEndpoint"/>
             </summary>
+            <param name="clientFactory">the <see cref="T:System.Net.Http.IHttpClientFactory"/></param>
             <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
             <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
         </member>

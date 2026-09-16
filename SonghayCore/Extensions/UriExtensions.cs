@@ -91,18 +91,19 @@ public static class UriExtensions
     /// to its ‘expanded’ version.
     /// </summary>
     /// <param name="expandableUri">The expandable <see cref="Uri"/>.</param>
+    /// <param name="clientGetter">The required client getter.</param>
     /// <remarks>
     /// This member will call itself recursively
     /// until <see cref="HttpResponseMessageExtensions.IsMovedOrRedirected"/> returns <c>true</c>
     /// or <see cref="System.Net.Http.Headers.HttpResponseHeaders.Location"/> is null.
     /// </remarks>
-    public static async Task<Uri?> ToExpandedUriAsync(this Uri? expandableUri)
+    public static async Task<Uri?> ToExpandedUriAsync(this Uri? expandableUri, Func<HttpClient> clientGetter)
     {
         ArgumentNullException.ThrowIfNull(expandableUri);
 
         var message = new HttpRequestMessage(HttpMethod.Get, expandableUri);
 
-        using var response = await message.SendAsync();
+        using var response = await message.SendAsync(clientGetter);
 
         if (response.Headers.Location == null)
         {
@@ -115,7 +116,7 @@ public static class UriExtensions
         }
 
         var uri = await response.Headers.Location
-            .ToExpandedUriAsync()
+            .ToExpandedUriAsync(clientGetter)
             .ConfigureAwait(continueOnCapturedContext: false);
 
         return uri;
@@ -126,10 +127,11 @@ public static class UriExtensions
     /// to its ‘expanded’ version.
     /// </summary>
     /// <param name="expandableUri">The expandable <see cref="Uri"/>.</param>
-    public static async Task<KeyValuePair<Uri?, Uri?>> ToExpandedUriPairAsync(this Uri? expandableUri)
+    /// <param name="clientGetter">The required client getter.</param>
+    public static async Task<KeyValuePair<Uri?, Uri?>> ToExpandedUriPairAsync(this Uri? expandableUri, Func<HttpClient> clientGetter)
     {
         var expandedUri = await expandableUri
-            .ToExpandedUriAsync()
+            .ToExpandedUriAsync(clientGetter)
             .ConfigureAwait(continueOnCapturedContext: false);
 
         return new KeyValuePair<Uri?, Uri?>(expandableUri, expandedUri);

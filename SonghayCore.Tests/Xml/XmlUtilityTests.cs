@@ -285,48 +285,6 @@ public class XmlUtilityTests(ITestOutputHelper helper)
             });
     }
 
-    [Fact]
-    public void InputAs_string_Test()
-    {
-        // act:
-        XPathDocument? actual = XmlUtility.InputAs(Xml);
-        helper.WriteLine(actual?.CreateNavigator().OuterXml);
-
-        // assert:
-        Assert.NotNull(actual);
-    }
-
-    [Fact]
-    public void InputAs_XmlDocument_Test()
-    {
-        // arrange:
-        ILogger logger = _loggerProvider.CreateLogger(nameof(InputAs_XmlDocument_Test));
-        XmlDocument? document = XmlUtility.GetInstanceRaw<XmlDocument>(Xml, logger);
-
-        // act:
-        XPathDocument? actual = XmlUtility.InputAs(document);
-
-        // assert:
-        Assert.NotNull(actual);
-
-        helper.WriteLine(actual?.CreateNavigator().OuterXml);
-    }
-
-    [Fact]
-    public void InputAs_XPathDocument_Test()
-    {
-        // arrange:
-        XPathDocument document = XmlUtility.GetNavigableDocument(Xml).ToReferenceTypeValueOrThrow();
-
-        // act:
-        XPathDocument? actual = XmlUtility.InputAs(document);
-
-        // assert:
-        Assert.NotNull(actual);
-
-        helper.WriteLine(actual?.CreateNavigator().OuterXml);
-    }
-
     [Theory]
     [InlineData("<e stamp=\"2001-02-14\" />", ".//@stamp", "2001-02-14", true)]
     [InlineData("<e stamp=\"2001-02-14\" />", ".//@stamp", "frankie", false)]
@@ -340,28 +298,6 @@ public class XmlUtilityTests(ITestOutputHelper helper)
 
         // assert:
         Assert.Equal(expected, actual);
-    }
-
-    [Fact]
-    public void OutputAs_XmlDocument_Test()
-    {
-        // act:
-        XmlDocument? actual = XmlUtility.OutputAs<XmlDocument>(Xml);
-        helper.WriteLine(actual?.OuterXml);
-
-        // assert:
-        Assert.NotNull(actual);
-    }
-
-    [Fact]
-    public void OutputAs_XPathDocument_Test()
-    {
-        // act:
-        XPathDocument? actual = XmlUtility.OutputAs<XPathDocument>(Xml);
-        helper.WriteLine(actual?.CreateNavigator().OuterXml);
-
-        // assert:
-        Assert.NotNull(actual);
     }
 
     [Fact]

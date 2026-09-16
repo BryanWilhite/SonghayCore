@@ -24,9 +24,12 @@ public class UriExtensionsTests(ITestOutputHelper helper)
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
 
         helper.WriteLine($"expanding `{location}`...");
-        var uri = new Uri(location);
+        Uri uri = new(location);
 
-        var expandedUri = await uri.ToExpandedUriAsync();
+        Uri? expandedUri = await uri.ToExpandedUriAsync(() => _httpClientFactory.CreateClient(nameof(ToExpandedUriAsync_Test)));
         helper.WriteLine($"expanded to `{expandedUri.ToReferenceTypeValueOrThrow().OriginalString}`.");
     }
+
+    private readonly IHttpClientFactory _httpClientFactory =
+        ServiceCollectionUtility.GetHttpClientFactory(serviceCollection: null);
 }
