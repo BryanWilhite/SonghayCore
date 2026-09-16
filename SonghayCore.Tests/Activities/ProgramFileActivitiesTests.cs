@@ -48,7 +48,7 @@ public class ProgramFileActivitiesTests(ITestOutputHelper testOutputHelper)
         Assert.Equal(HttpStatusCode.OK, actual.HttpStatusCode);
         Assert.NotEmpty(actual.Content ?? []);
 
-        string json = JsonSerializer.Serialize(actual.Content, JsonSerializerOptionsUtility.JsonSerializerOptionsForIndentation);
+        string json = JsonSerializer.Serialize(actual.Content, JsonSerializerOptionsCache.OptionsForIndentationOnly);
         testOutputHelper.WriteLine(json);
     }
 
@@ -71,7 +71,7 @@ public class ProgramFileActivitiesTests(ITestOutputHelper testOutputHelper)
         Assert.Equal(HttpStatusCode.OK, actual.HttpStatusCode);
         Assert.NotEmpty(actual.Content ?? []);
 
-        string json = JsonSerializer.Serialize(actual.Content, JsonSerializerOptionsUtility.JsonSerializerOptionsForIndentation);
+        string json = JsonSerializer.Serialize(actual.Content, JsonSerializerOptionsCache.OptionsForIndentationOnly);
         testOutputHelper.WriteLine(json);
     }
 
@@ -94,7 +94,7 @@ public class ProgramFileActivitiesTests(ITestOutputHelper testOutputHelper)
         Assert.Equal(HttpStatusCode.NotFound, actual.HttpStatusCode);
         Assert.Empty(actual.Content!);
 
-        string json = JsonSerializer.Serialize(actual.Content, JsonSerializerOptionsUtility.JsonSerializerOptionsForIndentation);
+        string json = JsonSerializer.Serialize(actual.Content, JsonSerializerOptionsCache.OptionsForIndentationOnly);
         testOutputHelper.WriteLine(json);
     }
 
