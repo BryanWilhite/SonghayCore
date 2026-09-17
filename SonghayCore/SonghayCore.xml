@@ -2190,6 +2190,29 @@
             Extensions of <see cref="T:System.Collections.Generic.IDictionary`2"/>.
             </summary>
         </member>
+        <member name="M:Songhay.Extensions.IDictionaryExtensions.GetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+            Tries to get value with the specified key.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="dictionary">The dictionary.</param>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Songhay.Extensions.IDictionaryExtensions.GetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Boolean)">
+            <summary>
+            Tries to get value with the specified key.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="dictionary">The dictionary.</param>
+            <param name="key">The key.</param>
+            <param name="throwException">When <c>true</c>, throw an exception when retrieval fails.</param>
+            <remarks>
+            This member is just a simple wrapper around <see cref="M:System.Collections.Generic.IDictionary`2.TryGetValue(`0,`1@)"/>
+            that adds optional exception-throwing for missing dictionary keys.
+            </remarks>
+        </member>
         <member name="M:Songhay.Extensions.IDictionaryExtensions.ToNameValueCollection``2(System.Collections.Generic.IDictionary{``0,``1})">
             <summary>
             Converts the <see cref="T:System.Collections.Generic.IDictionary`2"/>

@@ -6,6 +6,54 @@
 // ReSharper disable once InconsistentNaming
 public static class IDictionaryExtensions
 {
+
+    /// <summary>
+    /// Tries to get value with the specified key.
+    /// </summary>
+    /// <typeparam name="TKey">The type of the key.</typeparam>
+    /// <typeparam name="TValue">The type of the value.</typeparam>
+    /// <param name="dictionary">The dictionary.</param>
+    /// <param name="key">The key.</param>
+    public static TValue? GetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue>? dictionary, TKey key) =>
+        dictionary.GetValueWithKey(key, throwException: false);
+
+    /// <summary>
+    /// Tries to get value with the specified key.
+    /// </summary>
+    /// <typeparam name="TKey">The type of the key.</typeparam>
+    /// <typeparam name="TValue">The type of the value.</typeparam>
+    /// <param name="dictionary">The dictionary.</param>
+    /// <param name="key">The key.</param>
+    /// <param name="throwException">When <c>true</c>, throw an exception when retrieval fails.</param>
+    /// <remarks>
+    /// This member is just a simple wrapper around <see cref="IDictionary{TKey,TValue}.TryGetValue"/>
+    /// that adds optional exception-throwing for missing dictionary keys.
+    /// </remarks>
+    public static TValue? GetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue>? dictionary,
+        TKey? key, bool throwException)
+    {
+        if (throwException)
+        {
+            ArgumentNullException.ThrowIfNull(dictionary);
+            ArgumentNullException.ThrowIfNull(key);
+        }
+        else
+        {
+            if (dictionary == null) return default;
+            if (key == null) return default;
+        }
+
+        bool test = dictionary.TryGetValue(key, out var value);
+
+        return value switch
+        {
+            _ when !test && throwException =>
+                throw new NullReferenceException($"The expected value from key, {key}, is not here."),
+            _ when !test && !throwException => default,
+            _ => value
+        };
+    }
+
     /// <summary>
     /// Converts the <see cref="IDictionary{TKey, TValue}"/>
     /// to the <see cref="NameValueCollection"/>.
@@ -82,8 +130,9 @@ public static class IDictionaryExtensions
     /// <typeparam name="TValue">The type of the value.</typeparam>
     /// <param name="dictionary">The dictionary.</param>
     /// <param name="key">The key.</param>
+    [Obsolete("Use `GetValueWithKey<TKey, TValue>` instead.")]
     public static TValue? TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue>? dictionary, TKey key) =>
-        dictionary.TryGetValueWithKey(key, throwException: false);
+        dictionary.GetValueWithKey(key, throwException: false);
 
     /// <summary>
     /// Tries to get value with the specified key.
@@ -93,30 +142,9 @@ public static class IDictionaryExtensions
     /// <param name="dictionary">The dictionary.</param>
     /// <param name="key">The key.</param>
     /// <param name="throwException">When <c>true</c>, throw an exception when retrieval fails.</param>
+    [Obsolete("Use `GetValueWithKey<TKey, TValue>` instead.")]
     public static TValue? TryGetValueWithKey<TKey, TValue>(this IDictionary<TKey, TValue>? dictionary,
-        TKey? key, bool throwException)
-    {
-        if (throwException)
-        {
-            ArgumentNullException.ThrowIfNull(dictionary);
-            ArgumentNullException.ThrowIfNull(key);
-        }
-        else
-        {
-            if (dictionary == null) return default;
-            if (key == null) return default;
-        }
-
-        bool test = dictionary.TryGetValue(key, out var value);
-
-        return value switch
-        {
-            _ when !test && throwException =>
-                throw new NullReferenceException($"The expected value from key, {key}, is not here."),
-            _ when !test && !throwException => default,
-            _ => value
-        };
-    }
+        TKey? key, bool throwException) => dictionary.GetValueWithKey(key, throwException);
 
     /// <summary>
     /// Invokes the <see cref="Enumerable.Union{TSource}(System.Collections.Generic.IEnumerable{TSource},System.Collections.Generic.IEnumerable{TSource})"/> method
