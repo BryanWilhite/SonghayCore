@@ -6,37 +6,6 @@ namespace Songhay.Tests.Extensions;
 public class JsonNodeExtensionsTests(ITestOutputHelper helper)
 {
     [Theory]
-    [InlineData("""
-                {
-                    "my-property": {
-                        "one": 1,
-                        "sure": true
-                    }
-                }
-                """, 16, "my-property: {\"one\":1,\"sure\":…\n")]
-    [InlineData("""
-                {
-                    "my-property": {
-                        "one": 1.0,
-                        "sure": true
-                    }
-                }
-                """, 16, "my-property: {\"one\":1.0,\"sure…\n")]
-    [InlineData("""
-                {
-                    "my-property": {
-                        "one": null,
-                        "others": ["y","n","u"]
-                    }
-                }
-                """, 24, "my-property: {\"one\":null,\"others\":[\"y…\n")]
-    public void DisplayTopProperties_Test(string input, int truncationLength, string expectedOutput)
-    {
-        string? actual = JsonNode.Parse(input)?.AsObject().DisplayTopProperties(truncationLength);
-        Assert.Equal(expectedOutput, actual);
-    }
-
-    [Theory]
     [InlineData("{ \"my-property\": [] }", "my-property", "[]")]
     [InlineData("{ \"my-property\": [] }", "my-not-property", null)]
     public void GetPropertyJsonArrayOrNull_Test(string input, string propertyName, string? expectedOutput)
@@ -270,17 +239,6 @@ public class JsonNodeExtensionsTests(ITestOutputHelper helper)
         ILogger logger = _loggerProvider.CreateLogger(nameof(ToJsonArray_Failure_Test));
         JsonArray? actual = JsonNode.Parse(input).ToJsonArray(logger);
         Assert.Null(actual);
-    }
-
-    [Theory]
-    [InlineData("{ \"my-property\": 42 }", "my-property", "my-other-property")]
-    [InlineData("{ \"my-property\": 42 }", "my-non-property", "my-other-property")]
-    [InlineData("{ \"my-property\": null }", "my-non-property", "my-other-property")]
-    public void WithPropertiesRenamed_Test(string input, string oldName, string newName)
-    {
-        ILogger logger = _loggerProvider.CreateLogger(nameof(IsExpectedObject_Test));
-        JsonObject? actual = JsonNode.Parse(input)?.AsObject().WithPropertiesRenamed(logger, (oldName, newName));
-        Assert.False(actual.HasProperty(oldName));
     }
 
     private readonly XUnitLoggerProvider _loggerProvider = new(helper);

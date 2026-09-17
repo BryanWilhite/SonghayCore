@@ -2938,17 +2938,9 @@
             use <see cref="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)"/>.
             </remarks>
         </member>
-        <member name="M:Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)">
-            <summary>
-            Displays top-level <see cref="T:System.Text.Json.Nodes.JsonObject"/> properties
-            without recursion.
-            </summary>
-            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
-            <param name="truncationLength">the number of characters to display for each property</param>
-        </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
             <summary>
-            Gets the <see cref="T:System.Text.Json.Nodes.JsonValue"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            Gets the <see cref="T:System.Text.Json.Nodes.JsonValue"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode" />
             of <see cref="F:System.Text.Json.JsonValueKind.Array" />
             or defaults to null.
             </summary>
@@ -2963,16 +2955,6 @@
             </summary>
             <param name="node">The <see cref="T:System.Text.Json.Nodes.JsonNode"/>.</param>
             <param name="propertyName">Name of the property.</param>
-        </member>
-        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject,System.String,Microsoft.Extensions.Logging.ILogger)">
-            <summary>
-            Returns the <see cref="T:System.Text.Json.Nodes.JsonNode"/>
-            of the specified target property name
-            or <c>null</c>.
-            </summary>
-            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
-            <param name="targetPropertyName">the target property name</param>
-            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
             <summary>
@@ -3030,7 +3012,6 @@
             </summary>
             <param name="node">The node.</param>
             <param name="logger">The logger.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.ToJsonObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)">
             <summary>
@@ -3076,7 +3057,46 @@
             <param name="propertyName">the name of the property when the specified node is <see cref="F:System.Text.Json.JsonValueKind.Object"/></param>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
-        <member name="M:Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject,Microsoft.Extensions.Logging.ILogger,System.ValueTuple{System.String,System.String}[])">
+        <member name="T:Songhay.Extensions.JsonObjectExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </summary>
+            <remarks>
+            To prevent passing null instances of <see cref="T:Microsoft.Extensions.Logging.ILogger"/> into these methods,
+            use <see cref="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.JsonObjectExtensions.AddItemToArray``1(System.Text.Json.Nodes.JsonObject,System.String,``0,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Adds the specified <c>item</c>
+            to the <see cref="T:System.Text.Json.Nodes.JsonArray"/>
+            of the specified <see cref="T:System.Text.Json.Nodes.JsonObject"/>.
+            </summary>
+            <param name="jsonObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="arrayPropertyName">the name of the <see cref="T:System.Text.Json.Nodes.JsonArray"/> property</param>
+            <param name="item">the item to add</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+            <typeparam name="TItem">the type of the item to add</typeparam>
+        </member>
+        <member name="M:Songhay.Extensions.JsonObjectExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)">
+            <summary>
+            Displays top-level <see cref="T:System.Text.Json.Nodes.JsonObject"/> properties
+            without recursion.
+            </summary>
+            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="truncationLength">the number of characters to display for each property</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonObjectExtensions.GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject,System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Returns the <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            of the specified target property name
+            or <c>null</c>.
+            </summary>
+            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="targetPropertyName">the target property name</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonObjectExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject,Microsoft.Extensions.Logging.ILogger,System.ValueTuple{System.String,System.String}[])">
             <summary>
             Returns the specified <see cref="T:System.Text.Json.Nodes.JsonObject"/>
             with its properties renamed.

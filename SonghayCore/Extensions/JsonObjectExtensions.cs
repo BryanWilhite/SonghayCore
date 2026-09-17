@@ -86,13 +86,20 @@ public static class JsonObjectExtensions
     /// <param name="jObject">the <see cref="JsonObject"/></param>
     /// <param name="targetPropertyName">the target property name</param>
     /// <param name="logger">the <see cref="ILogger"/></param>
-    public static JsonNode? GetPropertyJsonNodeOrNull(this JsonObject? jObject, string targetPropertyName, ILogger logger)
+    public static JsonNode? GetPropertyJsonNodeOrNull(this JsonObject? jObject, string? targetPropertyName, ILogger logger)
     {
         logger.LogTraceMethodCall(nameof(GetPropertyJsonNodeOrNull));
 
         if (jObject == null)
         {
             logger.LogDebug("The expected parent object of node, `{Name}`, is not here.", targetPropertyName);
+
+            return null;
+        }
+
+        if (string.IsNullOrWhiteSpace(targetPropertyName))
+        {
+            logger.LogDebug("The expected property name, `{Name}`, of parent object is not here.", targetPropertyName);
 
             return null;
         }
