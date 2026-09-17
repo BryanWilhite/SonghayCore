@@ -6,7 +6,6 @@
 // ReSharper disable once InconsistentNaming
 public static class IDictionaryExtensions
 {
-
     /// <summary>
     /// Tries to get value with the specified key.
     /// </summary>

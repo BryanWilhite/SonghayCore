@@ -1112,9 +1112,37 @@
         <member name="M:Songhay.Extensions.DateTimeExtensions.ToIso8601String(System.DateTime)">
             <summary>
             Converts the specified <see cref="T:System.DateTime"/>
+            to the JSON-friendly ISO_8601 text format
+            without milliseconds.
+            </summary>
+            <param name="dateTime">the <see cref="T:System.DateTime"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.DateTimeExtensions.ToIso8601String(System.DateTime,System.Boolean)">
+            <summary>
+            Converts the specified <see cref="T:System.DateTime"/>
             to the JSON-friendly ISO_8601 text format.
             </summary>
             <param name="dateTime">the <see cref="T:System.DateTime"/></param>
+            <param name="includeTimeMilliseconds">when <c>true</c>, increase resolution to include milliseconds</param>
+            <remarks>
+            📖 https://en.wikipedia.org/wiki/ISO_8601
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime)">
+            <summary>
+            Converts the specified <see cref="T:System.DateTime"/>
+            to the JSON-friendly ISO_8601 text format for UTC (a trailing <c>Z</c>)
+            without milliseconds.
+            </summary>
+            <param name="dateTime">the <see cref="T:System.DateTime"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime,System.Boolean)">
+            <summary>
+            Converts the specified <see cref="T:System.DateTime"/>
+            to the JSON-friendly ISO_8601 text format for UTC (a trailing <c>Z</c>).
+            </summary>
+            <param name="dateTime">the <see cref="T:System.DateTime"/></param>
+            <param name="includeTimeMilliseconds">when <c>true</c>, increase resolution to include milliseconds</param>
             <remarks>
             📖 https://en.wikipedia.org/wiki/ISO_8601
             </remarks>
@@ -8061,6 +8089,11 @@
             as parse failure means <c>HasValue</c>
             is false.
             </returns>
+            <remarks>
+            For more control over whether UTC or local <see cref="T:System.DateTime"/> is desired,
+            consider using <see cref="M:Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)"/>
+            or <see cref="M:Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)"/>.
+            </remarks>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseDateTime(System.Object,System.DateTime)">
             <summary>
@@ -8317,6 +8350,22 @@
             </summary>
             <param name="value">The value.</param>
             <param name="defaultValue">The default value.</param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)">
+            <summary>
+            Tries to parse the specified date string
+            into the local <see cref="T:System.DateTime"/>
+            or returns <c>null</c>.
+            </summary>
+            <param name="dateTimeString">the string representation of a valid <see cref="T:System.DateTime"/></param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)">
+            <summary>
+            Tries to parse the specified date string
+            into UTC <see cref="T:System.DateTime"/>
+            or returns <c>null</c>.
+            </summary>
+            <param name="dateTimeString">the string representation of a valid, local <see cref="T:System.DateTime"/></param>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)">
             <summary>

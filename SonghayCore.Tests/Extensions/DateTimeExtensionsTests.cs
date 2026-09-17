@@ -70,7 +70,7 @@ public class DateTimeExtensionsTests(ITestOutputHelper testOutputHelper)
         string dateString = DateTime.Now.ToIso8601String();
         testOutputHelper.WriteLine(dateString);
 
-        DateTime expected = DateTime.Parse(dateString).ToUniversalTime();
+        DateTime expected = ProgramTypeUtility.ParseToLocalTime(dateString).ToValueOrThrow();
 
         string json = $"{{ \"one\": {{ \"my-date\": \"{dateString}\" }} }}";
         using JsonDocument jDoc = JsonDocument.Parse(json);
