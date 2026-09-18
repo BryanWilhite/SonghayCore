@@ -217,9 +217,9 @@ public class JsonNodeExtensionsTests(ITestOutputHelper helper)
             CultureInfo.InvariantCulture,
             DateTimeStyles.AdjustToUniversal, out DateTime actual));
 
-        helper.WriteLine(actual.ToIso8601String());
+        helper.WriteLine(actual.ToIso8601String(includeTimeMilliseconds: true));
 
-        Assert.Equal(expected, actual.ToIso8601String());
+        Assert.Equal(expected, actual.ToIso8601String(includeTimeMilliseconds: true));
     }
 
     [Theory]

@@ -75,14 +75,16 @@ public static partial class DateTimeExtensions
     /// </remarks>
     public static string ToIso8601UtcString(this DateTime dateTime, bool includeTimeMilliseconds)
     {
+        const string utcSuffix = "'Z'";
+
         string template = includeTimeMilliseconds?
-            $"{Iso8601TemplateWithMs}'Z'"
+            $"{Iso8601TemplateWithMs}{utcSuffix}"
             :
-            $"{Iso8601Template}'Z'";
+            $"{Iso8601Template}{utcSuffix}";
 
         return dateTime.ToUniversalTime().ToString(template);
     }
 
-    internal const string Iso8601Template = "yyyy'-'MM'-'dd'T'HH':'mm':'ss";
-    internal const string Iso8601TemplateWithMs = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.'fff";
+    internal const string Iso8601Template = "yyyy-MM-dd'T'HH:mm:ss";
+    internal const string Iso8601TemplateWithMs = "yyyy-MM-dd'T'HH:mm:ss.fff";
 }

@@ -2159,6 +2159,27 @@
             </summary>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
         </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Returns <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="configKey">the key to use to retrieve the timeout from <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Nullable{System.TimeSpan})">
+             <summary>
+             Returns <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+             </summary>
+             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+             <param name="configKey">the key to use to retrieve the timeout from <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+             <param name="defaultTimeout">a default timeout <see cref="T:System.TimeSpan"/></param>
+             <remarks>
+             The configured value is expected to be a number representing milliseconds.
+            
+             When all other input fails, this member will default to 500ms.
+             For more detail, see https://learn.microsoft.com/en-us/dotnet/standard/base-types/best-practices-regex#use-time-out-values
+             </remarks>
+        </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
             <summary>
             Writes the <see cref="T:System.String"/> output
@@ -8379,6 +8400,15 @@
             </summary>
             <param name="dateTimeString">the string representation of a valid <see cref="T:System.DateTime"/></param>
         </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseToLocalTime(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Tries to parse the specified date string
+            into the local <see cref="T:System.DateTime"/>
+            or returns <c>null</c>.
+            </summary>
+            <param name="dateTimeString">the string representation of a valid <see cref="T:System.DateTime"/></param>
+            <param name="cultureInfo">the <see cref="T:System.Globalization.CultureInfo"/> of the locale</param>
+        </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)">
             <summary>
             Tries to parse the specified date string
@@ -8386,6 +8416,15 @@
             or returns <c>null</c>.
             </summary>
             <param name="dateTimeString">the string representation of a valid, local <see cref="T:System.DateTime"/></param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Tries to parse the specified date string
+            into UTC <see cref="T:System.DateTime"/>
+            or returns <c>null</c>.
+            </summary>
+            <param name="dateTimeString">the string representation of a valid, local <see cref="T:System.DateTime"/></param>
+            <param name="cultureInfo">the <see cref="T:System.Globalization.CultureInfo"/> of the locale</param>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)">
             <summary>

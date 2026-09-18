@@ -131,8 +131,8 @@ public static partial class ProgramTypeUtility
     /// </returns>
     /// <remarks>
     /// For more control over whether UTC or local <see cref="DateTime"/> is desired,
-    /// consider using <see cref="ParseToLocalTime"/>
-    /// or <see cref="ParseToUtcDateTimeFromLocalTime"/>.
+    /// consider using <see cref="ParseToLocalTime(string?)"/>
+    /// or <see cref="ParseToUtcDateTimeFromLocalTime(string?)"/>.
     /// </remarks>
     public static DateTime? ParseDateTime(object? value)
     {
@@ -497,7 +497,18 @@ public static partial class ProgramTypeUtility
     /// </summary>
     /// <param name="dateTimeString">the string representation of a valid <see cref="DateTime"/></param>
     public static DateTime? ParseToLocalTime(string? dateTimeString) =>
-        DateTime.TryParse(dateTimeString, out DateTime d)
+        ParseToLocalTime(dateTimeString, cultureInfo: null);
+
+    /// <summary>
+    /// Tries to parse the specified date string
+    /// into the local <see cref="DateTime"/>
+    /// or returns <c>null</c>.
+    /// </summary>
+    /// <param name="dateTimeString">the string representation of a valid <see cref="DateTime"/></param>
+    /// <param name="cultureInfo">the <see cref="CultureInfo"/> of the locale</param>
+    public static DateTime? ParseToLocalTime(string? dateTimeString, CultureInfo? cultureInfo) =>
+        DateTime.TryParse(dateTimeString, cultureInfo ?? CultureInfo.InvariantCulture,
+            DateTimeStyles.AssumeLocal, out DateTime d)
             ? d
             : null;
 
@@ -508,7 +519,17 @@ public static partial class ProgramTypeUtility
     /// </summary>
     /// <param name="dateTimeString">the string representation of a valid, local <see cref="DateTime"/></param>
     public static DateTime? ParseToUtcDateTimeFromLocalTime(string? dateTimeString) =>
-        DateTime.TryParse(dateTimeString, CultureInfo.InvariantCulture,
+        ParseToUtcDateTimeFromLocalTime(dateTimeString, cultureInfo: null);
+
+    /// <summary>
+    /// Tries to parse the specified date string
+    /// into UTC <see cref="DateTime"/>
+    /// or returns <c>null</c>.
+    /// </summary>
+    /// <param name="dateTimeString">the string representation of a valid, local <see cref="DateTime"/></param>
+    /// <param name="cultureInfo">the <see cref="CultureInfo"/> of the locale</param>
+    public static DateTime? ParseToUtcDateTimeFromLocalTime(string? dateTimeString, CultureInfo? cultureInfo) =>
+        DateTime.TryParse(dateTimeString, cultureInfo ?? CultureInfo.InvariantCulture,
             DateTimeStyles.AssumeLocal | DateTimeStyles.AdjustToUniversal, out DateTime d)
             ? d
             : null;

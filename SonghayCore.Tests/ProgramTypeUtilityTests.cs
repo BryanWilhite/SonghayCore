@@ -16,6 +16,8 @@ public class ProgramTypeUtilityTests
         //assert:
         Assert.True(Math.Abs(actual.TotalHours) > 0);
         Assert.Equal(TimeZoneInfo.Local.GetUtcOffset(local), actual);
+        Assert.Equal(DateTimeKind.Local, local.Kind);
+        Assert.Equal(DateTimeKind.Utc, utc.Kind);
     }
 
     [Theory]
