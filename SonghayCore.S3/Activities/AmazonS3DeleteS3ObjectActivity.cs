@@ -5,22 +5,26 @@ namespace Songhay.S3.Activities;
 /// with the specified <see cref="S3Object.Key"/>.
 /// </summary>
 public class AmazonS3DeleteS3ObjectActivity(ProgramMetadata programMetadata, ILogger<AmazonS3DeleteS3ObjectActivity>? logger) :
-    IActivityTask<(string setKey, string bucketMetaKey, string bucketKey)>
+    IActivityTask<StorageActivityInput?, StorageActivityResult?>
 {
-    /// <summary>
     /// <inheritdoc/>
-    /// </summary>
-    public async Task StartAsync((string setKey, string bucketMetaKey, string bucketKey) input)
+    public async Task<StorageActivityResult?> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);
 
-        var(setKey, bucketMetaKey, bucketKey) = input;
+        if (input == null)
+        {
+            return new StorageActivityResult(
+                HttpStatusCode.BadRequest,
+                null,
+                "The expected input is not here.");
+        }
 
-        RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.TryGetValueWithKey(setKey);
+        RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.GetValueWithKey(input.SetKey);
 
         AmazonS3Client? s3Client = AmazonS3Utility.GetAmazonS3Client(
             s3Meta,
-            bucketMetaKey,
+            input.BucketMetaKey,
             nameof(AmazonS3DeleteS3ObjectActivity),
             out string? bucketName,
             logger);
@@ -29,20 +33,32 @@ public class AmazonS3DeleteS3ObjectActivity(ProgramMetadata programMetadata, ILo
         {
             logger.LogErrorForMissingData<AmazonS3Client>();
 
-            return;
+            return new StorageActivityResult(
+                HttpStatusCode.InternalServerError,
+                null,
+                "The expected S3 Client is not here.");
         }
 
         DeleteObjectRequest request = new()
         {
             BucketName = bucketName,
-            Key = bucketKey
+            Key = input.BucketKeyOrPrefix
         };
 
-        DeleteObjectResponse response = await s3Client.DeleteObjectAsync(request).ConfigureAwait(false);
+        DeleteObjectResponse response = await s3Client.DeleteObjectAsync(request, cancellationToken).ConfigureAwait(false);
 
-        if (response.HttpStatusCode != HttpStatusCode.NoContent)
-        {
-            logger.LogError("The expected {Name} is not here: {Value}. Returning...", nameof(HttpStatusCode), response.HttpStatusCode);
-        }
+        if (response.HttpStatusCode == HttpStatusCode.NoContent)
+            return new StorageActivityResult(
+                response.HttpStatusCode,
+                response.ResponseMetadata.RequestId,
+                $"Item {input.BucketKeyOrPrefix} deleted.");
+
+        logger.LogError("The expected {Name} is not here: {Value}. Returning...", nameof(HttpStatusCode), response.HttpStatusCode);
+
+        return new StorageActivityResult(
+            response.HttpStatusCode,
+            response.ResponseMetadata.RequestId,
+            $"Uncertain whether item {input.BucketKeyOrPrefix} deleted.");
+
     }
 }

@@ -1,29 +1,28 @@
-using Microsoft.Extensions.DependencyInjection;
-
+using System.Text.Json;
 using Songhay.S3.Activities;
-
-using InputForActivities = OneOf.OneOf<
-    (string setKey, string bucketMetaKey, string? bucketKey),
-    (string setKey, string bucketMetaKey, string? bucketKey, string? content, string? contentMimeType)>;
+using Songhay.S3.SerializerContexts;
+using InputForActivities = OneOf.OneOf<Songhay.Models.StorageActivityInput, Songhay.Models.StorageActivityInput<string?>>;
 
 namespace Songhay.S3.Models;
 
 /// <summary>
-/// Maps <see cref="Songhay.S3.Activities"/>
-/// to their respective inputs
-/// based on the convention of using tuples for inputs.
+/// Maps typical string args into tuples
+/// into one of the respective <see cref="Songhay.S3.Activities"/>.
 /// </summary>
+/// <param name="activityForAmazonS3DeleteS3Object">the S3 delete Activity</param>
+/// <param name="activityForAmazonS3DownloadToString">the S3 string-download Activity</param>
+/// <param name="activityForAmazonS3ListBucketObjectsWithPagination">the S3 bucket-list Activity</param>
+/// <param name="activityForAmazonS3UploadString">the S3 string-upload Activity</param>
+/// <param name="logger">the <see cref="ILogger"/></param>
 public class AmazonS3ActivityGroup(
-    [FromKeyedServices(nameof(AmazonS3DeleteS3ObjectActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey)> activityForAmazonS3DeleteS3Object,
-    [FromKeyedServices(nameof(AmazonS3DownloadToStringActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey), string?> activityForAmazonS3DownloadToString,
-    [FromKeyedServices(nameof(AmazonS3ListBucketObjectsWithPaginationActivity))] IActivityTask<(string setKey, string bucketMetaKey, string? bucketKeyPrefix), string?> activityForAmazonS3ListBucketObjectsWithPagination,
-    [FromKeyedServices(nameof(AmazonS3UploadStringActivity))] IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)> activityForAmazonS3UploadString,
+    IActivityTask<StorageActivityInput?, StorageActivityResult?> activityForAmazonS3DeleteS3Object,
+    IActivityTask<StorageActivityInput?, StorageActivityResult<string?>?> activityForAmazonS3DownloadToString,
+    IActivityTask<StorageActivityInput?, StorageActivityResult<IReadOnlyCollection<StorageObject>>?> activityForAmazonS3ListBucketObjectsWithPagination,
+    IActivityTask<StorageActivityInput<string?>?, StorageActivityResult?> activityForAmazonS3UploadString,
     ILogger<AmazonS3ActivityGroup>logger
 ) : IActivityKeyedTaskGroup
 {
-    /// <summary>
     /// <inheritdoc/>
-    /// </summary>
     public async Task<string?> InvokeActivityAsync(string? activitySetKey, params string?[] args )
     {
         activitySetKey.ThrowWhenNullOrWhiteSpace();
@@ -49,63 +48,58 @@ public class AmazonS3ActivityGroup(
 
         InputForActivities input = (setKey, bucketMetaKey, bucketKey, content, contentMimeType) switch
         {
-            (var s1, var s2, var s3, null, null) => (s1, s2, s3),
-            var (s1, s2, s3, s4, s5) => (s1, s2, s3, s4, s5)
+            (var s1, var s2, var s3, null, null) => new StorageActivityInput(s1, s2, s3),
+            var (s1, s2, s3, s4, s5) => new StorageActivityInput<string?>(s1, s2, s3, s4, s5)
         };
 
-        Func<InputForActivities, Task<string?>>? activity = _activitySet.TryGetValueWithKey(activitySetKey);
+        Func<InputForActivities, Task<string?>>? activity = _activitySet.GetValueWithKey(activitySetKey);
 
-        if (activity == null)
-        {
-            logger.LogError("The expected Activity, `{Name}`, is not here.", activitySetKey);
+        if (activity != null) return await activity.Invoke(input);
 
-            return null;
-        }
+        logger.LogError("The expected Activity, `{Name}`, is not here.", activitySetKey);
 
-        return await activity.Invoke(input);
+        return null;
+
+    }
+
+    private static JsonSerializerOptions GetJsonDeserializerOptions()
+    {
+        JsonSerializerOptions options = new();
+
+        options.TypeInfoResolverChain.Add(StorageObjectSerializerContext.Default);
+
+        return options;
     }
 
     private readonly Dictionary<string, Func<InputForActivities, Task<string?>>> _activitySet = new()
     {
         [nameof(AmazonS3DeleteS3ObjectActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey, bucketKey) = input.AsT0;
+            StorageActivityResult? result = await activityForAmazonS3DeleteS3Object.StartAsync(input.AsT0, CancellationToken.None);
 
-            bucketKey.ThrowWhenNullOrWhiteSpace();
-
-            await activityForAmazonS3DeleteS3Object.StartAsync((setKey, bucketMetaKey, bucketKey));
-
-            return null;
+            return result?.ResponseMessage;
         },
         [nameof(AmazonS3DownloadToStringActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey, bucketKey) = input.AsT0;
+            StorageActivityResult<string?>? result = await activityForAmazonS3DownloadToString.StartAsync(input.AsT0, CancellationToken.None);
 
-            bucketKey.ThrowWhenNullOrWhiteSpace();
-
-            string? output = await activityForAmazonS3DownloadToString.StartAsync((setKey, bucketMetaKey, bucketKey));
-
-            return output;
+            return result?.Content;
         },
         [nameof(AmazonS3ListBucketObjectsWithPaginationActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey, bucketKeyPrefix) = input.AsT0;
+            StorageActivityResult<IReadOnlyCollection<StorageObject>>? result = await activityForAmazonS3ListBucketObjectsWithPagination.StartAsync(input.AsT0, CancellationToken.None);
 
-            string? output = await activityForAmazonS3ListBucketObjectsWithPagination.StartAsync((setKey, bucketMetaKey, bucketKeyPrefix));
+            if (result?.Content == null) return result?.ResponseMessage;
 
-            return output;
+            string json = JsonSerializer.Serialize(result.Content, GetJsonDeserializerOptions());
+
+            return json;
         },
         [nameof(AmazonS3UploadStringActivity)] = async input =>
         {
-            var (setKey, bucketMetaKey, bucketKey, content, contentMimeType) = input.AsT1;
+            StorageActivityResult? result = await activityForAmazonS3UploadString.StartAsync(input.AsT1, CancellationToken.None);
 
-            bucketKey.ThrowWhenNullOrWhiteSpace();
-            content.ThrowWhenNullOrWhiteSpace();
-            contentMimeType.ThrowWhenNullOrWhiteSpace();
-
-            await activityForAmazonS3UploadString.StartAsync((setKey, bucketMetaKey, bucketKey, content, contentMimeType));
-
-            return null;
+            return result?.ResponseMessage;
         }
     };
 }

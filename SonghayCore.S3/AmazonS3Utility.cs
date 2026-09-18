@@ -18,7 +18,7 @@ public static class AmazonS3Utility
     /// <param name="s3Client">the <see cref="AmazonS3Client"/></param>
     /// <param name="request">the <see cref="ListObjectsV2Request"/></param>
     /// <param name="logger">the <see cref="ILogger"/></param>
-    public static async Task<IReadOnlyCollection<S3Object>> CollectS3ObjectsFromPaginationAsync(AmazonS3Client? s3Client, ListObjectsV2Request? request, ILogger logger)
+    public static async Task<StorageActivityResult<IReadOnlyCollection<StorageObject>>> CollectS3ObjectsFromPaginationAsync(AmazonS3Client? s3Client, ListObjectsV2Request? request, ILogger logger)
     {
         List<S3Object> allS3Objects = [];
 
@@ -26,14 +26,22 @@ public static class AmazonS3Utility
         {
             logger.LogErrorForMissingData<AmazonS3Client>();
 
-            return allS3Objects;
+            return new StorageActivityResult<IReadOnlyCollection<StorageObject>>(
+                HttpStatusCode.InternalServerError,
+                null,
+                "The expected S3 Client is not here.",
+                []);
         }
 
         if (request == null)
         {
             logger.LogErrorForMissingData<ListObjectsV2Request>();
 
-            return allS3Objects;
+            return new StorageActivityResult<IReadOnlyCollection<StorageObject>>(
+                HttpStatusCode.InternalServerError,
+                null,
+                "The expected S3 request is not here.",
+                []);
         }
 
         ListObjectsV2Response response;
@@ -47,7 +55,13 @@ public static class AmazonS3Utility
 
         } while (response.IsTruncated ?? false);
 
-        return allS3Objects;
+        IReadOnlyCollection<StorageObject> list = [.. allS3Objects.Select(o => o.ToStorageObject()).OfType<StorageObject>()];
+    
+        return new StorageActivityResult<IReadOnlyCollection<StorageObject>>(
+            response.HttpStatusCode,
+            response.ResponseMetadata.RequestId,
+            $"{list.Count} items found.",
+            list);
     }
 
     /// <summary>

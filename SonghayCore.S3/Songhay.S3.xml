@@ -16,10 +16,8 @@
             with the specified <see cref="P:Amazon.S3.Model.S3Object.Key"/>.
             </summary>
         </member>
-        <member name="M:Songhay.S3.Activities.AmazonS3DeleteS3ObjectActivity.StartAsync(System.ValueTuple{System.String,System.String,System.String})">
-            <summary>
+        <member name="M:Songhay.S3.Activities.AmazonS3DeleteS3ObjectActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)">
             <inheritdoc/>
-            </summary>
         </member>
         <member name="T:Songhay.S3.Activities.AmazonS3DownloadToStringActivity">
             <summary>
@@ -33,10 +31,8 @@
             with the specified <see cref="P:Amazon.S3.Model.S3Object.Key"/>.
             </summary>
         </member>
-        <member name="M:Songhay.S3.Activities.AmazonS3DownloadToStringActivity.StartAsync(System.ValueTuple{System.String,System.String,System.String})">
-            <summary>
+        <member name="M:Songhay.S3.Activities.AmazonS3DownloadToStringActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)">
             <inheritdoc/>
-            </summary>
         </member>
         <member name="T:Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity">
             <summary>
@@ -50,10 +46,8 @@
             of the specified <see cref="T:Amazon.S3.Model.S3Bucket"/>.
             </summary>
         </member>
-        <member name="M:Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync(System.ValueTuple{System.String,System.String,System.String})">
-            <summary>
+        <member name="M:Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)">
             <inheritdoc/>
-            </summary>
         </member>
         <member name="T:Songhay.S3.Activities.AmazonS3UploadStringActivity">
             <summary>
@@ -67,10 +61,8 @@
             to the specified <see cref="T:Amazon.S3.Model.S3Bucket"/>.
             </summary>
         </member>
-        <member name="M:Songhay.S3.Activities.AmazonS3UploadStringActivity.StartAsync(System.ValueTuple{System.String,System.String,System.String,System.String,System.String})">
-            <summary>
+        <member name="M:Songhay.S3.Activities.AmazonS3UploadStringActivity.StartAsync(Songhay.Models.StorageActivityInput{System.String},System.Threading.CancellationToken)">
             <inheritdoc/>
-            </summary>
         </member>
         <member name="T:Songhay.S3.AmazonS3Utility">
             <summary>
@@ -261,6 +253,18 @@
              in the <c>my-bucket-region</c> key-value pair.
              </remarks>
         </member>
+        <member name="T:Songhay.S3.Extensions.S3ObjectExtensions">
+            <summary>
+            Extensions of <see cref="T:Amazon.S3.Model.S3Object"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.Extensions.S3ObjectExtensions.ToStorageObject(Amazon.S3.Model.S3Object)">
+            <summary>
+            Transforms <see cref="T:Amazon.S3.Model.S3Object"/>
+            into <see cref="T:Songhay.Models.StorageObject"/>.
+            </summary>
+            <param name="s3Object">the <see cref="T:Amazon.S3.Model.S3Object"/></param>
+        </member>
         <member name="T:Songhay.S3.Hosting.AmazonS3Service">
             <summary>
             The domain-specific service for <see cref="N:Songhay.S3.Activities"/>.
@@ -295,22 +299,81 @@
         </member>
         <member name="T:Songhay.S3.Models.AmazonS3ActivityGroup">
             <summary>
-            Maps <see cref="N:Songhay.S3.Activities"/>
-            to their respective inputs
-            based on the convention of using tuples for inputs.
+            Maps typical string args into tuples
+            into one of the respective <see cref="N:Songhay.S3.Activities"/>.
             </summary>
+            <param name="activityForAmazonS3DeleteS3Object">the S3 delete Activity</param>
+            <param name="activityForAmazonS3DownloadToString">the S3 string-download Activity</param>
+            <param name="activityForAmazonS3ListBucketObjectsWithPagination">the S3 bucket-list Activity</param>
+            <param name="activityForAmazonS3UploadString">the S3 string-upload Activity</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
-        <member name="M:Songhay.S3.Models.AmazonS3ActivityGroup.#ctor(Songhay.Abstractions.IActivityTask{System.ValueTuple{System.String,System.String,System.String}},Songhay.Abstractions.IActivityTask{System.ValueTuple{System.String,System.String,System.String},System.String},Songhay.Abstractions.IActivityTask{System.ValueTuple{System.String,System.String,System.String},System.String},Songhay.Abstractions.IActivityTask{System.ValueTuple{System.String,System.String,System.String,System.String,System.String}},Microsoft.Extensions.Logging.ILogger{Songhay.S3.Models.AmazonS3ActivityGroup})">
+        <member name="M:Songhay.S3.Models.AmazonS3ActivityGroup.#ctor(Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.StorageActivityResult},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.StorageActivityResult{System.String}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.StorageActivityResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput{System.String},Songhay.Models.StorageActivityResult},Microsoft.Extensions.Logging.ILogger{Songhay.S3.Models.AmazonS3ActivityGroup})">
             <summary>
-            Maps <see cref="N:Songhay.S3.Activities"/>
-            to their respective inputs
-            based on the convention of using tuples for inputs.
+            Maps typical string args into tuples
+            into one of the respective <see cref="N:Songhay.S3.Activities"/>.
             </summary>
+            <param name="activityForAmazonS3DeleteS3Object">the S3 delete Activity</param>
+            <param name="activityForAmazonS3DownloadToString">the S3 string-download Activity</param>
+            <param name="activityForAmazonS3ListBucketObjectsWithPagination">the S3 bucket-list Activity</param>
+            <param name="activityForAmazonS3UploadString">the S3 string-upload Activity</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="M:Songhay.S3.Models.AmazonS3ActivityGroup.InvokeActivityAsync(System.String,System.String[])">
-            <summary>
             <inheritdoc/>
+        </member>
+        <member name="T:Songhay.S3.SerializerContexts.StorageObjectSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="T:System.Collections.Generic.Dictionary`2"/>
+            where <c>TKey</c> and <c>TValue</c> are <see cref="T:System.String"/>
+            to avoid using reflection
+            which is not available in AOT-compilation assemblies.
             </summary>
+        </member>
+        <member name="P:Songhay.S3.SerializerContexts.StorageObjectSerializerContext.StorageObject">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.S3.SerializerContexts.StorageObjectSerializerContext.IReadOnlyCollectionStorageObject">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.S3.SerializerContexts.StorageObjectSerializerContext.DateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.S3.SerializerContexts.StorageObjectSerializerContext.Int64">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.S3.SerializerContexts.StorageObjectSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.S3.SerializerContexts.StorageObjectSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.S3.SerializerContexts.StorageObjectSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.S3.SerializerContexts.StorageObjectSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.S3.SerializerContexts.StorageObjectSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.S3.SerializerContexts.StorageObjectSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
         </member>
     </members>
 </doc>

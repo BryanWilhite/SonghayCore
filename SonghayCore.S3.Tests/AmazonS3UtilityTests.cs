@@ -45,7 +45,7 @@ public class AmazonS3UtilityTests
         ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
-            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+            .GetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
         string? bucketName = null;
 
@@ -88,7 +88,7 @@ public class AmazonS3UtilityTests
         ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
-            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+            .GetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
         string? bucketName = null;
 
@@ -135,7 +135,7 @@ public class AmazonS3UtilityTests
         ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
-            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+            .GetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
         string? bucketName = null;
 
@@ -178,7 +178,7 @@ public class AmazonS3UtilityTests
         ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
-            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+            .GetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
         string? bucketName = null;
 
@@ -217,7 +217,7 @@ public class AmazonS3UtilityTests
         ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
-            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+            .GetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
         string? bucketName = null;
 
@@ -260,7 +260,7 @@ public class AmazonS3UtilityTests
         ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
-            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+            .GetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
         string? bucketName = null;
 
@@ -304,7 +304,7 @@ public class AmazonS3UtilityTests
         ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
-            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+            .GetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
         string? bucketName = null;
 
@@ -332,10 +332,10 @@ public class AmazonS3UtilityTests
         };
 
         //act:
-        IReadOnlyCollection<S3Object> actual = await AmazonS3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
+        StorageActivityResult<IReadOnlyCollection<StorageObject>> actual = await AmazonS3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
 
         //assert:
-        Assert.NotEmpty(actual);
+        Assert.NotEmpty(actual.Content!);
 
         string json = JsonSerializer.Serialize(actual);
 
@@ -352,7 +352,7 @@ public class AmazonS3UtilityTests
         ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
-            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+            .GetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
         string? bucketName = null;
 
@@ -397,7 +397,7 @@ public class AmazonS3UtilityTests
         ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldGetPositiveHeadBucketResponse));
 
         RestApiMetadata wasabiMeta = _programMetadata.RestApiMetadataSet
-            .TryGetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
+            .GetValueWithKey(setKey).ToReferenceTypeValueOrThrow();
 
         string? bucketName = null;
 

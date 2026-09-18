@@ -5,22 +5,26 @@ namespace Songhay.S3.Activities;
 /// to the specified <see cref="S3Bucket"/>.
 /// </summary>
 public class AmazonS3UploadStringActivity(ProgramMetadata programMetadata, ILogger<AmazonS3UploadStringActivity>? logger):
-    IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)>
+    IActivityTask<StorageActivityInput<string?>?, StorageActivityResult?>
 {
-    /// <summary>
     /// <inheritdoc/>
-    /// </summary>
-    public async Task StartAsync((string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType) input)
+    public async Task<StorageActivityResult?> StartAsync(StorageActivityInput<string?>? input, CancellationToken cancellationToken)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);
 
-        var(setKey, bucketMetaKey, bucketKey, content, contentMimeType) = input;
+        if (input == null)
+        {
+            return new StorageActivityResult(
+                HttpStatusCode.BadRequest,
+                null,
+                "The expected input is not here.");
+        }
 
-        RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.TryGetValueWithKey(setKey);
+        RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.GetValueWithKey(input.SetKey);
 
         AmazonS3Client? s3Client = AmazonS3Utility.GetAmazonS3Client(
             s3Meta,
-            bucketMetaKey,
+            input.BucketMetaKey,
             nameof(AmazonS3UploadStringActivity),
             out string? bucketName,
             logger);
@@ -29,22 +33,33 @@ public class AmazonS3UploadStringActivity(ProgramMetadata programMetadata, ILogg
         {
             logger.LogErrorForMissingData<AmazonS3Client>();
 
-            return;
+            return new StorageActivityResult(
+                HttpStatusCode.InternalServerError,
+                null,
+                "The expected S3 Client is not here.");
         }
 
         PutObjectRequest request = new()
         {
             BucketName = bucketName,
-            Key = bucketKey,
-            ContentBody = content,
-            ContentType = contentMimeType
+            Key = input.BucketKeyOrPrefix,
+            ContentBody = input.Content,
+            ContentType = input.ContentMimeType
         };
 
-        PutObjectResponse response = await s3Client.PutObjectAsync(request).ConfigureAwait(false);
+        PutObjectResponse response = await s3Client.PutObjectAsync(request, cancellationToken).ConfigureAwait(false);
 
-        if (response.HttpStatusCode != HttpStatusCode.OK)
-        {
-            logger.LogError("The expected {Name} is not here: {Value}. Returning...", nameof(HttpStatusCode), response.HttpStatusCode);
-        }
+        if (response.HttpStatusCode == HttpStatusCode.OK)
+            return new StorageActivityResult(
+                response.HttpStatusCode,
+                response.ResponseMetadata.RequestId,
+                $"Item {input.BucketKeyOrPrefix} uploaded.");
+        logger.LogError("The expected {Name} is not here: {Value}. Returning...", nameof(HttpStatusCode), response.HttpStatusCode);
+
+        return new StorageActivityResult(
+            response.HttpStatusCode,
+            response.ResponseMetadata.RequestId,
+            $"Uncertain whether item {input.BucketKeyOrPrefix} uploaded.");
+
     }
 }
