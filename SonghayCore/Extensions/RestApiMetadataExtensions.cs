@@ -37,10 +37,10 @@ public static class RestApiMetadataExtensions
 
         var accessData = new Dictionary<string, string>
         {
-            { grantType, meta.ClaimsSet.TryGetValueWithKey(grantType).ToReferenceTypeValueOrThrow() },
-            { scope, meta.ClaimsSet.TryGetValueWithKey(scope).ToReferenceTypeValueOrThrow() },
-            { clientId, meta.ClaimsSet.TryGetValueWithKey(clientId).ToReferenceTypeValueOrThrow() },
-            { clientSecret, meta.ClaimsSet.TryGetValueWithKey(clientSecret).ToReferenceTypeValueOrThrow() },
+            { grantType, meta.ClaimsSet.GetValueWithKey(grantType).ToReferenceTypeValueOrThrow() },
+            { scope, meta.ClaimsSet.GetValueWithKey(scope).ToReferenceTypeValueOrThrow() },
+            { clientId, meta.ClaimsSet.GetValueWithKey(clientId).ToReferenceTypeValueOrThrow() },
+            { clientSecret, meta.ClaimsSet.GetValueWithKey(clientSecret).ToReferenceTypeValueOrThrow() },
         };
 
         return accessData;
@@ -67,7 +67,7 @@ public static class RestApiMetadataExtensions
     {
         ArgumentNullException.ThrowIfNull(meta);
 
-        var tenantOrDirectoryId = meta.ClaimsSet.TryGetValueWithKey("tenantOrDirectoryId");
+        var tenantOrDirectoryId = meta.ClaimsSet.GetValueWithKey("tenantOrDirectoryId");
         var uri = meta.ToUri("UriPathTemplateForToken", tenantOrDirectoryId).ToReferenceTypeValueOrThrow();
 
         return uri;
@@ -95,14 +95,14 @@ public static class RestApiMetadataExtensions
     {
         ArgumentNullException.ThrowIfNull(meta);
 
-        var secretName = meta.ClaimsSet.TryGetValueWithKey(secretNameKey);
+        var secretName = meta.ClaimsSet.GetValueWithKey(secretNameKey);
         var uri = meta
             .ToUri("UriPathTemplateForSecret", secretName)
             .ToReferenceTypeValueOrThrow();
 
         var uriBuilder = new UriBuilder(uri)
         {
-            Query = meta.ClaimsSet.TryGetValueWithKey("queryPairForApiVersion")
+            Query = meta.ClaimsSet.GetValueWithKey("queryPairForApiVersion")
         };
 
         return uriBuilder.Uri;

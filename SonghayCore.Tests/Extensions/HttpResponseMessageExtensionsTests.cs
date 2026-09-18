@@ -59,7 +59,7 @@ public class HttpResponseMessageExtensionsTests(ITestOutputHelper helper)
 
         Assert.NotNull(instance);
         Assert.NotEmpty(instance);
-        helper.WriteLine(instance.TryGetValueWithKey("value", throwException: true)!.ToString());
+        helper.WriteLine(instance.GetValueWithKey("value", throwException: true)!.ToString());
     }
 
     private readonly IHttpClientFactory _httpClientFactory =

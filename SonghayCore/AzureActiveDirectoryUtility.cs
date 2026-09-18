@@ -48,7 +48,7 @@ public static class AzureActiveDirectoryUtility
 
         var directoryServiceMetadata = JsonSerializer.Deserialize<Dictionary<string, RestApiMetadata>>(json);
         var meta = directoryServiceMetadata
-            .TryGetValueWithKey("ActiveDirectoryAccess")
+            .GetValueWithKey("ActiveDirectoryAccess")
             .ToReferenceTypeValueOrThrow();
 
         return meta;
@@ -65,7 +65,7 @@ public static class AzureActiveDirectoryUtility
 
         var directoryServiceMetadata = JsonSerializer.Deserialize<Dictionary<string, RestApiMetadata>>(json);
         var meta = directoryServiceMetadata
-            .TryGetValueWithKey("AzureKeyVault")
+            .GetValueWithKey("AzureKeyVault")
             .ToReferenceTypeValueOrThrow();
 
         return meta;
