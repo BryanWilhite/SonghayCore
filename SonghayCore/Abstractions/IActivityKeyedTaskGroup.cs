@@ -3,6 +3,7 @@ namespace Songhay.Abstractions;
 /// <summary>
 /// A lightweight façade in front of many <c>IActivity*</c> implementations.
 /// </summary>
+/// <typeparam name="TOutput">a non-nullable type</typeparam>
 /// <remarks>
 /// <para>
 /// This abstraction uses the word <c>Keyed</c>
@@ -12,10 +13,10 @@ namespace Songhay.Abstractions;
 /// </para>
 ///
 /// <para>
-/// To avoid magic strings, consider implementing <see cref="IActivityTaskGroup"/> instead.
+/// To avoid magic strings, consider implementing <see cref="IActivityTaskGroup{TOutput}"/> instead.
 /// </para>
 /// </remarks>
-public interface IActivityKeyedTaskGroup
+public interface IActivityKeyedTaskGroup<TOutput> where TOutput: notnull
 {
     /// <summary>
     /// Invokes the <c>IActivity*</c> implementation identified by the specified key.
@@ -28,5 +29,5 @@ public interface IActivityKeyedTaskGroup
     /// with the expectation that <c>*Result</c> classes/records
     /// like <see cref="EndpointResult"/> will be used.
     /// </remarks>
-    Task<TOutput> InvokeActivityAsync<TOutput>(string? activitySetKey, CancellationToken cancellationToken,  params string?[] args);
+    Task<TOutput> InvokeActivityAsync(string? activitySetKey, CancellationToken cancellationToken,  params string?[] args);
 }

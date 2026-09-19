@@ -5,16 +5,16 @@ namespace Songhay.S3.Activities;
 /// to the specified <see cref="S3Bucket"/>.
 /// </summary>
 public class AmazonS3UploadStringActivity(ProgramMetadata programMetadata, ILogger<AmazonS3UploadStringActivity>? logger):
-    IActivityTask<StorageActivityInput<string?>?, StorageActivityResult?>
+    IActivityTask<StorageActivityInput<string?>?, EndpointResult>
 {
     /// <inheritdoc/>
-    public async Task<StorageActivityResult?> StartAsync(StorageActivityInput<string?>? input, CancellationToken cancellationToken)
+    public async Task<EndpointResult> StartAsync(StorageActivityInput<string?>? input, CancellationToken cancellationToken)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);
 
         if (input == null)
         {
-            return new StorageActivityResult(
+            return new EndpointResult(
                 HttpStatusCode.BadRequest,
                 null,
                 "The expected input is not here.");
@@ -33,7 +33,7 @@ public class AmazonS3UploadStringActivity(ProgramMetadata programMetadata, ILogg
         {
             logger.LogErrorForMissingData<AmazonS3Client>();
 
-            return new StorageActivityResult(
+            return new EndpointResult(
                 HttpStatusCode.InternalServerError,
                 null,
                 "The expected S3 Client is not here.");
@@ -50,13 +50,13 @@ public class AmazonS3UploadStringActivity(ProgramMetadata programMetadata, ILogg
         PutObjectResponse response = await s3Client.PutObjectAsync(request, cancellationToken).ConfigureAwait(false);
 
         if (response.HttpStatusCode == HttpStatusCode.OK)
-            return new StorageActivityResult(
+            return new EndpointResult(
                 response.HttpStatusCode,
                 response.ResponseMetadata.RequestId,
                 $"Item {input.BucketKeyOrPrefix} uploaded.");
         logger.LogError("The expected {Name} is not here: {Value}. Returning...", nameof(HttpStatusCode), response.HttpStatusCode);
 
-        return new StorageActivityResult(
+        return new EndpointResult(
             response.HttpStatusCode,
             response.ResponseMetadata.RequestId,
             $"Uncertain whether item {input.BucketKeyOrPrefix} uploaded.");

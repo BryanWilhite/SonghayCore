@@ -45,4 +45,6 @@ public record StorageActivityInput<TContent>(
     string? BucketKeyOrPrefix,
     TContent? Content,
     string? ContentMimeType
+) : StorageActivityInput(
+    SetKey, BucketMetaKey, BucketKeyOrPrefix
 );

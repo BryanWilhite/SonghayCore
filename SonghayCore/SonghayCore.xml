@@ -67,10 +67,11 @@
             Instead of calling <see cref="M:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)"/> more than once, return this member.
             </remarks>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityKeyedTaskGroup">
+        <member name="T:Songhay.Abstractions.IActivityKeyedTaskGroup`1">
              <summary>
              A lightweight façade in front of many <c>IActivity*</c> implementations.
              </summary>
+             <typeparam name="TOutput">a non-nullable type</typeparam>
              <remarks>
              <para>
              This abstraction uses the word <c>Keyed</c>
@@ -80,11 +81,11 @@
              </para>
             
              <para>
-             To avoid magic strings, consider implementing <see cref="T:Songhay.Abstractions.IActivityTaskGroup"/> instead.
+             To avoid magic strings, consider implementing <see cref="T:Songhay.Abstractions.IActivityTaskGroup`1"/> instead.
              </para>
              </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityKeyedTaskGroup.InvokeActivityAsync``1(System.String,System.Threading.CancellationToken,System.String[])">
+        <member name="M:Songhay.Abstractions.IActivityKeyedTaskGroup`1.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])">
             <summary>
             Invokes the <c>IActivity*</c> implementation identified by the specified key.
             </summary>
@@ -101,7 +102,7 @@
             <summary>
             Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
-            <typeparam name="TOutput">The type of the output.</typeparam>
+            <typeparam name="TOutput">The non-nullable type of the output.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
             For detail around why this definition exists,
@@ -122,7 +123,7 @@
             <summary>
             Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
-            <typeparam name="TOutput">The type of the output.</typeparam>
+            <typeparam name="TOutput">The non-nullable type of the output.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
             For detail around why this definition exists,
@@ -179,7 +180,7 @@
             Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
+            <typeparam name="TOutput">The non-nullable type of the output.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
             For detail aound why this definition exists,
@@ -198,16 +199,17 @@
             like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
             </remarks>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityTaskGroup">
+        <member name="T:Songhay.Abstractions.IActivityTaskGroup`1">
             <summary>
             A lightweight façade in front of many <c>IActivity*</c> implementations.
             </summary>
             <remarks>
             This abstraction exposes class definitions to consumers with its <c>TActivity</c> type parameter.
-            To avoid this exposure (coupling), consider implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup"/> instead.
+            To avoid this exposure (coupling), consider implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup`1"/> instead.
             </remarks>
+            <typeparam name="TOutput">a non-nullable type</typeparam>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityTaskGroup.InvokeActivityAsync``2(System.Threading.CancellationToken,System.String[])">
+        <member name="M:Songhay.Abstractions.IActivityTaskGroup`1.InvokeActivityAsync``1(System.Threading.CancellationToken,System.String[])">
             <summary>
             Invokes the <c>IActivity*</c> implementation
             identified by the specified key.
@@ -261,7 +263,7 @@
             Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.ValueTask"/> support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
+            <typeparam name="TOutput">The non-nullable type of the output.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
             For detail aound why this definition exists,
@@ -2632,6 +2634,17 @@
             <summary>
             Extensions of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
             </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IServiceCollectionExtensions.AddActivityKeyedTaskGroup``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the dependencies associated
+            with the domain-specific class,
+            implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup`1"/>
+            by reading the name of this class.
+            </summary>
+            <typeparam name="TActivityGroup">the domain-specific class,
+            implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup`1"/></typeparam>
+            <param name="services">the ambient services collected</param>
         </member>
         <member name="M:Songhay.Extensions.IServiceCollectionExtensions.AddProgramMetadata(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -5763,6 +5776,33 @@
             Returns format: <c>[AssemblyCompany], [AssemblyTitle] Version: [AssemblyVersion], [AssemblyVersionDetail]</c>.
             </summary>
         </member>
+        <member name="T:Songhay.Models.ProgramFileActivityGroup">
+            <summary>
+            Maps typical string args into tuples
+            into one of the respective <see cref="N:Songhay.Activities"/>
+            for Program files.
+            </summary>
+            <param name="activityForProgramFileDelete">the Program-file delete Activity</param>
+            <param name="activityForProgramFileRead">the Program-file string-download Activity</param>
+            <param name="activityForProgramFileList">the Program-file bucket-list Activity</param>
+            <param name="activityForProgramFileSave">the Program-file string-upload Activity</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Models.ProgramFileActivityGroup.#ctor(Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointResult},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.String}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput{System.String},Songhay.Models.EndpointResult},Microsoft.Extensions.Logging.ILogger{Songhay.Models.ProgramFileActivityGroup})">
+            <summary>
+            Maps typical string args into tuples
+            into one of the respective <see cref="N:Songhay.Activities"/>
+            for Program files.
+            </summary>
+            <param name="activityForProgramFileDelete">the Program-file delete Activity</param>
+            <param name="activityForProgramFileRead">the Program-file string-download Activity</param>
+            <param name="activityForProgramFileList">the Program-file bucket-list Activity</param>
+            <param name="activityForProgramFileSave">the Program-file string-upload Activity</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Models.ProgramFileActivityGroup.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])">
+            <inheritdoc/>
+        </member>
         <member name="T:Songhay.Models.ProgramGlyph">
             <summary>
             Defines a Unicode glyphic character
@@ -6141,24 +6181,6 @@
             </param>
             <param name="Content">represents what will be transformed into an S3 <c>PutObjectRequest.ContentBody</c></param>
             <param name="ContentMimeType">represents an S3 <c>PutObjectRequest.ContentType</c></param>
-        </member>
-        <member name="P:Songhay.Models.StorageActivityInput`1.SetKey">
-            <summary>
-                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
-                or the name of a directory under the root of a storage mirror
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.StorageActivityInput`1.BucketMetaKey">
-            <summary>
-                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
-                pointing to the region of the S3 Bucket
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.StorageActivityInput`1.BucketKeyOrPrefix">
-            <summary>
-                represents an entire <c>S3Object.Key</c>
-                or its prefix (used for filtering S3 bucket listing)
-            </summary>
         </member>
         <member name="P:Songhay.Models.StorageActivityInput`1.Content">
             <summary>represents what will be transformed into an S3 <c>PutObjectRequest.ContentBody</c></summary>

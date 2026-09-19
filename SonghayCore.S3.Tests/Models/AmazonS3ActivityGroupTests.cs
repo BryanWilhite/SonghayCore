@@ -26,7 +26,7 @@ public class AmazonS3ActivityGroupTests(ITestOutputHelper testOutputHelper)
             .AddSingleton(configuration)
             .AddLogging(builder => builder.AddProvider(_loggerProvider))
             .AddProgramMetadata(configuration)
-            .AddActivityGroup<AmazonS3ActivityGroup>()
+            .AddActivityKeyedTaskGroup<AmazonS3ActivityGroup>()
             .BuildServiceProvider();
 
         IActivityKeyedTaskGroup group = provider.GetRequiredService<IActivityKeyedTaskGroup>();

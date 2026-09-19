@@ -5,9 +5,10 @@ namespace Songhay.Abstractions;
 /// </summary>
 /// <remarks>
 /// This abstraction exposes class definitions to consumers with its <c>TActivity</c> type parameter.
-/// To avoid this exposure (coupling), consider implementing <see cref="IActivityKeyedTaskGroup"/> instead.
+/// To avoid this exposure (coupling), consider implementing <see cref="IActivityKeyedTaskGroup{TOutput}"/> instead.
 /// </remarks>
-public interface IActivityTaskGroup
+/// <typeparam name="TOutput">a non-nullable type</typeparam>
+public interface IActivityTaskGroup<TOutput> where TOutput: notnull
 {
     /// <summary>
     /// Invokes the <c>IActivity*</c> implementation
@@ -22,5 +23,5 @@ public interface IActivityTaskGroup
     /// with the expectation that <c>*Result</c> classes/records
     /// like <see cref="EndpointResult"/> will be used.
     /// </remarks>
-    Task<TOutput> InvokeActivityAsync<TActivity, TOutput>(CancellationToken cancellationToken, params string?[] args) where TActivity : class;
+    Task<TOutput> InvokeActivityAsync<TActivity>(CancellationToken cancellationToken, params string?[] args) where TActivity : class;
 }

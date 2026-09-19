@@ -42,13 +42,13 @@ public interface IActivityValueTask<in TInput>
 /// Defines an Activity, optionally for <see cref="IHost"/> conventions, with <see cref="ValueTask"/> support.
 /// </summary>
 /// <typeparam name="TInput">The type of the input.</typeparam>
-/// <typeparam name="TOutput">The type of the output.</typeparam>
+/// <typeparam name="TOutput">The non-nullable type of the output.</typeparam>
 /// <seealso cref="IActivity" />
 /// <remarks>
 /// For detail aound why this definition exists,
 /// see https://github.com/BryanWilhite/SonghayCore/issues/83
 /// </remarks>
-public interface IActivityValueTask<in TInput, TOutput>
+public interface IActivityValueTask<in TInput, TOutput> where TOutput: notnull
 {
     /// <summary>
     /// Starts the <see cref="IActivity"/> asynchronously.

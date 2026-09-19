@@ -5,16 +5,16 @@ namespace Songhay.S3.Activities;
 /// of the specified <see cref="S3Bucket"/>.
 /// </summary>
 public class AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata programMetadata, ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>? logger):
-    IActivityTask<StorageActivityInput?, StorageActivityResult<IReadOnlyCollection<StorageObject>>?>
+    IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>>
 {
     /// <inheritdoc/>
-    public async Task<StorageActivityResult<IReadOnlyCollection<StorageObject>>?> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
+    public async Task<EndpointContentResult<IReadOnlyCollection<StorageObject>>> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);
 
         if (input == null)
         {
-            return new StorageActivityResult<IReadOnlyCollection<StorageObject>>(
+            return new EndpointContentResult<IReadOnlyCollection<StorageObject>>(
                 HttpStatusCode.BadRequest,
                 null,
                 "The expected input is not here.",
@@ -34,7 +34,7 @@ public class AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata pro
         {
             logger.LogErrorForMissingData<AmazonS3Client>();
 
-            return new StorageActivityResult<IReadOnlyCollection<StorageObject>>(
+            return new EndpointContentResult<IReadOnlyCollection<StorageObject>>(
                 HttpStatusCode.InternalServerError,
                 null,
                 "The expected S3 Client is not here.",
@@ -48,7 +48,7 @@ public class AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata pro
             MaxKeys = 10
         };
 
-        StorageActivityResult<IReadOnlyCollection<StorageObject>> result = await AmazonS3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
+        EndpointContentResult<IReadOnlyCollection<StorageObject>> result = await AmazonS3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
 
         return result;
     }

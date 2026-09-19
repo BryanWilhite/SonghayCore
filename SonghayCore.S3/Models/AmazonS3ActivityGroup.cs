@@ -1,6 +1,4 @@
-using System.Text.Json;
 using Songhay.S3.Activities;
-using Songhay.S3.SerializerContexts;
 using InputForActivities = OneOf.OneOf<Songhay.Models.StorageActivityInput, Songhay.Models.StorageActivityInput<string?>>;
 
 namespace Songhay.S3.Models;
@@ -15,15 +13,15 @@ namespace Songhay.S3.Models;
 /// <param name="activityForAmazonS3UploadString">the S3 string-upload Activity</param>
 /// <param name="logger">the <see cref="ILogger"/></param>
 public class AmazonS3ActivityGroup(
-    IActivityTask<StorageActivityInput?, StorageActivityResult?> activityForAmazonS3DeleteS3Object,
-    IActivityTask<StorageActivityInput?, StorageActivityResult<string?>?> activityForAmazonS3DownloadToString,
-    IActivityTask<StorageActivityInput?, StorageActivityResult<IReadOnlyCollection<StorageObject>>?> activityForAmazonS3ListBucketObjectsWithPagination,
-    IActivityTask<StorageActivityInput<string?>?, StorageActivityResult?> activityForAmazonS3UploadString,
+    IActivityTask<StorageActivityInput?, EndpointResult> activityForAmazonS3DeleteS3Object,
+    IActivityTask<StorageActivityInput?, EndpointContentResult<string?>> activityForAmazonS3DownloadToString,
+    IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>> activityForAmazonS3ListBucketObjectsWithPagination,
+    IActivityTask<StorageActivityInput<string?>?, EndpointResult> activityForAmazonS3UploadString,
     ILogger<AmazonS3ActivityGroup>logger
 ) : IActivityKeyedTaskGroup
 {
     /// <inheritdoc/>
-    public async Task<string?> InvokeActivityAsync(string? activitySetKey, params string?[] args )
+    public async Task<EndpointResult> InvokeActivityAsync<EndpointResult>(string? activitySetKey, CancellationToken cancellationToken, params string?[] args)
     {
         activitySetKey.ThrowWhenNullOrWhiteSpace();
 
@@ -33,7 +31,10 @@ public class AmazonS3ActivityGroup(
         {
             logger.LogError("The minimum expected number of Activity args ({No}) for `{Name}` is not here.", minimumExpected, activitySetKey);
 
-            return null;
+            return new EndpointResult(
+                HttpStatusCode.InternalServerError,
+                null,
+                "Arguments were not valid.");
         }
 
         string? setKey = args[0];
@@ -52,54 +53,43 @@ public class AmazonS3ActivityGroup(
             var (s1, s2, s3, s4, s5) => new StorageActivityInput<string?>(s1, s2, s3, s4, s5)
         };
 
-        Func<InputForActivities, Task<string?>>? activity = _activitySet.GetValueWithKey(activitySetKey);
+        Func<InputForActivities, CancellationToken, Task<EndpointResult>>? activity = _activitySet.GetValueWithKey(activitySetKey);
 
-        if (activity != null) return await activity.Invoke(input);
+        if (activity != null) return await activity.Invoke(input, cancellationToken);
 
         logger.LogError("The expected Activity, `{Name}`, is not here.", activitySetKey);
 
-        return null;
-
+        return new EndpointResult(
+            HttpStatusCode.InternalServerError,
+            null,
+            "Activity was not found.");
     }
 
-    private static JsonSerializerOptions GetJsonDeserializerOptions()
+    private readonly Dictionary<string, Func<InputForActivities, CancellationToken, Task<EndpointResult>>> _activitySet = new()
     {
-        JsonSerializerOptions options = new();
-
-        options.TypeInfoResolverChain.Add(StorageObjectSerializerContext.Default);
-
-        return options;
-    }
-
-    private readonly Dictionary<string, Func<InputForActivities, Task<string?>>> _activitySet = new()
-    {
-        [nameof(AmazonS3DeleteS3ObjectActivity)] = async input =>
+        [nameof(AmazonS3DeleteS3ObjectActivity)] = async (input, token) =>
         {
-            StorageActivityResult? result = await activityForAmazonS3DeleteS3Object.StartAsync(input.AsT0, CancellationToken.None);
+            EndpointResult result = await activityForAmazonS3DeleteS3Object.StartAsync(input.AsT0, token);
 
-            return result?.ResponseMessage;
+            return result;
         },
-        [nameof(AmazonS3DownloadToStringActivity)] = async input =>
+        [nameof(AmazonS3DownloadToStringActivity)] = async (input, token) =>
         {
-            StorageActivityResult<string?>? result = await activityForAmazonS3DownloadToString.StartAsync(input.AsT0, CancellationToken.None);
+            EndpointContentResult<string?> result = await activityForAmazonS3DownloadToString.StartAsync(input.AsT0, token);
 
-            return result?.Content;
+            return result;
         },
-        [nameof(AmazonS3ListBucketObjectsWithPaginationActivity)] = async input =>
+        [nameof(AmazonS3ListBucketObjectsWithPaginationActivity)] = async (input, token) =>
         {
-            StorageActivityResult<IReadOnlyCollection<StorageObject>>? result = await activityForAmazonS3ListBucketObjectsWithPagination.StartAsync(input.AsT0, CancellationToken.None);
+            EndpointContentResult<IReadOnlyCollection<StorageObject>> result = await activityForAmazonS3ListBucketObjectsWithPagination.StartAsync(input.AsT0, token);
 
-            if (result?.Content == null) return result?.ResponseMessage;
-
-            string json = JsonSerializer.Serialize(result.Content, GetJsonDeserializerOptions());
-
-            return json;
+            return result;
         },
-        [nameof(AmazonS3UploadStringActivity)] = async input =>
+        [nameof(AmazonS3UploadStringActivity)] = async (input, token) =>
         {
-            StorageActivityResult? result = await activityForAmazonS3UploadString.StartAsync(input.AsT1, CancellationToken.None);
+            EndpointResult result = await activityForAmazonS3UploadString.StartAsync(input.AsT1, token);
 
-            return result?.ResponseMessage;
+            return result;
         }
     };
 }

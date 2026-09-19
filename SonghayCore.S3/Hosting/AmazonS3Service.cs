@@ -59,7 +59,7 @@ public class AmazonS3Service(IHostApplicationLifetime hostApplicationLifetime, I
                 return;
             }
 
-            string? output = await amazonS3ActivityGroup.InvokeActivityAsync(activitySetKey, setKey, bucketMetaKey, bucketKey, content, contentMimeType);
+            var output = await amazonS3ActivityGroup.InvokeActivityAsync(activitySetKey, stoppingToken, setKey, bucketMetaKey, bucketKey, content, contentMimeType);
 
             string? path = configuration.GetOutputPath();
 

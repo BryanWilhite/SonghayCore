@@ -5,16 +5,16 @@ namespace Songhay.S3.Activities;
 /// with the specified <see cref="S3Object.Key"/>.
 /// </summary>
 public class AmazonS3DownloadToStringActivity(ProgramMetadata programMetadata, ILogger<AmazonS3DownloadToStringActivity>? logger) :
-    IActivityTask<StorageActivityInput?, StorageActivityResult<string?>?>
+    IActivityTask<StorageActivityInput?, EndpointContentResult<string?>>
 {
     /// <inheritdoc/>
-    public async Task<StorageActivityResult<string?>?> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
+    public async Task<EndpointContentResult<string?>> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);
 
         if (input == null)
         {
-            return new StorageActivityResult<string?>(
+            return new EndpointContentResult<string?>(
                 HttpStatusCode.BadRequest,
                 null,
                 "The expected input is not here.",
@@ -34,7 +34,7 @@ public class AmazonS3DownloadToStringActivity(ProgramMetadata programMetadata, I
         {
             logger.LogErrorForMissingData<AmazonS3Client>();
 
-            return new StorageActivityResult<string?>(
+            return new EndpointContentResult<string?>(
                 HttpStatusCode.InternalServerError,
                 null,
                 "The expected S3 Client is not here.",
@@ -49,7 +49,7 @@ public class AmazonS3DownloadToStringActivity(ProgramMetadata programMetadata, I
         {
             logger.LogError("The expected {Name} is not here: {Value}. Returning...", nameof(HttpStatusCode), response.HttpStatusCode);
 
-            return new StorageActivityResult<string?>(
+            return new EndpointContentResult<string?>(
                 response.HttpStatusCode,
                 response.ResponseMetadata.RequestId,
                 $"Uncertain whether item {input.BucketKeyOrPrefix} found.",
@@ -60,7 +60,7 @@ public class AmazonS3DownloadToStringActivity(ProgramMetadata programMetadata, I
         {
             logger.LogError("The expected {Name} is not here: {Value}. Returning...", nameof(GetObjectResponse.ContentLength), response.ContentLength);
 
-            return new StorageActivityResult<string?>(
+            return new EndpointContentResult<string?>(
                 response.HttpStatusCode,
                 response.ResponseMetadata.RequestId,
                 $"Uncertain whether item {input.BucketKeyOrPrefix} content found or item is empty.",
@@ -69,7 +69,7 @@ public class AmazonS3DownloadToStringActivity(ProgramMetadata programMetadata, I
 
         string? content = await response.ResponseStream.ReadStreamAsStringAsync();
 
-        return new StorageActivityResult<string?>(
+        return new EndpointContentResult<string?>(
             response.HttpStatusCode,
             response.ResponseMetadata.RequestId,
             $"Item {input.BucketKeyOrPrefix} content found.",
