@@ -4,23 +4,29 @@ namespace Songhay.Abstractions;
 /// A lightweight façade in front of many <c>IActivity*</c> implementations.
 /// </summary>
 /// <remarks>
+/// <para>
 /// This abstraction uses the word <c>Keyed</c>
 /// to indicate that the many <c>IActivity*</c> implementations
-/// are identified by magic strings to avoid exposing formal classes
-/// to consumers.
+/// are identified by magic strings to avoid exposing class definitions
+/// to downstream consumers.
+/// </para>
 ///
+/// <para>
 /// To avoid magic strings, consider implementing <see cref="IActivityTaskGroup"/> instead.
+/// </para>
 /// </remarks>
 public interface IActivityKeyedTaskGroup
 {
     /// <summary>
-    /// Invokes the <c>IActivity*</c> implementation
-    /// identified by the specified key.
+    /// Invokes the <c>IActivity*</c> implementation identified by the specified key.
     /// </summary>
     /// <param name="activitySetKey">identifies the <c>IActivity*</c> implementation</param>
+    /// <param name="cancellationToken">the <see cref="CancellationToken"/></param>
     /// <param name="args">collects the stringified input arguments of the <c>IActivity*</c> implementation</param>
-    /// <returns>
-    /// Returns the stringified output of <c>IActivity*</c> implementation.
-    /// </returns>
-    Task<string?> InvokeActivityAsync(string? activitySetKey, params string?[] args);
+    /// <remarks>
+    /// Note that <c>TOutput</c> is not marked as nullable
+    /// with the expectation that <c>*Result</c> classes/records
+    /// like <see cref="EndpointResult"/> will be used.
+    /// </remarks>
+    Task<TOutput> InvokeActivityAsync<TOutput>(string? activitySetKey, CancellationToken cancellationToken,  params string?[] args);
 }

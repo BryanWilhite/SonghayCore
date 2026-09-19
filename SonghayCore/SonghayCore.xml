@@ -72,24 +72,30 @@
              A lightweight façade in front of many <c>IActivity*</c> implementations.
              </summary>
              <remarks>
+             <para>
              This abstraction uses the word <c>Keyed</c>
              to indicate that the many <c>IActivity*</c> implementations
-             are identified by magic strings to avoid exposing formal classes
-             to consumers.
+             are identified by magic strings to avoid exposing class definitions
+             to downstream consumers.
+             </para>
             
+             <para>
              To avoid magic strings, consider implementing <see cref="T:Songhay.Abstractions.IActivityTaskGroup"/> instead.
+             </para>
              </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityKeyedTaskGroup.InvokeActivityAsync(System.String,System.String[])">
+        <member name="M:Songhay.Abstractions.IActivityKeyedTaskGroup.InvokeActivityAsync``1(System.String,System.Threading.CancellationToken,System.String[])">
             <summary>
-            Invokes the <c>IActivity*</c> implementation
-            identified by the specified key.
+            Invokes the <c>IActivity*</c> implementation identified by the specified key.
             </summary>
             <param name="activitySetKey">identifies the <c>IActivity*</c> implementation</param>
+            <param name="cancellationToken">the <see cref="T:System.Threading.CancellationToken"/></param>
             <param name="args">collects the stringified input arguments of the <c>IActivity*</c> implementation</param>
-            <returns>
-            Returns the stringified output of <c>IActivity*</c> implementation.
-            </returns>
+            <remarks>
+            Note that <c>TOutput</c> is not marked as nullable
+            with the expectation that <c>*Result</c> classes/records
+            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
+            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.IActivityOutputOnly`1">
             <summary>
@@ -106,6 +112,11 @@
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
             </summary>
+            <remarks>
+            Note that <c>TOutput</c> is not marked as nullable
+            with the expectation that <c>*Result</c> classes/records
+            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
+            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.IActivityOutputOnlyTask`1">
             <summary>
@@ -123,6 +134,11 @@
             Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
             </summary>
             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <remarks>
+            Note that <c>TOutput</c> is not marked as nullable
+            with the expectation that <c>*Result</c> classes/records
+            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
+            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.IActivityTask">
             <summary>
@@ -176,26 +192,35 @@
             </summary>
             <param name="input">The input.</param>
             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <remarks>
+            Note that <c>TOutput</c> is not marked as nullable
+            with the expectation that <c>*Result</c> classes/records
+            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
+            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.IActivityTaskGroup">
             <summary>
             A lightweight façade in front of many <c>IActivity*</c> implementations.
             </summary>
             <remarks>
-            This abstraction exposes formal classes to consumers.
+            This abstraction exposes class definitions to consumers with its <c>TActivity</c> type parameter.
             To avoid this exposure (coupling), consider implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup"/> instead.
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityTaskGroup.InvokeActivityAsync``1(System.String[])">
+        <member name="M:Songhay.Abstractions.IActivityTaskGroup.InvokeActivityAsync``2(System.Threading.CancellationToken,System.String[])">
             <summary>
             Invokes the <c>IActivity*</c> implementation
             identified by the specified key.
             </summary>
             <typeparam name="TActivity">identifies the <c>IActivity*</c> implementation</typeparam>
+            <typeparam name="TOutput">the type of the Activity output</typeparam>
+            <param name="cancellationToken">the <see cref="T:System.Threading.CancellationToken"/></param>
             <param name="args">collects the stringified input arguments of the <c>IActivity*</c> implementation</param>
-            <returns>
-            Returns the stringified output of <c>IActivity*</c> implementation.
-            </returns>
+            <remarks>
+            Note that <c>TOutput</c> is not marked as nullable
+            with the expectation that <c>*Result</c> classes/records
+            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
+            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.IActivityValueTask">
             <summary>
@@ -249,6 +274,11 @@
             </summary>
             <param name="input">The input.</param>
             <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <remarks>
+            Note that <c>TOutput</c> is not marked as nullable
+            with the expectation that <c>*Result</c> classes/records
+            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
+            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.IApiEndpoint">
             <summary>
@@ -5037,6 +5067,54 @@
             Gets or sets the key.
             </summary>
         </member>
+        <member name="T:Songhay.Models.EndpointContentResult`1">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <typeparam name="TContent">the type of the content returned in the response</typeparam>
+            <param name="HttpStatusCode">the <see cref="T:System.Net.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+            <param name="Content">any content associated with the response</param>
+        </member>
+        <member name="M:Songhay.Models.EndpointContentResult`1.#ctor(System.Net.HttpStatusCode,System.String,System.String,`0)">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <typeparam name="TContent">the type of the content returned in the response</typeparam>
+            <param name="HttpStatusCode">the <see cref="T:System.Net.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+            <param name="Content">any content associated with the response</param>
+        </member>
+        <member name="P:Songhay.Models.EndpointContentResult`1.Content">
+            <summary>any content associated with the response</summary>
+        </member>
+        <member name="T:Songhay.Models.EndpointResult">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.EndpointResult.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+        </member>
+        <member name="M:Songhay.Models.EndpointResult.#ctor(System.Net.HttpStatusCode,System.String,System.String)">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.EndpointResult.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+        </member>
+        <member name="P:Songhay.Models.EndpointResult.HttpStatusCode">
+            <summary>the <see cref="P:Songhay.Models.EndpointResult.HttpStatusCode"/></summary>
+        </member>
+        <member name="P:Songhay.Models.EndpointResult.RequestId">
+            <summary>the identifier of the request</summary>
+        </member>
+        <member name="P:Songhay.Models.EndpointResult.ResponseMessage">
+            <summary>any message associated with the request</summary>
+        </member>
         <member name="T:Songhay.Models.HttpMethods">
             <summary>
             Centralizes <see cref="T:System.Net.Http.HttpMethod"/> members as strings.
@@ -6087,63 +6165,6 @@
         </member>
         <member name="P:Songhay.Models.StorageActivityInput`1.ContentMimeType">
             <summary>represents an S3 <c>PutObjectRequest.ContentType</c></summary>
-        </member>
-        <member name="T:Songhay.Models.StorageActivityResult`1">
-            <summary>
-            Defines the result returned from all storage-related Activities.
-            </summary>
-            <typeparam name="TContent">the type of the content returned in the response</typeparam>
-            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.StorageActivityResult`1.HttpStatusCode"/></param>
-            <param name="RequestId">the identifier of the request</param>
-            <param name="ResponseMessage">any message associated with the request</param>
-            <param name="Content">any content associated with the response</param>
-        </member>
-        <member name="M:Songhay.Models.StorageActivityResult`1.#ctor(System.Net.HttpStatusCode,System.String,System.String,`0)">
-            <summary>
-            Defines the result returned from all storage-related Activities.
-            </summary>
-            <typeparam name="TContent">the type of the content returned in the response</typeparam>
-            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.StorageActivityResult`1.HttpStatusCode"/></param>
-            <param name="RequestId">the identifier of the request</param>
-            <param name="ResponseMessage">any message associated with the request</param>
-            <param name="Content">any content associated with the response</param>
-        </member>
-        <member name="P:Songhay.Models.StorageActivityResult`1.HttpStatusCode">
-            <summary>the <see cref="P:Songhay.Models.StorageActivityResult`1.HttpStatusCode"/></summary>
-        </member>
-        <member name="P:Songhay.Models.StorageActivityResult`1.RequestId">
-            <summary>the identifier of the request</summary>
-        </member>
-        <member name="P:Songhay.Models.StorageActivityResult`1.ResponseMessage">
-            <summary>any message associated with the request</summary>
-        </member>
-        <member name="P:Songhay.Models.StorageActivityResult`1.Content">
-            <summary>any content associated with the response</summary>
-        </member>
-        <member name="T:Songhay.Models.StorageActivityResult">
-            <summary>
-            Defines the result returned from all storage-related Activities.
-            </summary>
-            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.StorageActivityResult.HttpStatusCode"/></param>
-            <param name="RequestId">the identifier of the request</param>
-            <param name="ResponseMessage">any message associated with the request</param>
-        </member>
-        <member name="M:Songhay.Models.StorageActivityResult.#ctor(System.Net.HttpStatusCode,System.String,System.String)">
-            <summary>
-            Defines the result returned from all storage-related Activities.
-            </summary>
-            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.StorageActivityResult.HttpStatusCode"/></param>
-            <param name="RequestId">the identifier of the request</param>
-            <param name="ResponseMessage">any message associated with the request</param>
-        </member>
-        <member name="P:Songhay.Models.StorageActivityResult.HttpStatusCode">
-            <summary>the <see cref="P:Songhay.Models.StorageActivityResult.HttpStatusCode"/></summary>
-        </member>
-        <member name="P:Songhay.Models.StorageActivityResult.RequestId">
-            <summary>the identifier of the request</summary>
-        </member>
-        <member name="P:Songhay.Models.StorageActivityResult.ResponseMessage">
-            <summary>any message associated with the request</summary>
         </member>
         <member name="T:Songhay.Models.StorageObject">
             <summary>
@@ -8792,6 +8813,78 @@
             </code>
             </remarks>
         </member>
+        <member name="T:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.ColorDisplayItemModel"/>
+            to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.Byte">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.ColorDisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.IEnumerableColorDisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.DateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.NullableDateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.Uri">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.Int32">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.Object">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
         <member name="T:Songhay.SerializerContexts.DbmsMetadataSerializerContext">
             <summary>
             Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
@@ -8869,6 +8962,165 @@
             <inheritdoc/>
         </member>
         <member name="M:Songhay.SerializerContexts.DictionarySerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.DisplayItemModelSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel"/>
+            to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Byte">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.IEnumerableDisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Uri">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Int32">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DisplayItemModelSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DisplayItemModelSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.MenuDisplayItemModel"/>
+            to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Boolean">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.NullableBoolean">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Byte">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.MenuDisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.MenuDisplayItemModelArray">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.IEnumerableMenuDisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.DateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.NullableDateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Uri">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Int32">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Object">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.GetTypeInfo(System.Type)">
             <inheritdoc/>
         </member>
         <member name="T:Songhay.SerializerContexts.ProgramMetadataSerializerContext">
@@ -8964,6 +9216,11 @@
             Defines the source generated JSON serialization contract metadata for a given type.
             </summary>
         </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.IEnumerableRestApiMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
         <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.Uri">
             <summary>
             Defines the source generated JSON serialization contract metadata for a given type.
@@ -8991,6 +9248,58 @@
             <inheritdoc/>
         </member>
         <member name="M:Songhay.SerializerContexts.RestApiMetadataSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.StorageObjectSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject"/>
+            to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.IEnumerableStorageObject">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.DateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.Int64">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.StorageObjectSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.StorageObjectSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.StorageObjectSerializerContext.GetTypeInfo(System.Type)">
             <inheritdoc/>
         </member>
         <member name="T:Songhay.TaskUtility">

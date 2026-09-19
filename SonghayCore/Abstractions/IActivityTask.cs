@@ -55,5 +55,10 @@ public interface IActivityTask<in TInput, TOutput>
     /// </summary>
     /// <param name="input">The input.</param>
     /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
-    Task<TOutput?> StartAsync(TInput? input, CancellationToken cancellationToken);
+    /// <remarks>
+    /// Note that <c>TOutput</c> is not marked as nullable
+    /// with the expectation that <c>*Result</c> classes/records
+    /// like <see cref="EndpointResult"/> will be used.
+    /// </remarks>
+    Task<TOutput> StartAsync(TInput? input, CancellationToken cancellationToken);
 }

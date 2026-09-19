@@ -16,5 +16,10 @@ public interface IActivityOutputOnly<out TOutput>
     /// <summary>
     /// Starts the <see cref="IActivity" /> asynchronously.
     /// </summary>
-    TOutput? Start();
+    /// <remarks>
+    /// Note that <c>TOutput</c> is not marked as nullable
+    /// with the expectation that <c>*Result</c> classes/records
+    /// like <see cref="EndpointResult"/> will be used.
+    /// </remarks>
+    TOutput Start();
 }

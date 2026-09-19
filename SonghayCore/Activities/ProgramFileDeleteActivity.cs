@@ -6,16 +6,16 @@ namespace Songhay.Activities;
 /// of <c>AmazonS3DeleteS3ObjectActivity</c>
 /// </summary>
 /// <param name="logger">the <see cref="ILogger"/></param>
-public class ProgramFileDeleteActivity(ILogger<ProgramFileDeleteActivity> logger) : IActivityTask<StorageActivityInput?, StorageActivityResult?>
+public class ProgramFileDeleteActivity(ILogger<ProgramFileDeleteActivity> logger) : IActivityTask<StorageActivityInput?, EndpointResult>
 {
     /// <inheritdoc/>
-    public async Task<StorageActivityResult?> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
+    public async Task<EndpointResult> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
     {
         FileInfo? fileInfo = input.ToFileInfo(logger);
 
         if (fileInfo == null)
         {
-            return new StorageActivityResult(
+            return new EndpointResult(
                 HttpStatusCode.NotFound,
                 "[local]",
                 "The expected file is not here.");
@@ -25,7 +25,7 @@ public class ProgramFileDeleteActivity(ILogger<ProgramFileDeleteActivity> logger
 
         await Task.CompletedTask;
 
-        return new StorageActivityResult(
+        return new EndpointResult(
             HttpStatusCode.NoContent,
             "[local]",
             $"File `{fileInfo.FullName}` deleted.");

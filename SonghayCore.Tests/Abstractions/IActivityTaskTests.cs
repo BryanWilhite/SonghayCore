@@ -15,11 +15,11 @@ public class MyActivityTaskWithInput(IConfiguration configuration, ILogger<MyAct
             configuration[key] = $"Hello {input}!";
 
             logger.LogInformation("{s}", configuration[key]);
-        });
+        }, cancellationToken);
     }
 }
 
-public class MyActivityTaskWithInputAndOutput : IActivityTask<int, string>
+public class MyActivityTaskWithInputAndOutput : IActivityTask<int, string?>
 {
     public async Task<string?> StartAsync(int input, CancellationToken cancellationToken)
     {
@@ -33,7 +33,7 @@ public class MyActivityTaskWithInputAndOutput : IActivityTask<int, string>
     }
 }
 
-public class MyOtherActivityTaskWithInputAndOutput : IActivityTask<int, string>
+public class MyOtherActivityTaskWithInputAndOutput : IActivityTask<int, string?>
 {
     public async Task<string?> StartAsync(int input, CancellationToken cancellationToken)
     {
@@ -51,7 +51,7 @@ public class MyOutputActivityTask(
     [FromKeyedServices(nameof(MyActivityTaskWithInputAndOutput))]
     IActivityTask<int, string> ioActivity,
     [FromKeyedServices(nameof(MyOtherActivityTaskWithInputAndOutput))]
-    IActivityTask<int, string> otherIoActivity) : IActivityOutputOnlyTask<string[]>
+    IActivityTask<int, string> otherIoActivity) : IActivityOutputOnlyTask<string[]?>
 {
     public async Task<string[]?> StartAsync(CancellationToken cancellationToken)
     {
@@ -64,7 +64,7 @@ public class MyOutputActivityTask(
             ioActivity.StartAsync(4, cancellationToken)
         );
 
-        return output.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray()!;
+        return [.. output.Where(s => !string.IsNullOrWhiteSpace(s))];
     }
 }
 
@@ -105,9 +105,9 @@ public class IActivityTaskTestsIActivityTests(ITestOutputHelper testOutputHelper
     {
         ServiceCollection services = new();
 
-        services.AddKeyedTransient<IActivityTask<int, string>, MyActivityTaskWithInputAndOutput>(nameof(MyActivityTaskWithInputAndOutput));
-        services.AddKeyedTransient<IActivityTask<int, string>, MyOtherActivityTaskWithInputAndOutput>(nameof(MyOtherActivityTaskWithInputAndOutput));
-        services.AddTransient<IActivityOutputOnlyTask<string[]>, MyOutputActivityTask>();
+        services.AddKeyedTransient<IActivityTask<int, string?>, MyActivityTaskWithInputAndOutput>(nameof(MyActivityTaskWithInputAndOutput));
+        services.AddKeyedTransient<IActivityTask<int, string?>, MyOtherActivityTaskWithInputAndOutput>(nameof(MyOtherActivityTaskWithInputAndOutput));
+        services.AddTransient<IActivityOutputOnlyTask<string[]?>, MyOutputActivityTask>();
 
         ServiceProvider provider = services.BuildServiceProvider();
 

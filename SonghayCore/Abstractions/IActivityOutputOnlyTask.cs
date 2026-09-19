@@ -17,5 +17,10 @@ public interface IActivityOutputOnlyTask<TOutput>
     /// Starts the <see cref="IActivity" /> asynchronously.
     /// </summary>
     /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
-    Task<TOutput?> StartAsync(CancellationToken cancellationToken);
+    /// <remarks>
+    /// Note that <c>TOutput</c> is not marked as nullable
+    /// with the expectation that <c>*Result</c> classes/records
+    /// like <see cref="EndpointResult"/> will be used.
+    /// </remarks>
+    Task<TOutput> StartAsync(CancellationToken cancellationToken);
 }

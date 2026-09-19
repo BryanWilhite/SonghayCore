@@ -7,16 +7,16 @@ namespace Songhay.Activities;
 /// of <c>AmazonS3DownloadToStringActivity</c>
 /// </summary>
 /// <param name="logger">the <see cref="ILogger"/></param>
-public class ProgramFileReadActivity(ILogger<ProgramFileReadActivity> logger) : IActivityTask<StorageActivityInput?, StorageActivityResult<string?>?>
+public class ProgramFileReadActivity(ILogger<ProgramFileReadActivity> logger) : IActivityTask<StorageActivityInput?, EndpointContentResult<string?>>
 {
     /// <inheritdoc/>
-    public async Task<StorageActivityResult<string?>?> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
+    public async Task<EndpointContentResult<string?>> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
     {
         FileInfo? fileInfo = input.ToFileInfo(logger);
 
         if (fileInfo == null)
         {
-            return new StorageActivityResult<string?>(
+            return new EndpointContentResult<string?>(
                 HttpStatusCode.NotFound,
                 "[local]",
                 "The expected file is not here.",
@@ -25,7 +25,7 @@ public class ProgramFileReadActivity(ILogger<ProgramFileReadActivity> logger) : 
 
         string content = await File.ReadAllTextAsync(fileInfo.FullName, cancellationToken);
 
-        return new StorageActivityResult<string?>(
+        return new EndpointContentResult<string?>(
             HttpStatusCode.OK,
             "[local]",
             $"File `{fileInfo.FullName}` loaded.",

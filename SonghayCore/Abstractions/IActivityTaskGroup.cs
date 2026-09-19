@@ -4,7 +4,7 @@ namespace Songhay.Abstractions;
 /// A lightweight façade in front of many <c>IActivity*</c> implementations.
 /// </summary>
 /// <remarks>
-/// This abstraction exposes formal classes to consumers.
+/// This abstraction exposes class definitions to consumers with its <c>TActivity</c> type parameter.
 /// To avoid this exposure (coupling), consider implementing <see cref="IActivityKeyedTaskGroup"/> instead.
 /// </remarks>
 public interface IActivityTaskGroup
@@ -14,9 +14,13 @@ public interface IActivityTaskGroup
     /// identified by the specified key.
     /// </summary>
     /// <typeparam name="TActivity">identifies the <c>IActivity*</c> implementation</typeparam>
+    /// <typeparam name="TOutput">the type of the Activity output</typeparam>
+    /// <param name="cancellationToken">the <see cref="CancellationToken"/></param>
     /// <param name="args">collects the stringified input arguments of the <c>IActivity*</c> implementation</param>
-    /// <returns>
-    /// Returns the stringified output of <c>IActivity*</c> implementation.
-    /// </returns>
-    Task<string?> InvokeActivityAsync<TActivity>(params string?[] args) where TActivity : class;
+    /// <remarks>
+    /// Note that <c>TOutput</c> is not marked as nullable
+    /// with the expectation that <c>*Result</c> classes/records
+    /// like <see cref="EndpointResult"/> will be used.
+    /// </remarks>
+    Task<TOutput> InvokeActivityAsync<TActivity, TOutput>(CancellationToken cancellationToken, params string?[] args) where TActivity : class;
 }

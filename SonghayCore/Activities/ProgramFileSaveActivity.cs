@@ -6,10 +6,10 @@ namespace Songhay.Activities;
 /// of <c>AmazonS3UploadStringActivity</c>
 /// </summary>
 /// <param name="logger">the <see cref="ILogger"/></param>
-public class ProgramFileSaveActivity(ILogger<ProgramFileSaveActivity> logger) : IActivityTask<StorageActivityInput<string?>?, StorageActivityResult?>
+public class ProgramFileSaveActivity(ILogger<ProgramFileSaveActivity> logger) : IActivityTask<StorageActivityInput<string?>?, EndpointResult>
 {
     /// <inheritdoc/>
-    public async Task<StorageActivityResult?> StartAsync(StorageActivityInput<string?>? input, CancellationToken cancellationToken)
+    public async Task<EndpointResult> StartAsync(StorageActivityInput<string?>? input, CancellationToken cancellationToken)
     {
         if (input == null || !Directory.Exists(input.SetKey))
         {
@@ -17,7 +17,7 @@ public class ProgramFileSaveActivity(ILogger<ProgramFileSaveActivity> logger) : 
 
             logger.LogError(message);
 
-            return new StorageActivityResult(
+            return new EndpointResult(
                 HttpStatusCode.NotFound,
                 "[local]",
                 message);
@@ -33,7 +33,7 @@ public class ProgramFileSaveActivity(ILogger<ProgramFileSaveActivity> logger) : 
 
             logger.LogError(message);
 
-            return new StorageActivityResult(
+            return new EndpointResult(
                 HttpStatusCode.NotFound,
                 "[local]",
                 message);
@@ -41,7 +41,7 @@ public class ProgramFileSaveActivity(ILogger<ProgramFileSaveActivity> logger) : 
 
         await File.WriteAllTextAsync(path, input.Content, cancellationToken);
 
-        return new StorageActivityResult(
+        return new EndpointResult(
             HttpStatusCode.OK,
             "[local]",
             $"Content written to `{path}`.");

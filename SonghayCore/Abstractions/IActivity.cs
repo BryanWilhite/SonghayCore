@@ -47,5 +47,5 @@ public interface IActivity<in TInput, out TOutput>
     /// and synchronously returns <c>TOutput</c>.
     /// </summary>
     /// <param name="input">The input.</param>
-    TOutput? Start(TInput? input);
+    TOutput Start(TInput? input);
 }
