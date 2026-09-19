@@ -12,6 +12,7 @@ public static class IConfigurationBuilderExtensions
     /// with the conventional environment variable, <c>SONGHAY_APP_SETTINGS_PATH</c>.
     /// </summary>
     /// <param name="configurationBuilder">the <see cref="IConfigurationBuilder"/></param>
+    /// <see cref="ProgramMetadataUtility"/>
     public static IConfigurationBuilder AddConventionalJsonFile(this IConfigurationBuilder? configurationBuilder)
     {
         ArgumentNullException.ThrowIfNull(configurationBuilder);

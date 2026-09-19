@@ -26,16 +26,65 @@ public static partial class DateTimeExtensions
 
     /// <summary>
     /// Converts the specified <see cref="DateTime"/>
+    /// to the JSON-friendly ISO_8601 text format
+    /// without milliseconds.
+    /// </summary>
+    /// <param name="dateTime">the <see cref="DateTime"/></param>
+    public static string ToIso8601String(this DateTime dateTime) =>
+        dateTime.ToIso8601String(includeTimeMilliseconds: false);
+
+    /// <summary>
+    /// Converts the specified <see cref="DateTime"/>
     /// to the JSON-friendly ISO_8601 text format.
     /// </summary>
     /// <param name="dateTime">the <see cref="DateTime"/></param>
+    /// <param name="includeTimeMilliseconds">when <c>true</c>, increase resolution to include milliseconds</param>
     /// <remarks>
     /// 📖 https://en.wikipedia.org/wiki/ISO_8601
     /// </remarks>
-    public static string ToIso8601String(this DateTime dateTime)
+    public static string ToIso8601String(this DateTime dateTime, bool includeTimeMilliseconds)
     {
-        const string template = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'";
+        if(dateTime.Kind == DateTimeKind.Utc)
+            return dateTime.ToIso8601UtcString(includeTimeMilliseconds);
+
+        string template = includeTimeMilliseconds?
+            Iso8601TemplateWithMs
+            :
+            Iso8601Template;
 
         return dateTime.ToString(template);
     }
+
+    /// <summary>
+    /// Converts the specified <see cref="DateTime"/>
+    /// to the JSON-friendly ISO_8601 text format for UTC (a trailing <c>Z</c>)
+    /// without milliseconds.
+    /// </summary>
+    /// <param name="dateTime">the <see cref="DateTime"/></param>
+    public static string ToIso8601UtcString(this DateTime dateTime) =>
+        dateTime.ToIso8601UtcString(includeTimeMilliseconds: false);
+
+    /// <summary>
+    /// Converts the specified <see cref="DateTime"/>
+    /// to the JSON-friendly ISO_8601 text format for UTC (a trailing <c>Z</c>).
+    /// </summary>
+    /// <param name="dateTime">the <see cref="DateTime"/></param>
+    /// <param name="includeTimeMilliseconds">when <c>true</c>, increase resolution to include milliseconds</param>
+    /// <remarks>
+    /// 📖 https://en.wikipedia.org/wiki/ISO_8601
+    /// </remarks>
+    public static string ToIso8601UtcString(this DateTime dateTime, bool includeTimeMilliseconds)
+    {
+        const string utcSuffix = "'Z'";
+
+        string template = includeTimeMilliseconds?
+            $"{Iso8601TemplateWithMs}{utcSuffix}"
+            :
+            $"{Iso8601Template}{utcSuffix}";
+
+        return dateTime.ToUniversalTime().ToString(template);
+    }
+
+    internal const string Iso8601Template = "yyyy-MM-dd'T'HH:mm:ss";
+    internal const string Iso8601TemplateWithMs = "yyyy-MM-dd'T'HH:mm:ss.fff";
 }

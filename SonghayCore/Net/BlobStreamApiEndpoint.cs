@@ -5,9 +5,10 @@ namespace Songhay.Net;
 /// <summary>
 /// Defines the default implementation of <see cref="IBlobStreamApiEndpoint"/>
 /// </summary>
+/// <param name="clientFactory">the <see cref="IHttpClientFactory"/></param>
 /// <param name="instanceTag">maps to <see cref="ITaggedInstance.InstanceTag"/></param>
 /// <param name="pipeline">the <see cref="ResiliencePipeline"/></param>
-public class BlobStreamApiEndpoint(ResiliencePipeline? pipeline, string? instanceTag) : IBlobStreamApiEndpoint
+public class BlobStreamApiEndpoint(IHttpClientFactory clientFactory, ResiliencePipeline? pipeline, string? instanceTag) : IBlobStreamApiEndpoint
 {
     /// <summary>
     /// Returns the conventional ID or tag of this instance.
@@ -29,7 +30,7 @@ public class BlobStreamApiEndpoint(ResiliencePipeline? pipeline, string? instanc
         await pipeline.ToReferenceTypeValueOrThrow().ExecuteAsync(async cancellationToken =>
             {
                 using var request = requestStrategy.GenerateHttpRequestMessage(path);
-                using HttpResponseMessage response = await request.SendAsync();
+                using HttpResponseMessage response = await request.SendAsync(() => clientFactory.CreateClient(nameof(BlobStreamApiEndpoint)));
 
                 Stream stream = await response.Content.ReadAsStreamAsync(cancellationToken);
 

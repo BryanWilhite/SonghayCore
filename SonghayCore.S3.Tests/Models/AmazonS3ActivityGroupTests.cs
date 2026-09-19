@@ -1,6 +1,7 @@
+using System.Net;
 using Songhay.Abstractions;
+using Songhay.Models;
 using Songhay.S3.Activities;
-using Songhay.S3.Extensions;
 using Songhay.S3.Models;
 
 namespace Songhay.S3.Tests.Models;
@@ -16,8 +17,6 @@ public class AmazonS3ActivityGroupTests(ITestOutputHelper testOutputHelper)
         Skip.If(shouldSkip);
 
         //arrange:
-        ILogger logger = _loggerProvider.CreateLogger(nameof(ShouldListBucketObjectsWithPaginationAndFiltering));
-
         IConfiguration configuration = new ConfigurationBuilder()
             .AddConventionalJsonFile()
             .Build();
@@ -26,18 +25,23 @@ public class AmazonS3ActivityGroupTests(ITestOutputHelper testOutputHelper)
             .AddSingleton(configuration)
             .AddLogging(builder => builder.AddProvider(_loggerProvider))
             .AddProgramMetadata(configuration)
-            .AddActivityGroup<AmazonS3ActivityGroup>()
+            .AddActivityKeyedTaskGroup<AmazonS3ActivityGroup>()
             .BuildServiceProvider();
 
-        IActivityKeyedTaskGroup group = provider.GetRequiredService<IActivityKeyedTaskGroup>();
+        IActivityKeyedTaskGroup<EndpointResult> group = provider.GetRequiredService<IActivityKeyedTaskGroup<EndpointResult>>();
 
         //act:
-        string? actual = await group.InvokeActivityAsync(nameof(AmazonS3ListBucketObjectsWithPaginationActivity), setKey, bucketMetaKey, bucketKeyPrefix);
+        EndpointResult result = await group.InvokeActivityAsync(
+            nameof(AmazonS3ListBucketObjectsWithPaginationActivity),
+            CancellationToken.None,
+            setKey, bucketMetaKey, bucketKeyPrefix);
+
+        EndpointContentResult<IReadOnlyCollection<StorageObject>> actual = (result as EndpointContentResult<IReadOnlyCollection<StorageObject>>).ToReferenceTypeValueOrThrow();
 
         //assert:
-        Assert.NotNull(actual);
-
-        logger.LogInformation(actual);
+        Assert.Equal(HttpStatusCode.OK, actual.HttpStatusCode);
+        Assert.NotEmpty(actual.Content!);
+        Assert.All(actual.Content!, so => testOutputHelper.WriteLine(so.ToString()));
     }
 
     private readonly XUnitLoggerProvider _loggerProvider = new(testOutputHelper);

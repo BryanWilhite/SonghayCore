@@ -16,6 +16,7 @@ public static class AzureKeyVaultRestApiUtility
     /// </summary>
     /// <param name="accessUri">the location of the Azure Active Directory endpoint</param>
     /// <param name="accessData">the data required to <c>POST</c> to the specified endpoint</param>
+    /// <param name="clientGetter">The required client getter.</param>
     /// <remarks>
     /// The conventional way to generate the <c>accessUri</c> is via <see cref="RestApiMetadata"/>,
     /// its <see cref="RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri"/> method.
@@ -23,7 +24,7 @@ public static class AzureKeyVaultRestApiUtility
     /// The conventional way to generate the <c>accessData</c> is via <see cref="RestApiMetadata"/>,
     /// its <see cref="RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData"/> method.
     /// </remarks>
-    public static async Task<string> GetAccessTokenAsync(Uri? accessUri, Dictionary<string, string>? accessData)
+    public static async Task<string> GetAccessTokenAsync(Uri? accessUri, Dictionary<string, string>? accessData, Func<HttpClient> clientGetter)
     {
         ArgumentNullException.ThrowIfNull(accessUri);
         ArgumentNullException.ThrowIfNull(accessData);
@@ -31,7 +32,7 @@ public static class AzureKeyVaultRestApiUtility
         var request = new HttpRequestMessage(HttpMethod.Post, accessUri) {
              Content = new FormUrlEncodedContent(accessData)
         };
-        var result = await request.SendAsync();
+        var result = await request.SendAsync(clientGetter);
 
         result.EnsureSuccessStatusCode();
 
@@ -46,11 +47,12 @@ public static class AzureKeyVaultRestApiUtility
     /// </summary>
     /// <param name="accessToken">the JSON obtained from <see cref="GetAccessTokenAsync" /></param>
     /// <param name="secretUri">the location of the Azure Key Vault endpoint</param>
+    /// <param name="clientGetter">The required client getter.</param>
     /// <remarks>
     /// The conventional way to generate the <c>secretUri</c> is via <see cref="RestApiMetadata"/>,
     /// its <see cref="RestApiMetadataExtensions.ToAzureKeyVaultSecretUri"/> method.
     /// </remarks>
-    public static async Task<string> GetSecretAsync(string accessToken, Uri secretUri)
+    public static async Task<string> GetSecretAsync(string accessToken, Uri secretUri, Func<HttpClient> clientGetter)
     {
         accessToken.ThrowWhenNullOrWhiteSpace();
         ArgumentNullException.ThrowIfNull(secretUri);
@@ -64,7 +66,7 @@ public static class AzureKeyVaultRestApiUtility
         var request = new HttpRequestMessage(HttpMethod.Get, secretUri);
         request.Headers.Authorization = new AuthenticationHeaderValue(scheme: "Bearer", parameter);
 
-        var result = await request.SendAsync();
+        var result = await request.SendAsync(clientGetter);
 
         result.EnsureSuccessStatusCode();
 

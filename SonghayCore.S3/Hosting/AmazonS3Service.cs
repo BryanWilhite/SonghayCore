@@ -16,7 +16,7 @@ namespace Songhay.S3.Hosting;
 /// This class is intended for collecting input from <see cref="IConfiguration"/>.
 /// To enter input directly, use <see cref="AmazonS3ActivityGroup.InvokeActivityAsync"/>.
 /// </remarks>
-public class AmazonS3Service(IHostApplicationLifetime hostApplicationLifetime, IConfiguration configuration, IActivityKeyedTaskGroup amazonS3ActivityGroup, ILogger<AmazonS3Service> logger) : BackgroundService
+public class AmazonS3Service(IHostApplicationLifetime hostApplicationLifetime, IConfiguration configuration, IActivityKeyedTaskGroup<EndpointResult> amazonS3ActivityGroup, ILogger<AmazonS3Service> logger) : BackgroundService
 {
     /// <summary>
     /// <inheritdoc/>
@@ -59,7 +59,21 @@ public class AmazonS3Service(IHostApplicationLifetime hostApplicationLifetime, I
                 return;
             }
 
-            string? output = await amazonS3ActivityGroup.InvokeActivityAsync(activitySetKey, setKey, bucketMetaKey, bucketKey, content, contentMimeType);
+            EndpointContentResult<string?>? result = await amazonS3ActivityGroup.InvokeActivityAsync(
+                activitySetKey,
+                stoppingToken,
+                setKey,
+                bucketMetaKey,
+                bucketKey,
+                content,
+                contentMimeType) as EndpointContentResult<string?>;
+
+            if (result == null)
+            {
+                logger.LogErrorForMissingData<EndpointContentResult<string?>>();
+
+                return;
+            }
 
             string? path = configuration.GetOutputPath();
 
@@ -67,7 +81,7 @@ public class AmazonS3Service(IHostApplicationLifetime hostApplicationLifetime, I
             {
                 logger.LogInformation("Writing output to `{Path}`...", path);
 
-                await File.WriteAllTextAsync(path, output, stoppingToken);
+                await File.WriteAllTextAsync(path, result.Content, stoppingToken);
             }
         }
         finally

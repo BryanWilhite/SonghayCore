@@ -56,10 +56,10 @@ public static class RestApiMetadataExtensions
         }
 
         string bucketName = bucketMetaKey.Replace(regionSuffix, string.Empty);
-        string? publicKey = claimsSet.TryGetValueWithKey("public-key");
-        string? privateKey = claimsSet.TryGetValueWithKey("private-key");
-        string? region = claimsSet.TryGetValueWithKey(bucketMetaKey);
-        string? uriRoot = claimsSet.TryGetValueWithKey("bucket-location-template");
+        string? publicKey = claimsSet.GetValueWithKey("public-key");
+        string? privateKey = claimsSet.GetValueWithKey("private-key");
+        string? region = claimsSet.GetValueWithKey(bucketMetaKey);
+        string? uriRoot = claimsSet.GetValueWithKey("bucket-location-template");
 
         if (!string.IsNullOrWhiteSpace(uriRoot))
         {
@@ -124,9 +124,9 @@ public static class RestApiMetadataExtensions
         }
 
         string bucketName = bucketMetaKey.Replace(regionSuffix, string.Empty);
-        string? credentialsProfileName = claimsSet.TryGetValueWithKey("aws-credentials-profile-name");
-        string? region = claimsSet.TryGetValueWithKey(bucketMetaKey);
-        string? uriRoot = claimsSet.TryGetValueWithKey("bucket-location-template");
+        string? credentialsProfileName = claimsSet.GetValueWithKey("aws-credentials-profile-name");
+        string? region = claimsSet.GetValueWithKey(bucketMetaKey);
+        string? uriRoot = claimsSet.GetValueWithKey("bucket-location-template");
 
         if (!string.IsNullOrWhiteSpace(uriRoot))
         {

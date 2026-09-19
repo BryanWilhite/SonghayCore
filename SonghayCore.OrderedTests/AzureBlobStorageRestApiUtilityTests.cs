@@ -14,12 +14,9 @@ public class AzureBlobStorageRestApiUtilityTests : OrderedTestBase
 
     static string? GetConnectionStringFromEnvironmentVariable()
     {
-        var path = Environment.GetEnvironmentVariable("SONGHAY_APP_SETTINGS_PATH");
+        var json = ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment();
 
-        if (string.IsNullOrWhiteSpace(path)) return null;
-
-        var json = File.ReadAllText(path);
-        Assert.False(string.IsNullOrWhiteSpace(json));
+        if (string.IsNullOrWhiteSpace(json)) return null;
 
         using var jDoc = JsonDocument.Parse(json);
         var actual = jDoc.RootElement
@@ -48,7 +45,9 @@ public class AzureBlobStorageRestApiUtilityTests : OrderedTestBase
         var connectionString = GetConnectionStringFromEnvironmentVariable();
         Skip.If(string.IsNullOrWhiteSpace(connectionString));
         
-        await AzureBlobStorageRestApiUtility.UploadBlobAsync(connectionString, containerName, fileName, content);
+        await AzureBlobStorageRestApiUtility
+            .UploadBlobAsync(connectionString, containerName, fileName, content,
+                () => _httpClientFactory.CreateClient(nameof(UploadBlobAsync_Test)));
     }
 
     [SkippableTheory, TestOrder(ordinal: 2, reason: "list container...")]
@@ -58,7 +57,9 @@ public class AzureBlobStorageRestApiUtilityTests : OrderedTestBase
         var connectionString = GetConnectionStringFromEnvironmentVariable();
         Skip.If(string.IsNullOrWhiteSpace(connectionString));
 
-        var actual = await AzureBlobStorageRestApiUtility.ListContainerAsync(connectionString, containerName);
+        var actual = await AzureBlobStorageRestApiUtility
+            .ListContainerAsync(connectionString, containerName,
+                () => _httpClientFactory.CreateClient(nameof(ListContainerAsync_Test)));
         Assert.False(string.IsNullOrWhiteSpace(actual));
         _testOutputHelper.WriteLine(actual);
     }
@@ -70,7 +71,9 @@ public class AzureBlobStorageRestApiUtilityTests : OrderedTestBase
         var connectionString = GetConnectionStringFromEnvironmentVariable();
         Skip.If(string.IsNullOrWhiteSpace(connectionString));
 
-        await AzureBlobStorageRestApiUtility.DeleteBlobAsync(connectionString, containerName, fileName);
+        await AzureBlobStorageRestApiUtility
+            .DeleteBlobAsync(connectionString, containerName, fileName,
+                () => _httpClientFactory.CreateClient(nameof(DeleteBlobAsync_Test)));
     }
 
     [SkippableTheory, TestOrder(ordinal: 4, reason: "list container after delete...")]
@@ -80,7 +83,9 @@ public class AzureBlobStorageRestApiUtilityTests : OrderedTestBase
         var connectionString = GetConnectionStringFromEnvironmentVariable();
         Skip.If(string.IsNullOrWhiteSpace(connectionString));
 
-        var actual = await AzureBlobStorageRestApiUtility.ListContainerAsync(connectionString, containerName);
+        var actual = await AzureBlobStorageRestApiUtility
+            .ListContainerAsync(connectionString, containerName,
+                () => _httpClientFactory.CreateClient(nameof(ListContainerAsync_2_Test)));
         Assert.False(string.IsNullOrWhiteSpace(actual));
         _testOutputHelper.WriteLine(actual);
     }
@@ -92,11 +97,15 @@ public class AzureBlobStorageRestApiUtilityTests : OrderedTestBase
         var connectionString = GetConnectionStringFromEnvironmentVariable();
         Skip.If(string.IsNullOrWhiteSpace(connectionString));
 
-        var actual = await AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(connectionString, containerName, fileName);
+        var actual = await AzureBlobStorageRestApiUtility
+            .DownloadBlobToStringAsync(connectionString, containerName, fileName,
+                () => _httpClientFactory.CreateClient(nameof(DownloadBlobToStringAsync_Test)));
         Assert.False(string.IsNullOrWhiteSpace(actual));
     }
 
     const string ContainerName = "integration-test-container";
 
-    readonly ITestOutputHelper _testOutputHelper;
+    private readonly ITestOutputHelper _testOutputHelper;
+    private readonly IHttpClientFactory _httpClientFactory =
+        ServiceCollectionUtility.GetHttpClientFactory(serviceCollection: null);
 }

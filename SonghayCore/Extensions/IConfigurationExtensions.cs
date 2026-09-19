@@ -343,6 +343,44 @@ public static class IConfigurationExtensions
     }
 
     /// <summary>
+    /// Returns <see cref="IConfiguration"/>
+    /// </summary>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    /// <param name="configKey">the key to use to retrieve the timeout from <see cref="IConfiguration"/></param>
+    public static IConfiguration? WithRegexDefaultMatchTimeout(this IConfiguration? configuration, string? configKey) =>
+        configuration.WithRegexDefaultMatchTimeout(configKey, defaultTimeout: null);
+
+    /// <summary>
+    /// Returns <see cref="IConfiguration"/>
+    /// </summary>
+    /// <param name="configuration">the <see cref="IConfiguration"/></param>
+    /// <param name="configKey">the key to use to retrieve the timeout from <see cref="IConfiguration"/></param>
+    /// <param name="defaultTimeout">a default timeout <see cref="TimeSpan"/></param>
+    /// <remarks>
+    /// The configured value is expected to be a number representing milliseconds.
+    ///
+    /// When all other input fails, this member will default to 500ms.
+    /// For more detail, see https://learn.microsoft.com/en-us/dotnet/standard/base-types/best-practices-regex#use-time-out-values
+    /// </remarks>
+    public static IConfiguration? WithRegexDefaultMatchTimeout(this IConfiguration? configuration, string? configKey, TimeSpan? defaultTimeout)
+    {
+        if (configuration == null) return null;
+        if (string.IsNullOrWhiteSpace(configKey) && defaultTimeout == null) return configuration;
+
+        defaultTimeout ??= TimeSpan.FromMilliseconds(500);
+
+        if (!string.IsNullOrWhiteSpace(configKey))
+        {
+            int? ms = configuration.GetValue<int?>(configKey);
+            if (ms != null) defaultTimeout = TimeSpan.FromMilliseconds(ms.Value);
+        }
+
+        AppDomain.CurrentDomain.SetData("REGEX_DEFAULT_MATCH_TIMEOUT", defaultTimeout);
+
+        return configuration;
+    }
+
+    /// <summary>
     /// Writes the <see cref="string"/> output
     /// to the file specified by <see cref="ConsoleArgsScalars.OutputFile"/>.
     /// </summary>

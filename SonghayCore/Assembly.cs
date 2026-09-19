@@ -28,3 +28,5 @@ global using Songhay.Diagnostics;
 global using Songhay.Extensions;
 global using Songhay.Models;
 global using Songhay.Xml;
+
+[assembly:InternalsVisibleTo("SonghayCore.Tests")]

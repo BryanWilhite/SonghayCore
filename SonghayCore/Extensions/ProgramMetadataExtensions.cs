@@ -36,13 +36,13 @@ public static class ProgramMetadataExtensions
     {
         ArgumentNullException.ThrowIfNull(meta);
 
-        var genWebApiMeta = meta.RestApiMetadataSet.TryGetValueWithKey(restApiMetadataSetKey);
+        var genWebApiMeta = meta.RestApiMetadataSet.GetValueWithKey(restApiMetadataSetKey);
         if (genWebApiMeta == null) throw new NullReferenceException(nameof(genWebApiMeta));
 
         var headers = new Dictionary<string, string>
         {
             {
-                genWebApiMeta.ClaimsSet.TryGetValueWithKey(RestApiMetadata.ClaimsSetHeaderApiKey).ToReferenceTypeValueOrThrow(),
+                genWebApiMeta.ClaimsSet.GetValueWithKey(RestApiMetadata.ClaimsSetHeaderApiKey).ToReferenceTypeValueOrThrow(),
                 genWebApiMeta.ApiKey ??
                 throw new NullReferenceException(
                     $"The expected {nameof(RestApiMetadata.ClaimsSetHeaderApiKey)} is not here.")
@@ -68,7 +68,7 @@ public static class ProgramMetadataExtensions
 
         RestApiMetadata restApiMetadata = meta
             .RestApiMetadataSet
-            .TryGetValueWithKey(restApiMetadataSetKey, throwException: true)
+            .GetValueWithKey(restApiMetadataSetKey, throwException: true)
             .ToReferenceTypeValueOrThrow();
 
         return restApiMetadata;

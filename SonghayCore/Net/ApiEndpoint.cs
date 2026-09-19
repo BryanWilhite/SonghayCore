@@ -5,12 +5,13 @@ namespace Songhay.Net;
 /// <summary>
 /// Defines a REST API endpoint
 /// </summary>
+/// <param name="clientFactory">the <see cref="IHttpClientFactory"/></param>
 /// <param name="instanceTag">maps to <see cref="ITaggedInstance.InstanceTag"/></param>
 /// <param name="pipeline">the <see cref="ResiliencePipeline"/></param>
 /// <remarks>
 /// The output of <c>httpRequestMessageGetter</c> will be inside a <c>using</c> block.
 /// </remarks>
-public class ApiEndpoint(ResiliencePipeline? pipeline, string? instanceTag) : IApiEndpoint
+public class ApiEndpoint(IHttpClientFactory clientFactory, ResiliencePipeline? pipeline, string? instanceTag) : IApiEndpoint
 {
     /// <summary>
     /// Returns the conventional ID or tag of this instance.
@@ -33,7 +34,7 @@ public class ApiEndpoint(ResiliencePipeline? pipeline, string? instanceTag) : IA
             {
                 using var request = requestStrategy.GenerateHttpRequestMessage(requestData);
                 using HttpResponseMessage response = await request
-                    .SendAsync()
+                    .SendAsync(() => clientFactory.CreateClient(nameof(ApiEndpoint)))
                     .ConfigureAwait(continueOnCapturedContext: false);
 
                 string content = await response.Content.ReadAsStringAsync(cancellationToken);

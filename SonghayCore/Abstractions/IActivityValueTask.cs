@@ -1,0 +1,52 @@
+using Microsoft.Extensions.Hosting;
+
+namespace Songhay.Abstractions;
+
+/// <summary>
+/// Defines an Activity, optionally for <see cref="IHost"/> conventions, with <see cref="ValueTask"/> support.
+/// </summary>
+/// <seealso cref="IActivityTask" />
+public interface IActivityValueTask
+{
+    /// <summary>
+    /// Starts the <see cref="IActivity"/> asynchronously.
+    /// </summary>
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
+    ValueTask StartAsync(CancellationToken cancellationToken);
+}
+
+/// <summary>
+/// Defines an Activity, optionally for <see cref="IHost"/> conventions, with <see cref="ValueTask"/> support.
+/// </summary>
+/// <typeparam name="TInput">The type of the input.</typeparam>
+/// <seealso cref="IActivityTask{TInput}" />
+public interface IActivityValueTask<in TInput>
+{
+    /// <summary>
+    /// Starts the <see cref="IActivity" /> asynchronously.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
+    ValueTask StartAsync(TInput? input, CancellationToken cancellationToken);
+}
+
+/// <summary>
+/// Defines an Activity, optionally for <see cref="IHost"/> conventions, with <see cref="ValueTask"/> support.
+/// </summary>
+/// <typeparam name="TInput">The type of the input.</typeparam>
+/// <typeparam name="TOutput">The non-nullable value type of the output.</typeparam>
+/// <seealso cref="IActivityValueTask{TInput, TOutput}" />
+public interface IActivityValueTask<in TInput, TOutput> where TOutput: notnull
+{
+    /// <summary>
+    /// Starts the <see cref="IActivity"/> asynchronously.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    /// <param name="cancellationToken">The <see cref="CancellationToken"/>.</param>
+    /// <remarks>
+    /// Note that <c>TOutput</c> is not marked as nullable
+    /// with the expectation that <c>*Result</c> classes/records
+    /// like <see cref="EndpointResult"/> will be used.
+    /// </remarks>
+    ValueTask<TOutput> StartAsync(TInput? input, CancellationToken cancellationToken);
+}

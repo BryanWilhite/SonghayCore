@@ -14,17 +14,16 @@ namespace Songhay.S3.Extensions;
 // ReSharper disable once InconsistentNaming
 public static class IServiceCollectionExtensions
 {
-
     /// <summary>
     /// Adds the dependencies associated
     /// with the domain-specific class,
-    /// implementing <see cref="BackgroundService"/>
+    /// implementing <see cref="IActivityKeyedTaskGroup{TOutput}"/>
     /// by reading the name of this class.
     /// </summary>
     /// <typeparam name="TActivityGroup">the domain-specific class,
-    /// sub-classing <see cref="BackgroundService"/></typeparam>
+    /// implementing <see cref="IActivityKeyedTaskGroup{TOutput}"/></typeparam>
     /// <param name="services">the ambient services collected</param>
-    public static IServiceCollection AddActivityGroup<TActivityGroup>(this IServiceCollection services) where TActivityGroup: class
+    public static IServiceCollection AddActivityKeyedTaskGroup<TActivityGroup>(this IServiceCollection services) where TActivityGroup: IActivityKeyedTaskGroup<EndpointResult>
     {
         string groupName = typeof(TActivityGroup).Name;
         switch(groupName)
@@ -32,11 +31,11 @@ public static class IServiceCollectionExtensions
             case nameof(AmazonS3ActivityGroup):
 
                 services
-                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey)>, AmazonS3DeleteS3ObjectActivity>(nameof(AmazonS3DeleteS3ObjectActivity))
-                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey), string?>, AmazonS3DownloadToStringActivity>(nameof(AmazonS3DownloadToStringActivity))
-                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string? bucketKeyPrefix), string?>, AmazonS3ListBucketObjectsWithPaginationActivity>(nameof(AmazonS3ListBucketObjectsWithPaginationActivity))
-                    .AddKeyedTransient<IActivityTask<(string setKey, string bucketMetaKey, string bucketKey, string content, string contentMimeType)>, AmazonS3UploadStringActivity>(nameof(AmazonS3UploadStringActivity))
-                    .AddTransient<IActivityKeyedTaskGroup, AmazonS3ActivityGroup>();
+                    .AddTransient<IActivityTask<StorageActivityInput?, EndpointResult>, AmazonS3DeleteS3ObjectActivity>()
+                    .AddTransient<IActivityTask<StorageActivityInput?, EndpointContentResult<string?>>, AmazonS3DownloadToStringActivity>()
+                    .AddTransient<IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>>, AmazonS3ListBucketObjectsWithPaginationActivity>()
+                    .AddTransient<IActivityTask<StorageActivityInput<string?>?, EndpointResult>, AmazonS3UploadStringActivity>()
+                    .AddTransient<IActivityKeyedTaskGroup<EndpointResult>, AmazonS3ActivityGroup>();
 
                 break;
         }
@@ -99,7 +98,7 @@ public static class IServiceCollectionExtensions
         {
             case nameof(AmazonS3Service):
 
-                services.AddActivityGroup<AmazonS3ActivityGroup>();
+                services.AddActivityKeyedTaskGroup<AmazonS3ActivityGroup>();
 
                 break;
         }
