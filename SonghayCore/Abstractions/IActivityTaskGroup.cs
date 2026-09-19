@@ -3,11 +3,19 @@ namespace Songhay.Abstractions;
 /// <summary>
 /// A lightweight façade in front of many <c>IActivity*</c> implementations.
 /// </summary>
+/// <typeparam name="TOutput">a non-nullable value or reference type</typeparam>
 /// <remarks>
+/// <para>
+/// Consider using the conventional Result types
+/// like <see cref="ProgramOutputResult{TOutput}"/>
+/// or <see cref="EndpointContentResult{TContent}"/>
+/// for <c>TOutput</c>.
+/// </para>
+/// <para>
 /// This abstraction exposes class definitions to consumers with its <c>TActivity</c> type parameter.
 /// To avoid this exposure (coupling), consider implementing <see cref="IActivityKeyedTaskGroup{TOutput}"/> instead.
+/// </para>
 /// </remarks>
-/// <typeparam name="TOutput">a non-nullable type</typeparam>
 public interface IActivityTaskGroup<TOutput> where TOutput: notnull
 {
     /// <summary>

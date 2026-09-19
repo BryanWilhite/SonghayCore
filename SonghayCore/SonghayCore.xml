@@ -215,7 +215,6 @@
             identified by the specified key.
             </summary>
             <typeparam name="TActivity">identifies the <c>IActivity*</c> implementation</typeparam>
-            <typeparam name="TOutput">the type of the Activity output</typeparam>
             <param name="cancellationToken">the <see cref="T:System.Threading.CancellationToken"/></param>
             <param name="args">collects the stringified input arguments of the <c>IActivity*</c> implementation</param>
             <remarks>
@@ -5877,6 +5876,83 @@
             <summary>
             Represents this instance as a <c>string</c>.
             </summary>
+        </member>
+        <member name="T:Songhay.Models.ProgramOutputResult`1">
+            <summary>
+            Defines the general-purpose Result concept
+            for Program output,
+            avoiding third-party dependencies
+            that are not compatible with F#.
+            </summary>
+            <typeparam name="TOutput">nullable value or reference types</typeparam>
+            <param name="IsSuccessful">when <c>true</c> the Program completed without exceptions.</param>
+            <param name="Message">a domain-specific message summarizing the Program completion</param>
+            <param name="Output">the output of the Program</param>
+            <remarks>
+            This type (and its possible subtypes) is intended
+            to define the output of Activities
+            (like <see cref="T:Songhay.Abstractions.IActivityTask`2"/>
+            or <see cref="T:Songhay.Abstractions.IActivityTaskGroup`1"/>).
+            </remarks>
+        </member>
+        <member name="M:Songhay.Models.ProgramOutputResult`1.#ctor(System.Boolean,System.String,`0)">
+            <summary>
+            Defines the general-purpose Result concept
+            for Program output,
+            avoiding third-party dependencies
+            that are not compatible with F#.
+            </summary>
+            <typeparam name="TOutput">nullable value or reference types</typeparam>
+            <param name="IsSuccessful">when <c>true</c> the Program completed without exceptions.</param>
+            <param name="Message">a domain-specific message summarizing the Program completion</param>
+            <param name="Output">the output of the Program</param>
+            <remarks>
+            This type (and its possible subtypes) is intended
+            to define the output of Activities
+            (like <see cref="T:Songhay.Abstractions.IActivityTask`2"/>
+            or <see cref="T:Songhay.Abstractions.IActivityTaskGroup`1"/>).
+            </remarks>
+        </member>
+        <member name="P:Songhay.Models.ProgramOutputResult`1.Output">
+            <summary>the output of the Program</summary>
+        </member>
+        <member name="T:Songhay.Models.ProgramResult">
+            <summary>
+            Defines the general-purpose Result concept
+            for Program completion,
+            avoiding third-party dependencies
+            that are not compatible with F#.
+            </summary>
+            <param name="IsSuccessful">when <c>true</c> the Program completed without exceptions.</param>
+            <param name="Message">a domain-specific message summarizing the Program completion</param>
+            <remarks>
+            This type (and its possible subtypes) is intended
+            to define the output of Activities
+            (like <see cref="T:Songhay.Abstractions.IActivityTask`2"/>
+            or <see cref="T:Songhay.Abstractions.IActivityTaskGroup`1"/>).
+            </remarks>
+        </member>
+        <member name="M:Songhay.Models.ProgramResult.#ctor(System.Boolean,System.String)">
+            <summary>
+            Defines the general-purpose Result concept
+            for Program completion,
+            avoiding third-party dependencies
+            that are not compatible with F#.
+            </summary>
+            <param name="IsSuccessful">when <c>true</c> the Program completed without exceptions.</param>
+            <param name="Message">a domain-specific message summarizing the Program completion</param>
+            <remarks>
+            This type (and its possible subtypes) is intended
+            to define the output of Activities
+            (like <see cref="T:Songhay.Abstractions.IActivityTask`2"/>
+            or <see cref="T:Songhay.Abstractions.IActivityTaskGroup`1"/>).
+            </remarks>
+        </member>
+        <member name="P:Songhay.Models.ProgramResult.IsSuccessful">
+            <summary>when <c>true</c> the Program completed without exceptions.</summary>
+        </member>
+        <member name="P:Songhay.Models.ProgramResult.Message">
+            <summary>a domain-specific message summarizing the Program completion</summary>
         </member>
         <member name="T:Songhay.Models.RegexScalars">
             <summary>

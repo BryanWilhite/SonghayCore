@@ -5,11 +5,7 @@ namespace Songhay.Abstractions;
 /// <summary>
 /// Defines an Activity, optionally for <see cref="IHost"/> conventions, with <see cref="ValueTask"/> support.
 /// </summary>
-/// <seealso cref="IActivity" />
-/// <remarks>
-/// For detail around why this definition exists,
-/// see https://github.com/BryanWilhite/SonghayCore/issues/83
-/// </remarks>
+/// <seealso cref="IActivityTask" />
 public interface IActivityValueTask
 {
     /// <summary>
@@ -23,11 +19,7 @@ public interface IActivityValueTask
 /// Defines an Activity, optionally for <see cref="IHost"/> conventions, with <see cref="ValueTask"/> support.
 /// </summary>
 /// <typeparam name="TInput">The type of the input.</typeparam>
-/// <seealso cref="IActivity" />
-/// <remarks>
-/// For detail around why this definition exists,
-/// see https://github.com/BryanWilhite/SonghayCore/issues/83
-/// </remarks>
+/// <seealso cref="IActivityTask{TInput}" />
 public interface IActivityValueTask<in TInput>
 {
     /// <summary>
@@ -42,12 +34,8 @@ public interface IActivityValueTask<in TInput>
 /// Defines an Activity, optionally for <see cref="IHost"/> conventions, with <see cref="ValueTask"/> support.
 /// </summary>
 /// <typeparam name="TInput">The type of the input.</typeparam>
-/// <typeparam name="TOutput">The non-nullable type of the output.</typeparam>
-/// <seealso cref="IActivity" />
-/// <remarks>
-/// For detail aound why this definition exists,
-/// see https://github.com/BryanWilhite/SonghayCore/issues/83
-/// </remarks>
+/// <typeparam name="TOutput">The non-nullable value type of the output.</typeparam>
+/// <seealso cref="IActivityValueTask{TInput, TOutput}" />
 public interface IActivityValueTask<in TInput, TOutput> where TOutput: notnull
 {
     /// <summary>
