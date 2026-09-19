@@ -6,4 +6,5 @@ namespace Songhay.SerializerContexts;
 /// which is not available in AOT-compilation assemblies.
 /// </summary>
 [JsonSerializable(typeof(RestApiMetadata))]
+[JsonSerializable(typeof(IEnumerable<RestApiMetadata>))]
 public partial class RestApiMetadataSerializerContext : JsonSerializerContext;

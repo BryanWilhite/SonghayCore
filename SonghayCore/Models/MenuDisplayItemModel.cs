@@ -8,7 +8,7 @@ public class MenuDisplayItemModel : ColorDisplayItemModel, IGroupable, ISelectab
     /// <summary>
     /// Gets or sets the child items.
     /// </summary>
-    public MenuDisplayItemModel[] ChildItems { get; set; } = Enumerable.Empty<MenuDisplayItemModel>().ToArray();
+    public MenuDisplayItemModel[] ChildItems { get; set; } = [];
 
     #region IGroupable members:
 
