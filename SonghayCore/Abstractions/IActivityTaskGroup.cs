@@ -15,7 +15,6 @@ public interface IActivityTaskGroup<TOutput> where TOutput: notnull
     /// identified by the specified key.
     /// </summary>
     /// <typeparam name="TActivity">identifies the <c>IActivity*</c> implementation</typeparam>
-    /// <typeparam name="TOutput">the type of the Activity output</typeparam>
     /// <param name="cancellationToken">the <see cref="CancellationToken"/></param>
     /// <param name="args">collects the stringified input arguments of the <c>IActivity*</c> implementation</param>
     /// <remarks>

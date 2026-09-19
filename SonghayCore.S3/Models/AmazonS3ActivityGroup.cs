@@ -1,5 +1,4 @@
 using Songhay.S3.Activities;
-using InputForActivities = OneOf.OneOf<Songhay.Models.StorageActivityInput, Songhay.Models.StorageActivityInput<string?>>;
 
 namespace Songhay.S3.Models;
 
@@ -18,14 +17,14 @@ public class AmazonS3ActivityGroup(
     IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>> activityForAmazonS3ListBucketObjectsWithPagination,
     IActivityTask<StorageActivityInput<string?>?, EndpointResult> activityForAmazonS3UploadString,
     ILogger<AmazonS3ActivityGroup>logger
-) : IActivityKeyedTaskGroup
+) : IActivityKeyedTaskGroup<EndpointResult>
 {
     /// <inheritdoc/>
-    public async Task<EndpointResult> InvokeActivityAsync<EndpointResult>(string? activitySetKey, CancellationToken cancellationToken, params string?[] args)
+    public async Task<EndpointResult> InvokeActivityAsync(string? activitySetKey, CancellationToken cancellationToken, params string?[] args)
     {
         activitySetKey.ThrowWhenNullOrWhiteSpace();
 
-        int minimumExpected = 2;
+        const int minimumExpected = 2;
 
         if (args.Length < minimumExpected)
         {
@@ -47,13 +46,12 @@ public class AmazonS3ActivityGroup(
         string? content = args.ElementAtOrDefault(3);
         string? contentMimeType = args.ElementAtOrDefault(4);
 
-        InputForActivities input = (setKey, bucketMetaKey, bucketKey, content, contentMimeType) switch
-        {
-            (var s1, var s2, var s3, null, null) => new StorageActivityInput(s1, s2, s3),
-            var (s1, s2, s3, s4, s5) => new StorageActivityInput<string?>(s1, s2, s3, s4, s5)
-        };
+        var activity = _activitySet.GetValueWithKey(activitySetKey);
 
-        Func<InputForActivities, CancellationToken, Task<EndpointResult>>? activity = _activitySet.GetValueWithKey(activitySetKey);
+        StorageActivityInput input = string.IsNullOrWhiteSpace(content) ?
+            new StorageActivityInput(setKey, bucketMetaKey, bucketKey)
+            :
+            new StorageActivityInput<string?>(setKey, bucketMetaKey, bucketKey, content, contentMimeType);
 
         if (activity != null) return await activity.Invoke(input, cancellationToken);
 
@@ -65,29 +63,29 @@ public class AmazonS3ActivityGroup(
             "Activity was not found.");
     }
 
-    private readonly Dictionary<string, Func<InputForActivities, CancellationToken, Task<EndpointResult>>> _activitySet = new()
+    private readonly Dictionary<string, Func<StorageActivityInput, CancellationToken, Task<EndpointResult>>> _activitySet = new()
     {
         [nameof(AmazonS3DeleteS3ObjectActivity)] = async (input, token) =>
         {
-            EndpointResult result = await activityForAmazonS3DeleteS3Object.StartAsync(input.AsT0, token);
+            EndpointResult result = await activityForAmazonS3DeleteS3Object.StartAsync(input, token);
 
             return result;
         },
         [nameof(AmazonS3DownloadToStringActivity)] = async (input, token) =>
         {
-            EndpointContentResult<string?> result = await activityForAmazonS3DownloadToString.StartAsync(input.AsT0, token);
+            EndpointContentResult<string?> result = await activityForAmazonS3DownloadToString.StartAsync(input, token);
 
             return result;
         },
         [nameof(AmazonS3ListBucketObjectsWithPaginationActivity)] = async (input, token) =>
         {
-            EndpointContentResult<IReadOnlyCollection<StorageObject>> result = await activityForAmazonS3ListBucketObjectsWithPagination.StartAsync(input.AsT0, token);
+            EndpointContentResult<IReadOnlyCollection<StorageObject>> result = await activityForAmazonS3ListBucketObjectsWithPagination.StartAsync(input, token);
 
             return result;
         },
         [nameof(AmazonS3UploadStringActivity)] = async (input, token) =>
         {
-            EndpointResult result = await activityForAmazonS3UploadString.StartAsync(input.AsT1, token);
+            EndpointResult result = await activityForAmazonS3UploadString.StartAsync(input as StorageActivityInput<string?>, token);
 
             return result;
         }

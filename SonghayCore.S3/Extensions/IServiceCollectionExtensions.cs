@@ -17,13 +17,13 @@ public static class IServiceCollectionExtensions
     /// <summary>
     /// Adds the dependencies associated
     /// with the domain-specific class,
-    /// implementing <see cref="IActivityKeyedTaskGroup"/>
+    /// implementing <see cref="IActivityKeyedTaskGroup{TOutput}"/>
     /// by reading the name of this class.
     /// </summary>
     /// <typeparam name="TActivityGroup">the domain-specific class,
-    /// implementing <see cref="IActivityKeyedTaskGroup"/></typeparam>
+    /// implementing <see cref="IActivityKeyedTaskGroup{TOutput}"/></typeparam>
     /// <param name="services">the ambient services collected</param>
-    public static IServiceCollection AddActivityKeyedTaskGroup<TActivityGroup>(this IServiceCollection services) where TActivityGroup: IActivityKeyedTaskGroup
+    public static IServiceCollection AddActivityKeyedTaskGroup<TActivityGroup>(this IServiceCollection services) where TActivityGroup: IActivityKeyedTaskGroup<EndpointResult>
     {
         string groupName = typeof(TActivityGroup).Name;
         switch(groupName)
@@ -35,7 +35,7 @@ public static class IServiceCollectionExtensions
                     .AddTransient<IActivityTask<StorageActivityInput?, EndpointContentResult<string?>>, AmazonS3DownloadToStringActivity>()
                     .AddTransient<IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>>, AmazonS3ListBucketObjectsWithPaginationActivity>()
                     .AddTransient<IActivityTask<StorageActivityInput<string?>?, EndpointResult>, AmazonS3UploadStringActivity>()
-                    .AddTransient<IActivityKeyedTaskGroup, AmazonS3ActivityGroup>();
+                    .AddTransient<IActivityKeyedTaskGroup<EndpointResult>, AmazonS3ActivityGroup>();
 
                 break;
         }

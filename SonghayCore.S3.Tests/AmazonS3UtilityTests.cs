@@ -332,7 +332,7 @@ public class AmazonS3UtilityTests
         };
 
         //act:
-        StorageActivityResult<IReadOnlyCollection<StorageObject>> actual = await AmazonS3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
+        EndpointContentResult<IReadOnlyCollection<StorageObject>> actual = await AmazonS3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
 
         //assert:
         Assert.NotEmpty(actual.Content!);
