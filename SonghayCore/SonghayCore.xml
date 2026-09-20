@@ -67,35 +67,44 @@
             Instead of calling <see cref="M:Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)"/> more than once, return this member.
             </remarks>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityKeyedTaskGroup">
+        <member name="T:Songhay.Abstractions.IActivityKeyedTaskGroup`1">
              <summary>
              A lightweight façade in front of many <c>IActivity*</c> implementations.
              </summary>
+             <typeparam name="TOutput">a non-nullable value or reference type</typeparam>
              <remarks>
+             <para>
+             Consider using the conventional Result types
+             like <see cref="T:Songhay.Models.ProgramOutputResult`1"/>
+             or <see cref="T:Songhay.Models.EndpointContentResult`1"/>
+             for <c>TOutput</c>.
+             </para>
+            
+             <para>
              This abstraction uses the word <c>Keyed</c>
              to indicate that the many <c>IActivity*</c> implementations
-             are identified by magic strings to avoid exposing formal classes
-             to consumers.
+             are identified by magic strings to avoid exposing class definitions
+             to downstream consumers.
+             </para>
             
-             To avoid magic strings, consider implementing <see cref="T:Songhay.Abstractions.IActivityTaskGroup"/> instead.
+             <para>
+             To avoid magic strings, consider implementing <see cref="T:Songhay.Abstractions.IActivityTaskGroup`1"/> instead.
+             </para>
              </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityKeyedTaskGroup.InvokeActivityAsync(System.String,System.String[])">
+        <member name="M:Songhay.Abstractions.IActivityKeyedTaskGroup`1.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])">
             <summary>
-            Invokes the <c>IActivity*</c> implementation
-            identified by the specified key.
+            Invokes the <c>IActivity*</c> implementation identified by the specified key.
             </summary>
             <param name="activitySetKey">identifies the <c>IActivity*</c> implementation</param>
+            <param name="cancellationToken">the <see cref="T:System.Threading.CancellationToken"/></param>
             <param name="args">collects the stringified input arguments of the <c>IActivity*</c> implementation</param>
-            <returns>
-            Returns the stringified output of <c>IActivity*</c> implementation.
-            </returns>
         </member>
         <member name="T:Songhay.Abstractions.IActivityOutputOnly`1">
             <summary>
             Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
-            <typeparam name="TOutput">The type of the output.</typeparam>
+            <typeparam name="TOutput">The non-nullable type of the output.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
             For detail around why this definition exists,
@@ -106,22 +115,33 @@
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
             </summary>
+            <remarks>
+            Note that <c>TOutput</c> is not marked as nullable
+            with the expectation that <c>*Result</c> classes/records
+            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
+            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.IActivityOutputOnlyTask`1">
             <summary>
             Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
-            <typeparam name="TOutput">The type of the output.</typeparam>
+            <typeparam name="TOutput">The non-nullable type of the output.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
             For detail around why this definition exists,
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync">
+        <member name="M:Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync(System.Threading.CancellationToken)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
             </summary>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <remarks>
+            Note that <c>TOutput</c> is not marked as nullable
+            with the expectation that <c>*Result</c> classes/records
+            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
+            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.IActivityTask">
             <summary>
@@ -133,10 +153,11 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityTask.StartAsync">
+        <member name="M:Songhay.Abstractions.IActivityTask.StartAsync(System.Threading.CancellationToken)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
         </member>
         <member name="T:Songhay.Abstractions.IActivityTask`1">
             <summary>
@@ -149,48 +170,114 @@
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityTask`1.StartAsync(`0)">
+        <member name="M:Songhay.Abstractions.IActivityTask`1.StartAsync(`0,System.Threading.CancellationToken)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
             </summary>
             <param name="input">The input.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
         </member>
         <member name="T:Songhay.Abstractions.IActivityTask`2">
             <summary>
             Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.Task"/> support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The type of the output.</typeparam>
+            <typeparam name="TOutput">The non-nullable type of the output.</typeparam>
             <seealso cref="T:Songhay.Abstractions.IActivity" />
             <remarks>
             For detail aound why this definition exists,
             see https://github.com/BryanWilhite/SonghayCore/issues/83
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityTask`2.StartAsync(`0)">
+        <member name="M:Songhay.Abstractions.IActivityTask`2.StartAsync(`0,System.Threading.CancellationToken)">
             <summary>
             Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
             </summary>
+            <param name="input">The input.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <remarks>
+            Note that <c>TOutput</c> is not marked as nullable
+            with the expectation that <c>*Result</c> classes/records
+            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
+            </remarks>
         </member>
-        <member name="T:Songhay.Abstractions.IActivityTaskGroup">
+        <member name="T:Songhay.Abstractions.IActivityTaskGroup`1">
             <summary>
             A lightweight façade in front of many <c>IActivity*</c> implementations.
             </summary>
+            <typeparam name="TOutput">a non-nullable value or reference type</typeparam>
             <remarks>
-            This abstraction exposes formal classes to consumers.
-            To avoid this exposure (coupling), consider implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup"/> instead.
+            <para>
+            Consider using the conventional Result types
+            like <see cref="T:Songhay.Models.ProgramOutputResult`1"/>
+            or <see cref="T:Songhay.Models.EndpointContentResult`1"/>
+            for <c>TOutput</c>.
+            </para>
+            <para>
+            This abstraction exposes class definitions to consumers with its <c>TActivity</c> type parameter.
+            To avoid this exposure (coupling), consider implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup`1"/> instead.
+            </para>
             </remarks>
         </member>
-        <member name="M:Songhay.Abstractions.IActivityTaskGroup.InvokeActivityAsync``1(System.String[])">
+        <member name="M:Songhay.Abstractions.IActivityTaskGroup`1.InvokeActivityAsync``1(System.Threading.CancellationToken,System.String[])">
             <summary>
             Invokes the <c>IActivity*</c> implementation
             identified by the specified key.
             </summary>
             <typeparam name="TActivity">identifies the <c>IActivity*</c> implementation</typeparam>
+            <param name="cancellationToken">the <see cref="T:System.Threading.CancellationToken"/></param>
             <param name="args">collects the stringified input arguments of the <c>IActivity*</c> implementation</param>
-            <returns>
-            Returns the stringified output of <c>IActivity*</c> implementation.
-            </returns>
+            <remarks>
+            Note that <c>TOutput</c> is not marked as nullable
+            with the expectation that <c>*Result</c> classes/records
+            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
+            </remarks>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityValueTask">
+            <summary>
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.ValueTask"/> support.
+            </summary>
+            <seealso cref="T:Songhay.Abstractions.IActivityTask" />
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityValueTask.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
+            </summary>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityValueTask`1">
+            <summary>
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.ValueTask"/> support.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivityTask`1" />
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityValueTask`1.StartAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity" /> asynchronously.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
+        </member>
+        <member name="T:Songhay.Abstractions.IActivityValueTask`2">
+            <summary>
+            Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.ValueTask"/> support.
+            </summary>
+            <typeparam name="TInput">The type of the input.</typeparam>
+            <typeparam name="TOutput">The non-nullable value type of the output.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivityValueTask`2" />
+        </member>
+        <member name="M:Songhay.Abstractions.IActivityValueTask`2.StartAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Starts the <see cref="T:Songhay.Abstractions.IActivity"/> asynchronously.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <remarks>
+            Note that <c>TOutput</c> is not marked as nullable
+            with the expectation that <c>*Result</c> classes/records
+            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
+            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.IApiEndpoint">
             <summary>
@@ -430,6 +517,86 @@
             Modification/editorial <see cref="T:System.DateTime"/> of the item.
             </summary>
         </member>
+        <member name="T:Songhay.Activities.ProgramFileDeleteActivity">
+            <summary>
+            Deletes from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3DeleteS3ObjectActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileDeleteActivity.#ctor(Microsoft.Extensions.Logging.ILogger{Songhay.Activities.ProgramFileDeleteActivity})">
+            <summary>
+            Deletes from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3DeleteS3ObjectActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileDeleteActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.Activities.ProgramFileListActivity">
+            <summary>
+            Reads the directory
+            from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3ListBucketObjectsWithPaginationActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileListActivity.#ctor(Microsoft.Extensions.Logging.ILogger{Songhay.Activities.ProgramFileListActivity})">
+            <summary>
+            Reads the directory
+            from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3ListBucketObjectsWithPaginationActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileListActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.Activities.ProgramFileReadActivity">
+            <summary>
+            Reads a string-content file
+            from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3DownloadToStringActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileReadActivity.#ctor(Microsoft.Extensions.Logging.ILogger{Songhay.Activities.ProgramFileReadActivity})">
+            <summary>
+            Reads a string-content file
+            from the local file system,
+            impersonating the input and output
+            of <c>AmazonS3DownloadToStringActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileReadActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.Activities.ProgramFileSaveActivity">
+            <summary>
+            Saves to the local file system,
+            impersonating the input and output
+            of <c>AmazonS3UploadStringActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileSaveActivity.#ctor(Microsoft.Extensions.Logging.ILogger{Songhay.Activities.ProgramFileSaveActivity})">
+            <summary>
+            Saves to the local file system,
+            impersonating the input and output
+            of <c>AmazonS3UploadStringActivity</c>
+            </summary>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Activities.ProgramFileSaveActivity.StartAsync(Songhay.Models.StorageActivityInput{System.String},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
         <member name="T:Songhay.AzureActiveDirectoryUtility">
              <summary>
              Shared routines for Azure Active Directory conventions.
@@ -504,35 +671,38 @@
             <exception cref="T:System.NullReferenceException"></exception>
             <exception cref="T:System.Data.DataException"></exception>
         </member>
-        <member name="M:Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(System.String,System.String,System.String)">
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(System.String,System.String,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             <c>DELETE</c>s the BLOB of the specified ‘file’ name.
             </summary>
             <param name="connectionString">Azure BLOB Storage connection string</param>
             <param name="containerName">Azure BLOB Storage container name</param>
             <param name="fileName">BLOB ‘file’ name</param>
+            <param name="clientGetter">The required client getter.</param>
             <exception cref="T:System.Net.Http.HttpRequestException"></exception>
         </member>
-        <member name="M:Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(System.String,System.String,System.String)">
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(System.String,System.String,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             <c>GET</c>s the BLOB of the specified ‘file’ name.
             </summary>
             <param name="connectionString">Azure BLOB Storage connection string</param>
             <param name="containerName">Azure BLOB Storage container name</param>
             <param name="fileName">BLOB ‘file’ name</param>
+            <param name="clientGetter">The required client getter.</param>
             <returns>Returns the <see cref="T:System.String"/> contents of the file.</returns>
             <exception cref="T:System.Net.Http.HttpRequestException"></exception>
         </member>
-        <member name="M:Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(System.String,System.String)">
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(System.String,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Lists the contents of the specified BLOB container.
             </summary>
             <param name="connectionString">Azure BLOB Storage connection string</param>
             <param name="containerName">Azure BLOB Storage container name</param>
+            <param name="clientGetter">The required client getter.</param>
             <returns>Returns the contents of the container as an XML<see cref="T:System.String"/>.</returns>
             <exception cref="T:System.Net.Http.HttpRequestException"></exception>
         </member>
-        <member name="M:Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(System.String,System.String,System.String,System.String)">
+        <member name="M:Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(System.String,System.String,System.String,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             <c>PUT</c>s the BLOB of the specified ‘file’ name.
             </summary>
@@ -540,6 +710,7 @@
             <param name="containerName">Azure BLOB Storage container name</param>
             <param name="fileName">BLOB ‘file’ name</param>
             <param name="content">The <see cref="T:System.String"/> contents of the ‘file.’</param>
+            <param name="clientGetter">The required client getter.</param>
             <exception cref="T:System.Net.Http.HttpRequestException"></exception>
         </member>
         <member name="T:Songhay.AzureKeyVaultRestApiUtility">
@@ -551,12 +722,13 @@
             [ https://www.c-sharpcorner.com/article/how-to-access-azure-key-vault-secrets-through-rest-api-using-postman/ ]
             </remarks>
         </member>
-        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})">
+        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})">
              <summary>
              Calls the specified REST endpoint, using OAuth to authenticate the specified access data.
              </summary>
              <param name="accessUri">the location of the Azure Active Directory endpoint</param>
              <param name="accessData">the data required to <c>POST</c> to the specified endpoint</param>
+             <param name="clientGetter">The required client getter.</param>
              <remarks>
              The conventional way to generate the <c>accessUri</c> is via <see cref="T:Songhay.Models.RestApiMetadata"/>,
              its <see cref="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)"/> method.
@@ -565,13 +737,14 @@
              its <see cref="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)"/> method.
              </remarks>
         </member>
-        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)">
+        <member name="M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Calls REST endpoint under <c>{vaultName}.vault.azure.net</c>
             to get a secret from the specified vault.
             </summary>
-            <param name="accessToken">the JSON obtained from <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})" /></param>
+            <param name="accessToken">the JSON obtained from <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})" /></param>
             <param name="secretUri">the location of the Azure Key Vault endpoint</param>
+            <param name="clientGetter">The required client getter.</param>
             <remarks>
             The conventional way to generate the <c>secretUri</c> is via <see cref="T:Songhay.Models.RestApiMetadata"/>,
             its <see cref="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)"/> method.
@@ -968,9 +1141,37 @@
         <member name="M:Songhay.Extensions.DateTimeExtensions.ToIso8601String(System.DateTime)">
             <summary>
             Converts the specified <see cref="T:System.DateTime"/>
+            to the JSON-friendly ISO_8601 text format
+            without milliseconds.
+            </summary>
+            <param name="dateTime">the <see cref="T:System.DateTime"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.DateTimeExtensions.ToIso8601String(System.DateTime,System.Boolean)">
+            <summary>
+            Converts the specified <see cref="T:System.DateTime"/>
             to the JSON-friendly ISO_8601 text format.
             </summary>
             <param name="dateTime">the <see cref="T:System.DateTime"/></param>
+            <param name="includeTimeMilliseconds">when <c>true</c>, increase resolution to include milliseconds</param>
+            <remarks>
+            📖 https://en.wikipedia.org/wiki/ISO_8601
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime)">
+            <summary>
+            Converts the specified <see cref="T:System.DateTime"/>
+            to the JSON-friendly ISO_8601 text format for UTC (a trailing <c>Z</c>)
+            without milliseconds.
+            </summary>
+            <param name="dateTime">the <see cref="T:System.DateTime"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime,System.Boolean)">
+            <summary>
+            Converts the specified <see cref="T:System.DateTime"/>
+            to the JSON-friendly ISO_8601 text format for UTC (a trailing <c>Z</c>).
+            </summary>
+            <param name="dateTime">the <see cref="T:System.DateTime"/></param>
+            <param name="includeTimeMilliseconds">when <c>true</c>, increase resolution to include milliseconds</param>
             <remarks>
             📖 https://en.wikipedia.org/wiki/ISO_8601
             </remarks>
@@ -1227,25 +1428,33 @@
             The <c>fileAction</c> includes the line number and the current line.
             </remarks>
         </member>
+        <member name="M:Songhay.Extensions.FileInfoExtensions.ToStorageObject(System.IO.FileInfo,System.IO.DirectoryInfo)">
+            <summary>
+            Transforms the specified <see cref="T:System.IO.FileInfo"/>
+            into <see cref="T:Songhay.Models.StorageObject"/>
+            </summary>
+            <param name="fileInfo">the <see cref="T:System.IO.FileInfo"/></param>
+            <param name="bucketDirectory">the <see cref="T:System.IO.DirectoryInfo"/> representing/mirroring the S3 bucket</param>
+        </member>
         <member name="M:Songhay.Extensions.FileInfoExtensions.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})">
             <summary>
             Centralizes the use of <see cref="T:System.IO.Compression.ZipArchive"/>
             </summary>
-            <param name="archiveInfo"></param>
-            <param name="archiveAction"></param>
+            <param name="archiveInfo">the <see cref="T:System.IO.FileInfo"/></param>
+            <param name="archiveAction">the action to perform on the <see cref="T:System.IO.Compression.ZipArchive"/></param>
         </member>
         <member name="M:Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
             <summary>
             Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
             </summary>
-            <param name="archiveInfo"></param>
-            <param name="entriesAction"></param>
+            <param name="archiveInfo">the <see cref="T:System.IO.FileInfo"/></param>
+            <param name="entriesAction">the action to perform on the collection of <see cref="T:System.IO.Compression.ZipArchiveEntry"/></param>
         </member>
         <member name="M:Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
             <summary>
             Centralizes the use of <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/>.
             </summary>
-            <param name="archiveInfo"></param>
+            <param name="archiveInfo">the <see cref="T:System.IO.FileInfo"/></param>
             <param name="entriesAction"></param>
             <param name="entriesProjector"></param>
         </member>
@@ -1566,90 +1775,77 @@
              Provide an eTag, and it will only make changes to a blob if the current eTag matches, to ensure you don't overwrite someone else's changes.
              </remarks>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Gets a <see cref="T:System.String"/> from the derived <see cref="T:System.Net.Http.HttpResponseMessage"/>.
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpResponseMessage})">
             <summary>
             Gets a <see cref="T:System.String" /> from the derived <see cref="T:System.Net.Http.HttpResponseMessage" />.
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
             <param name="responseMessageAction">The response message action.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})">
-            <summary>
-            Gets a <see cref="T:System.String" /> from the derived <see cref="T:System.Net.Http.HttpResponseMessage" />.
-            </summary>
-            <param name="request">The request.</param>
-            <param name="responseMessageAction">The response message action.</param>
-            <param name="optionalClientGetter">The optional client getter.</param>
-        </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             </summary>
-            <param name="request"></param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
             <param name="requestMessageAction">The request message action.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption,System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             </summary>
-            <param name="request">The request.</param>
-            <param name="requestMessageAction">The request message action.</param>
-            <param name="optionalClientGetter">The optional client getter.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
             <param name="completionOption"> the <see cref="T:System.Net.Http.HttpCompletionOption"/>.</param>
+            <param name="requestMessageAction">The request message action.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             with the specified request body, <see cref="P:System.Text.Encoding.UTF8"/>
             and <see cref="F:Songhay.Models.MimeTypes.ApplicationJson"/>.
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
             <param name="requestBody">The request body.</param>
+            <param name="clientGetter">The required client getter.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             with the specified request body.
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
             <param name="requestBody">The request body.</param>
             <param name="encoding">The encoding.</param>
             <param name="mediaType">Type of the media.</param>
+            <param name="clientGetter">The required client getter.</param>
         </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
+        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})">
             <summary>
             Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
             with the specified request body.
             </summary>
-            <param name="request">The request.</param>
+            <param name="request">The <see cref="T:System.Net.Http.HttpRequestMessage"/>.</param>
             <param name="requestBody">The request body.</param>
             <param name="encoding">The encoding.</param>
             <param name="mediaType">Type of the media.</param>
+            <param name="clientGetter">The required client getter.</param>
             <param name="requestMessageAction">The request message action.</param>
-        </member>
-        <member name="M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})">
-            <summary>
-            Calls <see cref="M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" />
-            with the specified request body.
-            </summary>
-            <param name="request">The request.</param>
-            <param name="requestBody">The request body.</param>
-            <param name="encoding">The encoding.</param>
-            <param name="mediaType">Type of the media.</param>
-            <param name="requestMessageAction">The request message action.</param>
-            <param name="optionalClientGetter">The optional client getter.</param>
         </member>
         <member name="T:Songhay.Extensions.HttpResponseMessageExtensions">
             <summary>
@@ -1836,6 +2032,7 @@
             with the conventional environment variable, <c>SONGHAY_APP_SETTINGS_PATH</c>.
             </summary>
             <param name="configurationBuilder">the <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/></param>
+            <see cref="T:Songhay.ProgramMetadataUtility"/>
         </member>
         <member name="T:Songhay.Extensions.IConfigurationExtensions">
             <summary>
@@ -1991,6 +2188,27 @@
             </summary>
             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
         </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Returns <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+            </summary>
+            <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="configKey">the key to use to retrieve the timeout from <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Nullable{System.TimeSpan})">
+             <summary>
+             Returns <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>
+             </summary>
+             <param name="configuration">the <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+             <param name="configKey">the key to use to retrieve the timeout from <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+             <param name="defaultTimeout">a default timeout <see cref="T:System.TimeSpan"/></param>
+             <remarks>
+             The configured value is expected to be a number representing milliseconds.
+            
+             When all other input fails, this member will default to 500ms.
+             For more detail, see https://learn.microsoft.com/en-us/dotnet/standard/base-types/best-practices-regex#use-time-out-values
+             </remarks>
+        </member>
         <member name="M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
             <summary>
             Writes the <see cref="T:System.String"/> output
@@ -2049,6 +2267,29 @@
             <summary>
             Extensions of <see cref="T:System.Collections.Generic.IDictionary`2"/>.
             </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IDictionaryExtensions.GetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+            Tries to get value with the specified key.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="dictionary">The dictionary.</param>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Songhay.Extensions.IDictionaryExtensions.GetValueWithKey``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Boolean)">
+            <summary>
+            Tries to get value with the specified key.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="dictionary">The dictionary.</param>
+            <param name="key">The key.</param>
+            <param name="throwException">When <c>true</c>, throw an exception when retrieval fails.</param>
+            <remarks>
+            This member is just a simple wrapper around <see cref="M:System.Collections.Generic.IDictionary`2.TryGetValue(`0,`1@)"/>
+            that adds optional exception-throwing for missing dictionary keys.
+            </remarks>
         </member>
         <member name="M:Songhay.Extensions.IDictionaryExtensions.ToNameValueCollection``2(System.Collections.Generic.IDictionary{``0,``1})">
             <summary>
@@ -2390,6 +2631,15 @@
             <summary>
             Extensions of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
             </summary>
+        </member>
+        <member name="M:Songhay.Extensions.IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the dependencies associated
+            with the domain-specific class,
+            implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup`1"/>
+            by reading the name of this class.
+            </summary>
+            <param name="services">the ambient services collected</param>
         </member>
         <member name="M:Songhay.Extensions.IServiceCollectionExtensions.AddProgramMetadata(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -2747,17 +2997,9 @@
             use <see cref="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)"/>.
             </remarks>
         </member>
-        <member name="M:Songhay.Extensions.JsonNodeExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)">
-            <summary>
-            Displays top-level <see cref="T:System.Text.Json.Nodes.JsonObject"/> properties
-            without recursion.
-            </summary>
-            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
-            <param name="truncationLength">the number of characters to display for each property</param>
-        </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonArrayOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
             <summary>
-            Gets the <see cref="T:System.Text.Json.Nodes.JsonValue"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            Gets the <see cref="T:System.Text.Json.Nodes.JsonValue"/> of the specified <see cref="T:System.Text.Json.Nodes.JsonNode" />
             of <see cref="F:System.Text.Json.JsonValueKind.Array" />
             or defaults to null.
             </summary>
@@ -2772,16 +3014,6 @@
             </summary>
             <param name="node">The <see cref="T:System.Text.Json.Nodes.JsonNode"/>.</param>
             <param name="propertyName">Name of the property.</param>
-        </member>
-        <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject,System.String,Microsoft.Extensions.Logging.ILogger)">
-            <summary>
-            Returns the <see cref="T:System.Text.Json.Nodes.JsonNode"/>
-            of the specified target property name
-            or <c>null</c>.
-            </summary>
-            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
-            <param name="targetPropertyName">the target property name</param>
-            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.GetPropertyJsonValueOrNull(System.Text.Json.Nodes.JsonNode,System.String)">
             <summary>
@@ -2839,7 +3071,6 @@
             </summary>
             <param name="node">The node.</param>
             <param name="logger">The logger.</param>
-            <returns></returns>
         </member>
         <member name="M:Songhay.Extensions.JsonNodeExtensions.ToJsonObject(System.Text.Json.Nodes.JsonNode,Microsoft.Extensions.Logging.ILogger)">
             <summary>
@@ -2885,7 +3116,46 @@
             <param name="propertyName">the name of the property when the specified node is <see cref="F:System.Text.Json.JsonValueKind.Object"/></param>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
-        <member name="M:Songhay.Extensions.JsonNodeExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject,Microsoft.Extensions.Logging.ILogger,System.ValueTuple{System.String,System.String}[])">
+        <member name="T:Songhay.Extensions.JsonObjectExtensions">
+            <summary>
+            Extensions of <see cref="T:System.Text.Json.Nodes.JsonNode"/>.
+            </summary>
+            <remarks>
+            To prevent passing null instances of <see cref="T:Microsoft.Extensions.Logging.ILogger"/> into these methods,
+            use <see cref="M:Songhay.ILoggerUtility.AsInstanceOrNullLogger(Microsoft.Extensions.Logging.ILogger)"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.Extensions.JsonObjectExtensions.AddItemToArray``1(System.Text.Json.Nodes.JsonObject,System.String,``0,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Adds the specified <c>item</c>
+            to the <see cref="T:System.Text.Json.Nodes.JsonArray"/>
+            of the specified <see cref="T:System.Text.Json.Nodes.JsonObject"/>.
+            </summary>
+            <param name="jsonObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="arrayPropertyName">the name of the <see cref="T:System.Text.Json.Nodes.JsonArray"/> property</param>
+            <param name="item">the item to add</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+            <typeparam name="TItem">the type of the item to add</typeparam>
+        </member>
+        <member name="M:Songhay.Extensions.JsonObjectExtensions.DisplayTopProperties(System.Text.Json.Nodes.JsonObject,System.Int32)">
+            <summary>
+            Displays top-level <see cref="T:System.Text.Json.Nodes.JsonObject"/> properties
+            without recursion.
+            </summary>
+            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="truncationLength">the number of characters to display for each property</param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonObjectExtensions.GetPropertyJsonNodeOrNull(System.Text.Json.Nodes.JsonObject,System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Returns the <see cref="T:System.Text.Json.Nodes.JsonNode"/>
+            of the specified target property name
+            or <c>null</c>.
+            </summary>
+            <param name="jObject">the <see cref="T:System.Text.Json.Nodes.JsonObject"/></param>
+            <param name="targetPropertyName">the target property name</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.JsonObjectExtensions.WithPropertiesRenamed(System.Text.Json.Nodes.JsonObject,Microsoft.Extensions.Logging.ILogger,System.ValueTuple{System.String,System.String}[])">
             <summary>
             Returns the specified <see cref="T:System.Text.Json.Nodes.JsonObject"/>
             with its properties renamed.
@@ -3125,7 +3395,7 @@
         <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)">
              <summary>
              Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
-             to the data required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})"/>.
+             to the data required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})"/>.
              </summary>
              <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
              <remarks>
@@ -3148,7 +3418,7 @@
         <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenUri(Songhay.Models.RestApiMetadata)">
              <summary>
              Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
-             to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})"/>.
+             to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})"/>.
              </summary>
              <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
              <remarks>
@@ -3167,7 +3437,7 @@
         <member name="M:Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)">
              <summary>
              Converts the specified <see cref="T:Songhay.Models.RestApiMetadata" />
-             to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)"/>.
+             to the <see cref="T:System.Uri"/> required by <see cref="M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri,System.Func{System.Net.Http.HttpClient})"/>.
              </summary>
              <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
              <param name="secretNameKey">the name of the Claim key that returns the Vault secret</param>
@@ -3192,6 +3462,27 @@
             <param name="meta">the <see cref="T:Songhay.Models.RestApiMetadata" /></param>
             <param name="uriTemplateKey">The URI template key.</param>
             <param name="bindByPositionValues">The bind by position values.</param>
+        </member>
+        <member name="T:Songhay.Extensions.StorageActivityInputExtensions">
+            <summary>
+            Extensions of <see cref="T:Songhay.Models.StorageActivityInput"/>
+            </summary>
+        </member>
+        <member name="M:Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Transforms <see cref="T:Songhay.Models.StorageActivityInput"/>
+            into <see cref="T:System.IO.FileInfo"/>
+            </summary>
+            <param name="input">the <see cref="T:Songhay.Models.StorageActivityInput"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Transforms <see cref="T:Songhay.Models.StorageActivityInput"/>
+            into a collection of <see cref="T:Songhay.Models.StorageObject"/>
+            </summary>
+            <param name="input">the <see cref="T:Songhay.Models.StorageActivityInput"/></param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
         <member name="T:Songhay.Extensions.StreamExtensions">
             <summary>
@@ -3942,24 +4233,26 @@
             </summary>
             <param name="input">The input.</param>
         </member>
-        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)">
+        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Converts the specified <see cref="T:System.Uri" />
             to its ‘expanded’ version.
             </summary>
             <param name="expandableUri">The expandable <see cref="T:System.Uri"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
             <remarks>
             This member will call itself recursively
             until <see cref="M:Songhay.Extensions.HttpResponseMessageExtensions.IsMovedOrRedirected(System.Net.Http.HttpResponseMessage)"/> returns <c>true</c>
             or <see cref="P:System.Net.Http.Headers.HttpResponseHeaders.Location"/> is null.
             </remarks>
         </member>
-        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)">
+        <member name="M:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri,System.Func{System.Net.Http.HttpClient})">
             <summary>
             Converts the specified <see cref="T:System.Uri" />
             to its ‘expanded’ version.
             </summary>
             <param name="expandableUri">The expandable <see cref="T:System.Uri"/>.</param>
+            <param name="clientGetter">The required client getter.</param>
         </member>
         <member name="M:Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)">
             <summary>
@@ -4350,6 +4643,39 @@
             <param name="json">the JSON to parse</param>
             <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
         </member>
+        <member name="T:Songhay.JsonSerializerOptionsCache">
+            <summary>
+            Caches frequently-used <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            </summary>
+        </member>
+        <member name="P:Songhay.JsonSerializerOptionsCache.OptionsForCamelCaseOnly">
+            <summary>
+            Returns <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            with <see cref="P:System.Text.Json.JsonSerializerOptions.PropertyNamingPolicy"/> set
+            to <see cref="P:System.Text.Json.JsonNamingPolicy.CamelCase"/> 
+            </summary>
+        </member>
+        <member name="P:Songhay.JsonSerializerOptionsCache.OptionsForCamelCaseWithIndentation">
+            <summary>
+            Returns <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            with <see cref="P:System.Text.Json.JsonSerializerOptions.PropertyNamingPolicy"/> set
+            to <see cref="P:System.Text.Json.JsonNamingPolicy.CamelCase"/> 
+            and <see cref="P:System.Text.Json.JsonSerializerOptions.WriteIndented"/> set to <c>true</c>
+            </summary>
+        </member>
+        <member name="P:Songhay.JsonSerializerOptionsCache.OptionsForIndentationOnly">
+            <summary>
+            Returns <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            with <see cref="P:System.Text.Json.JsonSerializerOptions.WriteIndented"/> set to <c>true</c>
+            </summary>
+        </member>
+        <member name="P:Songhay.JsonSerializerOptionsCache.OptionsForIndentationWithSize4">
+            <summary>
+            Returns <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            with <see cref="P:System.Text.Json.JsonSerializerOptions.WriteIndented"/> set to <c>true</c>
+            and <see cref="P:System.Text.Json.JsonSerializerOptions.IndentSize"/> set to <c>4</c>
+            </summary>
+        </member>
         <member name="T:Songhay.MathUtility">
             <summary>
             Static helpers for Math.
@@ -4478,76 +4804,6 @@
         <member name="F:Songhay.Models.ConsoleArgsScalars.SettingsFile">
             <summary>
             The settings file argument.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.CorsOrigins">
-            <summary>
-            Defines selected CORS origins.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.BRollPlayer">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.BRollPlayerCom">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.CodePenIo">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.CommaDelimiter">
-            <summary>
-            The comma delimiter
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.InOurTerribleness">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.InOurTerriblenessCom">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.KinteSpaceAzure">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.KinteSpaceCom">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.SonghayBlog">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.SonghayDashboard">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.SonghaySystemCom">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.StaticsCodePenIo">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.WordWalkingStickCom">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
             </summary>
         </member>
         <member name="T:Songhay.Models.DataParameterMetadata">
@@ -4749,6 +5005,54 @@
             Gets or sets the key.
             </summary>
         </member>
+        <member name="T:Songhay.Models.EndpointContentResult`1">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <typeparam name="TContent">the type of the content returned in the response</typeparam>
+            <param name="HttpStatusCode">the <see cref="T:System.Net.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+            <param name="Content">any content associated with the response</param>
+        </member>
+        <member name="M:Songhay.Models.EndpointContentResult`1.#ctor(System.Net.HttpStatusCode,System.String,System.String,`0)">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <typeparam name="TContent">the type of the content returned in the response</typeparam>
+            <param name="HttpStatusCode">the <see cref="T:System.Net.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+            <param name="Content">any content associated with the response</param>
+        </member>
+        <member name="P:Songhay.Models.EndpointContentResult`1.Content">
+            <summary>any content associated with the response</summary>
+        </member>
+        <member name="T:Songhay.Models.EndpointResult">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.EndpointResult.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+        </member>
+        <member name="M:Songhay.Models.EndpointResult.#ctor(System.Net.HttpStatusCode,System.String,System.String)">
+            <summary>
+            Defines the result returned from all storage-related Activities.
+            </summary>
+            <param name="HttpStatusCode">the <see cref="P:Songhay.Models.EndpointResult.HttpStatusCode"/></param>
+            <param name="RequestId">the identifier of the request</param>
+            <param name="ResponseMessage">any message associated with the request</param>
+        </member>
+        <member name="P:Songhay.Models.EndpointResult.HttpStatusCode">
+            <summary>the <see cref="P:Songhay.Models.EndpointResult.HttpStatusCode"/></summary>
+        </member>
+        <member name="P:Songhay.Models.EndpointResult.RequestId">
+            <summary>the identifier of the request</summary>
+        </member>
+        <member name="P:Songhay.Models.EndpointResult.ResponseMessage">
+            <summary>any message associated with the request</summary>
+        </member>
         <member name="T:Songhay.Models.HttpMethods">
             <summary>
             Centralizes <see cref="T:System.Net.Http.HttpMethod"/> members as strings.
@@ -4790,28 +5094,6 @@
         <member name="F:Songhay.Models.HttpMethods.Trace">
             <summary>
             HTTP Method <c>TRACE</c>.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.LazyDisplayItem`1">
-            <summary>
-            Wraps a lazy-initialized object
-            with meta-data for display.
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:Songhay.Models.LazyDisplayItem`1.DisplayName">
-            <summary>
-            Gets or sets the targetValues name.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.LazyDisplayItem`1.LazyItem">
-            <summary>
-            Gets or sets the lazy item.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.LazyDisplayItem`1.Name">
-            <summary>
-            Gets or sets the name.
             </summary>
         </member>
         <member name="T:Songhay.Models.MenuDisplayItemModel">
@@ -5037,75 +5319,6 @@
             [ https://www.iana.org/assignments/media-types/text/xml ]
             </summary>
         </member>
-        <member name="T:Songhay.Models.OpenAuthorizationData">
-            <summary>
-            Defines Authorization Information for OAuth 1.0.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.OpenAuthorizationData.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Models.OpenAuthorizationData"/> class.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.OpenAuthorizationData.#ctor(System.Collections.Specialized.NameValueCollection)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Models.OpenAuthorizationData"/> class.
-            </summary>
-            <param name="data">The data.</param>
-        </member>
-        <member name="M:Songhay.Models.OpenAuthorizationData.#ctor(System.String,System.Collections.Specialized.NameValueCollection)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Models.OpenAuthorizationData" /> class.
-            </summary>
-            <param name="nonce">The nonce.</param>
-            <param name="data">The data.</param>
-        </member>
-        <member name="M:Songhay.Models.OpenAuthorizationData.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Models.OpenAuthorizationData" /> class.
-            </summary>
-            <param name="nonce">The nonce.</param>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.ConsumerKey">
-            <summary>
-            Gets or sets the consumer key.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.ConsumerSecret">
-            <summary>
-            Gets or sets the consumer secret.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.Nonce">
-            <summary>
-            Gets the nonce.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.TimeStamp">
-            <summary>
-            Gets or sets the time stamp.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.Token">
-            <summary>
-            Gets or sets the token.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.TokenSecret">
-            <summary>
-            Gets or sets the token secret.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.SignatureMethod">
-            <summary>
-            Gets the signature method.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.Version">
-            <summary>
-            Gets or sets the version.
-            </summary>
-        </member>
         <member name="T:Songhay.Models.OpmlBody">
             <summary>
             Defines a managed representation of the OPML body element.
@@ -5266,82 +5479,6 @@
             Converts the value of this instance to a <see cref="T:System.String"/>.
             </summary>
         </member>
-        <member name="T:Songhay.Models.PackedResource">
-            <summary>
-            Defines the meta-data of an Application resource.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PackedResource.DisplayName">
-            <summary>
-            Gets or sets the display name.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PackedResource.Key">
-            <summary>
-            Gets or sets the key.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PackedResource.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.PackedResource`1">
-            <summary>
-            Defines the meta-data of an Application resource.
-            </summary>
-            <typeparam name="TResource">The type of the resource.</typeparam>
-        </member>
-        <member name="P:Songhay.Models.PackedResource`1.XamlString">
-            <summary>
-            Gets or sets the XAML string.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PackedResource`1.XamlObject">
-            <summary>
-            Gets or sets the XAML object.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.PagedResult">
-            <summary>
-            Defines a paged set of data.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResult.Metadata">
-            <summary>
-            Gets or sets the metadata.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResult.PagedResultSet">
-            <summary>
-            Gets or sets the paged result set.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.PagedResultMeta">
-            <summary>
-            Defines the metadata for a paged set of data.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResultMeta.PageIndex">
-            <summary>
-            Gets or sets the index of the page.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResultMeta.PageCount">
-            <summary>
-            Gets the page count.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResultMeta.PageSize">
-            <summary>
-            Gets or sets the size of the page.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResultMeta.TotalCount">
-            <summary>
-            Gets or sets the total count.
-            </summary>
-        </member>
         <member name="T:Songhay.Models.ProgramAssemblyInfo">
             <summary>
             Defines Assembly information.
@@ -5396,6 +5533,33 @@
             <summary>
             Returns format: <c>[AssemblyCompany], [AssemblyTitle] Version: [AssemblyVersion], [AssemblyVersionDetail]</c>.
             </summary>
+        </member>
+        <member name="T:Songhay.Models.ProgramFileActivityGroup">
+            <summary>
+            Maps typical string args into tuples
+            into one of the respective <see cref="N:Songhay.Activities"/>
+            for Program files.
+            </summary>
+            <param name="activityForProgramFileDelete">the Program-file delete Activity</param>
+            <param name="activityForProgramFileRead">the Program-file string-download Activity</param>
+            <param name="activityForProgramFileList">the Program-file bucket-list Activity</param>
+            <param name="activityForProgramFileSave">the Program-file string-upload Activity</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Models.ProgramFileActivityGroup.#ctor(Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointResult},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.String}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput{System.String},Songhay.Models.EndpointResult},Microsoft.Extensions.Logging.ILogger{Songhay.Models.ProgramFileActivityGroup})">
+            <summary>
+            Maps typical string args into tuples
+            into one of the respective <see cref="N:Songhay.Activities"/>
+            for Program files.
+            </summary>
+            <param name="activityForProgramFileDelete">the Program-file delete Activity</param>
+            <param name="activityForProgramFileRead">the Program-file string-download Activity</param>
+            <param name="activityForProgramFileList">the Program-file bucket-list Activity</param>
+            <param name="activityForProgramFileSave">the Program-file string-upload Activity</param>
+            <param name="logger">the <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Songhay.Models.ProgramFileActivityGroup.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])">
+            <inheritdoc/>
         </member>
         <member name="T:Songhay.Models.ProgramGlyph">
             <summary>
@@ -5471,6 +5635,83 @@
             <summary>
             Represents this instance as a <c>string</c>.
             </summary>
+        </member>
+        <member name="T:Songhay.Models.ProgramOutputResult`1">
+            <summary>
+            Defines the general-purpose Result concept
+            for Program output,
+            avoiding third-party dependencies
+            that are not compatible with F#.
+            </summary>
+            <typeparam name="TOutput">nullable value or reference types</typeparam>
+            <param name="IsSuccessful">when <c>true</c> the Program completed without exceptions.</param>
+            <param name="Message">a domain-specific message summarizing the Program completion</param>
+            <param name="Output">the output of the Program</param>
+            <remarks>
+            This type (and its possible subtypes) is intended
+            to define the output of Activities
+            (like <see cref="T:Songhay.Abstractions.IActivityTask`2"/>
+            or <see cref="T:Songhay.Abstractions.IActivityTaskGroup`1"/>).
+            </remarks>
+        </member>
+        <member name="M:Songhay.Models.ProgramOutputResult`1.#ctor(System.Boolean,System.String,`0)">
+            <summary>
+            Defines the general-purpose Result concept
+            for Program output,
+            avoiding third-party dependencies
+            that are not compatible with F#.
+            </summary>
+            <typeparam name="TOutput">nullable value or reference types</typeparam>
+            <param name="IsSuccessful">when <c>true</c> the Program completed without exceptions.</param>
+            <param name="Message">a domain-specific message summarizing the Program completion</param>
+            <param name="Output">the output of the Program</param>
+            <remarks>
+            This type (and its possible subtypes) is intended
+            to define the output of Activities
+            (like <see cref="T:Songhay.Abstractions.IActivityTask`2"/>
+            or <see cref="T:Songhay.Abstractions.IActivityTaskGroup`1"/>).
+            </remarks>
+        </member>
+        <member name="P:Songhay.Models.ProgramOutputResult`1.Output">
+            <summary>the output of the Program</summary>
+        </member>
+        <member name="T:Songhay.Models.ProgramResult">
+            <summary>
+            Defines the general-purpose Result concept
+            for Program completion,
+            avoiding third-party dependencies
+            that are not compatible with F#.
+            </summary>
+            <param name="IsSuccessful">when <c>true</c> the Program completed without exceptions.</param>
+            <param name="Message">a domain-specific message summarizing the Program completion</param>
+            <remarks>
+            This type (and its possible subtypes) is intended
+            to define the output of Activities
+            (like <see cref="T:Songhay.Abstractions.IActivityTask`2"/>
+            or <see cref="T:Songhay.Abstractions.IActivityTaskGroup`1"/>).
+            </remarks>
+        </member>
+        <member name="M:Songhay.Models.ProgramResult.#ctor(System.Boolean,System.String)">
+            <summary>
+            Defines the general-purpose Result concept
+            for Program completion,
+            avoiding third-party dependencies
+            that are not compatible with F#.
+            </summary>
+            <param name="IsSuccessful">when <c>true</c> the Program completed without exceptions.</param>
+            <param name="Message">a domain-specific message summarizing the Program completion</param>
+            <remarks>
+            This type (and its possible subtypes) is intended
+            to define the output of Activities
+            (like <see cref="T:Songhay.Abstractions.IActivityTask`2"/>
+            or <see cref="T:Songhay.Abstractions.IActivityTaskGroup`1"/>).
+            </remarks>
+        </member>
+        <member name="P:Songhay.Models.ProgramResult.IsSuccessful">
+            <summary>when <c>true</c> the Program completed without exceptions.</summary>
+        </member>
+        <member name="P:Songhay.Models.ProgramResult.Message">
+            <summary>a domain-specific message summarizing the Program completion</summary>
         </member>
         <member name="T:Songhay.Models.RegexScalars">
             <summary>
@@ -5572,7 +5813,7 @@
         </member>
         <member name="F:Songhay.Models.RestApiMetadata.ClaimsSetHeaderApiAuthorization">
             <summary>
-            A convential name representing an API key
+            A conventional name representing an API key
             to sent in the HTTP headers for authentication.
             </summary>
             <remarks>
@@ -5583,7 +5824,7 @@
         </member>
         <member name="F:Songhay.Models.RestApiMetadata.ClaimsSetHeaderApiContentType">
             <summary>
-            A convential name representing an API key
+            A conventional name representing an API key
             to sent in the HTTP headers for authentication.
             </summary>
             <remarks>
@@ -5594,7 +5835,7 @@
         </member>
         <member name="F:Songhay.Models.RestApiMetadata.ClaimsSetHeaderApiKey">
             <summary>
-            A convential name representing an API key
+            A conventional name representing an API key
             to sent in the HTTP headers for authentication.
             </summary>
             <remarks>
@@ -5626,63 +5867,150 @@
             Converts this instance into a <see cref="T:System.String"/> representation.
             </summary>
         </member>
-        <member name="T:Songhay.Models.RestPagingMetadata">
+        <member name="T:Songhay.Models.StorageActivityInput">
             <summary>
-            REST Paging Metadata
+            Defines the input for most storage operations.
+            </summary>
+            <param name="SetKey">
+                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
+                or the name of a directory under the root of a storage mirror
+            </param>
+            <param name="BucketMetaKey">
+                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
+                pointing to the region of the S3 Bucket
+            </param>
+            <param name="BucketKeyOrPrefix">
+                represents an entire <c>S3Object.Key</c>
+                or its prefix (used for filtering S3 bucket listing)
+            </param>
+        </member>
+        <member name="M:Songhay.Models.StorageActivityInput.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Defines the input for most storage operations.
+            </summary>
+            <param name="SetKey">
+                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
+                or the name of a directory under the root of a storage mirror
+            </param>
+            <param name="BucketMetaKey">
+                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
+                pointing to the region of the S3 Bucket
+            </param>
+            <param name="BucketKeyOrPrefix">
+                represents an entire <c>S3Object.Key</c>
+                or its prefix (used for filtering S3 bucket listing)
+            </param>
+        </member>
+        <member name="P:Songhay.Models.StorageActivityInput.SetKey">
+            <summary>
+                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
+                or the name of a directory under the root of a storage mirror
             </summary>
         </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.ResultSetSize">
+        <member name="P:Songhay.Models.StorageActivityInput.BucketMetaKey">
             <summary>
-            Gets or sets the size of the result set.
+                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
+                pointing to the region of the S3 Bucket
             </summary>
         </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.TotalSetSize">
+        <member name="P:Songhay.Models.StorageActivityInput.BucketKeyOrPrefix">
             <summary>
-            Gets or sets the total size of the set.
+                represents an entire <c>S3Object.Key</c>
+                or its prefix (used for filtering S3 bucket listing)
             </summary>
         </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.StartPosition">
+        <member name="T:Songhay.Models.StorageActivityInput`1">
             <summary>
-            Gets or sets the start position.
+            Defines the input for most storage operations.
             </summary>
+            <typeparam name="TContent">the type of the input content</typeparam>
+            <param name="SetKey">
+                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
+                or the name of a directory under the root of a storage mirror
+            </param>
+            <param name="BucketMetaKey">
+                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
+                pointing to the region of the S3 Bucket
+            </param>
+            <param name="BucketKeyOrPrefix">
+                represents an entire <c>S3Object.Key</c>
+                or its prefix (used for filtering S3 bucket listing)
+            </param>
+            <param name="Content">represents what will be transformed into an S3 <c>PutObjectRequest.ContentBody</c></param>
+            <param name="ContentMimeType">represents an S3 <c>PutObjectRequest.ContentType</c></param>
         </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.EndPosition">
+        <member name="M:Songhay.Models.StorageActivityInput`1.#ctor(System.String,System.String,System.String,`0,System.String)">
             <summary>
-            Gets or sets the end position.
+            Defines the input for most storage operations.
             </summary>
+            <typeparam name="TContent">the type of the input content</typeparam>
+            <param name="SetKey">
+                the <see cref="P:Songhay.Models.ProgramMetadata.RestApiMetadataSet"/> dictionary key
+                or the name of a directory under the root of a storage mirror
+            </param>
+            <param name="BucketMetaKey">
+                a <see cref="P:Songhay.Models.RestApiMetadata.ClaimsSet"/> dictionary key
+                pointing to the region of the S3 Bucket
+            </param>
+            <param name="BucketKeyOrPrefix">
+                represents an entire <c>S3Object.Key</c>
+                or its prefix (used for filtering S3 bucket listing)
+            </param>
+            <param name="Content">represents what will be transformed into an S3 <c>PutObjectRequest.ContentBody</c></param>
+            <param name="ContentMimeType">represents an S3 <c>PutObjectRequest.ContentType</c></param>
         </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.FromDate">
-            <summary>
-            Gets or sets from date.
-            </summary>
+        <member name="P:Songhay.Models.StorageActivityInput`1.Content">
+            <summary>represents what will be transformed into an S3 <c>PutObjectRequest.ContentBody</c></summary>
         </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.ToDate">
-            <summary>
-            Gets or sets to date.
-            </summary>
+        <member name="P:Songhay.Models.StorageActivityInput`1.ContentMimeType">
+            <summary>represents an S3 <c>PutObjectRequest.ContentType</c></summary>
         </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.NextUri">
+        <member name="T:Songhay.Models.StorageObject">
             <summary>
-            Gets or sets the next URI.
+            Defines an “intersection type” for the <c>S3Object</c> de facto standard
+            and <see cref="T:System.IO.FileInfo"/>
             </summary>
+            <param name="BucketName">maps to <see cref="P:System.IO.FileInfo.DirectoryName"/></param>
+            <param name="ETag">represents <c>S3Object.ETag</c></param>
+            <param name="Key">represents <c>S3Object.Key</c></param>
+            <param name="LastWriteTimeUtc">maps to <c>S3Object.LastModified</c></param>
+            <param name="Size">maps to <see cref="P:System.IO.FileInfo.Length"/></param>
+            <param name="Extension">represents <see cref="P:System.IO.FileSystemInfo.Extension"/></param>
+            <param name="Name">represents <see cref="P:System.IO.FileInfo.Name"/></param>
         </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.PreviousUri">
+        <member name="M:Songhay.Models.StorageObject.#ctor(System.String,System.String,System.String,System.DateTime,System.Int64,System.String,System.String)">
             <summary>
-            Gets or sets the previous URI.
+            Defines an “intersection type” for the <c>S3Object</c> de facto standard
+            and <see cref="T:System.IO.FileInfo"/>
             </summary>
+            <param name="BucketName">maps to <see cref="P:System.IO.FileInfo.DirectoryName"/></param>
+            <param name="ETag">represents <c>S3Object.ETag</c></param>
+            <param name="Key">represents <c>S3Object.Key</c></param>
+            <param name="LastWriteTimeUtc">maps to <c>S3Object.LastModified</c></param>
+            <param name="Size">maps to <see cref="P:System.IO.FileInfo.Length"/></param>
+            <param name="Extension">represents <see cref="P:System.IO.FileSystemInfo.Extension"/></param>
+            <param name="Name">represents <see cref="P:System.IO.FileInfo.Name"/></param>
         </member>
-        <member name="M:Songhay.Models.RestPagingMetadata.ToShallowCopy">
-            <summary>
-            Returns the shallow copy from <see cref="M:System.Object.MemberwiseClone"/>.
-            </summary>
+        <member name="P:Songhay.Models.StorageObject.BucketName">
+            <summary>maps to <see cref="P:System.IO.FileInfo.DirectoryName"/></summary>
         </member>
-        <member name="M:Songhay.Models.RestPagingMetadata.ToString">
-            <summary>
-            Returns a <see cref="T:System.String" /> that represents this instance.
-            </summary>
-            <returns>
-            A <see cref="T:System.String" /> that represents this instance.
-            </returns>
+        <member name="P:Songhay.Models.StorageObject.ETag">
+            <summary>represents <c>S3Object.ETag</c></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.Key">
+            <summary>represents <c>S3Object.Key</c></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.LastWriteTimeUtc">
+            <summary>maps to <c>S3Object.LastModified</c></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.Size">
+            <summary>maps to <see cref="P:System.IO.FileInfo.Length"/></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.Extension">
+            <summary>represents <see cref="P:System.IO.FileSystemInfo.Extension"/></summary>
+        </member>
+        <member name="P:Songhay.Models.StorageObject.Name">
+            <summary>represents <see cref="P:System.IO.FileInfo.Name"/></summary>
         </member>
         <member name="T:Songhay.Models.SystemErrorCodes">
             <summary>
@@ -6937,16 +7265,18 @@
             <summary>
             Defines a REST API endpoint
             </summary>
+            <param name="clientFactory">the <see cref="T:System.Net.Http.IHttpClientFactory"/></param>
             <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
             <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
             <remarks>
             The output of <c>httpRequestMessageGetter</c> will be inside a <c>using</c> block.
             </remarks>
         </member>
-        <member name="M:Songhay.Net.ApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)">
+        <member name="M:Songhay.Net.ApiEndpoint.#ctor(System.Net.Http.IHttpClientFactory,Polly.ResiliencePipeline,System.String)">
             <summary>
             Defines a REST API endpoint
             </summary>
+            <param name="clientFactory">the <see cref="T:System.Net.Http.IHttpClientFactory"/></param>
             <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
             <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
             <remarks>
@@ -7045,13 +7375,15 @@
             <summary>
             Defines the default implementation of <see cref="T:Songhay.Abstractions.IBlobStreamApiEndpoint"/>
             </summary>
+            <param name="clientFactory">the <see cref="T:System.Net.Http.IHttpClientFactory"/></param>
             <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
             <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
         </member>
-        <member name="M:Songhay.Net.BlobStreamApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)">
+        <member name="M:Songhay.Net.BlobStreamApiEndpoint.#ctor(System.Net.Http.IHttpClientFactory,Polly.ResiliencePipeline,System.String)">
             <summary>
             Defines the default implementation of <see cref="T:Songhay.Abstractions.IBlobStreamApiEndpoint"/>
             </summary>
+            <param name="clientFactory">the <see cref="T:System.Net.Http.IHttpClientFactory"/></param>
             <param name="instanceTag">maps to <see cref="P:Songhay.Abstractions.ITaggedInstance.InstanceTag"/></param>
             <param name="pipeline">the <see cref="T:Polly.ResiliencePipeline"/></param>
         </member>
@@ -7472,6 +7804,46 @@
             formatting relative paths for <see cref="M:System.IO.Path.Combine(System.String,System.String)"/>.
             </remarks>
         </member>
+        <member name="T:Songhay.ProgramMetadataUtility">
+            <summary>
+            Shared routines for <see cref="T:Songhay.Models.ProgramMetadata"/>
+            </summary>
+            <remarks>
+            This is the minimalist alternative to <see cref="M:Songhay.Extensions.IConfigurationBuilderExtensions.AddConventionalJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)"/>.
+            </remarks>
+        </member>
+        <member name="M:Songhay.ProgramMetadataUtility.GetProgramMetadataFromEnvironment">
+            <summary>
+            Returns an instance of <see cref="T:Songhay.Models.ProgramMetadata"/>
+            based on the presence of one of two conventional environment variables.
+            </summary>
+        </member>
+        <member name="M:Songhay.ProgramMetadataUtility.GetJsonDeserializerOptions">
+            <summary>
+            Returns <see cref="T:System.Text.Json.JsonSerializerOptions"/>
+            for <see cref="T:Songhay.Models.ProgramMetadata"/>
+            with explicit serializer context(s)
+            for AOT compiled apps.
+            </summary>
+        </member>
+        <member name="M:Songhay.ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment">
+             <summary>
+             Returns a JSON string or <c>null</c>
+             based on the presence of one of two conventional environment variables.
+             </summary>
+             <remarks>
+             Of the two expected environment variables,
+             The one with the <c>_PATH</c> suffix should lead to JSON of the form:
+            
+             <code>
+             {
+                 "ProgramMetadata": { … }
+             }
+             </code>
+            
+             …which conforms to <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> conventions.
+             </remarks>
+        </member>
         <member name="T:Songhay.ProgramTypeUtility">
             <summary>
             Static members for type handling.
@@ -7578,6 +7950,11 @@
             as parse failure means <c>HasValue</c>
             is false.
             </returns>
+            <remarks>
+            For more control over whether UTC or local <see cref="T:System.DateTime"/> is desired,
+            consider using <see cref="M:Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)"/>
+            or <see cref="M:Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)"/>.
+            </remarks>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.ParseDateTime(System.Object,System.DateTime)">
             <summary>
@@ -7834,6 +8211,40 @@
             </summary>
             <param name="value">The value.</param>
             <param name="defaultValue">The default value.</param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)">
+            <summary>
+            Tries to parse the specified date string
+            into the local <see cref="T:System.DateTime"/>
+            or returns <c>null</c>.
+            </summary>
+            <param name="dateTimeString">the string representation of a valid <see cref="T:System.DateTime"/></param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseToLocalTime(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Tries to parse the specified date string
+            into the local <see cref="T:System.DateTime"/>
+            or returns <c>null</c>.
+            </summary>
+            <param name="dateTimeString">the string representation of a valid <see cref="T:System.DateTime"/></param>
+            <param name="cultureInfo">the <see cref="T:System.Globalization.CultureInfo"/> of the locale</param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)">
+            <summary>
+            Tries to parse the specified date string
+            into UTC <see cref="T:System.DateTime"/>
+            or returns <c>null</c>.
+            </summary>
+            <param name="dateTimeString">the string representation of a valid, local <see cref="T:System.DateTime"/></param>
+        </member>
+        <member name="M:Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Tries to parse the specified date string
+            into UTC <see cref="T:System.DateTime"/>
+            or returns <c>null</c>.
+            </summary>
+            <param name="dateTimeString">the string representation of a valid, local <see cref="T:System.DateTime"/></param>
+            <param name="cultureInfo">the <see cref="T:System.Globalization.CultureInfo"/> of the locale</param>
         </member>
         <member name="M:Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)">
             <summary>
@@ -8200,6 +8611,495 @@
                     ○ Match a character other than '\n' atomically at least once.<br/>
             </code>
             </remarks>
+        </member>
+        <member name="T:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.ColorDisplayItemModel"/>
+            to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.Byte">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.ColorDisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.IEnumerableColorDisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.DateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.NullableDateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.Uri">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.Int32">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.Object">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.DbmsMetadataSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.DbmsMetadata"/> to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.DbmsMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.EncryptionMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DbmsMetadataSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DbmsMetadataSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DbmsMetadataSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DbmsMetadataSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.DictionarySerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="T:System.Collections.Generic.Dictionary`2"/>
+            where <c>TKey</c> and <c>TValue</c> are <see cref="T:System.String"/>
+            to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DictionarySerializerContext.DictionaryStringString">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DictionarySerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DictionarySerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DictionarySerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DictionarySerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DictionarySerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DictionarySerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.DisplayItemModelSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel"/>
+            to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Byte">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.IEnumerableDisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Uri">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Int32">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DisplayItemModelSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DisplayItemModelSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.MenuDisplayItemModel"/>
+            to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Boolean">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.NullableBoolean">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Byte">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.MenuDisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.MenuDisplayItemModelArray">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.IEnumerableMenuDisplayItemModel">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.DateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.NullableDateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Uri">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Int32">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Object">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.ProgramMetadataSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata"/> to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DbmsMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.EncryptionMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.RestApiMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringString">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.Uri">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.ProgramMetadataSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.RestApiMetadataSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.RestApiMetadata"/> to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.RestApiMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.DictionaryStringString">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.IEnumerableRestApiMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.Uri">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.RestApiMetadataSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.RestApiMetadataSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.RestApiMetadataSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.RestApiMetadataSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Songhay.SerializerContexts.StorageObjectSerializerContext">
+            <summary>
+            Defines an explicit <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/>
+            for <see cref="P:Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject"/>
+            to avoid using reflection
+            which is not available in AOT-compilation assemblies.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.IEnumerableStorageObject">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.DateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.Int64">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Songhay.SerializerContexts.StorageObjectSerializerContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Songhay.SerializerContexts.StorageObjectSerializerContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.StorageObjectSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Songhay.SerializerContexts.StorageObjectSerializerContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
         </member>
         <member name="T:Songhay.TaskUtility">
             <summary>

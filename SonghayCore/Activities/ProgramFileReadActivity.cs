@@ -1,0 +1,34 @@
+namespace Songhay.Activities;
+
+/// <summary>
+/// Reads a string-content file
+/// from the local file system,
+/// impersonating the input and output
+/// of <c>AmazonS3DownloadToStringActivity</c>
+/// </summary>
+/// <param name="logger">the <see cref="ILogger"/></param>
+public class ProgramFileReadActivity(ILogger<ProgramFileReadActivity> logger) : IActivityTask<StorageActivityInput?, EndpointContentResult<string?>>
+{
+    /// <inheritdoc/>
+    public async Task<EndpointContentResult<string?>> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
+    {
+        FileInfo? fileInfo = input.ToFileInfo(logger);
+
+        if (fileInfo == null)
+        {
+            return new EndpointContentResult<string?>(
+                HttpStatusCode.NotFound,
+                "[local]",
+                "The expected file is not here.",
+                null);
+        }
+
+        string content = await File.ReadAllTextAsync(fileInfo.FullName, cancellationToken);
+
+        return new EndpointContentResult<string?>(
+            HttpStatusCode.OK,
+            "[local]",
+            $"File `{fileInfo.FullName}` loaded.",
+            content);
+    }
+}

@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Songhay.Activities;
 
 namespace Songhay.Extensions;
 
@@ -8,6 +9,25 @@ namespace Songhay.Extensions;
 // ReSharper disable once InconsistentNaming
 public static class IServiceCollectionExtensions
 {
+    /// <summary>
+    /// Adds the dependencies associated
+    /// with the domain-specific class,
+    /// implementing <see cref="IActivityKeyedTaskGroup{TOutput}"/>
+    /// by reading the name of this class.
+    /// </summary>
+    /// <param name="services">the ambient services collected</param>
+    public static IServiceCollection AddProgramFileActivityGroupDependencies(this IServiceCollection services)
+    {
+        services
+            .AddTransient<IActivityTask<StorageActivityInput?, EndpointResult>, ProgramFileDeleteActivity>()
+            .AddTransient<IActivityTask<StorageActivityInput?, EndpointContentResult<string?>>, ProgramFileReadActivity>()
+            .AddTransient<IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>>, ProgramFileListActivity>()
+            .AddTransient<IActivityTask<StorageActivityInput<string?>?, EndpointResult>, ProgramFileSaveActivity>()
+            .AddTransient<IActivityKeyedTaskGroup<EndpointResult>, ProgramFileActivityGroup>();
+
+        return services;
+    }
+
     /// <summary>
     /// Adds the conventional <see cref="ProgramMetadata"/> instance as a singleton.
     /// </summary>
@@ -25,5 +45,4 @@ public static class IServiceCollectionExtensions
 
         return services;
     }
-
 }

@@ -1,7 +1,5 @@
 # SonghayCore
 
-[![Build Status](https://songhay.visualstudio.com/SonghaySystem/_apis/build/status/songhay-core-yaml-build?branchName=master)](https://songhay.visualstudio.com/SonghaySystem/_build/latest?definitionId=16&branchName=master)
-
 Here is the _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/SonghayCore/) for all of my studio Solutions. Anyone who may be reading this 👀 is free to do the same. This package is based on `net10.0`.
 
 **NuGet package 📦:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
@@ -44,7 +42,7 @@ Notable extensions:
 
 - [`ILoggerExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/ILoggerExtensions.cs) — defines shared routines based on conventions around the _.NET Generic Host_ [📖 [docs](https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host)].
 
-- [`HttpRequestMessageExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/HttpRequestMessageExtensions.cs) — defines shared routines for HTTP access under .NET Standard with a lazy-loaded `HttpClient`. Routines for Azure Blob Storage are included here.
+- [`HttpRequestMessageExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/HttpRequestMessageExtensions.cs) — defines shared routines for HTTP access. Routines for Azure Blob Storage are included here.
 
 - [`HttpWebRequestExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/HttpWebRequestExtensions.cs) — defines shared routines for HTTP access for the legacy .NET Framework.
 
@@ -82,7 +80,7 @@ This _Core_ features the ‘boundary-crossing abstractions’ (and default imple
 - [`IApiRequestStrategy`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IApiRequestStrategy.cs) — defines the conventional way to request data from an endpoint (default implementations: [`ApiRequestStrategy`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Net/ApiRequestStrategy.cs) and [`AzureBlobApiRequestStrategy`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Net/AzureBlobApiRequestStrategy.cs)).
 - [`IBlobStreamApiEndpoint`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IBlobStreamApiEndpoint.cs) — defines the conventional way to request BLOB data from an endpoint (default implementation: [`BlobStreamApiEndpoint`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Net/BlobStreamApiEndpoint.cs)).
 
-Dependency-injecting these ‘boundary-crossing abstractions’ are far more mockable than, say, using `HttpRequestMessage` directly.
+Dependency-injecting these ‘boundary-crossing abstractions’ are far more mockable than, say, using `HttpRequestMessage` directly. All of the default implementations above depend on [Polly](https://github.com/App-vNext/Polly).
 
 ## the _core_ Activity concept
 
@@ -93,15 +91,26 @@ This _Core_ features the concept of the Activity which is a way to formally reco
 - [`IActivityOutputOnlyTask`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IActivityOutputOnlyTask.cs) — defines the conventional, asynchronous Activities with output only (input usually comes from `IConfiguration` in this case)
 - [`IActivityTask`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IActivityTask.cs) — defines the conventional, asynchronous, input-output Activities
 
-This Activity concept which I regard as _fundamental_ is the least likely architectural reality that would be shared by my peers 😐 From the Microsoft point of view, my Activity concept would be buried under [Windows Workflow Foundation](https://en.wikipedia.org/wiki/Windows_Workflow_Foundation) or [BizTalk Server](https://en.wikipedia.org/wiki/Microsoft_BizTalk_Server).
+This Activity concept which I regard as _fundamental_ is the least likely architectural reality that would be shared by my peers 😐 From the Microsoft point of view, my Activity concept would be ‘buried’ under [the dapr workflow](https://docs.dapr.io/developing-applications/building-blocks/workflow/workflow-overview/).
 
 ## satellite packages
 
 ### `SonghayCore.S3`
 
-Amazon S3 routines for .NET Core.
+Amazon S3 routines for .NET Core. Outside of the world of the Microsoft cloud (Azure), the rest of the world’s cloud storage is (mostly) standardized around the AWS S3 <acronym title="Application Programming Interface">API</acronym>. Financial motivations lead one to respect this reality and the following Activities were added for access to S3 storage:
+
+- [`AmazonS3DeleteS3ObjectActivity`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.S3/Activities/AmazonS3DeleteS3ObjectActivity.cs)
+- [`AmazonS3DownloadToStringActivity`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.S3/Activities/AmazonS3DownloadToStringActivity.cs)
+- [`AmazonS3ListBucketObjectsWithPaginationActivity`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.S3/Activities/AmazonS3ListBucketObjectsWithPaginationActivity.cs)
+- [`AmazonS3UploadStringActivity`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.S3/Activities/AmazonS3UploadStringActivity.cs)
 
 **NuGet package 📦:** [`SonghayCore.S3`](http://www.nuget.org/packages/SonghayCore.S3/)
+
+### `SonghayCore.Web`
+
+Extensions and Handlers for Songhay Web projects. Specifically, this renewed investment in ASP.NET minimal Web API is needed to develop <acronym title="ahead of time">AOT</acronym>-compiled .NET microservices for <acronym title="Open Container Initiative">OCI</acronym>-compliant containers.
+
+**NuGet package 📦:** [`SonghayCore.Web`](http://www.nuget.org/packages/SonghayCore.Web/)
 
 ### `SonghayCore.xUnit`
 
@@ -133,11 +142,12 @@ graph BT
     netstandard2-->2
     2-..->|optional addition|1
 
-    1-->3[SonghayCore.xUnit]
-    1-->4[Songhay.DataAccess]
-    1-->5[Songhay.Feeds]
-    1-->6[Songhay.Publications]
-    1-->7[Songhay.Social]
+    1-->3[SonghayCore.S3]
+    1-->4[SonghayCore.Web]
+    1-->5[SonghayCore.xUnit]
+    1-->6[Songhay.DataAccess]
+    1-->7[Songhay.Feeds]
+    1-->8[Songhay.Publications]
 ```
 
 [Bryan Wilhite is on LinkedIn](https://www.linkedin.com/in/wilhite)🇺🇸💼

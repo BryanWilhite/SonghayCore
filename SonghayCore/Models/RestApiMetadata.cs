@@ -6,7 +6,7 @@
 public class RestApiMetadata
 {
     /// <summary>
-    /// A convential name representing an API key
+    /// A conventional name representing an API key
     /// to sent in the HTTP headers for authentication.
     /// </summary>
     /// <remarks>
@@ -17,7 +17,7 @@ public class RestApiMetadata
     public const string ClaimsSetHeaderApiAuthorization = "headerAuthorization";
 
     /// <summary>
-    /// A convential name representing an API key
+    /// A conventional name representing an API key
     /// to sent in the HTTP headers for authentication.
     /// </summary>
     /// <remarks>
@@ -28,7 +28,7 @@ public class RestApiMetadata
     public const string ClaimsSetHeaderApiContentType = "headerContentType";
 
     /// <summary>
-    /// A convential name representing an API key
+    /// A conventional name representing an API key
     /// to sent in the HTTP headers for authentication.
     /// </summary>
     /// <remarks>

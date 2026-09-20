@@ -56,18 +56,41 @@ public static class FileInfoExtensions
         ProgramFileUtility.ReadZipArchiveEntriesByLine(archiveInfo, lineAction, entriesProjector);
 
     /// <summary>
+    /// Transforms the specified <see cref="FileInfo"/>
+    /// into <see cref="StorageObject"/>
+    /// </summary>
+    /// <param name="fileInfo">the <see cref="FileInfo"/></param>
+    /// <param name="bucketDirectory">the <see cref="DirectoryInfo"/> representing/mirroring the S3 bucket</param>
+    public static StorageObject? ToStorageObject(this FileInfo? fileInfo, DirectoryInfo bucketDirectory)
+    {
+        if (fileInfo == null) return null;
+        if (string.IsNullOrWhiteSpace(fileInfo.DirectoryName)) return null;
+
+        return new StorageObject(
+            bucketDirectory.FullName,
+            null,
+            fileInfo.FullName
+                    .Replace(bucketDirectory.FullName, string.Empty)
+                    .TrimStart(Path.DirectorySeparatorChar),
+            fileInfo.LastWriteTimeUtc,
+            fileInfo.Length,
+            fileInfo.Extension,
+            fileInfo.Name);
+    }
+
+    /// <summary>
     /// Centralizes the use of <see cref="ZipArchive"/>
     /// </summary>
-    /// <param name="archiveInfo"></param>
-    /// <param name="archiveAction"></param>
+    /// <param name="archiveInfo">the <see cref="FileInfo"/></param>
+    /// <param name="archiveAction">the action to perform on the <see cref="ZipArchive"/></param>
     public static void UseZipArchive(this FileInfo archiveInfo, Action<ZipArchive?> archiveAction) =>
         ProgramFileUtility.UseZipArchive(archiveInfo, archiveAction);
 
     /// <summary>
     /// Centralizes the use of <see cref="ReadOnlyCollection{ZipArchiveEntry}"/>.
     /// </summary>
-    /// <param name="archiveInfo"></param>
-    /// <param name="entriesAction"></param>
+    /// <param name="archiveInfo">the <see cref="FileInfo"/></param>
+    /// <param name="entriesAction">the action to perform on the collection of <see cref="ZipArchiveEntry"/></param>
     public static void UseZipArchiveEntries(this FileInfo archiveInfo,
         Action<ReadOnlyCollection<ZipArchiveEntry>> entriesAction) =>
         ProgramFileUtility.UseZipArchiveEntries(archiveInfo, entriesAction);
@@ -75,7 +98,7 @@ public static class FileInfoExtensions
     /// <summary>
     /// Centralizes the use of <see cref="ReadOnlyCollection{ZipArchiveEntry}"/>.
     /// </summary>
-    /// <param name="archiveInfo"></param>
+    /// <param name="archiveInfo">the <see cref="FileInfo"/></param>
     /// <param name="entriesAction"></param>
     /// <param name="entriesProjector"></param>
     public static void UseZipArchiveEntries(this FileInfo archiveInfo,

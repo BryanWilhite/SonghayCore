@@ -5,22 +5,27 @@ namespace Songhay.S3.Activities;
 /// with the specified <see cref="S3Object.Key"/>.
 /// </summary>
 public class AmazonS3DownloadToStringActivity(ProgramMetadata programMetadata, ILogger<AmazonS3DownloadToStringActivity>? logger) :
-    IActivityTask<(string setKey, string bucketMetaKey, string bucketKey), string?>
+    IActivityTask<StorageActivityInput?, EndpointContentResult<string?>>
 {
-    /// <summary>
     /// <inheritdoc/>
-    /// </summary>
-    public async Task<string?> StartAsync((string setKey, string bucketMetaKey, string bucketKey) input)
+    public async Task<EndpointContentResult<string?>> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);
 
-        var(setKey, bucketMetaKey, bucketKey) = input;
+        if (input == null)
+        {
+            return new EndpointContentResult<string?>(
+                HttpStatusCode.BadRequest,
+                null,
+                "The expected input is not here.",
+                null);
+        }
 
-        RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.TryGetValueWithKey(setKey);
+        RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.GetValueWithKey(input.SetKey);
 
         AmazonS3Client? s3Client = AmazonS3Utility.GetAmazonS3Client(
             s3Meta,
-            bucketMetaKey,
+            input.BucketMetaKey,
             nameof(AmazonS3DownloadToStringActivity),
             out string? bucketName,
             logger);
@@ -29,27 +34,45 @@ public class AmazonS3DownloadToStringActivity(ProgramMetadata programMetadata, I
         {
             logger.LogErrorForMissingData<AmazonS3Client>();
 
-            return null;
+            return new EndpointContentResult<string?>(
+                HttpStatusCode.InternalServerError,
+                null,
+                "The expected S3 Client is not here.",
+                null);
         }
 
-        GetObjectRequest request = new() { BucketName = bucketName, Key = bucketKey };
+        GetObjectRequest request = new() { BucketName = bucketName, Key = input.BucketKeyOrPrefix };
 
-        using GetObjectResponse response = await s3Client.GetObjectAsync(request).ConfigureAwait(false);
+        using GetObjectResponse response = await s3Client.GetObjectAsync(request, cancellationToken).ConfigureAwait(false);
 
         if (response.HttpStatusCode != HttpStatusCode.OK)
         {
             logger.LogError("The expected {Name} is not here: {Value}. Returning...", nameof(HttpStatusCode), response.HttpStatusCode);
 
-            return null;
+            return new EndpointContentResult<string?>(
+                response.HttpStatusCode,
+                response.ResponseMetadata.RequestId,
+                $"Uncertain whether item {input.BucketKeyOrPrefix} found.",
+                null);
         }
 
         if (response.ContentLength <= 0)
         {
             logger.LogError("The expected {Name} is not here: {Value}. Returning...", nameof(GetObjectResponse.ContentLength), response.ContentLength);
 
-            return null;
+            return new EndpointContentResult<string?>(
+                response.HttpStatusCode,
+                response.ResponseMetadata.RequestId,
+                $"Uncertain whether item {input.BucketKeyOrPrefix} content found or item is empty.",
+                null);
         }
 
-        return await response.ResponseStream.ReadStreamAsStringAsync();
+        string? content = await response.ResponseStream.ReadStreamAsStringAsync();
+
+        return new EndpointContentResult<string?>(
+            response.HttpStatusCode,
+            response.ResponseMetadata.RequestId,
+            $"Item {input.BucketKeyOrPrefix} content found.",
+            content);
     }
 }

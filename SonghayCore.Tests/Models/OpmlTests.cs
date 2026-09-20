@@ -1,4 +1,4 @@
-﻿using Songhay.Tests.Extensions;
+﻿using Songhay.Models;
 using Songhay.Xml;
 
 namespace Songhay.Tests.Models;
@@ -6,33 +6,35 @@ namespace Songhay.Tests.Models;
 public class OpmlTests(ITestOutputHelper helper)
 {
     [Theory]
-    [InlineData(@"Models\OpmlFromInfoPath.xml")]
-    public void ShouldFilterCategory(string opmlFile)
+    [ProjectDirectoryData("content/xml/OpmlFromInfoPath.xml")]
+    public void ShouldFilterCategory(DirectoryInfo projectDirectoryInfo, string opmlFile)
     {
-        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
+        //arrange:
         string path = projectDirectoryInfo.ToCombinedPath(opmlFile);
-        Assert.True(File.Exists(path));
+        OpmlDocument data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
 
-        var data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
+        //act:
+        Assert.Equal(4, data.OpmlBody.ToReferenceTypeValueOrThrow().Outlines.Length);
 
-        Assert.True(data.OpmlBody.ToReferenceTypeValueOrThrow().Outlines.Length == 4);
+        data.OpmlBody.Outlines =
+        [
+            .. data.OpmlBody.Outlines
+                .Where(o => o.Category != "private")
+        ];
 
-        data.OpmlBody.Outlines = data.OpmlBody.Outlines
-            .Where(o => o.Category != "private").ToArray();
-
-        Assert.True(data.OpmlBody.Outlines.Length == 3);
+        //assert:
+        Assert.Equal(3, data.OpmlBody.Outlines.Length);
     }
 
     [Theory]
-    [InlineData(@"Models\OpmlTests.opml")]
-    public void ShouldLoadCategoriesAndResources(string opmlFile)
+    [ProjectDirectoryData("content/xml/OpmlTests.opml")]
+    public void ShouldLoadCategoriesAndResources(DirectoryInfo projectDirectoryInfo, string opmlFile)
     {
-        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
+        //arrange:
         string path = projectDirectoryInfo.ToCombinedPath(opmlFile);
-        Assert.True(File.Exists(path));
+        OpmlDocument data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
 
-        var data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
-
+        //act:
         //XPATH: ./outline[not(@url)]
         var categories =
             data.OpmlBody
@@ -54,20 +56,22 @@ public class OpmlTests(ITestOutputHelper helper)
     }
 
     [Theory]
-    [InlineData(@"Models\OpmlFromInfoPath.xml")]
-    public void ShouldLoadDocument(string opmlFile)
+    [ProjectDirectoryData("content/xml/OpmlFromInfoPath.xml", "Development Server")]
+    public void ShouldLoadDocumentWithExpectedOpmlHeadTitle(DirectoryInfo projectDirectoryInfo, string opmlFile, string expected)
     {
-        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
+        //arrange:
         string path = projectDirectoryInfo.ToCombinedPath(opmlFile);
-        Assert.True(File.Exists(path));
+        OpmlDocument data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
 
-        var data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
+        //act:
+        string? actual = data.OpmlHead.ToReferenceTypeValueOrThrow().Title;
 
-        var expected = "Development Server";
-        var actual = data.OpmlHead.ToReferenceTypeValueOrThrow().Title;
+        //assert:
         Assert.Equal(expected, actual);
 
         expected = "LINQ to Entities Paging";
+
+        //act:
         actual =
             data
                 .OpmlBody
@@ -76,30 +80,53 @@ public class OpmlTests(ITestOutputHelper helper)
                 .First(o => o.Text == "Samples")
                 .Outlines.First().Text;
 
+        //assert:
         Assert.Equal(expected, actual);
     }
 
     [Theory]
-    [InlineData(@"Models\OpmlTests.opml")]
-    public void ShouldWriteDateModified(string opmlFile)
+    [ProjectDirectoryData("content/xml/OpmlFromInfoPath.xml", "LINQ to Entities Paging")]
+    public void ShouldLoadDocumentWithExpectedOpmlOutlineText(DirectoryInfo projectDirectoryInfo, string opmlFile, string expected)
     {
-        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
+        //arrange:
         string path = projectDirectoryInfo.ToCombinedPath(opmlFile);
-        Assert.True(File.Exists(path));
+        OpmlDocument data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
 
+        //act:
+        string? actual =
+            data
+                .OpmlBody
+                .ToReferenceTypeValueOrThrow()
+                .Outlines
+                .First(o => o.Text == "Samples")
+                .Outlines.First().Text;
+
+        //assert:
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
+    [ProjectDirectoryData("content/xml/OpmlTests.opml")]
+    public void ShouldWriteDateModified(DirectoryInfo projectDirectoryInfo, string opmlFile)
+    {
+        //arrange:
+        string path = projectDirectoryInfo.ToCombinedPath(opmlFile);
         var data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
         DateTime? date = DateTime.Now;
+
         data.OpmlHead.ToReferenceTypeValueOrThrow().DateModified = date;
         XmlUtility.Write(data, path);
-
         data = OpmlUtility.GetDocument(path).ToReferenceTypeValueOrThrow();
-        var actualDate =
+
+        //act:
+        DateTime actualDate =
             data
                 .OpmlHead
                 .ToReferenceTypeValueOrThrow()
                 .DateModified
                 .ToValueOrThrow();
 
+        //assert:
         Assert.Equal(date.Value.Day, actualDate.Day);
         Assert.Equal(date.Value.Hour, actualDate.Hour);
         Assert.Equal(date.Value.Minute, actualDate.Minute);

@@ -21,12 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="content\FrameworkFileTest-ShouldSortTextFileData.txt"/>
-        <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt"/>
-        <Content Include="content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <Compile Include="..\SonghayCore.xUnit\Extensions\AssemblyExtensions.cs" Link="Extensions\AssemblyExtensions.cs"/>
         <Compile Include="..\SonghayCore.xUnit\Extensions\DataAttributeExtensions.cs" Link="Extensions\DataAttributeExtensions.cs"/>
         <Compile Include="..\SonghayCore.xUnit\Extensions\IServiceProviderExtensions.cs" Link="Extensions\IServiceProviderExtensions.cs"/>
@@ -41,7 +35,7 @@
     <ItemGroup>
         <PackageReference Include="HtmlAgilityPack" Version="1.13.0" />
         <PackageReference Include="Meziantou.Extensions.Logging.Xunit" Version="3.0.1" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
         <PackageReference Include="xunit" Version="2.9.3" />
         <PackageReference Include="xunit.runner.visualstudio" Version="4.0.0">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -52,7 +46,7 @@
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="ExcelDataReader" Version="3.9.0" />
-        <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="10.0.11" />
+        <PackageReference Include="Microsoft.Extensions.Logging.TraceSource" Version="10.0.12" />
         <PackageReference Include="Xunit.SkippableFact" Version="1.5.85" />
     </ItemGroup>
 
@@ -67,6 +61,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="content\jpg\" />
       <Folder Include="content\mp3\BlobStreamApiEndpointTests\ShouldCopyToFileStreamAsync\" />
       <Folder Include="content\png\BlobStreamApiEndpointTests\ShouldCopyToFileStreamAsync\" />
     </ItemGroup>

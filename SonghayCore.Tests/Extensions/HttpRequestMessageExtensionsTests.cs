@@ -2,43 +2,10 @@
 using System.Text.Json.Nodes;
 using Tavis.UriTemplates;
 
-using Songhay.Net;
-
 namespace Songhay.Tests.Extensions;
 
 public class HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
 {
-    [Theory(Skip = "slowwly server is down")]
-    [InlineData("https://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
-    public async Task ShouldCancel(string location, int timeInSeconds)
-    {
-        var handler = new TimeoutHandler
-        {
-            RequestTimeout = TimeSpan.FromSeconds(10),
-            InnerHandler = new HttpClientHandler()
-        };
-
-        using var cts = new CancellationTokenSource();
-        using var client = new HttpClient(handler);
-        try
-        {
-            client.Timeout = Timeout.InfiniteTimeSpan;
-
-            helper.WriteLine($"calling `{location}`...");
-            var request = new HttpRequestMessage(HttpMethod.Get, location);
-
-            cts.CancelAfter(TimeSpan.FromSeconds(timeInSeconds));
-
-            await request.GetContentAsync(
-                responseMessageAction: null,
-                optionalClientGetter: () => client);
-        }
-        catch (Exception ex)
-        {
-            Assert.IsType<TaskCanceledException>(ex);
-        }
-    }
-
     [Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationManualTest)]
     [SkippableTheory]
     [InlineData(@"photos/{photoId}", 1)]
@@ -46,10 +13,10 @@ public class HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
 
-        var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
-        var uri = template.BindByPosition($"{id}");
-        var message = new HttpRequestMessage(HttpMethod.Delete, uri);
-        var response = await message.SendAsync();
+        UriTemplate template = new UriTemplate($"{LiveApiBaseUri}/{input}");
+        Uri? uri = template.BindByPosition($"{id}");
+        HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Delete, uri);
+        HttpResponseMessage response = await message.SendAsync(() => _httpClientFactory.CreateClient(nameof(ShouldDeletePhoto)));
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
@@ -59,10 +26,11 @@ public class HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
     [InlineData(@"photos/{photoId}", 1)]
     public async Task ShouldGetPhoto(string input, int id)
     {
-        var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
-        var uri = template.BindByPosition($"{id}");
-        var content = await new HttpRequestMessage(HttpMethod.Get, uri)
-            .GetContentAsync(response => Assert.Equal(HttpStatusCode.OK, response.StatusCode));
+        UriTemplate template = new UriTemplate($"{LiveApiBaseUri}/{input}");
+        Uri? uri = template.BindByPosition($"{id}");
+        string content = await new HttpRequestMessage(HttpMethod.Get, uri)
+            .GetContentAsync(() => _httpClientFactory.CreateClient(nameof(ShouldDeletePhoto)),
+                response => Assert.Equal(HttpStatusCode.OK, response.StatusCode));
         helper.WriteLine(content);
     }
 
@@ -73,18 +41,19 @@ public class HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
 
-        var body = new JsonObject { [nameof(albumId)] = albumId };
+        JsonObject body = new JsonObject { [nameof(albumId)] = albumId };
 
-        var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
-        var uri = template.BindByPosition($"{id}");
-        var message = new HttpRequestMessage(HttpMethod.Patch, uri);
-        var response = await message.SendBodyAsync(body.ToJsonString());
+        UriTemplate template = new UriTemplate($"{LiveApiBaseUri}/{input}");
+        Uri? uri = template.BindByPosition($"{id}");
+        HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Patch, uri);
+        HttpResponseMessage response = await message.SendBodyAsync(body.ToJsonString(),
+            () => _httpClientFactory.CreateClient(nameof(ShouldPatchPhoto)));
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
-        var content = await response.Content.ReadAsStringAsync();
+        string content = await response.Content.ReadAsStringAsync();
         helper.WriteLine(content);
-        var jO = JsonElement.Parse(content);
+        JsonElement jO = JsonElement.Parse(content);
         Assert.Equal(albumId, jO.GetJsonChildElementOrNull(nameof(albumId))?.GetInt32());
     }
 
@@ -95,7 +64,7 @@ public class HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
     {
         Skip.If(TestScalars.IsNotDebugging, TestScalars.ReasonForSkippingWhenNotDebugging);
 
-        var body = new JsonObject
+        JsonObject body = new JsonObject
         {
             [nameof(id)] = id,
             [nameof(albumId)] = albumId,
@@ -104,16 +73,17 @@ public class HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
             ["url"] = "https://via.placeholder.com/600/92c952"
         };
 
-        var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
-        var uri = template.BindByPosition($"{id}");
-        var message = new HttpRequestMessage(HttpMethod.Put, uri);
-        var response = await message.SendBodyAsync(body.ToJsonString());
+        UriTemplate template = new UriTemplate($"{LiveApiBaseUri}/{input}");
+        Uri? uri = template.BindByPosition($"{id}");
+        HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Put, uri);
+        HttpResponseMessage response = await message.SendBodyAsync(body.ToJsonString(),
+            () => _httpClientFactory.CreateClient(nameof(ShouldPutPhoto)));
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
-        var content = await response.Content.ReadAsStringAsync();
+        string content = await response.Content.ReadAsStringAsync();
         helper.WriteLine(content);
-        var jO = JsonElement.Parse(content);
+        JsonElement jO = JsonElement.Parse(content);
         Assert.Equal(albumId, jO.GetJsonChildElementOrNull(nameof(albumId))?.GetInt32());
     }
 
@@ -122,42 +92,16 @@ public class HttpRequestMessageExtensionsTests(ITestOutputHelper helper)
     [InlineData(@"photos/wrong/{photoId}", 1)]
     public async Task ShouldThrowNotFoundPhoto(string input, int id)
     {
-        var template = new UriTemplate($"{LiveApiBaseUri}/{input}");
-        var uri = template.BindByPosition($"{id}");
-        var message = new HttpRequestMessage(HttpMethod.Get, uri);
-        var response = await message.SendAsync();
+        UriTemplate template = new UriTemplate($"{LiveApiBaseUri}/{input}");
+        Uri? uri = template.BindByPosition($"{id}");
+        HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Get, uri);
+        HttpResponseMessage response = await message.SendAsync(() => _httpClientFactory.CreateClient(nameof(ShouldThrowNotFoundPhoto)));
 
         Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
 
-    [Theory(Skip = "slowwly server is down")]
-    [InlineData("https://slowwly.robertomurray.co.uk/delay/3000/url/http://www.google.co.uk", 1)]
-    public async Task ShouldTimeout(string location, int timeInSeconds)
-    {
-        var handler = new TimeoutHandler
-        {
-            RequestTimeout = TimeSpan.FromSeconds(timeInSeconds),
-            InnerHandler = new HttpClientHandler()
-        };
-
-        using var cts = new CancellationTokenSource();
-        using var client = new HttpClient(handler);
-        try
-        {
-            client.Timeout = Timeout.InfiniteTimeSpan;
-
-            helper.WriteLine($"calling `{location}`...");
-            var request = new HttpRequestMessage(HttpMethod.Get, location);
-
-            await request.GetContentAsync(
-                responseMessageAction: null,
-                optionalClientGetter: () => client);
-        }
-        catch (Exception ex)
-        {
-            Assert.IsType<TimeoutException>(ex);
-        }
-    }
-
     const string LiveApiBaseUri = "https://jsonplaceholder.typicode.com";
+
+    private readonly IHttpClientFactory _httpClientFactory =
+        ServiceCollectionUtility.GetHttpClientFactory(serviceCollection: null);
 }

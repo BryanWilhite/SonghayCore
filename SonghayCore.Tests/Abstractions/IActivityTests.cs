@@ -16,7 +16,7 @@ public class MyActivityWithInput(IConfiguration configuration, ILogger<MyActivit
     }
 }
 
-public class MyActivityWithInputAndOutput : IActivity<int, string>
+public class MyActivityWithInputAndOutput : IActivity<int, string?>
 {
     public string? Start(int input)
     {
@@ -30,7 +30,7 @@ public class MyActivityWithInputAndOutput : IActivity<int, string>
     }
 }
 
-public class MyOtherActivityWithInputAndOutput : IActivity<int, string>
+public class MyOtherActivityWithInputAndOutput : IActivity<int, string?>
 {
     public string? Start(int input)
     {
@@ -100,8 +100,8 @@ public class IActivityTests(ITestOutputHelper testOutputHelper)
     {
         ServiceCollection services = new();
 
-        services.AddKeyedTransient<IActivity<int, string>, MyActivityWithInputAndOutput>(nameof(MyActivityWithInputAndOutput));
-        services.AddKeyedTransient<IActivity<int, string>, MyOtherActivityWithInputAndOutput>(nameof(MyOtherActivityWithInputAndOutput));
+        services.AddKeyedTransient<IActivity<int, string?>, MyActivityWithInputAndOutput>(nameof(MyActivityWithInputAndOutput));
+        services.AddKeyedTransient<IActivity<int, string?>, MyOtherActivityWithInputAndOutput>(nameof(MyOtherActivityWithInputAndOutput));
         services.AddTransient<IActivityOutputOnly<string[]>, MyOutputActivity>();
 
         ServiceProvider provider = services.BuildServiceProvider();

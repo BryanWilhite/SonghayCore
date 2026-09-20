@@ -1,5 +1,3 @@
-using System.Text.Json;
-
 namespace Songhay.S3.Activities;
 
 /// <summary>
@@ -7,22 +5,27 @@ namespace Songhay.S3.Activities;
 /// of the specified <see cref="S3Bucket"/>.
 /// </summary>
 public class AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata programMetadata, ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>? logger):
-    IActivityTask<(string setKey, string bucketMetaKey, string? bucketKeyPrefix), string?>
+    IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>>
 {
-    /// <summary>
     /// <inheritdoc/>
-    /// </summary>
-    public async Task<string?> StartAsync((string setKey, string bucketMetaKey, string? bucketKeyPrefix) input)
+    public async Task<EndpointContentResult<IReadOnlyCollection<StorageObject>>> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
     {
         ILoggerUtility.AsInstanceOrNullLogger(logger);
 
-        var(setKey, bucketMetaKey, bucketKeyPrefix) = input;
+        if (input == null)
+        {
+            return new EndpointContentResult<IReadOnlyCollection<StorageObject>>(
+                HttpStatusCode.BadRequest,
+                null,
+                "The expected input is not here.",
+                []);
+        }
 
-        RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.TryGetValueWithKey(setKey);
+        RestApiMetadata? s3Meta = programMetadata.RestApiMetadataSet.GetValueWithKey(input.SetKey);
 
         AmazonS3Client? s3Client = AmazonS3Utility.GetAmazonS3Client(
             s3Meta,
-            bucketMetaKey,
+            input.BucketMetaKey,
             nameof(AmazonS3ListBucketObjectsWithPaginationActivity),
             out string? bucketName,
             logger);
@@ -31,33 +34,22 @@ public class AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata pro
         {
             logger.LogErrorForMissingData<AmazonS3Client>();
 
-            return null;
+            return new EndpointContentResult<IReadOnlyCollection<StorageObject>>(
+                HttpStatusCode.InternalServerError,
+                null,
+                "The expected S3 Client is not here.",
+                []);
         }
 
         ListObjectsV2Request request = new()
         {
             BucketName = bucketName,
-            Prefix = bucketKeyPrefix ?? string.Empty,
+            Prefix = input.BucketKeyOrPrefix ?? string.Empty,
             MaxKeys = 10
         };
 
-        IReadOnlyCollection<S3Object> s3Objects = await AmazonS3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
+        EndpointContentResult<IReadOnlyCollection<StorageObject>> result = await AmazonS3Utility.CollectS3ObjectsFromPaginationAsync(s3Client, request, logger);
 
-        if (s3Objects.Count <= 0)
-        {
-            logger.LogWarning("No S3 objects found. Returning...");
-
-            return null;
-        }
-
-        string json = JsonSerializer.Serialize(s3Objects, JsonSerializerOptions);
-
-        return json;
+        return result;
     }
-
-    private static readonly JsonSerializerOptions JsonSerializerOptions = new()
-    {
-        IndentSize = 4,
-        WriteIndented = true
-    };
 }

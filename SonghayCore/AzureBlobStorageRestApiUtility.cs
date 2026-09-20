@@ -69,8 +69,9 @@ public static class AzureBlobStorageRestApiUtility
     /// <param name="connectionString">Azure BLOB Storage connection string</param>
     /// <param name="containerName">Azure BLOB Storage container name</param>
     /// <param name="fileName">BLOB ‘file’ name</param>
+    /// <param name="clientGetter">The required client getter.</param>
     /// <exception cref="HttpRequestException"></exception>
-    public static async Task DeleteBlobAsync(string connectionString, string containerName, string fileName)
+    public static async Task DeleteBlobAsync(string connectionString, string containerName, string fileName, Func<HttpClient> clientGetter)
     {
         var metadata = GetCloudStorageMetadata(connectionString);
         var uriBuilder = GetStorageUriBuilder(metadata.accountName, containerName);
@@ -84,7 +85,7 @@ public static class AzureBlobStorageRestApiUtility
                     metadata.apiVersion,
                     metadata.accountName,
                     metadata.accountKey);
-        using HttpResponseMessage response = await request.SendAsync();
+        using HttpResponseMessage response = await request.SendAsync(clientGetter);
 
         if (response.IsSuccessStatusCode) return;
 
@@ -98,9 +99,10 @@ public static class AzureBlobStorageRestApiUtility
     /// <param name="connectionString">Azure BLOB Storage connection string</param>
     /// <param name="containerName">Azure BLOB Storage container name</param>
     /// <param name="fileName">BLOB ‘file’ name</param>
+    /// <param name="clientGetter">The required client getter.</param>
     /// <returns>Returns the <see cref="string"/> contents of the file.</returns>
     /// <exception cref="HttpRequestException"></exception>
-    public static async Task<string> DownloadBlobToStringAsync(string connectionString, string containerName, string fileName)
+    public static async Task<string> DownloadBlobToStringAsync(string connectionString, string containerName, string fileName, Func<HttpClient> clientGetter)
     {
         var metadata = GetCloudStorageMetadata(connectionString);
         var uriBuilder = GetStorageUriBuilder(metadata.accountName, containerName);
@@ -114,7 +116,7 @@ public static class AzureBlobStorageRestApiUtility
                     metadata.apiVersion,
                     metadata.accountName,
                     metadata.accountKey);
-        using HttpResponseMessage response = await request.SendAsync();
+        using HttpResponseMessage response = await request.SendAsync(clientGetter);
         var s = await response.Content.ReadAsStringAsync();
 
         if (response.IsSuccessStatusCode) return s;
@@ -128,9 +130,10 @@ public static class AzureBlobStorageRestApiUtility
     /// </summary>
     /// <param name="connectionString">Azure BLOB Storage connection string</param>
     /// <param name="containerName">Azure BLOB Storage container name</param>
+    /// <param name="clientGetter">The required client getter.</param>
     /// <returns>Returns the contents of the container as an XML<see cref="string"/>.</returns>
     /// <exception cref="HttpRequestException"></exception>
-    public static async Task<string> ListContainerAsync(string connectionString, string containerName)
+    public static async Task<string> ListContainerAsync(string connectionString, string containerName, Func<HttpClient> clientGetter)
     {
         var metadata = GetCloudStorageMetadata(connectionString);
         var uriBuilder = GetStorageUriBuilder(metadata.accountName, containerName);
@@ -144,7 +147,7 @@ public static class AzureBlobStorageRestApiUtility
                     metadata.apiVersion,
                     metadata.accountName,
                     metadata.accountKey);
-        using HttpResponseMessage response = await request.SendAsync();
+        using HttpResponseMessage response = await request.SendAsync(clientGetter);
         var s = await response.Content.ReadAsStringAsync();
 
         if (response.IsSuccessStatusCode) return s;
@@ -160,8 +163,9 @@ public static class AzureBlobStorageRestApiUtility
     /// <param name="containerName">Azure BLOB Storage container name</param>
     /// <param name="fileName">BLOB ‘file’ name</param>
     /// <param name="content">The <see cref="string"/> contents of the ‘file.’</param>
+    /// <param name="clientGetter">The required client getter.</param>
     /// <exception cref="HttpRequestException"></exception>
-    public static async Task UploadBlobAsync(string connectionString, string containerName, string fileName, string content)
+    public static async Task UploadBlobAsync(string connectionString, string containerName, string fileName, string content, Func<HttpClient> clientGetter)
     {
         var metadata = GetCloudStorageMetadata(connectionString);
         var uriBuilder = GetStorageUriBuilder(metadata.accountName, containerName);
@@ -176,7 +180,7 @@ public static class AzureBlobStorageRestApiUtility
                     metadata.apiVersion,
                     metadata.accountName,
                     metadata.accountKey);
-        using HttpResponseMessage response = await request.SendAsync();
+        using HttpResponseMessage response = await request.SendAsync(clientGetter);
 
         if (response.IsSuccessStatusCode) return;
 

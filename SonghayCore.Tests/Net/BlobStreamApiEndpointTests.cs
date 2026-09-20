@@ -14,12 +14,14 @@ public class BlobStreamApiEndpointTests(ITestOutputHelper helper)
     /// - troubleshooting/verifying file names in BLOB storage
     /// - testing <see cref="HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage?,System.DateTime,string?,string?,string?)"/>
     /// </remarks>
-    [Theory, Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationTest)]
+    [SkippableTheory, Trait(TestScalars.XunitCategory, TestScalars.XunitCategoryIntegrationTest)]
     [ProjectDirectoryData("studio-public", "songhay_icon.png")]
     [ProjectDirectoryData("studio-public", "mp3/test 01 - with spaces and hyphen.mp3")]
     [ProjectDirectoryData("studio-public", "mp3/test01 - with Spaces and hyphen.mp3")]
     public async Task ShouldCopyToFileStreamAsync(DirectoryInfo projectDirectoryInfo, string containerName, string blobName)
     {
+        Skip.If(true, "Azure Storage is currently unavailable at this time.");
+
         //arrange:
         const string playerYouTubeApiMetaKey = "PlayerYouTube";
         const string playerYouTubeApiMetaYtContainerKey = "b-roll-video-container";
@@ -51,7 +53,7 @@ public class BlobStreamApiEndpointTests(ITestOutputHelper helper)
             apiVersion,
             playerYouTubeApiMetaYtContainerKey);
 
-        BlobStreamApiEndpoint endpoint = new(ResiliencePipeline.Empty, "default");
+        BlobStreamApiEndpoint endpoint = new(_httpClientFactory, ResiliencePipeline.Empty, "default");
 
         //act:
         await endpoint.DownloadStreamAsync(requestStrategy, blobName.Replace(" ", "%20"),
@@ -66,19 +68,19 @@ public class BlobStreamApiEndpointTests(ITestOutputHelper helper)
         RestApiMetadata restApiMetadata = meta.ToRestApiMetadata(restApiMetadataSetKey);
 
         string containerNameKey = restApiMetadata.ClaimsSet
-            .TryGetValueWithKey(claimStorageSetContainer, throwException: true)
+            .GetValueWithKey(claimStorageSetContainer, throwException: true)
             .ToReferenceTypeValueOrThrow();
 
         string containerName = restApiMetadata.ClaimsSet
-            .TryGetValueWithKey(containerNameKey, throwException: true)
+            .GetValueWithKey(containerNameKey, throwException: true)
             .ToReferenceTypeValueOrThrow();
 
         string connectionStringKey = restApiMetadata.ClaimsSet
-            .TryGetValueWithKey(claimStorageSetEndpointKey, throwException: true)
+            .GetValueWithKey(claimStorageSetEndpointKey, throwException: true)
             .ToReferenceTypeValueOrThrow();
 
         string connectionString = restApiMetadata.ClaimsSet
-            .TryGetValueWithKey(connectionStringKey, throwException: true)
+            .GetValueWithKey(connectionStringKey, throwException: true)
             .ToReferenceTypeValueOrThrow();
 
         if (string.IsNullOrWhiteSpace(connectionString))
@@ -125,4 +127,7 @@ public class BlobStreamApiEndpointTests(ITestOutputHelper helper)
 
         return programMetadata;
     }
+
+    private readonly IHttpClientFactory _httpClientFactory =
+        ServiceCollectionUtility.GetHttpClientFactory(serviceCollection: null);
 }

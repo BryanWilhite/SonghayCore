@@ -48,7 +48,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
     }
 
     [Fact]
-    public void ShouldTryGetValueWithKey()
+    public void ShouldGetValueWithKey()
     {
         #region local functions:
 
@@ -66,7 +66,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
             };
             try
             {
-                dictionary.TryGetValueWithKey("quatro", throwException: true);
+                dictionary.GetValueWithKey("quatro", throwException: true);
             }
             catch (NullReferenceException)
             {
@@ -89,7 +89,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
                 { 3, "three" },
             };
 
-            var actual = dictionary.TryGetValueWithKey(4);
+            var actual = dictionary.GetValueWithKey(4);
             Assert.Null(actual);
         }
 
@@ -105,7 +105,7 @@ public class IDictionaryExtensionsTest(ITestOutputHelper helper)
                 { "three", 4 },
             };
 
-            var actual = dictionary.TryGetValueWithKey("four");
+            var actual = dictionary.GetValueWithKey("four");
             Assert.Equal(0, actual);
         }
 

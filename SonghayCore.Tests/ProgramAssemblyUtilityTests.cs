@@ -3,8 +3,8 @@
 public class ProgramAssemblyUtilityTests(ITestOutputHelper helper)
 {
     [Theory]
-    [InlineData(@"..\..\..\content\FrameworkAssemblyUtilityTest-ShouldGetPathFromAssembly.json")]
-    [InlineData("../../../content/FrameworkAssemblyUtilityTest-ShouldGetPathFromAssembly.json")]
+    [InlineData(@"..\..\..\content\json\FrameworkAssemblyUtilityTest-ShouldGetPathFromAssembly.json")]
+    [InlineData("../../../content/json/FrameworkAssemblyUtilityTest-ShouldGetPathFromAssembly.json")]
     [InlineData(@"..\..\..\..\SonghayCore\SonghayCore.nuspec")]
     [InlineData("../../../../SonghayCore/SonghayCore.nuspec")]
     public void GetPathFromAssembly_Test(string fileSegment)

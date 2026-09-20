@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Xml;
+
 using Songhay.Tests.Extensions;
 
 namespace Songhay.Tests;
@@ -21,20 +22,6 @@ public class ProgramFileTests(ITestOutputHelper helper)
         });
     }
 
-    void AddPathsToList(DirectoryInfo info, Dictionary<string, int> dict)
-    {
-        info.GetDirectories()
-            .ForEachInEnumerable(d =>
-            {
-                dict.Add(d.FullName, d.FullName.Length);
-                d.GetDirectories()
-                    .ForEachInEnumerable(d2 =>
-                    {
-                        AddPathsToList(d2, dict);
-                    });
-            });
-    }
-
     [Fact]
     public void ShouldHaveEnvironmentNewline()
     {
@@ -51,39 +38,31 @@ public class ProgramFileTests(ITestOutputHelper helper)
         }
     }
 
-    [Theory, InlineData(@"content\FrameworkFileTest-ShouldSortTextFileData.txt")]
+    [Theory, InlineData("content/txt/FrameworkFileTest-ShouldSortTextFileData.txt")]
     public void ShouldSortTextFileData(string outFile)
     {
-        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
-        outFile = projectDirectoryInfo.ToCombinedPath(outFile);
-        Assert.True(File.Exists(outFile), "The expected output file is not here");
+        //arrange:
+        outFile = ProjectDirectoryInfo.ToCombinedPath(outFile);
+        using var stream = new FileStream(outFile, FileMode.Open);
+        using var sr = new StreamReader(stream);
 
-        var stream = new FileStream(outFile, FileMode.Open);
-        try
-        {
-            using var sr = new StreamReader(stream);
+        string[] dataArray = sr.ReadToEnd().Replace(Environment.NewLine, ",").Split(',');
 
-            string[] dataArray = sr.ReadToEnd().Replace(Environment.NewLine, ",").Split(',');
-            dataArray.Select(s => new { Car = s, Count = dataArray.Count(i => i == s) })
-                .OrderByDescending(o => o.Count).ThenBy(o => o.Car)
-                .GroupBy(o => o.Car)
-                .ForEachInEnumerable(o =>
-                {
-                    helper.WriteLine($"{o.Key} = {o.Count()}");
-                });
-        }
-        finally
-        {
-            stream.Dispose();
-        }
+        //act:
+        dataArray.Select(s => new { Car = s, Count = dataArray.Count(i => i == s) })
+            .OrderByDescending(o => o.Count).ThenBy(o => o.Car)
+            .GroupBy(o => o.Car)
+            .ForEachInEnumerable(o =>
+            {
+                helper.WriteLine($"{o.Key} = {o.Count()}");
+            });
     }
 
-    [Theory, InlineData(@"content\FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt")]
+    [Theory, InlineData("content/txt/FrameworkFileTest-ShouldWriteTextFileWithStreamWriter.txt")]
     public void ShouldWriteTextFileWithStreamWriter(string outFile)
     {
-        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
-        outFile = projectDirectoryInfo.ToCombinedPath(outFile);
-        Assert.True(File.Exists(outFile), "The expected output file is not here");
+        //arrange:
+        outFile = ProjectDirectoryInfo.ToCombinedPath(outFile);
 
         const string fileText = """
 
@@ -92,55 +71,61 @@ public class ProgramFileTests(ITestOutputHelper helper)
                                 According to Notepad++ this file should be in ANSI format by default.
                                 According to Notepad++, when Encoding.UTF8 is specified the encoding is UTF8.
                                 This is the end of the file.
-                                            
+    
                                 """;
 
-        var stream = new FileStream(outFile, FileMode.Create);
-        try
-        {
-            using var sw = new StreamWriter(stream, Encoding.UTF8);
-            sw.Write(fileText);
-        }
-        finally
-        {
-            stream.Dispose();
-        }
+        //act:
+        using var stream = new FileStream(outFile, FileMode.Create);
+        using var sw = new StreamWriter(stream, Encoding.UTF8);
+        sw.Write(fileText);
     }
 
-    [Theory, InlineData(@"content\FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml")]
+    [Theory, InlineData("content/xml/FrameworkFileTest-ShouldWriteTextFileWithXmlTextWriter.xml")]
     public void ShouldWriteTextFileWithXmlTextWriter(string outFile)
     {
-        DirectoryInfo projectDirectoryInfo = GetType().Assembly.GetNetCoreProjectDirectoryInfo();
-        outFile = projectDirectoryInfo.ToCombinedPath(outFile);
+        //arrange:
+        outFile = ProjectDirectoryInfo.ToCombinedPath(outFile);
         Assert.True(File.Exists(outFile), "The expected output file is not here");
 
-        var stream = new FileStream(outFile, FileMode.Create);
-        try
-        {
-            using var writer = new XmlTextWriter(stream, Encoding.UTF8);
+        //act:
+        using var stream = new FileStream(outFile, FileMode.Create);
+        using var writer = new XmlTextWriter(stream, Encoding.UTF8);
 
-            writer.WriteStartElement("root");
-            writer.WriteAttributeString("xmlns", "x", null, "urn:1");
-            writer.WriteStartElement("item", "urn:1");
-            writer.WriteString("This is the text to write to the test file.");
-            writer.WriteEndElement();
-            writer.WriteStartElement("item", "urn:1");
-            writer.WriteString("According to Notepad++, when Encoding.UTF8 is specified the encoding is UTF8.");
-            writer.WriteEndElement();
-            writer.WriteEndElement();
-        }
-        finally
-        {
-            stream.Dispose();
-        }
+        writer.WriteStartElement("root");
+        writer.WriteAttributeString("xmlns", "x", null, "urn:1");
+        writer.WriteStartElement("item", "urn:1");
+        writer.WriteString("This is the text to write to the test file.");
+        writer.WriteEndElement();
+        writer.WriteStartElement("item", "urn:1");
+        writer.WriteString("According to Notepad++, when Encoding.UTF8 is specified the encoding is UTF8.");
+        writer.WriteEndElement();
+        writer.WriteEndElement();
     }
 
     [Theory, InlineData("TestMyDocumentsFolder")]
     public void ShouldWriteToMyDocumentsFolder(string folder)
     {
+        //act:
         string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folder);
         if (!Directory.Exists(path)) Directory.CreateDirectory(path);
 
+        //assert:
         Assert.True(Directory.Exists(path));
     }
+
+    private static void AddPathsToList(DirectoryInfo info, Dictionary<string, int> dict)
+    {
+        info.GetDirectories()
+            .ForEachInEnumerable(d =>
+            {
+                dict.Add(d.FullName, d.FullName.Length);
+                d.GetDirectories()
+                    .ForEachInEnumerable(d2 =>
+                    {
+                        AddPathsToList(d2, dict);
+                    });
+            });
+    }
+
+    private static readonly DirectoryInfo ProjectDirectoryInfo = typeof(ProgramFileTests).Assembly.GetNetCoreProjectDirectoryInfo();
 }
