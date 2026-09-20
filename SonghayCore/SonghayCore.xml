@@ -71,8 +71,15 @@
              <summary>
              A lightweight façade in front of many <c>IActivity*</c> implementations.
              </summary>
-             <typeparam name="TOutput">a non-nullable type</typeparam>
+             <typeparam name="TOutput">a non-nullable value or reference type</typeparam>
              <remarks>
+             <para>
+             Consider using the conventional Result types
+             like <see cref="T:Songhay.Models.ProgramOutputResult`1"/>
+             or <see cref="T:Songhay.Models.EndpointContentResult`1"/>
+             for <c>TOutput</c>.
+             </para>
+            
              <para>
              This abstraction uses the word <c>Keyed</c>
              to indicate that the many <c>IActivity*</c> implementations
@@ -92,11 +99,6 @@
             <param name="activitySetKey">identifies the <c>IActivity*</c> implementation</param>
             <param name="cancellationToken">the <see cref="T:System.Threading.CancellationToken"/></param>
             <param name="args">collects the stringified input arguments of the <c>IActivity*</c> implementation</param>
-            <remarks>
-            Note that <c>TOutput</c> is not marked as nullable
-            with the expectation that <c>*Result</c> classes/records
-            like <see cref="T:Songhay.Models.EndpointResult"/> will be used.
-            </remarks>
         </member>
         <member name="T:Songhay.Abstractions.IActivityOutputOnly`1">
             <summary>
@@ -203,11 +205,19 @@
             <summary>
             A lightweight façade in front of many <c>IActivity*</c> implementations.
             </summary>
+            <typeparam name="TOutput">a non-nullable value or reference type</typeparam>
             <remarks>
+            <para>
+            Consider using the conventional Result types
+            like <see cref="T:Songhay.Models.ProgramOutputResult`1"/>
+            or <see cref="T:Songhay.Models.EndpointContentResult`1"/>
+            for <c>TOutput</c>.
+            </para>
+            <para>
             This abstraction exposes class definitions to consumers with its <c>TActivity</c> type parameter.
             To avoid this exposure (coupling), consider implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup`1"/> instead.
+            </para>
             </remarks>
-            <typeparam name="TOutput">a non-nullable type</typeparam>
         </member>
         <member name="M:Songhay.Abstractions.IActivityTaskGroup`1.InvokeActivityAsync``1(System.Threading.CancellationToken,System.String[])">
             <summary>
@@ -227,11 +237,7 @@
             <summary>
             Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.ValueTask"/> support.
             </summary>
-            <seealso cref="T:Songhay.Abstractions.IActivity" />
-            <remarks>
-            For detail around why this definition exists,
-            see https://github.com/BryanWilhite/SonghayCore/issues/83
-            </remarks>
+            <seealso cref="T:Songhay.Abstractions.IActivityTask" />
         </member>
         <member name="M:Songhay.Abstractions.IActivityValueTask.StartAsync(System.Threading.CancellationToken)">
             <summary>
@@ -244,11 +250,7 @@
             Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.ValueTask"/> support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
-            <seealso cref="T:Songhay.Abstractions.IActivity" />
-            <remarks>
-            For detail around why this definition exists,
-            see https://github.com/BryanWilhite/SonghayCore/issues/83
-            </remarks>
+            <seealso cref="T:Songhay.Abstractions.IActivityTask`1" />
         </member>
         <member name="M:Songhay.Abstractions.IActivityValueTask`1.StartAsync(`0,System.Threading.CancellationToken)">
             <summary>
@@ -262,12 +264,8 @@
             Defines an Activity, optionally for <see cref="T:Microsoft.Extensions.Hosting.IHost"/> conventions, with <see cref="T:System.Threading.Tasks.ValueTask"/> support.
             </summary>
             <typeparam name="TInput">The type of the input.</typeparam>
-            <typeparam name="TOutput">The non-nullable type of the output.</typeparam>
-            <seealso cref="T:Songhay.Abstractions.IActivity" />
-            <remarks>
-            For detail aound why this definition exists,
-            see https://github.com/BryanWilhite/SonghayCore/issues/83
-            </remarks>
+            <typeparam name="TOutput">The non-nullable value type of the output.</typeparam>
+            <seealso cref="T:Songhay.Abstractions.IActivityValueTask`2" />
         </member>
         <member name="M:Songhay.Abstractions.IActivityValueTask`2.StartAsync(`0,System.Threading.CancellationToken)">
             <summary>
@@ -4810,76 +4808,6 @@
             The settings file argument.
             </summary>
         </member>
-        <member name="T:Songhay.Models.CorsOrigins">
-            <summary>
-            Defines selected CORS origins.
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.BRollPlayer">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.BRollPlayerCom">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.CodePenIo">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.CommaDelimiter">
-            <summary>
-            The comma delimiter
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.InOurTerribleness">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.InOurTerriblenessCom">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.KinteSpaceAzure">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.KinteSpaceCom">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.SonghayBlog">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.SonghayDashboard">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.SonghaySystemCom">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.StaticsCodePenIo">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
-        <member name="F:Songhay.Models.CorsOrigins.WordWalkingStickCom">
-            <summary>
-            Uri <see cref="T:System.String"/> constant
-            </summary>
-        </member>
         <member name="T:Songhay.Models.DataParameterMetadata">
             <summary>
             A JSON.net-friendly definition for types implementing <see cref="T:System.Data.IDataParameter"/>.
@@ -5170,28 +5098,6 @@
             HTTP Method <c>TRACE</c>.
             </summary>
         </member>
-        <member name="T:Songhay.Models.LazyDisplayItem`1">
-            <summary>
-            Wraps a lazy-initialized object
-            with meta-data for display.
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:Songhay.Models.LazyDisplayItem`1.DisplayName">
-            <summary>
-            Gets or sets the targetValues name.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.LazyDisplayItem`1.LazyItem">
-            <summary>
-            Gets or sets the lazy item.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.LazyDisplayItem`1.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-        </member>
         <member name="T:Songhay.Models.MenuDisplayItemModel">
             <summary>
             Defines a colorable, selectable menu item
@@ -5415,75 +5321,6 @@
             [ https://www.iana.org/assignments/media-types/text/xml ]
             </summary>
         </member>
-        <member name="T:Songhay.Models.OpenAuthorizationData">
-            <summary>
-            Defines Authorization Information for OAuth 1.0.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.OpenAuthorizationData.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Models.OpenAuthorizationData"/> class.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.OpenAuthorizationData.#ctor(System.Collections.Specialized.NameValueCollection)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Models.OpenAuthorizationData"/> class.
-            </summary>
-            <param name="data">The data.</param>
-        </member>
-        <member name="M:Songhay.Models.OpenAuthorizationData.#ctor(System.String,System.Collections.Specialized.NameValueCollection)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Models.OpenAuthorizationData" /> class.
-            </summary>
-            <param name="nonce">The nonce.</param>
-            <param name="data">The data.</param>
-        </member>
-        <member name="M:Songhay.Models.OpenAuthorizationData.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Songhay.Models.OpenAuthorizationData" /> class.
-            </summary>
-            <param name="nonce">The nonce.</param>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.ConsumerKey">
-            <summary>
-            Gets or sets the consumer key.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.ConsumerSecret">
-            <summary>
-            Gets or sets the consumer secret.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.Nonce">
-            <summary>
-            Gets the nonce.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.TimeStamp">
-            <summary>
-            Gets or sets the time stamp.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.Token">
-            <summary>
-            Gets or sets the token.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.TokenSecret">
-            <summary>
-            Gets or sets the token secret.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.SignatureMethod">
-            <summary>
-            Gets the signature method.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.OpenAuthorizationData.Version">
-            <summary>
-            Gets or sets the version.
-            </summary>
-        </member>
         <member name="T:Songhay.Models.OpmlBody">
             <summary>
             Defines a managed representation of the OPML body element.
@@ -5642,82 +5479,6 @@
         <member name="M:Songhay.Models.OpmlOutline.ToString">
             <summary>
             Converts the value of this instance to a <see cref="T:System.String"/>.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.PackedResource">
-            <summary>
-            Defines the meta-data of an Application resource.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PackedResource.DisplayName">
-            <summary>
-            Gets or sets the display name.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PackedResource.Key">
-            <summary>
-            Gets or sets the key.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PackedResource.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.PackedResource`1">
-            <summary>
-            Defines the meta-data of an Application resource.
-            </summary>
-            <typeparam name="TResource">The type of the resource.</typeparam>
-        </member>
-        <member name="P:Songhay.Models.PackedResource`1.XamlString">
-            <summary>
-            Gets or sets the XAML string.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PackedResource`1.XamlObject">
-            <summary>
-            Gets or sets the XAML object.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.PagedResult">
-            <summary>
-            Defines a paged set of data.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResult.Metadata">
-            <summary>
-            Gets or sets the metadata.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResult.PagedResultSet">
-            <summary>
-            Gets or sets the paged result set.
-            </summary>
-        </member>
-        <member name="T:Songhay.Models.PagedResultMeta">
-            <summary>
-            Defines the metadata for a paged set of data.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResultMeta.PageIndex">
-            <summary>
-            Gets or sets the index of the page.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResultMeta.PageCount">
-            <summary>
-            Gets the page count.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResultMeta.PageSize">
-            <summary>
-            Gets or sets the size of the page.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.PagedResultMeta.TotalCount">
-            <summary>
-            Gets or sets the total count.
             </summary>
         </member>
         <member name="T:Songhay.Models.ProgramAssemblyInfo">
@@ -6107,64 +5868,6 @@
             <summary>
             Converts this instance into a <see cref="T:System.String"/> representation.
             </summary>
-        </member>
-        <member name="T:Songhay.Models.RestPagingMetadata">
-            <summary>
-            REST Paging Metadata
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.ResultSetSize">
-            <summary>
-            Gets or sets the size of the result set.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.TotalSetSize">
-            <summary>
-            Gets or sets the total size of the set.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.StartPosition">
-            <summary>
-            Gets or sets the start position.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.EndPosition">
-            <summary>
-            Gets or sets the end position.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.FromDate">
-            <summary>
-            Gets or sets from date.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.ToDate">
-            <summary>
-            Gets or sets to date.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.NextUri">
-            <summary>
-            Gets or sets the next URI.
-            </summary>
-        </member>
-        <member name="P:Songhay.Models.RestPagingMetadata.PreviousUri">
-            <summary>
-            Gets or sets the previous URI.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.RestPagingMetadata.ToShallowCopy">
-            <summary>
-            Returns the shallow copy from <see cref="M:System.Object.MemberwiseClone"/>.
-            </summary>
-        </member>
-        <member name="M:Songhay.Models.RestPagingMetadata.ToString">
-            <summary>
-            Returns a <see cref="T:System.String" /> that represents this instance.
-            </summary>
-            <returns>
-            A <see cref="T:System.String" /> that represents this instance.
-            </returns>
         </member>
         <member name="T:Songhay.Models.StorageActivityInput">
             <summary>

@@ -8,9 +8,9 @@ namespace Songhay.Tests.Abstractions;
 
 public class MyActivityTaskWithInput(IConfiguration configuration, ILogger<MyActivityTaskWithInput> logger) : IActivityTask<string>
 {
-    public async Task StartAsync(string? input, CancellationToken cancellationToken)
+    public Task StartAsync(string? input, CancellationToken cancellationToken)
     {
-        await Task.Run(() =>
+        return Task.Run(() =>
         {
             const string key = "actual";
 
@@ -56,13 +56,13 @@ public class MyOtherActivityTaskWithInputAndOutput : IActivityTask<int, ProgramO
 
 public class MyOutputActivityTask(
     [FromKeyedServices(nameof(MyActivityTaskWithInputAndOutput))]
-    IActivityTask<int, string> ioActivity,
+    IActivityTask<int, ProgramOutputResult<string?>> ioActivity,
     [FromKeyedServices(nameof(MyOtherActivityTaskWithInputAndOutput))]
-    IActivityTask<int, string> otherIoActivity) : IActivityOutputOnlyTask<ProgramOutputResult<string[]>>
+    IActivityTask<int, ProgramOutputResult<string?>> otherIoActivity) : IActivityOutputOnlyTask<ProgramOutputResult<string[]>>
 {
     public async Task<ProgramOutputResult<string[]>> StartAsync(CancellationToken cancellationToken)
     {
-        string[] aggregate = await Task.WhenAll(
+        ProgramOutputResult<string?>[] results = await Task.WhenAll(
             otherIoActivity.StartAsync(4, cancellationToken),
             ioActivity.StartAsync(4, cancellationToken),
             ioActivity.StartAsync(16, cancellationToken),
@@ -71,9 +71,15 @@ public class MyOutputActivityTask(
             ioActivity.StartAsync(4, cancellationToken)
         );
 
-        string[] output = [.. aggregate.Where(s => !string.IsNullOrWhiteSpace(s))];
+        string[] aggregate =
+            [..
+                results
+                    .Where(result => !string.IsNullOrWhiteSpace(result.Output))
+                    .Select(result => result.Output)
+                    .OfType<string>()
+            ];
 
-        return new ProgramOutputResult<string[]>(true, "Looks like they all worked out.", output);
+        return new ProgramOutputResult<string[]>(true, "Looks like they all worked out.", aggregate);
     }
 }
 
@@ -118,14 +124,14 @@ public class IActivityTaskTestsIActivityTests(ITestOutputHelper testOutputHelper
         services.AddKeyedTransient<IActivityTask<int, ProgramOutputResult<string?>>, MyOtherActivityTaskWithInputAndOutput>(nameof(MyOtherActivityTaskWithInputAndOutput));
         services.AddTransient<IActivityOutputOnlyTask<ProgramOutputResult<string[]>>, MyOutputActivityTask>();
 
-        ServiceProvider provider = services.BuildServiceProvider();
+        IServiceProvider provider = services.BuildServiceProvider();
 
-        IActivityOutputOnlyTask<string[]> activity = provider.GetRequiredService<IActivityOutputOnlyTask<string[]>>();
-        var actual = await activity.StartAsync(CancellationToken.None);
+        var activity = provider.GetRequiredService<IActivityOutputOnlyTask<ProgramOutputResult<string[]>>>();
+        ProgramOutputResult<string[]> actual = await activity.StartAsync(CancellationToken.None);
 
         Assert.NotNull(actual);
 
-        foreach (string s in actual)
+        foreach (string s in actual.Output.ToReferenceTypeValueOrThrow())
         {
             testOutputHelper.WriteLine(s);
         }
