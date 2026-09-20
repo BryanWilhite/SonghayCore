@@ -15,25 +15,15 @@ public static class IServiceCollectionExtensions
     /// implementing <see cref="IActivityKeyedTaskGroup{TOutput}"/>
     /// by reading the name of this class.
     /// </summary>
-    /// <typeparam name="TActivityGroup">the domain-specific class,
-    /// implementing <see cref="IActivityKeyedTaskGroup{TOutput}"/></typeparam>
     /// <param name="services">the ambient services collected</param>
-    public static IServiceCollection AddActivityKeyedTaskGroup<TActivityGroup>(this IServiceCollection services) where TActivityGroup: IActivityKeyedTaskGroup<EndpointResult>
+    public static IServiceCollection AddProgramFileActivityGroupDependencies(this IServiceCollection services)
     {
-        string groupName = typeof(TActivityGroup).Name;
-        switch(groupName)
-        {
-            case nameof(ProgramFileActivityGroup):
-
-                services
-                    .AddTransient<IActivityTask<StorageActivityInput?, EndpointResult>, ProgramFileDeleteActivity>()
-                    .AddTransient<IActivityTask<StorageActivityInput?, EndpointContentResult<string?>>, ProgramFileReadActivity>()
-                    .AddTransient<IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>>, ProgramFileListActivity>()
-                    .AddTransient<IActivityTask<StorageActivityInput<string?>?, EndpointResult>, ProgramFileSaveActivity>()
-                    .AddTransient<IActivityKeyedTaskGroup<EndpointResult>, ProgramFileActivityGroup>();
-
-                break;
-        }
+        services
+            .AddTransient<IActivityTask<StorageActivityInput?, EndpointResult>, ProgramFileDeleteActivity>()
+            .AddTransient<IActivityTask<StorageActivityInput?, EndpointContentResult<string?>>, ProgramFileReadActivity>()
+            .AddTransient<IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>>, ProgramFileListActivity>()
+            .AddTransient<IActivityTask<StorageActivityInput<string?>?, EndpointResult>, ProgramFileSaveActivity>()
+            .AddTransient<IActivityKeyedTaskGroup<EndpointResult>, ProgramFileActivityGroup>();
 
         return services;
     }
@@ -55,5 +45,4 @@ public static class IServiceCollectionExtensions
 
         return services;
     }
-
 }

@@ -2,6 +2,7 @@ using System.Net;
 using Songhay.Abstractions;
 using Songhay.Models;
 using Songhay.S3.Activities;
+using Songhay.S3.Extensions;
 using Songhay.S3.Models;
 
 namespace Songhay.S3.Tests.Models;

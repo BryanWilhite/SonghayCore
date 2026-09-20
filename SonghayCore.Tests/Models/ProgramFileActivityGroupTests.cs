@@ -19,7 +19,7 @@ public class ProgramFileActivityGroupTests(ITestOutputHelper testOutputHelper)
 
         IServiceProvider provider = new ServiceCollection()
             .AddLogging(builder => builder.AddProvider(_loggerProvider))
-            .AddActivityKeyedTaskGroup<ProgramFileActivityGroup>()
+            .AddProgramFileActivityGroupDependencies()
             .BuildServiceProvider();
 
         IActivityKeyedTaskGroup<EndpointResult> group = provider.GetRequiredService<IActivityKeyedTaskGroup<EndpointResult>>();

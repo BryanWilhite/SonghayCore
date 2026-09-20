@@ -2632,15 +2632,13 @@
             Extensions of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
             </summary>
         </member>
-        <member name="M:Songhay.Extensions.IServiceCollectionExtensions.AddActivityKeyedTaskGroup``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Songhay.Extensions.IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Adds the dependencies associated
             with the domain-specific class,
             implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup`1"/>
             by reading the name of this class.
             </summary>
-            <typeparam name="TActivityGroup">the domain-specific class,
-            implementing <see cref="T:Songhay.Abstractions.IActivityKeyedTaskGroup`1"/></typeparam>
             <param name="services">the ambient services collected</param>
         </member>
         <member name="M:Songhay.Extensions.IServiceCollectionExtensions.AddProgramMetadata(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
@@ -5815,7 +5813,7 @@
         </member>
         <member name="F:Songhay.Models.RestApiMetadata.ClaimsSetHeaderApiAuthorization">
             <summary>
-            A convential name representing an API key
+            A conventional name representing an API key
             to sent in the HTTP headers for authentication.
             </summary>
             <remarks>
@@ -5826,7 +5824,7 @@
         </member>
         <member name="F:Songhay.Models.RestApiMetadata.ClaimsSetHeaderApiContentType">
             <summary>
-            A convential name representing an API key
+            A conventional name representing an API key
             to sent in the HTTP headers for authentication.
             </summary>
             <remarks>
@@ -5837,7 +5835,7 @@
         </member>
         <member name="F:Songhay.Models.RestApiMetadata.ClaimsSetHeaderApiKey">
             <summary>
-            A convential name representing an API key
+            A conventional name representing an API key
             to sent in the HTTP headers for authentication.
             </summary>
             <remarks>
