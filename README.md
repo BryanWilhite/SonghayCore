@@ -106,6 +106,12 @@ Amazon S3 routines for .NET Core. Outside of the world of the Microsoft cloud (A
 
 **NuGet package 📦:** [`SonghayCore.S3`](http://www.nuget.org/packages/SonghayCore.S3/)
 
+### `SonghayCore.Web`
+
+Extensions and Handlers for Songhay Web projects. Specifically, this renewed investment in ASP.NET minimal Web API is needed to develop <acronym title="ahead of time">AOT</acronym>-compiled .NET microservices for <acronym title="Open Container Initiative">OCI</acronym>-compliant containers.
+
+**NuGet package 📦:** [`SonghayCore.Web`](http://www.nuget.org/packages/SonghayCore.Web/)
+
 ### `SonghayCore.xUnit`
 
 Defines reusable class definitions for [xUnit](https://xunit.net/). Featured is the [`ProjectFileDataAttribute`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.xUnit/ProjectFileDataAttribute.cs), allowing test data files to be loaded from a relative path.
@@ -137,10 +143,11 @@ graph BT
     2-..->|optional addition|1
 
     1-->3[SonghayCore.S3]
-    1-->4[SonghayCore.xUnit]
-    1-->5[Songhay.DataAccess]
-    1-->6[Songhay.Feeds]
-    1-->7[Songhay.Publications]
+    1-->4[SonghayCore.Web]
+    1-->5[SonghayCore.xUnit]
+    1-->6[Songhay.DataAccess]
+    1-->7[Songhay.Feeds]
+    1-->8[Songhay.Publications]
 ```
 
 [Bryan Wilhite is on LinkedIn](https://www.linkedin.com/in/wilhite)🇺🇸💼

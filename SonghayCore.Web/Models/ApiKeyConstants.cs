@@ -1,3 +1,5 @@
+using Songhay.Models;
+
 namespace Songhay.Web.Models;
 
 /// <summary>

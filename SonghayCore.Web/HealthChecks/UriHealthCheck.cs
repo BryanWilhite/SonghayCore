@@ -20,6 +20,7 @@ public sealed class UriHealthCheck(
 {
     public const string Name = "uri-health-check";
 
+    /// <inheritdoc/>>
     public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
     {
         logger.LogDebug("Loading feeds information...");

@@ -13,6 +13,14 @@ using Songhay.Web.Models;
 
 namespace Songhay.Web.Handlers;
 
+/// <summary>
+/// Defines the <see cref="AuthenticationHandler{TOptions}"/>
+/// for API-key authentication.
+/// </summary>
+/// <param name="options">the <see cref="IOptionsMonitor{TOptions}"/></param>
+/// <param name="logger">the <see cref="ILogger"/></param>
+/// <param name="encoder">the <see cref="UrlEncoder"/></param>
+/// <param name="restApiMetadata">the <see cref="RestApiMetadata"/></param>
 public sealed class ApiKeyAuthenticationHandler(
     IOptionsMonitor<ApiKeyAuthenticationOptions> options,
     ILoggerFactory logger,

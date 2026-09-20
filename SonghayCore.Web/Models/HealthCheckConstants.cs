@@ -24,5 +24,4 @@ public static class HealthCheckConstants
     /// Ready
     /// </summary>
     public const string Ready = "ready";
-
 }

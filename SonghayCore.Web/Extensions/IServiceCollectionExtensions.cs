@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 
 using Songhay.Models;
+using Songhay.Web.Handlers;
 using Songhay.Web.Models;
 
 namespace Songhay.Web.Extensions;

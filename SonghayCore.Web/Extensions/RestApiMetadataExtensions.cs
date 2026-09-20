@@ -1,4 +1,5 @@
 using Songhay.Models;
+using Songhay.Web.HealthChecks;
 using Songhay.Web.Models;
 
 namespace Songhay.Web.Extensions;

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Songhay.Web.Models;
 
@@ -14,7 +15,7 @@ namespace Songhay.Web.Models;
 /// instead of magic strings.”
 /// </para>
 /// <para>
-/// — Mukesh Murugan, <see cref="https://codewithmukesh.com/blog/api-key-authentication-aspnet-core/"/>
+/// — Mukesh Murugan, [ https://codewithmukesh.com/blog/api-key-authentication-aspnet-core ]
 /// </para>
 /// </remarks>
 public sealed class ApiKeyAuthenticationOptions : AuthenticationSchemeOptions
@@ -42,7 +43,7 @@ public sealed class ApiKeyAuthenticationOptions : AuthenticationSchemeOptions
     /// Both work; pick one and stick with it.”
     /// </para>
     /// <para>
-    /// — Mukesh Murugan, <see cref="https://codewithmukesh.com/blog/api-key-authentication-aspnet-core/"/>
+    /// — Mukesh Murugan, [ https://codewithmukesh.com/blog/api-key-authentication-aspnet-core/ ]
     /// </para>
     /// </remarks>
     public const string HeaderName = "X-API-Key";
