@@ -1,4 +1,4 @@
-namespace Songhay.Web.Models;
+namespace Songhay.Models;
 
 /// <summary>
 /// Defines the URIs that will be processed by the API app.

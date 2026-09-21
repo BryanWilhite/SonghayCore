@@ -1,4 +1,4 @@
-namespace Songhay.Web.Models;
+namespace Songhay.Models;
 
 /// <summary>
 /// Constants for ASP.NET Health Check conventions.

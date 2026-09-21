@@ -2,8 +2,7 @@ using System.Diagnostics;
 using System.Text;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
-
-using Songhay.Web.Models;
+using Songhay.Models;
 
 namespace Songhay.Web.HealthChecks;
 

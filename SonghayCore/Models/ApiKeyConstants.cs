@@ -1,6 +1,4 @@
-using Songhay.Models;
-
-namespace Songhay.Web.Models;
+namespace Songhay.Models;
 
 /// <summary>
 /// Constants for API-key authentication

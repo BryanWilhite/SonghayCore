@@ -21,5 +21,4 @@ public static class HealthCheckOptionsExtensions
 
         return options;
     }
-
 }
