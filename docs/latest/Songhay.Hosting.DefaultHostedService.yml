@@ -29,8 +29,14 @@ items:
   summary: Defines the conventional, default Hosted Service
   example: []
   syntax:
-    content: 'public class DefaultHostedService : IHostedService'
-    content.vb: Public Class DefaultHostedService Implements IHostedService
+    content: >-
+      [Obsolete("Since 2018, this type was never needed. Use `BackgroundService` instead. (See issue #196).")]
+
+      public class DefaultHostedService : IHostedService
+    content.vb: >-
+      <Obsolete("Since 2018, this type was never needed. Use `BackgroundService` instead. (See issue #196).")>
+
+      Public Class DefaultHostedService Implements IHostedService
   inheritance:
   - System.Object
   implements:
@@ -47,6 +53,12 @@ items:
   - Songhay.Hosting.DefaultHostedService.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
   - Songhay.Hosting.DefaultHostedService.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
   - Songhay.Hosting.DefaultHostedService.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: 'Since 2018, this type was never needed. Use `BackgroundService` instead. (See issue #196).'
 - uid: Songhay.Hosting.DefaultHostedService.#ctor(Microsoft.Extensions.Hosting.IHostApplicationLifetime,Microsoft.Extensions.Logging.ILogger{Songhay.Hosting.DefaultHostedService})
   commentId: M:Songhay.Hosting.DefaultHostedService.#ctor(Microsoft.Extensions.Hosting.IHostApplicationLifetime,Microsoft.Extensions.Logging.ILogger{Songhay.Hosting.DefaultHostedService})
   id: '#ctor(Microsoft.Extensions.Hosting.IHostApplicationLifetime,Microsoft.Extensions.Logging.ILogger{Songhay.Hosting.DefaultHostedService})'
@@ -65,7 +77,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: .ctor
     path: ../SonghayCore/Hosting/DefaultHostedService.cs
-    startLine: 14
+    startLine: 15
   assemblies:
   - SonghayCore
   namespace: Songhay.Hosting
@@ -103,7 +115,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: StartAsync
     path: ../SonghayCore/Hosting/DefaultHostedService.cs
-    startLine: 24
+    startLine: 25
   assemblies:
   - SonghayCore
   namespace: Songhay.Hosting
@@ -139,7 +151,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: StopAsync
     path: ../SonghayCore/Hosting/DefaultHostedService.cs
-    startLine: 40
+    startLine: 41
   assemblies:
   - SonghayCore
   namespace: Songhay.Hosting

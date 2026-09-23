@@ -5,34 +5,37 @@ items:
   id: Songhay.Models
   children:
   - Songhay.Models.ActivityOutput`1
+  - Songhay.Models.ApiKeyConstants
+  - Songhay.Models.ApiUriSet
   - Songhay.Models.ColorDisplayItemModel
   - Songhay.Models.ConsoleArgsScalars
-  - Songhay.Models.CorsOrigins
   - Songhay.Models.DataParameterMetadata
   - Songhay.Models.DbmsMetadata
   - Songhay.Models.DependencyInjectionScalars
   - Songhay.Models.DeploymentEnvironment
   - Songhay.Models.DisplayItemModel
   - Songhay.Models.EncryptionMetadata
+  - Songhay.Models.EndpointContentResult`1
+  - Songhay.Models.EndpointResult
+  - Songhay.Models.HealthCheckConstants
   - Songhay.Models.HttpMethods
-  - Songhay.Models.LazyDisplayItem`1
   - Songhay.Models.MenuDisplayItemModel
   - Songhay.Models.MimeTypes
-  - Songhay.Models.OpenAuthorizationData
   - Songhay.Models.OpmlBody
   - Songhay.Models.OpmlDocument
   - Songhay.Models.OpmlHead
   - Songhay.Models.OpmlOutline
-  - Songhay.Models.PackedResource
-  - Songhay.Models.PackedResource`1
-  - Songhay.Models.PagedResult
-  - Songhay.Models.PagedResultMeta
   - Songhay.Models.ProgramAssemblyInfo
+  - Songhay.Models.ProgramFileActivityGroup
   - Songhay.Models.ProgramGlyph
   - Songhay.Models.ProgramMetadata
+  - Songhay.Models.ProgramOutputResult`1
+  - Songhay.Models.ProgramResult
   - Songhay.Models.RegexScalars
   - Songhay.Models.RestApiMetadata
-  - Songhay.Models.RestPagingMetadata
+  - Songhay.Models.StorageActivityInput
+  - Songhay.Models.StorageActivityInput`1
+  - Songhay.Models.StorageObject
   - Songhay.Models.SystemErrorCodes
   - Songhay.Models.SystemVariable
   - Songhay.Models.SystemVariable`1
@@ -76,6 +79,19 @@ references:
   - name: " "
   - name: TOutput
   - name: )
+- uid: Songhay.Models.ApiKeyConstants
+  commentId: T:Songhay.Models.ApiKeyConstants
+  href: Songhay.Models.ApiKeyConstants.html
+  name: ApiKeyConstants
+  nameWithType: ApiKeyConstants
+  fullName: Songhay.Models.ApiKeyConstants
+- uid: Songhay.Models.ApiUriSet
+  commentId: T:Songhay.Models.ApiUriSet
+  parent: Songhay.Models
+  href: Songhay.Models.ApiUriSet.html
+  name: ApiUriSet
+  nameWithType: ApiUriSet
+  fullName: Songhay.Models.ApiUriSet
 - uid: Songhay.Models.ColorDisplayItemModel
   commentId: T:Songhay.Models.ColorDisplayItemModel
   parent: Songhay.Models
@@ -89,12 +105,6 @@ references:
   name: ConsoleArgsScalars
   nameWithType: ConsoleArgsScalars
   fullName: Songhay.Models.ConsoleArgsScalars
-- uid: Songhay.Models.CorsOrigins
-  commentId: T:Songhay.Models.CorsOrigins
-  href: Songhay.Models.CorsOrigins.html
-  name: CorsOrigins
-  nameWithType: CorsOrigins
-  fullName: Songhay.Models.CorsOrigins
 - uid: Songhay.Models.DataParameterMetadata
   commentId: T:Songhay.Models.DataParameterMetadata
   href: Songhay.Models.DataParameterMetadata.html
@@ -103,6 +113,7 @@ references:
   fullName: Songhay.Models.DataParameterMetadata
 - uid: Songhay.Models.DbmsMetadata
   commentId: T:Songhay.Models.DbmsMetadata
+  parent: Songhay.Models
   href: Songhay.Models.DbmsMetadata.html
   name: DbmsMetadata
   nameWithType: DbmsMetadata
@@ -133,37 +144,50 @@ references:
   name: EncryptionMetadata
   nameWithType: EncryptionMetadata
   fullName: Songhay.Models.EncryptionMetadata
+- uid: Songhay.Models.EndpointContentResult`1
+  commentId: T:Songhay.Models.EndpointContentResult`1
+  href: Songhay.Models.EndpointContentResult-1.html
+  name: EndpointContentResult<TContent>
+  nameWithType: EndpointContentResult<TContent>
+  fullName: Songhay.Models.EndpointContentResult<TContent>
+  nameWithType.vb: EndpointContentResult(Of TContent)
+  fullName.vb: Songhay.Models.EndpointContentResult(Of TContent)
+  name.vb: EndpointContentResult(Of TContent)
+  spec.csharp:
+  - uid: Songhay.Models.EndpointContentResult`1
+    name: EndpointContentResult
+    href: Songhay.Models.EndpointContentResult-1.html
+  - name: <
+  - name: TContent
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Models.EndpointContentResult`1
+    name: EndpointContentResult
+    href: Songhay.Models.EndpointContentResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContent
+  - name: )
+- uid: Songhay.Models.EndpointResult
+  commentId: T:Songhay.Models.EndpointResult
+  parent: Songhay.Models
+  href: Songhay.Models.EndpointResult.html
+  name: EndpointResult
+  nameWithType: EndpointResult
+  fullName: Songhay.Models.EndpointResult
+- uid: Songhay.Models.HealthCheckConstants
+  commentId: T:Songhay.Models.HealthCheckConstants
+  href: Songhay.Models.HealthCheckConstants.html
+  name: HealthCheckConstants
+  nameWithType: HealthCheckConstants
+  fullName: Songhay.Models.HealthCheckConstants
 - uid: Songhay.Models.HttpMethods
   commentId: T:Songhay.Models.HttpMethods
   href: Songhay.Models.HttpMethods.html
   name: HttpMethods
   nameWithType: HttpMethods
   fullName: Songhay.Models.HttpMethods
-- uid: Songhay.Models.LazyDisplayItem`1
-  commentId: T:Songhay.Models.LazyDisplayItem`1
-  href: Songhay.Models.LazyDisplayItem-1.html
-  name: LazyDisplayItem<T>
-  nameWithType: LazyDisplayItem<T>
-  fullName: Songhay.Models.LazyDisplayItem<T>
-  nameWithType.vb: LazyDisplayItem(Of T)
-  fullName.vb: Songhay.Models.LazyDisplayItem(Of T)
-  name.vb: LazyDisplayItem(Of T)
-  spec.csharp:
-  - uid: Songhay.Models.LazyDisplayItem`1
-    name: LazyDisplayItem
-    href: Songhay.Models.LazyDisplayItem-1.html
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: Songhay.Models.LazyDisplayItem`1
-    name: LazyDisplayItem
-    href: Songhay.Models.LazyDisplayItem-1.html
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
 - uid: Songhay.Models.MenuDisplayItemModel
   commentId: T:Songhay.Models.MenuDisplayItemModel
   parent: Songhay.Models
@@ -177,12 +201,6 @@ references:
   name: MimeTypes
   nameWithType: MimeTypes
   fullName: Songhay.Models.MimeTypes
-- uid: Songhay.Models.OpenAuthorizationData
-  commentId: T:Songhay.Models.OpenAuthorizationData
-  href: Songhay.Models.OpenAuthorizationData.html
-  name: OpenAuthorizationData
-  nameWithType: OpenAuthorizationData
-  fullName: Songhay.Models.OpenAuthorizationData
 - uid: Songhay.Models.OpmlBody
   commentId: T:Songhay.Models.OpmlBody
   parent: Songhay.Models
@@ -211,57 +229,18 @@ references:
   name: OpmlOutline
   nameWithType: OpmlOutline
   fullName: Songhay.Models.OpmlOutline
-- uid: Songhay.Models.PackedResource
-  commentId: T:Songhay.Models.PackedResource
-  parent: Songhay.Models
-  href: Songhay.Models.PackedResource.html
-  name: PackedResource
-  nameWithType: PackedResource
-  fullName: Songhay.Models.PackedResource
-- uid: Songhay.Models.PackedResource`1
-  commentId: T:Songhay.Models.PackedResource`1
-  href: Songhay.Models.PackedResource-1.html
-  name: PackedResource<TResource>
-  nameWithType: PackedResource<TResource>
-  fullName: Songhay.Models.PackedResource<TResource>
-  nameWithType.vb: PackedResource(Of TResource)
-  fullName.vb: Songhay.Models.PackedResource(Of TResource)
-  name.vb: PackedResource(Of TResource)
-  spec.csharp:
-  - uid: Songhay.Models.PackedResource`1
-    name: PackedResource
-    href: Songhay.Models.PackedResource-1.html
-  - name: <
-  - name: TResource
-  - name: '>'
-  spec.vb:
-  - uid: Songhay.Models.PackedResource`1
-    name: PackedResource
-    href: Songhay.Models.PackedResource-1.html
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TResource
-  - name: )
-- uid: Songhay.Models.PagedResult
-  commentId: T:Songhay.Models.PagedResult
-  href: Songhay.Models.PagedResult.html
-  name: PagedResult
-  nameWithType: PagedResult
-  fullName: Songhay.Models.PagedResult
-- uid: Songhay.Models.PagedResultMeta
-  commentId: T:Songhay.Models.PagedResultMeta
-  parent: Songhay.Models
-  href: Songhay.Models.PagedResultMeta.html
-  name: PagedResultMeta
-  nameWithType: PagedResultMeta
-  fullName: Songhay.Models.PagedResultMeta
 - uid: Songhay.Models.ProgramAssemblyInfo
   commentId: T:Songhay.Models.ProgramAssemblyInfo
   href: Songhay.Models.ProgramAssemblyInfo.html
   name: ProgramAssemblyInfo
   nameWithType: ProgramAssemblyInfo
   fullName: Songhay.Models.ProgramAssemblyInfo
+- uid: Songhay.Models.ProgramFileActivityGroup
+  commentId: T:Songhay.Models.ProgramFileActivityGroup
+  href: Songhay.Models.ProgramFileActivityGroup.html
+  name: ProgramFileActivityGroup
+  nameWithType: ProgramFileActivityGroup
+  fullName: Songhay.Models.ProgramFileActivityGroup
 - uid: Songhay.Models.ProgramGlyph
   commentId: T:Songhay.Models.ProgramGlyph
   href: Songhay.Models.ProgramGlyph.html
@@ -275,6 +254,38 @@ references:
   name: ProgramMetadata
   nameWithType: ProgramMetadata
   fullName: Songhay.Models.ProgramMetadata
+- uid: Songhay.Models.ProgramOutputResult`1
+  commentId: T:Songhay.Models.ProgramOutputResult`1
+  href: Songhay.Models.ProgramOutputResult-1.html
+  name: ProgramOutputResult<TOutput>
+  nameWithType: ProgramOutputResult<TOutput>
+  fullName: Songhay.Models.ProgramOutputResult<TOutput>
+  nameWithType.vb: ProgramOutputResult(Of TOutput)
+  fullName.vb: Songhay.Models.ProgramOutputResult(Of TOutput)
+  name.vb: ProgramOutputResult(Of TOutput)
+  spec.csharp:
+  - uid: Songhay.Models.ProgramOutputResult`1
+    name: ProgramOutputResult
+    href: Songhay.Models.ProgramOutputResult-1.html
+  - name: <
+  - name: TOutput
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Models.ProgramOutputResult`1
+    name: ProgramOutputResult
+    href: Songhay.Models.ProgramOutputResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOutput
+  - name: )
+- uid: Songhay.Models.ProgramResult
+  commentId: T:Songhay.Models.ProgramResult
+  parent: Songhay.Models
+  href: Songhay.Models.ProgramResult.html
+  name: ProgramResult
+  nameWithType: ProgramResult
+  fullName: Songhay.Models.ProgramResult
 - uid: Songhay.Models.RegexScalars
   commentId: T:Songhay.Models.RegexScalars
   href: Songhay.Models.RegexScalars.html
@@ -288,13 +299,45 @@ references:
   name: RestApiMetadata
   nameWithType: RestApiMetadata
   fullName: Songhay.Models.RestApiMetadata
-- uid: Songhay.Models.RestPagingMetadata
-  commentId: T:Songhay.Models.RestPagingMetadata
+- uid: Songhay.Models.StorageActivityInput
+  commentId: T:Songhay.Models.StorageActivityInput
   parent: Songhay.Models
-  href: Songhay.Models.RestPagingMetadata.html
-  name: RestPagingMetadata
-  nameWithType: RestPagingMetadata
-  fullName: Songhay.Models.RestPagingMetadata
+  href: Songhay.Models.StorageActivityInput.html
+  name: StorageActivityInput
+  nameWithType: StorageActivityInput
+  fullName: Songhay.Models.StorageActivityInput
+- uid: Songhay.Models.StorageActivityInput`1
+  commentId: T:Songhay.Models.StorageActivityInput`1
+  href: Songhay.Models.StorageActivityInput-1.html
+  name: StorageActivityInput<TContent>
+  nameWithType: StorageActivityInput<TContent>
+  fullName: Songhay.Models.StorageActivityInput<TContent>
+  nameWithType.vb: StorageActivityInput(Of TContent)
+  fullName.vb: Songhay.Models.StorageActivityInput(Of TContent)
+  name.vb: StorageActivityInput(Of TContent)
+  spec.csharp:
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: <
+  - name: TContent
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContent
+  - name: )
+- uid: Songhay.Models.StorageObject
+  commentId: T:Songhay.Models.StorageObject
+  parent: Songhay.Models
+  href: Songhay.Models.StorageObject.html
+  name: StorageObject
+  nameWithType: StorageObject
+  fullName: Songhay.Models.StorageObject
 - uid: Songhay.Models.SystemErrorCodes
   commentId: T:Songhay.Models.SystemErrorCodes
   href: Songhay.Models.SystemErrorCodes.html

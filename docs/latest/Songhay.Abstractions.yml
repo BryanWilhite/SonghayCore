@@ -6,11 +6,16 @@ items:
   children:
   - Songhay.Abstractions.IActivity
   - Songhay.Abstractions.IActivityHelpDisplay
+  - Songhay.Abstractions.IActivityKeyedTaskGroup`1
   - Songhay.Abstractions.IActivityOutputOnlyTask`1
   - Songhay.Abstractions.IActivityOutputOnly`1
   - Songhay.Abstractions.IActivityTask
+  - Songhay.Abstractions.IActivityTaskGroup`1
   - Songhay.Abstractions.IActivityTask`1
   - Songhay.Abstractions.IActivityTask`2
+  - Songhay.Abstractions.IActivityValueTask
+  - Songhay.Abstractions.IActivityValueTask`1
+  - Songhay.Abstractions.IActivityValueTask`2
   - Songhay.Abstractions.IActivity`1
   - Songhay.Abstractions.IActivity`2
   - Songhay.Abstractions.IApiEndpoint
@@ -103,6 +108,31 @@ references:
   name: IActivityHelpDisplay
   nameWithType: IActivityHelpDisplay
   fullName: Songhay.Abstractions.IActivityHelpDisplay
+- uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+  commentId: T:Songhay.Abstractions.IActivityKeyedTaskGroup`1
+  href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  name: IActivityKeyedTaskGroup<TOutput>
+  nameWithType: IActivityKeyedTaskGroup<TOutput>
+  fullName: Songhay.Abstractions.IActivityKeyedTaskGroup<TOutput>
+  nameWithType.vb: IActivityKeyedTaskGroup(Of TOutput)
+  fullName.vb: Songhay.Abstractions.IActivityKeyedTaskGroup(Of TOutput)
+  name.vb: IActivityKeyedTaskGroup(Of TOutput)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+    name: IActivityKeyedTaskGroup
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  - name: <
+  - name: TOutput
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+    name: IActivityKeyedTaskGroup
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOutput
+  - name: )
 - uid: Songhay.Abstractions.IActivityOutputOnly`1
   commentId: T:Songhay.Abstractions.IActivityOutputOnly`1
   href: Songhay.Abstractions.IActivityOutputOnly-1.html
@@ -207,6 +237,93 @@ references:
   - uid: Songhay.Abstractions.IActivityTask`2
     name: IActivityTask
     href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: )
+- uid: Songhay.Abstractions.IActivityTaskGroup`1
+  commentId: T:Songhay.Abstractions.IActivityTaskGroup`1
+  href: Songhay.Abstractions.IActivityTaskGroup-1.html
+  name: IActivityTaskGroup<TOutput>
+  nameWithType: IActivityTaskGroup<TOutput>
+  fullName: Songhay.Abstractions.IActivityTaskGroup<TOutput>
+  nameWithType.vb: IActivityTaskGroup(Of TOutput)
+  fullName.vb: Songhay.Abstractions.IActivityTaskGroup(Of TOutput)
+  name.vb: IActivityTaskGroup(Of TOutput)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityTaskGroup`1
+    name: IActivityTaskGroup
+    href: Songhay.Abstractions.IActivityTaskGroup-1.html
+  - name: <
+  - name: TOutput
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityTaskGroup`1
+    name: IActivityTaskGroup
+    href: Songhay.Abstractions.IActivityTaskGroup-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOutput
+  - name: )
+- uid: Songhay.Abstractions.IActivityValueTask
+  commentId: T:Songhay.Abstractions.IActivityValueTask
+  href: Songhay.Abstractions.IActivityValueTask.html
+  name: IActivityValueTask
+  nameWithType: IActivityValueTask
+  fullName: Songhay.Abstractions.IActivityValueTask
+- uid: Songhay.Abstractions.IActivityValueTask`1
+  commentId: T:Songhay.Abstractions.IActivityValueTask`1
+  href: Songhay.Abstractions.IActivityValueTask-1.html
+  name: IActivityValueTask<TInput>
+  nameWithType: IActivityValueTask<TInput>
+  fullName: Songhay.Abstractions.IActivityValueTask<TInput>
+  nameWithType.vb: IActivityValueTask(Of TInput)
+  fullName.vb: Songhay.Abstractions.IActivityValueTask(Of TInput)
+  name.vb: IActivityValueTask(Of TInput)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityValueTask`1
+    name: IActivityValueTask
+    href: Songhay.Abstractions.IActivityValueTask-1.html
+  - name: <
+  - name: TInput
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityValueTask`1
+    name: IActivityValueTask
+    href: Songhay.Abstractions.IActivityValueTask-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TInput
+  - name: )
+- uid: Songhay.Abstractions.IActivityValueTask`2
+  commentId: T:Songhay.Abstractions.IActivityValueTask`2
+  href: Songhay.Abstractions.IActivityValueTask-2.html
+  name: IActivityValueTask<TInput, TOutput>
+  nameWithType: IActivityValueTask<TInput, TOutput>
+  fullName: Songhay.Abstractions.IActivityValueTask<TInput, TOutput>
+  nameWithType.vb: IActivityValueTask(Of TInput, TOutput)
+  fullName.vb: Songhay.Abstractions.IActivityValueTask(Of TInput, TOutput)
+  name.vb: IActivityValueTask(Of TInput, TOutput)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityValueTask`2
+    name: IActivityValueTask
+    href: Songhay.Abstractions.IActivityValueTask-2.html
+  - name: <
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityValueTask`2
+    name: IActivityValueTask
+    href: Songhay.Abstractions.IActivityValueTask-2.html
   - name: (
   - name: Of
   - name: " "

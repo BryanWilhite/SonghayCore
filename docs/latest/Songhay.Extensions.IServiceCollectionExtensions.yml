@@ -5,6 +5,7 @@ items:
   id: IServiceCollectionExtensions
   parent: Songhay.Extensions
   children:
+  - Songhay.Extensions.IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   - Songhay.Extensions.IServiceCollectionExtensions.AddProgramMetadata(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
   langs:
   - csharp
@@ -20,7 +21,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: IServiceCollectionExtensions
     path: ../SonghayCore/Extensions/IServiceCollectionExtensions.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -39,6 +40,48 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: Songhay.Extensions.IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  commentId: M:Songhay.Extensions.IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  id: AddProgramFileActivityGroupDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IServiceCollectionExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddProgramFileActivityGroupDependencies(IServiceCollection)
+  nameWithType: IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies(IServiceCollection)
+  fullName: Songhay.Extensions.IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IServiceCollectionExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AddProgramFileActivityGroupDependencies
+    path: ../SonghayCore/Extensions/IServiceCollectionExtensions.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Adds the dependencies associated
+
+    with the domain-specific class,
+
+    implementing <xref href="Songhay.Abstractions.IActivityKeyedTaskGroup%601" data-throw-if-not-resolved="false"></xref>
+
+    by reading the name of this class.
+  example: []
+  syntax:
+    content: public static IServiceCollection AddProgramFileActivityGroupDependencies(this IServiceCollection services)
+    parameters:
+    - id: services
+      type: Microsoft.Extensions.DependencyInjection.IServiceCollection
+      description: the ambient services collected
+    return:
+      type: Microsoft.Extensions.DependencyInjection.IServiceCollection
+    content.vb: Public Shared Function AddProgramFileActivityGroupDependencies(services As IServiceCollection) As IServiceCollection
+  overload: Songhay.Extensions.IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies*
 - uid: Songhay.Extensions.IServiceCollectionExtensions.AddProgramMetadata(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
   commentId: M:Songhay.Extensions.IServiceCollectionExtensions.AddProgramMetadata(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
   id: AddProgramMetadata(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
@@ -58,7 +101,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: AddProgramMetadata
     path: ../SonghayCore/Extensions/IServiceCollectionExtensions.cs
-    startLine: 15
+    startLine: 35
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -382,6 +425,37 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+  commentId: T:Songhay.Abstractions.IActivityKeyedTaskGroup`1
+  href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  name: IActivityKeyedTaskGroup<TOutput>
+  nameWithType: IActivityKeyedTaskGroup<TOutput>
+  fullName: Songhay.Abstractions.IActivityKeyedTaskGroup<TOutput>
+  nameWithType.vb: IActivityKeyedTaskGroup(Of TOutput)
+  fullName.vb: Songhay.Abstractions.IActivityKeyedTaskGroup(Of TOutput)
+  name.vb: IActivityKeyedTaskGroup(Of TOutput)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+    name: IActivityKeyedTaskGroup
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  - name: <
+  - name: TOutput
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+    name: IActivityKeyedTaskGroup
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOutput
+  - name: )
+- uid: Songhay.Extensions.IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies*
+  commentId: Overload:Songhay.Extensions.IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies
+  href: Songhay.Extensions.IServiceCollectionExtensions.html#Songhay_Extensions_IServiceCollectionExtensions_AddProgramFileActivityGroupDependencies_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  name: AddProgramFileActivityGroupDependencies
+  nameWithType: IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies
+  fullName: Songhay.Extensions.IServiceCollectionExtensions.AddProgramFileActivityGroupDependencies
 - uid: Songhay.Models.ProgramMetadata
   commentId: T:Songhay.Models.ProgramMetadata
   parent: Songhay.Models

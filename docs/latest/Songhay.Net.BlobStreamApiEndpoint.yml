@@ -5,7 +5,7 @@ items:
   id: BlobStreamApiEndpoint
   parent: Songhay.Net
   children:
-  - Songhay.Net.BlobStreamApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)
+  - Songhay.Net.BlobStreamApiEndpoint.#ctor(System.Net.Http.IHttpClientFactory,Polly.ResiliencePipeline,System.String)
   - Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})
   - Songhay.Net.BlobStreamApiEndpoint.InstanceTag
   langs:
@@ -22,7 +22,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: BlobStreamApiEndpoint
     path: ../SonghayCore/Net/BlobStreamApiEndpoint.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - SonghayCore
   namespace: Songhay.Net
@@ -50,16 +50,16 @@ items:
   - Songhay.Net.BlobStreamApiEndpoint.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
   - Songhay.Net.BlobStreamApiEndpoint.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
   - Songhay.Net.BlobStreamApiEndpoint.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
-- uid: Songhay.Net.BlobStreamApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)
-  commentId: M:Songhay.Net.BlobStreamApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)
-  id: '#ctor(Polly.ResiliencePipeline,System.String)'
+- uid: Songhay.Net.BlobStreamApiEndpoint.#ctor(System.Net.Http.IHttpClientFactory,Polly.ResiliencePipeline,System.String)
+  commentId: M:Songhay.Net.BlobStreamApiEndpoint.#ctor(System.Net.Http.IHttpClientFactory,Polly.ResiliencePipeline,System.String)
+  id: '#ctor(System.Net.Http.IHttpClientFactory,Polly.ResiliencePipeline,System.String)'
   parent: Songhay.Net.BlobStreamApiEndpoint
   langs:
   - csharp
   - vb
-  name: BlobStreamApiEndpoint(ResiliencePipeline?, string?)
-  nameWithType: BlobStreamApiEndpoint.BlobStreamApiEndpoint(ResiliencePipeline?, string?)
-  fullName: Songhay.Net.BlobStreamApiEndpoint.BlobStreamApiEndpoint(Polly.ResiliencePipeline?, string?)
+  name: BlobStreamApiEndpoint(IHttpClientFactory, ResiliencePipeline?, string?)
+  nameWithType: BlobStreamApiEndpoint.BlobStreamApiEndpoint(IHttpClientFactory, ResiliencePipeline?, string?)
+  fullName: Songhay.Net.BlobStreamApiEndpoint.BlobStreamApiEndpoint(System.Net.Http.IHttpClientFactory, Polly.ResiliencePipeline?, string?)
   type: Constructor
   source:
     remote:
@@ -68,26 +68,29 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: .ctor
     path: ../SonghayCore/Net/BlobStreamApiEndpoint.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - SonghayCore
   namespace: Songhay.Net
   summary: Defines the default implementation of <xref href="Songhay.Abstractions.IBlobStreamApiEndpoint" data-throw-if-not-resolved="false"></xref>
   example: []
   syntax:
-    content: public BlobStreamApiEndpoint(ResiliencePipeline? pipeline, string? instanceTag)
+    content: public BlobStreamApiEndpoint(IHttpClientFactory clientFactory, ResiliencePipeline? pipeline, string? instanceTag)
     parameters:
+    - id: clientFactory
+      type: System.Net.Http.IHttpClientFactory
+      description: the <xref href="System.Net.Http.IHttpClientFactory" data-throw-if-not-resolved="false"></xref>
     - id: pipeline
       type: Polly.ResiliencePipeline
       description: the <xref href="Polly.ResiliencePipeline" data-throw-if-not-resolved="false"></xref>
     - id: instanceTag
       type: System.String
       description: maps to <xref href="Songhay.Abstractions.ITaggedInstance.InstanceTag" data-throw-if-not-resolved="false"></xref>
-    content.vb: Public Sub New(pipeline As ResiliencePipeline, instanceTag As String)
+    content.vb: Public Sub New(clientFactory As IHttpClientFactory, pipeline As ResiliencePipeline, instanceTag As String)
   overload: Songhay.Net.BlobStreamApiEndpoint.#ctor*
-  nameWithType.vb: BlobStreamApiEndpoint.New(ResiliencePipeline, String)
-  fullName.vb: Songhay.Net.BlobStreamApiEndpoint.New(Polly.ResiliencePipeline, String)
-  name.vb: New(ResiliencePipeline, String)
+  nameWithType.vb: BlobStreamApiEndpoint.New(IHttpClientFactory, ResiliencePipeline, String)
+  fullName.vb: Songhay.Net.BlobStreamApiEndpoint.New(System.Net.Http.IHttpClientFactory, Polly.ResiliencePipeline, String)
+  name.vb: New(IHttpClientFactory, ResiliencePipeline, String)
 - uid: Songhay.Net.BlobStreamApiEndpoint.InstanceTag
   commentId: P:Songhay.Net.BlobStreamApiEndpoint.InstanceTag
   id: InstanceTag
@@ -106,7 +109,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: InstanceTag
     path: ../SonghayCore/Net/BlobStreamApiEndpoint.cs
-    startLine: 14
+    startLine: 15
   assemblies:
   - SonghayCore
   namespace: Songhay.Net
@@ -139,7 +142,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: DownloadStreamAsync
     path: ../SonghayCore/Net/BlobStreamApiEndpoint.cs
-    startLine: 24
+    startLine: 25
   assemblies:
   - SonghayCore
   namespace: Songhay.Net
@@ -181,6 +184,14 @@ references:
   name: IBlobStreamApiEndpoint
   nameWithType: IBlobStreamApiEndpoint
   fullName: Songhay.Abstractions.IBlobStreamApiEndpoint
+- uid: System.Net.Http.IHttpClientFactory
+  commentId: T:System.Net.Http.IHttpClientFactory
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.ihttpclientfactory
+  name: IHttpClientFactory
+  nameWithType: IHttpClientFactory
+  fullName: System.Net.Http.IHttpClientFactory
 - uid: Songhay.Abstractions.ITaggedInstance.InstanceTag
   commentId: P:Songhay.Abstractions.ITaggedInstance.InstanceTag
   parent: Songhay.Abstractions.ITaggedInstance
@@ -192,7 +203,7 @@ references:
   commentId: T:Polly.ResiliencePipeline
   parent: Polly
   isExternal: true
-  href: https://github.com/App-vNext/Polly/blob/016dd909db880b9d8d07954ff5f4ea3cc1e11c67/src/Polly.Core/ResiliencePipeline.Async.cs
+  href: https://github.com/App-vNext/Polly/blob/9ad5ae9b4ff9beb4321b0762249ce173b984f817/src/Polly.Core/ResiliencePipeline.Async.cs
   name: ResiliencePipeline
   nameWithType: ResiliencePipeline
   fullName: Polly.ResiliencePipeline
@@ -694,6 +705,43 @@ references:
   - uid: Songhay.Abstractions
     name: Abstractions
     href: Songhay.Abstractions.html
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
 - uid: Polly
   commentId: N:Polly
   isExternal: true
@@ -931,7 +979,7 @@ references:
     href: Songhay.Extensions.html
 - uid: Songhay.Net.BlobStreamApiEndpoint.#ctor*
   commentId: Overload:Songhay.Net.BlobStreamApiEndpoint.#ctor
-  href: Songhay.Net.BlobStreamApiEndpoint.html#Songhay_Net_BlobStreamApiEndpoint__ctor_Polly_ResiliencePipeline_System_String_
+  href: Songhay.Net.BlobStreamApiEndpoint.html#Songhay_Net_BlobStreamApiEndpoint__ctor_System_Net_Http_IHttpClientFactory_Polly_ResiliencePipeline_System_String_
   name: BlobStreamApiEndpoint
   nameWithType: BlobStreamApiEndpoint.BlobStreamApiEndpoint
   fullName: Songhay.Net.BlobStreamApiEndpoint.BlobStreamApiEndpoint

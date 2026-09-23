@@ -862,11 +862,101 @@ for <a class="xref" href="Songhay.Models.ConsoleArgsScalars.html">ConsoleArgsSca
 
 
 
+  <a id="Songhay_Extensions_IConfigurationExtensions_WithRegexDefaultMatchTimeout_" data-uid="Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout*"></a>
+
+  <h3 id="Songhay_Extensions_IConfigurationExtensions_WithRegexDefaultMatchTimeout_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+  WithRegexDefaultMatchTimeout(IConfiguration?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IConfiguration? WithRegexDefaultMatchTimeout(this IConfiguration? configuration, string? configKey)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configuration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></dt>
+    <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></p>
+</dd>
+    <dt><code>configKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>the key to use to retrieve the timeout from <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Songhay_Extensions_IConfigurationExtensions_WithRegexDefaultMatchTimeout_" data-uid="Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout*"></a>
+
+  <h3 id="Songhay_Extensions_IConfigurationExtensions_WithRegexDefaultMatchTimeout_Microsoft_Extensions_Configuration_IConfiguration_System_String_System_Nullable_System_TimeSpan__" data-uid="Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Nullable{System.TimeSpan})">
+  WithRegexDefaultMatchTimeout(IConfiguration?, string?, TimeSpan?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L365"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IConfiguration? WithRegexDefaultMatchTimeout(this IConfiguration? configuration, string? configKey, TimeSpan? defaultTimeout)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configuration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></dt>
+    <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></p>
+</dd>
+    <dt><code>configKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>the key to use to retrieve the timeout from <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></p>
+</dd>
+    <dt><code>defaultTimeout</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd><p>a default timeout <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Songhay_Extensions_IConfigurationExtensions_WithRegexDefaultMatchTimeout_Microsoft_Extensions_Configuration_IConfiguration_System_String_System_Nullable_System_TimeSpan___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The configured value is expected to be a number representing milliseconds.</p>
+<p>When all other input fails, this member will default to 500ms.
+For more detail, see <a href="https://learn.microsoft.com/en-us/dotnet/standard/base-types/best-practices-regex#use-time-out-values">https://learn.microsoft.com/en-us/dotnet/standard/base-types/best-practices-regex#use-time-out-values</a></p>
+</div>
+
+
+
+
   <a id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFile_" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile*"></a>
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFile_Microsoft_Extensions_Configuration_IConfiguration_System_Byte___" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])">
   WriteOutputToFile(IConfiguration?, byte[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L419"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> array output
@@ -903,7 +993,7 @@ to the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFile_Microsoft_Extensions_Configuration_IConfiguration_System_IO_Stream_" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)">
   WriteOutputToFile(IConfiguration?, Stream)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L414"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L452"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a> output
@@ -943,7 +1033,7 @@ to the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFile_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
   WriteOutputToFile(IConfiguration?, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L351"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L389"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> output
@@ -980,7 +1070,7 @@ to the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFileAsync_Microsoft_Extensions_Configuration_IConfiguration_System_Byte___" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])">
   WriteOutputToFileAsync(IConfiguration?, byte[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L396"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L434"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a> array output
@@ -1022,7 +1112,7 @@ to the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFileAsync_Microsoft_Extensions_Configuration_IConfiguration_System_IO_Stream_" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)">
   WriteOutputToFileAsync(IConfiguration?, Stream)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L435"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L473"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a> output
@@ -1067,7 +1157,7 @@ to the file specified by <a class="xref" href="Songhay.Models.ConsoleArgsScalars
 
   <h3 id="Songhay_Extensions_IConfigurationExtensions_WriteOutputToFileAsync_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Songhay.Extensions.IConfigurationExtensions.WriteOutputToFileAsync(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
   WriteOutputToFileAsync(IConfiguration?, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L366"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/IConfigurationExtensions.cs/#L404"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Writes the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> output

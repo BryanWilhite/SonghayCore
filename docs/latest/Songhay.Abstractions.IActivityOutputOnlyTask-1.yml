@@ -5,7 +5,7 @@ items:
   id: IActivityOutputOnlyTask`1
   parent: Songhay.Abstractions
   children:
-  - Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync
+  - Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync(System.Threading.CancellationToken)
   langs:
   - csharp
   - vb
@@ -31,10 +31,10 @@ items:
     see https://github.com/BryanWilhite/SonghayCore/issues/83
   example: []
   syntax:
-    content: public interface IActivityOutputOnlyTask<TOutput>
+    content: 'public interface IActivityOutputOnlyTask<TOutput> where TOutput : notnull'
     typeParameters:
     - id: TOutput
-      description: The type of the output.
+      description: The non-nullable type of the output.
     content.vb: Public Interface IActivityOutputOnlyTask(Of TOutput)
   seealso:
   - linkId: Songhay.Abstractions.IActivity
@@ -46,16 +46,16 @@ items:
   nameWithType.vb: IActivityOutputOnlyTask(Of TOutput)
   fullName.vb: Songhay.Abstractions.IActivityOutputOnlyTask(Of TOutput)
   name.vb: IActivityOutputOnlyTask(Of TOutput)
-- uid: Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync
-  commentId: M:Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync
-  id: StartAsync
+- uid: Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync(System.Threading.CancellationToken)
+  commentId: M:Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync(System.Threading.CancellationToken)
+  id: StartAsync(System.Threading.CancellationToken)
   parent: Songhay.Abstractions.IActivityOutputOnlyTask`1
   langs:
   - csharp
   - vb
-  name: StartAsync()
-  nameWithType: IActivityOutputOnlyTask<TOutput>.StartAsync()
-  fullName: Songhay.Abstractions.IActivityOutputOnlyTask<TOutput>.StartAsync()
+  name: StartAsync(CancellationToken)
+  nameWithType: IActivityOutputOnlyTask<TOutput>.StartAsync(CancellationToken)
+  fullName: Songhay.Abstractions.IActivityOutputOnlyTask<TOutput>.StartAsync(System.Threading.CancellationToken)
   type: Method
   source:
     remote:
@@ -64,20 +64,30 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: StartAsync
     path: ../SonghayCore/Abstractions/IActivityOutputOnlyTask.cs
-    startLine: 18
+    startLine: 24
   assemblies:
   - SonghayCore
   namespace: Songhay.Abstractions
   summary: Starts the <xref href="Songhay.Abstractions.IActivity" data-throw-if-not-resolved="false"></xref> asynchronously.
+  remarks: >-
+    Note that <code>TOutput</code> is not marked as nullable
+
+    with the expectation that <code>*Result</code> classes/records
+
+    like <xref href="Songhay.Models.EndpointResult" data-throw-if-not-resolved="false"></xref> will be used.
   example: []
   syntax:
-    content: Task<TOutput?> StartAsync()
+    content: Task<TOutput> StartAsync(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
     return:
       type: System.Threading.Tasks.Task{{TOutput}}
-    content.vb: Function StartAsync() As Task(Of TOutput)
+    content.vb: Function StartAsync(cancellationToken As CancellationToken) As Task(Of TOutput)
   overload: Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync*
-  nameWithType.vb: IActivityOutputOnlyTask(Of TOutput).StartAsync()
-  fullName.vb: Songhay.Abstractions.IActivityOutputOnlyTask(Of TOutput).StartAsync()
+  nameWithType.vb: IActivityOutputOnlyTask(Of TOutput).StartAsync(CancellationToken)
+  fullName.vb: Songhay.Abstractions.IActivityOutputOnlyTask(Of TOutput).StartAsync(System.Threading.CancellationToken)
 references:
 - uid: Songhay.Abstractions.IActivity
   commentId: T:Songhay.Abstractions.IActivity
@@ -477,9 +487,24 @@ references:
   - uid: Songhay.Extensions
     name: Extensions
     href: Songhay.Extensions.html
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: Songhay.Models.EndpointResult
+  commentId: T:Songhay.Models.EndpointResult
+  parent: Songhay.Models
+  href: Songhay.Models.EndpointResult.html
+  name: EndpointResult
+  nameWithType: EndpointResult
+  fullName: Songhay.Models.EndpointResult
 - uid: Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync*
   commentId: Overload:Songhay.Abstractions.IActivityOutputOnlyTask`1.StartAsync
-  href: Songhay.Abstractions.IActivityOutputOnlyTask-1.html#Songhay_Abstractions_IActivityOutputOnlyTask_1_StartAsync
+  href: Songhay.Abstractions.IActivityOutputOnlyTask-1.html#Songhay_Abstractions_IActivityOutputOnlyTask_1_StartAsync_System_Threading_CancellationToken_
   name: StartAsync
   nameWithType: IActivityOutputOnlyTask<TOutput>.StartAsync
   fullName: Songhay.Abstractions.IActivityOutputOnlyTask<TOutput>.StartAsync
@@ -514,6 +539,55 @@ references:
   - name: " "
   - name: TOutput
   - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
 - uid: System.Threading.Tasks.Task`1
   commentId: T:System.Threading.Tasks.Task`1
   isExternal: true

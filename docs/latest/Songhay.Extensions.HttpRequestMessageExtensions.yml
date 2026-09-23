@@ -5,16 +5,14 @@ items:
   id: HttpRequestMessageExtensions
   parent: Songhay.Extensions
   children:
-  - Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)
-  - Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})
-  - Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})
-  - Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)
-  - Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})
-  - Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)
-  - Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)
-  - Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)
-  - Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})
-  - Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})
+  - Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})
+  - Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpResponseMessage})
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption,System.Action{System.Net.Http.HttpRequestMessage})
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Func{System.Net.Http.HttpClient})
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient})
+  - Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})
   - Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageAuthorizationHeader(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String,System.String)
   - Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageCanonicalizedHeaders(System.Net.Http.HttpRequestMessage)
   - Songhay.Extensions.HttpRequestMessageExtensions.ToAzureStorageSignature(System.Net.Http.HttpRequestMessage,System.String,System.String,System.String)
@@ -416,17 +414,17 @@ items:
   nameWithType.vb: HttpRequestMessageExtensions.WithAzureStorageHeaders(HttpRequestMessage, Date, String, String, String, String, String)
   fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.WithAzureStorageHeaders(System.Net.Http.HttpRequestMessage, Date, String, String, String, String, String)
   name.vb: WithAzureStorageHeaders(HttpRequestMessage, Date, String, String, String, String, String)
-- uid: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)
-  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)
-  id: GetContentAsync(System.Net.Http.HttpRequestMessage)
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})
+  id: GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})
   isExtensionMethod: true
   parent: Songhay.Extensions.HttpRequestMessageExtensions
   langs:
   - csharp
   - vb
-  name: GetContentAsync(HttpRequestMessage?)
-  nameWithType: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage?)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage?)
+  name: GetContentAsync(HttpRequestMessage?, Func<HttpClient>)
+  nameWithType: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage?, Func<HttpClient>)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage?, System.Func<System.Net.Http.HttpClient>)
   type: Method
   source:
     remote:
@@ -435,36 +433,39 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetContentAsync
     path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-    startLine: 11
+    startLine: 12
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: Gets a <xref href="System.String" data-throw-if-not-resolved="false"></xref> from the derived <xref href="System.Net.Http.HttpResponseMessage" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public static Task<string> GetContentAsync(this HttpRequestMessage? request)
+    content: public static Task<string> GetContentAsync(this HttpRequestMessage? request, Func<HttpClient> clientGetter)
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: The request.
+      description: The <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>.
+    - id: clientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The required client getter.
     return:
       type: System.Threading.Tasks.Task{System.String}
-    content.vb: Public Shared Function GetContentAsync(request As HttpRequestMessage) As Task(Of String)
+    content.vb: Public Shared Function GetContentAsync(request As HttpRequestMessage, clientGetter As Func(Of HttpClient)) As Task(Of String)
   overload: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync*
-  nameWithType.vb: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage)
-  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)
-  name.vb: GetContentAsync(HttpRequestMessage)
-- uid: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})
-  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})
-  id: GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})
+  nameWithType.vb: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage, Func(Of HttpClient))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage, System.Func(Of System.Net.Http.HttpClient))
+  name.vb: GetContentAsync(HttpRequestMessage, Func(Of HttpClient))
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpResponseMessage})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpResponseMessage})
+  id: GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpResponseMessage})
   isExtensionMethod: true
   parent: Songhay.Extensions.HttpRequestMessageExtensions
   langs:
   - csharp
   - vb
-  name: GetContentAsync(HttpRequestMessage?, Action<HttpResponseMessage>?)
-  nameWithType: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage?, Action<HttpResponseMessage>?)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage?, System.Action<System.Net.Http.HttpResponseMessage>?)
+  name: GetContentAsync(HttpRequestMessage?, Func<HttpClient>, Action<HttpResponseMessage>?)
+  nameWithType: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage?, Func<HttpClient>, Action<HttpResponseMessage>?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage?, System.Func<System.Net.Http.HttpClient>, System.Action<System.Net.Http.HttpResponseMessage>?)
   type: Method
   source:
     remote:
@@ -473,83 +474,42 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetContentAsync
     path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-    startLine: 19
+    startLine: 21
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: Gets a <xref href="System.String" data-throw-if-not-resolved="false"></xref> from the derived <xref href="System.Net.Http.HttpResponseMessage" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public static Task<string> GetContentAsync(this HttpRequestMessage? request, Action<HttpResponseMessage>? responseMessageAction)
+    content: public static Task<string> GetContentAsync(this HttpRequestMessage? request, Func<HttpClient> clientGetter, Action<HttpResponseMessage>? responseMessageAction)
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: The request.
+      description: The <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>.
+    - id: clientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The required client getter.
     - id: responseMessageAction
       type: System.Action{System.Net.Http.HttpResponseMessage}
       description: The response message action.
     return:
       type: System.Threading.Tasks.Task{System.String}
-    content.vb: Public Shared Function GetContentAsync(request As HttpRequestMessage, responseMessageAction As Action(Of HttpResponseMessage)) As Task(Of String)
+    content.vb: Public Shared Function GetContentAsync(request As HttpRequestMessage, clientGetter As Func(Of HttpClient), responseMessageAction As Action(Of HttpResponseMessage)) As Task(Of String)
   overload: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync*
-  nameWithType.vb: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage, Action(Of HttpResponseMessage))
-  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage, System.Action(Of System.Net.Http.HttpResponseMessage))
-  name.vb: GetContentAsync(HttpRequestMessage, Action(Of HttpResponseMessage))
-- uid: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})
-  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})
-  id: GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})
+  nameWithType.vb: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage, Func(Of HttpClient), Action(Of HttpResponseMessage))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage, System.Func(Of System.Net.Http.HttpClient), System.Action(Of System.Net.Http.HttpResponseMessage))
+  name.vb: GetContentAsync(HttpRequestMessage, Func(Of HttpClient), Action(Of HttpResponseMessage))
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})
+  id: SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})
   isExtensionMethod: true
   parent: Songhay.Extensions.HttpRequestMessageExtensions
   langs:
   - csharp
   - vb
-  name: GetContentAsync(HttpRequestMessage?, Action<HttpResponseMessage>?, Func<HttpClient>?)
-  nameWithType: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage?, Action<HttpResponseMessage>?, Func<HttpClient>?)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage?, System.Action<System.Net.Http.HttpResponseMessage>?, System.Func<System.Net.Http.HttpClient>?)
-  type: Method
-  source:
-    remote:
-      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-      branch: main
-      repo: git@github.com:BryanWilhite/SonghayCore.git
-    id: GetContentAsync
-    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-    startLine: 29
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.Extensions
-  summary: Gets a <xref href="System.String" data-throw-if-not-resolved="false"></xref> from the derived <xref href="System.Net.Http.HttpResponseMessage" data-throw-if-not-resolved="false"></xref>.
-  example: []
-  syntax:
-    content: public static Task<string> GetContentAsync(this HttpRequestMessage? request, Action<HttpResponseMessage>? responseMessageAction, Func<HttpClient>? optionalClientGetter)
-    parameters:
-    - id: request
-      type: System.Net.Http.HttpRequestMessage
-      description: The request.
-    - id: responseMessageAction
-      type: System.Action{System.Net.Http.HttpResponseMessage}
-      description: The response message action.
-    - id: optionalClientGetter
-      type: System.Func{System.Net.Http.HttpClient}
-      description: The optional client getter.
-    return:
-      type: System.Threading.Tasks.Task{System.String}
-    content.vb: Public Shared Function GetContentAsync(request As HttpRequestMessage, responseMessageAction As Action(Of HttpResponseMessage), optionalClientGetter As Func(Of HttpClient)) As Task(Of String)
-  overload: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync*
-  nameWithType.vb: HttpRequestMessageExtensions.GetContentAsync(HttpRequestMessage, Action(Of HttpResponseMessage), Func(Of HttpClient))
-  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage, System.Action(Of System.Net.Http.HttpResponseMessage), System.Func(Of System.Net.Http.HttpClient))
-  name.vb: GetContentAsync(HttpRequestMessage, Action(Of HttpResponseMessage), Func(Of HttpClient))
-- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)
-  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)
-  id: SendAsync(System.Net.Http.HttpRequestMessage)
-  isExtensionMethod: true
-  parent: Songhay.Extensions.HttpRequestMessageExtensions
-  langs:
-  - csharp
-  - vb
-  name: SendAsync(HttpRequestMessage?)
-  nameWithType: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage?)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage?)
+  name: SendAsync(HttpRequestMessage?, Func<HttpClient>)
+  nameWithType: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage?, Func<HttpClient>)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage?, System.Func<System.Net.Http.HttpClient>)
   type: Method
   source:
     remote:
@@ -558,36 +518,39 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: SendAsync
     path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-    startLine: 54
+    startLine: 46
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
   example: []
   syntax:
-    content: public static Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request)
+    content: public static Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request, Func<HttpClient> clientGetter)
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: ''
+      description: The <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>.
+    - id: clientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The required client getter.
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-    content.vb: Public Shared Function SendAsync(request As HttpRequestMessage) As Task(Of HttpResponseMessage)
+    content.vb: Public Shared Function SendAsync(request As HttpRequestMessage, clientGetter As Func(Of HttpClient)) As Task(Of HttpResponseMessage)
   overload: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync*
-  nameWithType.vb: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage)
-  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)
-  name.vb: SendAsync(HttpRequestMessage)
-- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})
-  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})
-  id: SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})
+  nameWithType.vb: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage, Func(Of HttpClient))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage, System.Func(Of System.Net.Http.HttpClient))
+  name.vb: SendAsync(HttpRequestMessage, Func(Of HttpClient))
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})
+  id: SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})
   isExtensionMethod: true
   parent: Songhay.Extensions.HttpRequestMessageExtensions
   langs:
   - csharp
   - vb
-  name: SendAsync(HttpRequestMessage?, Action<HttpRequestMessage>?)
-  nameWithType: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage?, Action<HttpRequestMessage>?)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage?, System.Action<System.Net.Http.HttpRequestMessage>?)
+  name: SendAsync(HttpRequestMessage?, Func<HttpClient>, Action<HttpRequestMessage>?)
+  nameWithType: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage?, Func<HttpClient>, Action<HttpRequestMessage>?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage?, System.Func<System.Net.Http.HttpClient>, System.Action<System.Net.Http.HttpRequestMessage>?)
   type: Method
   source:
     remote:
@@ -596,39 +559,42 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: SendAsync
     path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-    startLine: 64
+    startLine: 56
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
   example: []
   syntax:
-    content: public static Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request, Action<HttpRequestMessage>? requestMessageAction)
+    content: public static Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request, Func<HttpClient> clientGetter, Action<HttpRequestMessage>? requestMessageAction)
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: The request.
+      description: The <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>.
+    - id: clientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The required client getter.
     - id: requestMessageAction
       type: System.Action{System.Net.Http.HttpRequestMessage}
       description: The request message action.
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-    content.vb: Public Shared Function SendAsync(request As HttpRequestMessage, requestMessageAction As Action(Of HttpRequestMessage)) As Task(Of HttpResponseMessage)
+    content.vb: Public Shared Function SendAsync(request As HttpRequestMessage, clientGetter As Func(Of HttpClient), requestMessageAction As Action(Of HttpRequestMessage)) As Task(Of HttpResponseMessage)
   overload: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync*
-  nameWithType.vb: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage, Action(Of HttpRequestMessage))
-  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage, System.Action(Of System.Net.Http.HttpRequestMessage))
-  name.vb: SendAsync(HttpRequestMessage, Action(Of HttpRequestMessage))
-- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)
-  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)
-  id: SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)
+  nameWithType.vb: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage, Func(Of HttpClient), Action(Of HttpRequestMessage))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage, System.Func(Of System.Net.Http.HttpClient), System.Action(Of System.Net.Http.HttpRequestMessage))
+  name.vb: SendAsync(HttpRequestMessage, Func(Of HttpClient), Action(Of HttpRequestMessage))
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption,System.Action{System.Net.Http.HttpRequestMessage})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption,System.Action{System.Net.Http.HttpRequestMessage})
+  id: SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption,System.Action{System.Net.Http.HttpRequestMessage})
   isExtensionMethod: true
   parent: Songhay.Extensions.HttpRequestMessageExtensions
   langs:
   - csharp
   - vb
-  name: SendAsync(HttpRequestMessage?, Action<HttpRequestMessage>?, Func<HttpClient>?, HttpCompletionOption)
-  nameWithType: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage?, Action<HttpRequestMessage>?, Func<HttpClient>?, HttpCompletionOption)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage?, System.Action<System.Net.Http.HttpRequestMessage>?, System.Func<System.Net.Http.HttpClient>?, System.Net.Http.HttpCompletionOption)
+  name: SendAsync(HttpRequestMessage?, Func<HttpClient>, HttpCompletionOption, Action<HttpRequestMessage>?)
+  nameWithType: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage?, Func<HttpClient>, HttpCompletionOption, Action<HttpRequestMessage>?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage?, System.Func<System.Net.Http.HttpClient>, System.Net.Http.HttpCompletionOption, System.Action<System.Net.Http.HttpRequestMessage>?)
   type: Method
   source:
     remote:
@@ -637,45 +603,45 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: SendAsync
     path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-    startLine: 77
+    startLine: 67
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
   example: []
   syntax:
-    content: public static Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request, Action<HttpRequestMessage>? requestMessageAction, Func<HttpClient>? optionalClientGetter, HttpCompletionOption completionOption)
+    content: public static Task<HttpResponseMessage> SendAsync(this HttpRequestMessage? request, Func<HttpClient> clientGetter, HttpCompletionOption completionOption, Action<HttpRequestMessage>? requestMessageAction)
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: The request.
-    - id: requestMessageAction
-      type: System.Action{System.Net.Http.HttpRequestMessage}
-      description: The request message action.
-    - id: optionalClientGetter
+      description: The <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>.
+    - id: clientGetter
       type: System.Func{System.Net.Http.HttpClient}
-      description: The optional client getter.
+      description: The required client getter.
     - id: completionOption
       type: System.Net.Http.HttpCompletionOption
       description: the <xref href="System.Net.Http.HttpCompletionOption" data-throw-if-not-resolved="false"></xref>.
+    - id: requestMessageAction
+      type: System.Action{System.Net.Http.HttpRequestMessage}
+      description: The request message action.
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-    content.vb: Public Shared Function SendAsync(request As HttpRequestMessage, requestMessageAction As Action(Of HttpRequestMessage), optionalClientGetter As Func(Of HttpClient), completionOption As HttpCompletionOption) As Task(Of HttpResponseMessage)
+    content.vb: Public Shared Function SendAsync(request As HttpRequestMessage, clientGetter As Func(Of HttpClient), completionOption As HttpCompletionOption, requestMessageAction As Action(Of HttpRequestMessage)) As Task(Of HttpResponseMessage)
   overload: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync*
-  nameWithType.vb: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage, Action(Of HttpRequestMessage), Func(Of HttpClient), HttpCompletionOption)
-  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage, System.Action(Of System.Net.Http.HttpRequestMessage), System.Func(Of System.Net.Http.HttpClient), System.Net.Http.HttpCompletionOption)
-  name.vb: SendAsync(HttpRequestMessage, Action(Of HttpRequestMessage), Func(Of HttpClient), HttpCompletionOption)
-- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)
-  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)
-  id: SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)
+  nameWithType.vb: HttpRequestMessageExtensions.SendAsync(HttpRequestMessage, Func(Of HttpClient), HttpCompletionOption, Action(Of HttpRequestMessage))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage, System.Func(Of System.Net.Http.HttpClient), System.Net.Http.HttpCompletionOption, System.Action(Of System.Net.Http.HttpRequestMessage))
+  name.vb: SendAsync(HttpRequestMessage, Func(Of HttpClient), HttpCompletionOption, Action(Of HttpRequestMessage))
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Func{System.Net.Http.HttpClient})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Func{System.Net.Http.HttpClient})
+  id: SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Func{System.Net.Http.HttpClient})
   isExtensionMethod: true
   parent: Songhay.Extensions.HttpRequestMessageExtensions
   langs:
   - csharp
   - vb
-  name: SendBodyAsync(HttpRequestMessage?, string?)
-  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?)
+  name: SendBodyAsync(HttpRequestMessage?, string?, Func<HttpClient>)
+  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Func<HttpClient>)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Func<System.Net.Http.HttpClient>)
   type: Method
   source:
     remote:
@@ -684,7 +650,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: SendBodyAsync
     path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-    startLine: 102
+    startLine: 93
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -696,180 +662,133 @@ items:
     and <xref href="Songhay.Models.MimeTypes.ApplicationJson" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody)
+    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Func<HttpClient> clientGetter)
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: The request.
+      description: The <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>.
     - id: requestBody
       type: System.String
       description: The request body.
-    return:
-      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-    content.vb: Public Shared Function SendBodyAsync(request As HttpRequestMessage, requestBody As String) As Task(Of HttpResponseMessage)
-  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
-  nameWithType.vb: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage, String)
-  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage, String)
-  name.vb: SendBodyAsync(HttpRequestMessage, String)
-- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)
-  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)
-  id: SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)
-  isExtensionMethod: true
-  parent: Songhay.Extensions.HttpRequestMessageExtensions
-  langs:
-  - csharp
-  - vb
-  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?)
-  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding, string?)
-  type: Method
-  source:
-    remote:
-      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-      branch: main
-      repo: git@github.com:BryanWilhite/SonghayCore.git
-    id: SendBodyAsync
-    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-    startLine: 113
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.Extensions
-  summary: >-
-    Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
-
-    with the specified request body.
-  example: []
-  syntax:
-    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string? mediaType)
-    parameters:
-    - id: request
-      type: System.Net.Http.HttpRequestMessage
-      description: The request.
-    - id: requestBody
-      type: System.String
-      description: The request body.
-    - id: encoding
-      type: System.Text.Encoding
-      description: The encoding.
-    - id: mediaType
-      type: System.String
-      description: Type of the media.
-    return:
-      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-    content.vb: Public Shared Function SendBodyAsync(request As HttpRequestMessage, requestBody As String, encoding As Encoding, mediaType As String) As Task(Of HttpResponseMessage)
-  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
-  nameWithType.vb: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage, String, Encoding, String)
-  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage, String, System.Text.Encoding, String)
-  name.vb: SendBodyAsync(HttpRequestMessage, String, Encoding, String)
-- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})
-  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})
-  id: SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})
-  isExtensionMethod: true
-  parent: Songhay.Extensions.HttpRequestMessageExtensions
-  langs:
-  - csharp
-  - vb
-  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?, Action<HttpRequestMessage>)
-  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?, Action<HttpRequestMessage>)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding, string?, System.Action<System.Net.Http.HttpRequestMessage>)
-  type: Method
-  source:
-    remote:
-      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-      branch: main
-      repo: git@github.com:BryanWilhite/SonghayCore.git
-    id: SendBodyAsync
-    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-    startLine: 126
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.Extensions
-  summary: >-
-    Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
-
-    with the specified request body.
-  example: []
-  syntax:
-    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string? mediaType, Action<HttpRequestMessage> requestMessageAction)
-    parameters:
-    - id: request
-      type: System.Net.Http.HttpRequestMessage
-      description: The request.
-    - id: requestBody
-      type: System.String
-      description: The request body.
-    - id: encoding
-      type: System.Text.Encoding
-      description: The encoding.
-    - id: mediaType
-      type: System.String
-      description: Type of the media.
-    - id: requestMessageAction
-      type: System.Action{System.Net.Http.HttpRequestMessage}
-      description: The request message action.
-    return:
-      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-    content.vb: Public Shared Function SendBodyAsync(request As HttpRequestMessage, requestBody As String, encoding As Encoding, mediaType As String, requestMessageAction As Action(Of HttpRequestMessage)) As Task(Of HttpResponseMessage)
-  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
-  nameWithType.vb: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage, String, Encoding, String, Action(Of HttpRequestMessage))
-  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage, String, System.Text.Encoding, String, System.Action(Of System.Net.Http.HttpRequestMessage))
-  name.vb: SendBodyAsync(HttpRequestMessage, String, Encoding, String, Action(Of HttpRequestMessage))
-- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})
-  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})
-  id: SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})
-  isExtensionMethod: true
-  parent: Songhay.Extensions.HttpRequestMessageExtensions
-  langs:
-  - csharp
-  - vb
-  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding?, string?, Action<HttpRequestMessage>?, Func<HttpClient>?)
-  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding?, string?, Action<HttpRequestMessage>?, Func<HttpClient>?)
-  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding?, string?, System.Action<System.Net.Http.HttpRequestMessage>?, System.Func<System.Net.Http.HttpClient>?)
-  type: Method
-  source:
-    remote:
-      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-      branch: main
-      repo: git@github.com:BryanWilhite/SonghayCore.git
-    id: SendBodyAsync
-    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
-    startLine: 141
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.Extensions
-  summary: >-
-    Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
-
-    with the specified request body.
-  example: []
-  syntax:
-    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding? encoding, string? mediaType, Action<HttpRequestMessage>? requestMessageAction, Func<HttpClient>? optionalClientGetter)
-    parameters:
-    - id: request
-      type: System.Net.Http.HttpRequestMessage
-      description: The request.
-    - id: requestBody
-      type: System.String
-      description: The request body.
-    - id: encoding
-      type: System.Text.Encoding
-      description: The encoding.
-    - id: mediaType
-      type: System.String
-      description: Type of the media.
-    - id: requestMessageAction
-      type: System.Action{System.Net.Http.HttpRequestMessage}
-      description: The request message action.
-    - id: optionalClientGetter
+    - id: clientGetter
       type: System.Func{System.Net.Http.HttpClient}
-      description: The optional client getter.
+      description: The required client getter.
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-    content.vb: Public Shared Function SendBodyAsync(request As HttpRequestMessage, requestBody As String, encoding As Encoding, mediaType As String, requestMessageAction As Action(Of HttpRequestMessage), optionalClientGetter As Func(Of HttpClient)) As Task(Of HttpResponseMessage)
+    content.vb: Public Shared Function SendBodyAsync(request As HttpRequestMessage, requestBody As String, clientGetter As Func(Of HttpClient)) As Task(Of HttpResponseMessage)
   overload: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
-  nameWithType.vb: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage, String, Encoding, String, Action(Of HttpRequestMessage), Func(Of HttpClient))
-  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage, String, System.Text.Encoding, String, System.Action(Of System.Net.Http.HttpRequestMessage), System.Func(Of System.Net.Http.HttpClient))
-  name.vb: SendBodyAsync(HttpRequestMessage, String, Encoding, String, Action(Of HttpRequestMessage), Func(Of HttpClient))
+  nameWithType.vb: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage, String, Func(Of HttpClient))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage, String, System.Func(Of System.Net.Http.HttpClient))
+  name.vb: SendBodyAsync(HttpRequestMessage, String, Func(Of HttpClient))
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient})
+  id: SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?, Func<HttpClient>)
+  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?, Func<HttpClient>)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding, string?, System.Func<System.Net.Http.HttpClient>)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SendBodyAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 106
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
+
+    with the specified request body.
+  example: []
+  syntax:
+    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string? mediaType, Func<HttpClient> clientGetter)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: The <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>.
+    - id: requestBody
+      type: System.String
+      description: The request body.
+    - id: encoding
+      type: System.Text.Encoding
+      description: The encoding.
+    - id: mediaType
+      type: System.String
+      description: Type of the media.
+    - id: clientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The required client getter.
+    return:
+      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
+    content.vb: Public Shared Function SendBodyAsync(request As HttpRequestMessage, requestBody As String, encoding As Encoding, mediaType As String, clientGetter As Func(Of HttpClient)) As Task(Of HttpResponseMessage)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage, String, Encoding, String, Func(Of HttpClient))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage, String, System.Text.Encoding, String, System.Func(Of System.Net.Http.HttpClient))
+  name.vb: SendBodyAsync(HttpRequestMessage, String, Encoding, String, Func(Of HttpClient))
+- uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})
+  commentId: M:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})
+  id: SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.HttpRequestMessageExtensions
+  langs:
+  - csharp
+  - vb
+  name: SendBodyAsync(HttpRequestMessage?, string?, Encoding?, string?, Func<HttpClient>, Action<HttpRequestMessage>?)
+  nameWithType: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage?, string?, Encoding?, string?, Func<HttpClient>, Action<HttpRequestMessage>?)
+  fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage?, string?, System.Text.Encoding?, string?, System.Func<System.Net.Http.HttpClient>, System.Action<System.Net.Http.HttpRequestMessage>?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: SendBodyAsync
+    path: ../SonghayCore/Extensions/HttpRequestMessageExtensions._.cs
+    startLine: 120
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Calls <xref href="System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)" data-throw-if-not-resolved="false"></xref>
+
+    with the specified request body.
+  example: []
+  syntax:
+    content: public static Task<HttpResponseMessage> SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding? encoding, string? mediaType, Func<HttpClient> clientGetter, Action<HttpRequestMessage>? requestMessageAction)
+    parameters:
+    - id: request
+      type: System.Net.Http.HttpRequestMessage
+      description: The <xref href="System.Net.Http.HttpRequestMessage" data-throw-if-not-resolved="false"></xref>.
+    - id: requestBody
+      type: System.String
+      description: The request body.
+    - id: encoding
+      type: System.Text.Encoding
+      description: The encoding.
+    - id: mediaType
+      type: System.String
+      description: Type of the media.
+    - id: clientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The required client getter.
+    - id: requestMessageAction
+      type: System.Action{System.Net.Http.HttpRequestMessage}
+      description: The request message action.
+    return:
+      type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
+    content.vb: Public Shared Function SendBodyAsync(request As HttpRequestMessage, requestBody As String, encoding As Encoding, mediaType As String, clientGetter As Func(Of HttpClient), requestMessageAction As Action(Of HttpRequestMessage)) As Task(Of HttpResponseMessage)
+  overload: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
+  nameWithType.vb: HttpRequestMessageExtensions.SendBodyAsync(HttpRequestMessage, String, Encoding, String, Func(Of HttpClient), Action(Of HttpRequestMessage))
+  fullName.vb: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage, String, System.Text.Encoding, String, System.Func(Of System.Net.Http.HttpClient), System.Action(Of System.Net.Http.HttpRequestMessage))
+  name.vb: SendBodyAsync(HttpRequestMessage, String, Encoding, String, Func(Of HttpClient), Action(Of HttpRequestMessage))
 references:
 - uid: System.Net.Http.HttpRequestMessage
   commentId: T:System.Net.Http.HttpRequestMessage
@@ -1322,10 +1241,45 @@ references:
   fullName: System.Net.Http.HttpResponseMessage
 - uid: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync*
   commentId: Overload:Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync
-  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_GetContentAsync_System_Net_Http_HttpRequestMessage_
+  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_GetContentAsync_System_Net_Http_HttpRequestMessage_System_Func_System_Net_Http_HttpClient__
   name: GetContentAsync
   nameWithType: HttpRequestMessageExtensions.GetContentAsync
   fullName: Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync
+- uid: System.Func{System.Net.Http.HttpClient}
+  commentId: T:System.Func{System.Net.Http.HttpClient}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<HttpClient>
+  nameWithType: Func<HttpClient>
+  fullName: System.Func<System.Net.Http.HttpClient>
+  nameWithType.vb: Func(Of HttpClient)
+  fullName.vb: System.Func(Of System.Net.Http.HttpClient)
+  name.vb: Func(Of HttpClient)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Net.Http.HttpClient
+    name: HttpClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Net.Http.HttpClient
+    name: HttpClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  - name: )
 - uid: System.Threading.Tasks.Task{System.String}
   commentId: T:System.Threading.Tasks.Task{System.String}
   parent: System.Threading.Tasks
@@ -1360,6 +1314,34 @@ references:
     name: String
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
   - name: )
 - uid: System.Threading.Tasks.Task`1
   commentId: T:System.Threading.Tasks.Task`1
@@ -1489,69 +1471,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: System.Func{System.Net.Http.HttpClient}
-  commentId: T:System.Func{System.Net.Http.HttpClient}
-  parent: System
-  definition: System.Func`1
-  href: https://learn.microsoft.com/dotnet/api/system.func-1
-  name: Func<HttpClient>
-  nameWithType: Func<HttpClient>
-  fullName: System.Func<System.Net.Http.HttpClient>
-  nameWithType.vb: Func(Of HttpClient)
-  fullName.vb: System.Func(Of System.Net.Http.HttpClient)
-  name.vb: Func(Of HttpClient)
-  spec.csharp:
-  - uid: System.Func`1
-    name: Func
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.func-1
-  - name: <
-  - uid: System.Net.Http.HttpClient
-    name: HttpClient
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
-  - name: '>'
-  spec.vb:
-  - uid: System.Func`1
-    name: Func
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.func-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Net.Http.HttpClient
-    name: HttpClient
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
-  - name: )
-- uid: System.Func`1
-  commentId: T:System.Func`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.func-1
-  name: Func<TResult>
-  nameWithType: Func<TResult>
-  fullName: System.Func<TResult>
-  nameWithType.vb: Func(Of TResult)
-  fullName.vb: System.Func(Of TResult)
-  name.vb: Func(Of TResult)
-  spec.csharp:
-  - uid: System.Func`1
-    name: Func
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.func-1
-  - name: <
-  - name: TResult
-  - name: '>'
-  spec.vb:
-  - uid: System.Func`1
-    name: Func
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.func-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TResult
-  - name: )
 - uid: System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)
   commentId: M:System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)
   isExternal: true
@@ -1583,7 +1502,7 @@ references:
   - name: )
 - uid: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync*
   commentId: Overload:Songhay.Extensions.HttpRequestMessageExtensions.SendAsync
-  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_System_Net_Http_HttpRequestMessage_
+  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_System_Net_Http_HttpRequestMessage_System_Func_System_Net_Http_HttpClient__
   name: SendAsync
   nameWithType: HttpRequestMessageExtensions.SendAsync
   fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendAsync
@@ -1680,7 +1599,7 @@ references:
   fullName: Songhay.Models.MimeTypes.ApplicationJson
 - uid: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*
   commentId: Overload:Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync
-  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_
+  href: Songhay.Extensions.HttpRequestMessageExtensions.html#Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_System_Func_System_Net_Http_HttpClient__
   name: SendBodyAsync
   nameWithType: HttpRequestMessageExtensions.SendBodyAsync
   fullName: Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync

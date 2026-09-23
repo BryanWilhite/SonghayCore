@@ -22,6 +22,8 @@ items:
   - Songhay.Extensions.IConfigurationExtensions.ToHelpDisplayText(Microsoft.Extensions.Configuration.IConfiguration,System.Int32)
   - Songhay.Extensions.IConfigurationExtensions.ToKeys(Microsoft.Extensions.Configuration.IConfiguration)
   - Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText(Microsoft.Extensions.Configuration.IConfiguration)
+  - Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  - Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Nullable{System.TimeSpan})
   - Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.Byte[])
   - Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.IO.Stream)
   - Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)
@@ -812,6 +814,98 @@ items:
   nameWithType.vb: IConfigurationExtensions.WithDefaultHelpText(IConfiguration)
   fullName.vb: Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText(Microsoft.Extensions.Configuration.IConfiguration)
   name.vb: WithDefaultHelpText(IConfiguration)
+- uid: Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  id: WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithRegexDefaultMatchTimeout(IConfiguration?, string?)
+  nameWithType: IConfigurationExtensions.WithRegexDefaultMatchTimeout(IConfiguration?, string?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration?, string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithRegexDefaultMatchTimeout
+    path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 349
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Returns <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static IConfiguration? WithRegexDefaultMatchTimeout(this IConfiguration? configuration, string? configKey)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: configKey
+      type: System.String
+      description: the key to use to retrieve the timeout from <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: Microsoft.Extensions.Configuration.IConfiguration
+    content.vb: Public Shared Function WithRegexDefaultMatchTimeout(configuration As IConfiguration, configKey As String) As IConfiguration
+  overload: Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout*
+  nameWithType.vb: IConfigurationExtensions.WithRegexDefaultMatchTimeout(IConfiguration, String)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration, String)
+  name.vb: WithRegexDefaultMatchTimeout(IConfiguration, String)
+- uid: Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Nullable{System.TimeSpan})
+  commentId: M:Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Nullable{System.TimeSpan})
+  id: WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Nullable{System.TimeSpan})
+  isExtensionMethod: true
+  parent: Songhay.Extensions.IConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithRegexDefaultMatchTimeout(IConfiguration?, string?, TimeSpan?)
+  nameWithType: IConfigurationExtensions.WithRegexDefaultMatchTimeout(IConfiguration?, string?, TimeSpan?)
+  fullName: Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration?, string?, System.TimeSpan?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/IConfigurationExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: WithRegexDefaultMatchTimeout
+    path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
+    startLine: 364
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: Returns <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+  remarks: >-
+    The configured value is expected to be a number representing milliseconds.
+
+
+    When all other input fails, this member will default to 500ms.
+
+    For more detail, see https://learn.microsoft.com/en-us/dotnet/standard/base-types/best-practices-regex#use-time-out-values
+  example: []
+  syntax:
+    content: public static IConfiguration? WithRegexDefaultMatchTimeout(this IConfiguration? configuration, string? configKey, TimeSpan? defaultTimeout)
+    parameters:
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: the <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: configKey
+      type: System.String
+      description: the key to use to retrieve the timeout from <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref>
+    - id: defaultTimeout
+      type: System.Nullable{System.TimeSpan}
+      description: a default timeout <xref href="System.TimeSpan" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: Microsoft.Extensions.Configuration.IConfiguration
+    content.vb: Public Shared Function WithRegexDefaultMatchTimeout(configuration As IConfiguration, configKey As String, defaultTimeout As TimeSpan?) As IConfiguration
+  overload: Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout*
+  nameWithType.vb: IConfigurationExtensions.WithRegexDefaultMatchTimeout(IConfiguration, String, TimeSpan?)
+  fullName.vb: Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout(Microsoft.Extensions.Configuration.IConfiguration, String, System.TimeSpan?)
+  name.vb: WithRegexDefaultMatchTimeout(IConfiguration, String, TimeSpan?)
 - uid: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)
   commentId: M:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)
   id: WriteOutputToFile(Microsoft.Extensions.Configuration.IConfiguration,System.String)
@@ -831,7 +925,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFile
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 350
+    startLine: 388
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -873,7 +967,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFileAsync
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 365
+    startLine: 403
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -917,7 +1011,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFile
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 380
+    startLine: 418
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -959,7 +1053,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFileAsync
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 395
+    startLine: 433
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -1003,7 +1097,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFile
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 413
+    startLine: 451
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -1046,7 +1140,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteOutputToFileAsync
     path: ../SonghayCore/Extensions/IConfigurationExtensions.cs
-    startLine: 434
+    startLine: 472
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -1776,6 +1870,68 @@ references:
   name: WithDefaultHelpText
   nameWithType: IConfigurationExtensions.WithDefaultHelpText
   fullName: Songhay.Extensions.IConfigurationExtensions.WithDefaultHelpText
+- uid: Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout*
+  commentId: Overload:Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout
+  href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_WithRegexDefaultMatchTimeout_Microsoft_Extensions_Configuration_IConfiguration_System_String_
+  name: WithRegexDefaultMatchTimeout
+  nameWithType: IConfigurationExtensions.WithRegexDefaultMatchTimeout
+  fullName: Songhay.Extensions.IConfigurationExtensions.WithRegexDefaultMatchTimeout
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: System.Nullable{System.TimeSpan}
+  commentId: T:System.Nullable{System.TimeSpan}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan?
+  nameWithType: TimeSpan?
+  fullName: System.TimeSpan?
+  spec.csharp:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  spec.vb:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile*
   commentId: Overload:Songhay.Extensions.IConfigurationExtensions.WriteOutputToFile
   href: Songhay.Extensions.IConfigurationExtensions.html#Songhay_Extensions_IConfigurationExtensions_WriteOutputToFile_Microsoft_Extensions_Configuration_IConfiguration_System_String_

@@ -22,6 +22,9 @@ items:
   - uid: Songhay.JsonNodeUtility
     name: JsonNodeUtility
     type: Class
+  - uid: Songhay.JsonSerializerOptionsCache
+    name: JsonSerializerOptionsCache
+    type: Class
   - uid: Songhay.MathUtility
     name: MathUtility
     type: Class
@@ -30,6 +33,9 @@ items:
     type: Class
   - uid: Songhay.ProgramFileUtility
     name: ProgramFileUtility
+    type: Class
+  - uid: Songhay.ProgramMetadataUtility
+    name: ProgramMetadataUtility
     type: Class
   - uid: Songhay.ProgramTypeUtility
     name: ProgramTypeUtility
@@ -53,6 +59,9 @@ items:
   - uid: Songhay.Abstractions.IActivityHelpDisplay
     name: IActivityHelpDisplay
     type: Interface
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+    name: IActivityKeyedTaskGroup<TOutput>
+    type: Interface
   - uid: Songhay.Abstractions.IActivityOutputOnlyTask`1
     name: IActivityOutputOnlyTask<TOutput>
     type: Interface
@@ -62,11 +71,23 @@ items:
   - uid: Songhay.Abstractions.IActivityTask
     name: IActivityTask
     type: Interface
+  - uid: Songhay.Abstractions.IActivityTaskGroup`1
+    name: IActivityTaskGroup<TOutput>
+    type: Interface
   - uid: Songhay.Abstractions.IActivityTask`1
     name: IActivityTask<TInput>
     type: Interface
   - uid: Songhay.Abstractions.IActivityTask`2
     name: IActivityTask<TInput, TOutput>
+    type: Interface
+  - uid: Songhay.Abstractions.IActivityValueTask
+    name: IActivityValueTask
+    type: Interface
+  - uid: Songhay.Abstractions.IActivityValueTask`1
+    name: IActivityValueTask<TInput>
+    type: Interface
+  - uid: Songhay.Abstractions.IActivityValueTask`2
+    name: IActivityValueTask<TInput, TOutput>
     type: Interface
   - uid: Songhay.Abstractions.IActivity`1
     name: IActivity<TInput>
@@ -110,6 +131,22 @@ items:
   - uid: Songhay.Abstractions.ITemporal
     name: ITemporal
     type: Interface
+- uid: Songhay.Activities
+  name: Songhay.Activities
+  type: Namespace
+  items:
+  - uid: Songhay.Activities.ProgramFileDeleteActivity
+    name: ProgramFileDeleteActivity
+    type: Class
+  - uid: Songhay.Activities.ProgramFileListActivity
+    name: ProgramFileListActivity
+    type: Class
+  - uid: Songhay.Activities.ProgramFileReadActivity
+    name: ProgramFileReadActivity
+    type: Class
+  - uid: Songhay.Activities.ProgramFileSaveActivity
+    name: ProgramFileSaveActivity
+    type: Class
 - uid: Songhay.Diagnostics
   name: Songhay.Diagnostics
   type: Namespace
@@ -218,6 +255,9 @@ items:
   - uid: Songhay.Extensions.JsonNodeExtensions
     name: JsonNodeExtensions
     type: Class
+  - uid: Songhay.Extensions.JsonObjectExtensions
+    name: JsonObjectExtensions
+    type: Class
   - uid: Songhay.Extensions.MemoryStreamExtensions
     name: MemoryStreamExtensions
     type: Class
@@ -235,6 +275,9 @@ items:
     type: Class
   - uid: Songhay.Extensions.RestApiMetadataExtensions
     name: RestApiMetadataExtensions
+    type: Class
+  - uid: Songhay.Extensions.StorageActivityInputExtensions
+    name: StorageActivityInputExtensions
     type: Class
   - uid: Songhay.Extensions.StreamExtensions
     name: StreamExtensions
@@ -302,14 +345,17 @@ items:
   - uid: Songhay.Models.ActivityOutput`1
     name: ActivityOutput<TOutput>
     type: Class
+  - uid: Songhay.Models.ApiKeyConstants
+    name: ApiKeyConstants
+    type: Class
+  - uid: Songhay.Models.ApiUriSet
+    name: ApiUriSet
+    type: Class
   - uid: Songhay.Models.ColorDisplayItemModel
     name: ColorDisplayItemModel
     type: Class
   - uid: Songhay.Models.ConsoleArgsScalars
     name: ConsoleArgsScalars
-    type: Class
-  - uid: Songhay.Models.CorsOrigins
-    name: CorsOrigins
     type: Class
   - uid: Songhay.Models.DataParameterMetadata
     name: DataParameterMetadata
@@ -329,20 +375,23 @@ items:
   - uid: Songhay.Models.EncryptionMetadata
     name: EncryptionMetadata
     type: Class
+  - uid: Songhay.Models.EndpointContentResult`1
+    name: EndpointContentResult<TContent>
+    type: Class
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    type: Class
+  - uid: Songhay.Models.HealthCheckConstants
+    name: HealthCheckConstants
+    type: Class
   - uid: Songhay.Models.HttpMethods
     name: HttpMethods
-    type: Class
-  - uid: Songhay.Models.LazyDisplayItem`1
-    name: LazyDisplayItem<T>
     type: Class
   - uid: Songhay.Models.MenuDisplayItemModel
     name: MenuDisplayItemModel
     type: Class
   - uid: Songhay.Models.MimeTypes
     name: MimeTypes
-    type: Class
-  - uid: Songhay.Models.OpenAuthorizationData
-    name: OpenAuthorizationData
     type: Class
   - uid: Songhay.Models.OpmlBody
     name: OpmlBody
@@ -356,20 +405,11 @@ items:
   - uid: Songhay.Models.OpmlOutline
     name: OpmlOutline
     type: Class
-  - uid: Songhay.Models.PackedResource
-    name: PackedResource
-    type: Class
-  - uid: Songhay.Models.PackedResource`1
-    name: PackedResource<TResource>
-    type: Class
-  - uid: Songhay.Models.PagedResult
-    name: PagedResult
-    type: Class
-  - uid: Songhay.Models.PagedResultMeta
-    name: PagedResultMeta
-    type: Class
   - uid: Songhay.Models.ProgramAssemblyInfo
     name: ProgramAssemblyInfo
+    type: Class
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
     type: Class
   - uid: Songhay.Models.ProgramGlyph
     name: ProgramGlyph
@@ -377,14 +417,26 @@ items:
   - uid: Songhay.Models.ProgramMetadata
     name: ProgramMetadata
     type: Class
+  - uid: Songhay.Models.ProgramOutputResult`1
+    name: ProgramOutputResult<TOutput>
+    type: Class
+  - uid: Songhay.Models.ProgramResult
+    name: ProgramResult
+    type: Class
   - uid: Songhay.Models.RegexScalars
     name: RegexScalars
     type: Class
   - uid: Songhay.Models.RestApiMetadata
     name: RestApiMetadata
     type: Class
-  - uid: Songhay.Models.RestPagingMetadata
-    name: RestPagingMetadata
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    type: Class
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput<TContent>
+    type: Class
+  - uid: Songhay.Models.StorageObject
+    name: StorageObject
     type: Class
   - uid: Songhay.Models.SystemErrorCodes
     name: SystemErrorCodes
@@ -431,6 +483,84 @@ items:
     type: Class
   - uid: Songhay.Net.TimeoutHandler
     name: TimeoutHandler
+    type: Class
+- uid: Songhay.S3
+  name: Songhay.S3
+  type: Namespace
+  items:
+  - uid: Songhay.S3.AmazonS3Utility
+    name: AmazonS3Utility
+    type: Class
+- uid: Songhay.S3.Activities
+  name: Songhay.S3.Activities
+  type: Namespace
+  items:
+  - uid: Songhay.S3.Activities.AmazonS3DeleteS3ObjectActivity
+    name: AmazonS3DeleteS3ObjectActivity
+    type: Class
+  - uid: Songhay.S3.Activities.AmazonS3DownloadToStringActivity
+    name: AmazonS3DownloadToStringActivity
+    type: Class
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    type: Class
+  - uid: Songhay.S3.Activities.AmazonS3UploadStringActivity
+    name: AmazonS3UploadStringActivity
+    type: Class
+- uid: Songhay.S3.Extensions
+  name: Songhay.S3.Extensions
+  type: Namespace
+  items:
+  - uid: Songhay.S3.Extensions.IServiceCollectionExtensions
+    name: IServiceCollectionExtensions
+    type: Class
+  - uid: Songhay.S3.Extensions.RestApiMetadataExtensions
+    name: RestApiMetadataExtensions
+    type: Class
+  - uid: Songhay.S3.Extensions.S3ObjectExtensions
+    name: S3ObjectExtensions
+    type: Class
+- uid: Songhay.S3.Hosting
+  name: Songhay.S3.Hosting
+  type: Namespace
+  items:
+  - uid: Songhay.S3.Hosting.AmazonS3Service
+    name: AmazonS3Service
+    type: Class
+- uid: Songhay.S3.Models
+  name: Songhay.S3.Models
+  type: Namespace
+  items:
+  - uid: Songhay.S3.Models.AmazonS3ActivityGroup
+    name: AmazonS3ActivityGroup
+    type: Class
+- uid: Songhay.SerializerContexts
+  name: Songhay.SerializerContexts
+  type: Namespace
+  items:
+  - uid: Songhay.SerializerContexts.ColorDisplayItemModelSerializationContext
+    name: ColorDisplayItemModelSerializationContext
+    type: Class
+  - uid: Songhay.SerializerContexts.DbmsMetadataSerializerContext
+    name: DbmsMetadataSerializerContext
+    type: Class
+  - uid: Songhay.SerializerContexts.DictionarySerializerContext
+    name: DictionarySerializerContext
+    type: Class
+  - uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext
+    name: DisplayItemModelSerializerContext
+    type: Class
+  - uid: Songhay.SerializerContexts.MenuDisplayItemModelSerializerContext
+    name: MenuDisplayItemModelSerializerContext
+    type: Class
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    type: Class
+  - uid: Songhay.SerializerContexts.RestApiMetadataSerializerContext
+    name: RestApiMetadataSerializerContext
+    type: Class
+  - uid: Songhay.SerializerContexts.StorageObjectSerializerContext
+    name: StorageObjectSerializerContext
     type: Class
 - uid: Songhay.Tests
   name: Songhay.Tests
@@ -484,6 +614,47 @@ items:
   items:
   - uid: Songhay.Text.CsvExporter`1
     name: CsvExporter<T>
+    type: Class
+- uid: Songhay.Web
+  name: Songhay.Web
+  type: Namespace
+  items:
+  - uid: Songhay.Web.HealthCheckUtility
+    name: HealthCheckUtility
+    type: Class
+- uid: Songhay.Web.Extensions
+  name: Songhay.Web.Extensions
+  type: Namespace
+  items:
+  - uid: Songhay.Web.Extensions.HealthCheckOptionsExtensions
+    name: HealthCheckOptionsExtensions
+    type: Class
+  - uid: Songhay.Web.Extensions.IServiceCollectionExtensions
+    name: IServiceCollectionExtensions
+    type: Class
+  - uid: Songhay.Web.Extensions.RestApiMetadataExtensions
+    name: RestApiMetadataExtensions
+    type: Class
+- uid: Songhay.Web.Handlers
+  name: Songhay.Web.Handlers
+  type: Namespace
+  items:
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    type: Class
+- uid: Songhay.Web.HealthChecks
+  name: Songhay.Web.HealthChecks
+  type: Namespace
+  items:
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    type: Class
+- uid: Songhay.Web.Models
+  name: Songhay.Web.Models
+  type: Namespace
+  items:
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
     type: Class
 - uid: Songhay.Xml
   name: Songhay.Xml

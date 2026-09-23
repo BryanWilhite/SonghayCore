@@ -1,0 +1,1213 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+  commentId: T:Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+  id: AmazonS3ListBucketObjectsWithPaginationActivity
+  parent: Songhay.S3.Activities
+  children:
+  - Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.#ctor(Songhay.Models.ProgramMetadata,Microsoft.Extensions.Logging.ILogger{Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity})
+  - Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: AmazonS3ListBucketObjectsWithPaginationActivity
+  nameWithType: AmazonS3ListBucketObjectsWithPaginationActivity
+  fullName: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+  type: Class
+  source:
+    remote:
+      path: SonghayCore.S3/Activities/AmazonS3ListBucketObjectsWithPaginationActivity.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: AmazonS3ListBucketObjectsWithPaginationActivity
+    path: ../SonghayCore.S3/Activities/AmazonS3ListBucketObjectsWithPaginationActivity.cs
+    startLine: 6
+  assemblies:
+  - SonghayCore.S3
+  namespace: Songhay.S3.Activities
+  summary: >-
+    Retrieves a JSON-array of serialized <xref href="Amazon.S3.Model.S3Object" data-throw-if-not-resolved="false"></xref>
+
+    of the specified <xref href="Amazon.S3.Model.S3Bucket" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class AmazonS3ListBucketObjectsWithPaginationActivity : IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>>'
+    content.vb: Public Class AmazonS3ListBucketObjectsWithPaginationActivity Implements IActivityTask(Of StorageActivityInput, EndpointContentResult(Of IReadOnlyCollection(Of StorageObject)))
+  inheritance:
+  - System.Object
+  implements:
+  - Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+- uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.#ctor(Songhay.Models.ProgramMetadata,Microsoft.Extensions.Logging.ILogger{Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity})
+  commentId: M:Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.#ctor(Songhay.Models.ProgramMetadata,Microsoft.Extensions.Logging.ILogger{Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity})
+  id: '#ctor(Songhay.Models.ProgramMetadata,Microsoft.Extensions.Logging.ILogger{Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity})'
+  parent: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+  langs:
+  - csharp
+  - vb
+  name: AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata, ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>?)
+  nameWithType: AmazonS3ListBucketObjectsWithPaginationActivity.AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata, ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>?)
+  fullName: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.AmazonS3ListBucketObjectsWithPaginationActivity(Songhay.Models.ProgramMetadata, Microsoft.Extensions.Logging.ILogger<Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity>?)
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore.S3/Activities/AmazonS3ListBucketObjectsWithPaginationActivity.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: ../SonghayCore.S3/Activities/AmazonS3ListBucketObjectsWithPaginationActivity.cs
+    startLine: 6
+  assemblies:
+  - SonghayCore.S3
+  namespace: Songhay.S3.Activities
+  summary: >-
+    Retrieves a JSON-array of serialized <xref href="Amazon.S3.Model.S3Object" data-throw-if-not-resolved="false"></xref>
+
+    of the specified <xref href="Amazon.S3.Model.S3Bucket" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public AmazonS3ListBucketObjectsWithPaginationActivity(ProgramMetadata programMetadata, ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>? logger)
+    parameters:
+    - id: programMetadata
+      type: Songhay.Models.ProgramMetadata
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity}
+    content.vb: Public Sub New(programMetadata As ProgramMetadata, logger As ILogger(Of AmazonS3ListBucketObjectsWithPaginationActivity))
+  overload: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.#ctor*
+  nameWithType.vb: AmazonS3ListBucketObjectsWithPaginationActivity.New(ProgramMetadata, ILogger(Of AmazonS3ListBucketObjectsWithPaginationActivity))
+  fullName.vb: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.New(Songhay.Models.ProgramMetadata, Microsoft.Extensions.Logging.ILogger(Of Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity))
+  name.vb: New(ProgramMetadata, ILogger(Of AmazonS3ListBucketObjectsWithPaginationActivity))
+- uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)
+  commentId: M:Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)
+  id: StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)
+  parent: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+  langs:
+  - csharp
+  - vb
+  name: StartAsync(StorageActivityInput?, CancellationToken)
+  nameWithType: AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync(StorageActivityInput?, CancellationToken)
+  fullName: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync(Songhay.Models.StorageActivityInput?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore.S3/Activities/AmazonS3ListBucketObjectsWithPaginationActivity.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: StartAsync
+    path: ../SonghayCore.S3/Activities/AmazonS3ListBucketObjectsWithPaginationActivity.cs
+    startLine: 10
+  assemblies:
+  - SonghayCore.S3
+  namespace: Songhay.S3.Activities
+  example: []
+  syntax:
+    content: public Task<EndpointContentResult<IReadOnlyCollection<StorageObject>>> StartAsync(StorageActivityInput? input, CancellationToken cancellationToken)
+    parameters:
+    - id: input
+      type: Songhay.Models.StorageActivityInput
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}
+    content.vb: Public Function StartAsync(input As StorageActivityInput, cancellationToken As CancellationToken) As Task(Of EndpointContentResult(Of IReadOnlyCollection(Of StorageObject)))
+  overload: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync*
+  implements:
+  - Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)
+  nameWithType.vb: AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync(StorageActivityInput, CancellationToken)
+  fullName.vb: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync(Songhay.Models.StorageActivityInput, System.Threading.CancellationToken)
+  name.vb: StartAsync(StorageActivityInput, CancellationToken)
+references:
+- uid: Amazon.S3.Model.S3Object
+  commentId: T:Amazon.S3.Model.S3Object
+  parent: Amazon.S3.Model
+  isExternal: true
+  name: S3Object
+  nameWithType: S3Object
+  fullName: Amazon.S3.Model.S3Object
+- uid: Amazon.S3.Model.S3Bucket
+  commentId: T:Amazon.S3.Model.S3Bucket
+  isExternal: true
+  name: S3Bucket
+  nameWithType: S3Bucket
+  fullName: Amazon.S3.Model.S3Bucket
+- uid: Songhay.S3.Activities
+  commentId: N:Songhay.S3.Activities
+  href: Songhay.html
+  name: Songhay.S3.Activities
+  nameWithType: Songhay.S3.Activities
+  fullName: Songhay.S3.Activities
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.S3
+    name: S3
+    href: Songhay.S3.html
+  - name: .
+  - uid: Songhay.S3.Activities
+    name: Activities
+    href: Songhay.S3.Activities.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.S3
+    name: S3
+    href: Songhay.S3.html
+  - name: .
+  - uid: Songhay.S3.Activities
+    name: Activities
+    href: Songhay.S3.Activities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}
+  commentId: T:Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}
+  parent: Songhay.Abstractions
+  definition: Songhay.Abstractions.IActivityTask`2
+  href: Songhay.Abstractions.IActivityTask-2.html
+  name: IActivityTask<StorageActivityInput, EndpointContentResult<IReadOnlyCollection<StorageObject>>>
+  nameWithType: IActivityTask<StorageActivityInput, EndpointContentResult<IReadOnlyCollection<StorageObject>>>
+  fullName: Songhay.Abstractions.IActivityTask<Songhay.Models.StorageActivityInput, Songhay.Models.EndpointContentResult<System.Collections.Generic.IReadOnlyCollection<Songhay.Models.StorageObject>>>
+  nameWithType.vb: IActivityTask(Of StorageActivityInput, EndpointContentResult(Of IReadOnlyCollection(Of StorageObject)))
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of Songhay.Models.StorageActivityInput, Songhay.Models.EndpointContentResult(Of System.Collections.Generic.IReadOnlyCollection(Of Songhay.Models.StorageObject)))
+  name.vb: IActivityTask(Of StorageActivityInput, EndpointContentResult(Of IReadOnlyCollection(Of StorageObject)))
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.EndpointContentResult`1
+    name: EndpointContentResult
+    href: Songhay.Models.EndpointContentResult-1.html
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: Songhay.Models.StorageObject
+    name: StorageObject
+    href: Songhay.Models.StorageObject.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.EndpointContentResult`1
+    name: EndpointContentResult
+    href: Songhay.Models.EndpointContentResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageObject
+    name: StorageObject
+    href: Songhay.Models.StorageObject.html
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<AmazonS3ListBucketObjectsWithPaginationActivity>(AmazonS3ListBucketObjectsWithPaginationActivity)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<AmazonS3ListBucketObjectsWithPaginationActivity>(AmazonS3ListBucketObjectsWithPaginationActivity)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity>(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of AmazonS3ListBucketObjectsWithPaginationActivity)(AmazonS3ListBucketObjectsWithPaginationActivity)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)
+  name.vb: IsAssignableToISerializable(Of AmazonS3ListBucketObjectsWithPaginationActivity)(AmazonS3ListBucketObjectsWithPaginationActivity)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: )
+  - name: (
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: )
+- uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<AmazonS3ListBucketObjectsWithPaginationActivity>(AmazonS3ListBucketObjectsWithPaginationActivity)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<AmazonS3ListBucketObjectsWithPaginationActivity>(AmazonS3ListBucketObjectsWithPaginationActivity)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity>(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of AmazonS3ListBucketObjectsWithPaginationActivity)(AmazonS3ListBucketObjectsWithPaginationActivity)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)
+  name.vb: ToObjectOrDbNull(Of AmazonS3ListBucketObjectsWithPaginationActivity)(AmazonS3ListBucketObjectsWithPaginationActivity)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: )
+  - name: (
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: )
+- uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<AmazonS3ListBucketObjectsWithPaginationActivity>(AmazonS3ListBucketObjectsWithPaginationActivity, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<AmazonS3ListBucketObjectsWithPaginationActivity>(AmazonS3ListBucketObjectsWithPaginationActivity, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity>(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of AmazonS3ListBucketObjectsWithPaginationActivity)(AmazonS3ListBucketObjectsWithPaginationActivity, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of AmazonS3ListBucketObjectsWithPaginationActivity)(AmazonS3ListBucketObjectsWithPaginationActivity, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: )
+  - name: (
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Amazon.S3.Model
+  commentId: N:Amazon.S3.Model
+  isExternal: true
+  name: Amazon.S3.Model
+  nameWithType: Amazon.S3.Model
+  fullName: Amazon.S3.Model
+  spec.csharp:
+  - uid: Amazon
+    name: Amazon
+    isExternal: true
+  - name: .
+  - uid: Amazon.S3
+    name: S3
+    isExternal: true
+  - name: .
+  - uid: Amazon.S3.Model
+    name: Model
+    isExternal: true
+  spec.vb:
+  - uid: Amazon
+    name: Amazon
+    isExternal: true
+  - name: .
+  - uid: Amazon.S3
+    name: S3
+    isExternal: true
+  - name: .
+  - uid: Amazon.S3.Model
+    name: Model
+    isExternal: true
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Abstractions.IActivityTask`2
+  commentId: T:Songhay.Abstractions.IActivityTask`2
+  href: Songhay.Abstractions.IActivityTask-2.html
+  name: IActivityTask<TInput, TOutput>
+  nameWithType: IActivityTask<TInput, TOutput>
+  fullName: Songhay.Abstractions.IActivityTask<TInput, TOutput>
+  nameWithType.vb: IActivityTask(Of TInput, TOutput)
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput, TOutput)
+  name.vb: IActivityTask(Of TInput, TOutput)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: )
+- uid: Songhay.Abstractions
+  commentId: N:Songhay.Abstractions
+  href: Songhay.html
+  name: Songhay.Abstractions
+  nameWithType: Songhay.Abstractions
+  fullName: Songhay.Abstractions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.#ctor*
+  commentId: Overload:Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.#ctor
+  href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html#Songhay_S3_Activities_AmazonS3ListBucketObjectsWithPaginationActivity__ctor_Songhay_Models_ProgramMetadata_Microsoft_Extensions_Logging_ILogger_Songhay_S3_Activities_AmazonS3ListBucketObjectsWithPaginationActivity__
+  name: AmazonS3ListBucketObjectsWithPaginationActivity
+  nameWithType: AmazonS3ListBucketObjectsWithPaginationActivity.AmazonS3ListBucketObjectsWithPaginationActivity
+  fullName: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.AmazonS3ListBucketObjectsWithPaginationActivity
+  nameWithType.vb: AmazonS3ListBucketObjectsWithPaginationActivity.New
+  fullName.vb: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.New
+  name.vb: New
+- uid: Songhay.Models.ProgramMetadata
+  commentId: T:Songhay.Models.ProgramMetadata
+  parent: Songhay.Models
+  href: Songhay.Models.ProgramMetadata.html
+  name: ProgramMetadata
+  nameWithType: ProgramMetadata
+  fullName: Songhay.Models.ProgramMetadata
+- uid: Microsoft.Extensions.Logging.ILogger{Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>
+  nameWithType: ILogger<AmazonS3ListBucketObjectsWithPaginationActivity>
+  fullName: Microsoft.Extensions.Logging.ILogger<Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity>
+  nameWithType.vb: ILogger(Of AmazonS3ListBucketObjectsWithPaginationActivity)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity)
+  name.vb: ILogger(Of AmazonS3ListBucketObjectsWithPaginationActivity)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+    name: AmazonS3ListBucketObjectsWithPaginationActivity
+    href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html
+  - name: )
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync*
+  commentId: Overload:Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync
+  href: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.html#Songhay_S3_Activities_AmazonS3ListBucketObjectsWithPaginationActivity_StartAsync_Songhay_Models_StorageActivityInput_System_Threading_CancellationToken_
+  name: StartAsync
+  nameWithType: AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync
+  fullName: Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity.StartAsync
+- uid: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)
+  commentId: M:Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)
+  parent: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}
+  definition: Songhay.Abstractions.IActivityTask`2.StartAsync(`0,System.Threading.CancellationToken)
+  href: Songhay.Abstractions.IActivityTask-2.html#Songhay_Abstractions_IActivityTask_2_StartAsync__0_System_Threading_CancellationToken_
+  name: StartAsync(StorageActivityInput, CancellationToken)
+  nameWithType: IActivityTask<StorageActivityInput, EndpointContentResult<IReadOnlyCollection<StorageObject>>>.StartAsync(StorageActivityInput, CancellationToken)
+  fullName: Songhay.Abstractions.IActivityTask<Songhay.Models.StorageActivityInput, Songhay.Models.EndpointContentResult<System.Collections.Generic.IReadOnlyCollection<Songhay.Models.StorageObject>>>.StartAsync(Songhay.Models.StorageActivityInput, System.Threading.CancellationToken)
+  nameWithType.vb: IActivityTask(Of StorageActivityInput, EndpointContentResult(Of IReadOnlyCollection(Of StorageObject))).StartAsync(StorageActivityInput, CancellationToken)
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of Songhay.Models.StorageActivityInput, Songhay.Models.EndpointContentResult(Of System.Collections.Generic.IReadOnlyCollection(Of Songhay.Models.StorageObject))).StartAsync(Songhay.Models.StorageActivityInput, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)
+    name: StartAsync
+    href: Songhay.Abstractions.IActivityTask-2.html#Songhay_Abstractions_IActivityTask_2_StartAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}.StartAsync(Songhay.Models.StorageActivityInput,System.Threading.CancellationToken)
+    name: StartAsync
+    href: Songhay.Abstractions.IActivityTask-2.html#Songhay_Abstractions_IActivityTask_2_StartAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Songhay.Models.StorageActivityInput
+  commentId: T:Songhay.Models.StorageActivityInput
+  parent: Songhay.Models
+  href: Songhay.Models.StorageActivityInput.html
+  name: StorageActivityInput
+  nameWithType: StorageActivityInput
+  fullName: Songhay.Models.StorageActivityInput
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}
+  commentId: T:System.Threading.Tasks.Task{Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<EndpointContentResult<IReadOnlyCollection<StorageObject>>>
+  nameWithType: Task<EndpointContentResult<IReadOnlyCollection<StorageObject>>>
+  fullName: System.Threading.Tasks.Task<Songhay.Models.EndpointContentResult<System.Collections.Generic.IReadOnlyCollection<Songhay.Models.StorageObject>>>
+  nameWithType.vb: Task(Of EndpointContentResult(Of IReadOnlyCollection(Of StorageObject)))
+  fullName.vb: System.Threading.Tasks.Task(Of Songhay.Models.EndpointContentResult(Of System.Collections.Generic.IReadOnlyCollection(Of Songhay.Models.StorageObject)))
+  name.vb: Task(Of EndpointContentResult(Of IReadOnlyCollection(Of StorageObject)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Songhay.Models.EndpointContentResult`1
+    name: EndpointContentResult
+    href: Songhay.Models.EndpointContentResult-1.html
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: Songhay.Models.StorageObject
+    name: StorageObject
+    href: Songhay.Models.StorageObject.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.EndpointContentResult`1
+    name: EndpointContentResult
+    href: Songhay.Models.EndpointContentResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageObject
+    name: StorageObject
+    href: Songhay.Models.StorageObject.html
+  - name: )
+  - name: )
+  - name: )
+- uid: Songhay.Abstractions.IActivityTask`2.StartAsync(`0,System.Threading.CancellationToken)
+  commentId: M:Songhay.Abstractions.IActivityTask`2.StartAsync(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: Songhay.Abstractions.IActivityTask-2.html#Songhay_Abstractions_IActivityTask_2_StartAsync__0_System_Threading_CancellationToken_
+  name: StartAsync(TInput, CancellationToken)
+  nameWithType: IActivityTask<TInput, TOutput>.StartAsync(TInput, CancellationToken)
+  fullName: Songhay.Abstractions.IActivityTask<TInput, TOutput>.StartAsync(TInput, System.Threading.CancellationToken)
+  nameWithType.vb: IActivityTask(Of TInput, TOutput).StartAsync(TInput, CancellationToken)
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput, TOutput).StartAsync(TInput, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityTask`2.StartAsync(`0,System.Threading.CancellationToken)
+    name: StartAsync
+    href: Songhay.Abstractions.IActivityTask-2.html#Songhay_Abstractions_IActivityTask_2_StartAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: TInput
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityTask`2.StartAsync(`0,System.Threading.CancellationToken)
+    name: StartAsync
+    href: Songhay.Abstractions.IActivityTask-2.html#Songhay_Abstractions_IActivityTask_2_StartAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: TInput
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

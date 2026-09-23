@@ -19,6 +19,9 @@ items:
   - Songhay.Extensions.DateTimeExtensions.October(System.Int32,System.Int32)
   - Songhay.Extensions.DateTimeExtensions.September(System.Int32,System.Int32)
   - Songhay.Extensions.DateTimeExtensions.ToIso8601String(System.DateTime)
+  - Songhay.Extensions.DateTimeExtensions.ToIso8601String(System.DateTime,System.Boolean)
+  - Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime)
+  - Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime,System.Boolean)
   langs:
   - csharp
   - vb
@@ -127,15 +130,16 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToIso8601String
     path: ../SonghayCore/Extensions/DateTimeExtensions.cs
-    startLine: 34
+    startLine: 32
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
   summary: >-
     Converts the specified <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
 
-    to the JSON-friendly ISO_8601 text format.
-  remarks: "\U0001F4D6 https://en.wikipedia.org/wiki/ISO_8601"
+    to the JSON-friendly ISO_8601 text format
+
+    without milliseconds.
   example: []
   syntax:
     content: public static string ToIso8601String(this DateTime dateTime)
@@ -150,6 +154,139 @@ items:
   nameWithType.vb: DateTimeExtensions.ToIso8601String(Date)
   fullName.vb: Songhay.Extensions.DateTimeExtensions.ToIso8601String(Date)
   name.vb: ToIso8601String(Date)
+- uid: Songhay.Extensions.DateTimeExtensions.ToIso8601String(System.DateTime,System.Boolean)
+  commentId: M:Songhay.Extensions.DateTimeExtensions.ToIso8601String(System.DateTime,System.Boolean)
+  id: ToIso8601String(System.DateTime,System.Boolean)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.DateTimeExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToIso8601String(DateTime, bool)
+  nameWithType: DateTimeExtensions.ToIso8601String(DateTime, bool)
+  fullName: Songhay.Extensions.DateTimeExtensions.ToIso8601String(System.DateTime, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/DateTimeExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToIso8601String
+    path: ../SonghayCore/Extensions/DateTimeExtensions.cs
+    startLine: 44
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+
+    to the JSON-friendly ISO_8601 text format.
+  remarks: "\U0001F4D6 https://en.wikipedia.org/wiki/ISO_8601"
+  example: []
+  syntax:
+    content: public static string ToIso8601String(this DateTime dateTime, bool includeTimeMilliseconds)
+    parameters:
+    - id: dateTime
+      type: System.DateTime
+      description: the <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+    - id: includeTimeMilliseconds
+      type: System.Boolean
+      description: when <code>true</code>, increase resolution to include milliseconds
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToIso8601String(dateTime As Date, includeTimeMilliseconds As Boolean) As String
+  overload: Songhay.Extensions.DateTimeExtensions.ToIso8601String*
+  nameWithType.vb: DateTimeExtensions.ToIso8601String(Date, Boolean)
+  fullName.vb: Songhay.Extensions.DateTimeExtensions.ToIso8601String(Date, Boolean)
+  name.vb: ToIso8601String(Date, Boolean)
+- uid: Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime)
+  commentId: M:Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime)
+  id: ToIso8601UtcString(System.DateTime)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.DateTimeExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToIso8601UtcString(DateTime)
+  nameWithType: DateTimeExtensions.ToIso8601UtcString(DateTime)
+  fullName: Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/DateTimeExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToIso8601UtcString
+    path: ../SonghayCore/Extensions/DateTimeExtensions.cs
+    startLine: 63
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+
+    to the JSON-friendly ISO_8601 text format for UTC (a trailing <code>Z</code>)
+
+    without milliseconds.
+  example: []
+  syntax:
+    content: public static string ToIso8601UtcString(this DateTime dateTime)
+    parameters:
+    - id: dateTime
+      type: System.DateTime
+      description: the <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToIso8601UtcString(dateTime As Date) As String
+  overload: Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString*
+  nameWithType.vb: DateTimeExtensions.ToIso8601UtcString(Date)
+  fullName.vb: Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(Date)
+  name.vb: ToIso8601UtcString(Date)
+- uid: Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime,System.Boolean)
+  commentId: M:Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime,System.Boolean)
+  id: ToIso8601UtcString(System.DateTime,System.Boolean)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.DateTimeExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToIso8601UtcString(DateTime, bool)
+  nameWithType: DateTimeExtensions.ToIso8601UtcString(DateTime, bool)
+  fullName: Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(System.DateTime, bool)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/DateTimeExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToIso8601UtcString
+    path: ../SonghayCore/Extensions/DateTimeExtensions.cs
+    startLine: 75
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Converts the specified <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+
+    to the JSON-friendly ISO_8601 text format for UTC (a trailing <code>Z</code>).
+  remarks: "\U0001F4D6 https://en.wikipedia.org/wiki/ISO_8601"
+  example: []
+  syntax:
+    content: public static string ToIso8601UtcString(this DateTime dateTime, bool includeTimeMilliseconds)
+    parameters:
+    - id: dateTime
+      type: System.DateTime
+      description: the <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+    - id: includeTimeMilliseconds
+      type: System.Boolean
+      description: when <code>true</code>, increase resolution to include milliseconds
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToIso8601UtcString(dateTime As Date, includeTimeMilliseconds As Boolean) As String
+  overload: Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString*
+  nameWithType.vb: DateTimeExtensions.ToIso8601UtcString(Date, Boolean)
+  fullName.vb: Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString(Date, Boolean)
+  name.vb: ToIso8601UtcString(Date, Boolean)
 - uid: Songhay.Extensions.DateTimeExtensions.January(System.Int32,System.Int32)
   commentId: M:Songhay.Extensions.DateTimeExtensions.January(System.Int32,System.Int32)
   id: January(System.Int32,System.Int32)
@@ -956,6 +1093,23 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString*
+  commentId: Overload:Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString
+  href: Songhay.Extensions.DateTimeExtensions.html#Songhay_Extensions_DateTimeExtensions_ToIso8601UtcString_System_DateTime_
+  name: ToIso8601UtcString
+  nameWithType: DateTimeExtensions.ToIso8601UtcString
+  fullName: Songhay.Extensions.DateTimeExtensions.ToIso8601UtcString
 - uid: Songhay.Extensions.DateTimeExtensions.January*
   commentId: Overload:Songhay.Extensions.DateTimeExtensions.January
   href: Songhay.Extensions.DateTimeExtensions.html#Songhay_Extensions_DateTimeExtensions_January_System_Int32_System_Int32_

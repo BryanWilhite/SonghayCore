@@ -1,0 +1,928 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+  commentId: T:Songhay.Web.Models.ApiKeyAuthenticationOptions
+  id: ApiKeyAuthenticationOptions
+  parent: Songhay.Web.Models
+  children:
+  - Songhay.Web.Models.ApiKeyAuthenticationOptions.DefaultScheme
+  - Songhay.Web.Models.ApiKeyAuthenticationOptions.HeaderName
+  langs:
+  - csharp
+  - vb
+  name: ApiKeyAuthenticationOptions
+  nameWithType: ApiKeyAuthenticationOptions
+  fullName: Songhay.Web.Models.ApiKeyAuthenticationOptions
+  type: Class
+  source:
+    remote:
+      path: SonghayCore.Web/Models/ApiKeyAuthenticationOptions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ApiKeyAuthenticationOptions
+    path: ../SonghayCore.Web/Models/ApiKeyAuthenticationOptions.cs
+    startLine: 20
+  assemblies:
+  - SonghayCore.Web
+  namespace: Songhay.Web.Models
+  summary: >-
+    Extends <xref href="Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions" data-throw-if-not-resolved="false"></xref>
+
+    to define concepts for API-key authentication.
+  remarks: >-
+    <p>
+
+    “Subclassing `AuthenticationSchemeOptions` is the standard pattern.
+
+    The constants live alongside
+
+    so I can reference `ApiKeyAuthenticationOptions.DefaultScheme`
+
+    instead of magic strings.”
+
+    </p>
+
+    <p>
+
+    — Mukesh Murugan, [ https://codewithmukesh.com/blog/api-key-authentication-aspnet-core ]
+
+    </p>
+  example: []
+  syntax:
+    content: 'public sealed class ApiKeyAuthenticationOptions : AuthenticationSchemeOptions'
+    content.vb: Public NotInheritable Class ApiKeyAuthenticationOptions Inherits AuthenticationSchemeOptions
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  inheritedMembers:
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate(System.String)
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ClaimsIssuer
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Events
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.EventsType
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardDefault
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardAuthenticate
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardChallenge
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardForbid
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardSignIn
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardSignOut
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardDefaultSelector
+  - Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.TimeProvider
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Songhay.Web.Models.ApiKeyAuthenticationOptions.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Web.Models.ApiKeyAuthenticationOptions.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Web.Models.ApiKeyAuthenticationOptions.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+- uid: Songhay.Web.Models.ApiKeyAuthenticationOptions.DefaultScheme
+  commentId: F:Songhay.Web.Models.ApiKeyAuthenticationOptions.DefaultScheme
+  id: DefaultScheme
+  parent: Songhay.Web.Models.ApiKeyAuthenticationOptions
+  langs:
+  - csharp
+  - vb
+  name: DefaultScheme
+  nameWithType: ApiKeyAuthenticationOptions.DefaultScheme
+  fullName: Songhay.Web.Models.ApiKeyAuthenticationOptions.DefaultScheme
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.Web/Models/ApiKeyAuthenticationOptions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: DefaultScheme
+    path: ../SonghayCore.Web/Models/ApiKeyAuthenticationOptions.cs
+    startLine: 27
+  assemblies:
+  - SonghayCore.Web
+  namespace: Songhay.Web.Models
+  summary: >-
+    Specifies the name of the scheme to use by default
+
+    when a specific scheme isn't requested
+
+    for <xref href="Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public const string DefaultScheme = "ApiKey"
+    return:
+      type: System.String
+    content.vb: Public Const DefaultScheme As String = "ApiKey"
+- uid: Songhay.Web.Models.ApiKeyAuthenticationOptions.HeaderName
+  commentId: F:Songhay.Web.Models.ApiKeyAuthenticationOptions.HeaderName
+  id: HeaderName
+  parent: Songhay.Web.Models.ApiKeyAuthenticationOptions
+  langs:
+  - csharp
+  - vb
+  name: HeaderName
+  nameWithType: ApiKeyAuthenticationOptions.HeaderName
+  fullName: Songhay.Web.Models.ApiKeyAuthenticationOptions.HeaderName
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.Web/Models/ApiKeyAuthenticationOptions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HeaderName
+    path: ../SonghayCore.Web/Models/ApiKeyAuthenticationOptions.cs
+    startLine: 48
+  assemblies:
+  - SonghayCore.Web
+  namespace: Songhay.Web.Models
+  summary: The conventional HTTP header name for API-key authentication.
+  remarks: >-
+    <p>
+
+    “The de-facto header name is X-API-Key.
+
+    It is not a formal HTTP standard - the X- prefix
+
+    was actually deprecated by RFC 6648 -
+
+    but it has become the convention because
+
+    of widespread adoption
+
+    (AWS API Gateway, GitHub before tokens, most webhook providers).
+
+    Some APIs use the Authorization header
+
+    with a custom scheme like Authorization: ApiKey <code>{key}</code>.
+
+    Both work; pick one and stick with it.”
+
+    </p>
+
+    <p>
+
+    — Mukesh Murugan, [ https://codewithmukesh.com/blog/api-key-authentication-aspnet-core/ ]
+
+    </p>
+  example: []
+  syntax:
+    content: public const string HeaderName = "X-API-Key"
+    return:
+      type: System.String
+    content.vb: Public Const HeaderName As String = "X-API-Key"
+references:
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  commentId: T:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  parent: Microsoft.AspNetCore.Authentication
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions
+  name: AuthenticationSchemeOptions
+  nameWithType: AuthenticationSchemeOptions
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+- uid: Songhay.Web.Models
+  commentId: N:Songhay.Web.Models
+  href: Songhay.html
+  name: Songhay.Web.Models
+  nameWithType: Songhay.Web.Models
+  fullName: Songhay.Web.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Web
+    name: Web
+    href: Songhay.Web.html
+  - name: .
+  - uid: Songhay.Web.Models
+    name: Models
+    href: Songhay.Web.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Web
+    name: Web
+    href: Songhay.Web.html
+  - name: .
+  - uid: Songhay.Web.Models
+    name: Models
+    href: Songhay.Web.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.validate#microsoft-aspnetcore-authentication-authenticationschemeoptions-validate
+  name: Validate()
+  nameWithType: AuthenticationSchemeOptions.Validate()
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate
+    name: Validate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.validate#microsoft-aspnetcore-authentication-authenticationschemeoptions-validate
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate
+    name: Validate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.validate#microsoft-aspnetcore-authentication-authenticationschemeoptions-validate
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate(System.String)
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate(System.String)
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.validate#microsoft-aspnetcore-authentication-authenticationschemeoptions-validate(system-string)
+  name: Validate(string)
+  nameWithType: AuthenticationSchemeOptions.Validate(string)
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate(string)
+  nameWithType.vb: AuthenticationSchemeOptions.Validate(String)
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate(String)
+  name.vb: Validate(String)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate(System.String)
+    name: Validate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.validate#microsoft-aspnetcore-authentication-authenticationschemeoptions-validate(system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Validate(System.String)
+    name: Validate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.validate#microsoft-aspnetcore-authentication-authenticationschemeoptions-validate(system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ClaimsIssuer
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ClaimsIssuer
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.claimsissuer
+  name: ClaimsIssuer
+  nameWithType: AuthenticationSchemeOptions.ClaimsIssuer
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ClaimsIssuer
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Events
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Events
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.events
+  name: Events
+  nameWithType: AuthenticationSchemeOptions.Events
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.Events
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.EventsType
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.EventsType
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.eventstype
+  name: EventsType
+  nameWithType: AuthenticationSchemeOptions.EventsType
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.EventsType
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardDefault
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardDefault
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.forwarddefault
+  name: ForwardDefault
+  nameWithType: AuthenticationSchemeOptions.ForwardDefault
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardDefault
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardAuthenticate
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardAuthenticate
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.forwardauthenticate
+  name: ForwardAuthenticate
+  nameWithType: AuthenticationSchemeOptions.ForwardAuthenticate
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardAuthenticate
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardChallenge
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardChallenge
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.forwardchallenge
+  name: ForwardChallenge
+  nameWithType: AuthenticationSchemeOptions.ForwardChallenge
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardChallenge
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardForbid
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardForbid
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.forwardforbid
+  name: ForwardForbid
+  nameWithType: AuthenticationSchemeOptions.ForwardForbid
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardForbid
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardSignIn
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardSignIn
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.forwardsignin
+  name: ForwardSignIn
+  nameWithType: AuthenticationSchemeOptions.ForwardSignIn
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardSignIn
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardSignOut
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardSignOut
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.forwardsignout
+  name: ForwardSignOut
+  nameWithType: AuthenticationSchemeOptions.ForwardSignOut
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardSignOut
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardDefaultSelector
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardDefaultSelector
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.forwarddefaultselector
+  name: ForwardDefaultSelector
+  nameWithType: AuthenticationSchemeOptions.ForwardDefaultSelector
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ForwardDefaultSelector
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.TimeProvider
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.TimeProvider
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.timeprovider
+  name: TimeProvider
+  nameWithType: AuthenticationSchemeOptions.TimeProvider
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.TimeProvider
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Web.Models.ApiKeyAuthenticationOptions.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<ApiKeyAuthenticationOptions>(ApiKeyAuthenticationOptions)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<ApiKeyAuthenticationOptions>(ApiKeyAuthenticationOptions)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Web.Models.ApiKeyAuthenticationOptions>(Songhay.Web.Models.ApiKeyAuthenticationOptions)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of ApiKeyAuthenticationOptions)(ApiKeyAuthenticationOptions)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Web.Models.ApiKeyAuthenticationOptions)(Songhay.Web.Models.ApiKeyAuthenticationOptions)
+  name.vb: IsAssignableToISerializable(Of ApiKeyAuthenticationOptions)(ApiKeyAuthenticationOptions)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Web.Models.ApiKeyAuthenticationOptions)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Web.Models.ApiKeyAuthenticationOptions)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: )
+  - name: (
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: )
+- uid: Songhay.Web.Models.ApiKeyAuthenticationOptions.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<ApiKeyAuthenticationOptions>(ApiKeyAuthenticationOptions)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<ApiKeyAuthenticationOptions>(ApiKeyAuthenticationOptions)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Web.Models.ApiKeyAuthenticationOptions>(Songhay.Web.Models.ApiKeyAuthenticationOptions)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of ApiKeyAuthenticationOptions)(ApiKeyAuthenticationOptions)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Web.Models.ApiKeyAuthenticationOptions)(Songhay.Web.Models.ApiKeyAuthenticationOptions)
+  name.vb: ToObjectOrDbNull(Of ApiKeyAuthenticationOptions)(ApiKeyAuthenticationOptions)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Web.Models.ApiKeyAuthenticationOptions)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Web.Models.ApiKeyAuthenticationOptions)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: )
+  - name: (
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: )
+- uid: Songhay.Web.Models.ApiKeyAuthenticationOptions.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<ApiKeyAuthenticationOptions>(ApiKeyAuthenticationOptions, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<ApiKeyAuthenticationOptions>(ApiKeyAuthenticationOptions, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Web.Models.ApiKeyAuthenticationOptions>(Songhay.Web.Models.ApiKeyAuthenticationOptions, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of ApiKeyAuthenticationOptions)(ApiKeyAuthenticationOptions, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Web.Models.ApiKeyAuthenticationOptions)(Songhay.Web.Models.ApiKeyAuthenticationOptions, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of ApiKeyAuthenticationOptions)(ApiKeyAuthenticationOptions, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Web.Models.ApiKeyAuthenticationOptions,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Web.Models.ApiKeyAuthenticationOptions,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: )
+  - name: (
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication
+  commentId: N:Microsoft.AspNetCore.Authentication
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Authentication
+  nameWithType: Microsoft.AspNetCore.Authentication
+  fullName: Microsoft.AspNetCore.Authentication
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Authentication
+    name: Authentication
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Authentication
+    name: Authentication
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)
+  commentId: M:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.authenticationservicecollectionextensions.addauthentication#microsoft-extensions-dependencyinjection-authenticationservicecollectionextensions-addauthentication(microsoft-extensions-dependencyinjection-iservicecollection-system-string)
+  name: AddAuthentication(IServiceCollection, string)
+  nameWithType: AuthenticationServiceCollectionExtensions.AddAuthentication(IServiceCollection, string)
+  fullName: Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection, string)
+  nameWithType.vb: AuthenticationServiceCollectionExtensions.AddAuthentication(IServiceCollection, String)
+  fullName.vb: Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection, String)
+  name.vb: AddAuthentication(IServiceCollection, String)
+  spec.csharp:
+  - uid: Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)
+    name: AddAuthentication
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.authenticationservicecollectionextensions.addauthentication#microsoft-extensions-dependencyinjection-authenticationservicecollectionextensions-addauthentication(microsoft-extensions-dependencyinjection-iservicecollection-system-string)
+  - name: (
+  - uid: Microsoft.Extensions.DependencyInjection.IServiceCollection
+    name: IServiceCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)
+    name: AddAuthentication
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.authenticationservicecollectionextensions.addauthentication#microsoft-extensions-dependencyinjection-authenticationservicecollectionextensions-addauthentication(microsoft-extensions-dependencyinjection-iservicecollection-system-string)
+  - name: (
+  - uid: Microsoft.Extensions.DependencyInjection.IServiceCollection
+    name: IServiceCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

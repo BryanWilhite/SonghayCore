@@ -1,0 +1,578 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.ProgramMetadataUtility
+  commentId: T:Songhay.ProgramMetadataUtility
+  id: ProgramMetadataUtility
+  parent: Songhay
+  children:
+  - Songhay.ProgramMetadataUtility.GetJsonDeserializerOptions
+  - Songhay.ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment
+  - Songhay.ProgramMetadataUtility.GetProgramMetadataFromEnvironment
+  langs:
+  - csharp
+  - vb
+  name: ProgramMetadataUtility
+  nameWithType: ProgramMetadataUtility
+  fullName: Songhay.ProgramMetadataUtility
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/ProgramMetadataUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ProgramMetadataUtility
+    path: ../SonghayCore/ProgramMetadataUtility.cs
+    startLine: 10
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: Shared routines for <xref href="Songhay.Models.ProgramMetadata" data-throw-if-not-resolved="false"></xref>
+  remarks: This is the minimalist alternative to <xref href="Songhay.Extensions.IConfigurationBuilderExtensions.AddConventionalJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class ProgramMetadataUtility
+    content.vb: Public Module ProgramMetadataUtility
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.ProgramMetadataUtility.GetProgramMetadataFromEnvironment
+  commentId: M:Songhay.ProgramMetadataUtility.GetProgramMetadataFromEnvironment
+  id: GetProgramMetadataFromEnvironment
+  parent: Songhay.ProgramMetadataUtility
+  langs:
+  - csharp
+  - vb
+  name: GetProgramMetadataFromEnvironment()
+  nameWithType: ProgramMetadataUtility.GetProgramMetadataFromEnvironment()
+  fullName: Songhay.ProgramMetadataUtility.GetProgramMetadataFromEnvironment()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramMetadataUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetProgramMetadataFromEnvironment
+    path: ../SonghayCore/ProgramMetadataUtility.cs
+    startLine: 16
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Returns an instance of <xref href="Songhay.Models.ProgramMetadata" data-throw-if-not-resolved="false"></xref>
+
+    based on the presence of one of two conventional environment variables.
+  example: []
+  syntax:
+    content: public static ProgramMetadata? GetProgramMetadataFromEnvironment()
+    return:
+      type: Songhay.Models.ProgramMetadata
+    content.vb: Public Shared Function GetProgramMetadataFromEnvironment() As ProgramMetadata
+  overload: Songhay.ProgramMetadataUtility.GetProgramMetadataFromEnvironment*
+- uid: Songhay.ProgramMetadataUtility.GetJsonDeserializerOptions
+  commentId: M:Songhay.ProgramMetadataUtility.GetJsonDeserializerOptions
+  id: GetJsonDeserializerOptions
+  parent: Songhay.ProgramMetadataUtility
+  langs:
+  - csharp
+  - vb
+  name: GetJsonDeserializerOptions()
+  nameWithType: ProgramMetadataUtility.GetJsonDeserializerOptions()
+  fullName: Songhay.ProgramMetadataUtility.GetJsonDeserializerOptions()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramMetadataUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetJsonDeserializerOptions
+    path: ../SonghayCore/ProgramMetadataUtility.cs
+    startLine: 32
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Returns <xref href="System.Text.Json.JsonSerializerOptions" data-throw-if-not-resolved="false"></xref>
+
+    for <xref href="Songhay.Models.ProgramMetadata" data-throw-if-not-resolved="false"></xref>
+
+    with explicit serializer context(s)
+
+    for AOT compiled apps.
+  example: []
+  syntax:
+    content: public static JsonSerializerOptions GetJsonDeserializerOptions()
+    return:
+      type: System.Text.Json.JsonSerializerOptions
+    content.vb: Public Shared Function GetJsonDeserializerOptions() As JsonSerializerOptions
+  overload: Songhay.ProgramMetadataUtility.GetJsonDeserializerOptions*
+- uid: Songhay.ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment
+  commentId: M:Songhay.ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment
+  id: GetJsonForProgramMetadataFromEnvironment
+  parent: Songhay.ProgramMetadataUtility
+  langs:
+  - csharp
+  - vb
+  name: GetJsonForProgramMetadataFromEnvironment()
+  nameWithType: ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment()
+  fullName: Songhay.ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramMetadataUtility.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: GetJsonForProgramMetadataFromEnvironment
+    path: ../SonghayCore/ProgramMetadataUtility.cs
+    startLine: 59
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Returns a JSON string or <code>null</code>
+
+    based on the presence of one of two conventional environment variables.
+  remarks: >-
+    Of the two expected environment variables,
+
+    The one with the <code>_PATH</code> suffix should lead to JSON of the form:
+
+
+    <pre><code class="lang-csharp">{
+        "ProgramMetadata": { … }
+    }</code></pre>
+
+
+    …which conforms to <xref href="Microsoft.Extensions.Configuration.IConfiguration" data-throw-if-not-resolved="false"></xref> conventions.
+  example: []
+  syntax:
+    content: public static string? GetJsonForProgramMetadataFromEnvironment()
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetJsonForProgramMetadataFromEnvironment() As String
+  overload: Songhay.ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment*
+references:
+- uid: Songhay.Models.ProgramMetadata
+  commentId: T:Songhay.Models.ProgramMetadata
+  parent: Songhay.Models
+  href: Songhay.Models.ProgramMetadata.html
+  name: ProgramMetadata
+  nameWithType: ProgramMetadata
+  fullName: Songhay.Models.ProgramMetadata
+- uid: Songhay.Extensions.IConfigurationBuilderExtensions.AddConventionalJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)
+  commentId: M:Songhay.Extensions.IConfigurationBuilderExtensions.AddConventionalJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)
+  isExternal: true
+  href: Songhay.Extensions.IConfigurationBuilderExtensions.html#Songhay_Extensions_IConfigurationBuilderExtensions_AddConventionalJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_
+  name: AddConventionalJsonFile(IConfigurationBuilder)
+  nameWithType: IConfigurationBuilderExtensions.AddConventionalJsonFile(IConfigurationBuilder)
+  fullName: Songhay.Extensions.IConfigurationBuilderExtensions.AddConventionalJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)
+  spec.csharp:
+  - uid: Songhay.Extensions.IConfigurationBuilderExtensions.AddConventionalJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)
+    name: AddConventionalJsonFile
+    href: Songhay.Extensions.IConfigurationBuilderExtensions.html#Songhay_Extensions_IConfigurationBuilderExtensions_AddConventionalJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_
+  - name: (
+  - uid: Microsoft.Extensions.Configuration.IConfigurationBuilder
+    name: IConfigurationBuilder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.IConfigurationBuilderExtensions.AddConventionalJsonFile(Microsoft.Extensions.Configuration.IConfigurationBuilder)
+    name: AddConventionalJsonFile
+    href: Songhay.Extensions.IConfigurationBuilderExtensions.html#Songhay_Extensions_IConfigurationBuilderExtensions_AddConventionalJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_
+  - name: (
+  - uid: Microsoft.Extensions.Configuration.IConfigurationBuilder
+    name: IConfigurationBuilder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder
+  - name: )
+- uid: Songhay
+  commentId: N:Songhay
+  href: Songhay.html
+  name: Songhay
+  nameWithType: Songhay
+  fullName: Songhay
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.ProgramMetadataUtility.GetProgramMetadataFromEnvironment*
+  commentId: Overload:Songhay.ProgramMetadataUtility.GetProgramMetadataFromEnvironment
+  href: Songhay.ProgramMetadataUtility.html#Songhay_ProgramMetadataUtility_GetProgramMetadataFromEnvironment
+  name: GetProgramMetadataFromEnvironment
+  nameWithType: ProgramMetadataUtility.GetProgramMetadataFromEnvironment
+  fullName: Songhay.ProgramMetadataUtility.GetProgramMetadataFromEnvironment
+- uid: System.Text.Json.JsonSerializerOptions
+  commentId: T:System.Text.Json.JsonSerializerOptions
+  parent: System.Text.Json
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions
+  name: JsonSerializerOptions
+  nameWithType: JsonSerializerOptions
+  fullName: System.Text.Json.JsonSerializerOptions
+- uid: Songhay.ProgramMetadataUtility.GetJsonDeserializerOptions*
+  commentId: Overload:Songhay.ProgramMetadataUtility.GetJsonDeserializerOptions
+  href: Songhay.ProgramMetadataUtility.html#Songhay_ProgramMetadataUtility_GetJsonDeserializerOptions
+  name: GetJsonDeserializerOptions
+  nameWithType: ProgramMetadataUtility.GetJsonDeserializerOptions
+  fullName: Songhay.ProgramMetadataUtility.GetJsonDeserializerOptions
+- uid: System.Text.Json
+  commentId: N:System.Text.Json
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text.Json
+  nameWithType: System.Text.Json
+  fullName: System.Text.Json
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+- uid: Microsoft.Extensions.Configuration.IConfiguration
+  commentId: T:Microsoft.Extensions.Configuration.IConfiguration
+  parent: Microsoft.Extensions.Configuration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration
+  name: IConfiguration
+  nameWithType: IConfiguration
+  fullName: Microsoft.Extensions.Configuration.IConfiguration
+- uid: Songhay.ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment*
+  commentId: Overload:Songhay.ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment
+  href: Songhay.ProgramMetadataUtility.html#Songhay_ProgramMetadataUtility_GetJsonForProgramMetadataFromEnvironment
+  name: GetJsonForProgramMetadataFromEnvironment
+  nameWithType: ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment
+  fullName: Songhay.ProgramMetadataUtility.GetJsonForProgramMetadataFromEnvironment
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Microsoft.Extensions.Configuration
+  commentId: N:Microsoft.Extensions.Configuration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Configuration
+  nameWithType: Microsoft.Extensions.Configuration
+  fullName: Microsoft.Extensions.Configuration
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration

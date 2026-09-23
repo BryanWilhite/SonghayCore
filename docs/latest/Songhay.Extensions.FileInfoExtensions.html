@@ -317,11 +317,53 @@ The <code>fileAction</code> includes the line number and the current line.</p>
 
 
 
+  <a id="Songhay_Extensions_FileInfoExtensions_ToStorageObject_" data-uid="Songhay.Extensions.FileInfoExtensions.ToStorageObject*"></a>
+
+  <h3 id="Songhay_Extensions_FileInfoExtensions_ToStorageObject_System_IO_FileInfo_System_IO_DirectoryInfo_" data-uid="Songhay.Extensions.FileInfoExtensions.ToStorageObject(System.IO.FileInfo,System.IO.DirectoryInfo)">
+  ToStorageObject(FileInfo?, DirectoryInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/FileInfoExtensions.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a>
+into <a class="xref" href="Songhay.Models.StorageObject.html">StorageObject</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StorageObject? ToStorageObject(this FileInfo? fileInfo, DirectoryInfo bucketDirectory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fileInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a></dt>
+    <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a></p>
+</dd>
+    <dt><code>bucketDirectory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.directoryinfo">DirectoryInfo</a></dt>
+    <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.directoryinfo">DirectoryInfo</a> representing/mirroring the S3 bucket</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Songhay.Models.StorageObject.html">StorageObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Songhay_Extensions_FileInfoExtensions_UseZipArchive_" data-uid="Songhay.Extensions.FileInfoExtensions.UseZipArchive*"></a>
 
   <h3 id="Songhay_Extensions_FileInfoExtensions_UseZipArchive_System_IO_FileInfo_System_Action_System_IO_Compression_ZipArchive__" data-uid="Songhay.Extensions.FileInfoExtensions.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})">
   UseZipArchive(FileInfo, Action&lt;ZipArchive?&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/FileInfoExtensions.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/FileInfoExtensions.cs/#L86"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Centralizes the use of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchive">ZipArchive</a></p>
@@ -335,9 +377,11 @@ The <code>fileAction</code> includes the line number and the current line.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>archiveInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a></dt>
-    <dd></dd>
+    <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a></p>
+</dd>
     <dt><code>archiveAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchive">ZipArchive</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>the action to perform on the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchive">ZipArchive</a></p>
+</dd>
   </dl>
 
 
@@ -355,7 +399,7 @@ The <code>fileAction</code> includes the line number and the current line.</p>
 
   <h3 id="Songhay_Extensions_FileInfoExtensions_UseZipArchiveEntries_System_IO_FileInfo_System_Action_System_Collections_ObjectModel_ReadOnlyCollection_System_IO_Compression_ZipArchiveEntry___" data-uid="Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
   UseZipArchiveEntries(FileInfo, Action&lt;ReadOnlyCollection&lt;ZipArchiveEntry&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/FileInfoExtensions.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/FileInfoExtensions.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Centralizes the use of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1">ReadOnlyCollection&lt;T&gt;</a>.</p>
@@ -369,9 +413,11 @@ The <code>fileAction</code> includes the line number and the current line.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>archiveInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a></dt>
-    <dd></dd>
+    <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a></p>
+</dd>
     <dt><code>entriesAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1">ReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry">ZipArchiveEntry</a>&gt;&gt;</dt>
-    <dd></dd>
+    <dd><p>the action to perform on the collection of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry">ZipArchiveEntry</a></p>
+</dd>
   </dl>
 
 
@@ -389,7 +435,7 @@ The <code>fileAction</code> includes the line number and the current line.</p>
 
   <h3 id="Songhay_Extensions_FileInfoExtensions_UseZipArchiveEntries_System_IO_FileInfo_System_Action_System_Collections_ObjectModel_ReadOnlyCollection_System_IO_Compression_ZipArchiveEntry___System_Func_System_Collections_ObjectModel_ReadOnlyCollection_System_IO_Compression_ZipArchiveEntry__System_Collections_ObjectModel_ReadOnlyCollection_System_IO_Compression_ZipArchiveEntry___" data-uid="Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})">
   UseZipArchiveEntries(FileInfo, Action&lt;ReadOnlyCollection&lt;ZipArchiveEntry&gt;&gt;, Func&lt;ReadOnlyCollection&lt;ZipArchiveEntry&gt;, ReadOnlyCollection&lt;ZipArchiveEntry&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/FileInfoExtensions.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/FileInfoExtensions.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Centralizes the use of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1">ReadOnlyCollection&lt;T&gt;</a>.</p>
@@ -403,7 +449,8 @@ The <code>fileAction</code> includes the line number and the current line.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>archiveInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a></dt>
-    <dd></dd>
+    <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a></p>
+</dd>
     <dt><code>entriesAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1">ReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry">ZipArchiveEntry</a>&gt;&gt;</dt>
     <dd></dd>
     <dt><code>entriesProjector</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1">ReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry">ZipArchiveEntry</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1">ReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry">ZipArchiveEntry</a>&gt;&gt;</dt>
@@ -425,7 +472,7 @@ The <code>fileAction</code> includes the line number and the current line.</p>
 
   <h3 id="Songhay_Extensions_FileInfoExtensions_WriteZipArchiveEntry_System_IO_FileInfo_System_IO_FileInfo_" data-uid="Songhay.Extensions.FileInfoExtensions.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo)">
   WriteZipArchiveEntry(FileInfo, FileInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/FileInfoExtensions.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/FileInfoExtensions.cs/#L114"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Write zip archive entry with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.compression.compressionlevel#system-io-compression-compressionlevel-optimal">Optimal</a>.</p>
@@ -461,7 +508,7 @@ The <code>fileAction</code> includes the line number and the current line.</p>
 
   <h3 id="Songhay_Extensions_FileInfoExtensions_WriteZipArchiveEntry_System_IO_FileInfo_System_IO_FileInfo_System_IO_Compression_CompressionLevel_" data-uid="Songhay.Extensions.FileInfoExtensions.WriteZipArchiveEntry(System.IO.FileInfo,System.IO.FileInfo,System.IO.Compression.CompressionLevel)">
   WriteZipArchiveEntry(FileInfo, FileInfo, CompressionLevel)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/FileInfoExtensions.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/FileInfoExtensions.cs/#L123"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Write zip archive entry.</p>

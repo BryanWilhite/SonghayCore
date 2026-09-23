@@ -155,9 +155,9 @@ Class HttpRequestMessageExtensions  <a class="header-action link-secondary" titl
 
   <a id="Songhay_Extensions_HttpRequestMessageExtensions_GetContentAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync*"></a>
 
-  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_GetContentAsync_System_Net_Http_HttpRequestMessage_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage)">
-  GetContentAsync(HttpRequestMessage?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_GetContentAsync_System_Net_Http_HttpRequestMessage_System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})">
+  GetContentAsync(HttpRequestMessage?, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> from the derived <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>.</p>
@@ -165,13 +165,16 @@ Class HttpRequestMessageExtensions  <a class="header-action link-secondary" titl
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetContentAsync(this HttpRequestMessage? request)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetContentAsync(this HttpRequestMessage? request, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>request</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></dt>
-    <dd><p>The request.</p>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>.</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
   </dl>
 
@@ -193,9 +196,9 @@ Class HttpRequestMessageExtensions  <a class="header-action link-secondary" titl
 
   <a id="Songhay_Extensions_HttpRequestMessageExtensions_GetContentAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync*"></a>
 
-  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_GetContentAsync_System_Net_Http_HttpRequestMessage_System_Action_System_Net_Http_HttpResponseMessage__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage})">
-  GetContentAsync(HttpRequestMessage?, Action&lt;HttpResponseMessage&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_GetContentAsync_System_Net_Http_HttpRequestMessage_System_Func_System_Net_Http_HttpClient__System_Action_System_Net_Http_HttpResponseMessage__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpResponseMessage})">
+  GetContentAsync(HttpRequestMessage?, Func&lt;HttpClient&gt;, Action&lt;HttpResponseMessage&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> from the derived <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>.</p>
@@ -203,60 +206,19 @@ Class HttpRequestMessageExtensions  <a class="header-action link-secondary" titl
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetContentAsync(this HttpRequestMessage? request, Action&lt;HttpResponseMessage&gt;? responseMessageAction)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetContentAsync(this HttpRequestMessage? request, Func&lt;HttpClient&gt; clientGetter, Action&lt;HttpResponseMessage&gt;? responseMessageAction)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>request</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></dt>
-    <dd><p>The request.</p>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>.</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
     <dt><code>responseMessageAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</dt>
     <dd><p>The response message action.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Songhay_Extensions_HttpRequestMessageExtensions_GetContentAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync*"></a>
-
-  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_GetContentAsync_System_Net_Http_HttpRequestMessage_System_Action_System_Net_Http_HttpResponseMessage__System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.GetContentAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Func{System.Net.Http.HttpClient})">
-  GetContentAsync(HttpRequestMessage?, Action&lt;HttpResponseMessage&gt;?, Func&lt;HttpClient&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L30"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> from the derived <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetContentAsync(this HttpRequestMessage? request, Action&lt;HttpResponseMessage&gt;? responseMessageAction, Func&lt;HttpClient&gt;? optionalClientGetter)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>request</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></dt>
-    <dd><p>The request.</p>
-</dd>
-    <dt><code>responseMessageAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</dt>
-    <dd><p>The response message action.</p>
-</dd>
-    <dt><code>optionalClientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
-    <dd><p>The optional client getter.</p>
 </dd>
   </dl>
 
@@ -278,9 +240,9 @@ Class HttpRequestMessageExtensions  <a class="header-action link-secondary" titl
 
   <a id="Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendAsync*"></a>
 
-  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_System_Net_Http_HttpRequestMessage_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage)">
-  SendAsync(HttpRequestMessage?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_System_Net_Http_HttpRequestMessage_System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient})">
+  SendAsync(HttpRequestMessage?, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient.sendasync#system-net-http-httpclient-sendasync(system-net-http-httprequestmessage)">SendAsync(HttpRequestMessage)</a></p>
@@ -288,13 +250,17 @@ Class HttpRequestMessageExtensions  <a class="header-action link-secondary" titl
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendAsync(this HttpRequestMessage? request)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendAsync(this HttpRequestMessage? request, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>request</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></dt>
-    <dd></dd>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>.</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -315,9 +281,9 @@ Class HttpRequestMessageExtensions  <a class="header-action link-secondary" titl
 
   <a id="Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendAsync*"></a>
 
-  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_System_Net_Http_HttpRequestMessage_System_Action_System_Net_Http_HttpRequestMessage__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage})">
-  SendAsync(HttpRequestMessage?, Action&lt;HttpRequestMessage&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_System_Net_Http_HttpRequestMessage_System_Func_System_Net_Http_HttpClient__System_Action_System_Net_Http_HttpRequestMessage__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})">
+  SendAsync(HttpRequestMessage?, Func&lt;HttpClient&gt;, Action&lt;HttpRequestMessage&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient.sendasync#system-net-http-httpclient-sendasync(system-net-http-httprequestmessage)">SendAsync(HttpRequestMessage)</a></p>
@@ -325,13 +291,16 @@ Class HttpRequestMessageExtensions  <a class="header-action link-secondary" titl
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendAsync(this HttpRequestMessage? request, Action&lt;HttpRequestMessage&gt;? requestMessageAction)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendAsync(this HttpRequestMessage? request, Func&lt;HttpClient&gt; clientGetter, Action&lt;HttpRequestMessage&gt;? requestMessageAction)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>request</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></dt>
-    <dd><p>The request.</p>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>.</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
     <dt><code>requestMessageAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>&gt;</dt>
     <dd><p>The request message action.</p>
@@ -356,9 +325,9 @@ Class HttpRequestMessageExtensions  <a class="header-action link-secondary" titl
 
   <a id="Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendAsync*"></a>
 
-  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_System_Net_Http_HttpRequestMessage_System_Action_System_Net_Http_HttpRequestMessage__System_Func_System_Net_Http_HttpClient__System_Net_Http_HttpCompletionOption_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption)">
-  SendAsync(HttpRequestMessage?, Action&lt;HttpRequestMessage&gt;?, Func&lt;HttpClient&gt;?, HttpCompletionOption)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendAsync_System_Net_Http_HttpRequestMessage_System_Func_System_Net_Http_HttpClient__System_Net_Http_HttpCompletionOption_System_Action_System_Net_Http_HttpRequestMessage__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendAsync(System.Net.Http.HttpRequestMessage,System.Func{System.Net.Http.HttpClient},System.Net.Http.HttpCompletionOption,System.Action{System.Net.Http.HttpRequestMessage})">
+  SendAsync(HttpRequestMessage?, Func&lt;HttpClient&gt;, HttpCompletionOption, Action&lt;HttpRequestMessage&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient.sendasync#system-net-http-httpclient-sendasync(system-net-http-httprequestmessage)">SendAsync(HttpRequestMessage)</a></p>
@@ -366,22 +335,22 @@ Class HttpRequestMessageExtensions  <a class="header-action link-secondary" titl
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendAsync(this HttpRequestMessage? request, Action&lt;HttpRequestMessage&gt;? requestMessageAction, Func&lt;HttpClient&gt;? optionalClientGetter, HttpCompletionOption completionOption)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendAsync(this HttpRequestMessage? request, Func&lt;HttpClient&gt; clientGetter, HttpCompletionOption completionOption, Action&lt;HttpRequestMessage&gt;? requestMessageAction)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>request</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></dt>
-    <dd><p>The request.</p>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>.</p>
 </dd>
-    <dt><code>requestMessageAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>&gt;</dt>
-    <dd><p>The request message action.</p>
-</dd>
-    <dt><code>optionalClientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
-    <dd><p>The optional client getter.</p>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
     <dt><code>completionOption</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpcompletionoption">HttpCompletionOption</a></dt>
     <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpcompletionoption">HttpCompletionOption</a>.</p>
+</dd>
+    <dt><code>requestMessageAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>&gt;</dt>
+    <dd><p>The request message action.</p>
 </dd>
   </dl>
 
@@ -403,9 +372,9 @@ Class HttpRequestMessageExtensions  <a class="header-action link-secondary" titl
 
   <a id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*"></a>
 
-  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String)">
-  SendBodyAsync(HttpRequestMessage?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Func{System.Net.Http.HttpClient})">
+  SendBodyAsync(HttpRequestMessage?, string?, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient.sendasync#system-net-http-httpclient-sendasync(system-net-http-httprequestmessage)">SendAsync(HttpRequestMessage)</a>
@@ -415,16 +384,19 @@ and <a class="xref" href="Songhay.Models.MimeTypes.html#Songhay_Models_MimeTypes
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendBodyAsync(this HttpRequestMessage? request, string? requestBody)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>request</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></dt>
-    <dd><p>The request.</p>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>.</p>
 </dd>
     <dt><code>requestBody</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>The request body.</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
   </dl>
 
@@ -446,9 +418,9 @@ and <a class="xref" href="Songhay.Models.MimeTypes.html#Songhay_Models_MimeTypes
 
   <a id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*"></a>
 
-  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_System_Text_Encoding_System_String_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String)">
-  SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_System_Text_Encoding_System_String_System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient})">
+  SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L107"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient.sendasync#system-net-http-httpclient-sendasync(system-net-http-httprequestmessage)">SendAsync(HttpRequestMessage)</a>
@@ -457,13 +429,13 @@ with the specified request body.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string? mediaType)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string? mediaType, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>request</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></dt>
-    <dd><p>The request.</p>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>.</p>
 </dd>
     <dt><code>requestBody</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>The request body.</p>
@@ -473,6 +445,9 @@ with the specified request body.</p>
 </dd>
     <dt><code>mediaType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Type of the media.</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
   </dl>
 
@@ -494,9 +469,9 @@ with the specified request body.</p>
 
   <a id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*"></a>
 
-  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_System_Text_Encoding_System_String_System_Action_System_Net_Http_HttpRequestMessage__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage})">
-  SendBodyAsync(HttpRequestMessage?, string?, Encoding, string?, Action&lt;HttpRequestMessage&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_System_Text_Encoding_System_String_System_Func_System_Net_Http_HttpClient__System_Action_System_Net_Http_HttpRequestMessage__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Func{System.Net.Http.HttpClient},System.Action{System.Net.Http.HttpRequestMessage})">
+  SendBodyAsync(HttpRequestMessage?, string?, Encoding?, string?, Func&lt;HttpClient&gt;, Action&lt;HttpRequestMessage&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L121"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient.sendasync#system-net-http-httpclient-sendasync(system-net-http-httprequestmessage)">SendAsync(HttpRequestMessage)</a>
@@ -505,13 +480,13 @@ with the specified request body.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding encoding, string? mediaType, Action&lt;HttpRequestMessage&gt; requestMessageAction)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding? encoding, string? mediaType, Func&lt;HttpClient&gt; clientGetter, Action&lt;HttpRequestMessage&gt;? requestMessageAction)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>request</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></dt>
-    <dd><p>The request.</p>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>.</p>
 </dd>
     <dt><code>requestBody</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>The request body.</p>
@@ -521,63 +496,12 @@ with the specified request body.</p>
 </dd>
     <dt><code>mediaType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Type of the media.</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
     <dt><code>requestMessageAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>&gt;</dt>
     <dd><p>The request message action.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync*"></a>
-
-  <h3 id="Songhay_Extensions_HttpRequestMessageExtensions_SendBodyAsync_System_Net_Http_HttpRequestMessage_System_String_System_Text_Encoding_System_String_System_Action_System_Net_Http_HttpRequestMessage__System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.Extensions.HttpRequestMessageExtensions.SendBodyAsync(System.Net.Http.HttpRequestMessage,System.String,System.Text.Encoding,System.String,System.Action{System.Net.Http.HttpRequestMessage},System.Func{System.Net.Http.HttpClient})">
-  SendBodyAsync(HttpRequestMessage?, string?, Encoding?, string?, Action&lt;HttpRequestMessage&gt;?, Func&lt;HttpClient&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/HttpRequestMessageExtensions._.cs/#L142"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Calls <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient.sendasync#system-net-http-httpclient-sendasync(system-net-http-httprequestmessage)">SendAsync(HttpRequestMessage)</a>
-with the specified request body.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; SendBodyAsync(this HttpRequestMessage? request, string? requestBody, Encoding? encoding, string? mediaType, Action&lt;HttpRequestMessage&gt;? requestMessageAction, Func&lt;HttpClient&gt;? optionalClientGetter)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>request</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></dt>
-    <dd><p>The request.</p>
-</dd>
-    <dt><code>requestBody</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The request body.</p>
-</dd>
-    <dt><code>encoding</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.encoding">Encoding</a></dt>
-    <dd><p>The encoding.</p>
-</dd>
-    <dt><code>mediaType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Type of the media.</p>
-</dd>
-    <dt><code>requestMessageAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>&gt;</dt>
-    <dd><p>The request message action.</p>
-</dd>
-    <dt><code>optionalClientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
-    <dd><p>The optional client getter.</p>
 </dd>
   </dl>
 

@@ -1,0 +1,1107 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Models.StorageActivityInput`1
+  commentId: T:Songhay.Models.StorageActivityInput`1
+  id: StorageActivityInput`1
+  parent: Songhay.Models
+  children:
+  - Songhay.Models.StorageActivityInput`1.#ctor(System.String,System.String,System.String,`0,System.String)
+  - Songhay.Models.StorageActivityInput`1.Content
+  - Songhay.Models.StorageActivityInput`1.ContentMimeType
+  langs:
+  - csharp
+  - vb
+  name: StorageActivityInput<TContent>
+  nameWithType: StorageActivityInput<TContent>
+  fullName: Songhay.Models.StorageActivityInput<TContent>
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Models/StorageActivityInput.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: StorageActivityInput
+    path: ../SonghayCore/Models/StorageActivityInput.cs
+    startLine: 41
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Defines the input for most storage operations.
+  example: []
+  syntax:
+    content: 'public record StorageActivityInput<TContent> : StorageActivityInput, IEquatable<StorageActivityInput>, IEquatable<StorageActivityInput<TContent>>'
+    typeParameters:
+    - id: TContent
+      description: the type of the input content
+    content.vb: Public Class StorageActivityInput(Of TContent) Inherits StorageActivityInput Implements IEquatable(Of StorageActivityInput), IEquatable(Of StorageActivityInput(Of TContent))
+  inheritance:
+  - System.Object
+  - Songhay.Models.StorageActivityInput
+  implements:
+  - System.IEquatable{Songhay.Models.StorageActivityInput}
+  - System.IEquatable{Songhay.Models.StorageActivityInput`1}
+  inheritedMembers:
+  - Songhay.Models.StorageActivityInput.SetKey
+  - Songhay.Models.StorageActivityInput.BucketMetaKey
+  - Songhay.Models.StorageActivityInput.BucketKeyOrPrefix
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Songhay.Models.StorageActivityInput.Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Microsoft.Extensions.Logging.ILogger)
+  - Songhay.Models.StorageActivityInput.Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Microsoft.Extensions.Logging.ILogger)
+  - Songhay.Models.StorageActivityInput`1.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Models.StorageActivityInput`1.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Models.StorageActivityInput`1.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  nameWithType.vb: StorageActivityInput(Of TContent)
+  fullName.vb: Songhay.Models.StorageActivityInput(Of TContent)
+  name.vb: StorageActivityInput(Of TContent)
+- uid: Songhay.Models.StorageActivityInput`1.#ctor(System.String,System.String,System.String,`0,System.String)
+  commentId: M:Songhay.Models.StorageActivityInput`1.#ctor(System.String,System.String,System.String,`0,System.String)
+  id: '#ctor(System.String,System.String,System.String,`0,System.String)'
+  parent: Songhay.Models.StorageActivityInput`1
+  langs:
+  - csharp
+  - vb
+  name: StorageActivityInput(string, string?, string?, TContent?, string?)
+  nameWithType: StorageActivityInput<TContent>.StorageActivityInput(string, string?, string?, TContent?, string?)
+  fullName: Songhay.Models.StorageActivityInput<TContent>.StorageActivityInput(string, string?, string?, TContent?, string?)
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore/Models/StorageActivityInput.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: ../SonghayCore/Models/StorageActivityInput.cs
+    startLine: 41
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Defines the input for most storage operations.
+  example: []
+  syntax:
+    content: public StorageActivityInput(string SetKey, string? BucketMetaKey, string? BucketKeyOrPrefix, TContent? Content, string? ContentMimeType)
+    parameters:
+    - id: SetKey
+      type: System.String
+      description: >-
+        the <xref href="Songhay.Models.ProgramMetadata.RestApiMetadataSet" data-throw-if-not-resolved="false"></xref> dictionary key
+
+        or the name of a directory under the root of a storage mirror
+    - id: BucketMetaKey
+      type: System.String
+      description: >-
+        a <xref href="Songhay.Models.RestApiMetadata.ClaimsSet" data-throw-if-not-resolved="false"></xref> dictionary key
+
+        pointing to the region of the S3 Bucket
+    - id: BucketKeyOrPrefix
+      type: System.String
+      description: >-
+        represents an entire <code>S3Object.Key</code>
+
+        or its prefix (used for filtering S3 bucket listing)
+    - id: Content
+      type: '{TContent}'
+      description: represents what will be transformed into an S3 <code>PutObjectRequest.ContentBody</code>
+    - id: ContentMimeType
+      type: System.String
+      description: represents an S3 <code>PutObjectRequest.ContentType</code>
+    content.vb: Public Sub New(SetKey As String, BucketMetaKey As String, BucketKeyOrPrefix As String, Content As TContent, ContentMimeType As String)
+  overload: Songhay.Models.StorageActivityInput`1.#ctor*
+  nameWithType.vb: StorageActivityInput(Of TContent).New(String, String, String, TContent, String)
+  fullName.vb: Songhay.Models.StorageActivityInput(Of TContent).New(String, String, String, TContent, String)
+  name.vb: New(String, String, String, TContent, String)
+- uid: Songhay.Models.StorageActivityInput`1.Content
+  commentId: P:Songhay.Models.StorageActivityInput`1.Content
+  id: Content
+  parent: Songhay.Models.StorageActivityInput`1
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: StorageActivityInput<TContent>.Content
+  fullName: Songhay.Models.StorageActivityInput<TContent>.Content
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/StorageActivityInput.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: Content
+    path: ../SonghayCore/Models/StorageActivityInput.cs
+    startLine: 45
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: represents what will be transformed into an S3 <code>PutObjectRequest.ContentBody</code>
+  example: []
+  syntax:
+    content: public TContent? Content { get; init; }
+    parameters: []
+    return:
+      type: '{TContent}'
+    content.vb: Public Property Content As TContent
+  overload: Songhay.Models.StorageActivityInput`1.Content*
+  nameWithType.vb: StorageActivityInput(Of TContent).Content
+  fullName.vb: Songhay.Models.StorageActivityInput(Of TContent).Content
+- uid: Songhay.Models.StorageActivityInput`1.ContentMimeType
+  commentId: P:Songhay.Models.StorageActivityInput`1.ContentMimeType
+  id: ContentMimeType
+  parent: Songhay.Models.StorageActivityInput`1
+  langs:
+  - csharp
+  - vb
+  name: ContentMimeType
+  nameWithType: StorageActivityInput<TContent>.ContentMimeType
+  fullName: Songhay.Models.StorageActivityInput<TContent>.ContentMimeType
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/StorageActivityInput.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ContentMimeType
+    path: ../SonghayCore/Models/StorageActivityInput.cs
+    startLine: 46
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: represents an S3 <code>PutObjectRequest.ContentType</code>
+  example: []
+  syntax:
+    content: public string? ContentMimeType { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ContentMimeType As String
+  overload: Songhay.Models.StorageActivityInput`1.ContentMimeType*
+  nameWithType.vb: StorageActivityInput(Of TContent).ContentMimeType
+  fullName.vb: Songhay.Models.StorageActivityInput(Of TContent).ContentMimeType
+references:
+- uid: Songhay.Models.ProgramMetadata.RestApiMetadataSet
+  commentId: P:Songhay.Models.ProgramMetadata.RestApiMetadataSet
+  href: Songhay.Models.ProgramMetadata.html#Songhay_Models_ProgramMetadata_RestApiMetadataSet
+  name: RestApiMetadataSet
+  nameWithType: ProgramMetadata.RestApiMetadataSet
+  fullName: Songhay.Models.ProgramMetadata.RestApiMetadataSet
+- uid: Songhay.Models.RestApiMetadata.ClaimsSet
+  commentId: P:Songhay.Models.RestApiMetadata.ClaimsSet
+  href: Songhay.Models.RestApiMetadata.html#Songhay_Models_RestApiMetadata_ClaimsSet
+  name: ClaimsSet
+  nameWithType: RestApiMetadata.ClaimsSet
+  fullName: Songhay.Models.RestApiMetadata.ClaimsSet
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Songhay.Models.StorageActivityInput
+  commentId: T:Songhay.Models.StorageActivityInput
+  parent: Songhay.Models
+  href: Songhay.Models.StorageActivityInput.html
+  name: StorageActivityInput
+  nameWithType: StorageActivityInput
+  fullName: Songhay.Models.StorageActivityInput
+- uid: System.IEquatable{Songhay.Models.StorageActivityInput}
+  commentId: T:System.IEquatable{Songhay.Models.StorageActivityInput}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<StorageActivityInput>
+  nameWithType: IEquatable<StorageActivityInput>
+  fullName: System.IEquatable<Songhay.Models.StorageActivityInput>
+  nameWithType.vb: IEquatable(Of StorageActivityInput)
+  fullName.vb: System.IEquatable(Of Songhay.Models.StorageActivityInput)
+  name.vb: IEquatable(Of StorageActivityInput)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: )
+- uid: System.IEquatable{Songhay.Models.StorageActivityInput`1}
+  commentId: T:System.IEquatable{Songhay.Models.StorageActivityInput`1}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<StorageActivityInput<TContent>>
+  nameWithType: IEquatable<StorageActivityInput<TContent>>
+  fullName: System.IEquatable<Songhay.Models.StorageActivityInput<TContent>>
+  nameWithType.vb: IEquatable(Of StorageActivityInput(Of TContent))
+  fullName.vb: System.IEquatable(Of Songhay.Models.StorageActivityInput(Of TContent))
+  name.vb: IEquatable(Of StorageActivityInput(Of TContent))
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: <
+  - name: TContent
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContent
+  - name: )
+  - name: )
+- uid: Songhay.Models.StorageActivityInput.SetKey
+  commentId: P:Songhay.Models.StorageActivityInput.SetKey
+  parent: Songhay.Models.StorageActivityInput
+  href: Songhay.Models.StorageActivityInput.html#Songhay_Models_StorageActivityInput_SetKey
+  name: SetKey
+  nameWithType: StorageActivityInput.SetKey
+  fullName: Songhay.Models.StorageActivityInput.SetKey
+- uid: Songhay.Models.StorageActivityInput.BucketMetaKey
+  commentId: P:Songhay.Models.StorageActivityInput.BucketMetaKey
+  parent: Songhay.Models.StorageActivityInput
+  href: Songhay.Models.StorageActivityInput.html#Songhay_Models_StorageActivityInput_BucketMetaKey
+  name: BucketMetaKey
+  nameWithType: StorageActivityInput.BucketMetaKey
+  fullName: Songhay.Models.StorageActivityInput.BucketMetaKey
+- uid: Songhay.Models.StorageActivityInput.BucketKeyOrPrefix
+  commentId: P:Songhay.Models.StorageActivityInput.BucketKeyOrPrefix
+  parent: Songhay.Models.StorageActivityInput
+  href: Songhay.Models.StorageActivityInput.html#Songhay_Models_StorageActivityInput_BucketKeyOrPrefix
+  name: BucketKeyOrPrefix
+  nameWithType: StorageActivityInput.BucketKeyOrPrefix
+  fullName: Songhay.Models.StorageActivityInput.BucketKeyOrPrefix
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Models.StorageActivityInput.Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+  parent: Songhay.Extensions.StorageActivityInputExtensions
+  definition: Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+  href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToFileInfo_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  name: ToFileInfo(StorageActivityInput, ILogger)
+  nameWithType: StorageActivityInputExtensions.ToFileInfo(StorageActivityInput, ILogger)
+  fullName: Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput, Microsoft.Extensions.Logging.ILogger)
+  spec.csharp:
+  - uid: Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+    name: ToFileInfo
+    href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToFileInfo_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+    name: ToFileInfo
+    href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToFileInfo_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+- uid: Songhay.Models.StorageActivityInput.Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+  parent: Songhay.Extensions.StorageActivityInputExtensions
+  definition: Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+  href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToStorageObjects_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  name: ToStorageObjects(StorageActivityInput, ILogger)
+  nameWithType: StorageActivityInputExtensions.ToStorageObjects(StorageActivityInput, ILogger)
+  fullName: Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput, Microsoft.Extensions.Logging.ILogger)
+  spec.csharp:
+  - uid: Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+    name: ToStorageObjects
+    href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToStorageObjects_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+    name: ToStorageObjects
+    href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToStorageObjects_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+- uid: Songhay.Models.StorageActivityInput`1.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<StorageActivityInput<TContent>>(StorageActivityInput<TContent>)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<StorageActivityInput<TContent>>(StorageActivityInput<TContent>)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Models.StorageActivityInput<TContent>>(Songhay.Models.StorageActivityInput<TContent>)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of StorageActivityInput(Of TContent))(StorageActivityInput(Of TContent))
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Models.StorageActivityInput(Of TContent))(Songhay.Models.StorageActivityInput(Of TContent))
+  name.vb: IsAssignableToISerializable(Of StorageActivityInput(Of TContent))(StorageActivityInput(Of TContent))
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Models.StorageActivityInput{`0})
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: <
+  - name: TContent
+  - name: '>'
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: <
+  - name: TContent
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Models.StorageActivityInput{`0})
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContent
+  - name: )
+  - name: )
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContent
+  - name: )
+  - name: )
+- uid: Songhay.Models.StorageActivityInput`1.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<StorageActivityInput<TContent>>(StorageActivityInput<TContent>)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<StorageActivityInput<TContent>>(StorageActivityInput<TContent>)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Models.StorageActivityInput<TContent>>(Songhay.Models.StorageActivityInput<TContent>)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of StorageActivityInput(Of TContent))(StorageActivityInput(Of TContent))
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Models.StorageActivityInput(Of TContent))(Songhay.Models.StorageActivityInput(Of TContent))
+  name.vb: ToObjectOrDbNull(Of StorageActivityInput(Of TContent))(StorageActivityInput(Of TContent))
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Models.StorageActivityInput{`0})
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: <
+  - name: TContent
+  - name: '>'
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: <
+  - name: TContent
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Models.StorageActivityInput{`0})
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContent
+  - name: )
+  - name: )
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContent
+  - name: )
+  - name: )
+- uid: Songhay.Models.StorageActivityInput`1.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<StorageActivityInput<TContent>>(StorageActivityInput<TContent>, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<StorageActivityInput<TContent>>(StorageActivityInput<TContent>, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Models.StorageActivityInput<TContent>>(Songhay.Models.StorageActivityInput<TContent>, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of StorageActivityInput(Of TContent))(StorageActivityInput(Of TContent), String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Models.StorageActivityInput(Of TContent))(Songhay.Models.StorageActivityInput(Of TContent), String)
+  name.vb: ToReferenceTypeValueOrThrow(Of StorageActivityInput(Of TContent))(StorageActivityInput(Of TContent), String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Models.StorageActivityInput{`0},System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: <
+  - name: TContent
+  - name: '>'
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: <
+  - name: TContent
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Models.StorageActivityInput{`0},System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContent
+  - name: )
+  - name: )
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContent
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+  isExternal: true
+  href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToFileInfo_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  name: ToFileInfo(StorageActivityInput, ILogger)
+  nameWithType: StorageActivityInputExtensions.ToFileInfo(StorageActivityInput, ILogger)
+  fullName: Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput, Microsoft.Extensions.Logging.ILogger)
+  spec.csharp:
+  - uid: Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+    name: ToFileInfo
+    href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToFileInfo_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.StorageActivityInputExtensions.ToFileInfo(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+    name: ToFileInfo
+    href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToFileInfo_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+- uid: Songhay.Extensions.StorageActivityInputExtensions
+  commentId: T:Songhay.Extensions.StorageActivityInputExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.StorageActivityInputExtensions.html
+  name: StorageActivityInputExtensions
+  nameWithType: StorageActivityInputExtensions
+  fullName: Songhay.Extensions.StorageActivityInputExtensions
+- uid: Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+  isExternal: true
+  href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToStorageObjects_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  name: ToStorageObjects(StorageActivityInput, ILogger)
+  nameWithType: StorageActivityInputExtensions.ToStorageObjects(StorageActivityInput, ILogger)
+  fullName: Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput, Microsoft.Extensions.Logging.ILogger)
+  spec.csharp:
+  - uid: Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+    name: ToStorageObjects
+    href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToStorageObjects_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.StorageActivityInputExtensions.ToStorageObjects(Songhay.Models.StorageActivityInput,Microsoft.Extensions.Logging.ILogger)
+    name: ToStorageObjects
+    href: Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToStorageObjects_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Models.StorageActivityInput`1.#ctor*
+  commentId: Overload:Songhay.Models.StorageActivityInput`1.#ctor
+  href: Songhay.Models.StorageActivityInput-1.html#Songhay_Models_StorageActivityInput_1__ctor_System_String_System_String_System_String__0_System_String_
+  name: StorageActivityInput
+  nameWithType: StorageActivityInput<TContent>.StorageActivityInput
+  fullName: Songhay.Models.StorageActivityInput<TContent>.StorageActivityInput
+  nameWithType.vb: StorageActivityInput(Of TContent).New
+  fullName.vb: Songhay.Models.StorageActivityInput(Of TContent).New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{TContent}'
+  commentId: '!:TContent'
+  definition: TContent
+  name: TContent
+  nameWithType: TContent
+  fullName: TContent
+- uid: TContent
+  name: TContent
+  nameWithType: TContent
+  fullName: TContent
+- uid: Songhay.Models.StorageActivityInput`1.Content*
+  commentId: Overload:Songhay.Models.StorageActivityInput`1.Content
+  href: Songhay.Models.StorageActivityInput-1.html#Songhay_Models_StorageActivityInput_1_Content
+  name: Content
+  nameWithType: StorageActivityInput<TContent>.Content
+  fullName: Songhay.Models.StorageActivityInput<TContent>.Content
+  nameWithType.vb: StorageActivityInput(Of TContent).Content
+  fullName.vb: Songhay.Models.StorageActivityInput(Of TContent).Content
+- uid: Songhay.Models.StorageActivityInput`1.ContentMimeType*
+  commentId: Overload:Songhay.Models.StorageActivityInput`1.ContentMimeType
+  href: Songhay.Models.StorageActivityInput-1.html#Songhay_Models_StorageActivityInput_1_ContentMimeType
+  name: ContentMimeType
+  nameWithType: StorageActivityInput<TContent>.ContentMimeType
+  fullName: Songhay.Models.StorageActivityInput<TContent>.ContentMimeType
+  nameWithType.vb: StorageActivityInput(Of TContent).ContentMimeType
+  fullName.vb: Songhay.Models.StorageActivityInput(Of TContent).ContentMimeType

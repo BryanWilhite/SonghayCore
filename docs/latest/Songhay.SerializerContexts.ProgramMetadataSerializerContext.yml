@@ -1,0 +1,1888 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  commentId: T:Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  id: ProgramMetadataSerializerContext
+  parent: Songhay.SerializerContexts
+  children:
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.DbmsMetadata
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.Default
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringString
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.EncryptionMetadata
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.GeneratedSerializerOptions
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.GetTypeInfo(System.Type)
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.RestApiMetadata
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.String
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.Uri
+  langs:
+  - csharp
+  - vb
+  name: ProgramMetadataSerializerContext
+  nameWithType: ProgramMetadataSerializerContext
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  type: Class
+  source:
+    id: ProgramMetadataSerializerContext
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.PropertyNames.g.cs
+    startLine: 10
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: >-
+    Defines an explicit <xref href="System.Text.Json.Serialization.JsonSerializerContext" data-throw-if-not-resolved="false"></xref>
+
+    for <xref href="Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata" data-throw-if-not-resolved="false"></xref> to avoid using reflection
+
+    which is not available in AOT-compilation assemblies.
+  example: []
+  syntax:
+    content: >-
+      [JsonSerializable(typeof(ProgramMetadata))]
+
+      [JsonSerializable(typeof(DbmsMetadata))]
+
+      [JsonSerializable(typeof(RestApiMetadata))]
+
+      [JsonSerializable(typeof(Dictionary<string, string>))]
+
+      [JsonSerializable(typeof(Dictionary<string, DbmsMetadata>))]
+
+      [JsonSerializable(typeof(Dictionary<string, RestApiMetadata>))]
+
+      public class ProgramMetadataSerializerContext : JsonSerializerContext, IJsonTypeInfoResolver
+    content.vb: >-
+      <JsonSerializable(GetType(ProgramMetadata))>
+
+      <JsonSerializable(GetType(DbmsMetadata))>
+
+      <JsonSerializable(GetType(RestApiMetadata))>
+
+      <JsonSerializable(GetType(Dictionary(Of String, String)))>
+
+      <JsonSerializable(GetType(Dictionary(Of String, DbmsMetadata)))>
+
+      <JsonSerializable(GetType(Dictionary(Of String, RestApiMetadata)))>
+
+      Public Class ProgramMetadataSerializerContext Inherits JsonSerializerContext Implements IJsonTypeInfoResolver
+  inheritance:
+  - System.Object
+  - System.Text.Json.Serialization.JsonSerializerContext
+  implements:
+  - System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
+  inheritedMembers:
+  - System.Text.Json.Serialization.JsonSerializerContext.Options
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.SerializerContexts.ProgramMetadataSerializerContext.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  attributes:
+  - type: System.Text.Json.Serialization.JsonSerializableAttribute
+    ctor: System.Text.Json.Serialization.JsonSerializableAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Songhay.Models.ProgramMetadata
+  - type: System.Text.Json.Serialization.JsonSerializableAttribute
+    ctor: System.Text.Json.Serialization.JsonSerializableAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Songhay.Models.DbmsMetadata
+  - type: System.Text.Json.Serialization.JsonSerializableAttribute
+    ctor: System.Text.Json.Serialization.JsonSerializableAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Songhay.Models.RestApiMetadata
+  - type: System.Text.Json.Serialization.JsonSerializableAttribute
+    ctor: System.Text.Json.Serialization.JsonSerializableAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Collections.Generic.Dictionary{System.String,System.String}
+  - type: System.Text.Json.Serialization.JsonSerializableAttribute
+    ctor: System.Text.Json.Serialization.JsonSerializableAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Collections.Generic.Dictionary{System.String,Songhay.Models.DbmsMetadata}
+  - type: System.Text.Json.Serialization.JsonSerializableAttribute
+    ctor: System.Text.Json.Serialization.JsonSerializableAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Collections.Generic.Dictionary{System.String,Songhay.Models.RestApiMetadata}
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata
+  id: DictionaryStringDbmsMetadata
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: DictionaryStringDbmsMetadata
+  nameWithType: ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata
+  type: Property
+  source:
+    id: DictionaryStringDbmsMetadata
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<Dictionary<string, DbmsMetadata>> DictionaryStringDbmsMetadata { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,Songhay.Models.DbmsMetadata}}
+    content.vb: Public ReadOnly Property DictionaryStringDbmsMetadata As JsonTypeInfo(Of Dictionary(Of String, DbmsMetadata))
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Default
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.Default
+  id: Default
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: ProgramMetadataSerializerContext.Default
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Default
+  type: Property
+  source:
+    id: Default
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.g.cs
+    startLine: 23
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: The default <xref href="System.Text.Json.Serialization.JsonSerializerContext" data-throw-if-not-resolved="false"></xref> associated with a default <xref href="System.Text.Json.JsonSerializerOptions" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public static ProgramMetadataSerializerContext Default { get; }
+    parameters: []
+    return:
+      type: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    content.vb: Public Shared ReadOnly Property [Default] As ProgramMetadataSerializerContext
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Default*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.GeneratedSerializerOptions
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.GeneratedSerializerOptions
+  id: GeneratedSerializerOptions
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: GeneratedSerializerOptions
+  nameWithType: ProgramMetadataSerializerContext.GeneratedSerializerOptions
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.GeneratedSerializerOptions
+  type: Property
+  source:
+    id: GeneratedSerializerOptions
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.g.cs
+    startLine: 28
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: The source-generated options associated with this context.
+  example: []
+  syntax:
+    content: protected override JsonSerializerOptions? GeneratedSerializerOptions { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.JsonSerializerOptions
+    content.vb: Protected Overrides ReadOnly Property GeneratedSerializerOptions As JsonSerializerOptions
+  overridden: System.Text.Json.Serialization.JsonSerializerContext.GeneratedSerializerOptions
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.GeneratedSerializerOptions*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor
+  commentId: M:Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor
+  id: '#ctor'
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: ProgramMetadataSerializerContext()
+  nameWithType: ProgramMetadataSerializerContext.ProgramMetadataSerializerContext()
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadataSerializerContext()
+  type: Constructor
+  source:
+    id: .ctor
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.g.cs
+    startLine: 31
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  example: []
+  syntax:
+    content: public ProgramMetadataSerializerContext()
+    content.vb: Public Sub New()
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor*
+  nameWithType.vb: ProgramMetadataSerializerContext.New()
+  fullName.vb: Songhay.SerializerContexts.ProgramMetadataSerializerContext.New()
+  name.vb: New()
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)
+  commentId: M:Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)
+  id: '#ctor(System.Text.Json.JsonSerializerOptions)'
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: ProgramMetadataSerializerContext(JsonSerializerOptions)
+  nameWithType: ProgramMetadataSerializerContext.ProgramMetadataSerializerContext(JsonSerializerOptions)
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadataSerializerContext(System.Text.Json.JsonSerializerOptions)
+  type: Constructor
+  source:
+    id: .ctor
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.g.cs
+    startLine: 36
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Creates an instance of <xref href="System.Text.Json.Serialization.JsonSerializerContext" data-throw-if-not-resolved="false"></xref> and binds it with the indicated <xref href="System.Text.Json.JsonSerializerOptions" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ProgramMetadataSerializerContext(JsonSerializerOptions options)
+    parameters:
+    - id: options
+      type: System.Text.Json.JsonSerializerOptions
+      description: The run time provided options for the context instance.
+    content.vb: Public Sub New(options As JsonSerializerOptions)
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor*
+  nameWithType.vb: ProgramMetadataSerializerContext.New(JsonSerializerOptions)
+  fullName.vb: Songhay.SerializerContexts.ProgramMetadataSerializerContext.New(System.Text.Json.JsonSerializerOptions)
+  name.vb: New(JsonSerializerOptions)
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString
+  id: DictionaryStringDictionaryStringString
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: DictionaryStringDictionaryStringString
+  nameWithType: ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString
+  type: Property
+  source:
+    id: DictionaryStringDictionaryStringString
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<Dictionary<string, Dictionary<string, string>>> DictionaryStringDictionaryStringString { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}}
+    content.vb: Public ReadOnly Property DictionaryStringDictionaryStringString As JsonTypeInfo(Of Dictionary(Of String, Dictionary(Of String, String)))
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringString
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringString
+  id: DictionaryStringString
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: DictionaryStringString
+  nameWithType: ProgramMetadataSerializerContext.DictionaryStringString
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringString
+  type: Property
+  source:
+    id: DictionaryStringString
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.DictionaryStringString.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<Dictionary<string, string>> DictionaryStringString { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,System.String}}
+    content.vb: Public ReadOnly Property DictionaryStringString As JsonTypeInfo(Of Dictionary(Of String, String))
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringString*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.String
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.String
+  id: String
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: String
+  nameWithType: ProgramMetadataSerializerContext.String
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.String
+  type: Property
+  source:
+    id: String
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.String.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<string> String { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.String}
+    content.vb: Public ReadOnly Property [String] As JsonTypeInfo(Of String)
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.String*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata
+  id: DictionaryStringRestApiMetadata
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: DictionaryStringRestApiMetadata
+  nameWithType: ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata
+  type: Property
+  source:
+    id: DictionaryStringRestApiMetadata
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<Dictionary<string, RestApiMetadata>> DictionaryStringRestApiMetadata { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,Songhay.Models.RestApiMetadata}}
+    content.vb: Public ReadOnly Property DictionaryStringRestApiMetadata As JsonTypeInfo(Of Dictionary(Of String, RestApiMetadata))
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DbmsMetadata
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DbmsMetadata
+  id: DbmsMetadata
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: DbmsMetadata
+  nameWithType: ProgramMetadataSerializerContext.DbmsMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DbmsMetadata
+  type: Property
+  source:
+    id: DbmsMetadata
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.DbmsMetadata.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<DbmsMetadata> DbmsMetadata { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.DbmsMetadata}
+    content.vb: Public ReadOnly Property DbmsMetadata As JsonTypeInfo(Of DbmsMetadata)
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DbmsMetadata*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.EncryptionMetadata
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.EncryptionMetadata
+  id: EncryptionMetadata
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: EncryptionMetadata
+  nameWithType: ProgramMetadataSerializerContext.EncryptionMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.EncryptionMetadata
+  type: Property
+  source:
+    id: EncryptionMetadata
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.EncryptionMetadata.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<EncryptionMetadata> EncryptionMetadata { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.EncryptionMetadata}
+    content.vb: Public ReadOnly Property EncryptionMetadata As JsonTypeInfo(Of EncryptionMetadata)
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.EncryptionMetadata*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.GetTypeInfo(System.Type)
+  commentId: M:Songhay.SerializerContexts.ProgramMetadataSerializerContext.GetTypeInfo(System.Type)
+  id: GetTypeInfo(System.Type)
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: GetTypeInfo(Type)
+  nameWithType: ProgramMetadataSerializerContext.GetTypeInfo(Type)
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.GetTypeInfo(System.Type)
+  type: Method
+  source:
+    id: GetTypeInfo
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.GetJsonTypeInfo.g.cs
+    startLine: 13
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Gets metadata for the specified type.
+  example: []
+  syntax:
+    content: public override JsonTypeInfo? GetTypeInfo(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type to fetch metadata for.
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo
+      description: The metadata for the specified type, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the context has no metadata for the type.
+    content.vb: Public Overrides Function GetTypeInfo(type As Type) As JsonTypeInfo
+  overridden: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.GetTypeInfo*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata
+  id: ProgramMetadata
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: ProgramMetadata
+  nameWithType: ProgramMetadataSerializerContext.ProgramMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata
+  type: Property
+  source:
+    id: ProgramMetadata
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.ProgramMetadata.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<ProgramMetadata> ProgramMetadata { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.ProgramMetadata}
+    content.vb: Public ReadOnly Property ProgramMetadata As JsonTypeInfo(Of ProgramMetadata)
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.RestApiMetadata
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.RestApiMetadata
+  id: RestApiMetadata
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: RestApiMetadata
+  nameWithType: ProgramMetadataSerializerContext.RestApiMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.RestApiMetadata
+  type: Property
+  source:
+    id: RestApiMetadata
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.RestApiMetadata.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<RestApiMetadata> RestApiMetadata { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.RestApiMetadata}
+    content.vb: Public ReadOnly Property RestApiMetadata As JsonTypeInfo(Of RestApiMetadata)
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.RestApiMetadata*
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Uri
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.Uri
+  id: Uri
+  parent: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: Uri
+  nameWithType: ProgramMetadataSerializerContext.Uri
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Uri
+  type: Property
+  source:
+    id: Uri
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ProgramMetadataSerializerContext.Uri.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<Uri> Uri { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Uri}
+    content.vb: Public ReadOnly Property Uri As JsonTypeInfo(Of Uri)
+  overload: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Uri*
+references:
+- uid: System.Text.Json.Serialization.JsonSerializerContext
+  commentId: T:System.Text.Json.Serialization.JsonSerializerContext
+  parent: System.Text.Json.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext
+  name: JsonSerializerContext
+  nameWithType: JsonSerializerContext
+  fullName: System.Text.Json.Serialization.JsonSerializerContext
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata
+  commentId: P:Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_ProgramMetadata
+  name: ProgramMetadata
+  nameWithType: ProgramMetadataSerializerContext.ProgramMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata
+- uid: Songhay.SerializerContexts
+  commentId: N:Songhay.SerializerContexts
+  href: Songhay.html
+  name: Songhay.SerializerContexts
+  nameWithType: Songhay.SerializerContexts
+  fullName: Songhay.SerializerContexts
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.SerializerContexts
+    name: SerializerContexts
+    href: Songhay.SerializerContexts.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.SerializerContexts
+    name: SerializerContexts
+    href: Songhay.SerializerContexts.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
+  commentId: T:System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
+  parent: System.Text.Json.Serialization.Metadata
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.ijsontypeinforesolver
+  name: IJsonTypeInfoResolver
+  nameWithType: IJsonTypeInfoResolver
+  fullName: System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
+- uid: System.Text.Json.Serialization.JsonSerializerContext.Options
+  commentId: P:System.Text.Json.Serialization.JsonSerializerContext.Options
+  parent: System.Text.Json.Serialization.JsonSerializerContext
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.options
+  name: Options
+  nameWithType: JsonSerializerContext.Options
+  fullName: System.Text.Json.Serialization.JsonSerializerContext.Options
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<ProgramMetadataSerializerContext>(ProgramMetadataSerializerContext)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<ProgramMetadataSerializerContext>(ProgramMetadataSerializerContext)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.SerializerContexts.ProgramMetadataSerializerContext>(Songhay.SerializerContexts.ProgramMetadataSerializerContext)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of ProgramMetadataSerializerContext)(ProgramMetadataSerializerContext)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.SerializerContexts.ProgramMetadataSerializerContext)(Songhay.SerializerContexts.ProgramMetadataSerializerContext)
+  name.vb: IsAssignableToISerializable(Of ProgramMetadataSerializerContext)(ProgramMetadataSerializerContext)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.SerializerContexts.ProgramMetadataSerializerContext)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.SerializerContexts.ProgramMetadataSerializerContext)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: )
+  - name: (
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: )
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<ProgramMetadataSerializerContext>(ProgramMetadataSerializerContext)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<ProgramMetadataSerializerContext>(ProgramMetadataSerializerContext)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.SerializerContexts.ProgramMetadataSerializerContext>(Songhay.SerializerContexts.ProgramMetadataSerializerContext)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of ProgramMetadataSerializerContext)(ProgramMetadataSerializerContext)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.SerializerContexts.ProgramMetadataSerializerContext)(Songhay.SerializerContexts.ProgramMetadataSerializerContext)
+  name.vb: ToObjectOrDbNull(Of ProgramMetadataSerializerContext)(ProgramMetadataSerializerContext)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.SerializerContexts.ProgramMetadataSerializerContext)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.SerializerContexts.ProgramMetadataSerializerContext)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: )
+  - name: (
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: )
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<ProgramMetadataSerializerContext>(ProgramMetadataSerializerContext, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<ProgramMetadataSerializerContext>(ProgramMetadataSerializerContext, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.SerializerContexts.ProgramMetadataSerializerContext>(Songhay.SerializerContexts.ProgramMetadataSerializerContext, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of ProgramMetadataSerializerContext)(ProgramMetadataSerializerContext, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.SerializerContexts.ProgramMetadataSerializerContext)(Songhay.SerializerContexts.ProgramMetadataSerializerContext, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of ProgramMetadataSerializerContext)(ProgramMetadataSerializerContext, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.SerializerContexts.ProgramMetadataSerializerContext,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.SerializerContexts.ProgramMetadataSerializerContext,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: )
+  - name: (
+  - uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+    name: ProgramMetadataSerializerContext
+    href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Text.Json.Serialization
+  commentId: N:System.Text.Json.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text.Json.Serialization
+  nameWithType: System.Text.Json.Serialization
+  fullName: System.Text.Json.Serialization
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+  - name: .
+  - uid: System.Text.Json.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+  - name: .
+  - uid: System.Text.Json.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Text.Json.Serialization.Metadata
+  commentId: N:System.Text.Json.Serialization.Metadata
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text.Json.Serialization.Metadata
+  nameWithType: System.Text.Json.Serialization.Metadata
+  fullName: System.Text.Json.Serialization.Metadata
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+  - name: .
+  - uid: System.Text.Json.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization
+  - name: .
+  - uid: System.Text.Json.Serialization.Metadata
+    name: Metadata
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+  - name: .
+  - uid: System.Text.Json.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization
+  - name: .
+  - uid: System.Text.Json.Serialization.Metadata
+    name: Metadata
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_DictionaryStringDbmsMetadata
+  name: DictionaryStringDbmsMetadata
+  nameWithType: ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDbmsMetadata
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,Songhay.Models.DbmsMetadata}}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,Songhay.Models.DbmsMetadata}}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<Dictionary<string, DbmsMetadata>>
+  nameWithType: JsonTypeInfo<Dictionary<string, DbmsMetadata>>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<System.Collections.Generic.Dictionary<string, Songhay.Models.DbmsMetadata>>
+  nameWithType.vb: JsonTypeInfo(Of Dictionary(Of String, DbmsMetadata))
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of System.Collections.Generic.Dictionary(Of String, Songhay.Models.DbmsMetadata))
+  name.vb: JsonTypeInfo(Of Dictionary(Of String, DbmsMetadata))
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.DbmsMetadata
+    name: DbmsMetadata
+    href: Songhay.Models.DbmsMetadata.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.DbmsMetadata
+    name: DbmsMetadata
+    href: Songhay.Models.DbmsMetadata.html
+  - name: )
+  - name: )
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<T>
+  nameWithType: JsonTypeInfo<T>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<T>
+  nameWithType.vb: JsonTypeInfo(Of T)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of T)
+  name.vb: JsonTypeInfo(Of T)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Text.Json.JsonSerializerOptions
+  commentId: T:System.Text.Json.JsonSerializerOptions
+  parent: System.Text.Json
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions
+  name: JsonSerializerOptions
+  nameWithType: JsonSerializerOptions
+  fullName: System.Text.Json.JsonSerializerOptions
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Default*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.Default
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_Default
+  name: Default
+  nameWithType: ProgramMetadataSerializerContext.Default
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Default
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  commentId: T:Songhay.SerializerContexts.ProgramMetadataSerializerContext
+  parent: Songhay.SerializerContexts
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html
+  name: ProgramMetadataSerializerContext
+  nameWithType: ProgramMetadataSerializerContext
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext
+- uid: System.Text.Json
+  commentId: N:System.Text.Json
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text.Json
+  nameWithType: System.Text.Json
+  fullName: System.Text.Json
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+- uid: System.Text.Json.Serialization.JsonSerializerContext.GeneratedSerializerOptions
+  commentId: P:System.Text.Json.Serialization.JsonSerializerContext.GeneratedSerializerOptions
+  parent: System.Text.Json.Serialization.JsonSerializerContext
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.generatedserializeroptions
+  name: GeneratedSerializerOptions
+  nameWithType: JsonSerializerContext.GeneratedSerializerOptions
+  fullName: System.Text.Json.Serialization.JsonSerializerContext.GeneratedSerializerOptions
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.GeneratedSerializerOptions*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.GeneratedSerializerOptions
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_GeneratedSerializerOptions
+  name: GeneratedSerializerOptions
+  nameWithType: ProgramMetadataSerializerContext.GeneratedSerializerOptions
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.GeneratedSerializerOptions
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.#ctor
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext__ctor
+  name: ProgramMetadataSerializerContext
+  nameWithType: ProgramMetadataSerializerContext.ProgramMetadataSerializerContext
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadataSerializerContext
+  nameWithType.vb: ProgramMetadataSerializerContext.New
+  fullName.vb: Songhay.SerializerContexts.ProgramMetadataSerializerContext.New
+  name.vb: New
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_DictionaryStringDictionaryStringString
+  name: DictionaryStringDictionaryStringString
+  nameWithType: ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringDictionaryStringString
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<Dictionary<string, Dictionary<string, string>>>
+  nameWithType: JsonTypeInfo<Dictionary<string, Dictionary<string, string>>>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<System.Collections.Generic.Dictionary<string, System.Collections.Generic.Dictionary<string, string>>>
+  nameWithType.vb: JsonTypeInfo(Of Dictionary(Of String, Dictionary(Of String, String)))
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of System.Collections.Generic.Dictionary(Of String, System.Collections.Generic.Dictionary(Of String, String)))
+  name.vb: JsonTypeInfo(Of Dictionary(Of String, Dictionary(Of String, String)))
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+  - name: )
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringString*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringString
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_DictionaryStringString
+  name: DictionaryStringString
+  nameWithType: ProgramMetadataSerializerContext.DictionaryStringString
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringString
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,System.String}}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,System.String}}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<Dictionary<string, string>>
+  nameWithType: JsonTypeInfo<Dictionary<string, string>>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<System.Collections.Generic.Dictionary<string, string>>
+  nameWithType.vb: JsonTypeInfo(Of Dictionary(Of String, String))
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of System.Collections.Generic.Dictionary(Of String, String))
+  name.vb: JsonTypeInfo(Of Dictionary(Of String, String))
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.String*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.String
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_String
+  name: String
+  nameWithType: ProgramMetadataSerializerContext.String
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.String
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.String}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.String}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<string>
+  nameWithType: JsonTypeInfo<string>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<string>
+  nameWithType.vb: JsonTypeInfo(Of String)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of String)
+  name.vb: JsonTypeInfo(Of String)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_DictionaryStringRestApiMetadata
+  name: DictionaryStringRestApiMetadata
+  nameWithType: ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DictionaryStringRestApiMetadata
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,Songhay.Models.RestApiMetadata}}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.Dictionary{System.String,Songhay.Models.RestApiMetadata}}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<Dictionary<string, RestApiMetadata>>
+  nameWithType: JsonTypeInfo<Dictionary<string, RestApiMetadata>>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<System.Collections.Generic.Dictionary<string, Songhay.Models.RestApiMetadata>>
+  nameWithType.vb: JsonTypeInfo(Of Dictionary(Of String, RestApiMetadata))
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of System.Collections.Generic.Dictionary(Of String, Songhay.Models.RestApiMetadata))
+  name.vb: JsonTypeInfo(Of Dictionary(Of String, RestApiMetadata))
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.RestApiMetadata
+    name: RestApiMetadata
+    href: Songhay.Models.RestApiMetadata.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.RestApiMetadata
+    name: RestApiMetadata
+    href: Songhay.Models.RestApiMetadata.html
+  - name: )
+  - name: )
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DbmsMetadata*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.DbmsMetadata
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_DbmsMetadata
+  name: DbmsMetadata
+  nameWithType: ProgramMetadataSerializerContext.DbmsMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.DbmsMetadata
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.DbmsMetadata}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.DbmsMetadata}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<DbmsMetadata>
+  nameWithType: JsonTypeInfo<DbmsMetadata>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<Songhay.Models.DbmsMetadata>
+  nameWithType.vb: JsonTypeInfo(Of DbmsMetadata)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Songhay.Models.DbmsMetadata)
+  name.vb: JsonTypeInfo(Of DbmsMetadata)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: Songhay.Models.DbmsMetadata
+    name: DbmsMetadata
+    href: Songhay.Models.DbmsMetadata.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.DbmsMetadata
+    name: DbmsMetadata
+    href: Songhay.Models.DbmsMetadata.html
+  - name: )
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.EncryptionMetadata*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.EncryptionMetadata
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_EncryptionMetadata
+  name: EncryptionMetadata
+  nameWithType: ProgramMetadataSerializerContext.EncryptionMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.EncryptionMetadata
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.EncryptionMetadata}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.EncryptionMetadata}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<EncryptionMetadata>
+  nameWithType: JsonTypeInfo<EncryptionMetadata>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<Songhay.Models.EncryptionMetadata>
+  nameWithType.vb: JsonTypeInfo(Of EncryptionMetadata)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Songhay.Models.EncryptionMetadata)
+  name.vb: JsonTypeInfo(Of EncryptionMetadata)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: Songhay.Models.EncryptionMetadata
+    name: EncryptionMetadata
+    href: Songhay.Models.EncryptionMetadata.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.EncryptionMetadata
+    name: EncryptionMetadata
+    href: Songhay.Models.EncryptionMetadata.html
+  - name: )
+- uid: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+  commentId: M:System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+  parent: System.Text.Json.Serialization.JsonSerializerContext
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.gettypeinfo
+  name: GetTypeInfo(Type)
+  nameWithType: JsonSerializerContext.GetTypeInfo(Type)
+  fullName: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+    name: GetTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.gettypeinfo
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+    name: GetTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.gettypeinfo
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.GetTypeInfo*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.GetTypeInfo
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_GetTypeInfo_System_Type_
+  name: GetTypeInfo
+  nameWithType: ProgramMetadataSerializerContext.GetTypeInfo
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.GetTypeInfo
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo
+  parent: System.Text.Json.Serialization.Metadata
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo
+  name: JsonTypeInfo
+  nameWithType: JsonTypeInfo
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_ProgramMetadata
+  name: ProgramMetadata
+  nameWithType: ProgramMetadataSerializerContext.ProgramMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.ProgramMetadata
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.ProgramMetadata}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.ProgramMetadata}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<ProgramMetadata>
+  nameWithType: JsonTypeInfo<ProgramMetadata>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<Songhay.Models.ProgramMetadata>
+  nameWithType.vb: JsonTypeInfo(Of ProgramMetadata)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Songhay.Models.ProgramMetadata)
+  name.vb: JsonTypeInfo(Of ProgramMetadata)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: Songhay.Models.ProgramMetadata
+    name: ProgramMetadata
+    href: Songhay.Models.ProgramMetadata.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.ProgramMetadata
+    name: ProgramMetadata
+    href: Songhay.Models.ProgramMetadata.html
+  - name: )
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.RestApiMetadata*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.RestApiMetadata
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_RestApiMetadata
+  name: RestApiMetadata
+  nameWithType: ProgramMetadataSerializerContext.RestApiMetadata
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.RestApiMetadata
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.RestApiMetadata}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.RestApiMetadata}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<RestApiMetadata>
+  nameWithType: JsonTypeInfo<RestApiMetadata>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<Songhay.Models.RestApiMetadata>
+  nameWithType.vb: JsonTypeInfo(Of RestApiMetadata)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Songhay.Models.RestApiMetadata)
+  name.vb: JsonTypeInfo(Of RestApiMetadata)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: Songhay.Models.RestApiMetadata
+    name: RestApiMetadata
+    href: Songhay.Models.RestApiMetadata.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.RestApiMetadata
+    name: RestApiMetadata
+    href: Songhay.Models.RestApiMetadata.html
+  - name: )
+- uid: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Uri*
+  commentId: Overload:Songhay.SerializerContexts.ProgramMetadataSerializerContext.Uri
+  href: Songhay.SerializerContexts.ProgramMetadataSerializerContext.html#Songhay_SerializerContexts_ProgramMetadataSerializerContext_Uri
+  name: Uri
+  nameWithType: ProgramMetadataSerializerContext.Uri
+  fullName: Songhay.SerializerContexts.ProgramMetadataSerializerContext.Uri
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Uri}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Uri}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<Uri>
+  nameWithType: JsonTypeInfo<Uri>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<System.Uri>
+  nameWithType.vb: JsonTypeInfo(Of Uri)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of System.Uri)
+  name.vb: JsonTypeInfo(Of Uri)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Uri
+    name: Uri
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: )

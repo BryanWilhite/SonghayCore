@@ -5,7 +5,7 @@ items:
   id: IActivityTask`2
   parent: Songhay.Abstractions
   children:
-  - Songhay.Abstractions.IActivityTask`2.StartAsync(`0)
+  - Songhay.Abstractions.IActivityTask`2.StartAsync(`0,System.Threading.CancellationToken)
   langs:
   - csharp
   - vb
@@ -20,7 +20,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: IActivityTask
     path: ../SonghayCore/Abstractions/IActivityTask.cs
-    startLine: 48
+    startLine: 50
   assemblies:
   - SonghayCore
   namespace: Songhay.Abstractions
@@ -31,16 +31,25 @@ items:
     see https://github.com/BryanWilhite/SonghayCore/issues/83
   example: []
   syntax:
-    content: public interface IActivityTask<in TInput, TOutput>
+    content: 'public interface IActivityTask<in TInput, TOutput> where TOutput : notnull'
     typeParameters:
     - id: TInput
       description: The type of the input.
     - id: TOutput
-      description: The type of the output.
+      description: The non-nullable type of the output.
     content.vb: Public Interface IActivityTask(Of In TInput, TOutput)
   seealso:
   - linkId: Songhay.Abstractions.IActivity
     commentId: T:Songhay.Abstractions.IActivity
+  derivedClasses:
+  - Songhay.Activities.ProgramFileDeleteActivity
+  - Songhay.Activities.ProgramFileListActivity
+  - Songhay.Activities.ProgramFileReadActivity
+  - Songhay.Activities.ProgramFileSaveActivity
+  - Songhay.S3.Activities.AmazonS3DeleteS3ObjectActivity
+  - Songhay.S3.Activities.AmazonS3DownloadToStringActivity
+  - Songhay.S3.Activities.AmazonS3ListBucketObjectsWithPaginationActivity
+  - Songhay.S3.Activities.AmazonS3UploadStringActivity
   extensionMethods:
   - Songhay.Abstractions.IActivityTask`2.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
   - Songhay.Abstractions.IActivityTask`2.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
@@ -48,16 +57,16 @@ items:
   nameWithType.vb: IActivityTask(Of TInput, TOutput)
   fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput, TOutput)
   name.vb: IActivityTask(Of TInput, TOutput)
-- uid: Songhay.Abstractions.IActivityTask`2.StartAsync(`0)
-  commentId: M:Songhay.Abstractions.IActivityTask`2.StartAsync(`0)
-  id: StartAsync(`0)
+- uid: Songhay.Abstractions.IActivityTask`2.StartAsync(`0,System.Threading.CancellationToken)
+  commentId: M:Songhay.Abstractions.IActivityTask`2.StartAsync(`0,System.Threading.CancellationToken)
+  id: StartAsync(`0,System.Threading.CancellationToken)
   parent: Songhay.Abstractions.IActivityTask`2
   langs:
   - csharp
   - vb
-  name: StartAsync(TInput?)
-  nameWithType: IActivityTask<TInput, TOutput>.StartAsync(TInput?)
-  fullName: Songhay.Abstractions.IActivityTask<TInput, TOutput>.StartAsync(TInput?)
+  name: StartAsync(TInput?, CancellationToken)
+  nameWithType: IActivityTask<TInput, TOutput>.StartAsync(TInput?, CancellationToken)
+  fullName: Songhay.Abstractions.IActivityTask<TInput, TOutput>.StartAsync(TInput?, System.Threading.CancellationToken)
   type: Method
   source:
     remote:
@@ -66,24 +75,34 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: StartAsync
     path: ../SonghayCore/Abstractions/IActivityTask.cs
-    startLine: 53
+    startLine: 62
   assemblies:
   - SonghayCore
   namespace: Songhay.Abstractions
   summary: Starts the <xref href="Songhay.Abstractions.IActivity" data-throw-if-not-resolved="false"></xref> asynchronously.
+  remarks: >-
+    Note that <code>TOutput</code> is not marked as nullable
+
+    with the expectation that <code>*Result</code> classes/records
+
+    like <xref href="Songhay.Models.EndpointResult" data-throw-if-not-resolved="false"></xref> will be used.
   example: []
   syntax:
-    content: Task<TOutput?> StartAsync(TInput? input)
+    content: Task<TOutput> StartAsync(TInput? input, CancellationToken cancellationToken)
     parameters:
     - id: input
       type: '{TInput}'
+      description: The input.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
     return:
       type: System.Threading.Tasks.Task{{TOutput}}
-    content.vb: Function StartAsync(input As TInput) As Task(Of TOutput)
+    content.vb: Function StartAsync(input As TInput, cancellationToken As CancellationToken) As Task(Of TOutput)
   overload: Songhay.Abstractions.IActivityTask`2.StartAsync*
-  nameWithType.vb: IActivityTask(Of TInput, TOutput).StartAsync(TInput)
-  fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput, TOutput).StartAsync(TInput)
-  name.vb: StartAsync(TInput)
+  nameWithType.vb: IActivityTask(Of TInput, TOutput).StartAsync(TInput, CancellationToken)
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput, TOutput).StartAsync(TInput, System.Threading.CancellationToken)
+  name.vb: StartAsync(TInput, CancellationToken)
 references:
 - uid: Songhay.Abstractions.IActivity
   commentId: T:Songhay.Abstractions.IActivity
@@ -519,9 +538,24 @@ references:
   - uid: Songhay.Extensions
     name: Extensions
     href: Songhay.Extensions.html
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: Songhay.Models.EndpointResult
+  commentId: T:Songhay.Models.EndpointResult
+  parent: Songhay.Models
+  href: Songhay.Models.EndpointResult.html
+  name: EndpointResult
+  nameWithType: EndpointResult
+  fullName: Songhay.Models.EndpointResult
 - uid: Songhay.Abstractions.IActivityTask`2.StartAsync*
   commentId: Overload:Songhay.Abstractions.IActivityTask`2.StartAsync
-  href: Songhay.Abstractions.IActivityTask-2.html#Songhay_Abstractions_IActivityTask_2_StartAsync__0_
+  href: Songhay.Abstractions.IActivityTask-2.html#Songhay_Abstractions_IActivityTask_2_StartAsync__0_System_Threading_CancellationToken_
   name: StartAsync
   nameWithType: IActivityTask<TInput, TOutput>.StartAsync
   fullName: Songhay.Abstractions.IActivityTask<TInput, TOutput>.StartAsync
@@ -562,6 +596,55 @@ references:
   - name: " "
   - name: TOutput
   - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
 - uid: TInput
   name: TInput
   nameWithType: TInput

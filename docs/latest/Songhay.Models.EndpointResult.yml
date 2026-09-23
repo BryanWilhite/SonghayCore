@@ -1,0 +1,864 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Models.EndpointResult
+  commentId: T:Songhay.Models.EndpointResult
+  id: EndpointResult
+  parent: Songhay.Models
+  children:
+  - Songhay.Models.EndpointResult.#ctor(System.Net.HttpStatusCode,System.String,System.String)
+  - Songhay.Models.EndpointResult.HttpStatusCode
+  - Songhay.Models.EndpointResult.RequestId
+  - Songhay.Models.EndpointResult.ResponseMessage
+  langs:
+  - csharp
+  - vb
+  name: EndpointResult
+  nameWithType: EndpointResult
+  fullName: Songhay.Models.EndpointResult
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Models/EndpointResult.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: EndpointResult
+    path: ../SonghayCore/Models/EndpointResult.cs
+    startLine: 8
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Defines the result returned from all storage-related Activities.
+  example: []
+  syntax:
+    content: 'public record EndpointResult : IEquatable<EndpointResult>'
+    content.vb: Public Class EndpointResult Implements IEquatable(Of EndpointResult)
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Songhay.Models.EndpointContentResult`1
+  implements:
+  - System.IEquatable{Songhay.Models.EndpointResult}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Songhay.Models.EndpointResult.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Models.EndpointResult.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Models.EndpointResult.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+- uid: Songhay.Models.EndpointResult.#ctor(System.Net.HttpStatusCode,System.String,System.String)
+  commentId: M:Songhay.Models.EndpointResult.#ctor(System.Net.HttpStatusCode,System.String,System.String)
+  id: '#ctor(System.Net.HttpStatusCode,System.String,System.String)'
+  parent: Songhay.Models.EndpointResult
+  langs:
+  - csharp
+  - vb
+  name: EndpointResult(HttpStatusCode, string?, string?)
+  nameWithType: EndpointResult.EndpointResult(HttpStatusCode, string?, string?)
+  fullName: Songhay.Models.EndpointResult.EndpointResult(System.Net.HttpStatusCode, string?, string?)
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore/Models/EndpointResult.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: ../SonghayCore/Models/EndpointResult.cs
+    startLine: 8
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Defines the result returned from all storage-related Activities.
+  example: []
+  syntax:
+    content: public EndpointResult(HttpStatusCode HttpStatusCode, string? RequestId, string? ResponseMessage)
+    parameters:
+    - id: HttpStatusCode
+      type: System.Net.HttpStatusCode
+      description: the <xref href="Songhay.Models.EndpointResult.HttpStatusCode" data-throw-if-not-resolved="false"></xref>
+    - id: RequestId
+      type: System.String
+      description: the identifier of the request
+    - id: ResponseMessage
+      type: System.String
+      description: any message associated with the request
+    content.vb: Public Sub New(HttpStatusCode As HttpStatusCode, RequestId As String, ResponseMessage As String)
+  overload: Songhay.Models.EndpointResult.#ctor*
+  nameWithType.vb: EndpointResult.New(HttpStatusCode, String, String)
+  fullName.vb: Songhay.Models.EndpointResult.New(System.Net.HttpStatusCode, String, String)
+  name.vb: New(HttpStatusCode, String, String)
+- uid: Songhay.Models.EndpointResult.HttpStatusCode
+  commentId: P:Songhay.Models.EndpointResult.HttpStatusCode
+  id: HttpStatusCode
+  parent: Songhay.Models.EndpointResult
+  langs:
+  - csharp
+  - vb
+  name: HttpStatusCode
+  nameWithType: EndpointResult.HttpStatusCode
+  fullName: Songhay.Models.EndpointResult.HttpStatusCode
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/EndpointResult.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HttpStatusCode
+    path: ../SonghayCore/Models/EndpointResult.cs
+    startLine: 9
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: the <xref href="Songhay.Models.EndpointResult.HttpStatusCode" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public HttpStatusCode HttpStatusCode { get; init; }
+    parameters: []
+    return:
+      type: System.Net.HttpStatusCode
+    content.vb: Public Property HttpStatusCode As HttpStatusCode
+  overload: Songhay.Models.EndpointResult.HttpStatusCode*
+- uid: Songhay.Models.EndpointResult.RequestId
+  commentId: P:Songhay.Models.EndpointResult.RequestId
+  id: RequestId
+  parent: Songhay.Models.EndpointResult
+  langs:
+  - csharp
+  - vb
+  name: RequestId
+  nameWithType: EndpointResult.RequestId
+  fullName: Songhay.Models.EndpointResult.RequestId
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/EndpointResult.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RequestId
+    path: ../SonghayCore/Models/EndpointResult.cs
+    startLine: 10
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: the identifier of the request
+  example: []
+  syntax:
+    content: public string? RequestId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RequestId As String
+  overload: Songhay.Models.EndpointResult.RequestId*
+- uid: Songhay.Models.EndpointResult.ResponseMessage
+  commentId: P:Songhay.Models.EndpointResult.ResponseMessage
+  id: ResponseMessage
+  parent: Songhay.Models.EndpointResult
+  langs:
+  - csharp
+  - vb
+  name: ResponseMessage
+  nameWithType: EndpointResult.ResponseMessage
+  fullName: Songhay.Models.EndpointResult.ResponseMessage
+  type: Property
+  source:
+    remote:
+      path: SonghayCore/Models/EndpointResult.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ResponseMessage
+    path: ../SonghayCore/Models/EndpointResult.cs
+    startLine: 11
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: any message associated with the request
+  example: []
+  syntax:
+    content: public string? ResponseMessage { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ResponseMessage As String
+  overload: Songhay.Models.EndpointResult.ResponseMessage*
+references:
+- uid: Songhay.Models.EndpointResult.HttpStatusCode
+  commentId: P:Songhay.Models.EndpointResult.HttpStatusCode
+  parent: Songhay.Models.EndpointResult
+  href: Songhay.Models.EndpointResult.html#Songhay_Models_EndpointResult_HttpStatusCode
+  name: HttpStatusCode
+  nameWithType: EndpointResult.HttpStatusCode
+  fullName: Songhay.Models.EndpointResult.HttpStatusCode
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{Songhay.Models.EndpointResult}
+  commentId: T:System.IEquatable{Songhay.Models.EndpointResult}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<EndpointResult>
+  nameWithType: IEquatable<EndpointResult>
+  fullName: System.IEquatable<Songhay.Models.EndpointResult>
+  nameWithType.vb: IEquatable(Of EndpointResult)
+  fullName.vb: System.IEquatable(Of Songhay.Models.EndpointResult)
+  name.vb: IEquatable(Of EndpointResult)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Models.EndpointResult.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<EndpointResult>(EndpointResult)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<EndpointResult>(EndpointResult)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Models.EndpointResult>(Songhay.Models.EndpointResult)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of EndpointResult)(EndpointResult)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Models.EndpointResult)(Songhay.Models.EndpointResult)
+  name.vb: IsAssignableToISerializable(Of EndpointResult)(EndpointResult)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Models.EndpointResult)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Models.EndpointResult)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+- uid: Songhay.Models.EndpointResult.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<EndpointResult>(EndpointResult)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<EndpointResult>(EndpointResult)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Models.EndpointResult>(Songhay.Models.EndpointResult)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of EndpointResult)(EndpointResult)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Models.EndpointResult)(Songhay.Models.EndpointResult)
+  name.vb: ToObjectOrDbNull(Of EndpointResult)(EndpointResult)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Models.EndpointResult)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Models.EndpointResult)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+- uid: Songhay.Models.EndpointResult.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<EndpointResult>(EndpointResult, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<EndpointResult>(EndpointResult, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Models.EndpointResult>(Songhay.Models.EndpointResult, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of EndpointResult)(EndpointResult, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Models.EndpointResult)(Songhay.Models.EndpointResult, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of EndpointResult)(EndpointResult, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Models.EndpointResult,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Models.EndpointResult,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Models.EndpointResult
+  commentId: T:Songhay.Models.EndpointResult
+  parent: Songhay.Models
+  href: Songhay.Models.EndpointResult.html
+  name: EndpointResult
+  nameWithType: EndpointResult
+  fullName: Songhay.Models.EndpointResult
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Models.EndpointResult.#ctor*
+  commentId: Overload:Songhay.Models.EndpointResult.#ctor
+  href: Songhay.Models.EndpointResult.html#Songhay_Models_EndpointResult__ctor_System_Net_HttpStatusCode_System_String_System_String_
+  name: EndpointResult
+  nameWithType: EndpointResult.EndpointResult
+  fullName: Songhay.Models.EndpointResult.EndpointResult
+  nameWithType.vb: EndpointResult.New
+  fullName.vb: Songhay.Models.EndpointResult.New
+  name.vb: New
+- uid: System.Net.HttpStatusCode
+  commentId: T:System.Net.HttpStatusCode
+  parent: System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.httpstatuscode
+  name: HttpStatusCode
+  nameWithType: HttpStatusCode
+  fullName: System.Net.HttpStatusCode
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+- uid: Songhay.Models.EndpointResult.HttpStatusCode*
+  commentId: Overload:Songhay.Models.EndpointResult.HttpStatusCode
+  href: Songhay.Models.EndpointResult.html#Songhay_Models_EndpointResult_HttpStatusCode
+  name: HttpStatusCode
+  nameWithType: EndpointResult.HttpStatusCode
+  fullName: Songhay.Models.EndpointResult.HttpStatusCode
+- uid: Songhay.Models.EndpointResult.RequestId*
+  commentId: Overload:Songhay.Models.EndpointResult.RequestId
+  href: Songhay.Models.EndpointResult.html#Songhay_Models_EndpointResult_RequestId
+  name: RequestId
+  nameWithType: EndpointResult.RequestId
+  fullName: Songhay.Models.EndpointResult.RequestId
+- uid: Songhay.Models.EndpointResult.ResponseMessage*
+  commentId: Overload:Songhay.Models.EndpointResult.ResponseMessage
+  href: Songhay.Models.EndpointResult.html#Songhay_Models_EndpointResult_ResponseMessage
+  name: ResponseMessage
+  nameWithType: EndpointResult.ResponseMessage
+  fullName: Songhay.Models.EndpointResult.ResponseMessage

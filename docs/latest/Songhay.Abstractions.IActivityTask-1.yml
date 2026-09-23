@@ -5,7 +5,7 @@ items:
   id: IActivityTask`1
   parent: Songhay.Abstractions
   children:
-  - Songhay.Abstractions.IActivityTask`1.StartAsync(`0)
+  - Songhay.Abstractions.IActivityTask`1.StartAsync(`0,System.Threading.CancellationToken)
   langs:
   - csharp
   - vb
@@ -20,7 +20,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: IActivityTask
     path: ../SonghayCore/Abstractions/IActivityTask.cs
-    startLine: 29
+    startLine: 30
   assemblies:
   - SonghayCore
   namespace: Songhay.Abstractions
@@ -46,16 +46,16 @@ items:
   nameWithType.vb: IActivityTask(Of TInput)
   fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput)
   name.vb: IActivityTask(Of TInput)
-- uid: Songhay.Abstractions.IActivityTask`1.StartAsync(`0)
-  commentId: M:Songhay.Abstractions.IActivityTask`1.StartAsync(`0)
-  id: StartAsync(`0)
+- uid: Songhay.Abstractions.IActivityTask`1.StartAsync(`0,System.Threading.CancellationToken)
+  commentId: M:Songhay.Abstractions.IActivityTask`1.StartAsync(`0,System.Threading.CancellationToken)
+  id: StartAsync(`0,System.Threading.CancellationToken)
   parent: Songhay.Abstractions.IActivityTask`1
   langs:
   - csharp
   - vb
-  name: StartAsync(TInput?)
-  nameWithType: IActivityTask<TInput>.StartAsync(TInput?)
-  fullName: Songhay.Abstractions.IActivityTask<TInput>.StartAsync(TInput?)
+  name: StartAsync(TInput?, CancellationToken)
+  nameWithType: IActivityTask<TInput>.StartAsync(TInput?, CancellationToken)
+  fullName: Songhay.Abstractions.IActivityTask<TInput>.StartAsync(TInput?, System.Threading.CancellationToken)
   type: Method
   source:
     remote:
@@ -64,25 +64,28 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: StartAsync
     path: ../SonghayCore/Abstractions/IActivityTask.cs
-    startLine: 35
+    startLine: 37
   assemblies:
   - SonghayCore
   namespace: Songhay.Abstractions
   summary: Starts the <xref href="Songhay.Abstractions.IActivity" data-throw-if-not-resolved="false"></xref> asynchronously.
   example: []
   syntax:
-    content: Task StartAsync(TInput? input)
+    content: Task StartAsync(TInput? input, CancellationToken cancellationToken)
     parameters:
     - id: input
       type: '{TInput}'
       description: The input.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
     return:
       type: System.Threading.Tasks.Task
-    content.vb: Function StartAsync(input As TInput) As Task
+    content.vb: Function StartAsync(input As TInput, cancellationToken As CancellationToken) As Task
   overload: Songhay.Abstractions.IActivityTask`1.StartAsync*
-  nameWithType.vb: IActivityTask(Of TInput).StartAsync(TInput)
-  fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput).StartAsync(TInput)
-  name.vb: StartAsync(TInput)
+  nameWithType.vb: IActivityTask(Of TInput).StartAsync(TInput, CancellationToken)
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput).StartAsync(TInput, System.Threading.CancellationToken)
+  name.vb: StartAsync(TInput, CancellationToken)
 references:
 - uid: Songhay.Abstractions.IActivity
   commentId: T:Songhay.Abstractions.IActivity
@@ -482,9 +485,17 @@ references:
   - uid: Songhay.Extensions
     name: Extensions
     href: Songhay.Extensions.html
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
 - uid: Songhay.Abstractions.IActivityTask`1.StartAsync*
   commentId: Overload:Songhay.Abstractions.IActivityTask`1.StartAsync
-  href: Songhay.Abstractions.IActivityTask-1.html#Songhay_Abstractions_IActivityTask_1_StartAsync__0_
+  href: Songhay.Abstractions.IActivityTask-1.html#Songhay_Abstractions_IActivityTask_1_StartAsync__0_System_Threading_CancellationToken_
   name: StartAsync
   nameWithType: IActivityTask<TInput>.StartAsync
   fullName: Songhay.Abstractions.IActivityTask<TInput>.StartAsync
@@ -496,6 +507,33 @@ references:
   name: TInput
   nameWithType: TInput
   fullName: TInput
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
 - uid: TInput
   name: TInput
   nameWithType: TInput

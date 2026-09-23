@@ -8,8 +8,8 @@ items:
   - Songhay.Extensions.UriExtensions.IsProbablyAFile(System.Uri)
   - Songhay.Extensions.UriExtensions.ToAzureStorageCanonicalizedResourceLocation(System.Uri,System.String)
   - Songhay.Extensions.UriExtensions.ToBaseUri(System.Uri)
-  - Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)
-  - Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)
+  - Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri,System.Func{System.Net.Http.HttpClient})
+  - Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri,System.Func{System.Net.Http.HttpClient})
   - Songhay.Extensions.UriExtensions.ToFileName(System.Uri)
   - Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)
   langs:
@@ -230,17 +230,17 @@ items:
   nameWithType.vb: UriExtensions.ToFileName(Uri)
   fullName.vb: Songhay.Extensions.UriExtensions.ToFileName(System.Uri)
   name.vb: ToFileName(Uri)
-- uid: Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)
-  commentId: M:Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)
-  id: ToExpandedUriAsync(System.Uri)
+- uid: Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri,System.Func{System.Net.Http.HttpClient})
+  commentId: M:Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri,System.Func{System.Net.Http.HttpClient})
+  id: ToExpandedUriAsync(System.Uri,System.Func{System.Net.Http.HttpClient})
   isExtensionMethod: true
   parent: Songhay.Extensions.UriExtensions
   langs:
   - csharp
   - vb
-  name: ToExpandedUriAsync(Uri?)
-  nameWithType: UriExtensions.ToExpandedUriAsync(Uri?)
-  fullName: Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri?)
+  name: ToExpandedUriAsync(Uri?, Func<HttpClient>)
+  nameWithType: UriExtensions.ToExpandedUriAsync(Uri?, Func<HttpClient>)
+  fullName: Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri?, System.Func<System.Net.Http.HttpClient>)
   type: Method
   source:
     remote:
@@ -249,7 +249,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToExpandedUriAsync
     path: ../SonghayCore/Extensions/UriExtensions.cs
-    startLine: 98
+    startLine: 99
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -265,29 +265,32 @@ items:
     or <xref href="System.Net.Http.Headers.HttpResponseHeaders.Location" data-throw-if-not-resolved="false"></xref> is null.
   example: []
   syntax:
-    content: public static Task<Uri?> ToExpandedUriAsync(this Uri? expandableUri)
+    content: public static Task<Uri?> ToExpandedUriAsync(this Uri? expandableUri, Func<HttpClient> clientGetter)
     parameters:
     - id: expandableUri
       type: System.Uri
       description: The expandable <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>.
+    - id: clientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The required client getter.
     return:
       type: System.Threading.Tasks.Task{System.Uri}
-    content.vb: Public Shared Function ToExpandedUriAsync(expandableUri As Uri) As Task(Of Uri)
+    content.vb: Public Shared Function ToExpandedUriAsync(expandableUri As Uri, clientGetter As Func(Of HttpClient)) As Task(Of Uri)
   overload: Songhay.Extensions.UriExtensions.ToExpandedUriAsync*
-  nameWithType.vb: UriExtensions.ToExpandedUriAsync(Uri)
-  fullName.vb: Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)
-  name.vb: ToExpandedUriAsync(Uri)
-- uid: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)
-  commentId: M:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)
-  id: ToExpandedUriPairAsync(System.Uri)
+  nameWithType.vb: UriExtensions.ToExpandedUriAsync(Uri, Func(Of HttpClient))
+  fullName.vb: Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri, System.Func(Of System.Net.Http.HttpClient))
+  name.vb: ToExpandedUriAsync(Uri, Func(Of HttpClient))
+- uid: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri,System.Func{System.Net.Http.HttpClient})
+  commentId: M:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri,System.Func{System.Net.Http.HttpClient})
+  id: ToExpandedUriPairAsync(System.Uri,System.Func{System.Net.Http.HttpClient})
   isExtensionMethod: true
   parent: Songhay.Extensions.UriExtensions
   langs:
   - csharp
   - vb
-  name: ToExpandedUriPairAsync(Uri?)
-  nameWithType: UriExtensions.ToExpandedUriPairAsync(Uri?)
-  fullName: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri?)
+  name: ToExpandedUriPairAsync(Uri?, Func<HttpClient>)
+  nameWithType: UriExtensions.ToExpandedUriPairAsync(Uri?, Func<HttpClient>)
+  fullName: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri?, System.Func<System.Net.Http.HttpClient>)
   type: Method
   source:
     remote:
@@ -296,7 +299,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToExpandedUriPairAsync
     path: ../SonghayCore/Extensions/UriExtensions.cs
-    startLine: 128
+    startLine: 130
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -306,18 +309,21 @@ items:
     to its ‘expanded’ version.
   example: []
   syntax:
-    content: public static Task<KeyValuePair<Uri?, Uri?>> ToExpandedUriPairAsync(this Uri? expandableUri)
+    content: public static Task<KeyValuePair<Uri?, Uri?>> ToExpandedUriPairAsync(this Uri? expandableUri, Func<HttpClient> clientGetter)
     parameters:
     - id: expandableUri
       type: System.Uri
       description: The expandable <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>.
+    - id: clientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The required client getter.
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.KeyValuePair{System.Uri,System.Uri}}
-    content.vb: Public Shared Function ToExpandedUriPairAsync(expandableUri As Uri) As Task(Of KeyValuePair(Of Uri, Uri))
+    content.vb: Public Shared Function ToExpandedUriPairAsync(expandableUri As Uri, clientGetter As Func(Of HttpClient)) As Task(Of KeyValuePair(Of Uri, Uri))
   overload: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync*
-  nameWithType.vb: UriExtensions.ToExpandedUriPairAsync(Uri)
-  fullName.vb: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)
-  name.vb: ToExpandedUriPairAsync(Uri)
+  nameWithType.vb: UriExtensions.ToExpandedUriPairAsync(Uri, Func(Of HttpClient))
+  fullName.vb: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri, System.Func(Of System.Net.Http.HttpClient))
+  name.vb: ToExpandedUriPairAsync(Uri, Func(Of HttpClient))
 - uid: Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)
   commentId: M:Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)
   id: ToRelativeUriFromQuery(System.Uri)
@@ -337,7 +343,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ToRelativeUriFromQuery
     path: ../SonghayCore/Extensions/UriExtensions.cs
-    startLine: 141
+    startLine: 143
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -738,10 +744,45 @@ references:
   fullName: System.Net.Http.Headers.HttpResponseHeaders.Location
 - uid: Songhay.Extensions.UriExtensions.ToExpandedUriAsync*
   commentId: Overload:Songhay.Extensions.UriExtensions.ToExpandedUriAsync
-  href: Songhay.Extensions.UriExtensions.html#Songhay_Extensions_UriExtensions_ToExpandedUriAsync_System_Uri_
+  href: Songhay.Extensions.UriExtensions.html#Songhay_Extensions_UriExtensions_ToExpandedUriAsync_System_Uri_System_Func_System_Net_Http_HttpClient__
   name: ToExpandedUriAsync
   nameWithType: UriExtensions.ToExpandedUriAsync
   fullName: Songhay.Extensions.UriExtensions.ToExpandedUriAsync
+- uid: System.Func{System.Net.Http.HttpClient}
+  commentId: T:System.Func{System.Net.Http.HttpClient}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<HttpClient>
+  nameWithType: Func<HttpClient>
+  fullName: System.Func<System.Net.Http.HttpClient>
+  nameWithType.vb: Func(Of HttpClient)
+  fullName.vb: System.Func(Of System.Net.Http.HttpClient)
+  name.vb: Func(Of HttpClient)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Net.Http.HttpClient
+    name: HttpClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Net.Http.HttpClient
+    name: HttpClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  - name: )
 - uid: System.Threading.Tasks.Task{System.Uri}
   commentId: T:System.Threading.Tasks.Task{System.Uri}
   parent: System.Threading.Tasks
@@ -776,6 +817,34 @@ references:
     name: Uri
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.uri
+  - name: )
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
   - name: )
 - uid: System.Threading.Tasks.Task`1
   commentId: T:System.Threading.Tasks.Task`1
@@ -844,7 +913,7 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
 - uid: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync*
   commentId: Overload:Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync
-  href: Songhay.Extensions.UriExtensions.html#Songhay_Extensions_UriExtensions_ToExpandedUriPairAsync_System_Uri_
+  href: Songhay.Extensions.UriExtensions.html#Songhay_Extensions_UriExtensions_ToExpandedUriPairAsync_System_Uri_System_Func_System_Net_Http_HttpClient__
   name: ToExpandedUriPairAsync
   nameWithType: UriExtensions.ToExpandedUriPairAsync
   fullName: Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync

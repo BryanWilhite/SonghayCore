@@ -291,9 +291,9 @@ For ListContainers, this will return something like this:
 
   <a id="Songhay_Extensions_UriExtensions_ToExpandedUriAsync_" data-uid="Songhay.Extensions.UriExtensions.ToExpandedUriAsync*"></a>
 
-  <h3 id="Songhay_Extensions_UriExtensions_ToExpandedUriAsync_System_Uri_" data-uid="Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri)">
-  ToExpandedUriAsync(Uri?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/UriExtensions.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Extensions_UriExtensions_ToExpandedUriAsync_System_Uri_System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.Extensions.UriExtensions.ToExpandedUriAsync(System.Uri,System.Func{System.Net.Http.HttpClient})">
+  ToExpandedUriAsync(Uri?, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/UriExtensions.cs/#L100"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a>
@@ -302,13 +302,16 @@ to its ‘expanded’ version.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Uri?&gt; ToExpandedUriAsync(this Uri? expandableUri)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;Uri?&gt; ToExpandedUriAsync(this Uri? expandableUri, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>expandableUri</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
     <dd><p>The expandable <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a>.</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
   </dl>
 
@@ -324,7 +327,7 @@ to its ‘expanded’ version.</p>
 
 
 
-  <h4 class="section" id="Songhay_Extensions_UriExtensions_ToExpandedUriAsync_System_Uri__remarks">Remarks</h4>
+  <h4 class="section" id="Songhay_Extensions_UriExtensions_ToExpandedUriAsync_System_Uri_System_Func_System_Net_Http_HttpClient___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This member will call itself recursively
 until <a class="xref" href="Songhay.Extensions.HttpResponseMessageExtensions.html#Songhay_Extensions_HttpResponseMessageExtensions_IsMovedOrRedirected_System_Net_Http_HttpResponseMessage_">IsMovedOrRedirected(HttpResponseMessage?)</a> returns <code>true</code>
 or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.headers.httpresponseheaders.location">Location</a> is null.</p>
@@ -335,9 +338,9 @@ or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.
 
   <a id="Songhay_Extensions_UriExtensions_ToExpandedUriPairAsync_" data-uid="Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync*"></a>
 
-  <h3 id="Songhay_Extensions_UriExtensions_ToExpandedUriPairAsync_System_Uri_" data-uid="Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri)">
-  ToExpandedUriPairAsync(Uri?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/UriExtensions.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Extensions_UriExtensions_ToExpandedUriPairAsync_System_Uri_System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.Extensions.UriExtensions.ToExpandedUriPairAsync(System.Uri,System.Func{System.Net.Http.HttpClient})">
+  ToExpandedUriPairAsync(Uri?, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/UriExtensions.cs/#L131"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a>
@@ -346,13 +349,16 @@ to its ‘expanded’ version.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;KeyValuePair&lt;Uri?, Uri?&gt;&gt; ToExpandedUriPairAsync(this Uri? expandableUri)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;KeyValuePair&lt;Uri?, Uri?&gt;&gt; ToExpandedUriPairAsync(this Uri? expandableUri, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>expandableUri</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
     <dd><p>The expandable <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a>.</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
   </dl>
 
@@ -414,7 +420,7 @@ to its ‘expanded’ version.</p>
 
   <h3 id="Songhay_Extensions_UriExtensions_ToRelativeUriFromQuery_System_Uri_" data-uid="Songhay.Extensions.UriExtensions.ToRelativeUriFromQuery(System.Uri)">
   ToRelativeUriFromQuery(Uri?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/UriExtensions.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Extensions/UriExtensions.cs/#L144"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a> into a relative URI from query.</p>

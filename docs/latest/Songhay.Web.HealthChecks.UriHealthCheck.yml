@@ -1,0 +1,1113 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Web.HealthChecks.UriHealthCheck
+  commentId: T:Songhay.Web.HealthChecks.UriHealthCheck
+  id: UriHealthCheck
+  parent: Songhay.Web.HealthChecks
+  children:
+  - Songhay.Web.HealthChecks.UriHealthCheck.#ctor(System.Net.Http.IHttpClientFactory,Songhay.Models.ApiUriSet,Microsoft.Extensions.Logging.ILogger{Songhay.Web.HealthChecks.UriHealthCheck})
+  - Songhay.Web.HealthChecks.UriHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)
+  - Songhay.Web.HealthChecks.UriHealthCheck.Name
+  langs:
+  - csharp
+  - vb
+  name: UriHealthCheck
+  nameWithType: UriHealthCheck
+  fullName: Songhay.Web.HealthChecks.UriHealthCheck
+  type: Class
+  source:
+    remote:
+      path: SonghayCore.Web/HealthChecks/UriHealthCheck.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: UriHealthCheck
+    path: ../SonghayCore.Web/HealthChecks/UriHealthCheck.cs
+    startLine: 14
+  assemblies:
+  - SonghayCore.Web
+  namespace: Songhay.Web.HealthChecks
+  summary: >-
+    Implements <xref href="Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck" data-throw-if-not-resolved="false"></xref>
+
+    to make HEAD requests with the injected <xref href="Songhay.Models.ApiUriSet" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public sealed class UriHealthCheck : IHealthCheck'
+    content.vb: Public NotInheritable Class UriHealthCheck Implements IHealthCheck
+  inheritance:
+  - System.Object
+  implements:
+  - Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Songhay.Web.HealthChecks.UriHealthCheck.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Web.HealthChecks.UriHealthCheck.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Web.HealthChecks.UriHealthCheck.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+- uid: Songhay.Web.HealthChecks.UriHealthCheck.#ctor(System.Net.Http.IHttpClientFactory,Songhay.Models.ApiUriSet,Microsoft.Extensions.Logging.ILogger{Songhay.Web.HealthChecks.UriHealthCheck})
+  commentId: M:Songhay.Web.HealthChecks.UriHealthCheck.#ctor(System.Net.Http.IHttpClientFactory,Songhay.Models.ApiUriSet,Microsoft.Extensions.Logging.ILogger{Songhay.Web.HealthChecks.UriHealthCheck})
+  id: '#ctor(System.Net.Http.IHttpClientFactory,Songhay.Models.ApiUriSet,Microsoft.Extensions.Logging.ILogger{Songhay.Web.HealthChecks.UriHealthCheck})'
+  parent: Songhay.Web.HealthChecks.UriHealthCheck
+  langs:
+  - csharp
+  - vb
+  name: UriHealthCheck(IHttpClientFactory, ApiUriSet, ILogger<UriHealthCheck>)
+  nameWithType: UriHealthCheck.UriHealthCheck(IHttpClientFactory, ApiUriSet, ILogger<UriHealthCheck>)
+  fullName: Songhay.Web.HealthChecks.UriHealthCheck.UriHealthCheck(System.Net.Http.IHttpClientFactory, Songhay.Models.ApiUriSet, Microsoft.Extensions.Logging.ILogger<Songhay.Web.HealthChecks.UriHealthCheck>)
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore.Web/HealthChecks/UriHealthCheck.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: ../SonghayCore.Web/HealthChecks/UriHealthCheck.cs
+    startLine: 14
+  assemblies:
+  - SonghayCore.Web
+  namespace: Songhay.Web.HealthChecks
+  summary: >-
+    Implements <xref href="Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck" data-throw-if-not-resolved="false"></xref>
+
+    to make HEAD requests with the injected <xref href="Songhay.Models.ApiUriSet" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public UriHealthCheck(IHttpClientFactory httpClientFactory, ApiUriSet uriHealthCheckSet, ILogger<UriHealthCheck> logger)
+    parameters:
+    - id: httpClientFactory
+      type: System.Net.Http.IHttpClientFactory
+      description: the <xref href="System.Net.Http.IHttpClientFactory" data-throw-if-not-resolved="false"></xref>
+    - id: uriHealthCheckSet
+      type: Songhay.Models.ApiUriSet
+      description: the <xref href="Songhay.Models.ApiUriSet" data-throw-if-not-resolved="false"></xref> for the Health Check
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{Songhay.Web.HealthChecks.UriHealthCheck}
+    content.vb: Public Sub New(httpClientFactory As IHttpClientFactory, uriHealthCheckSet As ApiUriSet, logger As ILogger(Of UriHealthCheck))
+  overload: Songhay.Web.HealthChecks.UriHealthCheck.#ctor*
+  nameWithType.vb: UriHealthCheck.New(IHttpClientFactory, ApiUriSet, ILogger(Of UriHealthCheck))
+  fullName.vb: Songhay.Web.HealthChecks.UriHealthCheck.New(System.Net.Http.IHttpClientFactory, Songhay.Models.ApiUriSet, Microsoft.Extensions.Logging.ILogger(Of Songhay.Web.HealthChecks.UriHealthCheck))
+  name.vb: New(IHttpClientFactory, ApiUriSet, ILogger(Of UriHealthCheck))
+- uid: Songhay.Web.HealthChecks.UriHealthCheck.Name
+  commentId: F:Songhay.Web.HealthChecks.UriHealthCheck.Name
+  id: Name
+  parent: Songhay.Web.HealthChecks.UriHealthCheck
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: UriHealthCheck.Name
+  fullName: Songhay.Web.HealthChecks.UriHealthCheck.Name
+  type: Field
+  source:
+    remote:
+      path: SonghayCore.Web/HealthChecks/UriHealthCheck.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: Name
+    path: ../SonghayCore.Web/HealthChecks/UriHealthCheck.cs
+    startLine: 19
+  assemblies:
+  - SonghayCore.Web
+  namespace: Songhay.Web.HealthChecks
+  syntax:
+    content: public const string Name = "uri-health-check"
+    return:
+      type: System.String
+    content.vb: Public Const Name As String = "uri-health-check"
+- uid: Songhay.Web.HealthChecks.UriHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)
+  commentId: M:Songhay.Web.HealthChecks.UriHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)
+  id: CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)
+  parent: Songhay.Web.HealthChecks.UriHealthCheck
+  langs:
+  - csharp
+  - vb
+  name: CheckHealthAsync(HealthCheckContext, CancellationToken)
+  nameWithType: UriHealthCheck.CheckHealthAsync(HealthCheckContext, CancellationToken)
+  fullName: Songhay.Web.HealthChecks.UriHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore.Web/HealthChecks/UriHealthCheck.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: CheckHealthAsync
+    path: ../SonghayCore.Web/HealthChecks/UriHealthCheck.cs
+    startLine: 22
+  assemblies:
+  - SonghayCore.Web
+  namespace: Songhay.Web.HealthChecks
+  summary: Runs the health check, returning the status of the component being checked.
+  example: []
+  syntax:
+    content: public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
+    parameters:
+    - id: context
+      type: Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext
+      description: A context object associated with the current execution.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> that can be used to cancel the health check.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> that completes when the health check has finished, yielding the status of the component being checked.
+    content.vb: Public Function CheckHealthAsync(context As HealthCheckContext, cancellationToken As CancellationToken = Nothing) As Task(Of HealthCheckResult)
+  overload: Songhay.Web.HealthChecks.UriHealthCheck.CheckHealthAsync*
+  implements:
+  - Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)
+references:
+- uid: Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck
+  commentId: T:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck
+  parent: Microsoft.Extensions.Diagnostics.HealthChecks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics.healthchecks.ihealthcheck
+  name: IHealthCheck
+  nameWithType: IHealthCheck
+  fullName: Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck
+- uid: Songhay.Models.ApiUriSet
+  commentId: T:Songhay.Models.ApiUriSet
+  parent: Songhay.Models
+  href: Songhay.Models.ApiUriSet.html
+  name: ApiUriSet
+  nameWithType: ApiUriSet
+  fullName: Songhay.Models.ApiUriSet
+- uid: System.Net.Http.IHttpClientFactory
+  commentId: T:System.Net.Http.IHttpClientFactory
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.ihttpclientfactory
+  name: IHttpClientFactory
+  nameWithType: IHttpClientFactory
+  fullName: System.Net.Http.IHttpClientFactory
+- uid: Songhay.Web.HealthChecks
+  commentId: N:Songhay.Web.HealthChecks
+  href: Songhay.html
+  name: Songhay.Web.HealthChecks
+  nameWithType: Songhay.Web.HealthChecks
+  fullName: Songhay.Web.HealthChecks
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Web
+    name: Web
+    href: Songhay.Web.html
+  - name: .
+  - uid: Songhay.Web.HealthChecks
+    name: HealthChecks
+    href: Songhay.Web.HealthChecks.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Web
+    name: Web
+    href: Songhay.Web.html
+  - name: .
+  - uid: Songhay.Web.HealthChecks
+    name: HealthChecks
+    href: Songhay.Web.HealthChecks.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Web.HealthChecks.UriHealthCheck.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<UriHealthCheck>(UriHealthCheck)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<UriHealthCheck>(UriHealthCheck)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Web.HealthChecks.UriHealthCheck>(Songhay.Web.HealthChecks.UriHealthCheck)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of UriHealthCheck)(UriHealthCheck)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Web.HealthChecks.UriHealthCheck)(Songhay.Web.HealthChecks.UriHealthCheck)
+  name.vb: IsAssignableToISerializable(Of UriHealthCheck)(UriHealthCheck)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Web.HealthChecks.UriHealthCheck)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Web.HealthChecks.UriHealthCheck)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: )
+  - name: (
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: )
+- uid: Songhay.Web.HealthChecks.UriHealthCheck.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<UriHealthCheck>(UriHealthCheck)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<UriHealthCheck>(UriHealthCheck)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Web.HealthChecks.UriHealthCheck>(Songhay.Web.HealthChecks.UriHealthCheck)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of UriHealthCheck)(UriHealthCheck)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Web.HealthChecks.UriHealthCheck)(Songhay.Web.HealthChecks.UriHealthCheck)
+  name.vb: ToObjectOrDbNull(Of UriHealthCheck)(UriHealthCheck)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Web.HealthChecks.UriHealthCheck)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Web.HealthChecks.UriHealthCheck)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: )
+  - name: (
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: )
+- uid: Songhay.Web.HealthChecks.UriHealthCheck.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<UriHealthCheck>(UriHealthCheck, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<UriHealthCheck>(UriHealthCheck, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Web.HealthChecks.UriHealthCheck>(Songhay.Web.HealthChecks.UriHealthCheck, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of UriHealthCheck)(UriHealthCheck, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Web.HealthChecks.UriHealthCheck)(Songhay.Web.HealthChecks.UriHealthCheck, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of UriHealthCheck)(UriHealthCheck, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Web.HealthChecks.UriHealthCheck,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Web.HealthChecks.UriHealthCheck,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: )
+  - name: (
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Microsoft.Extensions.Diagnostics.HealthChecks
+  commentId: N:Microsoft.Extensions.Diagnostics.HealthChecks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Diagnostics.HealthChecks
+  nameWithType: Microsoft.Extensions.Diagnostics.HealthChecks
+  fullName: Microsoft.Extensions.Diagnostics.HealthChecks
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Diagnostics
+    name: Diagnostics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics
+  - name: .
+  - uid: Microsoft.Extensions.Diagnostics.HealthChecks
+    name: HealthChecks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics.healthchecks
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Diagnostics
+    name: Diagnostics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics
+  - name: .
+  - uid: Microsoft.Extensions.Diagnostics.HealthChecks
+    name: HealthChecks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics.healthchecks
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Web.HealthChecks.UriHealthCheck.#ctor*
+  commentId: Overload:Songhay.Web.HealthChecks.UriHealthCheck.#ctor
+  href: Songhay.Web.HealthChecks.UriHealthCheck.html#Songhay_Web_HealthChecks_UriHealthCheck__ctor_System_Net_Http_IHttpClientFactory_Songhay_Models_ApiUriSet_Microsoft_Extensions_Logging_ILogger_Songhay_Web_HealthChecks_UriHealthCheck__
+  name: UriHealthCheck
+  nameWithType: UriHealthCheck.UriHealthCheck
+  fullName: Songhay.Web.HealthChecks.UriHealthCheck.UriHealthCheck
+  nameWithType.vb: UriHealthCheck.New
+  fullName.vb: Songhay.Web.HealthChecks.UriHealthCheck.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{Songhay.Web.HealthChecks.UriHealthCheck}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{Songhay.Web.HealthChecks.UriHealthCheck}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<UriHealthCheck>
+  nameWithType: ILogger<UriHealthCheck>
+  fullName: Microsoft.Extensions.Logging.ILogger<Songhay.Web.HealthChecks.UriHealthCheck>
+  nameWithType.vb: ILogger(Of UriHealthCheck)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of Songhay.Web.HealthChecks.UriHealthCheck)
+  name.vb: ILogger(Of UriHealthCheck)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.HealthChecks.UriHealthCheck
+    name: UriHealthCheck
+    href: Songhay.Web.HealthChecks.UriHealthCheck.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Songhay.Web.HealthChecks.UriHealthCheck.CheckHealthAsync*
+  commentId: Overload:Songhay.Web.HealthChecks.UriHealthCheck.CheckHealthAsync
+  href: Songhay.Web.HealthChecks.UriHealthCheck.html#Songhay_Web_HealthChecks_UriHealthCheck_CheckHealthAsync_Microsoft_Extensions_Diagnostics_HealthChecks_HealthCheckContext_System_Threading_CancellationToken_
+  name: CheckHealthAsync
+  nameWithType: UriHealthCheck.CheckHealthAsync
+  fullName: Songhay.Web.HealthChecks.UriHealthCheck.CheckHealthAsync
+- uid: Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)
+  commentId: M:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)
+  parent: Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics.healthchecks.ihealthcheck.checkhealthasync
+  name: CheckHealthAsync(HealthCheckContext, CancellationToken)
+  nameWithType: IHealthCheck.CheckHealthAsync(HealthCheckContext, CancellationToken)
+  fullName: Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)
+    name: CheckHealthAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics.healthchecks.ihealthcheck.checkhealthasync
+  - name: (
+  - uid: Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext
+    name: HealthCheckContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics.healthchecks.healthcheckcontext
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)
+    name: CheckHealthAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics.healthchecks.ihealthcheck.checkhealthasync
+  - name: (
+  - uid: Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext
+    name: HealthCheckContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics.healthchecks.healthcheckcontext
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext
+  commentId: T:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext
+  parent: Microsoft.Extensions.Diagnostics.HealthChecks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics.healthchecks.healthcheckcontext
+  name: HealthCheckContext
+  nameWithType: HealthCheckContext
+  fullName: Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext
+- uid: System.Threading.Tasks.Task{Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<HealthCheckResult>
+  nameWithType: Task<HealthCheckResult>
+  fullName: System.Threading.Tasks.Task<Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult>
+  nameWithType.vb: Task(Of HealthCheckResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult)
+  name.vb: Task(Of HealthCheckResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult
+    name: HealthCheckResult
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics.healthchecks.healthcheckresult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult
+    name: HealthCheckResult
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.diagnostics.healthchecks.healthcheckresult
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

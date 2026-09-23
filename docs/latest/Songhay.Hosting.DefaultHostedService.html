@@ -102,7 +102,8 @@ Class DefaultHostedService  <a class="header-action link-secondary" title="View 
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DefaultHostedService : IHostedService</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Since 2018, this type was never needed. Use `BackgroundService` instead. (See issue #196).&quot;)]
+public class DefaultHostedService : IHostedService</code></pre>
   </div>
 
 
@@ -176,7 +177,7 @@ Class DefaultHostedService  <a class="header-action link-secondary" title="View 
 
   <h3 id="Songhay_Hosting_DefaultHostedService__ctor_Microsoft_Extensions_Hosting_IHostApplicationLifetime_Microsoft_Extensions_Logging_ILogger_Songhay_Hosting_DefaultHostedService__" data-uid="Songhay.Hosting.DefaultHostedService.#ctor(Microsoft.Extensions.Hosting.IHostApplicationLifetime,Microsoft.Extensions.Logging.ILogger{Songhay.Hosting.DefaultHostedService})">
   DefaultHostedService(IHostApplicationLifetime, ILogger&lt;DefaultHostedService&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Hosting/DefaultHostedService.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Hosting/DefaultHostedService.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Songhay.Hosting.DefaultHostedService.html">DefaultHostedService</a> class.</p>
@@ -216,7 +217,7 @@ Class DefaultHostedService  <a class="header-action link-secondary" title="View 
 
   <h3 id="Songhay_Hosting_DefaultHostedService_StartAsync_System_Threading_CancellationToken_" data-uid="Songhay.Hosting.DefaultHostedService.StartAsync(System.Threading.CancellationToken)">
   StartAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Hosting/DefaultHostedService.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Hosting/DefaultHostedService.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Triggered when the application host is ready to start the service.</p>
@@ -254,7 +255,7 @@ Class DefaultHostedService  <a class="header-action link-secondary" title="View 
 
   <h3 id="Songhay_Hosting_DefaultHostedService_StopAsync_System_Threading_CancellationToken_" data-uid="Songhay.Hosting.DefaultHostedService.StopAsync(System.Threading.CancellationToken)">
   StopAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Hosting/DefaultHostedService.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Hosting/DefaultHostedService.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Triggered when the application host is performing a graceful shutdown.</p>

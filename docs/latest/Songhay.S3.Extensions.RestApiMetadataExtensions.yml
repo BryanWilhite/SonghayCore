@@ -1,0 +1,927 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.S3.Extensions.RestApiMetadataExtensions
+  commentId: T:Songhay.S3.Extensions.RestApiMetadataExtensions
+  id: RestApiMetadataExtensions
+  parent: Songhay.S3.Extensions
+  children:
+  - Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+  - Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+  langs:
+  - csharp
+  - vb
+  name: RestApiMetadataExtensions
+  nameWithType: RestApiMetadataExtensions
+  fullName: Songhay.S3.Extensions.RestApiMetadataExtensions
+  type: Class
+  source:
+    remote:
+      path: SonghayCore.S3/Extensions/RestApiMetadataExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: RestApiMetadataExtensions
+    path: ../SonghayCore.S3/Extensions/RestApiMetadataExtensions.cs
+    startLine: 5
+  assemblies:
+  - SonghayCore.S3
+  namespace: Songhay.S3.Extensions
+  summary: Extensions of <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static class RestApiMetadataExtensions
+    content.vb: Public Module RestApiMetadataExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+  id: ToS3LessSecureTuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+  isExtensionMethod: true
+  parent: Songhay.S3.Extensions.RestApiMetadataExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToS3LessSecureTuple(RestApiMetadata?, string?, ILogger)
+  nameWithType: RestApiMetadataExtensions.ToS3LessSecureTuple(RestApiMetadata?, string?, ILogger)
+  fullName: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple(Songhay.Models.RestApiMetadata?, string?, Microsoft.Extensions.Logging.ILogger)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore.S3/Extensions/RestApiMetadataExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToS3LessSecureTuple
+    path: ../SonghayCore.S3/Extensions/RestApiMetadataExtensions.cs
+    startLine: 36
+  assemblies:
+  - SonghayCore.S3
+  namespace: Songhay.S3.Extensions
+  summary: >-
+    Returns a tuple, decomposing the specified <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+
+    into:
+
+
+    - the S3 ‘public’ key (<code>AWS_ACCESS_KEY_ID</code>)
+
+    - the S3 ‘private’ key (<code>AWS_SECRET_ACCESS_KEY</code>)
+
+    - the S3 bucket name
+
+    - the S3 bucket region
+
+    - the base URI of the bucket
+  remarks: >-
+    This transformation is called ‘less secure’
+
+    because the S3 ‘public’/‘private’ keys are exposed
+
+    to the developer/consumer explicitly
+
+    which encourages security risks.
+
+
+    Surely, Amazon recommends using the <xref href="Amazon.Runtime.CredentialManagement.CredentialProfileStoreChain" data-throw-if-not-resolved="false"></xref>
+
+    which can lead to leveraging an “underlying orchestration layer” (e.g. a layer with EKS Pod Identity)
+
+    instead of handling secrets explicitly.
+
+
+    To use the <xref href="Songhay.Models.ProgramMetadata" data-throw-if-not-resolved="false"></xref> convention of this Studio
+
+    without handling secrets explicitly, use <xref href="Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata%2cSystem.String%2cMicrosoft.Extensions.Logging.ILogger)" data-throw-if-not-resolved="false"></xref> instead.
+
+
+    See the remarks for <xref href="Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata%2cSystem.String%2cMicrosoft.Extensions.Logging.ILogger)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static (string? publicKey, string? privateKey, string? bucketName, string? region, string? uriRoot) ToS3LessSecureTuple(this RestApiMetadata? meta, string? bucketMetaKey, ILogger logger)
+    parameters:
+    - id: meta
+      type: Songhay.Models.RestApiMetadata
+      description: the <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+    - id: bucketMetaKey
+      type: System.String
+      description: the <xref href="Songhay.Models.RestApiMetadata.ClaimsSet" data-throw-if-not-resolved="false"></xref> dictionary key
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}
+    content.vb: Public Shared Function ToS3LessSecureTuple(meta As RestApiMetadata, bucketMetaKey As String, logger As ILogger) As (publicKey As String, privateKey As String, bucketName As String, region As String, uriRoot As String)
+  overload: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple*
+  nameWithType.vb: RestApiMetadataExtensions.ToS3LessSecureTuple(RestApiMetadata, String, ILogger)
+  fullName.vb: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple(Songhay.Models.RestApiMetadata, String, Microsoft.Extensions.Logging.ILogger)
+  name.vb: ToS3LessSecureTuple(RestApiMetadata, String, ILogger)
+- uid: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+  id: ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+  isExtensionMethod: true
+  parent: Songhay.S3.Extensions.RestApiMetadataExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToS3Tuple(RestApiMetadata?, string?, ILogger)
+  nameWithType: RestApiMetadataExtensions.ToS3Tuple(RestApiMetadata?, string?, ILogger)
+  fullName: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata?, string?, Microsoft.Extensions.Logging.ILogger)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore.S3/Extensions/RestApiMetadataExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToS3Tuple
+    path: ../SonghayCore.S3/Extensions/RestApiMetadataExtensions.cs
+    startLine: 104
+  assemblies:
+  - SonghayCore.S3
+  namespace: Songhay.S3.Extensions
+  summary: >-
+    Returns a tuple, decomposing the specified <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+
+    into:
+
+
+    - AWS credentials profile name (on Linux in the <code>~/.aws/credentials</code> file)
+
+    - the S3 bucket name
+
+    - the S3 bucket region
+
+    - the base URI of the bucket
+  remarks: >-
+    The JSON shaped like <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref> can look like this:
+
+
+    <pre><code class="lang-csharp">"Wasabi": {
+        "ClaimsSet": {
+            "aws-credentials-profile-name": "???",
+            "bucket-region-suffix": "-region",
+            "public-key": "???",
+            "private-key": "??",
+            "bucket-location-template": "https://s3.{Region}.wasabisys.com/",
+            "bucket-location-template-placeholder": "{Region}",
+            "my-bucket-region": "us-central-1"
+        }
+    }</code></pre>
+
+
+    …where the name of the bucket, <code>my-bucket</code>, is ‘embedded’
+
+    in the <code>my-bucket-region</code> key-value pair.
+  example: []
+  syntax:
+    content: public static (string? credentialsProfileName, string? bucketName, string? region, string? uriRoot) ToS3Tuple(this RestApiMetadata? meta, string? bucketMetaKey, ILogger logger)
+    parameters:
+    - id: meta
+      type: Songhay.Models.RestApiMetadata
+      description: the <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+    - id: bucketMetaKey
+      type: System.String
+      description: the <xref href="Songhay.Models.RestApiMetadata.ClaimsSet" data-throw-if-not-resolved="false"></xref> dictionary key
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.ValueTuple{System.String,System.String,System.String,System.String}
+    content.vb: Public Shared Function ToS3Tuple(meta As RestApiMetadata, bucketMetaKey As String, logger As ILogger) As (credentialsProfileName As String, bucketName As String, region As String, uriRoot As String)
+  overload: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple*
+  nameWithType.vb: RestApiMetadataExtensions.ToS3Tuple(RestApiMetadata, String, ILogger)
+  fullName.vb: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata, String, Microsoft.Extensions.Logging.ILogger)
+  name.vb: ToS3Tuple(RestApiMetadata, String, ILogger)
+references:
+- uid: Songhay.Models.RestApiMetadata
+  commentId: T:Songhay.Models.RestApiMetadata
+  parent: Songhay.Models
+  href: Songhay.Models.RestApiMetadata.html
+  name: RestApiMetadata
+  nameWithType: RestApiMetadata
+  fullName: Songhay.Models.RestApiMetadata
+- uid: Songhay.S3.Extensions
+  commentId: N:Songhay.S3.Extensions
+  href: Songhay.html
+  name: Songhay.S3.Extensions
+  nameWithType: Songhay.S3.Extensions
+  fullName: Songhay.S3.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.S3
+    name: S3
+    href: Songhay.S3.html
+  - name: .
+  - uid: Songhay.S3.Extensions
+    name: Extensions
+    href: Songhay.S3.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.S3
+    name: S3
+    href: Songhay.S3.html
+  - name: .
+  - uid: Songhay.S3.Extensions
+    name: Extensions
+    href: Songhay.S3.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Models.RestApiMetadata.ClaimsSet
+  commentId: P:Songhay.Models.RestApiMetadata.ClaimsSet
+  href: Songhay.Models.RestApiMetadata.html#Songhay_Models_RestApiMetadata_ClaimsSet
+  name: ClaimsSet
+  nameWithType: RestApiMetadata.ClaimsSet
+  fullName: Songhay.Models.RestApiMetadata.ClaimsSet
+- uid: Microsoft.Extensions.Logging.ILogger
+  commentId: T:Microsoft.Extensions.Logging.ILogger
+  parent: Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  name: ILogger
+  nameWithType: ILogger
+  fullName: Microsoft.Extensions.Logging.ILogger
+- uid: Amazon.Runtime.CredentialManagement.CredentialProfileStoreChain
+  commentId: T:Amazon.Runtime.CredentialManagement.CredentialProfileStoreChain
+  isExternal: true
+  name: CredentialProfileStoreChain
+  nameWithType: CredentialProfileStoreChain
+  fullName: Amazon.Runtime.CredentialManagement.CredentialProfileStoreChain
+- uid: Songhay.Models.ProgramMetadata
+  commentId: T:Songhay.Models.ProgramMetadata
+  parent: Songhay.Models
+  href: Songhay.Models.ProgramMetadata.html
+  name: ProgramMetadata
+  nameWithType: ProgramMetadata
+  fullName: Songhay.Models.ProgramMetadata
+- uid: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+  isExternal: true
+  href: Songhay.S3.Extensions.RestApiMetadataExtensions.html#Songhay_S3_Extensions_RestApiMetadataExtensions_ToS3Tuple_Songhay_Models_RestApiMetadata_System_String_Microsoft_Extensions_Logging_ILogger_
+  name: ToS3Tuple(RestApiMetadata, string, ILogger)
+  nameWithType: RestApiMetadataExtensions.ToS3Tuple(RestApiMetadata, string, ILogger)
+  fullName: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata, string, Microsoft.Extensions.Logging.ILogger)
+  nameWithType.vb: RestApiMetadataExtensions.ToS3Tuple(RestApiMetadata, String, ILogger)
+  fullName.vb: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata, String, Microsoft.Extensions.Logging.ILogger)
+  name.vb: ToS3Tuple(RestApiMetadata, String, ILogger)
+  spec.csharp:
+  - uid: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+    name: ToS3Tuple
+    href: Songhay.S3.Extensions.RestApiMetadataExtensions.html#Songhay_S3_Extensions_RestApiMetadataExtensions_ToS3Tuple_Songhay_Models_RestApiMetadata_System_String_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Songhay.Models.RestApiMetadata
+    name: RestApiMetadata
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+  spec.vb:
+  - uid: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple(Songhay.Models.RestApiMetadata,System.String,Microsoft.Extensions.Logging.ILogger)
+    name: ToS3Tuple
+    href: Songhay.S3.Extensions.RestApiMetadataExtensions.html#Songhay_S3_Extensions_RestApiMetadataExtensions_ToS3Tuple_Songhay_Models_RestApiMetadata_System_String_Microsoft_Extensions_Logging_ILogger_
+  - name: (
+  - uid: Songhay.Models.RestApiMetadata
+    name: RestApiMetadata
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Microsoft.Extensions.Logging.ILogger
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  - name: )
+- uid: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple*
+  commentId: Overload:Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple
+  href: Songhay.S3.Extensions.RestApiMetadataExtensions.html#Songhay_S3_Extensions_RestApiMetadataExtensions_ToS3LessSecureTuple_Songhay_Models_RestApiMetadata_System_String_Microsoft_Extensions_Logging_ILogger_
+  name: ToS3LessSecureTuple
+  nameWithType: RestApiMetadataExtensions.ToS3LessSecureTuple
+  fullName: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3LessSecureTuple
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}
+  commentId: T:System.ValueTuple{System.String,System.String,System.String,System.String,System.String}
+  parent: System
+  definition: System.ValueTuple`5
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: (string publicKey, string privateKey, string bucketName, string region, string uriRoot)
+  nameWithType: (string publicKey, string privateKey, string bucketName, string region, string uriRoot)
+  fullName: (string publicKey, string privateKey, string bucketName, string region, string uriRoot)
+  nameWithType.vb: (publicKey As String, privateKey As String, bucketName As String, region As String, uriRoot As String)
+  fullName.vb: (publicKey As String, privateKey As String, bucketName As String, region As String, uriRoot As String)
+  name.vb: (publicKey As String, privateKey As String, bucketName As String, region As String, uriRoot As String)
+  spec.csharp:
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}.publicKey
+    name: publicKey
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string,system.string-.publickey
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}.privateKey
+    name: privateKey
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string,system.string-.privatekey
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}.bucketName
+    name: bucketName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string,system.string-.bucketname
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}.region
+    name: region
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string,system.string-.region
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}.uriRoot
+    name: uriRoot
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string,system.string-.uriroot
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}.publicKey
+    name: publicKey
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string,system.string-.publickey
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}.privateKey
+    name: privateKey
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string,system.string-.privatekey
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}.bucketName
+    name: bucketName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string,system.string-.bucketname
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}.region
+    name: region
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string,system.string-.region
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String,System.String}.uriRoot
+    name: uriRoot
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string,system.string-.uriroot
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: System.ValueTuple`5
+  commentId: T:System.ValueTuple`5
+  name: (T1, T2, T3, T4, T5)
+  nameWithType: (T1, T2, T3, T4, T5)
+  fullName: (T1, T2, T3, T4, T5)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: T4
+  - name: ','
+  - name: " "
+  - name: T5
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: T4
+  - name: ','
+  - name: " "
+  - name: T5
+  - name: )
+- uid: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple*
+  commentId: Overload:Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple
+  href: Songhay.S3.Extensions.RestApiMetadataExtensions.html#Songhay_S3_Extensions_RestApiMetadataExtensions_ToS3Tuple_Songhay_Models_RestApiMetadata_System_String_Microsoft_Extensions_Logging_ILogger_
+  name: ToS3Tuple
+  nameWithType: RestApiMetadataExtensions.ToS3Tuple
+  fullName: Songhay.S3.Extensions.RestApiMetadataExtensions.ToS3Tuple
+- uid: System.ValueTuple{System.String,System.String,System.String,System.String}
+  commentId: T:System.ValueTuple{System.String,System.String,System.String,System.String}
+  parent: System
+  definition: System.ValueTuple`4
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: (string credentialsProfileName, string bucketName, string region, string uriRoot)
+  nameWithType: (string credentialsProfileName, string bucketName, string region, string uriRoot)
+  fullName: (string credentialsProfileName, string bucketName, string region, string uriRoot)
+  nameWithType.vb: (credentialsProfileName As String, bucketName As String, region As String, uriRoot As String)
+  fullName.vb: (credentialsProfileName As String, bucketName As String, region As String, uriRoot As String)
+  name.vb: (credentialsProfileName As String, bucketName As String, region As String, uriRoot As String)
+  spec.csharp:
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String}.credentialsProfileName
+    name: credentialsProfileName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string-.credentialsprofilename
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String}.bucketName
+    name: bucketName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string-.bucketname
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String}.region
+    name: region
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string-.region
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String}.uriRoot
+    name: uriRoot
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string-.uriroot
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String}.credentialsProfileName
+    name: credentialsProfileName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string-.credentialsprofilename
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String}.bucketName
+    name: bucketName
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string-.bucketname
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String}.region
+    name: region
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string-.region
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String,System.String,System.String}.uriRoot
+    name: uriRoot
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string,system.string,system.string-.uriroot
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.ValueTuple`4
+  commentId: T:System.ValueTuple`4
+  name: (T1, T2, T3, T4)
+  nameWithType: (T1, T2, T3, T4)
+  fullName: (T1, T2, T3, T4)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: T4
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: T4
+  - name: )

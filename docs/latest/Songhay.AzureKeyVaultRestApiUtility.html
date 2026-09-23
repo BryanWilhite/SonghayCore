@@ -159,9 +159,9 @@ Class AzureKeyVaultRestApiUtility  <a class="header-action link-secondary" title
 
   <a id="Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_" data-uid="Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync*"></a>
 
-  <h3 id="Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__" data-uid="Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})">
-  GetAccessTokenAsync(Uri?, Dictionary&lt;string, string&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureKeyVaultRestApiUtility.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})">
+  GetAccessTokenAsync(Uri?, Dictionary&lt;string, string&gt;?, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureKeyVaultRestApiUtility.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls the specified REST endpoint, using OAuth to authenticate the specified access data.</p>
@@ -169,7 +169,7 @@ Class AzureKeyVaultRestApiUtility  <a class="header-action link-secondary" title
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetAccessTokenAsync(Uri? accessUri, Dictionary&lt;string, string&gt;? accessData)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetAccessTokenAsync(Uri? accessUri, Dictionary&lt;string, string&gt;? accessData, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -179,6 +179,9 @@ Class AzureKeyVaultRestApiUtility  <a class="header-action link-secondary" title
 </dd>
     <dt><code>accessData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
     <dd><p>the data required to <code>POST</code> to the specified endpoint</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
   </dl>
 
@@ -194,7 +197,7 @@ Class AzureKeyVaultRestApiUtility  <a class="header-action link-secondary" title
 
 
 
-  <h4 class="section" id="Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String___remarks">Remarks</h4>
+  <h4 class="section" id="Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__System_Func_System_Net_Http_HttpClient___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The conventional way to generate the <code>accessUri</code> is via <a class="xref" href="Songhay.Models.RestApiMetadata.html">RestApiMetadata</a>,
 its <a class="xref" href="Songhay.Extensions.RestApiMetadataExtensions.html#Songhay_Extensions_RestApiMetadataExtensions_ToAzureActiveDirectoryAccessTokenUri_Songhay_Models_RestApiMetadata_">ToAzureActiveDirectoryAccessTokenUri(RestApiMetadata?)</a> method.</p>
 <p>The conventional way to generate the <code>accessData</code> is via <a class="xref" href="Songhay.Models.RestApiMetadata.html">RestApiMetadata</a>,
@@ -206,9 +209,9 @@ its <a class="xref" href="Songhay.Extensions.RestApiMetadataExtensions.html#Song
 
   <a id="Songhay_AzureKeyVaultRestApiUtility_GetSecretAsync_" data-uid="Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync*"></a>
 
-  <h3 id="Songhay_AzureKeyVaultRestApiUtility_GetSecretAsync_System_String_System_Uri_" data-uid="Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)">
-  GetSecretAsync(string, Uri)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureKeyVaultRestApiUtility.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_AzureKeyVaultRestApiUtility_GetSecretAsync_System_String_System_Uri_System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri,System.Func{System.Net.Http.HttpClient})">
+  GetSecretAsync(string, Uri, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureKeyVaultRestApiUtility.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls REST endpoint under <code>{vaultName}.vault.azure.net</code>
@@ -217,16 +220,19 @@ to get a secret from the specified vault.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetSecretAsync(string accessToken, Uri secretUri)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetSecretAsync(string accessToken, Uri secretUri, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>accessToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>the JSON obtained from <a class="xref" href="Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__">GetAccessTokenAsync(Uri?, Dictionary&lt;string, string&gt;?)</a></p>
+    <dd><p>the JSON obtained from <a class="xref" href="Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__System_Func_System_Net_Http_HttpClient__">GetAccessTokenAsync(Uri?, Dictionary&lt;string, string&gt;?, Func&lt;HttpClient&gt;)</a></p>
 </dd>
     <dt><code>secretUri</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
     <dd><p>the location of the Azure Key Vault endpoint</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
   </dl>
 
@@ -242,7 +248,7 @@ to get a secret from the specified vault.</p>
 
 
 
-  <h4 class="section" id="Songhay_AzureKeyVaultRestApiUtility_GetSecretAsync_System_String_System_Uri__remarks">Remarks</h4>
+  <h4 class="section" id="Songhay_AzureKeyVaultRestApiUtility_GetSecretAsync_System_String_System_Uri_System_Func_System_Net_Http_HttpClient___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The conventional way to generate the <code>secretUri</code> is via <a class="xref" href="Songhay.Models.RestApiMetadata.html">RestApiMetadata</a>,
 its <a class="xref" href="Songhay.Extensions.RestApiMetadataExtensions.html#Songhay_Extensions_RestApiMetadataExtensions_ToAzureKeyVaultSecretUri_Songhay_Models_RestApiMetadata_System_String_">ToAzureKeyVaultSecretUri(RestApiMetadata?, string)</a> method.</p>
 </div>

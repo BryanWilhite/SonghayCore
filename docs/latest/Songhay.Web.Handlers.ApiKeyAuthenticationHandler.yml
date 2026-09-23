@@ -1,0 +1,1464 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+  commentId: T:Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+  id: ApiKeyAuthenticationHandler
+  parent: Songhay.Web.Handlers
+  children:
+  - Songhay.Web.Handlers.ApiKeyAuthenticationHandler.#ctor(Microsoft.Extensions.Options.IOptionsMonitor{Songhay.Web.Models.ApiKeyAuthenticationOptions},Microsoft.Extensions.Logging.ILoggerFactory,System.Text.Encodings.Web.UrlEncoder,Songhay.Models.RestApiMetadata)
+  - Songhay.Web.Handlers.ApiKeyAuthenticationHandler.HandleAuthenticateAsync
+  langs:
+  - csharp
+  - vb
+  name: ApiKeyAuthenticationHandler
+  nameWithType: ApiKeyAuthenticationHandler
+  fullName: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+  type: Class
+  source:
+    remote:
+      path: SonghayCore.Web/Handlers/ApiKeyAuthenticationHandler.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ApiKeyAuthenticationHandler
+    path: ../SonghayCore.Web/Handlers/ApiKeyAuthenticationHandler.cs
+    startLine: 23
+  assemblies:
+  - SonghayCore.Web
+  namespace: Songhay.Web.Handlers
+  summary: >-
+    Defines the <xref href="Microsoft.AspNetCore.Authentication.AuthenticationHandler%601" data-throw-if-not-resolved="false"></xref>
+
+    for API-key authentication.
+  example: []
+  syntax:
+    content: 'public sealed class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthenticationOptions>, IAuthenticationHandler'
+    content.vb: Public NotInheritable Class ApiKeyAuthenticationHandler Inherits AuthenticationHandler(Of ApiKeyAuthenticationOptions) Implements IAuthenticationHandler
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  implements:
+  - Microsoft.AspNetCore.Authentication.IAuthenticationHandler
+  inheritedMembers:
+  - Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme,Microsoft.AspNetCore.Http.HttpContext)
+  - Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.AuthenticateAsync
+  - Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  - Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  - Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.Scheme
+  - Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.Options
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Songhay.Web.Handlers.ApiKeyAuthenticationHandler.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Web.Handlers.ApiKeyAuthenticationHandler.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Web.Handlers.ApiKeyAuthenticationHandler.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+- uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.#ctor(Microsoft.Extensions.Options.IOptionsMonitor{Songhay.Web.Models.ApiKeyAuthenticationOptions},Microsoft.Extensions.Logging.ILoggerFactory,System.Text.Encodings.Web.UrlEncoder,Songhay.Models.RestApiMetadata)
+  commentId: M:Songhay.Web.Handlers.ApiKeyAuthenticationHandler.#ctor(Microsoft.Extensions.Options.IOptionsMonitor{Songhay.Web.Models.ApiKeyAuthenticationOptions},Microsoft.Extensions.Logging.ILoggerFactory,System.Text.Encodings.Web.UrlEncoder,Songhay.Models.RestApiMetadata)
+  id: '#ctor(Microsoft.Extensions.Options.IOptionsMonitor{Songhay.Web.Models.ApiKeyAuthenticationOptions},Microsoft.Extensions.Logging.ILoggerFactory,System.Text.Encodings.Web.UrlEncoder,Songhay.Models.RestApiMetadata)'
+  parent: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+  langs:
+  - csharp
+  - vb
+  name: ApiKeyAuthenticationHandler(IOptionsMonitor<ApiKeyAuthenticationOptions>, ILoggerFactory, UrlEncoder, RestApiMetadata)
+  nameWithType: ApiKeyAuthenticationHandler.ApiKeyAuthenticationHandler(IOptionsMonitor<ApiKeyAuthenticationOptions>, ILoggerFactory, UrlEncoder, RestApiMetadata)
+  fullName: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.ApiKeyAuthenticationHandler(Microsoft.Extensions.Options.IOptionsMonitor<Songhay.Web.Models.ApiKeyAuthenticationOptions>, Microsoft.Extensions.Logging.ILoggerFactory, System.Text.Encodings.Web.UrlEncoder, Songhay.Models.RestApiMetadata)
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore.Web/Handlers/ApiKeyAuthenticationHandler.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: ../SonghayCore.Web/Handlers/ApiKeyAuthenticationHandler.cs
+    startLine: 23
+  assemblies:
+  - SonghayCore.Web
+  namespace: Songhay.Web.Handlers
+  summary: >-
+    Defines the <xref href="Microsoft.AspNetCore.Authentication.AuthenticationHandler%601" data-throw-if-not-resolved="false"></xref>
+
+    for API-key authentication.
+  example: []
+  syntax:
+    content: public ApiKeyAuthenticationHandler(IOptionsMonitor<ApiKeyAuthenticationOptions> options, ILoggerFactory logger, UrlEncoder encoder, RestApiMetadata restApiMetadata)
+    parameters:
+    - id: options
+      type: Microsoft.Extensions.Options.IOptionsMonitor{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+      description: the <xref href="Microsoft.Extensions.Options.IOptionsMonitor%601" data-throw-if-not-resolved="false"></xref>
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILoggerFactory
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    - id: encoder
+      type: System.Text.Encodings.Web.UrlEncoder
+      description: the <xref href="System.Text.Encodings.Web.UrlEncoder" data-throw-if-not-resolved="false"></xref>
+    - id: restApiMetadata
+      type: Songhay.Models.RestApiMetadata
+      description: the <xref href="Songhay.Models.RestApiMetadata" data-throw-if-not-resolved="false"></xref>
+      attributes:
+      - type: Microsoft.Extensions.DependencyInjection.FromKeyedServicesAttribute
+        ctor: Microsoft.Extensions.DependencyInjection.FromKeyedServicesAttribute.#ctor(System.Object)
+        arguments:
+        - type: System.String
+          value: rx-api-key-rest-api-metadata
+    content.vb: Public Sub New(options As IOptionsMonitor(Of ApiKeyAuthenticationOptions), logger As ILoggerFactory, encoder As UrlEncoder, restApiMetadata As RestApiMetadata)
+  overload: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.#ctor*
+  nameWithType.vb: ApiKeyAuthenticationHandler.New(IOptionsMonitor(Of ApiKeyAuthenticationOptions), ILoggerFactory, UrlEncoder, RestApiMetadata)
+  fullName.vb: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.New(Microsoft.Extensions.Options.IOptionsMonitor(Of Songhay.Web.Models.ApiKeyAuthenticationOptions), Microsoft.Extensions.Logging.ILoggerFactory, System.Text.Encodings.Web.UrlEncoder, Songhay.Models.RestApiMetadata)
+  name.vb: New(IOptionsMonitor(Of ApiKeyAuthenticationOptions), ILoggerFactory, UrlEncoder, RestApiMetadata)
+- uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.HandleAuthenticateAsync
+  commentId: M:Songhay.Web.Handlers.ApiKeyAuthenticationHandler.HandleAuthenticateAsync
+  id: HandleAuthenticateAsync
+  parent: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+  langs:
+  - csharp
+  - vb
+  name: HandleAuthenticateAsync()
+  nameWithType: ApiKeyAuthenticationHandler.HandleAuthenticateAsync()
+  fullName: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.HandleAuthenticateAsync()
+  type: Method
+  source:
+    remote:
+      path: SonghayCore.Web/Handlers/ApiKeyAuthenticationHandler.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: HandleAuthenticateAsync
+    path: ../SonghayCore.Web/Handlers/ApiKeyAuthenticationHandler.cs
+    startLine: 30
+  assemblies:
+  - SonghayCore.Web
+  namespace: Songhay.Web.Handlers
+  summary: Allows derived types to handle authentication.
+  example: []
+  syntax:
+    content: protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Authentication.AuthenticateResult}
+      description: The <xref href="Microsoft.AspNetCore.Authentication.AuthenticateResult" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function HandleAuthenticateAsync() As Task(Of AuthenticateResult)
+  overridden: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.HandleAuthenticateAsync
+  overload: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.HandleAuthenticateAsync*
+references:
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1
+  commentId: T:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1
+  name: AuthenticationHandler<TOptions>
+  nameWithType: AuthenticationHandler<TOptions>
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<TOptions>
+  nameWithType.vb: AuthenticationHandler(Of TOptions)
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of TOptions)
+  name.vb: AuthenticationHandler(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1
+    name: AuthenticationHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1
+    name: AuthenticationHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Options.IOptionsMonitor`1
+  commentId: T:Microsoft.Extensions.Options.IOptionsMonitor`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1
+  name: IOptionsMonitor<TOptions>
+  nameWithType: IOptionsMonitor<TOptions>
+  fullName: Microsoft.Extensions.Options.IOptionsMonitor<TOptions>
+  nameWithType.vb: IOptionsMonitor(Of TOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptionsMonitor(Of TOptions)
+  name.vb: IOptionsMonitor(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptionsMonitor`1
+    name: IOptionsMonitor
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptionsMonitor`1
+    name: IOptionsMonitor
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger
+  commentId: T:Microsoft.Extensions.Logging.ILogger
+  parent: Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  name: ILogger
+  nameWithType: ILogger
+  fullName: Microsoft.Extensions.Logging.ILogger
+- uid: System.Text.Encodings.Web.UrlEncoder
+  commentId: T:System.Text.Encodings.Web.UrlEncoder
+  parent: System.Text.Encodings.Web
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.encodings.web.urlencoder
+  name: UrlEncoder
+  nameWithType: UrlEncoder
+  fullName: System.Text.Encodings.Web.UrlEncoder
+- uid: Songhay.Models.RestApiMetadata
+  commentId: T:Songhay.Models.RestApiMetadata
+  parent: Songhay.Models
+  href: Songhay.Models.RestApiMetadata.html
+  name: RestApiMetadata
+  nameWithType: RestApiMetadata
+  fullName: Songhay.Models.RestApiMetadata
+- uid: Songhay.Web.Handlers
+  commentId: N:Songhay.Web.Handlers
+  href: Songhay.html
+  name: Songhay.Web.Handlers
+  nameWithType: Songhay.Web.Handlers
+  fullName: Songhay.Web.Handlers
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Web
+    name: Web
+    href: Songhay.Web.html
+  - name: .
+  - uid: Songhay.Web.Handlers
+    name: Handlers
+    href: Songhay.Web.Handlers.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Web
+    name: Web
+    href: Songhay.Web.html
+  - name: .
+  - uid: Songhay.Web.Handlers
+    name: Handlers
+    href: Songhay.Web.Handlers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  commentId: T:Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  parent: Microsoft.AspNetCore.Authentication
+  definition: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1
+  name: AuthenticationHandler<ApiKeyAuthenticationOptions>
+  nameWithType: AuthenticationHandler<ApiKeyAuthenticationOptions>
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<Songhay.Web.Models.ApiKeyAuthenticationOptions>
+  nameWithType.vb: AuthenticationHandler(Of ApiKeyAuthenticationOptions)
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of Songhay.Web.Models.ApiKeyAuthenticationOptions)
+  name.vb: AuthenticationHandler(Of ApiKeyAuthenticationOptions)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1
+    name: AuthenticationHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1
+  - name: <
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1
+    name: AuthenticationHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.IAuthenticationHandler
+  commentId: T:Microsoft.AspNetCore.Authentication.IAuthenticationHandler
+  parent: Microsoft.AspNetCore.Authentication
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.iauthenticationhandler
+  name: IAuthenticationHandler
+  nameWithType: IAuthenticationHandler
+  fullName: Microsoft.AspNetCore.Authentication.IAuthenticationHandler
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme,Microsoft.AspNetCore.Http.HttpContext)
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme,Microsoft.AspNetCore.Http.HttpContext)
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  definition: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme,Microsoft.AspNetCore.Http.HttpContext)
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.initializeasync
+  name: InitializeAsync(AuthenticationScheme, HttpContext)
+  nameWithType: AuthenticationHandler<ApiKeyAuthenticationOptions>.InitializeAsync(AuthenticationScheme, HttpContext)
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<Songhay.Web.Models.ApiKeyAuthenticationOptions>.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme, Microsoft.AspNetCore.Http.HttpContext)
+  nameWithType.vb: AuthenticationHandler(Of ApiKeyAuthenticationOptions).InitializeAsync(AuthenticationScheme, HttpContext)
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of Songhay.Web.Models.ApiKeyAuthenticationOptions).InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme, Microsoft.AspNetCore.Http.HttpContext)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme,Microsoft.AspNetCore.Http.HttpContext)
+    name: InitializeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.initializeasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationScheme
+    name: AuthenticationScheme
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationscheme
+  - name: ','
+  - name: " "
+  - uid: Microsoft.AspNetCore.Http.HttpContext
+    name: HttpContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpcontext
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme,Microsoft.AspNetCore.Http.HttpContext)
+    name: InitializeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.initializeasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationScheme
+    name: AuthenticationScheme
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationscheme
+  - name: ','
+  - name: " "
+  - uid: Microsoft.AspNetCore.Http.HttpContext
+    name: HttpContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpcontext
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.AuthenticateAsync
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.AuthenticateAsync
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  definition: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.AuthenticateAsync
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.authenticateasync
+  name: AuthenticateAsync()
+  nameWithType: AuthenticationHandler<ApiKeyAuthenticationOptions>.AuthenticateAsync()
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<Songhay.Web.Models.ApiKeyAuthenticationOptions>.AuthenticateAsync()
+  nameWithType.vb: AuthenticationHandler(Of ApiKeyAuthenticationOptions).AuthenticateAsync()
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of Songhay.Web.Models.ApiKeyAuthenticationOptions).AuthenticateAsync()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.AuthenticateAsync
+    name: AuthenticateAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.authenticateasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.AuthenticateAsync
+    name: AuthenticateAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.authenticateasync
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  definition: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.challengeasync
+  name: ChallengeAsync(AuthenticationProperties)
+  nameWithType: AuthenticationHandler<ApiKeyAuthenticationOptions>.ChallengeAsync(AuthenticationProperties)
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<Songhay.Web.Models.ApiKeyAuthenticationOptions>.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  nameWithType.vb: AuthenticationHandler(Of ApiKeyAuthenticationOptions).ChallengeAsync(AuthenticationProperties)
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of Songhay.Web.Models.ApiKeyAuthenticationOptions).ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+    name: ChallengeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.challengeasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationProperties
+    name: AuthenticationProperties
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+    name: ChallengeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.challengeasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationProperties
+    name: AuthenticationProperties
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  definition: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.forbidasync
+  name: ForbidAsync(AuthenticationProperties)
+  nameWithType: AuthenticationHandler<ApiKeyAuthenticationOptions>.ForbidAsync(AuthenticationProperties)
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<Songhay.Web.Models.ApiKeyAuthenticationOptions>.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  nameWithType.vb: AuthenticationHandler(Of ApiKeyAuthenticationOptions).ForbidAsync(AuthenticationProperties)
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of Songhay.Web.Models.ApiKeyAuthenticationOptions).ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+    name: ForbidAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.forbidasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationProperties
+    name: AuthenticationProperties
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+    name: ForbidAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.forbidasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationProperties
+    name: AuthenticationProperties
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.Scheme
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.Scheme
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  definition: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.Scheme
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.scheme
+  name: Scheme
+  nameWithType: AuthenticationHandler<ApiKeyAuthenticationOptions>.Scheme
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<Songhay.Web.Models.ApiKeyAuthenticationOptions>.Scheme
+  nameWithType.vb: AuthenticationHandler(Of ApiKeyAuthenticationOptions).Scheme
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of Songhay.Web.Models.ApiKeyAuthenticationOptions).Scheme
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.Options
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.Options
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  definition: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.Options
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.options
+  name: Options
+  nameWithType: AuthenticationHandler<ApiKeyAuthenticationOptions>.Options
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<Songhay.Web.Models.ApiKeyAuthenticationOptions>.Options
+  nameWithType.vb: AuthenticationHandler(Of ApiKeyAuthenticationOptions).Options
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of Songhay.Web.Models.ApiKeyAuthenticationOptions).Options
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<ApiKeyAuthenticationHandler>(ApiKeyAuthenticationHandler)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<ApiKeyAuthenticationHandler>(ApiKeyAuthenticationHandler)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Web.Handlers.ApiKeyAuthenticationHandler>(Songhay.Web.Handlers.ApiKeyAuthenticationHandler)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of ApiKeyAuthenticationHandler)(ApiKeyAuthenticationHandler)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Web.Handlers.ApiKeyAuthenticationHandler)(Songhay.Web.Handlers.ApiKeyAuthenticationHandler)
+  name.vb: IsAssignableToISerializable(Of ApiKeyAuthenticationHandler)(ApiKeyAuthenticationHandler)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Web.Handlers.ApiKeyAuthenticationHandler)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Web.Handlers.ApiKeyAuthenticationHandler)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: )
+  - name: (
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: )
+- uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<ApiKeyAuthenticationHandler>(ApiKeyAuthenticationHandler)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<ApiKeyAuthenticationHandler>(ApiKeyAuthenticationHandler)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Web.Handlers.ApiKeyAuthenticationHandler>(Songhay.Web.Handlers.ApiKeyAuthenticationHandler)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of ApiKeyAuthenticationHandler)(ApiKeyAuthenticationHandler)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Web.Handlers.ApiKeyAuthenticationHandler)(Songhay.Web.Handlers.ApiKeyAuthenticationHandler)
+  name.vb: ToObjectOrDbNull(Of ApiKeyAuthenticationHandler)(ApiKeyAuthenticationHandler)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Web.Handlers.ApiKeyAuthenticationHandler)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Web.Handlers.ApiKeyAuthenticationHandler)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: )
+  - name: (
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: )
+- uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<ApiKeyAuthenticationHandler>(ApiKeyAuthenticationHandler, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<ApiKeyAuthenticationHandler>(ApiKeyAuthenticationHandler, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Web.Handlers.ApiKeyAuthenticationHandler>(Songhay.Web.Handlers.ApiKeyAuthenticationHandler, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of ApiKeyAuthenticationHandler)(ApiKeyAuthenticationHandler, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Web.Handlers.ApiKeyAuthenticationHandler)(Songhay.Web.Handlers.ApiKeyAuthenticationHandler, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of ApiKeyAuthenticationHandler)(ApiKeyAuthenticationHandler, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Web.Handlers.ApiKeyAuthenticationHandler,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Web.Handlers.ApiKeyAuthenticationHandler,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: )
+  - name: (
+  - uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler
+    name: ApiKeyAuthenticationHandler
+    href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: System.Text.Encodings.Web
+  commentId: N:System.Text.Encodings.Web
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text.Encodings.Web
+  nameWithType: System.Text.Encodings.Web
+  fullName: System.Text.Encodings.Web
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Encodings
+    name: Encodings
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.encodings
+  - name: .
+  - uid: System.Text.Encodings.Web
+    name: Web
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.encodings.web
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Encodings
+    name: Encodings
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.encodings
+  - name: .
+  - uid: System.Text.Encodings.Web
+    name: Web
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.encodings.web
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Authentication
+  commentId: N:Microsoft.AspNetCore.Authentication
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Authentication
+  nameWithType: Microsoft.AspNetCore.Authentication
+  fullName: Microsoft.AspNetCore.Authentication
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Authentication
+    name: Authentication
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Authentication
+    name: Authentication
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme,Microsoft.AspNetCore.Http.HttpContext)
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme,Microsoft.AspNetCore.Http.HttpContext)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.initializeasync
+  name: InitializeAsync(AuthenticationScheme, HttpContext)
+  nameWithType: AuthenticationHandler<TOptions>.InitializeAsync(AuthenticationScheme, HttpContext)
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<TOptions>.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme, Microsoft.AspNetCore.Http.HttpContext)
+  nameWithType.vb: AuthenticationHandler(Of TOptions).InitializeAsync(AuthenticationScheme, HttpContext)
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of TOptions).InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme, Microsoft.AspNetCore.Http.HttpContext)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme,Microsoft.AspNetCore.Http.HttpContext)
+    name: InitializeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.initializeasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationScheme
+    name: AuthenticationScheme
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationscheme
+  - name: ','
+  - name: " "
+  - uid: Microsoft.AspNetCore.Http.HttpContext
+    name: HttpContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpcontext
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(Microsoft.AspNetCore.Authentication.AuthenticationScheme,Microsoft.AspNetCore.Http.HttpContext)
+    name: InitializeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.initializeasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationScheme
+    name: AuthenticationScheme
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationscheme
+  - name: ','
+  - name: " "
+  - uid: Microsoft.AspNetCore.Http.HttpContext
+    name: HttpContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpcontext
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.AuthenticateAsync
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.AuthenticateAsync
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.authenticateasync
+  name: AuthenticateAsync()
+  nameWithType: AuthenticationHandler<TOptions>.AuthenticateAsync()
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<TOptions>.AuthenticateAsync()
+  nameWithType.vb: AuthenticationHandler(Of TOptions).AuthenticateAsync()
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of TOptions).AuthenticateAsync()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.AuthenticateAsync
+    name: AuthenticateAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.authenticateasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.AuthenticateAsync
+    name: AuthenticateAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.authenticateasync
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.challengeasync
+  name: ChallengeAsync(AuthenticationProperties)
+  nameWithType: AuthenticationHandler<TOptions>.ChallengeAsync(AuthenticationProperties)
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<TOptions>.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  nameWithType.vb: AuthenticationHandler(Of TOptions).ChallengeAsync(AuthenticationProperties)
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of TOptions).ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+    name: ChallengeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.challengeasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationProperties
+    name: AuthenticationProperties
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+    name: ChallengeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.challengeasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationProperties
+    name: AuthenticationProperties
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.forbidasync
+  name: ForbidAsync(AuthenticationProperties)
+  nameWithType: AuthenticationHandler<TOptions>.ForbidAsync(AuthenticationProperties)
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<TOptions>.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  nameWithType.vb: AuthenticationHandler(Of TOptions).ForbidAsync(AuthenticationProperties)
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of TOptions).ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+    name: ForbidAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.forbidasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationProperties
+    name: AuthenticationProperties
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.ForbidAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)
+    name: ForbidAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.forbidasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationProperties
+    name: AuthenticationProperties
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationproperties
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.Scheme
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.Scheme
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.scheme
+  name: Scheme
+  nameWithType: AuthenticationHandler<TOptions>.Scheme
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<TOptions>.Scheme
+  nameWithType.vb: AuthenticationHandler(Of TOptions).Scheme
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of TOptions).Scheme
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.Options
+  commentId: P:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.Options
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.options
+  name: Options
+  nameWithType: AuthenticationHandler<TOptions>.Options
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<TOptions>.Options
+  nameWithType.vb: AuthenticationHandler(Of TOptions).Options
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of TOptions).Options
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.#ctor*
+  commentId: Overload:Songhay.Web.Handlers.ApiKeyAuthenticationHandler.#ctor
+  href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html#Songhay_Web_Handlers_ApiKeyAuthenticationHandler__ctor_Microsoft_Extensions_Options_IOptionsMonitor_Songhay_Web_Models_ApiKeyAuthenticationOptions__Microsoft_Extensions_Logging_ILoggerFactory_System_Text_Encodings_Web_UrlEncoder_Songhay_Models_RestApiMetadata_
+  name: ApiKeyAuthenticationHandler
+  nameWithType: ApiKeyAuthenticationHandler.ApiKeyAuthenticationHandler
+  fullName: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.ApiKeyAuthenticationHandler
+  nameWithType.vb: ApiKeyAuthenticationHandler.New
+  fullName.vb: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.New
+  name.vb: New
+- uid: Microsoft.Extensions.Options.IOptionsMonitor{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  commentId: T:Microsoft.Extensions.Options.IOptionsMonitor{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptionsMonitor`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1
+  name: IOptionsMonitor<ApiKeyAuthenticationOptions>
+  nameWithType: IOptionsMonitor<ApiKeyAuthenticationOptions>
+  fullName: Microsoft.Extensions.Options.IOptionsMonitor<Songhay.Web.Models.ApiKeyAuthenticationOptions>
+  nameWithType.vb: IOptionsMonitor(Of ApiKeyAuthenticationOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptionsMonitor(Of Songhay.Web.Models.ApiKeyAuthenticationOptions)
+  name.vb: IOptionsMonitor(Of ApiKeyAuthenticationOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptionsMonitor`1
+    name: IOptionsMonitor
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1
+  - name: <
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptionsMonitor`1
+    name: IOptionsMonitor
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Web.Models.ApiKeyAuthenticationOptions
+    name: ApiKeyAuthenticationOptions
+    href: Songhay.Web.Models.ApiKeyAuthenticationOptions.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILoggerFactory
+  commentId: T:Microsoft.Extensions.Logging.ILoggerFactory
+  parent: Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory
+  name: ILoggerFactory
+  nameWithType: ILoggerFactory
+  fullName: Microsoft.Extensions.Logging.ILoggerFactory
+- uid: Microsoft.Extensions.Options
+  commentId: N:Microsoft.Extensions.Options
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Options
+  nameWithType: Microsoft.Extensions.Options
+  fullName: Microsoft.Extensions.Options
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options
+- uid: Microsoft.AspNetCore.Authentication.AuthenticateResult
+  commentId: T:Microsoft.AspNetCore.Authentication.AuthenticateResult
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticateresult
+  name: AuthenticateResult
+  nameWithType: AuthenticateResult
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticateResult
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.HandleAuthenticateAsync
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.HandleAuthenticateAsync
+  parent: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}
+  definition: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.HandleAuthenticateAsync
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.handleauthenticateasync
+  name: HandleAuthenticateAsync()
+  nameWithType: AuthenticationHandler<ApiKeyAuthenticationOptions>.HandleAuthenticateAsync()
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<Songhay.Web.Models.ApiKeyAuthenticationOptions>.HandleAuthenticateAsync()
+  nameWithType.vb: AuthenticationHandler(Of ApiKeyAuthenticationOptions).HandleAuthenticateAsync()
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of Songhay.Web.Models.ApiKeyAuthenticationOptions).HandleAuthenticateAsync()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.HandleAuthenticateAsync
+    name: HandleAuthenticateAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.handleauthenticateasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler{Songhay.Web.Models.ApiKeyAuthenticationOptions}.HandleAuthenticateAsync
+    name: HandleAuthenticateAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.handleauthenticateasync
+  - name: (
+  - name: )
+- uid: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.HandleAuthenticateAsync*
+  commentId: Overload:Songhay.Web.Handlers.ApiKeyAuthenticationHandler.HandleAuthenticateAsync
+  href: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.html#Songhay_Web_Handlers_ApiKeyAuthenticationHandler_HandleAuthenticateAsync
+  name: HandleAuthenticateAsync
+  nameWithType: ApiKeyAuthenticationHandler.HandleAuthenticateAsync
+  fullName: Songhay.Web.Handlers.ApiKeyAuthenticationHandler.HandleAuthenticateAsync
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Authentication.AuthenticateResult}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Authentication.AuthenticateResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<AuthenticateResult>
+  nameWithType: Task<AuthenticateResult>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Authentication.AuthenticateResult>
+  nameWithType.vb: Task(Of AuthenticateResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Authentication.AuthenticateResult)
+  name.vb: Task(Of AuthenticateResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticateResult
+    name: AuthenticateResult
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticateresult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticateResult
+    name: AuthenticateResult
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticateresult
+  - name: )
+- uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.HandleAuthenticateAsync
+  commentId: M:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.HandleAuthenticateAsync
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.handleauthenticateasync
+  name: HandleAuthenticateAsync()
+  nameWithType: AuthenticationHandler<TOptions>.HandleAuthenticateAsync()
+  fullName: Microsoft.AspNetCore.Authentication.AuthenticationHandler<TOptions>.HandleAuthenticateAsync()
+  nameWithType.vb: AuthenticationHandler(Of TOptions).HandleAuthenticateAsync()
+  fullName.vb: Microsoft.AspNetCore.Authentication.AuthenticationHandler(Of TOptions).HandleAuthenticateAsync()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.HandleAuthenticateAsync
+    name: HandleAuthenticateAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.handleauthenticateasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.HandleAuthenticateAsync
+    name: HandleAuthenticateAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.handleauthenticateasync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

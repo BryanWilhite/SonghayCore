@@ -101,6 +101,16 @@ of <a class="xref" href="Songhay.Abstractions.IActivityTask-2.html">IActivityTas
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Songhay.Models.ApiKeyConstants.html">ApiKeyConstants</a></dt>
+      <dd><p>Constants for API-key authentication</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Songhay.Models.ApiUriSet.html">ApiUriSet</a></dt>
+      <dd><p>Defines the URIs that will be processed by the API app.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Songhay.Models.ColorDisplayItemModel.html">ColorDisplayItemModel</a></dt>
       <dd><p>Model for color display</p>
 </dd>
@@ -108,11 +118,6 @@ of <a class="xref" href="Songhay.Abstractions.IActivityTask-2.html">IActivityTas
     <dl class="jumplist">
       <dt><a class="xref" href="Songhay.Models.ConsoleArgsScalars.html">ConsoleArgsScalars</a></dt>
       <dd><p>Centralizes conventional console <code>args</code> passed to <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a>.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Songhay.Models.CorsOrigins.html">CorsOrigins</a></dt>
-      <dd><p>Defines selected CORS origins.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -146,14 +151,23 @@ of <a class="xref" href="Songhay.Abstractions.IActivityTask-2.html">IActivityTas
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Songhay.Models.HttpMethods.html">HttpMethods</a></dt>
-      <dd><p>Centralizes <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmethod">HttpMethod</a> members as strings.</p>
+      <dt><a class="xref" href="Songhay.Models.EndpointContentResult-1.html">EndpointContentResult&lt;TContent&gt;</a></dt>
+      <dd><p>Defines the result returned from all storage-related Activities.</p>
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Songhay.Models.LazyDisplayItem-1.html">LazyDisplayItem&lt;T&gt;</a></dt>
-      <dd><p>Wraps a lazy-initialized object
-with meta-data for display.</p>
+      <dt><a class="xref" href="Songhay.Models.EndpointResult.html">EndpointResult</a></dt>
+      <dd><p>Defines the result returned from all storage-related Activities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Songhay.Models.HealthCheckConstants.html">HealthCheckConstants</a></dt>
+      <dd><p>Constants for ASP.NET Health Check conventions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Songhay.Models.HttpMethods.html">HttpMethods</a></dt>
+      <dd><p>Centralizes <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmethod">HttpMethod</a> members as strings.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -164,11 +178,6 @@ with meta-data for display.</p>
     <dl class="jumplist">
       <dt><a class="xref" href="Songhay.Models.MimeTypes.html">MimeTypes</a></dt>
       <dd><p>Selected MIME types for this Studio</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Songhay.Models.OpenAuthorizationData.html">OpenAuthorizationData</a></dt>
-      <dd><p>Defines Authorization Information for OAuth 1.0.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -192,33 +201,36 @@ with meta-data for display.</p>
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Songhay.Models.PackedResource.html">PackedResource</a></dt>
-      <dd><p>Defines the meta-data of an Application resource.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Songhay.Models.PackedResource-1.html">PackedResource&lt;TResource&gt;</a></dt>
-      <dd><p>Defines the meta-data of an Application resource.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Songhay.Models.PagedResult.html">PagedResult</a></dt>
-      <dd><p>Defines a paged set of data.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Songhay.Models.PagedResultMeta.html">PagedResultMeta</a></dt>
-      <dd><p>Defines the metadata for a paged set of data.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
       <dt><a class="xref" href="Songhay.Models.ProgramAssemblyInfo.html">ProgramAssemblyInfo</a></dt>
       <dd><p>Defines Assembly information.</p>
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Songhay.Models.ProgramFileActivityGroup.html">ProgramFileActivityGroup</a></dt>
+      <dd><p>Maps typical string args into tuples
+into one of the respective <a class="xref" href="Songhay.Activities.html">Songhay.Activities</a>
+for Program files.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Songhay.Models.ProgramMetadata.html">ProgramMetadata</a></dt>
       <dd><p>Defines the conventional Program metadata.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Songhay.Models.ProgramOutputResult-1.html">ProgramOutputResult&lt;TOutput&gt;</a></dt>
+      <dd><p>Defines the general-purpose Result concept
+for Program output,
+avoiding third-party dependencies
+that are not compatible with F#.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Songhay.Models.ProgramResult.html">ProgramResult</a></dt>
+      <dd><p>Defines the general-purpose Result concept
+for Program completion,
+avoiding third-party dependencies
+that are not compatible with F#.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -232,8 +244,19 @@ with meta-data for display.</p>
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Songhay.Models.RestPagingMetadata.html">RestPagingMetadata</a></dt>
-      <dd><p>REST Paging Metadata</p>
+      <dt><a class="xref" href="Songhay.Models.StorageActivityInput.html">StorageActivityInput</a></dt>
+      <dd><p>Defines the input for most storage operations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Songhay.Models.StorageActivityInput-1.html">StorageActivityInput&lt;TContent&gt;</a></dt>
+      <dd><p>Defines the input for most storage operations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Songhay.Models.StorageObject.html">StorageObject</a></dt>
+      <dd><p>Defines an “intersection type” for the <code>S3Object</code> de facto standard
+and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.fileinfo">FileInfo</a></p>
 </dd>
     </dl>
     <dl class="jumplist">

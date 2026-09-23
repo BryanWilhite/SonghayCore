@@ -9,6 +9,7 @@ items:
   - Songhay.Extensions.FileInfoExtensions.ReadZipArchiveEntries(System.IO.FileInfo,System.Action{System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
   - Songhay.Extensions.FileInfoExtensions.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String})
   - Songhay.Extensions.FileInfoExtensions.ReadZipArchiveEntriesByLine(System.IO.FileInfo,System.Action{System.Int32,System.String},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.Generic.IEnumerable{System.IO.Compression.ZipArchiveEntry}})
+  - Songhay.Extensions.FileInfoExtensions.ToStorageObject(System.IO.FileInfo,System.IO.DirectoryInfo)
   - Songhay.Extensions.FileInfoExtensions.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})
   - Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})
   - Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries(System.IO.FileInfo,System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}},System.Func{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry},System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}})
@@ -219,6 +220,50 @@ items:
   nameWithType.vb: FileInfoExtensions.ReadZipArchiveEntriesByLine(FileInfo, Action(Of Integer, String), Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry)))
   fullName.vb: Songhay.Extensions.FileInfoExtensions.ReadZipArchiveEntriesByLine(System.IO.FileInfo, System.Action(Of Integer, String), System.Func(Of System.Collections.ObjectModel.ReadOnlyCollection(Of System.IO.Compression.ZipArchiveEntry), System.Collections.Generic.IEnumerable(Of System.IO.Compression.ZipArchiveEntry)))
   name.vb: ReadZipArchiveEntriesByLine(FileInfo, Action(Of Integer, String), Func(Of ReadOnlyCollection(Of ZipArchiveEntry), IEnumerable(Of ZipArchiveEntry)))
+- uid: Songhay.Extensions.FileInfoExtensions.ToStorageObject(System.IO.FileInfo,System.IO.DirectoryInfo)
+  commentId: M:Songhay.Extensions.FileInfoExtensions.ToStorageObject(System.IO.FileInfo,System.IO.DirectoryInfo)
+  id: ToStorageObject(System.IO.FileInfo,System.IO.DirectoryInfo)
+  isExtensionMethod: true
+  parent: Songhay.Extensions.FileInfoExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToStorageObject(FileInfo?, DirectoryInfo)
+  nameWithType: FileInfoExtensions.ToStorageObject(FileInfo?, DirectoryInfo)
+  fullName: Songhay.Extensions.FileInfoExtensions.ToStorageObject(System.IO.FileInfo?, System.IO.DirectoryInfo)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Extensions/FileInfoExtensions.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ToStorageObject
+    path: ../SonghayCore/Extensions/FileInfoExtensions.cs
+    startLine: 63
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Extensions
+  summary: >-
+    Transforms the specified <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>
+
+    into <xref href="Songhay.Models.StorageObject" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static StorageObject? ToStorageObject(this FileInfo? fileInfo, DirectoryInfo bucketDirectory)
+    parameters:
+    - id: fileInfo
+      type: System.IO.FileInfo
+      description: the <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>
+    - id: bucketDirectory
+      type: System.IO.DirectoryInfo
+      description: the <xref href="System.IO.DirectoryInfo" data-throw-if-not-resolved="false"></xref> representing/mirroring the S3 bucket
+    return:
+      type: Songhay.Models.StorageObject
+    content.vb: Public Shared Function ToStorageObject(fileInfo As FileInfo, bucketDirectory As DirectoryInfo) As StorageObject
+  overload: Songhay.Extensions.FileInfoExtensions.ToStorageObject*
+  nameWithType.vb: FileInfoExtensions.ToStorageObject(FileInfo, DirectoryInfo)
+  fullName.vb: Songhay.Extensions.FileInfoExtensions.ToStorageObject(System.IO.FileInfo, System.IO.DirectoryInfo)
+  name.vb: ToStorageObject(FileInfo, DirectoryInfo)
 - uid: Songhay.Extensions.FileInfoExtensions.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})
   commentId: M:Songhay.Extensions.FileInfoExtensions.UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})
   id: UseZipArchive(System.IO.FileInfo,System.Action{System.IO.Compression.ZipArchive})
@@ -238,7 +283,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: UseZipArchive
     path: ../SonghayCore/Extensions/FileInfoExtensions.cs
-    startLine: 62
+    startLine: 85
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -249,10 +294,10 @@ items:
     parameters:
     - id: archiveInfo
       type: System.IO.FileInfo
-      description: ''
+      description: the <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>
     - id: archiveAction
       type: System.Action{System.IO.Compression.ZipArchive}
-      description: ''
+      description: the action to perform on the <xref href="System.IO.Compression.ZipArchive" data-throw-if-not-resolved="false"></xref>
     content.vb: Public Shared Sub UseZipArchive(archiveInfo As FileInfo, archiveAction As Action(Of ZipArchive))
   overload: Songhay.Extensions.FileInfoExtensions.UseZipArchive*
   nameWithType.vb: FileInfoExtensions.UseZipArchive(FileInfo, Action(Of ZipArchive))
@@ -277,7 +322,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: UseZipArchiveEntries
     path: ../SonghayCore/Extensions/FileInfoExtensions.cs
-    startLine: 70
+    startLine: 93
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -288,10 +333,10 @@ items:
     parameters:
     - id: archiveInfo
       type: System.IO.FileInfo
-      description: ''
+      description: the <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>
     - id: entriesAction
       type: System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}}
-      description: ''
+      description: the action to perform on the collection of <xref href="System.IO.Compression.ZipArchiveEntry" data-throw-if-not-resolved="false"></xref>
     content.vb: Public Shared Sub UseZipArchiveEntries(archiveInfo As FileInfo, entriesAction As Action(Of ReadOnlyCollection(Of ZipArchiveEntry)))
   overload: Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries*
   nameWithType.vb: FileInfoExtensions.UseZipArchiveEntries(FileInfo, Action(Of ReadOnlyCollection(Of ZipArchiveEntry)))
@@ -316,7 +361,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: UseZipArchiveEntries
     path: ../SonghayCore/Extensions/FileInfoExtensions.cs
-    startLine: 80
+    startLine: 103
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -327,7 +372,7 @@ items:
     parameters:
     - id: archiveInfo
       type: System.IO.FileInfo
-      description: ''
+      description: the <xref href="System.IO.FileInfo" data-throw-if-not-resolved="false"></xref>
     - id: entriesAction
       type: System.Action{System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}}
       description: ''
@@ -358,7 +403,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteZipArchiveEntry
     path: ../SonghayCore/Extensions/FileInfoExtensions.cs
-    startLine: 90
+    startLine: 113
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -394,7 +439,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: WriteZipArchiveEntry
     path: ../SonghayCore/Extensions/FileInfoExtensions.cs
-    startLine: 99
+    startLine: 122
   assemblies:
   - SonghayCore
   namespace: Songhay.Extensions
@@ -972,6 +1017,49 @@ references:
   - name: " "
   - name: T2
   - name: )
+- uid: Songhay.Models.StorageObject
+  commentId: T:Songhay.Models.StorageObject
+  parent: Songhay.Models
+  href: Songhay.Models.StorageObject.html
+  name: StorageObject
+  nameWithType: StorageObject
+  fullName: Songhay.Models.StorageObject
+- uid: System.IO.DirectoryInfo
+  commentId: T:System.IO.DirectoryInfo
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.directoryinfo
+  name: DirectoryInfo
+  nameWithType: DirectoryInfo
+  fullName: System.IO.DirectoryInfo
+- uid: Songhay.Extensions.FileInfoExtensions.ToStorageObject*
+  commentId: Overload:Songhay.Extensions.FileInfoExtensions.ToStorageObject
+  href: Songhay.Extensions.FileInfoExtensions.html#Songhay_Extensions_FileInfoExtensions_ToStorageObject_System_IO_FileInfo_System_IO_DirectoryInfo_
+  name: ToStorageObject
+  nameWithType: FileInfoExtensions.ToStorageObject
+  fullName: Songhay.Extensions.FileInfoExtensions.ToStorageObject
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
 - uid: System.IO.Compression.ZipArchive
   commentId: T:System.IO.Compression.ZipArchive
   isExternal: true
@@ -1048,6 +1136,13 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: System.IO.Compression.ZipArchiveEntry
+  commentId: T:System.IO.Compression.ZipArchiveEntry
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.compression.ziparchiveentry
+  name: ZipArchiveEntry
+  nameWithType: ZipArchiveEntry
+  fullName: System.IO.Compression.ZipArchiveEntry
 - uid: Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries*
   commentId: Overload:Songhay.Extensions.FileInfoExtensions.UseZipArchiveEntries
   href: Songhay.Extensions.FileInfoExtensions.html#Songhay_Extensions_FileInfoExtensions_UseZipArchiveEntries_System_IO_FileInfo_System_Action_System_Collections_ObjectModel_ReadOnlyCollection_System_IO_Compression_ZipArchiveEntry___

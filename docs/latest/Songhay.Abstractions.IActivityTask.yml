@@ -5,7 +5,7 @@ items:
   id: IActivityTask
   parent: Songhay.Abstractions
   children:
-  - Songhay.Abstractions.IActivityTask.StartAsync
+  - Songhay.Abstractions.IActivityTask.StartAsync(System.Threading.CancellationToken)
   langs:
   - csharp
   - vb
@@ -40,16 +40,16 @@ items:
   - Songhay.Abstractions.IActivityTask.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
   - Songhay.Abstractions.IActivityTask.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
   - Songhay.Abstractions.IActivityTask.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
-- uid: Songhay.Abstractions.IActivityTask.StartAsync
-  commentId: M:Songhay.Abstractions.IActivityTask.StartAsync
-  id: StartAsync
+- uid: Songhay.Abstractions.IActivityTask.StartAsync(System.Threading.CancellationToken)
+  commentId: M:Songhay.Abstractions.IActivityTask.StartAsync(System.Threading.CancellationToken)
+  id: StartAsync(System.Threading.CancellationToken)
   parent: Songhay.Abstractions.IActivityTask
   langs:
   - csharp
   - vb
-  name: StartAsync()
-  nameWithType: IActivityTask.StartAsync()
-  fullName: Songhay.Abstractions.IActivityTask.StartAsync()
+  name: StartAsync(CancellationToken)
+  nameWithType: IActivityTask.StartAsync(CancellationToken)
+  fullName: Songhay.Abstractions.IActivityTask.StartAsync(System.Threading.CancellationToken)
   type: Method
   source:
     remote:
@@ -58,17 +58,21 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: StartAsync
     path: ../SonghayCore/Abstractions/IActivityTask.cs
-    startLine: 17
+    startLine: 18
   assemblies:
   - SonghayCore
   namespace: Songhay.Abstractions
   summary: Starts the <xref href="Songhay.Abstractions.IActivity" data-throw-if-not-resolved="false"></xref> asynchronously.
   example: []
   syntax:
-    content: Task StartAsync()
+    content: Task StartAsync(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
     return:
       type: System.Threading.Tasks.Task
-    content.vb: Function StartAsync() As Task
+    content.vb: Function StartAsync(cancellationToken As CancellationToken) As Task
   overload: Songhay.Abstractions.IActivityTask.StartAsync*
 references:
 - uid: Songhay.Abstractions.IActivity
@@ -421,9 +425,44 @@ references:
   - uid: Songhay.Extensions
     name: Extensions
     href: Songhay.Extensions.html
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
 - uid: Songhay.Abstractions.IActivityTask.StartAsync*
   commentId: Overload:Songhay.Abstractions.IActivityTask.StartAsync
-  href: Songhay.Abstractions.IActivityTask.html#Songhay_Abstractions_IActivityTask_StartAsync
+  href: Songhay.Abstractions.IActivityTask.html#Songhay_Abstractions_IActivityTask_StartAsync_System_Threading_CancellationToken_
   name: StartAsync
   nameWithType: IActivityTask.StartAsync
   fullName: Songhay.Abstractions.IActivityTask.StartAsync
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading

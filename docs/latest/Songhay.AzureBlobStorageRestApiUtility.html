@@ -155,9 +155,9 @@ Class AzureBlobStorageRestApiUtility  <a class="header-action link-secondary" ti
 
   <a id="Songhay_AzureBlobStorageRestApiUtility_DeleteBlobAsync_" data-uid="Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync*"></a>
 
-  <h3 id="Songhay_AzureBlobStorageRestApiUtility_DeleteBlobAsync_System_String_System_String_System_String_" data-uid="Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(System.String,System.String,System.String)">
-  DeleteBlobAsync(string, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureBlobStorageRestApiUtility.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_AzureBlobStorageRestApiUtility_DeleteBlobAsync_System_String_System_String_System_String_System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.AzureBlobStorageRestApiUtility.DeleteBlobAsync(System.String,System.String,System.String,System.Func{System.Net.Http.HttpClient})">
+  DeleteBlobAsync(string, string, string, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureBlobStorageRestApiUtility.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p><code>DELETE</code>s the BLOB of the specified ‘file’ name.</p>
@@ -165,7 +165,7 @@ Class AzureBlobStorageRestApiUtility  <a class="header-action link-secondary" ti
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task DeleteBlobAsync(string connectionString, string containerName, string fileName)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task DeleteBlobAsync(string connectionString, string containerName, string fileName, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -178,6 +178,9 @@ Class AzureBlobStorageRestApiUtility  <a class="header-action link-secondary" ti
 </dd>
     <dt><code>fileName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>BLOB ‘file’ name</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
   </dl>
 
@@ -204,9 +207,9 @@ Class AzureBlobStorageRestApiUtility  <a class="header-action link-secondary" ti
 
   <a id="Songhay_AzureBlobStorageRestApiUtility_DownloadBlobToStringAsync_" data-uid="Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync*"></a>
 
-  <h3 id="Songhay_AzureBlobStorageRestApiUtility_DownloadBlobToStringAsync_System_String_System_String_System_String_" data-uid="Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(System.String,System.String,System.String)">
-  DownloadBlobToStringAsync(string, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureBlobStorageRestApiUtility.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_AzureBlobStorageRestApiUtility_DownloadBlobToStringAsync_System_String_System_String_System_String_System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.AzureBlobStorageRestApiUtility.DownloadBlobToStringAsync(System.String,System.String,System.String,System.Func{System.Net.Http.HttpClient})">
+  DownloadBlobToStringAsync(string, string, string, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureBlobStorageRestApiUtility.cs/#L105"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p><code>GET</code>s the BLOB of the specified ‘file’ name.</p>
@@ -214,7 +217,7 @@ Class AzureBlobStorageRestApiUtility  <a class="header-action link-secondary" ti
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; DownloadBlobToStringAsync(string connectionString, string containerName, string fileName)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; DownloadBlobToStringAsync(string connectionString, string containerName, string fileName, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -227,6 +230,9 @@ Class AzureBlobStorageRestApiUtility  <a class="header-action link-secondary" ti
 </dd>
     <dt><code>fileName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>BLOB ‘file’ name</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
   </dl>
 
@@ -343,9 +349,9 @@ from the specified connection string.</p>
 
   <a id="Songhay_AzureBlobStorageRestApiUtility_ListContainerAsync_" data-uid="Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync*"></a>
 
-  <h3 id="Songhay_AzureBlobStorageRestApiUtility_ListContainerAsync_System_String_System_String_" data-uid="Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(System.String,System.String)">
-  ListContainerAsync(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureBlobStorageRestApiUtility.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_AzureBlobStorageRestApiUtility_ListContainerAsync_System_String_System_String_System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.AzureBlobStorageRestApiUtility.ListContainerAsync(System.String,System.String,System.Func{System.Net.Http.HttpClient})">
+  ListContainerAsync(string, string, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureBlobStorageRestApiUtility.cs/#L136"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Lists the contents of the specified BLOB container.</p>
@@ -353,7 +359,7 @@ from the specified connection string.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; ListContainerAsync(string connectionString, string containerName)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; ListContainerAsync(string connectionString, string containerName, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -363,6 +369,9 @@ from the specified connection string.</p>
 </dd>
     <dt><code>containerName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Azure BLOB Storage container name</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
   </dl>
 
@@ -390,9 +399,9 @@ from the specified connection string.</p>
 
   <a id="Songhay_AzureBlobStorageRestApiUtility_UploadBlobAsync_" data-uid="Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync*"></a>
 
-  <h3 id="Songhay_AzureBlobStorageRestApiUtility_UploadBlobAsync_System_String_System_String_System_String_System_String_" data-uid="Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(System.String,System.String,System.String,System.String)">
-  UploadBlobAsync(string, string, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureBlobStorageRestApiUtility.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_AzureBlobStorageRestApiUtility_UploadBlobAsync_System_String_System_String_System_String_System_String_System_Func_System_Net_Http_HttpClient__" data-uid="Songhay.AzureBlobStorageRestApiUtility.UploadBlobAsync(System.String,System.String,System.String,System.String,System.Func{System.Net.Http.HttpClient})">
+  UploadBlobAsync(string, string, string, string, Func&lt;HttpClient&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/AzureBlobStorageRestApiUtility.cs/#L168"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p><code>PUT</code>s the BLOB of the specified ‘file’ name.</p>
@@ -400,7 +409,7 @@ from the specified connection string.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task UploadBlobAsync(string connectionString, string containerName, string fileName, string content)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task UploadBlobAsync(string connectionString, string containerName, string fileName, string content, Func&lt;HttpClient&gt; clientGetter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -416,6 +425,9 @@ from the specified connection string.</p>
 </dd>
     <dt><code>content</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> contents of the ‘file.’</p>
+</dd>
+    <dt><code>clientGetter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>&gt;</dt>
+    <dd><p>The required client getter.</p>
 </dd>
   </dl>
 

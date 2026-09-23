@@ -5,8 +5,8 @@ items:
   id: AzureKeyVaultRestApiUtility
   parent: Songhay
   children:
-  - Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
-  - Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)
+  - Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})
+  - Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri,System.Func{System.Net.Http.HttpClient})
   langs:
   - csharp
   - vb
@@ -44,16 +44,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
-  commentId: M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
-  id: GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
+- uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})
+  commentId: M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})
+  id: GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})
   parent: Songhay.AzureKeyVaultRestApiUtility
   langs:
   - csharp
   - vb
-  name: GetAccessTokenAsync(Uri?, Dictionary<string, string>?)
-  nameWithType: AzureKeyVaultRestApiUtility.GetAccessTokenAsync(Uri?, Dictionary<string, string>?)
-  fullName: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri?, System.Collections.Generic.Dictionary<string, string>?)
+  name: GetAccessTokenAsync(Uri?, Dictionary<string, string>?, Func<HttpClient>)
+  nameWithType: AzureKeyVaultRestApiUtility.GetAccessTokenAsync(Uri?, Dictionary<string, string>?, Func<HttpClient>)
+  fullName: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri?, System.Collections.Generic.Dictionary<string, string>?, System.Func<System.Net.Http.HttpClient>)
   type: Method
   source:
     remote:
@@ -62,7 +62,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetAccessTokenAsync
     path: ../SonghayCore/AzureKeyVaultRestApiUtility.cs
-    startLine: 25
+    startLine: 26
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -78,7 +78,7 @@ items:
     its <xref href="Songhay.Extensions.RestApiMetadataExtensions.ToAzureActiveDirectoryAccessTokenData(Songhay.Models.RestApiMetadata)" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
-    content: public static Task<string> GetAccessTokenAsync(Uri? accessUri, Dictionary<string, string>? accessData)
+    content: public static Task<string> GetAccessTokenAsync(Uri? accessUri, Dictionary<string, string>? accessData, Func<HttpClient> clientGetter)
     parameters:
     - id: accessUri
       type: System.Uri
@@ -86,23 +86,26 @@ items:
     - id: accessData
       type: System.Collections.Generic.Dictionary{System.String,System.String}
       description: the data required to <code>POST</code> to the specified endpoint
+    - id: clientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The required client getter.
     return:
       type: System.Threading.Tasks.Task{System.String}
-    content.vb: Public Shared Function GetAccessTokenAsync(accessUri As Uri, accessData As Dictionary(Of String, String)) As Task(Of String)
+    content.vb: Public Shared Function GetAccessTokenAsync(accessUri As Uri, accessData As Dictionary(Of String, String), clientGetter As Func(Of HttpClient)) As Task(Of String)
   overload: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync*
-  nameWithType.vb: AzureKeyVaultRestApiUtility.GetAccessTokenAsync(Uri, Dictionary(Of String, String))
-  fullName.vb: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri, System.Collections.Generic.Dictionary(Of String, String))
-  name.vb: GetAccessTokenAsync(Uri, Dictionary(Of String, String))
-- uid: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)
-  commentId: M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri)
-  id: GetSecretAsync(System.String,System.Uri)
+  nameWithType.vb: AzureKeyVaultRestApiUtility.GetAccessTokenAsync(Uri, Dictionary(Of String, String), Func(Of HttpClient))
+  fullName.vb: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri, System.Collections.Generic.Dictionary(Of String, String), System.Func(Of System.Net.Http.HttpClient))
+  name.vb: GetAccessTokenAsync(Uri, Dictionary(Of String, String), Func(Of HttpClient))
+- uid: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri,System.Func{System.Net.Http.HttpClient})
+  commentId: M:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(System.String,System.Uri,System.Func{System.Net.Http.HttpClient})
+  id: GetSecretAsync(System.String,System.Uri,System.Func{System.Net.Http.HttpClient})
   parent: Songhay.AzureKeyVaultRestApiUtility
   langs:
   - csharp
   - vb
-  name: GetSecretAsync(string, Uri)
-  nameWithType: AzureKeyVaultRestApiUtility.GetSecretAsync(string, Uri)
-  fullName: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(string, System.Uri)
+  name: GetSecretAsync(string, Uri, Func<HttpClient>)
+  nameWithType: AzureKeyVaultRestApiUtility.GetSecretAsync(string, Uri, Func<HttpClient>)
+  fullName: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(string, System.Uri, System.Func<System.Net.Http.HttpClient>)
   type: Method
   source:
     remote:
@@ -111,7 +114,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: GetSecretAsync
     path: ../SonghayCore/AzureKeyVaultRestApiUtility.cs
-    startLine: 52
+    startLine: 54
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -125,21 +128,24 @@ items:
     its <xref href="Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata%2cSystem.String)" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
-    content: public static Task<string> GetSecretAsync(string accessToken, Uri secretUri)
+    content: public static Task<string> GetSecretAsync(string accessToken, Uri secretUri, Func<HttpClient> clientGetter)
     parameters:
     - id: accessToken
       type: System.String
-      description: the JSON obtained from <xref href="Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri%2cSystem.Collections.Generic.Dictionary%7bSystem.String%2cSystem.String%7d)" data-throw-if-not-resolved="false"></xref>
+      description: the JSON obtained from <xref href="Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri%2cSystem.Collections.Generic.Dictionary%7bSystem.String%2cSystem.String%7d%2cSystem.Func%7bSystem.Net.Http.HttpClient%7d)" data-throw-if-not-resolved="false"></xref>
     - id: secretUri
       type: System.Uri
       description: the location of the Azure Key Vault endpoint
+    - id: clientGetter
+      type: System.Func{System.Net.Http.HttpClient}
+      description: The required client getter.
     return:
       type: System.Threading.Tasks.Task{System.String}
-    content.vb: Public Shared Function GetSecretAsync(accessToken As String, secretUri As Uri) As Task(Of String)
+    content.vb: Public Shared Function GetSecretAsync(accessToken As String, secretUri As Uri, clientGetter As Func(Of HttpClient)) As Task(Of String)
   overload: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync*
-  nameWithType.vb: AzureKeyVaultRestApiUtility.GetSecretAsync(String, Uri)
-  fullName.vb: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(String, System.Uri)
-  name.vb: GetSecretAsync(String, Uri)
+  nameWithType.vb: AzureKeyVaultRestApiUtility.GetSecretAsync(String, Uri, Func(Of HttpClient))
+  fullName.vb: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync(String, System.Uri, System.Func(Of System.Net.Http.HttpClient))
+  name.vb: GetSecretAsync(String, Uri, Func(Of HttpClient))
 references:
 - uid: Songhay
   commentId: N:Songhay
@@ -441,7 +447,7 @@ references:
   - name: )
 - uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync*
   commentId: Overload:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync
-  href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__
+  href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__System_Func_System_Net_Http_HttpClient__
   name: GetAccessTokenAsync
   nameWithType: AzureKeyVaultRestApiUtility.GetAccessTokenAsync
   fullName: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync
@@ -499,6 +505,41 @@ references:
     name: String
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Func{System.Net.Http.HttpClient}
+  commentId: T:System.Func{System.Net.Http.HttpClient}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<HttpClient>
+  nameWithType: Func<HttpClient>
+  fullName: System.Func<System.Net.Http.HttpClient>
+  nameWithType.vb: Func(Of HttpClient)
+  fullName.vb: System.Func(Of System.Net.Http.HttpClient)
+  name.vb: Func(Of HttpClient)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Net.Http.HttpClient
+    name: HttpClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Net.Http.HttpClient
+    name: HttpClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
   - name: )
 - uid: System.Threading.Tasks.Task{System.String}
   commentId: T:System.Threading.Tasks.Task{System.String}
@@ -628,6 +669,34 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
 - uid: System.Threading.Tasks.Task`1
   commentId: T:System.Threading.Tasks.Task`1
   isExternal: true
@@ -693,20 +762,20 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
-- uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
-  commentId: M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
+- uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})
+  commentId: M:Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})
   isExternal: true
-  href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__
-  name: GetAccessTokenAsync(Uri, Dictionary<string, string>)
-  nameWithType: AzureKeyVaultRestApiUtility.GetAccessTokenAsync(Uri, Dictionary<string, string>)
-  fullName: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri, System.Collections.Generic.Dictionary<string, string>)
-  nameWithType.vb: AzureKeyVaultRestApiUtility.GetAccessTokenAsync(Uri, Dictionary(Of String, String))
-  fullName.vb: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri, System.Collections.Generic.Dictionary(Of String, String))
-  name.vb: GetAccessTokenAsync(Uri, Dictionary(Of String, String))
+  href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__System_Func_System_Net_Http_HttpClient__
+  name: GetAccessTokenAsync(Uri, Dictionary<string, string>, Func<HttpClient>)
+  nameWithType: AzureKeyVaultRestApiUtility.GetAccessTokenAsync(Uri, Dictionary<string, string>, Func<HttpClient>)
+  fullName: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri, System.Collections.Generic.Dictionary<string, string>, System.Func<System.Net.Http.HttpClient>)
+  nameWithType.vb: AzureKeyVaultRestApiUtility.GetAccessTokenAsync(Uri, Dictionary(Of String, String), Func(Of HttpClient))
+  fullName.vb: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri, System.Collections.Generic.Dictionary(Of String, String), System.Func(Of System.Net.Http.HttpClient))
+  name.vb: GetAccessTokenAsync(Uri, Dictionary(Of String, String), Func(Of HttpClient))
   spec.csharp:
-  - uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
+  - uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})
     name: GetAccessTokenAsync
-    href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__
+    href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__System_Func_System_Net_Http_HttpClient__
   - name: (
   - uid: System.Uri
     name: Uri
@@ -730,11 +799,23 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Net.Http.HttpClient
+    name: HttpClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  - name: '>'
   - name: )
   spec.vb:
-  - uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String})
+  - uid: Songhay.AzureKeyVaultRestApiUtility.GetAccessTokenAsync(System.Uri,System.Collections.Generic.Dictionary{System.String,System.String},System.Func{System.Net.Http.HttpClient})
     name: GetAccessTokenAsync
-    href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__
+    href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetAccessTokenAsync_System_Uri_System_Collections_Generic_Dictionary_System_String_System_String__System_Func_System_Net_Http_HttpClient__
   - name: (
   - uid: System.Uri
     name: Uri
@@ -759,6 +840,20 @@ references:
     name: String
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Net.Http.HttpClient
+    name: HttpClient
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
   - name: )
   - name: )
 - uid: Songhay.Extensions.RestApiMetadataExtensions.ToAzureKeyVaultSecretUri(Songhay.Models.RestApiMetadata,System.String)
@@ -803,7 +898,7 @@ references:
   - name: )
 - uid: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync*
   commentId: Overload:Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync
-  href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetSecretAsync_System_String_System_Uri_
+  href: Songhay.AzureKeyVaultRestApiUtility.html#Songhay_AzureKeyVaultRestApiUtility_GetSecretAsync_System_String_System_Uri_System_Func_System_Net_Http_HttpClient__
   name: GetSecretAsync
   nameWithType: AzureKeyVaultRestApiUtility.GetSecretAsync
   fullName: Songhay.AzureKeyVaultRestApiUtility.GetSecretAsync

@@ -89,7 +89,7 @@
 
 
   <h1 id="Songhay_Net_BlobStreamApiEndpoint" data-uid="Songhay.Net.BlobStreamApiEndpoint" class="text-break">
-Class BlobStreamApiEndpoint  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Net/BlobStreamApiEndpoint.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class BlobStreamApiEndpoint  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Net/BlobStreamApiEndpoint.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -181,9 +181,9 @@ Class BlobStreamApiEndpoint  <a class="header-action link-secondary" title="View
 
   <a id="Songhay_Net_BlobStreamApiEndpoint__ctor_" data-uid="Songhay.Net.BlobStreamApiEndpoint.#ctor*"></a>
 
-  <h3 id="Songhay_Net_BlobStreamApiEndpoint__ctor_Polly_ResiliencePipeline_System_String_" data-uid="Songhay.Net.BlobStreamApiEndpoint.#ctor(Polly.ResiliencePipeline,System.String)">
-  BlobStreamApiEndpoint(ResiliencePipeline?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Net/BlobStreamApiEndpoint.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Songhay_Net_BlobStreamApiEndpoint__ctor_System_Net_Http_IHttpClientFactory_Polly_ResiliencePipeline_System_String_" data-uid="Songhay.Net.BlobStreamApiEndpoint.#ctor(System.Net.Http.IHttpClientFactory,Polly.ResiliencePipeline,System.String)">
+  BlobStreamApiEndpoint(IHttpClientFactory, ResiliencePipeline?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Net/BlobStreamApiEndpoint.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Defines the default implementation of <a class="xref" href="Songhay.Abstractions.IBlobStreamApiEndpoint.html">IBlobStreamApiEndpoint</a></p>
@@ -191,13 +191,16 @@ Class BlobStreamApiEndpoint  <a class="header-action link-secondary" title="View
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BlobStreamApiEndpoint(ResiliencePipeline? pipeline, string? instanceTag)</code></pre>
+    <pre><code class="lang-csharp hljs">public BlobStreamApiEndpoint(IHttpClientFactory clientFactory, ResiliencePipeline? pipeline, string? instanceTag)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>pipeline</code> <a class="xref" href="https://github.com/App-vNext/Polly/blob/016dd909db880b9d8d07954ff5f4ea3cc1e11c67/src/Polly.Core/ResiliencePipeline.Async.cs">ResiliencePipeline</a></dt>
-    <dd><p>the <a class="xref" href="https://github.com/App-vNext/Polly/blob/016dd909db880b9d8d07954ff5f4ea3cc1e11c67/src/Polly.Core/ResiliencePipeline.Async.cs">ResiliencePipeline</a></p>
+    <dt><code>clientFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.ihttpclientfactory">IHttpClientFactory</a></dt>
+    <dd><p>the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.ihttpclientfactory">IHttpClientFactory</a></p>
+</dd>
+    <dt><code>pipeline</code> <a class="xref" href="https://github.com/App-vNext/Polly/blob/9ad5ae9b4ff9beb4321b0762249ce173b984f817/src/Polly.Core/ResiliencePipeline.Async.cs">ResiliencePipeline</a></dt>
+    <dd><p>the <a class="xref" href="https://github.com/App-vNext/Polly/blob/9ad5ae9b4ff9beb4321b0762249ce173b984f817/src/Polly.Core/ResiliencePipeline.Async.cs">ResiliencePipeline</a></p>
 </dd>
     <dt><code>instanceTag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>maps to <a class="xref" href="Songhay.Abstractions.ITaggedInstance.html#Songhay_Abstractions_ITaggedInstance_InstanceTag">InstanceTag</a></p>
@@ -223,7 +226,7 @@ Class BlobStreamApiEndpoint  <a class="header-action link-secondary" title="View
 
   <h3 id="Songhay_Net_BlobStreamApiEndpoint_InstanceTag" data-uid="Songhay.Net.BlobStreamApiEndpoint.InstanceTag">
   InstanceTag
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Net/BlobStreamApiEndpoint.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Net/BlobStreamApiEndpoint.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the conventional ID or tag of this instance.</p>
@@ -259,7 +262,7 @@ Class BlobStreamApiEndpoint  <a class="header-action link-secondary" title="View
 
   <h3 id="Songhay_Net_BlobStreamApiEndpoint_DownloadStreamAsync_Songhay_Abstractions_IApiRequestStrategy_System_String_System_Action_System_IO_Stream__" data-uid="Songhay.Net.BlobStreamApiEndpoint.DownloadStreamAsync(Songhay.Abstractions.IApiRequestStrategy,System.String,System.Action{System.IO.Stream})">
   DownloadStreamAsync(IApiRequestStrategy?, string?, Action&lt;Stream&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Net/BlobStreamApiEndpoint.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Net/BlobStreamApiEndpoint.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Download into a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>
@@ -309,7 +312,7 @@ from the API endpoint</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Net/BlobStreamApiEndpoint.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Net/BlobStreamApiEndpoint.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 

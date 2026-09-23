@@ -40,6 +40,10 @@ items:
   - Songhay.ProgramTypeUtility.ParseRfc822DateTime(System.String)
   - Songhay.ProgramTypeUtility.ParseString(System.Object)
   - Songhay.ProgramTypeUtility.ParseString(System.Object,System.String)
+  - Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)
+  - Songhay.ProgramTypeUtility.ParseToLocalTime(System.String,System.Globalization.CultureInfo)
+  - Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)
+  - Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String,System.Globalization.CultureInfo)
   - Songhay.ProgramTypeUtility.SqlDatabaseNull
   - Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)
   - Songhay.ProgramTypeUtility.TryParseRfc822DateTime(System.String,System.DateTime@)
@@ -346,7 +350,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseDateTime
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 131
+    startLine: 136
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -354,6 +358,12 @@ items:
     Tries to convert the specified value
 
     to the <xref href="System.Nullable" data-throw-if-not-resolved="false"></xref> return type.
+  remarks: >-
+    For more control over whether UTC or local <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> is desired,
+
+    consider using <xref href="Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public static DateTime? ParseDateTime(object? value)
@@ -392,7 +402,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseDateTime
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 153
+    startLine: 158
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -441,7 +451,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseDateTimeWithFormat
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 175
+    startLine: 180
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -490,7 +500,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseDateTimeWithFormat
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 200
+    startLine: 205
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -542,7 +552,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseDecimal
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 219
+    startLine: 224
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -588,7 +598,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseDecimal
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 241
+    startLine: 246
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -637,7 +647,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseDouble
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 260
+    startLine: 265
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -683,7 +693,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseDouble
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 282
+    startLine: 287
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -732,7 +742,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseEnum
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 299
+    startLine: 304
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -779,7 +789,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseInt16
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 318
+    startLine: 323
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -825,7 +835,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseInt16
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 340
+    startLine: 345
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -874,7 +884,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseInt32
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 359
+    startLine: 364
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -920,7 +930,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseInt32
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 381
+    startLine: 386
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -969,7 +979,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseInt64
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 400
+    startLine: 405
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -1015,7 +1025,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseInt64
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 422
+    startLine: 427
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -1064,7 +1074,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseRfc3339DateTime
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 436
+    startLine: 441
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -1102,7 +1112,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseRfc822DateTime
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 456
+    startLine: 461
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -1140,7 +1150,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseString
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 476
+    startLine: 481
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -1180,7 +1190,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: ParseString
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 484
+    startLine: 489
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -1205,6 +1215,180 @@ items:
   nameWithType.vb: ProgramTypeUtility.ParseString(Object, String)
   fullName.vb: Songhay.ProgramTypeUtility.ParseString(Object, String)
   name.vb: ParseString(Object, String)
+- uid: Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)
+  commentId: M:Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)
+  id: ParseToLocalTime(System.String)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseToLocalTime(string?)
+  nameWithType: ProgramTypeUtility.ParseToLocalTime(string?)
+  fullName: Songhay.ProgramTypeUtility.ParseToLocalTime(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseToLocalTime
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 498
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to parse the specified date string
+
+    into the local <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+
+    or returns <code>null</code>.
+  example: []
+  syntax:
+    content: public static DateTime? ParseToLocalTime(string? dateTimeString)
+    parameters:
+    - id: dateTimeString
+      type: System.String
+      description: the string representation of a valid <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Shared Function ParseToLocalTime(dateTimeString As String) As Date?
+  overload: Songhay.ProgramTypeUtility.ParseToLocalTime*
+  nameWithType.vb: ProgramTypeUtility.ParseToLocalTime(String)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseToLocalTime(String)
+  name.vb: ParseToLocalTime(String)
+- uid: Songhay.ProgramTypeUtility.ParseToLocalTime(System.String,System.Globalization.CultureInfo)
+  commentId: M:Songhay.ProgramTypeUtility.ParseToLocalTime(System.String,System.Globalization.CultureInfo)
+  id: ParseToLocalTime(System.String,System.Globalization.CultureInfo)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseToLocalTime(string?, CultureInfo?)
+  nameWithType: ProgramTypeUtility.ParseToLocalTime(string?, CultureInfo?)
+  fullName: Songhay.ProgramTypeUtility.ParseToLocalTime(string?, System.Globalization.CultureInfo?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseToLocalTime
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 508
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to parse the specified date string
+
+    into the local <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+
+    or returns <code>null</code>.
+  example: []
+  syntax:
+    content: public static DateTime? ParseToLocalTime(string? dateTimeString, CultureInfo? cultureInfo)
+    parameters:
+    - id: dateTimeString
+      type: System.String
+      description: the string representation of a valid <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+    - id: cultureInfo
+      type: System.Globalization.CultureInfo
+      description: the <xref href="System.Globalization.CultureInfo" data-throw-if-not-resolved="false"></xref> of the locale
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Shared Function ParseToLocalTime(dateTimeString As String, cultureInfo As CultureInfo) As Date?
+  overload: Songhay.ProgramTypeUtility.ParseToLocalTime*
+  nameWithType.vb: ProgramTypeUtility.ParseToLocalTime(String, CultureInfo)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseToLocalTime(String, System.Globalization.CultureInfo)
+  name.vb: ParseToLocalTime(String, CultureInfo)
+- uid: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)
+  commentId: M:Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)
+  id: ParseToUtcDateTimeFromLocalTime(System.String)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseToUtcDateTimeFromLocalTime(string?)
+  nameWithType: ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(string?)
+  fullName: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(string?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseToUtcDateTimeFromLocalTime
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 520
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to parse the specified date string
+
+    into UTC <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+
+    or returns <code>null</code>.
+  example: []
+  syntax:
+    content: public static DateTime? ParseToUtcDateTimeFromLocalTime(string? dateTimeString)
+    parameters:
+    - id: dateTimeString
+      type: System.String
+      description: the string representation of a valid, local <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Shared Function ParseToUtcDateTimeFromLocalTime(dateTimeString As String) As Date?
+  overload: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime*
+  nameWithType.vb: ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(String)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(String)
+  name.vb: ParseToUtcDateTimeFromLocalTime(String)
+- uid: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String,System.Globalization.CultureInfo)
+  commentId: M:Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String,System.Globalization.CultureInfo)
+  id: ParseToUtcDateTimeFromLocalTime(System.String,System.Globalization.CultureInfo)
+  parent: Songhay.ProgramTypeUtility
+  langs:
+  - csharp
+  - vb
+  name: ParseToUtcDateTimeFromLocalTime(string?, CultureInfo?)
+  nameWithType: ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(string?, CultureInfo?)
+  fullName: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(string?, System.Globalization.CultureInfo?)
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/ProgramTypeUtility.Parsing.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ParseToUtcDateTimeFromLocalTime
+    path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
+    startLine: 530
+  assemblies:
+  - SonghayCore
+  namespace: Songhay
+  summary: >-
+    Tries to parse the specified date string
+
+    into UTC <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+
+    or returns <code>null</code>.
+  example: []
+  syntax:
+    content: public static DateTime? ParseToUtcDateTimeFromLocalTime(string? dateTimeString, CultureInfo? cultureInfo)
+    parameters:
+    - id: dateTimeString
+      type: System.String
+      description: the string representation of a valid, local <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref>
+    - id: cultureInfo
+      type: System.Globalization.CultureInfo
+      description: the <xref href="System.Globalization.CultureInfo" data-throw-if-not-resolved="false"></xref> of the locale
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Shared Function ParseToUtcDateTimeFromLocalTime(dateTimeString As String, cultureInfo As CultureInfo) As Date?
+  overload: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime*
+  nameWithType.vb: ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(String, CultureInfo)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(String, System.Globalization.CultureInfo)
+  name.vb: ParseToUtcDateTimeFromLocalTime(String, CultureInfo)
 - uid: Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)
   commentId: M:Songhay.ProgramTypeUtility.TryParseRfc3339DateTime(System.String,System.DateTime@)
   id: TryParseRfc3339DateTime(System.String,System.DateTime@)
@@ -1223,7 +1407,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: TryParseRfc3339DateTime
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 495
+    startLine: 544
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -1264,7 +1448,7 @@ items:
       repo: git@github.com:BryanWilhite/SonghayCore.git
     id: TryParseRfc822DateTime
     path: ../SonghayCore/ProgramTypeUtility.Parsing.cs
-    startLine: 525
+    startLine: 574
   assemblies:
   - SonghayCore
   namespace: Songhay
@@ -2138,6 +2322,77 @@ references:
   nameWithType.vb: Byte
   fullName.vb: Byte
   name.vb: Byte
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)
+  commentId: M:Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)
+  isExternal: true
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseToLocalTime_System_String_
+  name: ParseToLocalTime(string)
+  nameWithType: ProgramTypeUtility.ParseToLocalTime(string)
+  fullName: Songhay.ProgramTypeUtility.ParseToLocalTime(string)
+  nameWithType.vb: ProgramTypeUtility.ParseToLocalTime(String)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseToLocalTime(String)
+  name.vb: ParseToLocalTime(String)
+  spec.csharp:
+  - uid: Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)
+    name: ParseToLocalTime
+    href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseToLocalTime_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.ProgramTypeUtility.ParseToLocalTime(System.String)
+    name: ParseToLocalTime
+    href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseToLocalTime_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)
+  commentId: M:Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)
+  isExternal: true
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseToUtcDateTimeFromLocalTime_System_String_
+  name: ParseToUtcDateTimeFromLocalTime(string)
+  nameWithType: ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(string)
+  fullName: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(string)
+  nameWithType.vb: ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(String)
+  fullName.vb: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(String)
+  name.vb: ParseToUtcDateTimeFromLocalTime(String)
+  spec.csharp:
+  - uid: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)
+    name: ParseToUtcDateTimeFromLocalTime
+    href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseToUtcDateTimeFromLocalTime_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime(System.String)
+    name: ParseToUtcDateTimeFromLocalTime
+    href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseToUtcDateTimeFromLocalTime_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
 - uid: Songhay.ProgramTypeUtility.ParseDateTime*
   commentId: Overload:Songhay.ProgramTypeUtility.ParseDateTime
   href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseDateTime_System_Object_
@@ -2167,17 +2422,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.datetime
   - name: '?'
-- uid: System.DateTime
-  commentId: T:System.DateTime
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.datetime
-  name: DateTime
-  nameWithType: DateTime
-  fullName: System.DateTime
-  nameWithType.vb: Date
-  fullName.vb: Date
-  name.vb: Date
 - uid: Songhay.ProgramTypeUtility.ParseDateTimeWithFormat*
   commentId: Overload:Songhay.ProgramTypeUtility.ParseDateTimeWithFormat
   href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseDateTimeWithFormat_System_Object_System_String_
@@ -2437,6 +2681,53 @@ references:
   name: ParseString
   nameWithType: ProgramTypeUtility.ParseString
   fullName: Songhay.ProgramTypeUtility.ParseString
+- uid: Songhay.ProgramTypeUtility.ParseToLocalTime*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseToLocalTime
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseToLocalTime_System_String_
+  name: ParseToLocalTime
+  nameWithType: ProgramTypeUtility.ParseToLocalTime
+  fullName: Songhay.ProgramTypeUtility.ParseToLocalTime
+- uid: System.Globalization.CultureInfo
+  commentId: T:System.Globalization.CultureInfo
+  parent: System.Globalization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo
+  name: CultureInfo
+  nameWithType: CultureInfo
+  fullName: System.Globalization.CultureInfo
+- uid: System.Globalization
+  commentId: N:System.Globalization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Globalization
+  nameWithType: System.Globalization
+  fullName: System.Globalization
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Globalization
+    name: Globalization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Globalization
+    name: Globalization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization
+- uid: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime*
+  commentId: Overload:Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime
+  href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_ParseToUtcDateTimeFromLocalTime_System_String_
+  name: ParseToUtcDateTimeFromLocalTime
+  nameWithType: ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime
+  fullName: Songhay.ProgramTypeUtility.ParseToUtcDateTimeFromLocalTime
 - uid: Songhay.ProgramTypeUtility.TryParseRfc3339DateTime*
   commentId: Overload:Songhay.ProgramTypeUtility.TryParseRfc3339DateTime
   href: Songhay.ProgramTypeUtility.html#Songhay_ProgramTypeUtility_TryParseRfc3339DateTime_System_String_System_DateTime__

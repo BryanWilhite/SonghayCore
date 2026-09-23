@@ -102,7 +102,7 @@ Interface IActivityOutputOnly&lt;TOutput&gt;  <a class="header-action link-secon
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IActivityOutputOnly&lt;out TOutput&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IActivityOutputOnly&lt;out TOutput&gt; where TOutput : notnull</code></pre>
   </div>
 
 
@@ -110,7 +110,7 @@ Interface IActivityOutputOnly&lt;TOutput&gt;  <a class="header-action link-secon
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>TOutput</code></dt>
-    <dd><p>The type of the output.</p>
+    <dd><p>The non-nullable type of the output.</p>
 </dd>
   </dl>
 
@@ -148,7 +148,7 @@ see <a href="https://github.com/BryanWilhite/SonghayCore/issues/83">https://gith
 
   <h3 id="Songhay_Abstractions_IActivityOutputOnly_1_Start" data-uid="Songhay.Abstractions.IActivityOutputOnly`1.Start">
   Start()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Abstractions/IActivityOutputOnly.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Abstractions/IActivityOutputOnly.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Starts the <a class="xref" href="Songhay.Abstractions.IActivity.html">IActivity</a> asynchronously.</p>
@@ -156,7 +156,7 @@ see <a href="https://github.com/BryanWilhite/SonghayCore/issues/83">https://gith
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TOutput? Start()</code></pre>
+    <pre><code class="lang-csharp hljs">TOutput Start()</code></pre>
   </div>
 
 
@@ -172,6 +172,11 @@ see <a href="https://github.com/BryanWilhite/SonghayCore/issues/83">https://gith
 
 
 
+  <h4 class="section" id="Songhay_Abstractions_IActivityOutputOnly_1_Start_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Note that <code>TOutput</code> is not marked as nullable
+with the expectation that <code>*Result</code> classes/records
+like <a class="xref" href="Songhay.Models.EndpointResult.html">EndpointResult</a> will be used.</p>
+</div>
 
 
 

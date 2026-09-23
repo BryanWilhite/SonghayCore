@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class StorageActivityInput&lt;TContent&gt; | SonghayCore API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class StorageActivityInput&lt;TContent&gt; | SonghayCore API ">
+      
+      <meta name="description" content="Defines the input for most storage operations.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/BryanWilhite/SonghayCore/new/main/apiSpec/new?filename=Songhay_Models_StorageActivityInput_1.md&amp;value=---%0Auid%3A%20Songhay.Models.StorageActivityInput%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SonghayCore">
+            SonghayCore
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Songhay.Models.StorageActivityInput`1">
+
+
+
+  <h1 id="Songhay_Models_StorageActivityInput_1" data-uid="Songhay.Models.StorageActivityInput`1" class="text-break">
+Class StorageActivityInput&lt;TContent&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Models/StorageActivityInput.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Songhay.html">Songhay</a>.<a class="xref" href="Songhay.Models.html">Models</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SonghayCore.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Defines the input for most storage operations.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public record StorageActivityInput&lt;TContent&gt; : StorageActivityInput, IEquatable&lt;StorageActivityInput&gt;, IEquatable&lt;StorageActivityInput&lt;TContent&gt;&gt;</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContent</code></dt>
+    <dd><p>the type of the input content</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="Songhay.Models.StorageActivityInput.html">StorageActivityInput</a></div>
+      <div><span class="xref">StorageActivityInput&lt;TContent&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Songhay.Models.StorageActivityInput.html">StorageActivityInput</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Songhay.Models.StorageActivityInput-1.html">StorageActivityInput</a>&lt;TContent&gt;&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Songhay.Models.StorageActivityInput.html#Songhay_Models_StorageActivityInput_SetKey">StorageActivityInput.SetKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Songhay.Models.StorageActivityInput.html#Songhay_Models_StorageActivityInput_BucketMetaKey">StorageActivityInput.BucketMetaKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Songhay.Models.StorageActivityInput.html#Songhay_Models_StorageActivityInput_BucketKeyOrPrefix">StorageActivityInput.BucketKeyOrPrefix</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToFileInfo_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_">StorageActivityInputExtensions.ToFileInfo(StorageActivityInput?, ILogger)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.StorageActivityInputExtensions.html#Songhay_Extensions_StorageActivityInputExtensions_ToStorageObjects_Songhay_Models_StorageActivityInput_Microsoft_Extensions_Logging_ILogger_">StorageActivityInputExtensions.ToStorageObjects(StorageActivityInput?, ILogger)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_">NullableExtensions.IsAssignableToISerializable&lt;T&gt;(T?)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_">NullableExtensions.ToObjectOrDbNull&lt;T&gt;(T?)</a>
+  </div>
+  <div>
+      <a class="xref" href="Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_">NullableExtensions.ToReferenceTypeValueOrThrow&lt;T&gt;(T?, string?)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Songhay_Models_StorageActivityInput_1__ctor_" data-uid="Songhay.Models.StorageActivityInput`1.#ctor*"></a>
+
+  <h3 id="Songhay_Models_StorageActivityInput_1__ctor_System_String_System_String_System_String__0_System_String_" data-uid="Songhay.Models.StorageActivityInput`1.#ctor(System.String,System.String,System.String,`0,System.String)">
+  StorageActivityInput(string, string?, string?, TContent?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Models/StorageActivityInput.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Defines the input for most storage operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StorageActivityInput(string SetKey, string? BucketMetaKey, string? BucketKeyOrPrefix, TContent? Content, string? ContentMimeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>SetKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>the <a class="xref" href="Songhay.Models.ProgramMetadata.html#Songhay_Models_ProgramMetadata_RestApiMetadataSet">RestApiMetadataSet</a> dictionary key
+or the name of a directory under the root of a storage mirror</p>
+</dd>
+    <dt><code>BucketMetaKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>a <a class="xref" href="Songhay.Models.RestApiMetadata.html#Songhay_Models_RestApiMetadata_ClaimsSet">ClaimsSet</a> dictionary key
+pointing to the region of the S3 Bucket</p>
+</dd>
+    <dt><code>BucketKeyOrPrefix</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>represents an entire <code>S3Object.Key</code>
+or its prefix (used for filtering S3 bucket listing)</p>
+</dd>
+    <dt><code>Content</code> <span class="xref">TContent</span></dt>
+    <dd><p>represents what will be transformed into an S3 <code>PutObjectRequest.ContentBody</code></p>
+</dd>
+    <dt><code>ContentMimeType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>represents an S3 <code>PutObjectRequest.ContentType</code></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Songhay_Models_StorageActivityInput_1_Content_" data-uid="Songhay.Models.StorageActivityInput`1.Content*"></a>
+
+  <h3 id="Songhay_Models_StorageActivityInput_1_Content" data-uid="Songhay.Models.StorageActivityInput`1.Content">
+  Content
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Models/StorageActivityInput.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>represents what will be transformed into an S3 <code>PutObjectRequest.ContentBody</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TContent? Content { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TContent</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Songhay_Models_StorageActivityInput_1_ContentMimeType_" data-uid="Songhay.Models.StorageActivityInput`1.ContentMimeType*"></a>
+
+  <h3 id="Songhay_Models_StorageActivityInput_1_ContentMimeType" data-uid="Songhay.Models.StorageActivityInput`1.ContentMimeType">
+  ContentMimeType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Models/StorageActivityInput.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>represents an S3 <code>PutObjectRequest.ContentType</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ContentMimeType { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/BryanWilhite/SonghayCore/blob/main/SonghayCore/Models/StorageActivityInput.cs/#L42" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

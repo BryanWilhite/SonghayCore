@@ -1,0 +1,1442 @@
+### YamlMime:ManagedReference
+items:
+- uid: Songhay.Models.ProgramFileActivityGroup
+  commentId: T:Songhay.Models.ProgramFileActivityGroup
+  id: ProgramFileActivityGroup
+  parent: Songhay.Models
+  children:
+  - Songhay.Models.ProgramFileActivityGroup.#ctor(Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointResult},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.String}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput{System.String},Songhay.Models.EndpointResult},Microsoft.Extensions.Logging.ILogger{Songhay.Models.ProgramFileActivityGroup})
+  - Songhay.Models.ProgramFileActivityGroup.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+  langs:
+  - csharp
+  - vb
+  name: ProgramFileActivityGroup
+  nameWithType: ProgramFileActivityGroup
+  fullName: Songhay.Models.ProgramFileActivityGroup
+  type: Class
+  source:
+    remote:
+      path: SonghayCore/Models/ProgramFileActivityGroup.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: ProgramFileActivityGroup
+    path: ../SonghayCore/Models/ProgramFileActivityGroup.cs
+    startLine: 14
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: >-
+    Maps typical string args into tuples
+
+    into one of the respective <xref href="Songhay.Activities" data-throw-if-not-resolved="false"></xref>
+
+    for Program files.
+  example: []
+  syntax:
+    content: 'public class ProgramFileActivityGroup : IActivityKeyedTaskGroup<EndpointResult>'
+    content.vb: Public Class ProgramFileActivityGroup Implements IActivityKeyedTaskGroup(Of EndpointResult)
+  inheritance:
+  - System.Object
+  implements:
+  - Songhay.Abstractions.IActivityKeyedTaskGroup{Songhay.Models.EndpointResult}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  extensionMethods:
+  - Songhay.Models.ProgramFileActivityGroup.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  - Songhay.Models.ProgramFileActivityGroup.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  - Songhay.Models.ProgramFileActivityGroup.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+- uid: Songhay.Models.ProgramFileActivityGroup.#ctor(Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointResult},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.String}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput{System.String},Songhay.Models.EndpointResult},Microsoft.Extensions.Logging.ILogger{Songhay.Models.ProgramFileActivityGroup})
+  commentId: M:Songhay.Models.ProgramFileActivityGroup.#ctor(Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointResult},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.String}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput{System.String},Songhay.Models.EndpointResult},Microsoft.Extensions.Logging.ILogger{Songhay.Models.ProgramFileActivityGroup})
+  id: '#ctor(Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointResult},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.String}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}},Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput{System.String},Songhay.Models.EndpointResult},Microsoft.Extensions.Logging.ILogger{Songhay.Models.ProgramFileActivityGroup})'
+  parent: Songhay.Models.ProgramFileActivityGroup
+  langs:
+  - csharp
+  - vb
+  name: ProgramFileActivityGroup(IActivityTask<StorageActivityInput?, EndpointResult>, IActivityTask<StorageActivityInput?, EndpointContentResult<string?>>, IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>>, IActivityTask<StorageActivityInput<string?>?, EndpointResult>, ILogger<ProgramFileActivityGroup>)
+  nameWithType: ProgramFileActivityGroup.ProgramFileActivityGroup(IActivityTask<StorageActivityInput?, EndpointResult>, IActivityTask<StorageActivityInput?, EndpointContentResult<string?>>, IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>>, IActivityTask<StorageActivityInput<string?>?, EndpointResult>, ILogger<ProgramFileActivityGroup>)
+  fullName: Songhay.Models.ProgramFileActivityGroup.ProgramFileActivityGroup(Songhay.Abstractions.IActivityTask<Songhay.Models.StorageActivityInput?, Songhay.Models.EndpointResult>, Songhay.Abstractions.IActivityTask<Songhay.Models.StorageActivityInput?, Songhay.Models.EndpointContentResult<string?>>, Songhay.Abstractions.IActivityTask<Songhay.Models.StorageActivityInput?, Songhay.Models.EndpointContentResult<System.Collections.Generic.IReadOnlyCollection<Songhay.Models.StorageObject>>>, Songhay.Abstractions.IActivityTask<Songhay.Models.StorageActivityInput<string?>?, Songhay.Models.EndpointResult>, Microsoft.Extensions.Logging.ILogger<Songhay.Models.ProgramFileActivityGroup>)
+  type: Constructor
+  source:
+    remote:
+      path: SonghayCore/Models/ProgramFileActivityGroup.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: .ctor
+    path: ../SonghayCore/Models/ProgramFileActivityGroup.cs
+    startLine: 14
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: >-
+    Maps typical string args into tuples
+
+    into one of the respective <xref href="Songhay.Activities" data-throw-if-not-resolved="false"></xref>
+
+    for Program files.
+  example: []
+  syntax:
+    content: public ProgramFileActivityGroup(IActivityTask<StorageActivityInput?, EndpointResult> activityForProgramFileDelete, IActivityTask<StorageActivityInput?, EndpointContentResult<string?>> activityForProgramFileRead, IActivityTask<StorageActivityInput?, EndpointContentResult<IReadOnlyCollection<StorageObject>>> activityForProgramFileList, IActivityTask<StorageActivityInput<string?>?, EndpointResult> activityForProgramFileSave, ILogger<ProgramFileActivityGroup> logger)
+    parameters:
+    - id: activityForProgramFileDelete
+      type: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointResult}
+      description: the Program-file delete Activity
+    - id: activityForProgramFileRead
+      type: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.String}}
+      description: the Program-file string-download Activity
+    - id: activityForProgramFileList
+      type: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}
+      description: the Program-file bucket-list Activity
+    - id: activityForProgramFileSave
+      type: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput{System.String},Songhay.Models.EndpointResult}
+      description: the Program-file string-upload Activity
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{Songhay.Models.ProgramFileActivityGroup}
+      description: the <xref href="Microsoft.Extensions.Logging.ILogger" data-throw-if-not-resolved="false"></xref>
+    content.vb: Public Sub New(activityForProgramFileDelete As IActivityTask(Of StorageActivityInput, EndpointResult), activityForProgramFileRead As IActivityTask(Of StorageActivityInput, EndpointContentResult(Of String)), activityForProgramFileList As IActivityTask(Of StorageActivityInput, EndpointContentResult(Of IReadOnlyCollection(Of StorageObject))), activityForProgramFileSave As IActivityTask(Of StorageActivityInput(Of String), EndpointResult), logger As ILogger(Of ProgramFileActivityGroup))
+  overload: Songhay.Models.ProgramFileActivityGroup.#ctor*
+  nameWithType.vb: ProgramFileActivityGroup.New(IActivityTask(Of StorageActivityInput, EndpointResult), IActivityTask(Of StorageActivityInput, EndpointContentResult(Of String)), IActivityTask(Of StorageActivityInput, EndpointContentResult(Of IReadOnlyCollection(Of StorageObject))), IActivityTask(Of StorageActivityInput(Of String), EndpointResult), ILogger(Of ProgramFileActivityGroup))
+  fullName.vb: Songhay.Models.ProgramFileActivityGroup.New(Songhay.Abstractions.IActivityTask(Of Songhay.Models.StorageActivityInput, Songhay.Models.EndpointResult), Songhay.Abstractions.IActivityTask(Of Songhay.Models.StorageActivityInput, Songhay.Models.EndpointContentResult(Of String)), Songhay.Abstractions.IActivityTask(Of Songhay.Models.StorageActivityInput, Songhay.Models.EndpointContentResult(Of System.Collections.Generic.IReadOnlyCollection(Of Songhay.Models.StorageObject))), Songhay.Abstractions.IActivityTask(Of Songhay.Models.StorageActivityInput(Of String), Songhay.Models.EndpointResult), Microsoft.Extensions.Logging.ILogger(Of Songhay.Models.ProgramFileActivityGroup))
+  name.vb: New(IActivityTask(Of StorageActivityInput, EndpointResult), IActivityTask(Of StorageActivityInput, EndpointContentResult(Of String)), IActivityTask(Of StorageActivityInput, EndpointContentResult(Of IReadOnlyCollection(Of StorageObject))), IActivityTask(Of StorageActivityInput(Of String), EndpointResult), ILogger(Of ProgramFileActivityGroup))
+- uid: Songhay.Models.ProgramFileActivityGroup.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+  commentId: M:Songhay.Models.ProgramFileActivityGroup.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+  id: InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+  parent: Songhay.Models.ProgramFileActivityGroup
+  langs:
+  - csharp
+  - vb
+  name: InvokeActivityAsync(string?, CancellationToken, params string?[])
+  nameWithType: ProgramFileActivityGroup.InvokeActivityAsync(string?, CancellationToken, params string?[])
+  fullName: Songhay.Models.ProgramFileActivityGroup.InvokeActivityAsync(string?, System.Threading.CancellationToken, params string?[])
+  type: Method
+  source:
+    remote:
+      path: SonghayCore/Models/ProgramFileActivityGroup.cs
+      branch: main
+      repo: git@github.com:BryanWilhite/SonghayCore.git
+    id: InvokeActivityAsync
+    path: ../SonghayCore/Models/ProgramFileActivityGroup.cs
+    startLine: 23
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.Models
+  summary: Invokes the <code>IActivity*</code> implementation identified by the specified key.
+  example: []
+  syntax:
+    content: public Task<EndpointResult> InvokeActivityAsync(string? activitySetKey, CancellationToken cancellationToken, params string?[] args)
+    parameters:
+    - id: activitySetKey
+      type: System.String
+      description: identifies the <code>IActivity*</code> implementation
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: the <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>
+    - id: args
+      type: System.String[]
+      description: collects the stringified input arguments of the <code>IActivity*</code> implementation
+    return:
+      type: System.Threading.Tasks.Task{Songhay.Models.EndpointResult}
+    content.vb: Public Function InvokeActivityAsync(activitySetKey As String, cancellationToken As CancellationToken, ParamArray args As String()) As Task(Of EndpointResult)
+  overload: Songhay.Models.ProgramFileActivityGroup.InvokeActivityAsync*
+  implements:
+  - Songhay.Abstractions.IActivityKeyedTaskGroup{Songhay.Models.EndpointResult}.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+  nameWithType.vb: ProgramFileActivityGroup.InvokeActivityAsync(String, CancellationToken, ParamArray String())
+  fullName.vb: Songhay.Models.ProgramFileActivityGroup.InvokeActivityAsync(String, System.Threading.CancellationToken, ParamArray String())
+  name.vb: InvokeActivityAsync(String, CancellationToken, ParamArray String())
+references:
+- uid: Songhay.Activities
+  commentId: N:Songhay.Activities
+  href: Songhay.html
+  name: Songhay.Activities
+  nameWithType: Songhay.Activities
+  fullName: Songhay.Activities
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Activities
+    name: Activities
+    href: Songhay.Activities.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Activities
+    name: Activities
+    href: Songhay.Activities.html
+- uid: Microsoft.Extensions.Logging.ILogger
+  commentId: T:Microsoft.Extensions.Logging.ILogger
+  parent: Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger
+  name: ILogger
+  nameWithType: ILogger
+  fullName: Microsoft.Extensions.Logging.ILogger
+- uid: Songhay.Models
+  commentId: N:Songhay.Models
+  href: Songhay.html
+  name: Songhay.Models
+  nameWithType: Songhay.Models
+  fullName: Songhay.Models
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Models
+    name: Models
+    href: Songhay.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Songhay.Abstractions.IActivityKeyedTaskGroup{Songhay.Models.EndpointResult}
+  commentId: T:Songhay.Abstractions.IActivityKeyedTaskGroup{Songhay.Models.EndpointResult}
+  parent: Songhay.Abstractions
+  definition: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+  href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  name: IActivityKeyedTaskGroup<EndpointResult>
+  nameWithType: IActivityKeyedTaskGroup<EndpointResult>
+  fullName: Songhay.Abstractions.IActivityKeyedTaskGroup<Songhay.Models.EndpointResult>
+  nameWithType.vb: IActivityKeyedTaskGroup(Of EndpointResult)
+  fullName.vb: Songhay.Abstractions.IActivityKeyedTaskGroup(Of Songhay.Models.EndpointResult)
+  name.vb: IActivityKeyedTaskGroup(Of EndpointResult)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+    name: IActivityKeyedTaskGroup
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  - name: <
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+    name: IActivityKeyedTaskGroup
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Songhay.Models.ProgramFileActivityGroup.Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<ProgramFileActivityGroup>(ProgramFileActivityGroup)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<ProgramFileActivityGroup>(ProgramFileActivityGroup)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<Songhay.Models.ProgramFileActivityGroup>(Songhay.Models.ProgramFileActivityGroup)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of ProgramFileActivityGroup)(ProgramFileActivityGroup)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of Songhay.Models.ProgramFileActivityGroup)(Songhay.Models.ProgramFileActivityGroup)
+  name.vb: IsAssignableToISerializable(Of ProgramFileActivityGroup)(ProgramFileActivityGroup)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Models.ProgramFileActivityGroup)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(Songhay.Models.ProgramFileActivityGroup)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: )
+- uid: Songhay.Models.ProgramFileActivityGroup.Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<ProgramFileActivityGroup>(ProgramFileActivityGroup)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<ProgramFileActivityGroup>(ProgramFileActivityGroup)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<Songhay.Models.ProgramFileActivityGroup>(Songhay.Models.ProgramFileActivityGroup)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of ProgramFileActivityGroup)(ProgramFileActivityGroup)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of Songhay.Models.ProgramFileActivityGroup)(Songhay.Models.ProgramFileActivityGroup)
+  name.vb: ToObjectOrDbNull(Of ProgramFileActivityGroup)(ProgramFileActivityGroup)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Models.ProgramFileActivityGroup)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(Songhay.Models.ProgramFileActivityGroup)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: )
+- uid: Songhay.Models.ProgramFileActivityGroup.Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  parent: Songhay.Extensions.NullableExtensions
+  definition: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<ProgramFileActivityGroup>(ProgramFileActivityGroup, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<ProgramFileActivityGroup>(ProgramFileActivityGroup, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<Songhay.Models.ProgramFileActivityGroup>(Songhay.Models.ProgramFileActivityGroup, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of ProgramFileActivityGroup)(ProgramFileActivityGroup, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of Songhay.Models.ProgramFileActivityGroup)(Songhay.Models.ProgramFileActivityGroup, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of ProgramFileActivityGroup)(ProgramFileActivityGroup, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Models.ProgramFileActivityGroup,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: '>'
+  - name: (
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(Songhay.Models.ProgramFileActivityGroup,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: )
+  - name: (
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+  commentId: T:Songhay.Abstractions.IActivityKeyedTaskGroup`1
+  href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  name: IActivityKeyedTaskGroup<TOutput>
+  nameWithType: IActivityKeyedTaskGroup<TOutput>
+  fullName: Songhay.Abstractions.IActivityKeyedTaskGroup<TOutput>
+  nameWithType.vb: IActivityKeyedTaskGroup(Of TOutput)
+  fullName.vb: Songhay.Abstractions.IActivityKeyedTaskGroup(Of TOutput)
+  name.vb: IActivityKeyedTaskGroup(Of TOutput)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+    name: IActivityKeyedTaskGroup
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  - name: <
+  - name: TOutput
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1
+    name: IActivityKeyedTaskGroup
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOutput
+  - name: )
+- uid: Songhay.Abstractions
+  commentId: N:Songhay.Abstractions
+  href: Songhay.html
+  name: Songhay.Abstractions
+  nameWithType: Songhay.Abstractions
+  fullName: Songhay.Abstractions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Abstractions
+    name: Abstractions
+    href: Songhay.Abstractions.html
+- uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  name: IsAssignableToISerializable<T>(T)
+  nameWithType: NullableExtensions.IsAssignableToISerializable<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable<T>(T)
+  nameWithType.vb: NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable(Of T)(T)
+  name.vb: IsAssignableToISerializable(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.IsAssignableToISerializable``1(``0)
+    name: IsAssignableToISerializable
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_IsAssignableToISerializable__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions
+  commentId: T:Songhay.Extensions.NullableExtensions
+  parent: Songhay.Extensions
+  href: Songhay.Extensions.NullableExtensions.html
+  name: NullableExtensions
+  nameWithType: NullableExtensions
+  fullName: Songhay.Extensions.NullableExtensions
+- uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  name: ToObjectOrDbNull<T>(T)
+  nameWithType: NullableExtensions.ToObjectOrDbNull<T>(T)
+  fullName: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull<T>(T)
+  nameWithType.vb: NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull(Of T)(T)
+  name.vb: ToObjectOrDbNull(Of T)(T)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToObjectOrDbNull``1(``0)
+    name: ToObjectOrDbNull
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToObjectOrDbNull__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  commentId: M:Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+  isExternal: true
+  href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  name: ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType: NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  fullName: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow<T>(T, string)
+  nameWithType.vb: NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  fullName.vb: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow(Of T)(T, String)
+  name.vb: ToReferenceTypeValueOrThrow(Of T)(T, String)
+  spec.csharp:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Songhay.Extensions.NullableExtensions.ToReferenceTypeValueOrThrow``1(``0,System.String)
+    name: ToReferenceTypeValueOrThrow
+    href: Songhay.Extensions.NullableExtensions.html#Songhay_Extensions_NullableExtensions_ToReferenceTypeValueOrThrow__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Songhay.Extensions
+  commentId: N:Songhay.Extensions
+  href: Songhay.html
+  name: Songhay.Extensions
+  nameWithType: Songhay.Extensions
+  fullName: Songhay.Extensions
+  spec.csharp:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+  spec.vb:
+  - uid: Songhay
+    name: Songhay
+    href: Songhay.html
+  - name: .
+  - uid: Songhay.Extensions
+    name: Extensions
+    href: Songhay.Extensions.html
+- uid: Songhay.Models.ProgramFileActivityGroup.#ctor*
+  commentId: Overload:Songhay.Models.ProgramFileActivityGroup.#ctor
+  href: Songhay.Models.ProgramFileActivityGroup.html#Songhay_Models_ProgramFileActivityGroup__ctor_Songhay_Abstractions_IActivityTask_Songhay_Models_StorageActivityInput_Songhay_Models_EndpointResult__Songhay_Abstractions_IActivityTask_Songhay_Models_StorageActivityInput_Songhay_Models_EndpointContentResult_System_String___Songhay_Abstractions_IActivityTask_Songhay_Models_StorageActivityInput_Songhay_Models_EndpointContentResult_System_Collections_Generic_IReadOnlyCollection_Songhay_Models_StorageObject____Songhay_Abstractions_IActivityTask_Songhay_Models_StorageActivityInput_System_String__Songhay_Models_EndpointResult__Microsoft_Extensions_Logging_ILogger_Songhay_Models_ProgramFileActivityGroup__
+  name: ProgramFileActivityGroup
+  nameWithType: ProgramFileActivityGroup.ProgramFileActivityGroup
+  fullName: Songhay.Models.ProgramFileActivityGroup.ProgramFileActivityGroup
+  nameWithType.vb: ProgramFileActivityGroup.New
+  fullName.vb: Songhay.Models.ProgramFileActivityGroup.New
+  name.vb: New
+- uid: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointResult}
+  commentId: T:Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointResult}
+  parent: Songhay.Abstractions
+  definition: Songhay.Abstractions.IActivityTask`2
+  href: Songhay.Abstractions.IActivityTask-2.html
+  name: IActivityTask<StorageActivityInput, EndpointResult>
+  nameWithType: IActivityTask<StorageActivityInput, EndpointResult>
+  fullName: Songhay.Abstractions.IActivityTask<Songhay.Models.StorageActivityInput, Songhay.Models.EndpointResult>
+  nameWithType.vb: IActivityTask(Of StorageActivityInput, EndpointResult)
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of Songhay.Models.StorageActivityInput, Songhay.Models.EndpointResult)
+  name.vb: IActivityTask(Of StorageActivityInput, EndpointResult)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+- uid: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.String}}
+  commentId: T:Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.String}}
+  parent: Songhay.Abstractions
+  definition: Songhay.Abstractions.IActivityTask`2
+  href: Songhay.Abstractions.IActivityTask-2.html
+  name: IActivityTask<StorageActivityInput, EndpointContentResult<string>>
+  nameWithType: IActivityTask<StorageActivityInput, EndpointContentResult<string>>
+  fullName: Songhay.Abstractions.IActivityTask<Songhay.Models.StorageActivityInput, Songhay.Models.EndpointContentResult<string>>
+  nameWithType.vb: IActivityTask(Of StorageActivityInput, EndpointContentResult(Of String))
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of Songhay.Models.StorageActivityInput, Songhay.Models.EndpointContentResult(Of String))
+  name.vb: IActivityTask(Of StorageActivityInput, EndpointContentResult(Of String))
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.EndpointContentResult`1
+    name: EndpointContentResult
+    href: Songhay.Models.EndpointContentResult-1.html
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.EndpointContentResult`1
+    name: EndpointContentResult
+    href: Songhay.Models.EndpointContentResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}
+  commentId: T:Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput,Songhay.Models.EndpointContentResult{System.Collections.Generic.IReadOnlyCollection{Songhay.Models.StorageObject}}}
+  parent: Songhay.Abstractions
+  definition: Songhay.Abstractions.IActivityTask`2
+  href: Songhay.Abstractions.IActivityTask-2.html
+  name: IActivityTask<StorageActivityInput, EndpointContentResult<IReadOnlyCollection<StorageObject>>>
+  nameWithType: IActivityTask<StorageActivityInput, EndpointContentResult<IReadOnlyCollection<StorageObject>>>
+  fullName: Songhay.Abstractions.IActivityTask<Songhay.Models.StorageActivityInput, Songhay.Models.EndpointContentResult<System.Collections.Generic.IReadOnlyCollection<Songhay.Models.StorageObject>>>
+  nameWithType.vb: IActivityTask(Of StorageActivityInput, EndpointContentResult(Of IReadOnlyCollection(Of StorageObject)))
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of Songhay.Models.StorageActivityInput, Songhay.Models.EndpointContentResult(Of System.Collections.Generic.IReadOnlyCollection(Of Songhay.Models.StorageObject)))
+  name.vb: IActivityTask(Of StorageActivityInput, EndpointContentResult(Of IReadOnlyCollection(Of StorageObject)))
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.EndpointContentResult`1
+    name: EndpointContentResult
+    href: Songhay.Models.EndpointContentResult-1.html
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: Songhay.Models.StorageObject
+    name: StorageObject
+    href: Songhay.Models.StorageObject.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageActivityInput
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput.html
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.EndpointContentResult`1
+    name: EndpointContentResult
+    href: Songhay.Models.EndpointContentResult-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageObject
+    name: StorageObject
+    href: Songhay.Models.StorageObject.html
+  - name: )
+  - name: )
+  - name: )
+- uid: Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput{System.String},Songhay.Models.EndpointResult}
+  commentId: T:Songhay.Abstractions.IActivityTask{Songhay.Models.StorageActivityInput{System.String},Songhay.Models.EndpointResult}
+  parent: Songhay.Abstractions
+  definition: Songhay.Abstractions.IActivityTask`2
+  href: Songhay.Abstractions.IActivityTask-2.html
+  name: IActivityTask<StorageActivityInput<string>, EndpointResult>
+  nameWithType: IActivityTask<StorageActivityInput<string>, EndpointResult>
+  fullName: Songhay.Abstractions.IActivityTask<Songhay.Models.StorageActivityInput<string>, Songhay.Models.EndpointResult>
+  nameWithType.vb: IActivityTask(Of StorageActivityInput(Of String), EndpointResult)
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of Songhay.Models.StorageActivityInput(Of String), Songhay.Models.EndpointResult)
+  name.vb: IActivityTask(Of StorageActivityInput(Of String), EndpointResult)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.StorageActivityInput`1
+    name: StorageActivityInput
+    href: Songhay.Models.StorageActivityInput-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger{Songhay.Models.ProgramFileActivityGroup}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{Songhay.Models.ProgramFileActivityGroup}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<ProgramFileActivityGroup>
+  nameWithType: ILogger<ProgramFileActivityGroup>
+  fullName: Microsoft.Extensions.Logging.ILogger<Songhay.Models.ProgramFileActivityGroup>
+  nameWithType.vb: ILogger(Of ProgramFileActivityGroup)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of Songhay.Models.ProgramFileActivityGroup)
+  name.vb: ILogger(Of ProgramFileActivityGroup)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.ProgramFileActivityGroup
+    name: ProgramFileActivityGroup
+    href: Songhay.Models.ProgramFileActivityGroup.html
+  - name: )
+- uid: Songhay.Abstractions.IActivityTask`2
+  commentId: T:Songhay.Abstractions.IActivityTask`2
+  href: Songhay.Abstractions.IActivityTask-2.html
+  name: IActivityTask<TInput, TOutput>
+  nameWithType: IActivityTask<TInput, TOutput>
+  fullName: Songhay.Abstractions.IActivityTask<TInput, TOutput>
+  nameWithType.vb: IActivityTask(Of TInput, TOutput)
+  fullName.vb: Songhay.Abstractions.IActivityTask(Of TInput, TOutput)
+  name.vb: IActivityTask(Of TInput, TOutput)
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: <
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: '>'
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityTask`2
+    name: IActivityTask
+    href: Songhay.Abstractions.IActivityTask-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TInput
+  - name: ','
+  - name: " "
+  - name: TOutput
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: Songhay.Models.ProgramFileActivityGroup.InvokeActivityAsync*
+  commentId: Overload:Songhay.Models.ProgramFileActivityGroup.InvokeActivityAsync
+  href: Songhay.Models.ProgramFileActivityGroup.html#Songhay_Models_ProgramFileActivityGroup_InvokeActivityAsync_System_String_System_Threading_CancellationToken_System_String___
+  name: InvokeActivityAsync
+  nameWithType: ProgramFileActivityGroup.InvokeActivityAsync
+  fullName: Songhay.Models.ProgramFileActivityGroup.InvokeActivityAsync
+- uid: Songhay.Abstractions.IActivityKeyedTaskGroup{Songhay.Models.EndpointResult}.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+  commentId: M:Songhay.Abstractions.IActivityKeyedTaskGroup{Songhay.Models.EndpointResult}.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+  parent: Songhay.Abstractions.IActivityKeyedTaskGroup{Songhay.Models.EndpointResult}
+  definition: Songhay.Abstractions.IActivityKeyedTaskGroup`1.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+  href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html#Songhay_Abstractions_IActivityKeyedTaskGroup_1_InvokeActivityAsync_System_String_System_Threading_CancellationToken_System_String___
+  name: InvokeActivityAsync(string, CancellationToken, params string[])
+  nameWithType: IActivityKeyedTaskGroup<EndpointResult>.InvokeActivityAsync(string, CancellationToken, params string[])
+  fullName: Songhay.Abstractions.IActivityKeyedTaskGroup<Songhay.Models.EndpointResult>.InvokeActivityAsync(string, System.Threading.CancellationToken, params string[])
+  nameWithType.vb: IActivityKeyedTaskGroup(Of EndpointResult).InvokeActivityAsync(String, CancellationToken, ParamArray String())
+  fullName.vb: Songhay.Abstractions.IActivityKeyedTaskGroup(Of Songhay.Models.EndpointResult).InvokeActivityAsync(String, System.Threading.CancellationToken, ParamArray String())
+  name.vb: InvokeActivityAsync(String, CancellationToken, ParamArray String())
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup{Songhay.Models.EndpointResult}.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+    name: InvokeActivityAsync
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html#Songhay_Abstractions_IActivityKeyedTaskGroup_1_InvokeActivityAsync_System_String_System_Threading_CancellationToken_System_String___
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup{Songhay.Models.EndpointResult}.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+    name: InvokeActivityAsync
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html#Songhay_Abstractions_IActivityKeyedTaskGroup_1_InvokeActivityAsync_System_String_System_Threading_CancellationToken_System_String___
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task{Songhay.Models.EndpointResult}
+  commentId: T:System.Threading.Tasks.Task{Songhay.Models.EndpointResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<EndpointResult>
+  nameWithType: Task<EndpointResult>
+  fullName: System.Threading.Tasks.Task<Songhay.Models.EndpointResult>
+  nameWithType.vb: Task(Of EndpointResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Songhay.Models.EndpointResult)
+  name.vb: Task(Of EndpointResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Songhay.Models.EndpointResult
+    name: EndpointResult
+    href: Songhay.Models.EndpointResult.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+  commentId: M:Songhay.Abstractions.IActivityKeyedTaskGroup`1.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+  isExternal: true
+  href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html#Songhay_Abstractions_IActivityKeyedTaskGroup_1_InvokeActivityAsync_System_String_System_Threading_CancellationToken_System_String___
+  name: InvokeActivityAsync(string, CancellationToken, params string[])
+  nameWithType: IActivityKeyedTaskGroup<TOutput>.InvokeActivityAsync(string, CancellationToken, params string[])
+  fullName: Songhay.Abstractions.IActivityKeyedTaskGroup<TOutput>.InvokeActivityAsync(string, System.Threading.CancellationToken, params string[])
+  nameWithType.vb: IActivityKeyedTaskGroup(Of TOutput).InvokeActivityAsync(String, CancellationToken, ParamArray String())
+  fullName.vb: Songhay.Abstractions.IActivityKeyedTaskGroup(Of TOutput).InvokeActivityAsync(String, System.Threading.CancellationToken, ParamArray String())
+  name.vb: InvokeActivityAsync(String, CancellationToken, ParamArray String())
+  spec.csharp:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+    name: InvokeActivityAsync
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html#Songhay_Abstractions_IActivityKeyedTaskGroup_1_InvokeActivityAsync_System_String_System_Threading_CancellationToken_System_String___
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Songhay.Abstractions.IActivityKeyedTaskGroup`1.InvokeActivityAsync(System.String,System.Threading.CancellationToken,System.String[])
+    name: InvokeActivityAsync
+    href: Songhay.Abstractions.IActivityKeyedTaskGroup-1.html#Songhay_Abstractions_IActivityKeyedTaskGroup_1_InvokeActivityAsync_System_String_System_Threading_CancellationToken_System_String___
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
