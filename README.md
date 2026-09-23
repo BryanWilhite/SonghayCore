@@ -120,23 +120,25 @@ Core reusable, opinionated Newtonsoft concerns for my C# projects.
 ## Studio packages dependent on `SonghayCore`
 
 ```mermaid
-graph BT
-    netstandard2[.NET Standard 2.0]
-    net10[.NET 10.0]
+flowchart BT
+    netstandard2[[.NET Standard 2.0]]
+    net10[[.NET 10.0]]
 
-    1[SonghayCore]
-    2[SonghayCore.Newtonsoft]
+    1[SonghayCore 📦]
+    2[SonghayCore.Newtonsoft 📦🧊]
 
     net10-->1
     netstandard2-->2
     2-..->|optional addition|1
 
-    1-->3[SonghayCore.S3]
-    1-->4[SonghayCore.Web]
-    1-->5[SonghayCore.xUnit]
-    1-->6[Songhay.DataAccess]
-    1-->7[Songhay.Feeds]
+    1-->3[SonghayCore.S3 📦]
+    1-->4[SonghayCore.Web 📦]
+    1-->5[SonghayCore.xUnit 📦]
+    1-->6[Songhay.DataAccess 📦]
     1-->8[Songhay.Publications]
+
+    3-->7[Songhay.Feeds 🌩]
+    4-->7[Songhay.Feeds 🌩]
 ```
 
 [Bryan Wilhite is on LinkedIn](https://www.linkedin.com/in/wilhite)🇺🇸💼
