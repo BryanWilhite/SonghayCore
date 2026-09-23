@@ -80,33 +80,6 @@ items:
     arguments:
     - type: System.Type
       value: System.Collections.Generic.IEnumerable{Songhay.Models.StorageObject}
-- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.Int64
-  commentId: P:Songhay.SerializerContexts.StorageObjectSerializerContext.Int64
-  id: Int64
-  parent: Songhay.SerializerContexts.StorageObjectSerializerContext
-  langs:
-  - csharp
-  - vb
-  name: Int64
-  nameWithType: StorageObjectSerializerContext.Int64
-  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.Int64
-  type: Property
-  source:
-    id: Int64
-    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/StorageObjectSerializerContext.Int64.g.cs
-    startLine: 18
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.SerializerContexts
-  summary: Defines the source generated JSON serialization contract metadata for a given type.
-  example: []
-  syntax:
-    content: public JsonTypeInfo<long> Int64 { get; }
-    parameters: []
-    return:
-      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Int64}
-    content.vb: Public ReadOnly Property Int64 As JsonTypeInfo(Of Long)
-  overload: Songhay.SerializerContexts.StorageObjectSerializerContext.Int64*
 - uid: Songhay.SerializerContexts.StorageObjectSerializerContext.IEnumerableStorageObject
   commentId: P:Songhay.SerializerContexts.StorageObjectSerializerContext.IEnumerableStorageObject
   id: IEnumerableStorageObject
@@ -134,6 +107,119 @@ items:
       type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.IEnumerable{Songhay.Models.StorageObject}}
     content.vb: Public ReadOnly Property IEnumerableStorageObject As JsonTypeInfo(Of IEnumerable(Of StorageObject))
   overload: Songhay.SerializerContexts.StorageObjectSerializerContext.IEnumerableStorageObject*
+- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.GetTypeInfo(System.Type)
+  commentId: M:Songhay.SerializerContexts.StorageObjectSerializerContext.GetTypeInfo(System.Type)
+  id: GetTypeInfo(System.Type)
+  parent: Songhay.SerializerContexts.StorageObjectSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: GetTypeInfo(Type)
+  nameWithType: StorageObjectSerializerContext.GetTypeInfo(Type)
+  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.GetTypeInfo(System.Type)
+  type: Method
+  source:
+    id: GetTypeInfo
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/StorageObjectSerializerContext.GetJsonTypeInfo.g.cs
+    startLine: 13
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Gets metadata for the specified type.
+  example: []
+  syntax:
+    content: public override JsonTypeInfo? GetTypeInfo(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type to fetch metadata for.
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo
+      description: The metadata for the specified type, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the context has no metadata for the type.
+    content.vb: Public Overrides Function GetTypeInfo(type As Type) As JsonTypeInfo
+  overridden: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+  overload: Songhay.SerializerContexts.StorageObjectSerializerContext.GetTypeInfo*
+- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.String
+  commentId: P:Songhay.SerializerContexts.StorageObjectSerializerContext.String
+  id: String
+  parent: Songhay.SerializerContexts.StorageObjectSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: String
+  nameWithType: StorageObjectSerializerContext.String
+  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.String
+  type: Property
+  source:
+    id: String
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/StorageObjectSerializerContext.String.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<string> String { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.String}
+    content.vb: Public ReadOnly Property [String] As JsonTypeInfo(Of String)
+  overload: Songhay.SerializerContexts.StorageObjectSerializerContext.String*
+- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.Int64
+  commentId: P:Songhay.SerializerContexts.StorageObjectSerializerContext.Int64
+  id: Int64
+  parent: Songhay.SerializerContexts.StorageObjectSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: Int64
+  nameWithType: StorageObjectSerializerContext.Int64
+  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.Int64
+  type: Property
+  source:
+    id: Int64
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/StorageObjectSerializerContext.Int64.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<long> Int64 { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Int64}
+    content.vb: Public ReadOnly Property Int64 As JsonTypeInfo(Of Long)
+  overload: Songhay.SerializerContexts.StorageObjectSerializerContext.Int64*
+- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject
+  commentId: P:Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject
+  id: StorageObject
+  parent: Songhay.SerializerContexts.StorageObjectSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: StorageObject
+  nameWithType: StorageObjectSerializerContext.StorageObject
+  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject
+  type: Property
+  source:
+    id: StorageObject
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/StorageObjectSerializerContext.StorageObject.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<StorageObject> StorageObject { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.StorageObject}
+    content.vb: Public ReadOnly Property StorageObject As JsonTypeInfo(Of StorageObject)
+  overload: Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject*
 - uid: Songhay.SerializerContexts.StorageObjectSerializerContext.Default
   commentId: P:Songhay.SerializerContexts.StorageObjectSerializerContext.Default
   id: Default
@@ -246,92 +332,6 @@ items:
   nameWithType.vb: StorageObjectSerializerContext.New(JsonSerializerOptions)
   fullName.vb: Songhay.SerializerContexts.StorageObjectSerializerContext.New(System.Text.Json.JsonSerializerOptions)
   name.vb: New(JsonSerializerOptions)
-- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.GetTypeInfo(System.Type)
-  commentId: M:Songhay.SerializerContexts.StorageObjectSerializerContext.GetTypeInfo(System.Type)
-  id: GetTypeInfo(System.Type)
-  parent: Songhay.SerializerContexts.StorageObjectSerializerContext
-  langs:
-  - csharp
-  - vb
-  name: GetTypeInfo(Type)
-  nameWithType: StorageObjectSerializerContext.GetTypeInfo(Type)
-  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.GetTypeInfo(System.Type)
-  type: Method
-  source:
-    id: GetTypeInfo
-    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/StorageObjectSerializerContext.GetJsonTypeInfo.g.cs
-    startLine: 13
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.SerializerContexts
-  summary: Gets metadata for the specified type.
-  example: []
-  syntax:
-    content: public override JsonTypeInfo? GetTypeInfo(Type type)
-    parameters:
-    - id: type
-      type: System.Type
-      description: The type to fetch metadata for.
-    return:
-      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo
-      description: The metadata for the specified type, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the context has no metadata for the type.
-    content.vb: Public Overrides Function GetTypeInfo(type As Type) As JsonTypeInfo
-  overridden: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
-  overload: Songhay.SerializerContexts.StorageObjectSerializerContext.GetTypeInfo*
-- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.String
-  commentId: P:Songhay.SerializerContexts.StorageObjectSerializerContext.String
-  id: String
-  parent: Songhay.SerializerContexts.StorageObjectSerializerContext
-  langs:
-  - csharp
-  - vb
-  name: String
-  nameWithType: StorageObjectSerializerContext.String
-  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.String
-  type: Property
-  source:
-    id: String
-    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/StorageObjectSerializerContext.String.g.cs
-    startLine: 18
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.SerializerContexts
-  summary: Defines the source generated JSON serialization contract metadata for a given type.
-  example: []
-  syntax:
-    content: public JsonTypeInfo<string> String { get; }
-    parameters: []
-    return:
-      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.String}
-    content.vb: Public ReadOnly Property [String] As JsonTypeInfo(Of String)
-  overload: Songhay.SerializerContexts.StorageObjectSerializerContext.String*
-- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject
-  commentId: P:Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject
-  id: StorageObject
-  parent: Songhay.SerializerContexts.StorageObjectSerializerContext
-  langs:
-  - csharp
-  - vb
-  name: StorageObject
-  nameWithType: StorageObjectSerializerContext.StorageObject
-  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject
-  type: Property
-  source:
-    id: StorageObject
-    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/StorageObjectSerializerContext.StorageObject.g.cs
-    startLine: 18
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.SerializerContexts
-  summary: Defines the source generated JSON serialization contract metadata for a given type.
-  example: []
-  syntax:
-    content: public JsonTypeInfo<StorageObject> StorageObject { get; }
-    parameters: []
-    return:
-      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.StorageObject}
-    content.vb: Public ReadOnly Property StorageObject As JsonTypeInfo(Of StorageObject)
-  overload: Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject*
 - uid: Songhay.SerializerContexts.StorageObjectSerializerContext.DateTime
   commentId: P:Songhay.SerializerContexts.StorageObjectSerializerContext.DateTime
   id: DateTime
@@ -1023,75 +1023,6 @@ references:
   - uid: Songhay.Extensions
     name: Extensions
     href: Songhay.Extensions.html
-- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.Int64*
-  commentId: Overload:Songhay.SerializerContexts.StorageObjectSerializerContext.Int64
-  href: Songhay.SerializerContexts.StorageObjectSerializerContext.html#Songhay_SerializerContexts_StorageObjectSerializerContext_Int64
-  name: Int64
-  nameWithType: StorageObjectSerializerContext.Int64
-  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.Int64
-- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Int64}
-  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Int64}
-  parent: System.Text.Json.Serialization.Metadata
-  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  name: JsonTypeInfo<long>
-  nameWithType: JsonTypeInfo<long>
-  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<long>
-  nameWithType.vb: JsonTypeInfo(Of Long)
-  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Long)
-  name.vb: JsonTypeInfo(Of Long)
-  spec.csharp:
-  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-    name: JsonTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  - name: <
-  - uid: System.Int64
-    name: long
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64
-  - name: '>'
-  spec.vb:
-  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-    name: JsonTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Int64
-    name: Long
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64
-  - name: )
-- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  name: JsonTypeInfo<T>
-  nameWithType: JsonTypeInfo<T>
-  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<T>
-  nameWithType.vb: JsonTypeInfo(Of T)
-  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of T)
-  name.vb: JsonTypeInfo(Of T)
-  spec.csharp:
-  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-    name: JsonTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-    name: JsonTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
 - uid: Songhay.SerializerContexts.StorageObjectSerializerContext.IEnumerableStorageObject*
   commentId: Overload:Songhay.SerializerContexts.StorageObjectSerializerContext.IEnumerableStorageObject
   href: Songhay.SerializerContexts.StorageObjectSerializerContext.html#Songhay_SerializerContexts_StorageObjectSerializerContext_IEnumerableStorageObject
@@ -1145,87 +1076,34 @@ references:
     href: Songhay.Models.StorageObject.html
   - name: )
   - name: )
-- uid: System.Text.Json.JsonSerializerOptions
-  commentId: T:System.Text.Json.JsonSerializerOptions
-  parent: System.Text.Json
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions
-  name: JsonSerializerOptions
-  nameWithType: JsonSerializerOptions
-  fullName: System.Text.Json.JsonSerializerOptions
-- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.Default*
-  commentId: Overload:Songhay.SerializerContexts.StorageObjectSerializerContext.Default
-  href: Songhay.SerializerContexts.StorageObjectSerializerContext.html#Songhay_SerializerContexts_StorageObjectSerializerContext_Default
-  name: Default
-  nameWithType: StorageObjectSerializerContext.Default
-  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.Default
-- uid: Songhay.SerializerContexts.StorageObjectSerializerContext
-  commentId: T:Songhay.SerializerContexts.StorageObjectSerializerContext
-  parent: Songhay.SerializerContexts
-  href: Songhay.SerializerContexts.StorageObjectSerializerContext.html
-  name: StorageObjectSerializerContext
-  nameWithType: StorageObjectSerializerContext
-  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext
-- uid: System.Text.Json
-  commentId: N:System.Text.Json
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Text.Json
-  nameWithType: System.Text.Json
-  fullName: System.Text.Json
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<T>
+  nameWithType: JsonTypeInfo<T>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<T>
+  nameWithType.vb: JsonTypeInfo(Of T)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of T)
+  name.vb: JsonTypeInfo(Of T)
   spec.csharp:
-  - uid: System
-    name: System
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Text
-    name: Text
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text
-  - name: .
-  - uid: System.Text.Json
-    name: Json
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - name: T
+  - name: '>'
   spec.vb:
-  - uid: System
-    name: System
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Text
-    name: Text
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text
-  - name: .
-  - uid: System.Text.Json
-    name: Json
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json
-- uid: System.Text.Json.Serialization.JsonSerializerContext.GeneratedSerializerOptions
-  commentId: P:System.Text.Json.Serialization.JsonSerializerContext.GeneratedSerializerOptions
-  parent: System.Text.Json.Serialization.JsonSerializerContext
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.generatedserializeroptions
-  name: GeneratedSerializerOptions
-  nameWithType: JsonSerializerContext.GeneratedSerializerOptions
-  fullName: System.Text.Json.Serialization.JsonSerializerContext.GeneratedSerializerOptions
-- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.GeneratedSerializerOptions*
-  commentId: Overload:Songhay.SerializerContexts.StorageObjectSerializerContext.GeneratedSerializerOptions
-  href: Songhay.SerializerContexts.StorageObjectSerializerContext.html#Songhay_SerializerContexts_StorageObjectSerializerContext_GeneratedSerializerOptions
-  name: GeneratedSerializerOptions
-  nameWithType: StorageObjectSerializerContext.GeneratedSerializerOptions
-  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.GeneratedSerializerOptions
-- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.#ctor*
-  commentId: Overload:Songhay.SerializerContexts.StorageObjectSerializerContext.#ctor
-  href: Songhay.SerializerContexts.StorageObjectSerializerContext.html#Songhay_SerializerContexts_StorageObjectSerializerContext__ctor
-  name: StorageObjectSerializerContext
-  nameWithType: StorageObjectSerializerContext.StorageObjectSerializerContext
-  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObjectSerializerContext
-  nameWithType.vb: StorageObjectSerializerContext.New
-  fullName.vb: Songhay.SerializerContexts.StorageObjectSerializerContext.New
-  name.vb: New
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
   commentId: M:System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
   parent: System.Text.Json.Serialization.JsonSerializerContext
@@ -1319,6 +1197,47 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
+- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.Int64*
+  commentId: Overload:Songhay.SerializerContexts.StorageObjectSerializerContext.Int64
+  href: Songhay.SerializerContexts.StorageObjectSerializerContext.html#Songhay_SerializerContexts_StorageObjectSerializerContext_Int64
+  name: Int64
+  nameWithType: StorageObjectSerializerContext.Int64
+  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.Int64
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Int64}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Int64}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<long>
+  nameWithType: JsonTypeInfo<long>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<long>
+  nameWithType.vb: JsonTypeInfo(Of Long)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Long)
+  name.vb: JsonTypeInfo(Of Long)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
 - uid: Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject*
   commentId: Overload:Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObject
   href: Songhay.SerializerContexts.StorageObjectSerializerContext.html#Songhay_SerializerContexts_StorageObjectSerializerContext_StorageObject
@@ -1358,6 +1277,87 @@ references:
     name: StorageObject
     href: Songhay.Models.StorageObject.html
   - name: )
+- uid: System.Text.Json.JsonSerializerOptions
+  commentId: T:System.Text.Json.JsonSerializerOptions
+  parent: System.Text.Json
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions
+  name: JsonSerializerOptions
+  nameWithType: JsonSerializerOptions
+  fullName: System.Text.Json.JsonSerializerOptions
+- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.Default*
+  commentId: Overload:Songhay.SerializerContexts.StorageObjectSerializerContext.Default
+  href: Songhay.SerializerContexts.StorageObjectSerializerContext.html#Songhay_SerializerContexts_StorageObjectSerializerContext_Default
+  name: Default
+  nameWithType: StorageObjectSerializerContext.Default
+  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.Default
+- uid: Songhay.SerializerContexts.StorageObjectSerializerContext
+  commentId: T:Songhay.SerializerContexts.StorageObjectSerializerContext
+  parent: Songhay.SerializerContexts
+  href: Songhay.SerializerContexts.StorageObjectSerializerContext.html
+  name: StorageObjectSerializerContext
+  nameWithType: StorageObjectSerializerContext
+  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext
+- uid: System.Text.Json
+  commentId: N:System.Text.Json
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text.Json
+  nameWithType: System.Text.Json
+  fullName: System.Text.Json
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  - name: .
+  - uid: System.Text.Json
+    name: Json
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json
+- uid: System.Text.Json.Serialization.JsonSerializerContext.GeneratedSerializerOptions
+  commentId: P:System.Text.Json.Serialization.JsonSerializerContext.GeneratedSerializerOptions
+  parent: System.Text.Json.Serialization.JsonSerializerContext
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.generatedserializeroptions
+  name: GeneratedSerializerOptions
+  nameWithType: JsonSerializerContext.GeneratedSerializerOptions
+  fullName: System.Text.Json.Serialization.JsonSerializerContext.GeneratedSerializerOptions
+- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.GeneratedSerializerOptions*
+  commentId: Overload:Songhay.SerializerContexts.StorageObjectSerializerContext.GeneratedSerializerOptions
+  href: Songhay.SerializerContexts.StorageObjectSerializerContext.html#Songhay_SerializerContexts_StorageObjectSerializerContext_GeneratedSerializerOptions
+  name: GeneratedSerializerOptions
+  nameWithType: StorageObjectSerializerContext.GeneratedSerializerOptions
+  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.GeneratedSerializerOptions
+- uid: Songhay.SerializerContexts.StorageObjectSerializerContext.#ctor*
+  commentId: Overload:Songhay.SerializerContexts.StorageObjectSerializerContext.#ctor
+  href: Songhay.SerializerContexts.StorageObjectSerializerContext.html#Songhay_SerializerContexts_StorageObjectSerializerContext__ctor
+  name: StorageObjectSerializerContext
+  nameWithType: StorageObjectSerializerContext.StorageObjectSerializerContext
+  fullName: Songhay.SerializerContexts.StorageObjectSerializerContext.StorageObjectSerializerContext
+  nameWithType.vb: StorageObjectSerializerContext.New
+  fullName.vb: Songhay.SerializerContexts.StorageObjectSerializerContext.New
+  name.vb: New
 - uid: Songhay.SerializerContexts.StorageObjectSerializerContext.DateTime*
   commentId: Overload:Songhay.SerializerContexts.StorageObjectSerializerContext.DateTime
   href: Songhay.SerializerContexts.StorageObjectSerializerContext.html#Songhay_SerializerContexts_StorageObjectSerializerContext_DateTime

@@ -2,7 +2,7 @@ namespace Songhay.Models;
 
 /// <summary>
 /// Defines the general-purpose Result concept
-/// for Program completion,
+/// of Program completion,
 /// avoiding third-party dependencies
 /// that are not compatible with F#.
 /// </summary>

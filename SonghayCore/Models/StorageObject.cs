@@ -1,7 +1,7 @@
 namespace Songhay.Models;
 
 /// <summary>
-/// Defines an “intersection type” for the <c>S3Object</c> de facto standard
+/// Defines an “intersection type” for the <c>S3Object</c> defacto standard
 /// and <see cref="FileInfo"/>
 /// </summary>
 /// <param name="BucketName">maps to <see cref="FileInfo.DirectoryName"/></param>

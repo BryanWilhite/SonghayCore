@@ -28,7 +28,7 @@ items:
   type: Class
   source:
     id: DisplayItemModelSerializerContext
-    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.DateTime.g.cs
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.Object.g.cs
     startLine: 10
   assemblies:
   - SonghayCore
@@ -84,20 +84,20 @@ items:
     arguments:
     - type: System.Type
       value: System.Collections.Generic.IEnumerable{Songhay.Models.DisplayItemModel}
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime
-  commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime
-  id: NullableDateTime
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.String
+  commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.String
+  id: String
   parent: Songhay.SerializerContexts.DisplayItemModelSerializerContext
   langs:
   - csharp
   - vb
-  name: NullableDateTime
-  nameWithType: DisplayItemModelSerializerContext.NullableDateTime
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime
+  name: String
+  nameWithType: DisplayItemModelSerializerContext.String
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.String
   type: Property
   source:
-    id: NullableDateTime
-    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.NullableDateTime.g.cs
+    id: String
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.String.g.cs
     startLine: 18
   assemblies:
   - SonghayCore
@@ -105,39 +105,12 @@ items:
   summary: Defines the source generated JSON serialization contract metadata for a given type.
   example: []
   syntax:
-    content: public JsonTypeInfo<DateTime?> NullableDateTime { get; }
+    content: public JsonTypeInfo<string> String { get; }
     parameters: []
     return:
-      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Nullable{System.DateTime}}
-    content.vb: Public ReadOnly Property NullableDateTime As JsonTypeInfo(Of Date?)
-  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime*
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object
-  commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object
-  id: Object
-  parent: Songhay.SerializerContexts.DisplayItemModelSerializerContext
-  langs:
-  - csharp
-  - vb
-  name: Object
-  nameWithType: DisplayItemModelSerializerContext.Object
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object
-  type: Property
-  source:
-    id: Object
-    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.Object.g.cs
-    startLine: 18
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.SerializerContexts
-  summary: Defines the source generated JSON serialization contract metadata for a given type.
-  example: []
-  syntax:
-    content: public JsonTypeInfo<object> Object { get; }
-    parameters: []
-    return:
-      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Object}
-    content.vb: Public ReadOnly Property [Object] As JsonTypeInfo(Of Object)
-  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object*
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.String}
+    content.vb: Public ReadOnly Property [String] As JsonTypeInfo(Of String)
+  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.String*
 - uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.IEnumerableDisplayItemModel
   commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.IEnumerableDisplayItemModel
   id: IEnumerableDisplayItemModel
@@ -165,6 +138,60 @@ items:
       type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Collections.Generic.IEnumerable{Songhay.Models.DisplayItemModel}}
     content.vb: Public ReadOnly Property IEnumerableDisplayItemModel As JsonTypeInfo(Of IEnumerable(Of DisplayItemModel))
   overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.IEnumerableDisplayItemModel*
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime
+  commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime
+  id: NullableDateTime
+  parent: Songhay.SerializerContexts.DisplayItemModelSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: NullableDateTime
+  nameWithType: DisplayItemModelSerializerContext.NullableDateTime
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime
+  type: Property
+  source:
+    id: NullableDateTime
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.NullableDateTime.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<DateTime?> NullableDateTime { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Nullable{System.DateTime}}
+    content.vb: Public ReadOnly Property NullableDateTime As JsonTypeInfo(Of Date?)
+  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime*
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime
+  commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime
+  id: DateTime
+  parent: Songhay.SerializerContexts.DisplayItemModelSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: DateTime
+  nameWithType: DisplayItemModelSerializerContext.DateTime
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime
+  type: Property
+  source:
+    id: DateTime
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.DateTime.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<DateTime> DateTime { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.DateTime}
+    content.vb: Public ReadOnly Property DateTime As JsonTypeInfo(Of Date)
+  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime*
 - uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Default
   commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Default
   id: Default
@@ -277,65 +304,6 @@ items:
   nameWithType.vb: DisplayItemModelSerializerContext.New(JsonSerializerOptions)
   fullName.vb: Songhay.SerializerContexts.DisplayItemModelSerializerContext.New(System.Text.Json.JsonSerializerOptions)
   name.vb: New(JsonSerializerOptions)
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo(System.Type)
-  commentId: M:Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo(System.Type)
-  id: GetTypeInfo(System.Type)
-  parent: Songhay.SerializerContexts.DisplayItemModelSerializerContext
-  langs:
-  - csharp
-  - vb
-  name: GetTypeInfo(Type)
-  nameWithType: DisplayItemModelSerializerContext.GetTypeInfo(Type)
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo(System.Type)
-  type: Method
-  source:
-    id: GetTypeInfo
-    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.GetJsonTypeInfo.g.cs
-    startLine: 13
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.SerializerContexts
-  summary: Gets metadata for the specified type.
-  example: []
-  syntax:
-    content: public override JsonTypeInfo? GetTypeInfo(Type type)
-    parameters:
-    - id: type
-      type: System.Type
-      description: The type to fetch metadata for.
-    return:
-      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo
-      description: The metadata for the specified type, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the context has no metadata for the type.
-    content.vb: Public Overrides Function GetTypeInfo(type As Type) As JsonTypeInfo
-  overridden: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
-  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo*
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel
-  commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel
-  id: DisplayItemModel
-  parent: Songhay.SerializerContexts.DisplayItemModelSerializerContext
-  langs:
-  - csharp
-  - vb
-  name: DisplayItemModel
-  nameWithType: DisplayItemModelSerializerContext.DisplayItemModel
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel
-  type: Property
-  source:
-    id: DisplayItemModel
-    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.DisplayItemModel.g.cs
-    startLine: 18
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.SerializerContexts
-  summary: Defines the source generated JSON serialization contract metadata for a given type.
-  example: []
-  syntax:
-    content: public JsonTypeInfo<DisplayItemModel> DisplayItemModel { get; }
-    parameters: []
-    return:
-      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.DisplayItemModel}
-    content.vb: Public ReadOnly Property DisplayItemModel As JsonTypeInfo(Of DisplayItemModel)
-  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel*
 - uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Int32
   commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Int32
   id: Int32
@@ -390,33 +358,6 @@ items:
       type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Uri}
     content.vb: Public ReadOnly Property Uri As JsonTypeInfo(Of Uri)
   overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Uri*
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.String
-  commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.String
-  id: String
-  parent: Songhay.SerializerContexts.DisplayItemModelSerializerContext
-  langs:
-  - csharp
-  - vb
-  name: String
-  nameWithType: DisplayItemModelSerializerContext.String
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.String
-  type: Property
-  source:
-    id: String
-    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.String.g.cs
-    startLine: 18
-  assemblies:
-  - SonghayCore
-  namespace: Songhay.SerializerContexts
-  summary: Defines the source generated JSON serialization contract metadata for a given type.
-  example: []
-  syntax:
-    content: public JsonTypeInfo<string> String { get; }
-    parameters: []
-    return:
-      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.String}
-    content.vb: Public ReadOnly Property [String] As JsonTypeInfo(Of String)
-  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.String*
 - uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Byte
   commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Byte
   id: Byte
@@ -444,20 +385,20 @@ items:
       type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Byte}
     content.vb: Public ReadOnly Property [Byte] As JsonTypeInfo(Of Byte)
   overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Byte*
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime
-  commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime
-  id: DateTime
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel
+  commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel
+  id: DisplayItemModel
   parent: Songhay.SerializerContexts.DisplayItemModelSerializerContext
   langs:
   - csharp
   - vb
-  name: DateTime
-  nameWithType: DisplayItemModelSerializerContext.DateTime
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime
+  name: DisplayItemModel
+  nameWithType: DisplayItemModelSerializerContext.DisplayItemModel
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel
   type: Property
   source:
-    id: DateTime
-    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.DateTime.g.cs
+    id: DisplayItemModel
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.DisplayItemModel.g.cs
     startLine: 18
   assemblies:
   - SonghayCore
@@ -465,12 +406,71 @@ items:
   summary: Defines the source generated JSON serialization contract metadata for a given type.
   example: []
   syntax:
-    content: public JsonTypeInfo<DateTime> DateTime { get; }
+    content: public JsonTypeInfo<DisplayItemModel> DisplayItemModel { get; }
     parameters: []
     return:
-      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.DateTime}
-    content.vb: Public ReadOnly Property DateTime As JsonTypeInfo(Of Date)
-  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime*
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.DisplayItemModel}
+    content.vb: Public ReadOnly Property DisplayItemModel As JsonTypeInfo(Of DisplayItemModel)
+  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel*
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo(System.Type)
+  commentId: M:Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo(System.Type)
+  id: GetTypeInfo(System.Type)
+  parent: Songhay.SerializerContexts.DisplayItemModelSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: GetTypeInfo(Type)
+  nameWithType: DisplayItemModelSerializerContext.GetTypeInfo(Type)
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo(System.Type)
+  type: Method
+  source:
+    id: GetTypeInfo
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.GetJsonTypeInfo.g.cs
+    startLine: 13
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Gets metadata for the specified type.
+  example: []
+  syntax:
+    content: public override JsonTypeInfo? GetTypeInfo(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type to fetch metadata for.
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo
+      description: The metadata for the specified type, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the context has no metadata for the type.
+    content.vb: Public Overrides Function GetTypeInfo(type As Type) As JsonTypeInfo
+  overridden: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo*
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object
+  commentId: P:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object
+  id: Object
+  parent: Songhay.SerializerContexts.DisplayItemModelSerializerContext
+  langs:
+  - csharp
+  - vb
+  name: Object
+  nameWithType: DisplayItemModelSerializerContext.Object
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object
+  type: Property
+  source:
+    id: Object
+    path: /home/rasx/sourceRoot/SonghayCore/SonghayCore/obj/Release/net10.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/DisplayItemModelSerializerContext.Object.g.cs
+    startLine: 18
+  assemblies:
+  - SonghayCore
+  namespace: Songhay.SerializerContexts
+  summary: Defines the source generated JSON serialization contract metadata for a given type.
+  example: []
+  syntax:
+    content: public JsonTypeInfo<object> Object { get; }
+    parameters: []
+    return:
+      type: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Object}
+    content.vb: Public ReadOnly Property [Object] As JsonTypeInfo(Of Object)
+  overload: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object*
 references:
 - uid: System.Text.Json.Serialization.JsonSerializerContext
   commentId: T:System.Text.Json.Serialization.JsonSerializerContext
@@ -1135,34 +1135,33 @@ references:
   - uid: Songhay.Extensions
     name: Extensions
     href: Songhay.Extensions.html
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime*
-  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime
-  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_NullableDateTime
-  name: NullableDateTime
-  nameWithType: DisplayItemModelSerializerContext.NullableDateTime
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime
-- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Nullable{System.DateTime}}
-  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Nullable{System.DateTime}}
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.String*
+  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.String
+  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_String
+  name: String
+  nameWithType: DisplayItemModelSerializerContext.String
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.String
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.String}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.String}
   parent: System.Text.Json.Serialization.Metadata
   definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
   href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  name: JsonTypeInfo<DateTime?>
-  nameWithType: JsonTypeInfo<DateTime?>
-  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<System.DateTime?>
-  nameWithType.vb: JsonTypeInfo(Of Date?)
-  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Date?)
-  name.vb: JsonTypeInfo(Of Date?)
+  name: JsonTypeInfo<string>
+  nameWithType: JsonTypeInfo<string>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<string>
+  nameWithType.vb: JsonTypeInfo(Of String)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of String)
+  name.vb: JsonTypeInfo(Of String)
   spec.csharp:
   - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
     name: JsonTypeInfo
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
   - name: <
-  - uid: System.DateTime
-    name: DateTime
+  - uid: System.String
+    name: string
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.datetime
-  - name: '?'
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: '>'
   spec.vb:
   - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
@@ -1172,11 +1171,10 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.DateTime
-    name: Date
+  - uid: System.String
+    name: String
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.datetime
-  - name: '?'
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
 - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
   commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
@@ -1205,47 +1203,6 @@ references:
   - name: Of
   - name: " "
   - name: T
-  - name: )
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object*
-  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object
-  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_Object
-  name: Object
-  nameWithType: DisplayItemModelSerializerContext.Object
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object
-- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Object}
-  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Object}
-  parent: System.Text.Json.Serialization.Metadata
-  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  name: JsonTypeInfo<object>
-  nameWithType: JsonTypeInfo<object>
-  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<object>
-  nameWithType.vb: JsonTypeInfo(Of Object)
-  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Object)
-  name.vb: JsonTypeInfo(Of Object)
-  spec.csharp:
-  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-    name: JsonTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  - name: <
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: '>'
-  spec.vb:
-  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-    name: JsonTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
 - uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.IEnumerableDisplayItemModel*
   commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.IEnumerableDisplayItemModel
@@ -1299,6 +1256,90 @@ references:
     name: DisplayItemModel
     href: Songhay.Models.DisplayItemModel.html
   - name: )
+  - name: )
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime*
+  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime
+  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_NullableDateTime
+  name: NullableDateTime
+  nameWithType: DisplayItemModelSerializerContext.NullableDateTime
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.NullableDateTime
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Nullable{System.DateTime}}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Nullable{System.DateTime}}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<DateTime?>
+  nameWithType: JsonTypeInfo<DateTime?>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<System.DateTime?>
+  nameWithType.vb: JsonTypeInfo(Of Date?)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Date?)
+  name.vb: JsonTypeInfo(Of Date?)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: )
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime*
+  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime
+  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_DateTime
+  name: DateTime
+  nameWithType: DisplayItemModelSerializerContext.DateTime
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.DateTime}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.DateTime}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<DateTime>
+  nameWithType: JsonTypeInfo<DateTime>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<System.DateTime>
+  nameWithType.vb: JsonTypeInfo(Of Date)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Date)
+  name.vb: JsonTypeInfo(Of Date)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
   - name: )
 - uid: System.Text.Json.JsonSerializerOptions
   commentId: T:System.Text.Json.JsonSerializerOptions
@@ -1381,97 +1422,6 @@ references:
   nameWithType.vb: DisplayItemModelSerializerContext.New
   fullName.vb: Songhay.SerializerContexts.DisplayItemModelSerializerContext.New
   name.vb: New
-- uid: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
-  commentId: M:System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
-  parent: System.Text.Json.Serialization.JsonSerializerContext
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.gettypeinfo
-  name: GetTypeInfo(Type)
-  nameWithType: JsonSerializerContext.GetTypeInfo(Type)
-  fullName: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
-  spec.csharp:
-  - uid: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
-    name: GetTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.gettypeinfo
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-  spec.vb:
-  - uid: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
-    name: GetTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.gettypeinfo
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo*
-  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo
-  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_GetTypeInfo_System_Type_
-  name: GetTypeInfo
-  nameWithType: DisplayItemModelSerializerContext.GetTypeInfo
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo
-- uid: System.Type
-  commentId: T:System.Type
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: Type
-  nameWithType: Type
-  fullName: System.Type
-- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo
-  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo
-  parent: System.Text.Json.Serialization.Metadata
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo
-  name: JsonTypeInfo
-  nameWithType: JsonTypeInfo
-  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel*
-  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel
-  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_DisplayItemModel
-  name: DisplayItemModel
-  nameWithType: DisplayItemModelSerializerContext.DisplayItemModel
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel
-- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.DisplayItemModel}
-  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.DisplayItemModel}
-  parent: System.Text.Json.Serialization.Metadata
-  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  name: JsonTypeInfo<DisplayItemModel>
-  nameWithType: JsonTypeInfo<DisplayItemModel>
-  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<Songhay.Models.DisplayItemModel>
-  nameWithType.vb: JsonTypeInfo(Of DisplayItemModel)
-  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Songhay.Models.DisplayItemModel)
-  name.vb: JsonTypeInfo(Of DisplayItemModel)
-  spec.csharp:
-  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-    name: JsonTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  - name: <
-  - uid: Songhay.Models.DisplayItemModel
-    name: DisplayItemModel
-    href: Songhay.Models.DisplayItemModel.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-    name: JsonTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: Songhay.Models.DisplayItemModel
-    name: DisplayItemModel
-    href: Songhay.Models.DisplayItemModel.html
-  - name: )
 - uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Int32*
   commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Int32
   href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_Int32
@@ -1554,47 +1504,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.uri
   - name: )
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.String*
-  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.String
-  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_String
-  name: String
-  nameWithType: DisplayItemModelSerializerContext.String
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.String
-- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.String}
-  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.String}
-  parent: System.Text.Json.Serialization.Metadata
-  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  name: JsonTypeInfo<string>
-  nameWithType: JsonTypeInfo<string>
-  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<string>
-  nameWithType.vb: JsonTypeInfo(Of String)
-  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of String)
-  name.vb: JsonTypeInfo(Of String)
-  spec.csharp:
-  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-    name: JsonTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '>'
-  spec.vb:
-  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
-    name: JsonTypeInfo
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
 - uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Byte*
   commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Byte
   href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_Byte
@@ -1636,33 +1545,32 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: )
-- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime*
-  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime
-  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_DateTime
-  name: DateTime
-  nameWithType: DisplayItemModelSerializerContext.DateTime
-  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DateTime
-- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.DateTime}
-  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.DateTime}
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel*
+  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel
+  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_DisplayItemModel
+  name: DisplayItemModel
+  nameWithType: DisplayItemModelSerializerContext.DisplayItemModel
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.DisplayItemModel
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.DisplayItemModel}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{Songhay.Models.DisplayItemModel}
   parent: System.Text.Json.Serialization.Metadata
   definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
   href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
-  name: JsonTypeInfo<DateTime>
-  nameWithType: JsonTypeInfo<DateTime>
-  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<System.DateTime>
-  nameWithType.vb: JsonTypeInfo(Of Date)
-  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Date)
-  name.vb: JsonTypeInfo(Of Date)
+  name: JsonTypeInfo<DisplayItemModel>
+  nameWithType: JsonTypeInfo<DisplayItemModel>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<Songhay.Models.DisplayItemModel>
+  nameWithType.vb: JsonTypeInfo(Of DisplayItemModel)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Songhay.Models.DisplayItemModel)
+  name.vb: JsonTypeInfo(Of DisplayItemModel)
   spec.csharp:
   - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
     name: JsonTypeInfo
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
   - name: <
-  - uid: System.DateTime
-    name: DateTime
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
   - name: '>'
   spec.vb:
   - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
@@ -1672,8 +1580,100 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.DateTime
-    name: Date
+  - uid: Songhay.Models.DisplayItemModel
+    name: DisplayItemModel
+    href: Songhay.Models.DisplayItemModel.html
+  - name: )
+- uid: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+  commentId: M:System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+  parent: System.Text.Json.Serialization.JsonSerializerContext
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.gettypeinfo
+  name: GetTypeInfo(Type)
+  nameWithType: JsonSerializerContext.GetTypeInfo(Type)
+  fullName: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+    name: GetTypeInfo
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.datetime
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.gettypeinfo
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: System.Text.Json.Serialization.JsonSerializerContext.GetTypeInfo(System.Type)
+    name: GetTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.gettypeinfo
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo*
+  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo
+  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_GetTypeInfo_System_Type_
+  name: GetTypeInfo
+  nameWithType: DisplayItemModelSerializerContext.GetTypeInfo
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.GetTypeInfo
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo
+  parent: System.Text.Json.Serialization.Metadata
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo
+  name: JsonTypeInfo
+  nameWithType: JsonTypeInfo
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo
+- uid: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object*
+  commentId: Overload:Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object
+  href: Songhay.SerializerContexts.DisplayItemModelSerializerContext.html#Songhay_SerializerContexts_DisplayItemModelSerializerContext_Object
+  name: Object
+  nameWithType: DisplayItemModelSerializerContext.Object
+  fullName: Songhay.SerializerContexts.DisplayItemModelSerializerContext.Object
+- uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Object}
+  commentId: T:System.Text.Json.Serialization.Metadata.JsonTypeInfo{System.Object}
+  parent: System.Text.Json.Serialization.Metadata
+  definition: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+  href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  name: JsonTypeInfo<object>
+  nameWithType: JsonTypeInfo<object>
+  fullName: System.Text.Json.Serialization.Metadata.JsonTypeInfo<object>
+  nameWithType.vb: JsonTypeInfo(Of Object)
+  fullName.vb: System.Text.Json.Serialization.Metadata.JsonTypeInfo(Of Object)
+  name.vb: JsonTypeInfo(Of Object)
+  spec.csharp:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Text.Json.Serialization.Metadata.JsonTypeInfo`1
+    name: JsonTypeInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )

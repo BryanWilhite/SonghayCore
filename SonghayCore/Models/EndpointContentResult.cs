@@ -1,7 +1,7 @@
 namespace Songhay.Models;
 
 /// <summary>
-/// Defines the result returned from all storage-related Activities.
+/// Defines the result returned from all Web-based, boundary-crossing Activities.
 /// </summary>
 /// <typeparam name="TContent">the type of the content returned in the response</typeparam>
 /// <param name="HttpStatusCode">the <see cref="HttpStatusCode"/></param>

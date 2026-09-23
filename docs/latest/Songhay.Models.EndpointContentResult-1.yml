@@ -25,7 +25,7 @@ items:
   assemblies:
   - SonghayCore
   namespace: Songhay.Models
-  summary: Defines the result returned from all storage-related Activities.
+  summary: Defines the result returned from all Web-based, boundary-crossing Activities.
   example: []
   syntax:
     content: 'public record EndpointContentResult<TContent> : EndpointResult, IEquatable<EndpointResult>, IEquatable<EndpointContentResult<TContent>>'
@@ -79,7 +79,7 @@ items:
   assemblies:
   - SonghayCore
   namespace: Songhay.Models
-  summary: Defines the result returned from all storage-related Activities.
+  summary: Defines the result returned from all Web-based, boundary-crossing Activities.
   example: []
   syntax:
     content: public EndpointContentResult(HttpStatusCode HttpStatusCode, string? RequestId, string? ResponseMessage, TContent? Content)

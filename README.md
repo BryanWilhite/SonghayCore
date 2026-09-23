@@ -3,7 +3,6 @@
 Here is the _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/SonghayCore/) for all of my studio Solutions. Anyone who may be reading this 👀 is free to do the same. This package is based on `net10.0`.
 
 **NuGet package 📦:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
-
 **documentation 📚:** [`SonghayCore` API](https://bryanwilhite.github.io/SonghayCore/)
 
 ## _core_ reusable, opinionated concerns
@@ -16,7 +15,7 @@ One of the most important additions to .NET came in .NET 6.0 (circa 2021): the _
 - Logging
 - Configuration
 - App shutdown
-- `IHostedService` implementations (for long-running background tasks \[📖 [docs](https://learn.microsoft.com/en-us/dotnet/core/extensions/timer-service?pivots=dotnet-7-0) \])
+- `IHostedService` implementations (for long-running background tasks 📖 [docs](https://learn.microsoft.com/en-us/dotnet/core/extensions/timer-service?pivots=dotnet-7-0)🔖)
 
 All ASP.NET developers expect to get these things “for free” and, finally, Microsoft is basically letting all .NET developers get these things for free. This _Core_ recognizes the _.NET Generic Host_, stating with the `DefaultHostedService` [class](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Hosting/DefaultHostedService.cs) (see `Songhay.Extensions` below for more details).
 
@@ -26,7 +25,7 @@ This _Core_ is concerned with _tracing_ as well as logging. Logging concerns sho
 
 For a review of the organizational difference between tracing and logging, see “[Tracing vs Logging vs Monitoring: What’s the Difference?](https://www.bmc.com/blogs/monitoring-logging-tracing/)” by [Chrissy Kidd](https://www.linkedin.com/in/chrissy-k-47294593).
 
-**Documentation 📚:** [`Songhay.Diagnostics`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Diagnostics/)
+**Documentation 📚:** [`Songhay.Diagnostics`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Diagnostics.html)
 
 ### `Songhay.Extensions`
 
@@ -37,18 +36,14 @@ The preference for [extension methods](https://github.com/BryanWilhite/SonghayCo
 Notable extensions:
 
 - [`IConfigurationExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/IConfigurationExtensions.cs) — defines shared routines based on conventions around the _.NET Generic Host_ [📖 [docs](https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host)].
-
 - [`IConfigurationBuilderExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/IConfigurationBuilderExtensions.cs) — defines shared routines for application configuration building under .NET Standard.
-
 - [`ILoggerExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/ILoggerExtensions.cs) — defines shared routines based on conventions around the _.NET Generic Host_ [📖 [docs](https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host)].
-
 - [`HttpRequestMessageExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/HttpRequestMessageExtensions.cs) — defines shared routines for HTTP access. Routines for Azure Blob Storage are included here.
-
 - [`HttpWebRequestExtensions`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/HttpWebRequestExtensions.cs) — defines shared routines for HTTP access for the legacy .NET Framework.
 
 There is support for [URI templates](http://tools.ietf.org/html/rfc6570) (to be used with [`RestApiMetadata`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs)) in the form of [extension methods](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Extensions/RestApiMetadataExtensions.Tavis.cs), running on top of [`Tavis.UriTemplates`](https://github.com/tavis-software/Tavis.UriTemplates).
 
-**Documentation 📚:** [`Songhay.Extensions`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Extensions/)
+**Documentation 📚:** [`Songhay.Extensions`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Extensions.html)
 
 ### `Songhay.Models`
 
@@ -56,42 +51,36 @@ The _Core_ models of the Songhay System define types for MIME, XHTML, OPML, REST
 
 The _Core_ models are “anemic” by design (there are very few abstract classes)—any logic would be found _first_ in an Extension Method.
 
-Notable models:
+Notable models for the client side:
 
 - [`DisplayItemModel`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/DisplayItemModel.cs) — defines the conventional way to display data.
-
 - [`MenuDisplayItemModel`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/MenuDisplayItemModel.cs) — defines the conventional way to display nested/grouped data.
-
 - [`RestApiMetadata`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/RestApiMetadata.cs) — defines conventional REST API metadata.
 
-**Documentation 📚:** [`Songhay.Models`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Models/)
+Selected server-side models:
+
+- [`EndpointContentResult`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/EndpointContentResult.cs) — defines the result returned from all Web-based, boundary-crossing Activities.
+- [`ProgramOutputResult`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/ProgramOutputResult.cs) — defines the general-purpose Result concept of Program completion with output, avoiding third-party dependencies that are not compatible with F♯.
+- [`StorageObject`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Models/StorageObject.cs) — defines an “intersection type” for the `S3Object` defacto standard and `FileInfo`.
+
+**Documentation 📚:** [Namespace `Songhay.Models`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Models.html)
 
 ### `Songhay.Xml`
 
 The “core” of the _Core_ is concern for XML. The Songhay System started out as utilities around [`XPathDocument`](https://msdn.microsoft.com/en-us/library/system.xml.xpath.xpathdocument(v=vs.110).aspx) and grew into LINQ for XML—over [`XDocument`](https://msdn.microsoft.com/en-us/library/system.xml.linq.xdocument(v=vs.110).aspx).
 
-**Documentation 📚:** [`Songhay.Xml`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Xml/)
-
-## fundamental boundary-crossing abstractions
-
-This _Core_ features the ‘boundary-crossing abstractions’ (and default implementations) needed for the enterprise work based on my historical needs:
-
-- [`IApiEndpoint`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IApiEndpoint.cs) — defines the conventional way to access distributed data (default implementation: [`ApiEndpoint`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Net/ApiEndpoint.cs)).
-- [`IApiRequestStrategy`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IApiRequestStrategy.cs) — defines the conventional way to request data from an endpoint (default implementations: [`ApiRequestStrategy`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Net/ApiRequestStrategy.cs) and [`AzureBlobApiRequestStrategy`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Net/AzureBlobApiRequestStrategy.cs)).
-- [`IBlobStreamApiEndpoint`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IBlobStreamApiEndpoint.cs) — defines the conventional way to request BLOB data from an endpoint (default implementation: [`BlobStreamApiEndpoint`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Net/BlobStreamApiEndpoint.cs)).
-
-Dependency-injecting these ‘boundary-crossing abstractions’ are far more mockable than, say, using `HttpRequestMessage` directly. All of the default implementations above depend on [Polly](https://github.com/App-vNext/Polly).
+**Documentation 📚:** [Namespace `Songhay.Xml`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Xml.html)
 
 ## the _core_ Activity concept
 
-This _Core_ features the concept of the Activity which is a way to formally recognize that all line of business applications can be thought of as a ‘tree’ of inputs and outputs. It follows that each ‘node’ of this ‘tree’ can be called an Activity. The following abstractions classify the Activities needed so far:
+This _Core_ features the concept of the Activity which is to be seen in the context of workflow solutions like Windows Workflow Foundation, [Durable Task](https://learn.microsoft.com/en-us/azure/durable-task/common/what-is-durable-task) and the [dapr Workflow](https://docs.dapr.io/developing-applications/building-blocks/workflow/workflow-overview/) building block. The following abstractions classify the Activities needed so far:
 
 - [`IActivity`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IActivity.cs) — defines the conventional, synchronous, input-output Activities
 - [`IActivityOutputOnly`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IActivityOutputOnly.cs) — defines the conventional, synchronous Activities with output only (input usually comes from `IConfiguration` in this case)
 - [`IActivityOutputOnlyTask`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IActivityOutputOnlyTask.cs) — defines the conventional, asynchronous Activities with output only (input usually comes from `IConfiguration` in this case)
 - [`IActivityTask`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore/Abstractions/IActivityTask.cs) — defines the conventional, asynchronous, input-output Activities
 
-This Activity concept which I regard as _fundamental_ is the least likely architectural reality that would be shared by my peers 😐 From the Microsoft point of view, my Activity concept would be ‘buried’ under [the dapr workflow](https://docs.dapr.io/developing-applications/building-blocks/workflow/workflow-overview/).
+This Activity concept exists to formally recognize that a _Program_ is a ‘tree’ of inputs and outputs—the process we are drawing to form an Activity should be shaped like a tree 🌳
 
 ## satellite packages
 
@@ -105,27 +94,27 @@ Amazon S3 routines for .NET Core. Outside of the world of the Microsoft cloud (A
 - [`AmazonS3UploadStringActivity`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.S3/Activities/AmazonS3UploadStringActivity.cs)
 
 **NuGet package 📦:** [`SonghayCore.S3`](http://www.nuget.org/packages/SonghayCore.S3/)
+**Documentation 📚:** [Namespace `Songhay.S3`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.S3.html)
 
 ### `SonghayCore.Web`
 
 Extensions and Handlers for Songhay Web projects. Specifically, this renewed investment in ASP.NET minimal Web API is needed to develop <acronym title="ahead of time">AOT</acronym>-compiled .NET microservices for <acronym title="Open Container Initiative">OCI</acronym>-compliant containers.
 
 **NuGet package 📦:** [`SonghayCore.Web`](http://www.nuget.org/packages/SonghayCore.Web/)
+**Documentation 📚:** [Namespace `Songhay.Web`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Web.html)
 
 ### `SonghayCore.xUnit`
 
 Defines reusable class definitions for [xUnit](https://xunit.net/). Featured is the [`ProjectFileDataAttribute`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.xUnit/ProjectFileDataAttribute.cs), allowing test data files to be loaded from a relative path.
 
 **NuGet package 📦:** [`SonghayCore.xUnit`](http://www.nuget.org/packages/SonghayCore.xUnit/)
+**Documentation 📚:** [Namespace `Songhay.Tests`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Tests.html)
 
-**Documentation 📚:** [`Songhay.Tests`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Tests/)
-
-### `SonghayCore.Newtonsoft`
+## `SonghayCore.Newtonsoft`
 
 Core reusable, opinionated Newtonsoft concerns for my C# projects.
 
 **GitHub repo:** <https://github.com/BryanWilhite/SonghayCore.Newtonsoft>
-
 **NuGet package 📦:** [`SonghayCore.Newtonsoft`](https://www.nuget.org/packages/SonghayCore.Newtonsoft/)
 
 ## Studio packages dependent on `SonghayCore`
