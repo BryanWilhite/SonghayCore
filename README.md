@@ -3,6 +3,7 @@
 Here is the _Core_ code to install as [a NuGet package](https://www.nuget.org/packages/SonghayCore/) for all of my studio Solutions. Anyone who may be reading this 👀 is free to do the same. This package is based on `net10.0`.
 
 **NuGet package 📦:** [`SonghayCore`](https://www.nuget.org/packages/SonghayCore/)
+
 **documentation 📚:** [`SonghayCore` API](https://bryanwilhite.github.io/SonghayCore/)
 
 ## _core_ reusable, opinionated concerns
@@ -94,6 +95,7 @@ Amazon S3 routines for .NET Core. Outside of the world of the Microsoft cloud (A
 - [`AmazonS3UploadStringActivity`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.S3/Activities/AmazonS3UploadStringActivity.cs)
 
 **NuGet package 📦:** [`SonghayCore.S3`](http://www.nuget.org/packages/SonghayCore.S3/)
+
 **Documentation 📚:** [Namespace `Songhay.S3`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.S3.html)
 
 ### `SonghayCore.Web`
@@ -101,6 +103,7 @@ Amazon S3 routines for .NET Core. Outside of the world of the Microsoft cloud (A
 Extensions and Handlers for Songhay Web projects. Specifically, this renewed investment in ASP.NET minimal Web API is needed to develop <acronym title="ahead of time">AOT</acronym>-compiled .NET microservices for <acronym title="Open Container Initiative">OCI</acronym>-compliant containers.
 
 **NuGet package 📦:** [`SonghayCore.Web`](http://www.nuget.org/packages/SonghayCore.Web/)
+
 **Documentation 📚:** [Namespace `Songhay.Web`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Web.html)
 
 ### `SonghayCore.xUnit`
@@ -108,6 +111,7 @@ Extensions and Handlers for Songhay Web projects. Specifically, this renewed inv
 Defines reusable class definitions for [xUnit](https://xunit.net/). Featured is the [`ProjectFileDataAttribute`](https://github.com/BryanWilhite/SonghayCore/blob/master/SonghayCore.xUnit/ProjectFileDataAttribute.cs), allowing test data files to be loaded from a relative path.
 
 **NuGet package 📦:** [`SonghayCore.xUnit`](http://www.nuget.org/packages/SonghayCore.xUnit/)
+
 **Documentation 📚:** [Namespace `Songhay.Tests`](https://bryanwilhite.github.io/SonghayCore/latest/Songhay.Tests.html)
 
 ## `SonghayCore.Newtonsoft`
@@ -115,6 +119,7 @@ Defines reusable class definitions for [xUnit](https://xunit.net/). Featured is 
 Core reusable, opinionated Newtonsoft concerns for my C# projects.
 
 **GitHub repo:** <https://github.com/BryanWilhite/SonghayCore.Newtonsoft>
+
 **NuGet package 📦:** [`SonghayCore.Newtonsoft`](https://www.nuget.org/packages/SonghayCore.Newtonsoft/)
 
 ## Studio packages dependent on `SonghayCore`
