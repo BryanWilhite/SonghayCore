@@ -4,13 +4,6 @@ namespace Songhay.Tests;
 
 public class JsonNodeUtilityTests(ITestOutputHelper helper)
 {
-    [Fact]
-    public void ToJsonNode_Anon_Test()
-    {
-        JsonNode? actual = JsonNodeUtility.ConvertToJsonNode(new { one = "uno" });
-        Assert.True(actual.HasProperty("one"));
-    }
-
     [Theory]
     [InlineData("""
                 {
@@ -39,6 +32,22 @@ public class JsonNodeUtilityTests(ITestOutputHelper helper)
             JsonObject? actual = JsonNodeUtility.ParseJsonObject(input, logger);
             Assert.NotNull(actual);
         }
+    }
+
+    ///<seealso cref="JsonElementUtilityTests.ShouldParseNullStringAsElementOfKindNull"/>
+    [Fact]
+    public void ShouldParseNullStringAsNull()
+    {
+        JsonNode? actual = JsonNode.Parse("null");
+
+        Assert.Null(actual);
+    }
+
+    [Fact]
+    public void ToJsonNode_Anon_Test()
+    {
+        JsonNode? actual = JsonNodeUtility.ConvertToJsonNode(new { one = "uno" });
+        Assert.True(actual.HasProperty("one"));
     }
 
     private readonly XUnitLoggerProvider _loggerProvider = new(helper);

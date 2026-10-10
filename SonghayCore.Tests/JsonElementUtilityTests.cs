@@ -19,5 +19,14 @@ public class JsonElementUtilityTests(ITestOutputHelper helper)
         Assert.Equal(expected, actual.ValueKind);
     }
 
+    ///<seealso cref="JsonNodeUtilityTests.ShouldParseNullStringAsNull"/>
+    [Fact]
+    public void ShouldParseNullStringAsElementOfKindNull()
+    {
+        JsonElement actual = JsonElement.Parse("null");
+
+        Assert.Equal(JsonValueKind.Null, actual.ValueKind);
+    }
+
     readonly XUnitLoggerProvider _loggerProvider = new(helper);
 }
